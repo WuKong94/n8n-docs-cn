@@ -88,5 +88,41 @@
     "translated_sentence": "    将纯文本转换为 base64 编码的字符串。",
     "evidence": "本页该说明的链接目标为 stringbase64encode；同一锁定版本的 string.md 中对应方法的标题和示例明确区分 Base64 编码、解码方向。该来源哈希为 1523b15304c4be5ff6b1b4f62f41fe871ab65d99a4d8c293b43613b3a0bc7077。",
     "scope": "依据同页链接及同版本详细页示例更正概览中的编码、解码方向；方法链接、示例代码和上游原文不修改。"
+  },
+  {
+    "id": "teams-version-note-set-up-the-teams-channel",
+    "path": "build/build-and-manage-agents/microsoft-teams/set-up-the-teams-channel.md",
+    "source_sha256": "fd09e4556c6a7264ef3e97b6ec00e850c52cdf949c633f4aa01a22ced065c765",
+    "original_sentence": "* **Self-hosted:** All plans from n8n 2.32.3",
+    "translated_sentence": "译注：本页原文列出的自托管最低版本为 n8n 2.32.3，而同一版本文档的 Teams 总览将 Cloud 和自托管最低版本均列为 n8n 2.46.0。此处保留原文并提示差异，不据此判断实际版本兼容性。",
+    "evidence": "同一锁定版本的 build/build-and-manage-agents/microsoft-teams/README.md 在功能可用范围中分别将 n8n Cloud 和 Self-hosted 标为 All plans from n8n 2.46.0。该总览来源哈希为 2495e59e4f22db208f4e914d2b32f12ce1385df180ac3a8f8a70ff16e504b92f。",
+    "scope": "保留原文版本号，仅添加译注说明同版本文档之间的差异；未推断或测试实际版本兼容性。"
+  },
+  {
+    "id": "teams-version-note-manage-the-teams-channel",
+    "path": "build/build-and-manage-agents/microsoft-teams/manage-the-teams-channel.md",
+    "source_sha256": "f40011f7b35d3c48f4e0276653fd52143510ef25ab16ab5d39f22e502027183c",
+    "original_sentence": "* **Self-hosted:** All plans from n8n 2.32.3",
+    "translated_sentence": "译注：本页原文列出的自托管最低版本为 n8n 2.32.3，而同一版本文档的 Teams 总览将 Cloud 和自托管最低版本均列为 n8n 2.46.0。此处保留原文并提示差异，不据此判断实际版本兼容性。",
+    "evidence": "同一锁定版本的 build/build-and-manage-agents/microsoft-teams/README.md 在功能可用范围中分别将 n8n Cloud 和 Self-hosted 标为 All plans from n8n 2.46.0。该总览来源哈希为 2495e59e4f22db208f4e914d2b32f12ce1385df180ac3a8f8a70ff16e504b92f。",
+    "scope": "保留原文版本号，仅添加译注说明同版本文档之间的差异；未推断或测试实际版本兼容性。"
+  },
+  {
+    "id": "vector-embedding-direction",
+    "path": "build/integrate-ai/understand-ai-components/store-and-search-data-with-vectors.md",
+    "source_sha256": "1fa1c22e901c757dd328478fe0d735eb0b5a361f58604ccb76dd523fc14e4442",
+    "original_sentence": "- Embeddings: these are the tools that turn the data (text, images, and so on) into vectors, and back into raw data. Note that n8n only supports text embeddings.",
+    "translated_sentence": "- 嵌入模型：将文本、图片等数据转换为向量，用于相似度检索；这不是将向量还原为原始数据的过程。请注意，n8n 仅支持文本嵌入。",
+    "evidence": "LangChain 官方 JavaScript 文档说明，嵌入模型将原始文本编码为固定长度向量，接口为 embedDocuments 和 embedQuery；向量存储的 similaritySearch 返回最相近的文档，而非把向量解码回原文。来源：https://docs.langchain.com/oss/javascript/integrations/embeddings/ 和 https://docs.langchain.com/oss/javascript/integrations/vectorstores （本批翻译时核对）。",
+    "scope": "依据官方嵌入与检索接口说明纠正技术概念；未改动上游快照、示例数据或产品运行行为。"
+  },
+  {
+    "id": "vector-retriever-document-return",
+    "path": "build/integrate-ai/understand-ai-components/store-and-search-data-with-vectors.md",
+    "source_sha256": "1fa1c22e901c757dd328478fe0d735eb0b5a361f58604ccb76dd523fc14e4442",
+    "original_sentence": "- Retrievers: retrievers fetch documents from vector databases. You need to pair them with an embedding to translate the vectors back into data.",
+    "translated_sentence": "- 检索器：从向量数据库中获取相关文档。配合嵌入模型将查询转换为向量，再通过相似度搜索找到对应文档，而不是从向量逆向还原原始数据。",
+    "evidence": "LangChain 官方 JavaScript 文档说明，嵌入模型将原始文本编码为固定长度向量，接口为 embedDocuments 和 embedQuery；向量存储的 similaritySearch 返回最相近的文档，而非把向量解码回原文。来源：https://docs.langchain.com/oss/javascript/integrations/embeddings/ 和 https://docs.langchain.com/oss/javascript/integrations/vectorstores （本批翻译时核对）。",
+    "scope": "依据官方嵌入与检索接口说明纠正技术概念；未改动上游快照、示例数据或产品运行行为。"
   }
 ]

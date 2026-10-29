@@ -1,8 +1,7 @@
 ---
-title: Manage the Teams channel
+title: 管理 Teams 渠道
 status: preview
-description: >-
-  Manage the Microsoft Teams channel for an n8n agent: publish or upload the app, update it, renew the client secret, disconnect Teams, and troubleshoot common problems.
+description: 管理 n8n 智能体的 Microsoft Teams 渠道：发布或上传应用、更新应用、续订客户端密钥、断开 Teams 连接，以及排查常见问题。
 layout:
   width: default
   title:
@@ -22,145 +21,149 @@ layout:
   actions:
     visible: true
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Manage the Teams channel
+
+# 管理 Teams 渠道 <a id="manage-the-teams-channel"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-The Microsoft Teams channel is available on:
+Microsoft Teams 渠道可用于：
 
-* **n8n Cloud:** All plans
-* **Self-hosted:** All plans from n8n 2.32.3
+* **n8n Cloud：**所有套餐。
+* **自托管：**自 n8n 2.32.3 起的所有套餐。
+
+译注：本页原文列出的自托管最低版本为 n8n 2.32.3，而同一版本文档的 Teams 总览将 Cloud 和自托管最低版本均列为 n8n 2.46.0。此处保留原文并提示差异，不据此判断实际版本兼容性。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-The Microsoft Teams channel for agents is in Preview and may change in future releases. Avoid relying on it in production.
+智能体的 Microsoft Teams 渠道处于预览阶段，可能在后续版本中发生变化。请避免在生产环境中依赖此功能。
 {% endhint %}
 
-After you connect Teams, you change it in the channel settings. Open the agent, go to **Channels**, and select **Microsoft Teams**.
+连接 Teams 后，可以在渠道设置中修改配置。打开智能体，进入 **Channels（渠道）**，选择 **Microsoft Teams**。
 
-The channel settings show:
+渠道设置中会显示：
 
-* **Where it works:** the options from [Where people can use the agent](./#where-people-can-use-the-agent), and whether an administrator approved the Microsoft Graph permissions.
-* **Appearance in Teams:** the app's display name, description, and icon. With the recommended setup, this also has the **Install app** menu.
-* **The Azure Bot:** with the recommended setup, **Linked to Azure Bot** and a **Find it in Azure** link. With the manual setup, a **Find your Azure Bot** link.
+* **Where it works（使用位置）**：[用户可以在哪里使用智能体](./#where-people-can-use-the-agent)中的选项，以及管理员是否已批准 Microsoft Graph 权限。
+* **Appearance in Teams（Teams 中的外观）**：应用的显示名称、说明和图标。推荐设置还会显示 **Install app（安装应用）**菜单。
+* **Azure Bot**：推荐设置下会显示 **Linked to Azure Bot（已连接 Azure Bot）**和 **Find it in Azure（在 Azure 中查看）**链接；手动设置下会显示 **Find your Azure Bot（查找你的 Azure Bot）**链接。
 
-## Upload the app or publish it to your organization
+## 上传应用或发布到组织 <a id="upload-the-app-or-publish-it-to-your-organization"></a>
 
-There are two ways to get the app into Teams:
+将应用添加到 Teams 有两种方式：
 
-| | Install for me (upload) | Publish to organization |
+| | Install for me（为我安装，通过上传） | Publish to organization（发布到组织） |
 | --- | --- | --- |
-| **Who can add the app** | You, and anyone you give the zip file to | Anyone in your organization, from the Teams app store |
-| **Who approves** | Nobody, if your Teams policy allows custom app uploads | A Teams administrator, unless you are one |
-| **How long it takes** | Right away | Up to a day before Microsoft lists the app, and longer if it waits for approval |
-| **How updates reach people** | Everyone uploads the new zip file again | You publish again, and Teams updates the app for everyone |
-| **Available in** | Recommended and manual setup | Recommended setup |
+| **谁可以添加应用** | 你自己，以及收到你提供的 zip 文件的任何人 | 组织内的任何人，通过 Teams 应用商店添加 |
+| **谁来批准** | Teams 策略允许上传自定义应用时，无需批准 | Teams 管理员；你本身是管理员时无需其他人批准 |
+| **所需时间** | 立即可用 | Microsoft 最多需要一天才会列出应用；等待审批时可能更久 |
+| **用户如何获得更新** | 每个人重新上传新的 zip 文件 | 再次发布，Teams 会为所有用户更新应用 |
+| **适用设置** | 推荐设置和手动设置 | 推荐设置 |
 
-### Install for me
+### 为我安装 <a id="install-for-me"></a>
 
-**Install for me** downloads the app package. Upload it in Teams under **Apps** > **Manage your apps** > **Upload an app**, then add it to a team or chat. In the manual setup, this is the **Download app package** step.
+**Install for me（为我安装）**会下载应用包。在 Teams 的 **Apps（应用）** > **Manage your apps（管理你的应用）** > **Upload an app（上传应用）**中上传，然后添加到团队或聊天。在手动设置中，对应的是 **Download app package（下载应用包）**步骤。
 
-If you don't see **Upload an app**, ask your Teams administrator to allow custom app uploads, or publish the app instead.
+如果没有 **Upload an app（上传应用）**选项，请 Teams 管理员允许上传自定义应用，或改为发布应用。
 
-### Publish to your organization
+### 发布到组织 <a id="publish-to-your-organization"></a>
 
-**Publish to organization** adds the app to your organization's app catalog in Teams. You find it in the **Install app** step of the recommended setup, and later in the **Install app** menu in the channel settings.
+**Publish to organization（发布到组织）**会将应用添加到组织在 Teams 中的应用目录。推荐设置的 **Install app（安装应用）**步骤中提供此选项，之后也可以在渠道设置的 **Install app** 菜单中找到。
 
-* **If you're a Teams administrator,** n8n publishes the app right away, but Microsoft can take up to a day to list it. Depending on your organization's app policies, a Teams administrator may still need to make it available to everyone in the Teams admin center.
-* **If you aren't,** n8n submits the app for approval. It waits in the Teams admin center under **Teams apps** > **Manage apps**, as **Pending approval**. Nobody can add the app until an administrator approves it. In the setup, select **Copy a request for your administrator** to copy a message with the app name and a link to that page.
+* **如果你是 Teams 管理员**，n8n 会立即发布应用，但 Microsoft 最多可能需要一天才会列出。根据组织的应用策略，Teams 管理员可能仍需在 Teams 管理中心将应用设置为对所有人可用。
+* **如果你不是管理员**，n8n 会提交应用等待审批。应用会在 Teams 管理中心的 **Teams apps（Teams 应用）** > **Manage apps（管理应用）**中显示为 **Pending approval（等待批准）**。管理员批准前，任何人都无法添加应用。在设置流程中选择 **Copy a request for your administrator（复制发给管理员的请求）**，可以复制一条包含应用名称和该页面链接的消息。
 
-If the app is waiting for approval or an administrator rejected it, the channel settings say so. If an administrator rejects it, Microsoft doesn't share the reason, so ask them directly.
+如果应用正在等待审批或已被管理员拒绝，渠道设置中会显示相应状态。管理员拒绝时，Microsoft 不会提供原因，需要直接向管理员询问。
 
-In the manual setup, n8n can't publish the app for you. Ask a Teams administrator to upload the app package in the Teams admin center instead.
+手动设置下，n8n 无法代你发布应用。请 Teams 管理员改为在 Teams 管理中心上传应用包。
 
-## Change where it works or how it looks
+## 更改使用位置或外观 <a id="change-where-it-works-or-how-it-looks"></a>
 
-In the channel settings, you can change **Where it works** and **Appearance in Teams**, like the display name and description. Teams keeps the previous version of the app until you send the new one:
+在渠道设置中，可以更改 **Where it works（使用位置）**和 **Appearance in Teams（Teams 中的外观）**，例如显示名称和说明。在提交新版本前，Teams 会继续使用旧版应用：
 
-* **Manual setup:** select **Save and download package**, then upload the new package in Teams under **Apps** > **Manage your apps** > **Upload an app**.
-* **Recommended setup:** open the **Install app** menu and select **Publish to organization**, or **Install for me** to download and upload the new package.
+* **手动设置**：选择 **Save and download package（保存并下载应用包）**，然后在 Teams 的 **Apps（应用）** > **Manage your apps（管理你的应用）** > **Upload an app（上传应用）**中上传新应用包。
+* **推荐设置**：打开 **Install app（安装应用）**菜单，选择 **Publish to organization（发布到组织）**；或者选择 **Install for me（为我安装）**，下载并上传新应用包。
 
-The app uses the agent's name and icon. If you change the agent's name or icon later, the channel settings show **Changes to the agent aren't in Teams yet.** Install or publish the app again to update it.
+应用使用智能体的名称和图标。如果之后修改了智能体名称或图标，渠道设置会显示 **Changes to the agent aren't in Teams yet.（智能体的更改尚未同步到 Teams。）**重新安装或发布应用即可更新。
 
-## Switch to another credential or sign-in
+## 切换凭据或登录账号 <a id="switch-to-another-credential-or-sign-in"></a>
 
-A different credential or Microsoft sign-in means a different bot, so n8n can't swap it into a connected channel. If you pick another one in the channel settings, n8n asks **Set up Microsoft Teams again?** Select **Set up again** to remove the current Teams connection and its settings and start the setup from the beginning. The agent stops answering in Teams until you finish the new setup.
+不同的凭据或 Microsoft 登录账号对应不同的机器人，因此 n8n 无法直接在已连接的渠道中替换。如果在渠道设置中选择其他凭据或账号，n8n 会询问 **Set up Microsoft Teams again?（重新设置 Microsoft Teams？）**选择 **Set up again（重新设置）**会移除当前 Teams 连接及其设置，并从头开始配置。在完成新设置之前，智能体会停止在 Teams 中响应。
 
-## Renew the client secret
+## 续订客户端密钥 <a id="renew-the-client-secret"></a>
 
-Client secrets expire. When the secret expires, the agent stops replying in Teams.
+客户端密钥会过期。过期后，智能体会停止在 Teams 中回复。
 
-* **Recommended setup:** n8n creates the secret with the longest lifetime your organization allows, up to 24 months. When the **Create Teams app** step runs again, n8n reuses the app registration and creates a new secret if the current one expires within seven days.
-* **Manual setup:** create a new client secret in Microsoft Entra, then update the credential in n8n.
+* **推荐设置**：n8n 会按组织允许的最长有效期创建密钥，最长为 24 个月。再次运行 **Create Teams app（创建 Teams 应用）**步骤时，n8n 会复用应用注册；如果当前密钥将在七天内到期，则创建新密钥。
+* **手动设置**：在 Microsoft Entra 中创建新客户端密钥，然后更新 n8n 中的凭据。
 
-## Disconnect Teams
+## 断开 Teams 连接 <a id="disconnect-teams"></a>
 
-To disconnect Teams, remove the channel from the agent and confirm with **Yes, remove**. Messages already sent stay in Teams. To reconnect later, you set up the channel again.
+要断开 Teams 连接，请从智能体中移除渠道，并选择 **Yes, remove（是，移除）**确认。已发送的消息会保留在 Teams 中。之后如需重新连接，需要再次设置渠道。
 
-When you disconnect the Teams channel or delete the agent, n8n doesn't delete anything in Microsoft. People may still have the app installed, but the agent no longer responds. For apps the recommended setup created, n8n shows a reminder with an **Open Teams** link to the Teams admin center. If you no longer need these resources, remove them yourself:
+断开 Teams 渠道或删除智能体时，n8n 不会删除 Microsoft 中的任何资源。用户可能仍安装着应用，但智能体不再响应。对于推荐设置创建的应用，n8n 会显示提醒，并提供指向 Teams 管理中心的 **Open Teams（打开 Teams）**链接。如果不再需要这些资源，请自行删除：
 
-* The app registration, in [Microsoft Entra](https://entra.microsoft.com/) under **App registrations**.
-* The Azure Bot, in the [Azure portal](https://portal.azure.com/). With the recommended setup, it's in the `n8n-agents` resource group.
-* The Teams app, in the [Teams admin center](https://admin.teams.microsoft.com/) under **Teams apps** > **Manage apps**, if you published it.
+* 应用注册：位于 [Microsoft Entra](https://entra.microsoft.com/) 的 **App registrations（应用注册）**中。
+* Azure Bot：位于 [Azure 门户](https://portal.azure.com/)中。推荐设置创建的机器人位于 `n8n-agents` 资源组中。
+* Teams 应用：如果发布过，位于 [Teams 管理中心](https://admin.teams.microsoft.com/)的 **Teams apps（Teams 应用）** > **Manage apps（管理应用）**中。
 
-## Troubleshooting
+## 故障排查 <a id="troubleshooting"></a>
 
-### Your organization doesn't let you register apps
+### 组织不允许你注册应用 <a id="your-organization-doesnt-let-you-register-apps"></a>
 
-Your Microsoft account can't create app registrations. Ask an administrator to give you that permission, or use the [manual setup](set-up-the-teams-channel.md#manual-setup) with an app registration an administrator creates for you.
+你的 Microsoft 账号无法创建应用注册。请管理员授予相应权限，或者使用管理员为你创建的应用注册，采用[手动设置](set-up-the-teams-channel.md#manual-setup)。
 
-### Teams apps need a work or school account
+### Teams 应用需要工作或学校账号 <a id="teams-apps-need-a-work-or-school-account"></a>
 
-You signed in with a personal Microsoft account. Sign in again with your organization's work or school account.
+你使用了个人 Microsoft 账号登录。请使用组织的工作或学校账号重新登录。
 
-### Your account can't create resources in the Azure subscription
+### 账号无法在 Azure 订阅中创建资源 <a id="your-account-cant-create-resources-in-the-azure-subscription"></a>
 
-You need the Contributor role on the Azure subscription you picked. Ask your Azure administrator for access, or pick another subscription.
+你需要所选 Azure 订阅中的 Contributor 角色。请 Azure 管理员授予权限，或选择其他订阅。
 
-### The credential doesn't match an app in Microsoft Entra
+### 凭据与 Microsoft Entra 中的应用不匹配 <a id="the-credential-doesnt-match-an-app-in-microsoft-entra"></a>
 
-The credential's details don't match the app registration. Check that:
+凭据信息与应用注册不匹配。检查以下事项：
 
-* The tenant ID and client ID belong to the same app registration.
-* The client secret is the secret's **Value**, not its **Secret ID**.
-* The client secret hasn't expired.
+* 租户 ID 和客户端 ID 属于同一个应用注册。
+* 客户端密钥填写的是 **Value（值）**，而非 **Secret ID（密钥 ID）**。
+* 客户端密钥尚未过期。
 
-### "The Teams bot needs an HTTPS messaging endpoint"
+### “The Teams bot needs an HTTPS messaging endpoint”（Teams 机器人需要 HTTPS 消息终结点） <a id="the-teams-bot-needs-an-https-messaging-endpoint"></a>
 
-Microsoft only sends messages to HTTPS URLs. On self-hosted n8n, set `N8N_WEBHOOK_URL` to the public HTTPS URL of your instance.
+Microsoft 只向 HTTPS URL 发送消息。自托管 n8n 需将 `N8N_WEBHOOK_URL` 设置为实例公开可访问的 HTTPS URL。
 
-### No Upload an app option in Teams
+### Teams 中没有“上传应用”选项 <a id="no-upload-an-app-option-in-teams"></a>
 
-Your Teams policy doesn't allow custom app uploads. Ask your Teams administrator to allow them, or publish the app to your organization instead.
+Teams 策略不允许上传自定义应用。请 Teams 管理员允许上传，或改为将应用发布到组织。
 
-### The agent doesn't reply in a channel
+### 智能体不在频道中回复 <a id="the-agent-doesnt-reply-in-a-channel"></a>
 
-Check that:
+检查以下事项：
 
-* You've published the agent.
-* **Team channels** is on and the latest app package is in Teams.
-* Someone @mentioned the agent in the thread, or **Read all channel messages** is on.
+* 智能体已发布。
+* 已启用 **Team channels（团队频道）**，且 Teams 中已安装最新应用包。
+* 有人在帖子中 @提及过智能体，或已启用 **Read all channel messages（读取所有频道消息）**。
 
-### The agent can't read attached files
+### 智能体无法读取附加文件 <a id="the-agent-cant-read-attached-files"></a>
 
-Files in channels and group chats need the `Files.Read.All` application permission. An administrator grants it once with admin consent, together with the other Graph permissions. It can take up to an hour to apply. See [Approve access](set-up-the-teams-channel.md#approve-access).
+读取频道和群聊中的文件需要 `Files.Read.All` 应用程序权限。管理员通过授予管理员同意，与其他 Graph 权限一并批准一次即可。权限最多可能需要一小时生效。参阅[批准访问权限](set-up-the-teams-channel.md#approve-access)。
 
-### The agent can't find a person or channel
+### 智能体找不到用户或频道 <a id="the-agent-cant-find-a-person-or-channel"></a>
 
-Finding people by email needs `User.ReadBasic.All`, and finding channels by name needs `Team.ReadBasic.All` and `Channel.ReadBasic.All`. An administrator approves them in [Approve access](set-up-the-teams-channel.md#approve-access). Until then, @mention the agent once in the channel, or give the agent the person's Teams ID.
+按电子邮件查找用户需要 `User.ReadBasic.All`，按名称查找频道需要 `Team.ReadBasic.All` 和 `Channel.ReadBasic.All`。管理员通过[批准访问权限](set-up-the-teams-channel.md#approve-access)进行批准。批准前，可以先在频道中 @提及智能体一次，或向智能体提供该用户的 Teams ID。
 
-### The agent can't send a direct message or post
+### 智能体无法发送私信或帖子 <a id="the-agent-cant-send-a-direct-message-or-post"></a>
 
-Teams only delivers messages the agent starts where people have added the app. For a direct message, the person must have added the app in Teams. For a post, the app must be in that team or group chat. Ask the person, or a team owner, to add the app, then try again.
+对于智能体主动发送的消息，Teams 只会投递到已添加应用的位置。发送私信时，收件人必须已在 Teams 中添加应用；发送帖子时，该团队或群聊必须已添加应用。请收件人或团队所有者添加应用，然后重试。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Connect an agent to Microsoft Teams](./)
-* [Set up the Teams channel](set-up-the-teams-channel.md)
+* [将智能体连接到 Microsoft Teams](./)
+* [设置 Teams 渠道](set-up-the-teams-channel.md)

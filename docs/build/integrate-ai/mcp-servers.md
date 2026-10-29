@@ -1,48 +1,50 @@
 ---
-description: Connect an AI agent to an MCP registry server in one click.
+description: 一键将 AI 智能体连接到 MCP 注册表中的服务器。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MCP servers
 
-n8n's node panel includes a registry of [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) servers you can connect to an agent in one click. Select a server, sign in, and its tools are available to your agent.
+# MCP 服务器 <a id="mcp-servers"></a>
 
-You can also connect MCP servers in the registry to [n8n Assistant](../ways-of-building-workflows/n8n-assistant.md).
+n8n 的节点面板提供 [Model Context Protocol（MCP，模型上下文协议）](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)服务器注册表，可以一键连接到智能体。选择服务器并登录后，智能体即可使用其工具。
 
-## Add a registry server to an agent
+你也可以将注册表中的 MCP 服务器连接到 [n8n Assistant](../ways-of-building-workflows/n8n-assistant.md)。
 
-1. Open the tools panel on an [AI Agent](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/) node in the canvas (by clicking on "Tool +"), or in [Build and manage agents](../build-and-manage-agents/README.md#add-tools) by clicking on "Add Tool".
-2. Search for the service you want to connect with the search bar (such as Notion or Linear) or click the "MCP Servers" section to view all available servers.
-3. Select the server, then sign in when prompted.
-4. Choose which of the server's tools to expose to the agent with "Tools to include": all, a selected list, or all except a selected list.
+## 将注册表中的服务器添加到智能体 <a id="add-a-registry-server-to-an-agent"></a>
 
-n8n creates an [MCP credential](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials/mcp/) automatically when you sign in from the panel.
+1. 在画布上的 [AI Agent](../../integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/README.md) 节点中点击“Tool +”，打开工具面板；或者在[构建和管理智能体](../build-and-manage-agents/README.md#add-tools)中点击“Add Tool”。
+2. 在搜索栏中搜索要连接的服务，例如 Notion 或 Linear；也可以点击“MCP Servers”部分，查看所有可用服务器。
+3. 选择服务器，然后按提示登录。
+4. 通过“Tools to include（包含的工具）”选择向智能体提供哪些工具：全部、指定列表，或排除指定列表后的全部工具。
 
-## Find available servers
+从面板登录时，n8n 会自动创建 [MCP 凭据](../../integrations/builtin/credentials/mcp.md)。
 
-The list of registry servers changes often. Browse the current list in the node panel instead of relying on a static list here.
+## 查找可用服务器 <a id="find-available-servers"></a>
 
-Some servers need setup on the provider's side before you can connect, and have their own page. Refer to [Databricks Genie One MCP server](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie) for the OAuth scope an admin must add and the agent settings Genie needs. For Supabase, follow the [Supabase OAuth2 credential setup](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials/supabase#using-oauth2), including the application permissions required by the Supabase MCP server.
+注册表中的服务器列表经常变化，请在节点面板中查看当前列表，不要依赖此处的静态清单。
 
-If the server you want isn't in the registry yet, use the [MCP Client Tool](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp/) node to connect to any MCP server manually with its connection URL and credentials.
+有些服务器需要先在提供商侧完成设置，并提供专门的说明页。对于 Databricks Genie，请参阅 [Databricks Genie One MCP 服务器](../../integrations/builtin/cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md)，了解管理员必须添加的 OAuth 作用域及 Genie 所需的智能体设置。对于 Supabase，请按 [Supabase OAuth2 凭据设置](../../integrations/builtin/credentials/supabase.md#using-oauth2)操作，包括 Supabase MCP 服务器所需的应用权限。
 
-## How to choose between a built-in tool (node) and an MCP server as an agent tool
+如果所需服务器尚未加入注册表，可以使用 [MCP Client Tool](../../integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp.md) 节点，通过连接 URL 和凭据手动连接任意 MCP 服务器。
 
-Both give an agent access to a service. A built-in tool gives you tighter control, because you fix the operation and can pin parameters so the model only fills in the fields you leave open. An MCP server gives the agent more room, at the cost of control and more context per call.
+## 如何选择内置工具（节点）或 MCP 服务器作为智能体工具 <a id="how-to-choose-between-a-built-in-tool-node-and-an-mcp-server-as-an-agent-tool"></a>
 
-|  | Built-in tool (n8n integration) | MCP server |
+两者都能让智能体访问服务。内置工具提供更精细的控制：你可以固定操作和部分参数，让模型只填写你开放的字段。MCP 服务器给予智能体更大的操作空间，但相应地减少控制，并在每次调用时使用更多上下文。
+
+| | 内置工具（n8n 集成） | MCP 服务器 |
 | --- | --- | --- |
-| **Use when** | You know which action the agent needs and want it tightly scoped | The agent needs a range of actions, or you don't know in advance which one |
-| **Scope** | One node operation, for example send a Slack message | Every tool the server exposes, from one single connection |
-| **You configure** | Any parameters you want fixed, e.g. which channel, message type or message text | The tools you want to allow or exclude |
-| **The agent supplies** | Only the fields you [leave open to the model](ai-examples/use-ai-for-parameters.md), you choose | Which tool call to make (out of the allowed tools) and all of its arguments |
+| **适用场景** | 已知智能体需要执行的操作，希望严格限定范围 | 智能体需要执行多种操作，或无法预先确定所需操作 |
+| **范围** | 单个节点操作，例如发送 Slack 消息 | 通过单个连接访问服务器提供的所有工具 |
+| **你配置的内容** | 需要固定的参数，例如频道、消息类型或消息文本 | 允许或排除的工具 |
+| **智能体提供的内容** | 仅填写你选择[向模型开放的字段](ai-examples/use-ai-for-parameters.md) | 从允许的工具中选择调用哪个工具，并提供全部参数 |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Integrate AI](./)
-* [Understand AI components](understand-ai-components/README.md)
-* [LangChain in n8n](langchain-in-n8n.md)
-* [Test and improve AI workflows](test-and-improve-ai-workflows/README.md)
-* [AI examples](ai-examples.md)
+* [集成 AI](./)
+* [理解 AI 组件](understand-ai-components/README.md)
+* [n8n 中的 LangChain](langchain-in-n8n.md)
+* [测试和改进 AI 工作流](test-and-improve-ai-workflows/README.md)
+* [AI 示例](ai-examples.md)

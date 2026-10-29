@@ -3,24 +3,26 @@ layout:
   description:
     visible: false
 ---
-# Understand AI components <a href="#understand-ai-components" id="understand-ai-components"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Learn the core building blocks of AI workflows in n8n: chains, agents, memory, tools, and vector databases.
+# 理解 AI 组件 <a href="#understand-ai-components" id="understand-ai-components"></a>
 
-## In this section
+了解 n8n 中 AI 工作流的核心组成部分：链、智能体、记忆、工具和向量数据库。
 
-* [What chains do](what-chains-do.md): understand chains in the context of AI.
-* [What agents do](what-agents-do.md): understand how n8n provides agents.
-* [How memory works](how-memory-works.md): understand memory in the context of AI.
-* [How tools work](how-tools-work.md): understand tools in the context of AI.
-* [Store and search data with vectors](store-and-search-data-with-vectors.md): understand vector databases, embeddings, and retrievers.
-* [Retrieve relevant context](retrieve-relevant-context.md): use Retrieval-Augmented Generation (RAG) to give models access to context-specific resources.
-* [Agents vs chains](agents-vs-chains.md): a workflow example demonstrating key differences between agents and chains.
+## 本节内容 <a id="in-this-section"></a>
 
-## Related resources
+* [链的作用](what-chains-do.md)：了解 AI 中的链。
+* [智能体的作用](what-agents-do.md)：了解 n8n 如何提供智能体。
+* [记忆的工作原理](how-memory-works.md)：了解 AI 中的记忆。
+* [工具的工作原理](how-tools-work.md)：了解 AI 中的工具。
+* [使用向量存储和搜索数据](store-and-search-data-with-vectors.md)：了解向量数据库、嵌入和检索器。
+* [检索相关上下文](retrieve-relevant-context.md)：通过检索增强生成（RAG），让模型访问与上下文相关的资源。
+* [智能体与链的对比](agents-vs-chains.md)：通过工作流示例展示智能体与链的主要区别。
 
-* [Integrate AI](../)
-* [MCP servers](../mcp-servers.md)
-* [LangChain in n8n](../langchain-in-n8n.md)
-* [Test and improve AI workflows](../test-and-improve-ai-workflows/README.md)
-* [AI examples](../ai-examples.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [集成 AI](../)
+* [MCP 服务器](../mcp-servers.md)
+* [n8n 中的 LangChain](../langchain-in-n8n.md)
+* [测试和改进 AI 工作流](../test-and-improve-ai-workflows/README.md)
+* [AI 示例](../ai-examples.md)

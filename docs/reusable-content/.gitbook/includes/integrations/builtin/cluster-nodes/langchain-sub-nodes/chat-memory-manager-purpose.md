@@ -1,8 +1,10 @@
 ---
-title: chat-memory-manager-purpose
+title: 聊天记忆管理器的用途
 ---
-This node is useful when you:
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-* Can't add a memory node directly.
-* Need to do more complex memory management, beyond what the memory nodes offer. For example, you can add this node to check the memory size of the Agent node's response, and reduce it if needed.
-* Want to inject messages to the AI that look like user messages, to give the AI more context.
+以下情况适合使用此节点：
+
+* 无法直接添加记忆节点。
+* 需要进行超出记忆节点能力的复杂记忆管理。例如，添加此节点检查 Agent 节点响应的记忆大小，并在需要时缩减。
+* 希望向 AI 注入看起来像用户消息的内容，以提供更多上下文。

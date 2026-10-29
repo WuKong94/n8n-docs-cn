@@ -4592,5 +4592,353 @@
       "expression-index-base64-decode-description",
       "expression-index-base64-encode-description"
     ]
+  },
+  "build/build-and-manage-agents/README.md": {
+    "status": "translated",
+    "source_sha256": "c4212fc1a4b8e7b1f4b8979b5fe57f45d0959e30b96057ad4def50696eacca8f",
+    "translation_sha256": "20e489fb1b3a3c553fa6ba99fdee106db29a16c872ebcd95e9093874731bbf75",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/build-and-manage-agents/microsoft-teams/README.md": {
+    "status": "translated",
+    "source_sha256": "2495e59e4f22db208f4e914d2b32f12ce1385df180ac3a8f8a70ff16e504b92f",
+    "translation_sha256": "bbe9ba257896f37049a54504dac00d2a6ac9a1417ea6a131472f1ac67768a402",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/build-and-manage-agents/microsoft-teams/set-up-the-teams-channel.md": {
+    "status": "translated",
+    "source_sha256": "fd09e4556c6a7264ef3e97b6ec00e850c52cdf949c633f4aa01a22ced065c765",
+    "translation_sha256": "28e74541ad4dec016006485bbb2492e8946b541135c4fa13a4f4b65ecf2e8548",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "teams-version-note-set-up-the-teams-channel"
+    ]
+  },
+  "build/build-and-manage-agents/microsoft-teams/manage-the-teams-channel.md": {
+    "status": "translated",
+    "source_sha256": "f40011f7b35d3c48f4e0276653fd52143510ef25ab16ab5d39f22e502027183c",
+    "translation_sha256": "2ca49ffc91289eb6afb3e7265341b2d611bb48dea95a91fa02d4cabe4be43523",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "teams-version-note-manage-the-teams-channel"
+    ]
+  },
+  "build/integrate-ai/README.md": {
+    "status": "translated",
+    "source_sha256": "7a1a539ba5f078395266d2989f290c24b22dca1432a0afa1d953258aa9ae7659",
+    "translation_sha256": "54dec4068f312d7182fb9eb05aecd1405d9142fbd37b2f6ee7a5cead3fcb96f0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/README.md": {
+    "status": "translated",
+    "source_sha256": "98abbbab911e6438387b92f9084d08a7adc539692e327550ce326e943a151f5a",
+    "translation_sha256": "1b334f0b564679330feec69b5139a33c38e94b2dcfc55e47ffb0d265d4fadcaf",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/what-agents-do.md": {
+    "status": "translated",
+    "source_sha256": "d69f415e7114b869880bcd695b1f682a1c13bf71dc4bee000daa484da89460f0",
+    "translation_sha256": "83d5914d1d8f289fa9c258e3856125233b10bfb6b45ad2d85b79256689e05fc7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/what-chains-do.md": {
+    "status": "translated",
+    "source_sha256": "775c7e954626bbb87fd98fd636385e4976efdef34b7d790693f80e2ac4b4f3f9",
+    "translation_sha256": "a0ab8aa024632a0f71c8150cab2249c3f18134d1157554a5202811a26dff4752",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/how-memory-works.md": {
+    "status": "translated",
+    "source_sha256": "09e4c534159ca2fb70871dfa28dc6318bb06b47046672b5e2980a322521f6afd",
+    "translation_sha256": "c12e708a160dee34b31ff862bc9a24fab6ef4013653e3d8f9c76495fa0a8ed05",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/how-tools-work.md": {
+    "status": "translated",
+    "source_sha256": "0ee2307536dd98828cd6b89cebb4c7d2f5059cc986b72e816f1e3e32b033b66a",
+    "translation_sha256": "2298b9eb436a20009bc6e978343a68d9555b3364c684553c6977515ff7e857a6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/agents-vs-chains.md": {
+    "status": "translated",
+    "source_sha256": "e3aaa082c5e31f5fde6323cffd34ad8e34806131df1d2f888ec5a1683ca79d20",
+    "translation_sha256": "bbd28d7646be34944f63866ec092ee35ebd560c66ac0e4ee561204d59195c1e3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/store-and-search-data-with-vectors.md": {
+    "status": "translated",
+    "source_sha256": "1fa1c22e901c757dd328478fe0d735eb0b5a361f58604ccb76dd523fc14e4442",
+    "translation_sha256": "774ddf8be082d51d143a733118b1488c0183dfc43bce3feac35ed9a38cb3413a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "vector-embedding-direction",
+      "vector-retriever-document-return"
+    ]
+  },
+  "build/integrate-ai/understand-ai-components/retrieve-relevant-context.md": {
+    "status": "translated",
+    "source_sha256": "e02a3eacdb8d2cffabb4c47a41718f38c6f22bf4326af0e89096bf7fb712512d",
+    "translation_sha256": "02bfb576507f3cf6518e86f19323633415b3abd6b896f5bf1ff5d53941904fb0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-sub-nodes/chat-memory-manager-purpose.md": {
+    "status": "translated",
+    "source_sha256": "f9ca6cf4cd506fd25ea4d7338c5eff827965a5a28bbf7eb481a0e0d0f6e79776",
+    "translation_sha256": "9b823c19ad83510384c5a30b5d93cd552b62a4552ff7d7712c2bc6e5c59c2ee9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/langchain-in-n8n.md": {
+    "status": "translated",
+    "source_sha256": "2990e58c737cbd3239b39b58bb29e67365e7a14ea7c22115f0ea2cb674f2b5fb",
+    "translation_sha256": "5f5ce0af3a2d7aa70e26a8681d2192601f9dc7927eeccf372e79325f6cba1c5d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/mcp-servers.md": {
+    "status": "translated",
+    "source_sha256": "262a7034a043729794e1b007a54894b8e6bae05f65d41f42591f09cb38349a8b",
+    "translation_sha256": "f6a4931401be3d785e7a4c5f78296de3c2083a7d807d40f7c8223b122451c5ab",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/test-and-improve-ai-workflows/README.md": {
+    "status": "translated",
+    "source_sha256": "a4bc60e494dfcdbc1ccd92164e88fe0731bc18d3619ce2f3225e647598b10a26",
+    "translation_sha256": "10f95ce3ef34fecff23ed5e32ce1ed12a4aeb31a42a25ae1982d71659920c88f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/test-and-improve-ai-workflows/understand-why-to-test.md": {
+    "status": "translated",
+    "source_sha256": "b1a424594f8ebbba80bcd4707380df8ce78e18e850e3e2925525d9f91f08b219",
+    "translation_sha256": "568c73bf8b8644f6bb13ff26983a2f5aab2cf65bcd06d4bf12a0bf566ed23ff8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/test-and-improve-ai-workflows/run-quick-evaluations.md": {
+    "status": "translated",
+    "source_sha256": "4bd225aa3c2c72003bffe169cd7516e6d8e0f0efb2456b4a4367bec291a36167",
+    "translation_sha256": "79d851e39399e4a678ae13ede4851d0a171e45f95516ad82a6386ce09bdac0f9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/test-and-improve-ai-workflows/use-metrics-to-measure-quality.md": {
+    "status": "translated",
+    "source_sha256": "d4efaa2cc083c340adfe45d0503eaa832367a1e395b1c226833f2f26aed1d0cc",
+    "translation_sha256": "9bd208257f950523052038a131bcc5448d9d39964b649082b988001a6e1daa3f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/test-and-improve-ai-workflows/fix-common-issues.md": {
+    "status": "translated",
+    "source_sha256": "8335dd20d856130961c52b6c060b4e3f33d2fed34898d85f0ebe6ff92d776295",
+    "translation_sha256": "2b8f0b1654ca4c2e8be2e0f50214c35595ec1000e56a1d30e71b89d86d477f9e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/ai-examples.md": {
+    "status": "translated",
+    "source_sha256": "0231ecbd011066b2695f99d2d4d34fcb075f9e02e3453fc650b58832912fc272",
+    "translation_sha256": "4d8236cf40b556cee0e6e586368f609b82e9d95a5607148c5d83f0f8c62b4ee1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/ai-examples/call-apis.md": {
+    "status": "translated",
+    "source_sha256": "9cfb646977e28e02068c0105d20747d4cbb6dfd8ca46e7a95bd56ed5271fc340",
+    "translation_sha256": "9e4bf31a30bd50c53f6f091cc3e98d9edaf2759033d7c40831f5a84400b1a829",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/ai-examples/set-a-human-fallback-for-ai-workflows.md": {
+    "status": "translated",
+    "source_sha256": "2489c304de4bb5f7732d49d9b098a2e30c44c48a969a34603be345f3b6feb76d",
+    "translation_sha256": "6ae552aa127597b03eb4c8e0f6e4d65ed3bc4ab939f5f45c747db7aa598b796e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/ai-examples/use-google-sheets-as-a-data-source.md": {
+    "status": "translated",
+    "source_sha256": "0bb0dc6f2deab9fc05326cd9e1dad9a7515de29bbb31ac5b083cfea330a5b755",
+    "translation_sha256": "16037c65cc2aaa9b9856c0eb5f6f88f172edc1caef38632f3e508669c02307c0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/ai-examples/use-website-content.md": {
+    "status": "translated",
+    "source_sha256": "bdf3d3f7514fdbe23d048663bf4b33102baeecf967ef7f8e24608535eacc2527",
+    "translation_sha256": "52d5bf6c242b342cc8a15feed4bb81c9b928717b718b7db58f44916ce1a30f2f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md": {
+    "status": "translated",
+    "source_sha256": "40723a3e484951c98fb8be021cc25cc6978ebfaa7cc0cf68a1708fe087420ab1",
+    "translation_sha256": "e0632f5871e0ddee2e0113bc2dae87b7c1166a904d2db1de258b96afc45d23ba",
+    "checks": [
+      "code-examples-identical-except-reviewed-prompt-translations",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "prose_fences": [
+      {
+        "index": 0,
+        "kind": "prompt",
+        "source_sha256": "1f16b9cf4fe76c04317305ef77ef54018842c4839b81dd702eb827efff2fecb3",
+        "translation_sha256": "1b14671435a28164e0aae49ea74fc750c9303c82a1c3b4240c18615b479003b2"
+      }
+    ]
+  },
+  "build/integrate-ai/ai-examples/use-ai-for-parameters.md": {
+    "status": "translated",
+    "source_sha256": "926e11b46c0d430fd21778ed3af2eb86de01ea9c2c71fc35fc523eac5f5efbfe",
+    "translation_sha256": "cfba77b48a36c45df360bddf60a45ccd210352c6b832c57180d8072ce60fdb94",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/keyboard-shortcuts.md": {
+    "status": "translated",
+    "source_sha256": "3dcae28c55fdbdb3a10c3c7c9d5dbd180b48f00141113f797c230e8da3fe5c83",
+    "translation_sha256": "71cbbda974b7780287fa7ff46a96b6f53acd5b6322b61d466a5be951a2c0b89c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "2dcf9131e57a4e8a6a27f0e70d54dc8d72eccd9d45809034b9f1960a5e9d1a43",
+    "translation_sha256": "669d5bf56ff14252fd0e521e02d3f31d04e5deaf7fb90511a5cf06022b343923",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

@@ -1,41 +1,44 @@
 ---
-title: What's a chain in AI?
-description: Understand chains in the context of AI. Learn about chains in n8n.
+title: 什么是 AI 链？
+description: 了解 AI 中的链，以及 n8n 中的链。
 contentType: explanation
-nodeTitle: What chains do
+nodeTitle: 链的作用
 originalFilePath: advanced-ai/examples/understand-chains.md
-originalUrl: 'https://docs.n8n.io/advanced-ai/examples/understand-chains'
-url: 'https://docs.n8n.io/build/integrate-ai/understand-ai-components/what-chains-do'
+originalUrl: https://docs.n8n.io/advanced-ai/examples/understand-chains
+url: https://docs.n8n.io/build/integrate-ai/understand-ai-components/what-chains-do
 layout:
   description:
     visible: false
 ---
-
-# What's a chain in AI? <a href="#whats-a-chain-in-ai" id="whats-a-chain-in-ai"></a>
-
-Chains[^1] bring together different components of AI to create a cohesive system. They set up a sequence of calls between the components. These components can include models and memory[^2] (though note that in n8n chains can't use memory).
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## Chains in n8n <a href="#chains-in-n8n" id="chains-in-n8n"></a>
+# 什么是 AI 链？ <a href="#whats-a-chain-in-ai" id="whats-a-chain-in-ai"></a>
 
-n8n provides three chain nodes:
+链[^1]将不同的 AI 组件组合成一个协同工作的系统，在组件之间建立调用顺序。这些组件可以包括模型和记忆[^2]，但请注意，n8n 中的链无法使用记忆。
 
-* [Basic LLM Chain](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm): use to interact with an LLM, without any additional components.
-* [Question and Answer Chain](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa): can connect to a [vector store](#user-content-fn-3)[^3] using a retriever, or to an n8n workflow using the Workflow Retriever node. Use this if you want to create a workflow that supports asking questions about specific documents.
-* [Summarization Chain](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainsummarization): takes an input and returns a summary.
 
-There's an important difference between chains in n8n and in other tools such as LangChain: none of the chain nodes support memory. This means they can't remember previous user queries. If you use LangChain to code an AI application, you can give your application memory. In n8n, if you need your workflow to support memory, use an agent. This is essential if you want users to be able to have a natural ongoing conversation with your app.
+## n8n 中的链 <a href="#chains-in-n8n" id="chains-in-n8n"></a>
 
-[^1]: AI chains allow you to interact with large language models (LLMs) and other resources in sequences of calls to components. AI chains in n8n don't use persistent memory, so you can't use them to reference previous context (use AI agents for this).
-[^2]: In an AI context, memory allows AI tools to persist message context across interactions. This allows you to have a continuing conversations with AI agents, for example, without submitting ongoing context with each message. In n8n, AI agent nodes can use memory, but AI chains can't.
-[^3]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
+n8n 提供三个链节点：
 
-## Related resources
+* [Basic LLM Chain](../../../integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm.md)：用于与 LLM 交互，不包含额外组件。
+* [Question and Answer Chain](../../../integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa/README.md)：可以通过检索器连接到[向量存储](#user-content-fn-3)[^3]，或通过 Workflow Retriever 节点连接到 n8n 工作流。需要构建支持针对特定文档提问的工作流时，可使用此节点。
+* [Summarization Chain](../../../integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainsummarization.md)：接收输入并返回摘要。
 
-* [Understand AI components](./)
-* [What agents do](what-agents-do.md)
-* [How memory works](how-memory-works.md)
-* [How tools work](how-tools-work.md)
-* [Store and search data with vectors](store-and-search-data-with-vectors.md)
-* [Retrieve relevant context](retrieve-relevant-context.md)
-* [Agents vs chains](agents-vs-chains.md)
+n8n 中的链与 LangChain 等其他工具中的链有一个重要区别：n8n 的所有链节点均不支持记忆，无法记住用户之前的查询。如果使用 LangChain 编程构建 AI 应用，可以为应用添加记忆。在 n8n 中，如果工作流需要记忆，请使用智能体。要让用户与应用进行自然、持续的对话，记忆至关重要。
+
+[^1]: AI 链通过按顺序调用组件，让你与大语言模型（LLM）和其他资源交互。n8n 中的 AI 链不使用持久记忆，因此无法引用先前的上下文；如有此需求，请使用 AI 智能体。
+[^2]: 在 AI 场景中，记忆让 AI 工具能够在多次交互之间保留消息上下文。例如，你可以与 AI 智能体持续对话，而无需在每条消息中重新提供上下文。在 n8n 中，AI 智能体节点可以使用记忆，AI 链则不能。
+<a id="user-content-fn-3"></a>
+[^3]: 向量存储，也称向量数据库，用数学形式表示并存储信息。将其与嵌入模型和检索器配合使用，可以创建供 AI 回答问题时访问的数据库。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [理解 AI 组件](./)
+* [智能体的作用](what-agents-do.md)
+* [记忆的工作原理](how-memory-works.md)
+* [工具的工作原理](how-tools-work.md)
+* [使用向量存储和搜索数据](store-and-search-data-with-vectors.md)
+* [检索相关上下文](retrieve-relevant-context.md)
+* [智能体与链的对比](agents-vs-chains.md)
