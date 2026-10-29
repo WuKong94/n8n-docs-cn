@@ -1,106 +1,107 @@
 ---
-description: Using LDAP with n8n.
+description: 在 n8n 中使用 LDAP。
 contentType: howto
-nodeTitle: Connect LDAP
+nodeTitle: 连接 LDAP
 originalFilePath: user-management/ldap.md
-originalUrl: 'https://docs.n8n.io/user-management/ldap'
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/connect-ldap
+originalUrl: https://docs.n8n.io/user-management/ldap
+url: https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/connect-ldap
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Lightweight Directory Access Protocol (LDAP) <a href="#lightweight-directory-access-protocol-ldap" id="lightweight-directory-access-protocol-ldap"></a>
+
+# 轻量级目录访问协议（LDAP） <a href="#lightweight-directory-access-protocol-ldap" id="lightweight-directory-access-protocol-ldap"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-LDAP is available on:
+LDAP 可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Business, Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**Business、Enterprise。
 
-You need access to the n8n instance owner account.
+你需要能访问 n8n 实例所有者账号。
 {% endhint %}
 
-This page tells you how to enable LDAP in n8n. It assumes you're familiar with LDAP, and have an existing LDAP server set up.
+本页说明如何在 n8n 中启用 LDAP，假定你已熟悉 LDAP，并且已设置好 LDAP 服务器。
 
-LDAP allows users to sign in to n8n with their organization credentials, instead of an n8n login.
+LDAP 允许用户使用组织的凭据登录 n8n，无需使用独立的 n8n 登录凭据。
 
-## Enable LDAP <a href="#enable-ldap" id="enable-ldap"></a>
+## 启用 LDAP <a href="#enable-ldap" id="enable-ldap"></a>
 
-1. Log in to n8n as the instance owner.
-2. Select **Settings** <img src="../../.gitbook/assets/settings.png" alt="Settings icon" data-size="line"> > **LDAP**.
-3. Toggle on **Enable LDAP Login**.
-4. Complete the fields with details from your LDAP server. Refer to [Connection settings](#connection-settings).
-5. Select **Test connection** to check your connection setup, or **Save connection** to create the connection.
+1. 以实例所有者身份登录 n8n。
+2. 选择 **Settings**（设置）<img src="../../.gitbook/assets/settings.png" alt="设置图标" data-size="line"> > **LDAP**。
+3. 打开 **Enable LDAP Login**（启用 LDAP 登录）开关。
+4. 填写 LDAP 服务器的详细信息，请参阅[连接设置](#connection-settings)。
+5. 选择 **Test connection**（测试连接）检查连接设置，或选择 **Save connection**（保存连接）创建连接。
 
-After enabling LDAP, anyone on your LDAP server can sign in to the n8n instance, unless you exclude them using the **User Filter** setting.
+启用 LDAP 后，LDAP 服务器上的任何用户都可以登录 n8n 实例，除非使用 **User Filter**（用户筛选器）将其排除。
 
-You can still create non-LDAP users (email users) on the **Settings** > **Users** page.
+你仍然可以在 **Settings**（设置）> **Users**（用户）页面创建非 LDAP 用户（邮箱用户）。
 
-## Connection settings
+## 连接设置 <a id="connection-settings"></a>
 
-These fields appear once you turn on **Enable LDAP Login**.
+打开 **Enable LDAP Login**（启用 LDAP 登录）后，会显示以下字段。
 
-| Field | What to enter |
+| 字段 | 填写内容 |
 | -- | -- |
-| **LDAP Login** | The label n8n shows on the username field of the login page, in place of **Email**. |
-| **LDAP Server Address** | The IP address or domain of your LDAP server. |
-| **LDAP Server Port** | The port n8n connects to. n8n pre-fills `389`, the standard LDAP port. If you select **TLS**, change it to your server's LDAPS port, which is `636` by default. |
-| **Connection Security** | **None**, **TLS**, or **STARTTLS**. **TLS** connects with `ldaps://`. **None** and **STARTTLS** connect with `ldap://`. **STARTTLS** then upgrades that connection to TLS. |
-| **Ignore SSL/TLS Issues** | Connect even when the certificate check fails. This field only appears when **Connection Security** isn't **None**. |
-| **Base DN** | Where n8n starts looking for users in the directory tree, for example `o=acme,dc=example,dc=com`. |
-| **Binding as** | **Admin** or **Anonymous**. Refer to [Bind methods](#bind-methods). |
-| **Binding DN** | The account n8n uses to search the directory, for example `uid=2da2de69435c,ou=Users,o=Acme,dc=com`. This field only appears when **Binding as** is **Admin**. |
-| **Binding Password** | The password for the **Binding DN** user. This field only appears when **Binding as** is **Admin**. |
-| **User Filter** | An LDAP query that limits who can sign in, for example `(ObjectClass=user)`. Only the users this query returns can sign in. |
+| **LDAP Login**（LDAP 登录） | n8n 登录页上用户名字段的标签，用于替代 **Email**（邮箱）。 |
+| **LDAP Server Address**（LDAP 服务器地址） | LDAP 服务器的 IP 地址或域名。 |
+| **LDAP Server Port**（LDAP 服务器端口） | n8n 连接的端口，预填为标准 LDAP 端口 `389`。如果选择 **TLS**，请改为服务器的 LDAPS 端口，默认为 `636`。 |
+| **Connection Security**（连接安全性） | 可选 **None**（无）、**TLS** 或 **STARTTLS**。**TLS** 使用 `ldaps://` 连接；**None** 和 **STARTTLS** 使用 `ldap://` 连接，**STARTTLS** 随后会将连接升级为 TLS。 |
+| **Ignore SSL/TLS Issues**（忽略 SSL/TLS 问题） | 即使证书检查失败也进行连接。此字段仅在 **Connection Security** 不为 **None** 时显示。 |
+| **Base DN**（基础 DN） | n8n 在目录树中开始查找用户的位置，例如 `o=acme,dc=example,dc=com`。 |
+| **Binding as**（绑定身份） | **Admin**（管理员）或 **Anonymous**（匿名）。请参阅[绑定方法](#bind-methods)。 |
+| **Binding DN**（绑定 DN） | n8n 用于搜索目录的账号，例如 `uid=2da2de69435c,ou=Users,o=Acme,dc=com`。此字段仅在 **Binding as** 为 **Admin** 时显示。 |
+| **Binding Password**（绑定密码） | **Binding DN** 用户的密码。此字段仅在 **Binding as** 为 **Admin** 时显示。 |
+| **User Filter**（用户筛选器） | 用于限制哪些用户可以登录的 LDAP 查询，例如 `(ObjectClass=user)`。只有该查询返回的用户才能登录。 |
 
-The **Attribute mapping** fields come next. They tell n8n which LDAP attributes to read for a user's ID, login ID, email, first name, and last name. The right values depend on your directory, and the examples n8n shows in these fields don't suit every server. Query your LDAP server with a tool such as `ldapsearch`, then look at one user entry in the output. Note the attribute names that hold each of the five values, and enter those names in the mapping fields.
+接下来是 **Attribute mapping**（属性映射）字段，告诉 n8n 应读取哪些 LDAP 属性来获取用户 ID、登录 ID、邮箱、名字和姓氏。正确的值取决于你的目录，n8n 在这些字段中显示的示例并不适用于所有服务器。请使用 `ldapsearch` 等工具查询 LDAP 服务器，查看输出中的一个用户条目，记下分别包含这五项值的属性名，并将属性名填入映射字段。
 
-The synchronization fields come last. They only appear when you turn on **Enable periodic LDAP synchronization**.
+最后是同步字段，仅在打开 **Enable periodic LDAP synchronization**（启用定期 LDAP 同步）时显示。
 
-**Enforce Email Uniqueness** sits at the bottom of the form, below the synchronization fields. It blocks sign in when more than one LDAP account uses the same email address.
+**Enforce Email Uniqueness**（强制邮箱唯一）位于表单底部、同步字段下方。如果多个 LDAP 账号使用相同的邮箱地址，此选项会阻止登录。
 
-## Bind methods
+## 绑定方法 <a id="bind-methods"></a>
 
-n8n uses a simple bind to connect to your LDAP server. **Binding as** sets how:
+n8n 使用简单绑定连接 LDAP 服务器。**Binding as**（绑定身份）决定具体方式：
 
-- **Admin**: n8n binds with the **Binding DN** and **Binding Password** you enter.
-- **Anonymous**: n8n sends an empty DN and password, so your server has to allow anonymous search.
+- **Admin**（管理员）：n8n 使用你填写的 **Binding DN**（绑定 DN）和 **Binding Password**（绑定密码）进行绑定。
+- **Anonymous**（匿名）：n8n 发送空的 DN 和密码，因此服务器必须允许匿名搜索。
 
-n8n doesn't support SASL binds, including GSSAPI and Kerberos. There's no field for a SASL mechanism, a keytab, or a Kerberos ticket cache. If your directory needs Kerberos-based binding, common in Active Directory setups, you can't use LDAP login. n8n also supports [SAML](use-saml/README.md) and [OIDC](use-oidc/README.md) for single sign-on.
+n8n 不支持 SASL 绑定，包括 GSSAPI 和 Kerberos。界面没有用于设置 SASL 机制、keytab 或 Kerberos 票据缓存的字段。如果你的目录要求基于 Kerberos 的绑定（常见于 Active Directory），则无法使用 LDAP 登录。n8n 还支持通过 [SAML](use-saml/README.md) 和 [OIDC](use-oidc/README.md) 进行单点登录。
 
-## Merging n8n and LDAP accounts <a href="#merging-n8n-and-ldap-accounts" id="merging-n8n-and-ldap-accounts"></a>
+## 合并 n8n 与 LDAP 账号 <a href="#merging-n8n-and-ldap-accounts" id="merging-n8n-and-ldap-accounts"></a>
 
-If n8n finds matching accounts (matching emails) for email users and LDAP users, the user must sign in with their LDAP account. n8n instance owner accounts are excluded from this: n8n never converts owner accounts to LDAP users.
+如果 n8n 发现邮箱用户与 LDAP 用户的账号匹配（邮箱相同），用户就必须使用 LDAP 账号登录。n8n 实例所有者账号不受此规则影响：n8n 绝不会将所有者账号转换为 LDAP 用户。
 
-## LDAP user accounts in n8n <a href="#ldap-user-accounts-in-n8n" id="ldap-user-accounts-in-n8n"></a>
+## n8n 中的 LDAP 用户账号 <a href="#ldap-user-accounts-in-n8n" id="ldap-user-accounts-in-n8n"></a>
 
-On first sign in, n8n creates a user account in n8n for the LDAP user.
+首次登录时，n8n 会为 LDAP 用户创建一个 n8n 用户账号。
 
-You must manage user details on the LDAP server, not in n8n. If you update or delete a user on your LDAP server, the n8n account updates at the next scheduled sync, or when the user next tries to log in, whichever happens first.
+用户资料必须在 LDAP 服务器上管理，而不是在 n8n 中管理。如果在 LDAP 服务器上更新或删除用户，n8n 账号会在下次计划同步或用户下次尝试登录时更新，以先发生者为准。
 
 {% hint style="info" %}
-**User deletion**
+**删除用户**
 
-If you remove a user from your LDAP server, they lose n8n access on the next sync.
+从 LDAP 服务器移除用户后，该用户将在下次同步时失去 n8n 访问权限。
 {% endhint %}
 
-## Turn LDAP off <a href="#turn-ldap-off" id="turn-ldap-off"></a>
+## 关闭 LDAP <a href="#turn-ldap-off" id="turn-ldap-off"></a>
 
-To turn LDAP off:
+要关闭 LDAP：
 
-1. Log in to n8n as the instance owner.
-2. Select **Settings** <img src="../../.gitbook/assets/settings.png" alt="Settings icon" data-size="line"> > **LDAP**.
-3. Toggle off **Enable LDAP Login**.
+1. 以实例所有者身份登录 n8n。
+2. 选择 **Settings**（设置）<img src="../../.gitbook/assets/settings.png" alt="设置图标" data-size="line"> > **LDAP**。
+3. 关闭 **Enable LDAP Login**（启用 LDAP 登录）开关。
 
-If you turn LDAP off, n8n converts existing LDAP users to email users on their next login. The users must reset their password.
+关闭 LDAP 后，n8n 会在现有 LDAP 用户下次登录时将其转换为邮箱用户。这些用户必须重置密码。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Verify user identity](./)
-* [Require two-factor auth](require-two-factor-auth.md)
-* [Use SAML](use-saml/README.md)
-* [Use OIDC](use-oidc/README.md)
+* [验证用户身份](./)
+* [要求双因素身份验证](require-two-factor-auth.md)
+* [使用 SAML](use-saml/README.md)
+* [使用 OIDC](use-oidc/README.md)

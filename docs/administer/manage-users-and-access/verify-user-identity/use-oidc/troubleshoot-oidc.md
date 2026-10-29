@@ -1,44 +1,45 @@
 ---
-title: Troubleshooting for OIDC SSO
-description: Things to be aware of and troubleshooting OIDC within n8n
+title: 排查 OIDC SSO 问题
+description: 在 n8n 中使用 OIDC 时的注意事项与故障排查。
 contentType: howto
-nodeTitle: Troubleshoot OIDC
+nodeTitle: 排查 OIDC 问题
 originalFilePath: user-management/oidc/troubleshooting.md
-originalUrl: 'https://docs.n8n.io/user-management/oidc/troubleshooting'
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-oidc/troubleshoot-oidc
+originalUrl: https://docs.n8n.io/user-management/oidc/troubleshooting
+url: https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-oidc/troubleshoot-oidc
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Troubleshooting OIDC SSO <a href="#troubleshooting-oidc-sso" id="troubleshooting-oidc-sso"></a>
 
-## Known issues <a href="#known-issues" id="known-issues"></a>
+# 排查 OIDC SSO 问题 <a href="#troubleshooting-oidc-sso" id="troubleshooting-oidc-sso"></a>
 
-### State parameter not supported <a href="#state-parameter-not-supported" id="state-parameter-not-supported"></a>
+## 已知问题 <a href="#known-issues" id="known-issues"></a>
 
-When using OIDC providers that enforce the use of the `state` CSRF token parameter, authentication fails with the error:
+### 不支持 state 参数 <a href="#state-parameter-not-supported" id="state-parameter-not-supported"></a>
+
+使用要求必须提供 `state` CSRF 令牌参数的 OIDC 提供方时，身份验证会失败并报错：
 
 ```json
 {"code":0,"message":"authorization response from the server is an error"}
 ```
 
-n8n's current OIDC implementation doesn't handle the `state` parameter that some OIDC providers send as a security measure against CSRF attacks.
+n8n 当前的 OIDC 实现不会处理 `state` 参数；部分 OIDC 提供方会发送该参数，以防止 CSRF 攻击。
 
-For now, the only work around is to configure your OIDC provider to disable the `state` parameter if possible.
+目前唯一的临时解决办法是，在 OIDC 提供方允许的情况下，将其配置为禁用 `state` 参数。
 
-n8n is working on adding full support for the OIDC `state` parameter in a future release.
+n8n 正在开发对 OIDC `state` 参数的完整支持，计划在未来版本中提供。
 
-### PKCE not supported <a href="#pkce-not-supported" id="pkce-not-supported"></a>
+### 不支持 PKCE <a href="#pkce-not-supported" id="pkce-not-supported"></a>
 
-OIDC providers that require PKCE (Proof Key for Code Exchange) may fail authentication or reject n8n's authorization requests. n8n's current OIDC implementation doesn't support PKCE.
+要求 PKCE（Proof Key for Code Exchange，代码交换证明密钥）的 OIDC 提供方可能会导致身份验证失败，或拒绝 n8n 的授权请求。n8n 当前的 OIDC 实现不支持 PKCE。
 
-The only work around is to configure your OIDC provider to not require PKCE for the n8n client if this option is available in your providers settings. 
+唯一的临时解决办法是，如果提供方设置中有此选项，将其配置为不要求 n8n 客户端使用 PKCE。
 
-n8n plans on adding PKCE support in a future release
+n8n 计划在未来版本中增加 PKCE 支持。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use OIDC](./)
-* [Set up OIDC](set-up-oidc.md)
+* [使用 OIDC](./)
+* [设置 OIDC](set-up-oidc.md)

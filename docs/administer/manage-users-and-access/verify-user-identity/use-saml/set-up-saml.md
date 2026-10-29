@@ -1,208 +1,209 @@
 ---
-title: Set up SAML
-description: Generic setup instructions for using SAML SSO with n8n.
+title: 设置 SAML
+description: 在 n8n 中使用 SAML SSO 的通用设置说明。
 contentType: howto
-nodeTitle: Set up SAML
+nodeTitle: 设置 SAML
 originalFilePath: user-management/saml/setup.md
-originalUrl: 'https://docs.n8n.io/user-management/saml/setup'
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-saml/set-up-saml
+originalUrl: https://docs.n8n.io/user-management/saml/setup
+url: https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-saml/set-up-saml
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Set up SAML <a href="#set-up-saml" id="set-up-saml"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/9DXSTQsxYGisAV8xk6p4/" %}
+# 设置 SAML <a href="#set-up-saml" id="set-up-saml"></a>
 
-{% hint style="info" %}
-**Configure using environment variables**
-
-Configuring SAML using environment variables instead of the UI is available from n8n 2.18.0. See [SSO environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/sso).
-{% endhint %}
-
-## Enable SAML <a href="#enable-saml" id="enable-saml"></a>
-
-1. In n8n, go to **Settings** > **SSO**.
-1. Make a note of the n8n **Redirect URL** and **Entity ID**.
-	* **Optional**: If your IdP allows you to set up SAML from imported metadata, navigate to the **Entity ID** URL and save the XML. 
-	* **Optional**: If you are running n8n behind a load balancer make sure you have `N8N_EDITOR_BASE_URL` configured. 
-1. Set up SAML with your identity provider (IdP). You need the **Redirect URL** and **Entity ID**. You may also need an email address and name for the IdP user.
-1. After completing setup in your IdP, load the metadata XML into n8n. You can use a metadata URL or raw XML:
-	* **Metadata URL**: Copy the metadata URL from your IdP into the **Identity Provider Settings** field in n8n.
-	* **Raw XML**: Download the metadata XML from your IdP, toggle **Identiy Provider Settings** to **XML**, and then copy the raw XML into **Identity Provider Settings**.
-1. Select **Save settings**.
-1. Select **Test settings** to check your SAML setup is working.
-1. Set SAML 2.0 to **Activated**.
+{% include "../../../../reusable-content/.gitbook/includes/user-management/sso-saml-availability.md" %}
 
 {% hint style="info" %}
-**SAML Request Type**
+**使用环境变量配置**
 
-n8n doesn't support `POST` binding. Configure your IdP to use `HTTP` request binding instead.
+自 n8n 2.18.0 起，可以通过环境变量配置 SAML，无需使用界面。请参阅 [SSO 环境变量](../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/sso.md)。
 {% endhint %}
 
-## Generic IdP setup <a href="#generic-idp-setup" id="generic-idp-setup"></a>
+## 启用 SAML <a href="#enable-saml" id="enable-saml"></a>
 
-The steps to configure the IdP vary depending on your chosen IdP. These are some common setup tasks:
+1. 在 n8n 中，前往 **Settings**（设置）> **SSO**。
+1. 记下 n8n 的 **Redirect URL**（重定向 URL）和 **Entity ID**（实体 ID）。
+	* **可选**：如果 IdP 支持通过导入元数据设置 SAML，请访问 **Entity ID** URL 并保存 XML。
+	* **可选**：如果 n8n 部署在负载均衡器之后，请确保已配置 `N8N_EDITOR_BASE_URL`。
+1. 在身份提供方（IdP）中设置 SAML。你需要 **Redirect URL**（重定向 URL）和 **Entity ID**（实体 ID），可能还需要 IdP 用户的邮箱地址和姓名。
+1. 在 IdP 中完成设置后，将元数据 XML 加载到 n8n。可以使用元数据 URL 或原始 XML：
+	* **Metadata URL**（元数据 URL）：将 IdP 的元数据 URL 复制到 n8n 的 **Identity Provider Settings**（身份提供方设置）字段。
+	* **Raw XML**（原始 XML）：从 IdP 下载元数据 XML，将 **Identiy Provider Settings**（身份提供方设置）切换为 **XML**，再将原始 XML 复制到 **Identity Provider Settings**（身份提供方设置）。
+1. 选择 **Save settings**（保存设置）。
+1. 选择 **Test settings**（测试设置），检查 SAML 设置是否正常。
+1. 将 SAML 2.0 设为 **Activated**（已启用）。
 
-* Create an app for n8n in your IdP.
-* Map n8n attributes to IdP attributes:
+{% hint style="info" %}
+**SAML 请求类型**
 
-| Value (IdP side) | Name format | Name |
+n8n 不支持 `POST` 绑定，请将 IdP 配置为使用 `HTTP` 请求绑定。
+{% endhint %}
+
+## 通用 IdP 设置 <a href="#generic-idp-setup" id="generic-idp-setup"></a>
+
+IdP 的配置步骤取决于所选提供方，以下是一些常见设置任务：
+
+* 在 IdP 中为 n8n 创建应用。
+* 将 n8n 属性映射到 IdP 属性：
+
+| 值（IdP 端） | 名称格式 | 名称 |
 | ---------------- | ----------- | ---- |
-| User email       | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
-| User First Name  | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/firstname`    |
-| User Last Name   | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/lastname`     |
-| User principal name (unique per user) | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`          |
+| 用户邮箱 | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| 用户名字 | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/firstname` |
+| 用户姓氏 | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/lastname` |
+| 用户主体名称（每个用户唯一） | URI Reference | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` |
 
 {% hint style="warning" %}
-**userPrincipalName must be unique per user**
+**userPrincipalName 必须对每个用户保持唯一**
 
-n8n uses the `upn` claim value as the key that links a SAML identity to an n8n account. Give each user a distinct value, such as their login or email. If your IdP sends the same value for more than one person, they all sign in to the same n8n account. Don't set the claim name (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`) as the value for every user.
+n8n 使用 `upn` 声明值作为将 SAML 身份关联到 n8n 账号的键。请为每个用户提供不同的值，例如登录名或邮箱。如果 IdP 为多个人发送相同的值，他们就会登录到同一个 n8n 账号。不要将声明名称（`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`）作为每个用户的值。
 {% endhint %}
 
-### Instance and project access provisioning <a href="#instance-and-project-access-provisioning" id="instance-and-project-access-provisioning"></a>
+### 实例与项目访问权限预配 <a href="#instance-and-project-access-provisioning" id="instance-and-project-access-provisioning"></a>
 
-n8n supports provisioning the instance role and project roles via SSO. When a user signs in via SAML, n8n can assign their instance role and project access automatically based on attributes in the SAML response.
+n8n 支持通过 SSO 预配实例角色和项目角色。用户通过 SAML 登录时，n8n 可以根据 SAML 响应中的属性，自动分配其实例角色和项目访问权限。
 
-Role provisioning is available from n8n 1.122.2.
+自 n8n 1.122.2 起支持角色预配。
 
-#### Choose how roles are assigned <a href="#choose-how-roles-are-assigned" id="choose-how-roles-are-assigned"></a>
+#### 选择角色分配方式 <a href="#choose-how-roles-are-assigned" id="choose-how-roles-are-assigned"></a>
 
-In n8n, go to **Settings** > **SSO**. Use the **Role assignment** dropdown to choose how n8n assigns roles to users who sign in via SSO. The default is **Assigned manually in n8n**.
+在 n8n 中，前往 **Settings**（设置）> **SSO**。使用 **Role assignment**（角色分配）下拉菜单，选择如何为通过 SSO 登录的用户分配角色。默认值为 **Assigned manually in n8n**（在 n8n 中手动分配）。
 
-The options are:
+可选项如下：
 
-- **Assigned manually in n8n**: admins assign every role directly in n8n. No automatic mapping from your IdP.
-- **Instance roles via SSO**: n8n reads the user's instance role from the IdP at login. Project access is still managed manually in n8n.
-- **Instance and project roles via SSO**: n8n reads both the instance role and project access from the IdP at login.
+- **Assigned manually in n8n**（在 n8n 中手动分配）：管理员直接在 n8n 中分配所有角色，不自动映射 IdP 中的角色。
+- **Instance roles via SSO**（通过 SSO 分配实例角色）：n8n 在用户登录时从 IdP 读取其实例角色，项目访问权限仍在 n8n 中手动管理。
+- **Instance and project roles via SSO**（通过 SSO 分配实例与项目角色）：n8n 在用户登录时从 IdP 读取实例角色和项目访问权限。
 
-Roles are re-evaluated on every login, so changes in the IdP take effect at the user's next sign-in.
+每次登录都会重新计算角色，因此 IdP 中的更改会在用户下次登录时生效。
 
 {% hint style="warning" %}
-**Existing access will be overwritten**
+**现有访问权限将被覆盖**
 
-When you enable one of the SSO provisioning modes, any access granted inside n8n that isn't reflected in the IdP response is removed from users on their next login.
+启用任一 SSO 预配模式后，对于在 n8n 中授予、但未体现在 IdP 响应中的访问权限，n8n 会在用户下次登录时将其移除。
 
-Before saving this change, n8n asks you to download two CSV files containing your current access settings. Keep these for reference.
+保存此更改前，n8n 会要求你下载两个包含当前访问设置的 CSV 文件。请保留以供参考。
 {% endhint %}
 
-#### Choose a role mapping method <a href="#choose-a-role-mapping-method" id="choose-a-role-mapping-method"></a>
+#### 选择角色映射方法 <a href="#choose-a-role-mapping-method" id="choose-a-role-mapping-method"></a>
 
-When **Role assignment** is set to **Instance roles via SSO** or **Instance and project roles via SSO**, a **Role mapping method** dropdown appears. You can choose:
+将 **Role assignment**（角色分配）设为 **Instance roles via SSO**（通过 SSO 分配实例角色）或 **Instance and project roles via SSO**（通过 SSO 分配实例与项目角色）后，会显示 **Role mapping method**（角色映射方法）下拉菜单，可选择：
 
-- **Map rules on your IdP**: n8n reads n8n-specific attributes (`n8n_instance_role` and `n8n_projects`) directly from the SAML response. Your IdP admin configures which n8n role or project each user or group should receive.
-- **Map rules inside n8n**: you define expressions in n8n that evaluate the user's SAML attributes and return a role. Use this when your IdP can't encode n8n-specific role logic, or when IT governance makes IdP-side changes slow.
+- **Map rules on your IdP**（在 IdP 中映射规则）：n8n 直接从 SAML 响应读取 n8n 专用属性（`n8n_instance_role` 和 `n8n_projects`）。IdP 管理员配置每个用户或组应获得的 n8n 角色或项目。
+- **Map rules inside n8n**（在 n8n 中映射规则）：在 n8n 中定义表达式，根据用户的 SAML 属性计算并返回角色。如果 IdP 无法表达 n8n 专用的角色逻辑，或 IT 管理流程导致 IdP 端更改较慢，可使用此选项。
 
-#### Map rules on your IdP <a href="#map-rules-on-your-idp" id="map-rules-on-your-idp"></a>
+#### 在 IdP 中映射规则 <a href="#map-rules-on-your-idp" id="map-rules-on-your-idp"></a>
 
-Configure these attributes on the groups or individual users in your IdP:
+在 IdP 中为组或单个用户配置以下属性：
 
-| Value (IdP side) | Data type | Name |
+| 值（IdP 端） | 数据类型 | 名称 |
 | ---------------- | ----------- | ---- |
-| `n8n_instance_role` | string | `n8n_instance_role` |
-| `n8n_projects` | array | `n8n_projects` |
+| `n8n_instance_role` | 字符串 | `n8n_instance_role` |
+| `n8n_projects` | 数组 | `n8n_projects` |
 
-**Configuring the `n8n_instance_role` attribute**
+**配置 `n8n_instance_role` 属性**
 
-`n8n_instance_role` is a string configured for a group or user on your IdP. If no value is set, n8n falls back to `global:member`.
+`n8n_instance_role` 是在 IdP 中为组或用户配置的字符串。如果未设置值，n8n 会回退到 `global:member`。
 
-Supported instance roles:
+支持的实例角色：
 
 - `global:member`
 - `global:admin`
 - `global:chatUser`
 
-**Configuring the `n8n_projects` attribute**
+**配置 `n8n_projects` 属性**
 
-`n8n_projects` is a string array configured for a group or user on your IdP. Each element must follow the format `<project-id>:<role>`.
+`n8n_projects` 是在 IdP 中为组或用户配置的字符串数组，每个元素都必须符合 `<project-id>:<role>` 格式。
 
-For example:
+例如：
 
 - `bHsykgeFirmIhezz:viewer`
 - `4K3zrg3DvlMFFTB7:editor`
 - `dCjnYuEpYOUBVaNe:admin`
 
-For existing access at the time of enabling project provisioning, find the project IDs in the downloaded CSV file.
+对于启用项目预配时已存在的访问权限，可以在下载的 CSV 文件中查找项目 ID。
 
-For new projects, get the project ID from the URL when viewing the project in your browser. In the URL `<your-domain>/projects/VVRWZaq5DRxaf9O1/workflows`, the project ID is `VVRWZaq5DRxaf9O1`.
+对于新项目，可在浏览器中查看项目时，从 URL 获取项目 ID。在 URL `<your-domain>/projects/VVRWZaq5DRxaf9O1/workflows` 中，项目 ID 为 `VVRWZaq5DRxaf9O1`。
 
-#### Map rules inside n8n <a href="#map-rules-inside-n8n" id="map-rules-inside-n8n"></a>
+#### 在 n8n 中映射规则 <a href="#map-rules-inside-n8n" id="map-rules-inside-n8n"></a>
 
-**Map rules inside n8n** is available from n8n 2.19.0.
+自 n8n 2.19.0 起支持 **Map rules inside n8n**（在 n8n 中映射规则）。
 
-Use this option to define group-to-role mappings inside n8n rather than in your IdP. Each rule is an expression that n8n evaluates against the SAML attributes in the IdP response.
+使用此选项可在 n8n 中定义从组到角色的映射，而不必在 IdP 中定义。每条规则都是一个表达式，由 n8n 根据 IdP 响应中的 SAML 属性进行计算。
 
-**How expressions work**
+**表达式的工作方式**
 
-- Expressions access all SAML attributes from the IdP response through a `$claims` object.
-- If the expression returns `true`, n8n assigns the role you've selected on that rule.
-- Rules are evaluated top-to-bottom. The first matching rule wins.
-- Rules re-evaluate on every login, so role changes take effect at the user's next session.
-- `$claims` exposes the raw SAML attributes. n8n doesn't normalise them, so write expressions against the structure your IdP actually sends. SAML group membership is usually delivered as a multi-value attribute, but the exact shape depends on your IdP.
+- 表达式通过 `$claims` 对象访问 IdP 响应中的全部 SAML 属性。
+- 如果表达式返回 `true`，n8n 会分配你在该规则中选择的角色。
+- 规则按从上到下的顺序计算，采用首个匹配的规则。
+- 每次登录都会重新计算规则，因此角色更改会在用户下次会话时生效。
+- `$claims` 提供原始 SAML 属性，n8n 不会对其进行标准化处理，因此应按照 IdP 实际发送的结构编写表达式。SAML 组成员信息通常以多值属性传递，但具体形式取决于 IdP。
 
 {% hint style="info" %}
-**Check your SAML response structure**
+**检查 SAML 响应结构**
 
-Different IdPs serialise groups and other attributes differently. Before writing rules, use a browser tool like SAML Chrome Panel (or your IdP's test tools) to inspect the SAML response and confirm the attribute names and structure.
+不同 IdP 序列化组及其他属性的方式不同。编写规则前，请使用 SAML Chrome Panel 等浏览器工具（或 IdP 的测试工具）检查 SAML 响应，确认属性名称和结构。
 {% endhint %}
 
-**Instance role rules**
+**实例角色规则**
 
-Under **Instance role rules**, select **Add rule** to create a rule. Enter a condition expression and choose the instance role to assign when the condition returns `true`.
+在 **Instance role rules**（实例角色规则）下，选择 **Add rule**（添加规则）来创建规则。输入条件表达式，并选择在条件返回 `true` 时要分配的实例角色。
 
-For example, to assign the **Admin** role to any user in the IdP `admin` group:
+例如，要向 IdP 中 `admin` 组内的任意用户分配 **Admin**（管理员）角色：
 
 ```
 {{ $claims.groups.includes('admin') }}
 ```
 
-The **Default condition** row sets the role that users receive when no rule matches. By default this is **Member**.
+**Default condition**（默认条件）行设置在没有任何规则匹配时授予用户的角色，默认是 **Member**（成员）。
 
-**Project role rules**
+**项目角色规则**
 
-Under **Project role rules**, select **Add rule** to create a rule that assigns a project role in one or more projects.
+在 **Project role rules**（项目角色规则）下，选择 **Add rule**（添加规则），创建在一个或多个项目中分配项目角色的规则。
 
-For example, to give users in the `operations` group the **Project Editor** role in the **Operations** project, set the expression to:
+例如，要向 `operations` 组中的用户授予 **Operations** 项目的 **Project Editor**（项目编辑者）角色，请将表达式设为：
 
 ```
 {{ $claims.groups.includes('operations') }}
 ```
 
-Choose the role in the **assign** field and the target projects in the **in** field. Users who don't match any project rule get no project access.
+在 **assign**（分配）字段选择角色，在 **in**（所在项目）字段选择目标项目。不匹配任何项目规则的用户不会获得项目访问权限。
 
 {% hint style="warning" %}
-**Manual role management is disabled**
+**手动角色管理已禁用**
 
-When **Map rules inside n8n** is active, the UI controls for manually assigning user roles are disabled. All role assignment flows through the mapping rules.
+启用 **Map rules inside n8n**（在 n8n 中映射规则）时，界面中手动分配用户角色的控件会被禁用。所有角色分配均通过映射规则完成。
 {% endhint %}
 
 {% hint style="warning" %}
-**Switching mapping methods**
+**切换映射方法**
 
-Switching from **Map rules inside n8n** back to **Map rules on your IdP** removes any in-n8n mappings. Users may lose their currently assigned roles on their next login if equivalent mappings aren't set up in your IdP. n8n asks you to confirm before applying this change.
+从 **Map rules inside n8n**（在 n8n 中映射规则）切回 **Map rules on your IdP**（在 IdP 中映射规则）会移除 n8n 内的所有映射。如果未在 IdP 中设置等效映射，用户下次登录时可能失去当前分配的角色。n8n 会在应用此更改前要求确认。
 {% endhint %}
 
 
-## Setup resources for common IdPs <a href="#setup-resources-for-common-idps" id="setup-resources-for-common-idps"></a>
+## 常用 IdP 的设置资源 <a href="#setup-resources-for-common-idps" id="setup-resources-for-common-idps"></a>
 
-Documentation links for common IdPs.
+常用 IdP 的文档链接。
 
-| IdP | Documentation |
+| IdP | 文档 |
 | --- | ------------- |
-| Auth0 | [Configure Auth0 as SAML Identity Provider: Manually configure SSO integrations](https://auth0.com/docs/authenticate/single-sign-on/outbound-single-sign-on/configure-auth0-saml-identity-provider#manually-configure-sso-integrations) |
-| Authentik | [Applications](https://goauthentik.io/docs/applications) and the [SAML Provider](https://docs.goauthentik.io/add-secure-apps/providers/saml/) |
-| Azure AD | [SAML authentication with Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/auth-saml) |
-| JumpCloud | [How to setup SAML (SSO) applications with JumpCloud](https://jumpcloud.com/support/integrate-with-zoom#configuring-the-sso-integration) (using `Zoom` as an example) |
-| Keycloak | Choose a [Getting Started](https://www.keycloak.org/guides#getting-started) guide depending on your hosting. |
-| Okta | n8n provides a [Workforce Identity setup guide](set-up-okta-workforce-identity-saml.md), which includes a step-by-step PDF guide |
+| Auth0 | [将 Auth0 配置为 SAML 身份提供方：手动配置 SSO 集成](https://auth0.com/docs/authenticate/single-sign-on/outbound-single-sign-on/configure-auth0-saml-identity-provider#manually-configure-sso-integrations) |
+| Authentik | [应用](https://goauthentik.io/docs/applications)与 [SAML 提供方](https://docs.goauthentik.io/add-secure-apps/providers/saml/) |
+| Azure AD | [使用 Azure Active Directory 进行 SAML 身份验证](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/auth-saml) |
+| JumpCloud | [如何使用 JumpCloud 设置 SAML（SSO）应用](https://jumpcloud.com/support/integrate-with-zoom#configuring-the-sso-integration)（以 `Zoom` 为例） |
+| Keycloak | 根据托管方式选择[入门指南](https://www.keycloak.org/guides#getting-started)。 |
+| Okta | n8n 提供 [Workforce Identity 设置指南](set-up-okta-workforce-identity-saml.md)，其中包含分步 PDF 指南。 |
 | PingIdentity | [PingOne SSO](https://docs.pingidentity.com/pingone/getting_started_with_pingone/p1_p1sso_start.html) |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use SAML](./)
-* [Okta Workforce Identity SAML setup](set-up-okta-workforce-identity-saml.md)
-* [Azure AD SAML setup](set-up-azure-ad-saml.md)
-* [Troubleshoot SAML](troubleshoot-saml.md)
-* [Manage users with SAML](manage-users-with-saml.md)
+* [使用 SAML](./)
+* [设置 Okta Workforce Identity SAML](set-up-okta-workforce-identity-saml.md)
+* [设置 Azure AD SAML](set-up-azure-ad-saml.md)
+* [排查 SAML 问题](troubleshoot-saml.md)
+* [启用 SAML 时管理用户](manage-users-with-saml.md)

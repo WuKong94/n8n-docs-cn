@@ -1,31 +1,32 @@
 ---
 contentType: overview
-nodeTitle: Use OIDC
+nodeTitle: 使用 OIDC
 originalFilePath: user-management/oidc/index.md
-originalUrl: 'https://docs.n8n.io/user-management/oidc'
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-oidc
+originalUrl: https://docs.n8n.io/user-management/oidc
+url: https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-oidc
 layout:
   description:
     visible: false
 ---
-
-# OpenID Connect (OIDC) <a href="#openid-connect-oidc" id="openid-connect-oidc"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/3sB2Mxc1yXYEg1FeAYjK/" %}
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-This section covers how to enable and manage OpenID Connect (OIDC) for single sign-on (SSO). You can learn more about how OIDC works by visiting [what is OpenID Connect](https://openid.net/developers/how-connect-works/) by the OpenID Foundation.
+# OpenID Connect（OIDC） <a href="#openid-connect-oidc" id="openid-connect-oidc"></a>
 
-## In this section
+{% include "../../../../reusable-content/.gitbook/includes/user-management/sso-oidc-availability.md" %}
 
-* [Set up OIDC](set-up-oidc.md): a general guide to setting up OpenID Connect (OIDC) SSO in n8n.
-* [Troubleshooting](troubleshoot-oidc.md): a list of things to check if you encounter issues with OIDC.
 
-## Related resources
+本节介绍如何启用和管理用于单点登录（SSO）的 OpenID Connect（OIDC）。有关 OIDC 的工作原理，请参阅 OpenID Foundation 的 [OpenID Connect 简介](https://openid.net/developers/how-connect-works/)。
 
-* [Verify user identity](../)
-* [Require two-factor auth](../require-two-factor-auth.md)
-* [Connect LDAP](../connect-ldap.md)
-* [Use SAML](../use-saml/README.md)
+## 本节内容 <a id="in-this-section"></a>
+
+* [设置 OIDC](set-up-oidc.md)：在 n8n 中设置 OpenID Connect（OIDC）SSO 的通用指南。
+* [故障排查](troubleshoot-oidc.md)：遇到 OIDC 问题时需要检查的事项。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [验证用户身份](../)
+* [要求双因素身份验证](../require-two-factor-auth.md)
+* [连接 LDAP](../connect-ldap.md)
+* [使用 SAML](../use-saml/README.md)
 

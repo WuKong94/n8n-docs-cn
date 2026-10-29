@@ -6477,5 +6477,159 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/README.md": {
+    "status": "translated",
+    "source_sha256": "c01aae43b3284181435450dca7db305e0c21ac4d50cd67778c5a9a909fa543a2",
+    "translation_sha256": "95271953ae39f93c8111dbca1645ff54621138f79137ba63eb549c1c853f8955",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/connect-ldap.md": {
+    "status": "translated",
+    "source_sha256": "7fb624c9d7644ca63eacf0c8bb1c09b9dcdb653c053054a952ff82d1123ad2e5",
+    "translation_sha256": "680c4ed54d1c43b3625bd005c3931bb2e26d140b8df1fba4e4cf0f36f4b5b2a4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/require-two-factor-auth.md": {
+    "status": "translated",
+    "source_sha256": "8e12891da9fc9ca1a5ab55f7bd8321b3b7e475df02c28e53826b809eea644596",
+    "translation_sha256": "7ed5e128292447f24be0ddddb921918c348572e08d93ed91f12d6d176ecfc827",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-oidc/README.md": {
+    "status": "translated",
+    "source_sha256": "af448bf6ee7c168aa4dd325fbe47d6ee8864b3e7d87e8a6d9cda4fa75dfeef86",
+    "translation_sha256": "dd1823f3350e69969900f83f6fcee52bc1be688c2dba545b06952cf6af41d74b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-saml/README.md": {
+    "status": "translated",
+    "source_sha256": "34ab2067dddf62b43a1bf9d92e3342cc4437cf199aa94133aebf80c512ded57a",
+    "translation_sha256": "01661ecc95f8566b577602c17505e31b33fed45dbecd51cca20ff5bfbeb501be",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-saml/manage-users-with-saml.md": {
+    "status": "translated",
+    "source_sha256": "88a8b992a81ff73f8681f2032fad5116cc29fa02bcf9966bb68a13fa357fbf1c",
+    "translation_sha256": "4bdb3f758686f5d153c7eb09e7fdc44104698415a6da8ee5f2c917b7ab30b416",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-saml/troubleshoot-saml.md": {
+    "status": "translated",
+    "source_sha256": "378c746cf24b44387319975ca70e5b769ce705c4fa0785dbc281941cdc462edd",
+    "translation_sha256": "0c1bae957ed797221efdef86ff5f3ec1977ebfdbbbc3f2fd4bc17bb17fedeb76",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-oidc/troubleshoot-oidc.md": {
+    "status": "translated",
+    "source_sha256": "1d73f02a61641999ea84198d72024ebb571933ec8bc4432c5f18a744ae2fbb68",
+    "translation_sha256": "ffa745b4a47f34ee1638edd003bde7008d751221e41b618ad248fd7edce362c1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-oidc/set-up-oidc.md": {
+    "status": "translated",
+    "source_sha256": "ab288344c040019cc01cd0a266e23c2d121bb9228e95d31baa99852d731623a6",
+    "translation_sha256": "2d5dfcd8df44fb291d990ee64243c10eaf8d2d6e9edc198d3fa7639fa0ad6520",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-saml/set-up-saml.md": {
+    "status": "translated",
+    "source_sha256": "f558fdb7e48148b75181b4a9ed8b604723b6b1be110113a86223ba14330735f3",
+    "translation_sha256": "5df8a804933fed231d0228cd58edfc4c26291fe24a86339a2d4ad554bd3d2bc8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-saml/set-up-azure-ad-saml.md": {
+    "status": "translated",
+    "source_sha256": "66930bbf48e9035605ae50326945455440875b2cfca1296ded030107d94284c8",
+    "translation_sha256": "4888d092bd6472580d39a8f6fda13bd66499617b8824e1c353f230e05bc4a47c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/verify-user-identity/use-saml/set-up-okta-workforce-identity-saml.md": {
+    "status": "translated",
+    "source_sha256": "3e3253f830899142ff20a4ef06da6b8847223bb93afdabb891fd69c243b69ebc",
+    "translation_sha256": "e730001ce05622a97d3063542c5456bade388bb4a531911c3bc9d5c4713f1a26",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/user-management/sso-oidc-availability.md": {
+    "status": "translated",
+    "source_sha256": "0225eb8323dc89c81d4f8cf29cfdd0850f5c3b114388c75d139f4f2f5562b3be",
+    "translation_sha256": "4e06c402d75cf1c7b624da8916e05befcd7d11e3ce562a7e844f0c044022d27a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/user-management/sso-saml-availability.md": {
+    "status": "translated",
+    "source_sha256": "b9c8b4ad3a679b8c700c88139382c17922dea592fe3896b6b7ca83c3b0dfd340",
+    "translation_sha256": "cc41888fb7bc3b46ec347e5d95582faad8ae0f29bc2718675fde3b603b7ad776",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

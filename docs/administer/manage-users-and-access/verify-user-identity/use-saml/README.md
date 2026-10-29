@@ -1,33 +1,34 @@
 ---
 contentType: overview
-nodeTitle: Use SAML
+nodeTitle: 使用 SAML
 originalFilePath: user-management/saml/index.md
-originalUrl: 'https://docs.n8n.io/user-management/saml'
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-saml
+originalUrl: https://docs.n8n.io/user-management/saml
+url: https://docs.n8n.io/administer/manage-users-and-access/verify-user-identity/use-saml
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Security Assertion Markup Language (SAML) <a href="#security-assertion-markup-language-saml" id="security-assertion-markup-language-saml"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/9DXSTQsxYGisAV8xk6p4/" %}
+# 安全断言标记语言（SAML） <a href="#security-assertion-markup-language-saml" id="security-assertion-markup-language-saml"></a>
 
-This section tells you how to enable SAML SSO (single sign-on) in n8n. It assumes you're familiar with SAML. If you're not, [SAML Explained in Plain English](https://www.onelogin.com/learn/saml) can help you understand how SAML works, and its benefits.
+{% include "../../../../reusable-content/.gitbook/includes/user-management/sso-saml-availability.md" %}
 
-## In this section
+本节说明如何在 n8n 中启用 SAML SSO（单点登录），假定你已熟悉 SAML。如果尚不了解，可以阅读 [SAML 通俗解读](https://www.onelogin.com/learn/saml)，了解其工作原理与优点。
 
-* [Set up SAML](set-up-saml.md): a general guide to setting up SAML in n8n, and links to resources for common IdPs.
-* [Okta Workforce Identity SAML setup](set-up-okta-workforce-identity-saml.md): step-by-step guidance to configuring Okta.
-* [Azure AD SAML setup](set-up-azure-ad-saml.md): step-by-step guidance to configuring with Azure AD.
-* [Troubleshooting](troubleshoot-saml.md): a list of things to check if you encounter issues.
-* [Managing users with SAML](manage-users-with-saml.md): performing user management tasks with SAML enabled.
+## 本节内容 <a id="in-this-section"></a>
 
-## Related resources
+* [设置 SAML](set-up-saml.md)：在 n8n 中设置 SAML 的通用指南，以及常用 IdP 的参考资源链接。
+* [设置 Okta Workforce Identity SAML](set-up-okta-workforce-identity-saml.md)：逐步配置 Okta 的指南。
+* [设置 Azure AD SAML](set-up-azure-ad-saml.md)：逐步配置 Azure AD 的指南。
+* [故障排查](troubleshoot-saml.md)：遇到问题时需要检查的事项。
+* [启用 SAML 时管理用户](manage-users-with-saml.md)：启用 SAML 后执行用户管理任务。
 
-* [Verify user identity](../)
-* [Require two-factor auth](../require-two-factor-auth.md)
-* [Connect LDAP](../connect-ldap.md)
-* [Use OIDC](../use-oidc/README.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [验证用户身份](../)
+* [要求双因素身份验证](../require-two-factor-auth.md)
+* [连接 LDAP](../connect-ldap.md)
+* [使用 OIDC](../use-oidc/README.md)
 
