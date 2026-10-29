@@ -599,5 +599,44 @@
     ],
     "scope": "仅明确此页简介的操作对象，不更改操作列表、Record ID、公式、参数、链接、代码或源快照，不推断其他版本的 Airtable 节点能力，不执行任何 Airtable 操作。",
     "source_sha256": "0f8ceb9c17277ba02a0baff968b22dc4798e3e97763ed3b9ad6d61e87dc8c6d9"
+  },
+  {
+    "id": "google-calendar-update-calendar-context",
+    "original_sentence": "* **Calendar**: Choose a calendar you want to add an event to. Select **From list** to choose the title from the dropdown list or **By ID** to enter a calendar ID.",
+    "translated_sentence": "* **Calendar**（日历）：选择要更新事件的日历。选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By ID**（按 ID）可输入日历 ID。",
+    "evidence": "同页 Update 章节明确用于更新已有事件，并要求填写 Event ID；但 Calendar 字段沿用了 Create 章节的 add an event。该页引用的 Google Events: update API 也明确使用 calendarId 与 eventId 更新已有事件。据此，仅在 Update 章节将日历用途明确为选择要更新事件的日历。",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/event-operations.md",
+    "source_sha256": "5b577792a07a9bda6b786defd126d15c3562ca45e19a79a7c4cab27d4f261327",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/event-operations.md",
+      "https://developers.google.com/workspace/calendar/api/v3/reference/events/update"
+    ],
+    "scope": "仅修正 Update 章节沿用的创建语境，不更改 Create 等其他操作、日历或事件 ID、参数名称、表达式、链接及源快照，不推断通知选项或默认值，不执行日历操作。"
+  },
+  {
+    "id": "google-calendar-update-notification-context",
+    "original_sentence": "  * **Send Updates**: Whether to send notifications about the creation of the new event.",
+    "translated_sentence": "  * **Send Updates**（发送更新）：是否发送有关事件更新的通知。",
+    "evidence": "同页 Update 章节的 Update Fields 将 Send Updates 错写成通知新事件创建，沿用了 Create 说明。该页引用的 Google Events: update API 将 sendUpdates 定义为决定哪些来宾接收事件更新通知，例如标题变化。因此只将 Update 章节的通知对象修正为事件更新；Create 章节仍描述创建通知。",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/event-operations.md",
+    "source_sha256": "5b577792a07a9bda6b786defd126d15c3562ca45e19a79a7c4cab27d4f261327",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/event-operations.md",
+      "https://developers.google.com/workspace/calendar/api/v3/reference/events/update"
+    ],
+    "scope": "仅修正 Update 章节沿用的创建语境，不更改 Create 等其他操作、日历或事件 ID、参数名称、表达式、链接及源快照，不推断通知选项或默认值，不执行日历操作。"
+  },
+  {
+    "id": "notion-related-resource-trigger-not-app",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.notion/README.md",
+    "original_sentence": "n8n provides an app node for Notion. Refer to the [Notion Trigger node documentation](../../trigger-nodes/n8n-nodes-base.notiontrigger.md) for more information.",
+    "translated_sentence": "n8n 提供 Notion 触发器节点。更多信息，请参阅 [Notion Trigger 节点文档](../../trigger-nodes/n8n-nodes-base.notiontrigger.md)。",
+    "evidence": "该句位于应用节点页的 Related resources，链接文字与目标均为 Notion Trigger，而前句将其称为 app node。固定源快照中链接目标的 title、nodeTitle 和 description 也明确标为 Notion Trigger。译文据此将相关资源的类型明确为触发器节点，避免与本页应用节点混淆。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.notion/README.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/trigger-nodes/n8n-nodes-base.notiontrigger.md"
+    ],
+    "scope": "仅修正相关资源说明中的节点类型，不改变链接、操作、凭据、代码、原始元数据或源快照，不执行 Notion 操作。",
+    "source_sha256": "7cf52f6e2d57a862a558a4e10f445a9dbbded83b0a97311176e7dea9c828ba20"
   }
 ]

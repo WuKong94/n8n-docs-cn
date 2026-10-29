@@ -15093,5 +15093,89 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/README.md": {
+    "status": "translated",
+    "source_sha256": "0ba51ad5ac839099672abb4e835e1ce02cb50b1469b54a7d10204800d584fac4",
+    "translation_sha256": "eeb3c1d083855d0cf8d969dde195669da07deb87dbb7dfb8d5395e28a42fc5ce",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/calendar-operations.md": {
+    "status": "translated",
+    "source_sha256": "e21790f0f5d0ae2f10334c0a8f8ad4a062147ccd44fb2437603dad2bac975c1b",
+    "translation_sha256": "d7970c32b1394ccc46caf1a7230ae13237a6e1ccc6084a9554852d702f0404b4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlecalendar/event-operations.md": {
+    "status": "translated",
+    "source_sha256": "5b577792a07a9bda6b786defd126d15c3562ca45e19a79a7c4cab27d4f261327",
+    "translation_sha256": "c639c05677c13ddc70c70356b761fc1ab750343480f3b7f8f6758abf5b790e0d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "google-calendar-update-calendar-context",
+      "google-calendar-update-notification-context"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.discord/README.md": {
+    "status": "translated",
+    "source_sha256": "d603e045848be4edb6e79ae192f5d5ce5f771cf4f34374eaf79559e4a4a107f7",
+    "translation_sha256": "fe8bfd7db155d88ae72d2bdca4f323824df656ba11b0eacadab7a802214f9f76",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.discord/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "d79d68bfd8c4b533411c37ca1cc6ce226d15efc6787c045ab9c884177ecee37d",
+    "translation_sha256": "f0015e31a50d4a0d36f1d12a152ff598cbe21d153e5456c5728b4db29927e0f1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.notion/README.md": {
+    "status": "translated",
+    "source_sha256": "7cf52f6e2d57a862a558a4e10f445a9dbbded83b0a97311176e7dea9c828ba20",
+    "translation_sha256": "8f5723a98fa2ec3fba028de31a9385674feb31f359b208d9ea7bbe4aadc8391e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "notion-related-resource-trigger-not-app"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.notion/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "a5ef9a9f40ca935b2a62ce0deb5c5092304bd8258fcf6fc9722ca6d4dd2ce1e8",
+    "translation_sha256": "cc24e1e9706869e312e58b0085462ff36f9bbd7453ed42556bc4ee13121cf39e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
