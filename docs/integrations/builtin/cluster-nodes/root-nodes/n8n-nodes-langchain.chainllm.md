@@ -1,100 +1,98 @@
 ---
-title: Basic LLM Chain node documentation
-description: >-
-  Learn how to use the Basic LLM Chain node in n8n. Follow technical
-  documentation to integrate Basic LLM Chain node into your workflows.
+title: Basic LLM Chain（基础 LLM 链） 节点文档
+description: 了解如何在 n8n 中使用 Basic LLM Chain（基础 LLM 链） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Basic LLM Chain node documentation
+nodeTitle: Basic LLM Chain（基础 LLM 链） 节点文档
 originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Basic LLM Chain node <a href="#basic-llm-chain-node" id="basic-llm-chain-node"></a>
 
-Use the Basic LLM Chain node to set the prompt that the model will use along with setting an optional parser for the response.
+# Basic LLM Chain（基础 LLM 链） 节点 <a href="#basic-llm-chain-node" id="basic-llm-chain-node"></a>
 
-On this page, you'll find the node parameters for the Basic LLM Chain node and links to more resources.
+使用 Basic LLM Chain 节点，设置模型使用的提示词，也可为响应配置解析器。
+
+本页列出了 Basic LLM Chain 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Basic LLM Chain integrations](https://n8n.io/integrations/basic-llm-chain/) page.
+入门用法示例和模板，请参阅 n8n 的 [Basic LLM Chain 集成](https://n8n.io/integrations/basic-llm-chain/)页面。
 {% endhint %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Prompt <a href="#prompt" id="prompt"></a>
+### Prompt（提示词） <a href="#prompt" id="prompt"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Ss9Y6clfLTwlXMx69w6E/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/prompt.md" %}
 
-### Require Specific Output Format <a href="#require-specific-output-format" id="require-specific-output-format"></a>
+### Require Specific Output Format（要求指定输出格式） <a href="#require-specific-output-format" id="require-specific-output-format"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/IsHMhvgDA3Ok5qdqnHnJ/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/output-format.md" %}
 
-## Chat Messages <a href="#chat-messages" id="chat-messages"></a>
+## Chat Messages（聊天消息） <a href="#chat-messages" id="chat-messages"></a>
 
-Use **Chat Messages** when you're using a chat model to set a message.
+使用聊天模型时，可通过 **Chat Messages**（聊天消息）设置消息。
 
-n8n ignores these options if you don't connect a chat model. Select the **Type Name or ID** you want the node to use:
+如果未连接聊天模型，n8n 会忽略这些选项。选择节点使用的 **Type Name or ID**（类型名称或 ID）：
 
 #### AI <a href="#ai" id="ai"></a>
 
-Enter a sample expected response in the **Message** field. The model will try to respond in the same way in its messages.
+在 **Message**（消息）字段中输入预期响应的示例。模型将尝试以同样的方式回复消息。
 
-#### System <a href="#system" id="system"></a>
+#### System（系统） <a href="#system" id="system"></a>
 
-Enter a system **Message** to include with the user input to help guide the model in what it should do.
+输入随用户输入一同发送的系统 **Message**（消息），为模型应该执行的操作提供指引。
 
-Use this option for things like defining tone, for example: `Always respond talking like a pirate`.
+可使用此选项定义语气等，例如：`Always respond talking like a pirate`。
 
-#### User <a href="#user" id="user"></a>
+#### User（用户） <a href="#user" id="user"></a>
 
-Enter a sample user input. Using this with the AI option can help improve the output of the agent. Using both together provides a sample of an input and expected response (the **AI Message**) for the model to follow.
+输入用户输入示例。与 AI 选项配合使用，有助于改善智能体的输出。两者共同为模型提供可遵循的输入及预期响应（**AI Message**）示例。
 
-Select one of these input types:
+选择以下一种输入类型：
 
-* **Text**: Enter a sample user input as a text **Message**.
-* **Image (Binary)**: Select a binary input from a previous node. Enter the **Image Data Field Name** to identify which binary field from the previous node contains the image data.
-* **Image (URL)**: Use this option to feed an image in from a URL. Enter the **Image URL**.
+* **Text**（文本）：以文本 **Message**（消息）的形式输入用户输入示例。
+* **Image (Binary)**（图像，二进制）：选择前一个节点的二进制输入。输入 **Image Data Field Name**（图像数据字段名称），指定前一个节点中包含图像数据的二进制字段。
+* **Image (URL)**（图像，URL）：通过 URL 输入图像，填写 **Image URL**（图像 URL）。
 
-For both the **Image** types, select the **Image Details** to control how the model processes the image and generates its textual understanding. Choose from:
+对于这两种 **Image**（图像）类型，可选择 **Image Details**（图像细节）以控制模型如何处理图像并生成对图像的文字理解。可选：
 
-* **Auto**: The model uses the auto setting, which looks at the image input size and decide if it should use the Low or High setting.
-* **Low**: The model receives a low-resolution 512px x 512px version of the image and represents the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens. Use this option for use cases that don't require high detail.
-* **High**: The model can access the low-resolution image and then creates detailed crops of input images as 512px squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens. Use this option for use cases that require high detail.
+* **Auto**（自动）：模型使用自动设置，根据输入图像的大小决定采用 Low 还是 High 设置。
+* **Low**（低）：模型接收图像的 512px × 512px 低分辨率版本，并使用 65 个 token 的预算表示图像。这样 API 可更快返回响应，消耗更少的输入 token。适用于无需高细节的场景。
+* **High**（高）：模型可以访问低分辨率图像，然后根据输入图像大小创建 512px 正方形的细节裁剪图。每个细节裁剪图使用两倍的 token 预算（65 个 token），总计 129 个 token。适用于需要高细节的场景。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse Basic LLM Chain node documentation integration templates](https://n8n.io/integrations/basic-llm-chain) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-Refer to [LangChain's models documentation](https://docs.langchain.com/oss/javascript/langchain/models) for more information about the service.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+[浏览 Basic LLM Chain（基础 LLM 链） 集成模板](https://n8n.io/integrations/basic-llm-chain)，或[搜索所有模板](https://n8n.io/workflows/)
 
-Here are some common errors and issues with the Basic LLM Chain node and steps to resolve or troubleshoot them.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-### No prompt specified error <a href="#no-prompt-specified-error" id="no-prompt-specified-error"></a>
+该服务的更多信息，请参阅 [LangChain 模型文档](https://docs.langchain.com/oss/javascript/langchain/models)。
 
-This error displays when the **Prompt** is empty or invalid.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-You might see this error in one of two scenarios:
 
-1. When you've set the **Prompt** to **Define below** and haven't entered anything in the **Text** field.
-    * To resolve, enter a valid prompt in the **Text** field.
-2. When you've set the **Prompt** to **Connected Chat Trigger Node** and the incoming data has no field called `chatInput`. 
-    * The node expects the `chatInput` field. If your previous node doesn't have this field, add an [Edit Fields (Set)](../../core-nodes/n8n-nodes-base.set.md) node to edit an incoming field name to `chatInput`.
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+以下列出 Basic LLM Chain 节点的常见错误和问题，以及解决或排查步骤。
+
+### 未指定提示词错误 <a href="#no-prompt-specified-error" id="no-prompt-specified-error"></a>
+
+**Prompt**（提示词）为空或无效时，会显示此错误。
+
+以下两种情况之一可能导致此错误：
+
+1. **Prompt**（提示词）设为 **Define below**（在下方定义），但未在 **Text**（文本）字段中输入内容。
+    * 解决方法是在 **Text**（文本）字段中输入有效提示词。
+2. **Prompt**（提示词）设为 **Connected Chat Trigger Node**（已连接的聊天触发器节点），但传入数据中没有名为 `chatInput` 的字段。
+    * 节点需要 `chatInput` 字段。如果前一个节点没有此字段，请添加 [Edit Fields (Set)](../../core-nodes/n8n-nodes-base.set.md) 节点，将传入字段名称改为 `chatInput`。

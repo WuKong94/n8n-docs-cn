@@ -1,55 +1,54 @@
 ---
-description: >-
-  Move workflows from the n8n-nodes-databricks community package to the
-  built-in Databricks nodes: node mapping, field differences, and behavior
-  changes.
+description: 将工作流从 n8n-nodes-databricks 社区包迁移到内置 Databricks 节点：节点映射、字段差异及行为变化。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Migrate from the n8n-nodes-databricks community package
 
-The built-in Databricks nodes replace the [n8n-nodes-databricks](https://www.npmjs.com/package/n8n-nodes-databricks) community package. This page maps each community node to its built-in counterpart, lists the fields that moved, and describes the behavior changes to expect.
+# 从 n8n-nodes-databricks 社区包迁移 <a id="migrate-from-the-n8n-nodes-databricks-community-package"></a>
 
-Community nodes and built-in nodes have different node types, so you can't convert a node in place. For each community node in a workflow: add the built-in node, copy the settings over, reconnect it, and delete the community node.
+内置 Databricks 节点替代 [n8n-nodes-databricks](https://www.npmjs.com/package/n8n-nodes-databricks) 社区包。本页列出各社区节点对应的内置节点、发生变化的字段，以及迁移后的行为变化。
 
-The built-in AI nodes need a [Databricks OAuth2 credential](../../../credentials/databricks.md#supported-authentication-methods) with a service principal or user login. The community package's host and personal access token credential has no built-in equivalent for the AI nodes; only the built-in [Databricks](../../../app-nodes/n8n-nodes-base.databricks.md) and [Databricks Trigger](../../../trigger-nodes/n8n-nodes-base.databrickstrigger.md) nodes accept a personal access token.
+社区节点和内置节点的节点类型不同，因此不能原地转换。对于工作流中的每个社区节点：添加内置节点、复制设置、重新连接，然后删除社区节点。
 
-## Node mapping
+内置 AI 节点需要通过服务主体或用户登录配置的 [Databricks OAuth2 凭据](../../../credentials/databricks.md#supported-authentication-methods)。社区包使用的主机和个人访问 token 凭据，在内置 AI 节点中没有对应选项；只有内置 [Databricks](../../../app-nodes/n8n-nodes-base.databricks.md) 和 [Databricks Trigger](../../../trigger-nodes/n8n-nodes-base.databrickstrigger.md) 节点接受个人访问 token。
 
-| Community node | Built-in node | What changed |
+## 节点映射 <a id="node-mapping"></a>
+
+| 社区节点 | 内置节点 | 变化 |
 |----------------|---------------|--------------|
-| Databricks | [Databricks](../../../app-nodes/n8n-nodes-base.databricks.md) | Same resources. The built-in node adds Job operations and a [Databricks Trigger](../../../trigger-nodes/n8n-nodes-base.databrickstrigger.md) node. |
-| Databricks Chat Model | [Databricks Chat Model](../../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md) | **Model** selects a Unity AI Gateway model service, `catalog.schema.service`, instead of a serving endpoint. The **Conversation ID** and **Return Trace** options don't exist. |
-| Embeddings Databricks | [Embeddings Databricks](../../sub-nodes/n8n-nodes-langchain.embeddingsdatabricks.md) | **Serving Endpoint** becomes **Model**, a list of the embeddings-capable model services. |
-| Databricks Vector Store | [Databricks Vector Store](README.md) | **Index Name** becomes **Index**, a list or the full `catalog.schema.index` name. **Text Column** becomes **Content Column**, picked from the index's columns. **Metadata Columns** is a multi-select instead of a comma-separated list. **Score Threshold** is gone; use **Limit**. New: **Search Mode** and **Metadata Filter**. |
-| Databricks AI Agent | [Databricks AI Agent](../n8n-nodes-langchain.databricksaiagent.md) | **Enable MLflow Tracking** becomes **Export Traces to MLflow**. The default experiment path `/Shared/n8n-workflows-<workflow-id>` stays the same, and the new **Experiment** field lets you pick an existing experiment. The credential on the agent is only needed for the export. |
+| Databricks | [Databricks](../../../app-nodes/n8n-nodes-base.databricks.md) | 提供相同资源。内置节点新增 Job 操作和 [Databricks Trigger](../../../trigger-nodes/n8n-nodes-base.databrickstrigger.md) 节点。 |
+| Databricks Chat Model | [Databricks Chat Model](../../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md) | **Model**（模型）选择 Unity AI Gateway 模型服务 `catalog.schema.service`，而非服务端点。不提供 **Conversation ID**（对话 ID）和 **Return Trace**（返回追踪）选项。 |
+| Embeddings Databricks | [Embeddings Databricks](../../sub-nodes/n8n-nodes-langchain.embeddingsdatabricks.md) | **Serving Endpoint**（服务端点）改为 **Model**（模型），列出支持嵌入的模型服务。 |
+| Databricks Vector Store | [Databricks Vector Store](README.md) | **Index Name**（索引名称）改为 **Index**（索引），可从列表选择或输入完整的 `catalog.schema.index` 名称。**Text Column**（文本列）改为 **Content Column**（内容列），从索引列中选择。**Metadata Columns**（元数据列）改为多选，而非逗号分隔列表。不再提供 **Score Threshold**（分数阈值），请使用 **Limit**（上限）。新增 **Search Mode**（搜索模式）和 **Metadata Filter**（元数据过滤器）。 |
+| Databricks AI Agent | [Databricks AI Agent](../n8n-nodes-langchain.databricksaiagent.md) | **Enable MLflow Tracking**（启用 MLflow 跟踪）改为 **Export Traces to MLflow**（将追踪导出到 MLflow）。默认实验路径 `/Shared/n8n-workflows-<workflow-id>` 不变，新增 **Experiment**（实验）字段可选择现有实验。智能体上的凭据仅在导出时需要。 |
 
-## Field differences on the Vector Store node
+## Vector Store 节点的字段差异 <a id="field-differences-on-the-vector-store-node"></a>
 
-| Community field | Built-in field | Notes |
+| 社区字段 | 内置字段 | 说明 |
 |-----------------|----------------|-------|
-| **Index Name** (text) | **Index** | Pick **From List**, or enter the full name in **Name**. In **Insert Documents** mode the list shows Direct Access indexes only. |
-| **Text Column** (default `text`) | **Content Column** | Picked from the index's columns. Leave it empty on a managed index to use the embedding source column. |
-| **Metadata Columns** (comma-separated text) | **Metadata Columns** option | A multi-select. Empty returns every column except the primary key, the content column, and the vector column. |
-| **Score Threshold** (default `0.8`) | None | Use **Limit**. Refer to [No score threshold](README.md#no-score-threshold) for why. |
-| None | **Search Mode** option | **Vector** or **Hybrid**. |
-| None | **Metadata Filter** option | A JSON filter sent as `filters_json`. |
+| **Index Name**（索引名称，文本） | **Index**（索引） | 选择 **From List**（从列表选择），或在 **Name**（名称）中输入完整名称。**Insert Documents**（插入文档）模式下，列表仅显示 Direct Access 索引。 |
+| **Text Column**（文本列，默认 `text`） | **Content Column**（内容列） | 从索引列中选择。托管索引可留空，以使用嵌入源列。 |
+| **Metadata Columns**（元数据列，逗号分隔文本） | **Metadata Columns**（元数据列）选项 | 改为多选。留空时，返回除主键、内容列和向量列以外的全部列。 |
+| **Score Threshold**（分数阈值，默认 `0.8`） | 无 | 使用 **Limit**（上限）。原因请参阅[无分数阈值](README.md#no-score-threshold)。 |
+| 无 | **Search Mode**（搜索模式）选项 | **Vector**（向量）或 **Hybrid**（混合）。 |
+| 无 | **Metadata Filter**（元数据过滤器）选项 | 以 `filters_json` 发送的 JSON 过滤器。 |
 
-## Behavior changes to expect
+## 迁移后的行为变化 <a id="behavior-changes-to-expect"></a>
 
-- **Searches on managed indexes work.** The community node always sent `query_vector`, so every search on a Delta Sync index with Databricks-computed embeddings failed. The built-in node sends `query_text` or `query_vector` as the index requires. Refer to [Index types and embeddings](README.md#index-types-and-embeddings).
-- **No results dropped by a threshold.** The community node's **Score Threshold** defaulted to `0.8`, which discarded every result on indexes whose similarity scores sit far below that. The built-in node returns the top **Limit** results.
-- **Hybrid search and metadata filters** are available in all search modes, including when an agent uses the index as a tool.
-- **Inserts are checked before the request.** A Delta Sync index or a wrong **Content Column** fails with a message that names the problem instead of a raw API error.
-- **The agent doesn't drift.** The built-in Databricks AI Agent runs the AI Agent node's own code instead of a fork, so it has the same options and gets the same fixes.
-- **Traces keep landing in the same experiment** when you replace the agent node inside an existing workflow, because the default experiment path contains the workflow ID.
+- **支持搜索托管索引。** 社区节点始终发送 `query_vector`，因此对由 Databricks 计算嵌入的 Delta Sync 索引执行的搜索全部失败。内置节点根据索引要求发送 `query_text` 或 `query_vector`。请参阅[索引类型与嵌入](README.md#index-types-and-embeddings)。
+- **不会因阈值丢弃结果。** 社区节点的 **Score Threshold**（分数阈值）默认为 `0.8`，会丢弃相似度分数远低于该值的索引中的全部结果。内置节点返回前 **Limit**（上限）条结果。
+- **混合搜索和元数据过滤器**适用于所有搜索模式，包括智能体将索引用作工具的场景。
+- **在请求前检查插入操作。** 如果指定 Delta Sync 索引或错误的 **Content Column**（内容列），节点会失败，并明确指出问题，而非返回原始 API 错误。
+- **智能体实现保持一致。** 内置 Databricks AI Agent 运行 AI Agent 节点自身的代码，而非分叉版本，因此具有相同选项，并获得相同修复。
+- 在现有工作流中替换智能体节点时，**追踪仍写入同一实验**，因为默认实验路径包含工作流 ID。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
 - [Databricks Vector Store](README.md)
 - [Embeddings Databricks](../../sub-nodes/n8n-nodes-langchain.embeddingsdatabricks.md)
 - [Databricks AI Agent](../n8n-nodes-langchain.databricksaiagent.md)
 - [Databricks Chat Model](../../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md)
-- [Databricks credentials](../../../credentials/databricks.md)
+- [Databricks 凭据](../../../credentials/databricks.md)

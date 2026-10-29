@@ -1,19 +1,14 @@
 ---
-title: Simple Vector Store node documentation
+title: Simple Vector Store（简单向量存储） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Simple Vector Store node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemory.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemory
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemory
-description: >-
-  Learn how to use the Simple Vector Store node in n8n. Follow technical
-  documentation to integrate Simple Vector Store node into your workflows.
+nodeTitle: Simple Vector Store（简单向量存储） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemory.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemory
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemory
+description: 了解如何在 n8n 中使用 Simple Vector Store（简单向量存储） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -33,127 +28,130 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Simple Vector Store
 
-Use the Simple Vector Store node to store and retrieve embeddings[^1] in n8n's in-app memory.
+# Simple Vector Store（简单向量存储） <a id="simple-vector-store"></a>
 
-On this page, you'll find the node parameters for the Simple Vector Store node, and links to more resources.
+使用 Simple Vector Store 节点，在 n8n 应用内存中存储和检索嵌入向量[^1]。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+本页列出了 Simple Vector Store 节点的参数，并提供更多资源的链接。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
 {% hint style="info" %}
-**This node is different from AI memory nodes**
+**此节点与 AI 记忆节点不同**
 
-The simple vector storage described here is different to the AI memory nodes such as [Simple Memory](../sub-nodes/n8n-nodes-langchain.memorybufferwindow/README.md).
+此处描述的简单向量存储与 [Simple Memory](../sub-nodes/n8n-nodes-langchain.memorybufferwindow/README.md) 等 AI 记忆节点不同。
 
-This node creates a [vector database](#user-content-fn-2)[^2] in the app memory.
+此节点在应用内存中创建[向量数据库](#user-content-fn-2)[^2]。
 {% endhint %}
 
-## Data safety limitations <a href="#data-safety-limitations" id="data-safety-limitations"></a>
+## 数据安全限制 <a href="#data-safety-limitations" id="data-safety-limitations"></a>
 
-Before using the Simple Vector Store node, it's important to understand its limitations and how it works.
+使用 Simple Vector Store 节点前，需要了解其限制及工作方式。
 
 {% hint style="warning" %}
-n8n recommends using Simple Vector store for development use only.
+n8n 建议仅在开发时使用 Simple Vector Store。
 {% endhint %}
 
-### Vector store data isn't persistent <a href="#vector-store-data-isnt-persistent" id="vector-store-data-isnt-persistent"></a>
+### 向量存储数据不会持久保存 <a href="#vector-store-data-isnt-persistent" id="vector-store-data-isnt-persistent"></a>
 
-This node stores data in memory only. All data is lost when n8n restarts and may also be purged in low-memory conditions.
+此节点仅将数据存储在内存中。n8n 重启时所有数据都会丢失，内存不足时数据也可能被清除。
 
-### All instance users can access vector store data <a href="#all-instance-users-can-access-vector-store-data" id="all-instance-users-can-access-vector-store-data"></a>
+### 所有实例用户都能访问向量存储数据 <a href="#all-instance-users-can-access-vector-store-data" id="all-instance-users-can-access-vector-store-data"></a>
 
-Memory keys for the Simple Vector Store node are global, not scoped to individual workflows.
+Simple Vector Store 节点的记忆键是全局的，不限定于单个工作流。
 
-This means that all users of the instance can access vector store data by adding a Simple Vector Store node and selecting the memory key, regardless of the access controls set for the original workflow. Take care not to expose sensitive information when ingesting data with the Simple Vector Store node.
+这意味着，无论原工作流设置了何种访问控制，实例的所有用户都可通过添加 Simple Vector Store 节点并选择记忆键，访问向量存储数据。使用 Simple Vector Store 节点导入数据时，请注意避免暴露敏感信息。
 
-## Node usage patterns <a href="#node-usage-patterns" id="node-usage-patterns"></a>
+## 节点使用模式 <a href="#node-usage-patterns" id="node-usage-patterns"></a>
 
-You can use the Simple Vector Store node in the following patterns.
+可按以下方式使用 Simple Vector Store 节点。
 
-### Use as a regular node to insert and retrieve documents <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
+### 作为普通节点插入和检索文档 <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
 
-You can use the Simple Vector Store as a regular node to insert or get documents. This pattern places the Simple Vector Store in the regular connection flow without using an agent.
+可将 Simple Vector Store 用作普通节点，插入或获取文档。此模式将 Simple Vector Store 放在常规连接流程中，无需使用智能体。
 
-You can see an example of in step 2 of [this template](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/).
+示例请参阅[此模板](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/)的步骤 2。
 
-### Connect directly to an AI agent as a tool <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
+### 作为工具直接连接到 AI 智能体 <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
 
-You can connect the Simple Vector Store node directly to the tool[^3] connector of an [AI agent](n8n-nodes-langchain.agent/README.md) to use a vector store as a resource when answering queries.
+可将 Simple Vector Store 节点直接连接到 [AI 智能体](n8n-nodes-langchain.agent/README.md)的工具[^3]连接器，让智能体在回答查询时将向量存储用作资源。
 
-Here, the connection would be: AI agent (tools connector) -> Simple Vector Store node.
+此时连接方式为：AI Agent（工具连接器）→ Simple Vector Store 节点。
 
-### Use a retriever to fetch documents <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
+### 使用检索器获取文档 <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
 
-You can use the [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) node with the Simple Vector Store node to fetch documents from the Simple Vector Store node. This is often used with the [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) node to fetch documents from the vector store that match the given chat input.
+可将 [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) 节点与 Simple Vector Store 节点配合使用，从 Simple Vector Store 节点获取文档。这通常与 [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) 节点配合，从向量存储获取与给定聊天输入匹配的文档。
 
-An [example of the connection flow](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/) (the linked example uses Pinecone, but the pattern is the same) would be: Question and Answer Chain (Retriever connector) -> Vector Store Retriever (Vector Store connector) -> Simple Vector Store.
+[连接流程示例](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/)如下（链接示例使用 Pinecone，但模式相同）：Question and Answer Chain（Retriever 连接器）→ Vector Store Retriever（Vector Store 连接器）→ Simple Vector Store。
 
-### Use the Vector Store Question Answer Tool to answer questions <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
+### 使用 Vector Store Question Answer Tool 回答问题 <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
 
-Another pattern uses the [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md) to summarize results and answer questions from the Simple Vector Store node. Rather than connecting the Simple Vector Store directly as a tool, this pattern uses a tool specifically designed to summarizes data in the vector store.
+另一种模式使用 [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md)，汇总 Simple Vector Store 节点的结果并回答问题。此模式通过专门用于汇总向量存储数据的工具工作，无需将 Simple Vector Store 直接作为工具连接。
 
-The [connections flow](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/) in this case would look like this: AI agent (tools connector) -> Vector Store Question Answer Tool (Vector Store connector) -> Simple Vector store.
+此时的[连接流程](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/)为：AI Agent（工具连接器）→ Vector Store Question Answer Tool（Vector Store 连接器）→ Simple Vector Store。
 
-## Memory Management <a href="#memory-management" id="memory-management"></a>
+## 内存管理 <a href="#memory-management" id="memory-management"></a>
 
-The Simple Vector Store implements memory management to prevent excessive memory usage:
+Simple Vector Store 通过以下内存管理措施，防止内存使用过多：
 
-* Automatically cleans up old vector stores when memory pressure increases
-* Removes inactive stores that haven't been accessed for a configurable amount of time
+* 内存压力增加时，自动清理旧的向量存储
+* 移除在可配置的时长内未被访问的非活跃存储
 
-### Configuration Options <a href="#configuration-options" id="configuration-options"></a>
+### 配置选项 <a href="#configuration-options" id="configuration-options"></a>
 
-You can control memory usage with these environment variables:
+可通过以下环境变量控制内存用量：
 
-| Variable                      | Type   | Default | Description                                                                         |
+| 变量 | 类型 | 默认值 | 描述 |
 | ----------------------------- | ------ | ------- | ----------------------------------------------------------------------------------- |
-| `N8N_VECTOR_STORE_MAX_MEMORY` | Number | -1      | Maximum memory in MB allowed for all vector stores combined (-1 to disable limits). |
-| `N8N_VECTOR_STORE_TTL_HOURS`  | Number | -1      | Hours of inactivity after which a store gets removed (-1 to disable TTL).           |
+| `N8N_VECTOR_STORE_MAX_MEMORY` | 数值 | -1 | 所有向量存储合计可使用的最大内存，单位为 MB（-1 表示禁用限制）。 |
+| `N8N_VECTOR_STORE_TTL_HOURS` | 数值 | -1 | 存储未被访问达到多少小时后将被移除（-1 表示禁用 TTL）。 |
 
-On n8n Cloud, these values are preset to 100MB (about 8,000 documents, depending on document size and metadata) and 7 days respectively. For self-hosted instances, both values default to -1(no memory limits or time-based cleanup).
+在 n8n Cloud 中，这两个值分别预设为 100MB（约 8,000 个文档，取决于文档大小和元数据）及 7 天。自托管实例中，两者默认均为 -1（不限制内存，也不按时间清理）。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/eiIkcF23uZ2A8BkFVQM5/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-mode.md" %}
 
-### Rerank Results <a href="#rerank-results" id="rerank-results"></a>
+### Rerank Results（结果重排序） <a href="#rerank-results" id="rerank-results"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/KcxcfJWhy81cjCSzO4vQ/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-rerank-results.md" %}
 
-### Get Many parameters <a href="#get-many-parameters" id="get-many-parameters"></a>
+### Get Many（获取多条）参数 <a href="#get-many-parameters" id="get-many-parameters"></a>
 
-* **Memory Key**: Select or create the key containing the vector memory you want to query.
-* **Prompt**: Enter the search query.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `10` to get the ten best results.
+* **Memory Key**（记忆键）：选择或创建包含要查询的向量记忆的键。
+* **Prompt**（提示词）：输入搜索查询。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `10` 可获取最匹配的十条结果。
 
-### Insert Documents parameters <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
+### Insert Documents（插入文档）参数 <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
 
-* **Memory Key**: Select or create the key you want to store the vector memory as.
-* **Clear Store**: Use this parameter to control whether to wipe the vector store for the given memory key for this workflow before inserting data (turned on).
+* **Memory Key**（记忆键）：选择或创建用于存储向量记忆的键。
+* **Clear Store**（清空存储）：开启时，在插入数据之前，清除此工作流给定记忆键对应的向量存储。
 
-### Retrieve Documents (As Vector Store for Chain/Tool) parameters <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
+### Retrieve Documents（作为链或工具的向量存储）参数 <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
 
-* **Memory Key**: Select or create the key containing the vector memory you want to query.
+* **Memory Key**（记忆键）：选择或创建包含要查询的向量记忆的键。
 
-### Retrieve Documents (As Tool for AI Agent) parameters <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
+### Retrieve Documents（作为 AI 智能体的工具）参数 <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
 
-* **Name**: The name of the vector store.
-* **Description**: Explain to the LLM what this tool does. A good, specific description allows LLMs to produce expected results more often.
-* **Memory Key**: Select or create the key containing the vector memory you want to query.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `10` to get the ten best results.
+* **Name**（名称）：向量存储的名称。
+* **Description**（描述）：向 LLM 说明此工具的用途。清晰、具体的描述有助于 LLM 更经常地生成预期结果。
+* **Memory Key**（记忆键）：选择或创建包含要查询的向量记忆的键。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `10` 可获取最匹配的十条结果。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Simple Vector Store node documentation integration templates](https://n8n.io/integrations/in-memory-vector-store) or [search all templates](https://n8n.io/workflows/)
+[浏览 Simple Vector Store（简单向量存储） 集成模板](https://n8n.io/integrations/in-memory-vector-store)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Memory Vector Store documentation](https://docs.langchain.com/oss/javascript/integrations/vectorstores/memory) for more information about the service.
+该服务的更多信息，请参阅 [LangChain Memory Vector Store 文档](https://docs.langchain.com/oss/javascript/integrations/vectorstores/memory)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
-[^2]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
-[^3]: In an AI context, a tool is an add-on resource that the AI can refer to for specific information or functionality when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。
+<a id="user-content-fn-2"></a>
+[^2]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。
+[^3]: 在 AI 场景中，工具是附加资源，AI 可在响应请求时调用它获取特定信息或功能。AI 模型可以通过工具与外部系统交互，或完成具体、专门的任务。

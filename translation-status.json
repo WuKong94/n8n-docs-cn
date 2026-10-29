@@ -12943,5 +12943,376 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/README.md": {
+    "status": "translated",
+    "source_sha256": "c3d9931d4e7673fe0aacf8c27b53aa8e762ae9791068327d656b1f08e307c722",
+    "translation_sha256": "2bacb88304953a7b054029dee30910aa37124b08fa2a065ed09343a1b55f7a54",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "32511f218bba956a73304ee47d2f4dc26b419d7a927ea5c95511fcf059395e4d",
+    "translation_sha256": "9b86ce7e9a3fd6f3a41cd905aac3f1dfea0dfabd8d307f3ed8b60829d4cc0147",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/conversational-agent.md": {
+    "status": "translated",
+    "source_sha256": "35ae8aed00278b81e152f0561c956f6e0a4a1719e8cffbbf509332571f24eda7",
+    "translation_sha256": "bdafff89fa6fa7fe0cf1a0a9314a64098fddee42731d876bca116a5afbec046d",
+    "checks": [
+      "code-examples-identical-except-reviewed-prompt-translations",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "prose_fences": [
+      {
+        "index": 0,
+        "kind": "prompt",
+        "source_sha256": "53b32975653ad0f9b46eb175bc7c3ccb76cb6ce031c1f260a78b58fed518e9b2",
+        "translation_sha256": "ee28f2d3b960668ca2dab0f171721685e82d734dfb2c855a32eb349972154c7d"
+      }
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/openai-functions-agent.md": {
+    "status": "translated",
+    "source_sha256": "9f35f61f732f254f7456a32971b91309de8548ad9776cc6a73a71ee61ac62dc4",
+    "translation_sha256": "6132fd7657d5fb51d0d315c1d635953f4763b3473fd90d12bef6eeb2246094eb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/plan-execute-agent.md": {
+    "status": "translated",
+    "source_sha256": "cf16494a9619306665b817819668f6e6a9c861d48ff52263c952616ed87178d6",
+    "translation_sha256": "cc46f6875917d9bfd4f3bcf6f372069260f02c0d82e631fde5a0e3fe4c49e63e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/react-agent.md": {
+    "status": "translated",
+    "source_sha256": "5a5138ec78409ce1a788423bd8dad3c72015a8e340c6f68b6ffb55d5a0d5aaf1",
+    "translation_sha256": "637665d878ba2c5f10cb41b417c4b856e6e59bdc04530fac525a5536e1437cb0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/sql-agent.md": {
+    "status": "translated",
+    "source_sha256": "e67497a8c2baa31d095e0d70f1af08e3542ff273c216d7a658c507d46951e511",
+    "translation_sha256": "635d80da2ec14c7901aa3573d4f19eb8e342978332d44296a9875b6a74a5539f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md": {
+    "status": "translated",
+    "source_sha256": "d5990d381046ef2552b23d2fdc16521d381d0da7a9ea68d85c6c13096216024c",
+    "translation_sha256": "a22f03db14fa135ef8f1f7ccd53ecde021962c649e880ad74b7a8edc468c4e38",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainllm.md": {
+    "status": "translated",
+    "source_sha256": "16015c8ef94fa3fc46764f3499476daec1a312460ac52251776ba46e5ec0ba2f",
+    "translation_sha256": "fbc7ce8e99274bf878092f8e0dc1693edb7b94d6c6b91bcd7b5f529a53ee33e6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa/README.md": {
+    "status": "translated",
+    "source_sha256": "f8dcd6362329ced08379031fa3e0348bb07c80044230576223e4f8bc47184a58",
+    "translation_sha256": "15de1d9aa38dc5007df6f39d088e135490f5b0eb1fa2a6e7c3c128cde15d0b4d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "43da8b61978f5dc96484fd58bc811e0a02f2317f6fdbe3491aadaee5b8e9f0f1",
+    "translation_sha256": "14c680b63aa9cf89ada656aeb210275507bc4458579ba8b4bf31e45ec755dd35",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainsummarization.md": {
+    "status": "translated",
+    "source_sha256": "c4f842535bad945f4860ca8d08b4501d9481afcabec6c1ebba76ed12a11be959",
+    "translation_sha256": "100528996c2baa5a623a5244154a5a8580d2c5708a359726d454103ca24339a5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.code.md": {
+    "status": "translated",
+    "source_sha256": "d31b828b7fe1fd82ef7a70e6f1d5c6482c98a7d93d9d5ae3c860c01040010eae",
+    "translation_sha256": "ad8d12c25b3da6c4b6d01326bce51e1463a64374aca50b62937bac4276f583fe",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.information-extractor.md": {
+    "status": "translated",
+    "source_sha256": "a7071c261d91faef563ef3fb6d942407b4be9a7e27711e771539ecf3d5c20387",
+    "translation_sha256": "7763496d5d73062eefb98825fad70774f2fecf6f3e6c51a30ad776502086f022",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.sentimentanalysis.md": {
+    "status": "translated",
+    "source_sha256": "8485ac0918989fd545512b0ec8b1c65b9b83fdbb839c0a021a8949dfece99816",
+    "translation_sha256": "c51fa675f1bdf34e3171e071a48e88cd4c203dbc00595280ddf009014194df8f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier.md": {
+    "status": "translated",
+    "source_sha256": "0083b2251c16ee4184cca6484fd7e1706670b52b7b6519739ef9e63825bdfdb7",
+    "translation_sha256": "d57f068752b7c1f37fd4dcfcb2b8319f189e547873a106e1c98523aaef93c0bb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.databricksaiagent.md": {
+    "status": "translated",
+    "source_sha256": "9378a236cd74e6d581a30c693067fa578234242d607b021ade31dcbbdadd76fa",
+    "translation_sha256": "90cca4ecee562e6337a6ba4259068212887a9f86bee6e7dd6c59800b92331d06",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.microsoftagent365trigger.md": {
+    "status": "translated",
+    "source_sha256": "f3985903e337286e36701878121edadf119156db71c82ee5b9d1a613749761c0",
+    "translation_sha256": "a54bcbbe533f417c3c39fc8b918e7c888dc27b11064259bb5eb881c727de845a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma.md": {
+    "status": "translated",
+    "source_sha256": "18c2d42c48a83f097b0d22175c6c61cdac1bee695e6efed50a5ba0701daf41c0",
+    "translation_sha256": "58674b762ec0336d2e661fc8a1377fba2801341aa493e0fdf885388801a57f8a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremilvus.md": {
+    "status": "translated",
+    "source_sha256": "f319dedb53eeb66409d02459f3d0fa3fcf9de468285e9892064fcb220a18cf0f",
+    "translation_sha256": "323d11bbba5b4726094723d4e967a2e454e27c63abee147e099f0bfccb8ffdb2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorepgvector.md": {
+    "status": "translated",
+    "source_sha256": "6a1add91c6f4300af5f485d19208003de88aa6a67e39a76b8d8cbb79d7a5867f",
+    "translation_sha256": "1c350fa7e55df89ec8275131cd03cb6159d1f5f1e7d470f0e10ea5d3d3d49489",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreinmemory.md": {
+    "status": "translated",
+    "source_sha256": "e3da49f54248eebd69ebd704ce8959c7d1fc773b48ac3ee0b8b7c81f490477e1",
+    "translation_sha256": "5a81d16954f2e6ccc9c80f773b90a336deb194e7f5a624ff54bae4144692e58e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas.md": {
+    "status": "translated",
+    "source_sha256": "4cdd643ff0afa981c8682b262bb6fb4a9b7d65304ba801cb7e0f4efc2f348098",
+    "translation_sha256": "07c6ac299d564ad27067ba7009e8636445d55a0088eea2a27743069075841f2d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreoracledb.md": {
+    "status": "translated",
+    "source_sha256": "ce0ac9163689693c9ee1c00fc50756e8cb415107530e53495e345f70733357ba",
+    "translation_sha256": "a777fe63665e74f220b7cd4acb3de925a5854a446d6553323007b7cc15408886",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorepinecone.md": {
+    "status": "translated",
+    "source_sha256": "93eb812a80caf94ffdc200eac573fdd17ffd0240c5053be11b056db27633fd63",
+    "translation_sha256": "14dde816c9e28e878e1ac47212b043078d8c78bad0fa1f574e072c881d8599cc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreqdrant.md": {
+    "status": "translated",
+    "source_sha256": "70c439a12f54c57e5d6fcf101e52013b87847af25b0e7dac495a3201ac2c9c1b",
+    "translation_sha256": "1495bd99aac0558e759bab4ca6b29cf0977cfab209decd2877f90b15fd9db8a3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoresupabase.md": {
+    "status": "translated",
+    "source_sha256": "c3cab0e82381f2e29b4fe234277e4dd696c015b8bc09d6ec2f70d0c57939b08c",
+    "translation_sha256": "b65251d8c7df02875c4fac1591948930bdb2948433190ee0783ac751c5499b81",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorezep.md": {
+    "status": "translated",
+    "source_sha256": "531dc21918b29bba0c8090bcefe6727ec02f479ee0c5d9a53c28922f2510f0ea",
+    "translation_sha256": "71cbdc6e7948d2e98f16bb90723e9e55632c4ac4da24a53da38ea15b36bb5c58",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreredis.md": {
+    "status": "translated",
+    "source_sha256": "c3b8c3988bf327008c4243ab1a9b9436ea574e746158e12ce9f8f554d54c8e94",
+    "translation_sha256": "6f7977fddeea2d9ff95fe00b7b667963608d7811edc94324488e11618b100d0b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate.md": {
+    "status": "translated",
+    "source_sha256": "30c47863c8518e0b3ae509d34f55e241dae6f70bff0ec030ee218f9545f25d3c",
+    "translation_sha256": "bb1df11caa11756af86bd99e36ae40179af3ae5223c4c76d165152d72c93f31c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch.md": {
+    "status": "translated",
+    "source_sha256": "626b1bfdb6b41f6872ae05b10bcaf8171e29be4a2244cb736008b901c047865b",
+    "translation_sha256": "c6b548bcd70eecdb50d52a768d6dee9f6b02c1faca086ae09720d5085b9ff55e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md": {
+    "status": "translated",
+    "source_sha256": "fad9c0625651fb46fec6fa1de8c202ffcfb5ba83e51311b3736a250a73ace45d",
+    "translation_sha256": "6624ad87312a1a8b6eecb5ebe76ace4ca6ed903ccf43b736ce8f852e8faed069",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoredatabricks/migrate-from-the-community-package.md": {
+    "status": "translated",
+    "source_sha256": "fbe2bd959dc30e628b05e5c34bec93189ff8489d29d93a85e8cd478d57aad11f",
+    "translation_sha256": "3f7d35f48a44000bb34a9b56c497bacd6726effddaf24238ee666a944d4f9089",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

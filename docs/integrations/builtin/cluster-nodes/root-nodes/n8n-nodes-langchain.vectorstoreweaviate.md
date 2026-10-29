@@ -1,19 +1,14 @@
 ---
-title: Weaviate Vector Store node documentation
+title: Weaviate Vector Store（Weaviate 向量存储） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Weaviate Vector Store node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate
-description: >-
-  Learn how to use the Weaviate Vector Store node in n8n. Follow technical
-  documentation to integrate Weaviate Vector Store node into your workflows.
+nodeTitle: Weaviate Vector Store（Weaviate 向量存储） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreweaviate
+description: 了解如何在 n8n 中使用 Weaviate Vector Store（Weaviate 向量存储） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -33,92 +28,94 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Weaviate Vector Store
 
-Use the Weaviate node to interact with your Weaviate collection as a [vector store](#user-content-fn-1)[^1]. You can insert documents into or retrieve documents from a vector database. You can also retrieve documents to provide them to a retriever connected to a chain[^2] or connect this node directly to an agent[^3] to use as a tool[^4]. On this page, you'll find the node parameters for the Weaviate node, and links to more resources.
+# Weaviate Vector Store（Weaviate 向量存储） <a id="weaviate-vector-store"></a>
 
-{% hint style="info" %}
-**Credentials**
-
-Refer to the [Weaviate credentials documentation](../../credentials/weaviate.md) for authentication information for this node.
-{% endhint %}
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node usage patterns <a href="#node-usage-patterns" id="node-usage-patterns"></a>
-
-You can use the Weaviate Vector Store node in the following patterns.
-
-### Use as a regular node to insert and retrieve documents <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
-
-You can use the Weaviate Vector Store as a regular node to insert or get documents. This pattern places the Weaviate Vector Store in the regular connection flow without using an agent.
-
-### Connect directly to an AI agent as a tool <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
-
-You can connect the Weaviate Vector Store node directly to the tool connector of an [AI agent](n8n-nodes-langchain.agent/README.md) to use a vector store as a resource when answering queries.
-
-Here, the connection would be: AI agent (tools connector) -> Weaviate Vector Store node.
-
-### Use a retriever to fetch documents <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
-
-You can use the [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) node with the Weaviate Vector Store node to fetch documents from the Weaviate Vector Store node. This is often used with the [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) node to fetch documents from the vector store that match the given chat input.
-
-### Use the Vector Store Question Answer Tool to answer questions <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
-
-Another pattern uses the [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md) to summarize results and answer questions from the Weaviate Vector Store node. Rather than connecting the Weaviate Vector Store directly as a tool, this pattern uses a tool specifically designed to summarizes data in the vector store.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+使用 Weaviate 节点，将 Weaviate 集合作为[向量存储](#user-content-fn-1)[^1]进行交互。可向向量数据库插入文档或从中检索文档，也可检索文档并提供给连接到链[^2]的检索器，或将此节点直接连接到智能体[^3]作为工具[^4]使用。本页列出了 Weaviate 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Multitenancy**
+**凭据**
 
-You can separate your data into isolated tenants for the same collection (for example, for different customers). For that, you must always provide a [Tenant Name](n8n-nodes-langchain.vectorstoreweaviate.md#tenant-name) both when inserting and retrieving objects. [Read more about multi tenancy in Weaviate docs](https://docs.weaviate.io/weaviate/manage-collections/multi-tenancy).
+此节点的身份验证信息，请参阅 [Weaviate 凭据文档](../../credentials/weaviate.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/eiIkcF23uZ2A8BkFVQM5/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-### Get Many parameters <a href="#get-many-parameters" id="get-many-parameters"></a>
+## 节点使用模式 <a href="#node-usage-patterns" id="node-usage-patterns"></a>
 
-* **Weaviate Collection**: Enter the name of the Weaviate collection to use.
-* **Prompt**: Enter the search query.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `10` to get the ten best results.
+可按以下方式使用 Weaviate Vector Store 节点。
 
-### Insert Documents parameters <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
+### 作为普通节点插入和检索文档 <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
 
-* **Weaviate Collection**: Enter the name of the Weaviate collection to use.
-* **Embedding Batch Size**: The number of documents to embed in a single batch. The default is 200 documents.
+可将 Weaviate Vector Store 用作普通节点，插入或获取文档。此模式将 Weaviate Vector Store 放在常规连接流程中，无需使用智能体。
 
-### Retrieve Documents (As Vector Store for Chain/Tool) parameters <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
+### 作为工具直接连接到 AI 智能体 <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
 
-* **Weaviate Collection**: Enter the name of the Weaviate collection to use.
+可将 Weaviate Vector Store 节点直接连接到 [AI 智能体](n8n-nodes-langchain.agent/README.md)的工具连接器，让智能体在回答查询时使用向量存储作为资源。
 
-### Retrieve Documents (As Tool for AI Agent) parameters <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
+此时连接方式为：AI Agent（工具连接器）→ Weaviate Vector Store 节点。
 
-* **Weaviate Collection**: The name of the vector store.
-* **Description**: Explain to the LLM what this tool does. A good, specific description allows LLMs to produce expected results more often.
-* **Weaviate Collection**: Enter the name of the Weaviate collection to use.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `10` to get the ten best results.
+### 使用检索器获取文档 <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
 
-### Include Metadata <a href="#include-metadata" id="include-metadata"></a>
+可将 [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) 节点与 Weaviate Vector Store 节点配合使用，从 Weaviate Vector Store 节点获取文档。这通常与 [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) 节点配合，从向量存储获取与给定聊天输入匹配的文档。
 
-Whether to include document metadata.
+### 使用 Vector Store Question Answer Tool 回答问题 <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
 
-You can use this with the [Get Many](n8n-nodes-langchain.vectorstoreweaviate.md#get-many-parameters) and [Retrieve Documents (As Tool for AI Agent)](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-tool-for-ai-agent-parameters) modes.
+另一种模式使用 [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md)，汇总 Weaviate Vector Store 节点的结果并回答问题。此模式通过专门用于汇总向量存储数据的工具工作，无需将 Weaviate Vector Store 直接作为工具连接。
 
-### Rerank Results <a href="#rerank-results" id="rerank-results"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/KcxcfJWhy81cjCSzO4vQ/" %}
+{% hint style="info" %}
+**多租户**
 
-## Node options <a href="#node-options" id="node-options"></a>
+可将同一集合中的数据划分到相互隔离的租户中（例如供不同客户使用）。为此，插入和检索对象时都必须始终提供 [Tenant Name（租户名称）](n8n-nodes-langchain.vectorstoreweaviate.md#tenant-name)。[在 Weaviate 文档中了解多租户的更多信息](https://docs.weaviate.io/weaviate/manage-collections/multi-tenancy)。
+{% endhint %}
 
-### Search Filters <a href="#search-filters" id="search-filters"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-mode.md" %}
 
-Available for the [Get Many](n8n-nodes-langchain.vectorstoreweaviate.md#get-many-parameters), [Retrieve Documents (As Vector Store for Chain/Tool)](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-vector-store-for-chaintool-parameters), and [Retrieve Documents (As Tool for AI Agent)](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-tool-for-ai-agent-parameters) operation modes.
+### Get Many（获取多条）参数 <a href="#get-many-parameters" id="get-many-parameters"></a>
 
-When searching for data, use this to match metadata associated with documents. You can learn more about the operators and query structure in [Weaviate's conditional filters documentation](https://docs.weaviate.io/weaviate/api/graphql/filters).
+* **Weaviate Collection**（Weaviate 集合）：输入要使用的 Weaviate 集合名称。
+* **Prompt**（提示词）：输入搜索查询。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `10` 可获取最匹配的十条结果。
 
-You can use both `AND` and `OR` with different operators. Operators are case insensitive:
+### Insert Documents（插入文档）参数 <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
+
+* **Weaviate Collection**（Weaviate 集合）：输入要使用的 Weaviate 集合名称。
+* **Embedding Batch Size**（嵌入批次大小）：单个批次中生成嵌入的文档数量，默认为 200 个文档。
+
+### Retrieve Documents（作为链或工具的向量存储）参数 <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
+
+* **Weaviate Collection**（Weaviate 集合）：输入要使用的 Weaviate 集合名称。
+
+### Retrieve Documents（作为 AI 智能体的工具）参数 <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
+
+* **Weaviate Collection**（Weaviate 集合）：向量存储的名称。
+* **Description**（描述）：向 LLM 说明此工具的用途。清晰、具体的描述有助于 LLM 更经常地生成预期结果。
+* **Weaviate Collection**（Weaviate 集合）：输入要使用的 Weaviate 集合名称。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `10` 可获取最匹配的十条结果。
+
+### Include Metadata（包含元数据） <a href="#include-metadata" id="include-metadata"></a>
+
+是否包含文档元数据。
+
+可与 [Get Many（获取多条）](n8n-nodes-langchain.vectorstoreweaviate.md#get-many-parameters)和 [Retrieve Documents（作为 AI 智能体的工具）](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-tool-for-ai-agent-parameters)模式配合使用。
+
+### Rerank Results（结果重排序） <a href="#rerank-results" id="rerank-results"></a>
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-rerank-results.md" %}
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+### Search Filters（搜索过滤器） <a href="#search-filters" id="search-filters"></a>
+
+适用于 [Get Many（获取多条）](n8n-nodes-langchain.vectorstoreweaviate.md#get-many-parameters)、[Retrieve Documents（作为链或工具的向量存储）](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-vector-store-for-chaintool-parameters)和 [Retrieve Documents（作为 AI 智能体的工具）](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-tool-for-ai-agent-parameters)操作模式。
+
+搜索数据时，用于匹配文档关联的元数据。运算符和查询结构的更多信息，请参阅 [Weaviate 条件过滤器文档](https://docs.weaviate.io/weaviate/api/graphql/filters)。
+
+可使用 `AND` 和 `OR` 搭配不同运算符。运算符不区分大小写：
 
 ```json
 {
@@ -137,113 +134,114 @@ You can use both `AND` and `OR` with different operators. Operators are case ins
 }
 ```
 
-Supported operators:
+支持的运算符：
 
-| Operator           | Required Field(s)                                    | Description                                                                                                                                                                       |
+| 运算符 | 必需字段 | 描述 |
 | ------------------ | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `'equal'`          | `valueString` or `valueNumber`                       | Checks if the property is equal to the given string or number.                                                                                                                    |
-| `'like'`           | `valueString`                                        | Checks if the string property matches a pattern (for example, sub-string match).                                                                                                  |
-| `'containsAny'`    | `valueTextArray` (string\[])                         | Checks if the property contains **any** of the given values.                                                                                                                      |
-| `'containsAll'`    | `valueTextArray` (string\[])                         | Checks if the property contains **all** of the given values.                                                                                                                      |
-| `'greaterThan'`    | `valueNumber`                                        | Checks if the property value is greater than the given number.                                                                                                                    |
-| `'lessThan'`       | `valueNumber`                                        | Checks if the property value is less than the given number.                                                                                                                       |
-| `'isNull'`         | `valueBoolean` (true/false)                          | Checks if the property is null or not. ([must enable before ingestion](https://docs.weaviate.io/weaviate/manage-collections/collection-operations#set-inverted-index-parameters)) |
-| `'withinGeoRange'` | `valueGeoCoordinates` (object with geolocation data) | Filters by proximity to geographic coordinates.                                                                                                                                   |
+| `'equal'` | `valueString` 或 `valueNumber` | 检查属性是否等于给定字符串或数字。 |
+| `'like'` | `valueString` | 检查字符串属性是否匹配模式（例如子字符串匹配）。 |
+| `'containsAny'` | `valueTextArray`（字符串数组） | 检查属性是否包含给定值中的**任意一个**。 |
+| `'containsAll'` | `valueTextArray`（字符串数组） | 检查属性是否包含给定的**全部**值。 |
+| `'greaterThan'` | `valueNumber` | 检查属性值是否大于给定数字。 |
+| `'lessThan'` | `valueNumber` | 检查属性值是否小于给定数字。 |
+| `'isNull'` | `valueBoolean`（true/false） | 检查属性是否为 null。（[必须在导入数据前启用](https://docs.weaviate.io/weaviate/manage-collections/collection-operations#set-inverted-index-parameters)） |
+| `'withinGeoRange'` | `valueGeoCoordinates`（包含地理位置数据的对象） | 按与地理坐标的距离进行过滤。 |
 
-When inserting data, the document loader sets the metadata. Refer to [Default Data Loader](../sub-nodes/n8n-nodes-langchain.documentdefaultdataloader.md) for more information on loading documents.
+插入数据时，由文档加载器设置元数据。加载文档的更多信息，请参阅 [Default Data Loader](../sub-nodes/n8n-nodes-langchain.documentdefaultdataloader.md)。
 
-### Metadata Keys <a href="#metadata-keys" id="metadata-keys"></a>
+### Metadata Keys（元数据键） <a href="#metadata-keys" id="metadata-keys"></a>
 
-You can define which metadata keys you want Weaviate to return on your queries. This can reduce network load, as you will only get properties you have defined. Returns all properties from the server by default.
+可定义希望 Weaviate 在查询时返回哪些元数据键。这样只获取已指定的属性，可减少网络负载。默认返回服务器中的所有属性。
 
-Available for the [Get Many](n8n-nodes-langchain.vectorstoreweaviate.md#get-many-parameters), [Retrieve Documents (As Vector Store for Chain/Tool)](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-vector-store-for-chaintool-parameters), and [Retrieve Documents (As Tool for AI Agent)](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-tool-for-ai-agent-parameters) operation modes.
+适用于 [Get Many（获取多条）](n8n-nodes-langchain.vectorstoreweaviate.md#get-many-parameters)、[Retrieve Documents（作为链或工具的向量存储）](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-vector-store-for-chaintool-parameters)和 [Retrieve Documents（作为 AI 智能体的工具）](n8n-nodes-langchain.vectorstoreweaviate.md#retrieve-documents-as-tool-for-ai-agent-parameters)操作模式。
 
-### Hybrid: Query Text <a href="#hybrid-query-text" id="hybrid-query-text"></a>
+### Hybrid: Query Text（混合搜索：查询文本） <a href="#hybrid-query-text" id="hybrid-query-text"></a>
 
-Provide a query text to combine vector search with a keyword/text search.
+提供查询文本，将向量搜索与关键词或文本搜索结合。
 
-### Hybrid: Explain Score <a href="#hybrid-explain-score" id="hybrid-explain-score"></a>
+### Hybrid: Explain Score（混合搜索：解释分数） <a href="#hybrid-explain-score" id="hybrid-explain-score"></a>
 
-Whether to show the score fused between hybrid and vector search explanation.
+是否显示混合搜索融合分数及向量搜索解释。
 
-### Hybrid: Fusion Type <a href="#hybrid-fusion-type" id="hybrid-fusion-type"></a>
+### Hybrid: Fusion Type（混合搜索：融合类型） <a href="#hybrid-fusion-type" id="hybrid-fusion-type"></a>
 
-Select the fusion type for combining vector and keyword search results. [Learn more about fusion algorithms](https://weaviate.io/learn/knowledgecards/fusion-algorithm).
+选择合并向量搜索和关键词搜索结果的融合类型。[了解融合算法的更多信息](https://weaviate.io/learn/knowledgecards/fusion-algorithm)。
 
-Options:
+选项：
 
-* **Relative Score**: Uses relative score fusion
-* **Ranked**: Uses ranked fusion
+* **Relative Score**（相对分数）：使用相对分数融合
+* **Ranked**（排名）：使用排名融合
 
-### Hybrid: Auto Cut Limit <a href="#hybrid-auto-cut-limit" id="hybrid-auto-cut-limit"></a>
+### Hybrid: Auto Cut Limit（混合搜索：自动截断上限） <a href="#hybrid-auto-cut-limit" id="hybrid-auto-cut-limit"></a>
 
-Limit result groups by detecting sudden jumps in score. [Learn more about autocut](https://docs.weaviate.io/weaviate/api/graphql/additional-operators#autocut).
+通过检测分数的突然跳变，限制结果组。[了解 autocut 的更多信息](https://docs.weaviate.io/weaviate/api/graphql/additional-operators#autocut)。
 
-### Hybrid: Alpha <a href="#hybrid-alpha" id="hybrid-alpha"></a>
+### Hybrid: Alpha（混合搜索：Alpha） <a href="#hybrid-alpha" id="hybrid-alpha"></a>
 
-Change the relative weights of the keyword and vector components. 1.0 = pure vector, 0.0 = pure keyword. Default is 0.5. [Learn more about the alpha parameter](https://weaviate.io/learn/knowledgecards/alpha-parameter).
+调整关键词和向量部分的相对权重。1.0 = 纯向量，0.0 = 纯关键词，默认值为 0.5。[了解 alpha 参数的更多信息](https://weaviate.io/learn/knowledgecards/alpha-parameter)。
 
-### Hybrid: Query Properties <a href="#hybrid-query-properties" id="hybrid-query-properties"></a>
+### Hybrid: Query Properties（混合搜索：查询属性） <a href="#hybrid-query-properties" id="hybrid-query-properties"></a>
 
-Comma-separated list of properties to include in the query with optionally weighted values, e.g., "question^2,answer". [Learn more about setting weights on property values](https://docs.weaviate.io/weaviate/search/hybrid#set-weights-on-property-values).
+以逗号分隔的查询属性列表，可选择为属性值设置权重，例如“question^2,answer”。[了解属性值权重设置的更多信息](https://docs.weaviate.io/weaviate/search/hybrid#set-weights-on-property-values)。
 
-### Hybrid: Max Vector Distance <a href="#hybrid-max-vector-distance" id="hybrid-max-vector-distance"></a>
+### Hybrid: Max Vector Distance（混合搜索：最大向量距离） <a href="#hybrid-max-vector-distance" id="hybrid-max-vector-distance"></a>
 
-Set the maximum allowable distance for the vector search component.
+设置向量搜索部分允许的最大距离。
 
-### Tenant Name <a href="#tenant-name" id="tenant-name"></a>
+### Tenant Name（租户名称） <a href="#tenant-name" id="tenant-name"></a>
 
-The specific tenant to store or retrieve documents for. [Learn more about multi-tenancy](https://weaviate.io/learn/knowledgecards/multi-tenancy).
+要为其存储或检索文档的具体租户。[了解多租户的更多信息](https://weaviate.io/learn/knowledgecards/multi-tenancy)。
 
 {% hint style="info" %}
-**Must enable at creation**
+**必须在创建时启用**
 
-You must pass a tenant name at first ingestion to enable multitenancy for a collection. You can't enable or disable multitenancy after creation.
+首次导入数据时必须传入租户名称，才能为集合启用多租户。创建后无法启用或禁用多租户。
 {% endhint %}
 
-### Text Key <a href="#text-key" id="text-key"></a>
+### Text Key（文本键） <a href="#text-key" id="text-key"></a>
 
-The key in the document that contains the embedded text.
+文档中包含用于生成嵌入的文本的键。
 
-### Skip Init Checks <a href="#skip-init-checks" id="skip-init-checks"></a>
+### Skip Init Checks（跳过初始化检查） <a href="#skip-init-checks" id="skip-init-checks"></a>
 
-Whether to [skip initialization checks](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#initial-connection-checks) when instantiating the client.
+实例化客户端时，是否[跳过初始化检查](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#initial-connection-checks)。
 
-### Init Timeout <a href="#init-timeout" id="init-timeout"></a>
+### Init Timeout（初始化超时） <a href="#init-timeout" id="init-timeout"></a>
 
-Number of seconds to wait before [timing out](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#timeout-values) during initial checks.
+初始检查中[超时](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#timeout-values)前等待的秒数。
 
-### Insert Timeout <a href="#insert-timeout" id="insert-timeout"></a>
+### Insert Timeout（插入超时） <a href="#insert-timeout" id="insert-timeout"></a>
 
-Number of seconds to wait before [timing out](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#timeout-values) during inserts.
+插入时[超时](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#timeout-values)前等待的秒数。
 
-### Query Timeout <a href="#query-timeout" id="query-timeout"></a>
+### Query Timeout（查询超时） <a href="#query-timeout" id="query-timeout"></a>
 
-Number of seconds to wait before [timing out](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#timeout-values) during queries.
+查询时[超时](https://docs.weaviate.io/weaviate/client-libraries/typescript/notes-best-practices#timeout-values)前等待的秒数。
 
-### GRPC Proxy <a href="#grpc-proxy" id="grpc-proxy"></a>
+### GRPC Proxy（gRPC 代理） <a href="#grpc-proxy" id="grpc-proxy"></a>
 
-A proxy to use for gRPC requests.
+用于 gRPC 请求的代理。
 
-### Clear Data <a href="#clear-data" id="clear-data"></a>
+### Clear Data（清空数据） <a href="#clear-data" id="clear-data"></a>
 
-Available for the [Insert Documents](n8n-nodes-langchain.vectorstoreweaviate.md#insert-documents-parameters) operation mode.
+适用于 [Insert Documents（插入文档）](n8n-nodes-langchain.vectorstoreweaviate.md#insert-documents-parameters)操作模式。
 
-Whether to clear the collection or tenant before inserting new data.
+是否在插入新数据之前清空集合或租户。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Weaviate Vector Store node documentation integration templates](https://n8n.io/integrations/weaviate-vector-store) or [search all templates](https://n8n.io/workflows/)
+[浏览 Weaviate Vector Store（Weaviate 向量存储） 集成模板](https://n8n.io/integrations/weaviate-vector-store)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Weaviate documentation](https://docs.langchain.com/oss/javascript/integrations/vectorstores/weaviate) for more information about the service.
+该服务的更多信息，请参阅 [LangChain Weaviate 文档](https://docs.langchain.com/oss/javascript/integrations/vectorstores/weaviate)。
 
-Refer to [Weaviate Installation](https://docs.weaviate.io/deploy) for a self-hosted Weaviate Cluster.
+关于自托管 Weaviate 集群，请参阅 [Weaviate 安装](https://docs.weaviate.io/deploy)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
-[^2]: AI chains allow you to interact with large language models (LLMs) and other resources in sequences of calls to components. AI chains in n8n don't use persistent memory, so you can't use them to reference previous context (use AI agents for this).
-[^3]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
-[^4]: In an AI context, a tool is an add-on resource that the AI can refer to for specific information or functionality when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks.
+<a id="user-content-fn-1"></a>
+[^1]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。
+[^2]: AI 链通过对组件的一系列调用，让你与大语言模型（LLM）及其他资源交互。n8n 中的 AI 链不使用持久记忆，因此不能通过它引用先前的上下文（此用途请使用 AI 智能体）。
+[^3]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大语言模型（LLM）理解用户输入，利用可用的信息和资源，决定如何最好地处理请求。
+[^4]: 在 AI 场景中，工具是附加资源，AI 可在响应请求时调用它获取特定信息或功能。AI 模型可以通过工具与外部系统交互，或完成具体、专门的任务。

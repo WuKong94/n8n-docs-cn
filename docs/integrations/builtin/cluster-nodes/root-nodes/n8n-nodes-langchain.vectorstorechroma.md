@@ -1,19 +1,14 @@
 ---
-title: Chroma Vector Store node documentation
+title: Chroma Vector Store（Chroma 向量存储） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Chroma Vector Store node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma
-description: >-
-  Learn how to use the Chroma Vector Store node in n8n. Follow technical
-  documentation to integrate Chroma Vector Store node into your workflows.
+nodeTitle: Chroma Vector Store（Chroma 向量存储） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorechroma
+description: 了解如何在 n8n 中使用 Chroma Vector Store（Chroma 向量存储） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -33,109 +28,112 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Chroma Vector Store
 
-Use the Chroma node to interact with your Chroma database as [vector store](#user-content-fn-1)[^1]. You can insert documents into a vector database, get documents from a vector database, retrieve documents to provide them to a retriever connected to a chain[^2], or connect directly to an agent[^3] as a tool[^4].
+# Chroma Vector Store（Chroma 向量存储） <a id="chroma-vector-store"></a>
 
-On this page, you'll find the node parameters for the Chroma node, and links to more resources.
+使用 Chroma 节点，将 Chroma 数据库作为[向量存储](#user-content-fn-1)[^1]进行交互。可向向量数据库插入文档、从中获取文档、检索文档并提供给连接到链[^2]的检索器，或作为工具[^4]直接连接到智能体[^3]。
+
+本页列出了 Chroma 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Chroma credentials documentation](../../credentials/chroma.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Chroma 凭据文档](../../credentials/chroma.md)。
 {% endhint %}
 
-## Node usage patterns <a href="#node-usage-patterns" id="node-usage-patterns"></a>
+## 节点使用模式 <a href="#node-usage-patterns" id="node-usage-patterns"></a>
 
-You can use the Chroma Vector Store node in the following patterns.
+可按以下方式使用 Chroma Vector Store 节点。
 
-### Use as a regular node to insert and retrieve documents <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
+### 作为普通节点插入和检索文档 <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
 
-You can use the Chroma Vector Store as a regular node to insert or get documents. This pattern places the Chroma Vector Store in the regular connection flow without using an agent.
+可将 Chroma Vector Store 用作普通节点，插入或获取文档。此模式将 Chroma Vector Store 放在常规连接流程中，无需使用智能体。
 
-### Connect directly to an AI agent as a tool <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
+### 作为工具直接连接到 AI 智能体 <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
 
-You can connect the Chroma Vector Store node directly to the tool connector of an [AI agent](n8n-nodes-langchain.agent/README.md) to use a vector store as a resource when answering queries.
+可将 Chroma Vector Store 节点直接连接到 [AI 智能体](n8n-nodes-langchain.agent/README.md)的工具连接器，让智能体在回答查询时使用向量存储作为资源。
 
-Here, the connection would be: AI agent (tools connector) -> Chroma Vector Store node.
+此时连接方式为：AI Agent（工具连接器）→ Chroma Vector Store 节点。
 
-### Use a retriever to fetch documents <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
+### 使用检索器获取文档 <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
 
-You can use the [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) node with the Chroma Vector Store node to fetch documents from the Chroma Vector Store node. This is often used with the [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) node to fetch documents from the vector store that match the given chat input.
+可将 [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) 节点与 Chroma Vector Store 节点配合使用，从 Chroma Vector Store 节点获取文档。这通常与 [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) 节点配合，从向量存储获取与给定聊天输入匹配的文档。
 
-An example of the connection flow would be as follows:
+连接流程示例如下：
 
-Question and Answer Chain (Retriever connector) -> Vector Store Retriever (Vector Store connector) -> Chroma Vector Store.
+Question and Answer Chain（Retriever 连接器）→ Vector Store Retriever（Vector Store 连接器）→ Chroma Vector Store。
 
-### Use the Vector Store Question Answer Tool to answer questions <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
+### 使用 Vector Store Question Answer Tool 回答问题 <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
 
-Another pattern uses the [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md) to summarize results and answer questions from the Chroma Vector Store node. Rather than connecting the Chroma Vector Store directly as a tool, this pattern uses a tool specifically designed to summarize data in the vector store.
+另一种模式使用 [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md)，汇总 Chroma Vector Store 节点的结果并回答问题。此模式通过专门用于汇总向量存储数据的工具工作，无需将 Chroma Vector Store 直接作为工具连接。
 
-The connections flow in this case would look like this: AI agent (tools connector) -> Vector Store Question Answer Tool (Vector Store connector) -> Chroma Vector store.
+此时的连接流程为：AI Agent（工具连接器）→ Vector Store Question Answer Tool（Vector Store 连接器）→ Chroma Vector Store。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Operation Mode <a href="#operation-mode" id="operation-mode"></a>
+### Operation Mode（操作模式） <a href="#operation-mode" id="operation-mode"></a>
 
-This Vector Store node has four modes: **Get Many**, **Insert Documents**, **Retrieve Documents (As Vector Store for Chain/Tool)**, and **Retrieve Documents (As Tool for AI Agent)**. The mode you select determines the operations you can perform with the node and what inputs and outputs are available.
+此向量存储节点有四种模式：**Get Many**（获取多条）、**Insert Documents**（插入文档）、**Retrieve Documents (As Vector Store for Chain/Tool)**（检索文档，作为链或工具的向量存储）和 **Retrieve Documents (As Tool for AI Agent)**（检索文档，作为 AI 智能体的工具）。所选模式决定节点可执行的操作，以及可用的输入和输出。
 
-#### Get Many <a href="#get-many" id="get-many"></a>
+#### Get Many（获取多条） <a href="#get-many" id="get-many"></a>
 
-In this mode, you can retrieve multiple documents from your vector database by providing a prompt. The prompt is embedded and used for similarity search. The node returns the documents that are most similar to the prompt with their similarity score. This is useful if you want to retrieve a list of similar documents and pass them to an agent as additional context.
+此模式通过提供提示词，从向量数据库检索多个文档。提示词会转换为嵌入向量，用于相似度搜索。节点返回与提示词最相似的文档及其相似度分数，适合检索相似文档列表并作为额外上下文传给智能体。
 
-#### Insert Documents <a href="#insert-documents" id="insert-documents"></a>
+#### Insert Documents（插入文档） <a href="#insert-documents" id="insert-documents"></a>
 
-Use insert documents mode to insert new documents into your vector database.
+使用插入文档模式，将新文档插入向量数据库。
 
-#### Retrieve Documents (as Vector Store for Chain/Tool) <a href="#retrieve-documents-as-vector-store-for-chaintool" id="retrieve-documents-as-vector-store-for-chaintool"></a>
+#### Retrieve Documents（作为链或工具的向量存储） <a href="#retrieve-documents-as-vector-store-for-chaintool" id="retrieve-documents-as-vector-store-for-chaintool"></a>
 
-Use Retrieve Documents (As Vector Store for Chain/Tool) mode with a vector-store retriever to retrieve documents from a vector database and provide them to the retriever connected to a chain. In this mode you must connect the node to a retriever node or root node.
+将 Retrieve Documents (As Vector Store for Chain/Tool)（检索文档，作为链或工具的向量存储）模式与向量存储检索器配合使用，从向量数据库检索文档，并将其提供给连接到链的检索器。在此模式下，必须将节点连接到检索器节点或根节点。
 
-#### Retrieve Documents (as Tool for AI Agent) <a href="#retrieve-documents-as-tool-for-ai-agent" id="retrieve-documents-as-tool-for-ai-agent"></a>
+#### Retrieve Documents（作为 AI 智能体的工具） <a href="#retrieve-documents-as-tool-for-ai-agent" id="retrieve-documents-as-tool-for-ai-agent"></a>
 
-Use Retrieve Documents (As Tool for AI Agent) mode to use the vector store as a tool resource when answering queries. When formulating responses, the agent uses the vector store when the vector store name and description match the question details.
+使用 Retrieve Documents (As Tool for AI Agent)（检索文档，作为 AI 智能体的工具）模式，让智能体在回答查询时将向量存储用作工具资源。生成响应时，如果向量存储的名称和描述与问题详情匹配，智能体就会使用该向量存储。
 
-### Rerank Results <a href="#rerank-results" id="rerank-results"></a>
+### Rerank Results（结果重排序） <a href="#rerank-results" id="rerank-results"></a>
 
-Enables reranking[^5]. If you enable this option, you must connect a reranking node to the vector store. That node will then rerank the results for queries. You can use this option with the `Get Many`, `Retrieve Documents (As Vector Store for Chain/Tool)` and `Retrieve Documents (As Tool for AI Agent)` modes.
+启用重排序[^5]。开启此选项后，必须为向量存储连接重排序节点，该节点将对查询结果重新排序。此选项可用于 `Get Many`、`Retrieve Documents (As Vector Store for Chain/Tool)` 和 `Retrieve Documents (As Tool for AI Agent)` 模式。
 
-### Get Many parameters <a href="#get-many-parameters" id="get-many-parameters"></a>
+### Get Many（获取多条）参数 <a href="#get-many-parameters" id="get-many-parameters"></a>
 
-* **Chroma collection name**: Select your collection from the fetched collections list.
-* **Prompt**: Enter the search query.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `5` to get the five best results.
+* **Chroma collection name**（Chroma 集合名称）：从获取到的集合列表中选择集合。
+* **Prompt**（提示词）：输入搜索查询。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `5` 可获取最匹配的五条结果。
 
-This Operation Mode includes one **Node option**, the Metadata Filter
+此操作模式包含一个**节点选项**：Metadata Filter（元数据过滤器）。
 
-### Insert Documents parameters <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
+### Insert Documents（插入文档）参数 <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
 
-* **Chroma collection name**: Select your collection from the fetched collections list.
+* **Chroma collection name**（Chroma 集合名称）：从获取到的集合列表中选择集合。
 
-### Retrieve Documents (As Vector Store for Chain/Tool) parameters <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
+### Retrieve Documents（作为链或工具的向量存储）参数 <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
 
-* **Chroma collection name**: Select your collection from the fetched collections list.
+* **Chroma collection name**（Chroma 集合名称）：从获取到的集合列表中选择集合。
 
-This Operation Mode includes one **Node option**, the Metadata Filter
+此操作模式包含一个**节点选项**：Metadata Filter（元数据过滤器）。
 
-### Retrieve Documents (As Tool for AI Agent) parameters <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
+### Retrieve Documents（作为 AI 智能体的工具）参数 <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
 
-* **Description**: Explain to the LLM what this tool does. A good, specific description allows LLMs to produce expected results more often.
-* **Chroma collection name**: Select your collection from the fetched collections list.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `5` to get the five best results.
+* **Description**（描述）：向 LLM 说明此工具的用途。清晰、具体的描述有助于 LLM 更经常地生成预期结果。
+* **Chroma collection name**（Chroma 集合名称）：从获取到的集合列表中选择集合。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `5` 可获取最匹配的五条结果。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-### Metadata Filter <a href="#metadata-filter" id="metadata-filter"></a>
+### Metadata Filter（元数据过滤器） <a href="#metadata-filter" id="metadata-filter"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/9OWZ8hSpVqky4D4xRnYP/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/vector-store-metadata-filter.md" %}
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-View n8n's [Advanced AI](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai) documentation.
+查看 n8n 的[高级 AI](../../../../build/integrate-ai/README.md) 文档。
 
-[^1]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
-[^2]: AI chains allow you to interact with large language models (LLMs) and other resources in sequences of calls to components. AI chains in n8n don't use persistent memory, so you can't use them to reference previous context (use AI agents for this).
-[^3]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
-[^4]: In an AI context, a tool is an add-on resource that the AI can refer to for specific information or functionality when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks.
-[^5]: Reranking is a technique that refines the order of a list of candidate documents to improve the relevance of search results. Retrieval-Augmented Generation (RAG) and other applications use reranking to prioritize the most relevant information for generation or downstream tasks.
+<a id="user-content-fn-1"></a>
+[^1]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。
+[^2]: AI 链通过对组件的一系列调用，让你与大语言模型（LLM）及其他资源交互。n8n 中的 AI 链不使用持久记忆，因此不能通过它引用先前的上下文（此用途请使用 AI 智能体）。
+[^3]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大语言模型（LLM）理解用户输入，利用可用的信息和资源，决定如何最好地处理请求。
+[^4]: 在 AI 场景中，工具是附加资源，AI 可在响应请求时调用它获取特定信息或功能。AI 模型可以通过工具与外部系统交互，或完成具体、专门的任务。
+[^5]: 重排序是一种优化候选文档列表顺序的技术，用于提高搜索结果的相关性。检索增强生成（RAG）等应用使用重排序，优先选出最相关的信息，供生成或下游任务使用。

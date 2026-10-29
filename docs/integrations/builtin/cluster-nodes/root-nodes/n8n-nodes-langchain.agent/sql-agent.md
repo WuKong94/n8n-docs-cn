@@ -1,123 +1,120 @@
 ---
-title: SQL AI Agent node documentation
-description: >-
-  Learn how to use the SQL Agent of the AI Agent node in n8n. Follow technical
-  documentation to integrate the SQL Agent into your workflows.
+title: SQL AI Agent（SQL AI 智能体） 节点文档
+description: 了解如何在 n8n 的 AI Agent 节点中使用 SQL Agent，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: SQL AI Agent node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/sql-agent.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/sql-agent
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/sql-agent
+nodeTitle: SQL AI Agent（SQL AI 智能体） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/sql-agent.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/sql-agent
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/sql-agent
 layout:
   description:
     visible: false
 tags:
-  - tag: deprecated
-    primary: true
+- tag: deprecated
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SQL AI Agent node <a href="#sql-ai-agent-node" id="sql-ai-agent-node"></a>
 
-{% hint style="warning" %}
-**Feature availability**
-
-The SQL Agent is deprecated from n8n 1.82.0. New or updated AI Agent nodes use the [Tools Agent](tools-agent.md) instead. Only workflows still using node version 1 of the AI Agent node can select the SQL Agent.
-
-Node version 1 of the AI Agent node is removed from n8n 3.0, so the SQL Agent stops working for all workflows. See [n8n 3.0 breaking changes](https://app.gitbook.com/s/hhM8Cox90Piiv0u0EgHM/v30-breaking-changes) for details.
-{% endhint %}
-
-The SQL Agent uses a SQL database as a data source. It can understand natural language questions, convert them into SQL queries, execute the queries, and present the results in a user-friendly format. This agent is valuable for building natural language interfaces to databases.
-
-Refer to [AI Agent](README.md) for more information on the AI Agent node itself.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-Configure the SQL Agent using the following parameters.
-
-### Data Source <a href="#data-source" id="data-source"></a>
-
-Choose the database to use as a data source for the node. Options include:
-
-* **MySQL**: Select this option to use a MySQL database.
-    * Also select the **Credential for MySQL**.
-* **SQLite**: Select this option to use a SQLite database.
-    * You must add a [Read/Write File From Disk](../../../core-nodes/n8n-nodes-base.readwritefile.md) node before the Agent to read your SQLite file.
-    * Also enter the **Input Binary Field** name of your SQLite file coming from the Read/Write File From Disk node.
-* **Postgres**: Select this option to use a Postgres database.
-    * Also select the **Credential for Postgres**.
+# SQL AI Agent（SQL AI 智能体） 节点 <a href="#sql-ai-agent-node" id="sql-ai-agent-node"></a>
 
 {% hint style="warning" %}
-**Postgres and MySQL Agents**
+**功能可用性**
 
-If you are using [Postgres](../../../credentials/postgres.md) or [MySQL](../../../credentials/mysql.md), this agent doesn't support the credential tunnel options.
+SQL Agent 从 n8n 1.82.0 起弃用。新增或更新的 AI Agent 节点改用 [Tools Agent](tools-agent.md)。只有仍使用 AI Agent 节点版本 1 的工作流可选择 SQL Agent。
+
+AI Agent 节点版本 1 从 n8n 3.0 中移除，因此 SQL Agent 将在所有工作流中停止工作。详情请参阅 [n8n 3.0 破坏性变更](../../../../../changelog/v30-breaking-changes.md)。
 {% endhint %}
 
-### Prompt <a href="#prompt" id="prompt"></a>
+SQL Agent 以 SQL 数据库为数据源，可理解自然语言问题，将其转换为 SQL 查询、执行查询，再以易读的格式呈现结果，适合构建数据库的自然语言接口。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Ss9Y6clfLTwlXMx69w6E/" %}
+AI Agent 节点本身的更多信息，请参阅 [AI Agent](README.md)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Refine the SQL Agent node's behavior using these options:
+使用以下参数配置 SQL Agent。
 
-### Ignored Tables <a href="#ignored-tables" id="ignored-tables"></a>
+### Data Source（数据源） <a href="#data-source" id="data-source"></a>
 
-If you'd like the node to ignore any tables from the database, enter a comma-separated list of tables you'd like it to ignore.
+选择节点使用的数据库数据源，可选：
 
-If left empty, the agent doesn't ignore any tables.
+* **MySQL**：使用 MySQL 数据库。
+    * 还需选择 **Credential for MySQL**（MySQL 凭据）。
+* **SQLite**：使用 SQLite 数据库。
+    * 必须在 Agent 前添加 [Read/Write File From Disk](../../../core-nodes/n8n-nodes-base.readwritefile.md) 节点，读取 SQLite 文件。
+    * 还需输入 Read/Write File From Disk 节点传入 SQLite 文件的 **Input Binary Field**（输入二进制字段）名称。
+* **Postgres**：使用 Postgres 数据库。
+    * 还需选择 **Credential for Postgres**（Postgres 凭据）。
 
-### Include Sample Rows <a href="#include-sample-rows" id="include-sample-rows"></a>
+{% hint style="warning" %}
+**Postgres 和 MySQL 智能体**
 
-Enter the number of sample rows to include in the prompt to the agent. Default is `3`.
+使用 [Postgres](../../../credentials/postgres.md) 或 [MySQL](../../../credentials/mysql.md) 时，此智能体不支持凭据的隧道选项。
+{% endhint %}
 
-Sample rows help the agent understand the schema of the database, but they also increase the number of tokens used.
+### Prompt（提示词） <a href="#prompt" id="prompt"></a>
 
-### Included Tables <a href="#included-tables" id="included-tables"></a>
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/prompt.md" %}
 
-If you'd only like to include specific tables from the database, enter a comma-separated list of tables to include.
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-If left empty, the agent includes all tables.
+使用以下选项调整 SQL Agent 节点的行为：
 
-### Prefix Prompt <a href="#prefix-prompt" id="prefix-prompt"></a>
+### Ignored Tables（忽略的表） <a href="#ignored-tables" id="ignored-tables"></a>
 
-Enter a message you'd like to send to the agent before the **Prompt** text. This initial message can provide more context and guidance to the agent about what it can and can't do, and how to format the response.
+希望节点忽略数据库中的某些表时，输入以逗号分隔的表名称列表。
 
-n8n fills this field with an example.
+留空时，智能体不忽略任何表。
 
-### Suffix Prompt <a href="#suffix-prompt" id="suffix-prompt"></a>
+### Include Sample Rows（包含示例行） <a href="#include-sample-rows" id="include-sample-rows"></a>
 
-Enter a message you'd like to send to the agent after the **Prompt** text.
+输入发送给智能体的提示词中包含的示例行数，默认为 `3`。
 
-Available LangChain expressions:
+示例行有助于智能体理解数据库架构，但也会增加 token 用量。
 
-* `{chatHistory}`: A history of messages in this conversation, useful for maintaining context.
-* `{input}`: Contains the user prompt.
-* `{agent_scratchpad}`: Information to remember for the next iteration.
+### Included Tables（包含的表） <a href="#included-tables" id="included-tables"></a>
 
-n8n fills this field with an example.
+希望仅包含数据库中的指定表时，输入以逗号分隔的表名称列表。
 
-### Limit <a href="#limit" id="limit"></a>
+留空时，智能体包含所有表。
 
-Enter the maximum number of results to return.
+### Prefix Prompt（前缀提示词） <a href="#prefix-prompt" id="prefix-prompt"></a>
 
-Default is `10`.
+输入放在 **Prompt**（提示词）文本之前发送给智能体的消息，可为智能体提供更多上下文和指引，说明允许和不允许的操作，以及响应的格式。
 
-### Tracing Metadata <a href="#tracing-metadata" id="tracing-metadata"></a>
+n8n 会在此字段中填入示例。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/GAsqtB1RVGEDrT5PMMLl/" %}
+### Suffix Prompt（后缀提示词） <a href="#suffix-prompt" id="suffix-prompt"></a>
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+输入放在 **Prompt**（提示词）文本之后发送给智能体的消息。
 
-Refer to the main AI Agent node's [Templates and examples](README.md#templates-and-examples) section.
+可用的 LangChain 表达式：
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+* `{chatHistory}`：本次对话的消息历史，用于保持上下文。
+* `{input}`：包含用户提示词。
+* `{agent_scratchpad}`：需要为下一次迭代记住的信息。
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+n8n 会在此字段中填入示例。
+
+### Limit（上限） <a href="#limit" id="limit"></a>
+
+输入返回结果的最大数量。
+
+默认为 `10`。
+
+### Tracing Metadata（追踪元数据） <a href="#tracing-metadata" id="tracing-metadata"></a>
+
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/tracing-metadata.md" %}
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+请参阅 AI Agent 主节点的[模板与示例](README.md#templates-and-examples)部分。
+
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。
 
 

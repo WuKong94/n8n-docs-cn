@@ -1,46 +1,43 @@
 ---
-title: Text Classifier node documentation
-description: >-
-  Learn how to use the Text Classifier node in n8n. Follow technical
-  documentation to integrate Text Classifier node into your workflows.
+title: Text Classifier（文本分类器） 节点文档
+description: 了解如何在 n8n 中使用 Text Classifier（文本分类器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Text Classifier node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier
+- integration
+- reference
+nodeTitle: Text Classifier（文本分类器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.text-classifier
 layout:
   description:
     visible: false
 ---
-
-# Text Classifier node <a href="#text-classifier-node" id="text-classifier-node"></a>
-
-Use the Text Classifier node to classify (categorize) incoming data. Using the categories provided in the parameters (see below), each item is passed to the model to determine its category.
-
-On this page, you'll find the node parameters for the Text Classifier node, and links to more resources.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-* **Input Prompt** defines the input to classify. This is usually an expression that references a field from the input items. For example, this could be `{{ $json.chatInput }}` if the input is a chat trigger. By default it references the `text` field.
-* **Categories**: Add the categories that you want to classify your input as. Categories have a name and a description. Use the description to tell the model what the category means. This is important if the meaning isn't obvious. You can add as many categories as you like.
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-* **Allow Multiple Classes To Be True**: You can configure the classifier to always output a single class per item (turned off), or allow the model to select multiple classes (turned on).
-* **When No Clear Match**: Define what happens if the model can't find a good match for an item. There are two options:
-	- **Discard Item** (the default): If the node doesn't detect any of the categories, it drops the item.
-	- **Output on Extra, 'Other' Branch**: Creates a separate output branch called **Other**. When the node doesn't detect any of the categories, it outputs items in this branch.
-* **System Prompt Template**: Use this option to change the system prompt that's used for the classification. It uses the `{categories}` placeholder for the categories.
-
-* **Enable Auto-Fixing**: When enabled, the node automatically fixes model outputs to ensure they match the expected format. Do this by sending the schema parsing error to the LLM and asking it to fix it.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+# Text Classifier（文本分类器） 节点 <a href="#text-classifier-node" id="text-classifier-node"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+使用 Text Classifier 节点，对传入数据进行分类。节点将每个数据项传给模型，由模型根据参数中提供的类别（见下文）判断其所属类别。
+
+本页列出了 Text Classifier 节点的参数，并提供更多资源的链接。
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Input Prompt**（输入提示词）：定义要分类的输入，通常是引用输入项字段的表达式。例如，输入来自聊天触发器时，可使用 `{{ $json.chatInput }}`。默认引用 `text` 字段。
+* **Categories**（类别）：添加要将输入划分到的类别。每个类别包含名称和描述。使用描述向模型解释类别的含义，尤其是在含义不明确时。可按需添加任意数量的类别。
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+* **Allow Multiple Classes To Be True**（允许匹配多个类别）：关闭时，分类器始终为每个数据项输出一个类别；开启时，允许模型选择多个类别。
+* **When No Clear Match**（没有明确匹配时）：定义模型无法为某个数据项找到合适类别时的处理方式，可选：
+    - **Discard Item**（丢弃数据项，默认）：节点未检测到任何类别时，丢弃该数据项。
+    - **Output on Extra, 'Other' Branch**（输出到额外的 Other 分支）：创建名为 **Other** 的独立输出分支。节点未检测到任何类别时，将数据项输出到此分支。
+* **System Prompt Template**（系统提示词模板）：修改分类使用的系统提示词，其中使用 `{categories}` 占位符表示类别。
+
+* **Enable Auto-Fixing**（启用自动修复）：开启后，节点会将架构解析错误发送给 LLM，要求其修复模型输出，以符合预期格式。
+
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

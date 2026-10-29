@@ -1,136 +1,137 @@
 ---
-description: >-
-  Learn how to use the Databricks AI Agent node in n8n. Run an AI agent and
-  export each run to MLflow Tracing in your Databricks workspace.
+description: 了解如何在 n8n 中使用 Databricks AI Agent 节点，运行 AI 智能体，并将每次运行导出到 Databricks 工作区的
+  MLflow Tracing。
 status: preview
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Databricks AI Agent node
 
-Use the Databricks AI Agent node to build an AI agent[^1] whose runs show up in [MLflow Tracing](https://docs.databricks.com/aws/en/mlflow3/genai/tracing/) in your Databricks workspace. The node runs the same agent as the [AI Agent](n8n-nodes-langchain.agent/README.md) node: it takes the same chat model, memory, tool[^2], and output parser sub-nodes and offers the same options. What it adds is **Export Traces to MLflow**. With the option on, each run creates one trace in an MLflow experiment, with a span for every model call and tool call, so the team that runs your Databricks workspace can inspect n8n agents next to the rest of their AI systems.
+# Databricks AI Agent（Databricks AI 智能体） 节点 <a id="databricks-ai-agent-node"></a>
 
-On this page, you'll find the prerequisites, setup steps, node parameters, what a trace contains, and how the export behaves when something fails.
+使用 Databricks AI Agent 节点，构建运行记录可在 Databricks 工作区的 [MLflow Tracing](https://docs.databricks.com/aws/en/mlflow3/genai/tracing/) 中查看的 AI 智能体[^1]。此节点运行的智能体与 [AI Agent](n8n-nodes-langchain.agent/README.md) 节点相同：接受相同的聊天模型、记忆、工具[^2]和输出解析器子节点，并提供相同的选项。它额外提供 **Export Traces to MLflow**（将追踪导出到 MLflow）功能。开启后，每次运行都会在 MLflow 实验中创建一条追踪，并为每次模型调用和工具调用创建一个跨度（span），方便 Databricks 工作区运维团队将 n8n 智能体与其他 AI 系统一并检查。
+
+本页介绍前置条件、设置步骤、节点参数、追踪包含的内容，以及发生故障时的导出行为。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Databricks credentials](../../credentials/databricks.md) for guidance on setting up authentication. The credential on this node is optional. The agent runs on the credential of the connected chat model sub-node. This node uses its own **Databricks OAuth2 API** credential only to export traces, so select one when you turn on **Export Traces to MLflow**.
+身份验证设置指南，请参阅 [Databricks 凭据](../../credentials/databricks.md)。此节点的凭据为可选项。智能体使用所连接聊天模型子节点的凭据运行；此节点自己的 **Databricks OAuth2 API** 凭据仅用于导出追踪，因此开启 **Export Traces to MLflow**（将追踪导出到 MLflow）时需要选择此凭据。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-The Databricks AI Agent node is in Preview from n8n 2.45.0 and may change in future releases. Avoid relying on it in production workflows.
+Databricks AI Agent 节点从 n8n 2.45.0 起处于预览阶段，未来版本中可能发生变化。请避免在生产工作流中依赖此节点。
 {% endhint %}
 
-## Prerequisites
+## 前置条件 <a id="prerequisites"></a>
 
-To run the agent, you need a chat model sub-node with its own credential, such as the [Databricks Chat Model](../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md) node. To export traces, you also need:
+运行智能体需要一个具有自身凭据的聊天模型子节点，例如 [Databricks Chat Model](../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md) 节点。导出追踪还需要：
 
-- A [Databricks OAuth2 credential](../../credentials/databricks.md#supported-authentication-methods) in n8n, with a service principal or user login. A service principal must be a member of the workspace with the **Workspace access** entitlement.
-- **CAN EDIT** on the experiment that receives the traces. **CAN READ** isn't enough: the export fails with a `403` that says the identity doesn't have permission to edit the experiment.
-- For the default experiment the node creates under `/Shared`, no extra grant. Databricks gives all workspace users **CAN MANAGE** on objects in the `/Shared` folder by default, so the identity can create the experiment and write to it. The same default means every workspace user can open and delete those traces. For workflows that handle personal or confidential data, set **Experiment** to a path in a folder you control. Alternatively, create the experiment first and set its permissions before you turn on the export.
+- n8n 中通过服务主体或用户登录配置的 [Databricks OAuth2 凭据](../../credentials/databricks.md#supported-authentication-methods)。服务主体必须是工作区成员，并具有 **Workspace access**（工作区访问）授权。
+- 对接收追踪的实验具有 **CAN EDIT** 权限。**CAN READ** 权限不足：导出会失败，并返回 `403`，说明该身份没有编辑实验的权限。
+- 节点在 `/Shared` 下创建的默认实验不需要额外授权。默认情况下，Databricks 为所有工作区用户授予 `/Shared` 文件夹内对象的 **CAN MANAGE** 权限，因此该身份可以创建实验并向其写入数据。这也意味着每个工作区用户都可以打开和删除这些追踪。对于处理个人或机密数据的工作流，请将 **Experiment**（实验）设置为你控制的文件夹中的路径。也可先创建实验并设置权限，再开启导出。
 
-Permission changes take a minute or more to reach the trace service. A run right after a change can still use the old permissions.
+权限变更需要一分钟或更长时间才能传递到追踪服务。变更后立即运行，可能仍使用旧权限。
 
-## Set up the node
+## 设置节点 <a id="set-up-the-node"></a>
 
-1. Add a **Databricks AI Agent** node to your workflow, for example after a [Chat Trigger](../../core-nodes/n8n-nodes-langchain.chattrigger/README.md) node.
-2. Select the **+** on the **Chat Model** connector and add a chat model, such as the [Databricks Chat Model](../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md) node. Add memory, tools, and an output parser the same way you would for the [AI Agent](n8n-nodes-langchain.agent/README.md) node. The [Databricks Vector Store](n8n-nodes-langchain.vectorstoredatabricks/README.md) node and the [Databricks Genie One MCP server](../sub-nodes/n8n-mcp-registry.databricksgenie.md) both work as tools.
-3. Set **Source for Prompt (User Message)** and the [node options](#node-options).
-4. To export traces, select a Databricks OAuth2 credential under **Credential to connect with** and turn on **Export Traces to MLflow**.
-5. In **Experiment**, leave the name empty to let the node create an experiment for the workflow, or enter the path or ID of an existing experiment. Refer to [Node parameters](#node-parameters).
-6. Run the workflow. In Databricks, open **Experiments** in the sidebar, select the experiment, then the **Traces** tab. Each run of the agent appears as one trace with a preview of the question and the answer.
+1. 向工作流添加 **Databricks AI Agent** 节点，例如放在 [Chat Trigger](../../core-nodes/n8n-nodes-langchain.chattrigger/README.md) 节点之后。
+2. 点击 **Chat Model**（聊天模型）连接器上的 **+**，添加聊天模型，例如 [Databricks Chat Model](../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md) 节点。按照与 [AI Agent](n8n-nodes-langchain.agent/README.md) 节点相同的方式，添加记忆、工具和输出解析器。[Databricks Vector Store](n8n-nodes-langchain.vectorstoredatabricks/README.md) 节点和 [Databricks Genie One MCP 服务器](../sub-nodes/n8n-mcp-registry.databricksgenie.md)均可用作工具。
+3. 设置 **Source for Prompt (User Message)**（提示词来源，用户消息）和[节点选项](#node-options)。
+4. 如需导出追踪，在 **Credential to connect with**（连接凭据）中选择 Databricks OAuth2 凭据，并开启 **Export Traces to MLflow**（将追踪导出到 MLflow）。
+5. 在 **Experiment**（实验）中，将名称留空，让节点为工作流创建实验；也可输入现有实验的路径或 ID。请参阅[节点参数](#node-parameters)。
+6. 运行工作流。在 Databricks 中，打开侧边栏的 **Experiments**（实验），选择实验，再打开 **Traces**（追踪）选项卡。每次智能体运行显示为一条追踪，并提供问题和答案预览。
 
-## Node parameters
+## 节点参数 <a id="node-parameters"></a>
 
-- **Source for Prompt (User Message)**: Where the user message comes from: **Connected Chat Trigger Node** or **Define below**. Works like the same field on the [AI Agent](n8n-nodes-langchain.agent/README.md) node. The node doesn't offer the **Connected Guardrails Node** source.
-- **Require Specific Output Format**: Turn on to connect an output parser sub-node that shapes the agent's output.
-- **Enable Fallback Model**: Turn on to connect a second chat model that the agent uses when the main model fails.
-- **Export Traces to MLflow**: Whether to send each run to MLflow Tracing in the workspace of the credential selected on this node. Turned off by default.
-- **Experiment**: Where the traces are stored. Shown when **Export Traces to MLflow** is on.
-	- **By Name**: The experiment path, for example `/Shared/my-agent-traces`. The node creates the experiment if it doesn't exist. Leave the field empty to use `/Shared/n8n-workflows-<workflow-id>`, one experiment for each workflow.
-	- **By ID**: The numeric ID of an existing experiment, as shown in its URL in Databricks. An ID that doesn't exist doesn't fail the run: the agent answers, and the export fails afterwards with a warning in the n8n log.
+- **Source for Prompt (User Message)**（提示词来源，用户消息）：用户消息的来源，可选 **Connected Chat Trigger Node**（已连接的聊天触发器节点）或 **Define below**（在下方定义）。其行为与 [AI Agent](n8n-nodes-langchain.agent/README.md) 节点的同名字段相同。此节点不提供 **Connected Guardrails Node**（已连接的 Guardrails 节点）来源。
+- **Require Specific Output Format**（要求指定输出格式）：开启后可连接输出解析器子节点，规定智能体的输出格式。
+- **Enable Fallback Model**（启用备用模型）：开启后可连接第二个聊天模型，主模型失败时由智能体使用。
+- **Export Traces to MLflow**（将追踪导出到 MLflow）：是否将每次运行发送到此节点所选凭据对应工作区的 MLflow Tracing。默认关闭。
+- **Experiment**（实验）：追踪的存储位置。开启 **Export Traces to MLflow**（将追踪导出到 MLflow）时显示。
+    - **By Name**（按名称）：实验路径，例如 `/Shared/my-agent-traces`。实验不存在时，节点会创建实验。留空则使用 `/Shared/n8n-workflows-<workflow-id>`，每个工作流对应一个实验。
+    - **By ID**（按 ID）：现有实验的数字 ID，可在 Databricks 中该实验的 URL 中找到。ID 不存在不会导致运行失败：智能体会作答，随后导出失败，并在 n8n 日志中记录警告。
 
-## Node options
+## 节点选项 <a id="node-options"></a>
 
-The options are the ones of the AI Agent node. Refer to [Tools Agent](n8n-nodes-langchain.agent/tools-agent.md) for **System Message**, **Max Iterations** (default `10`), **Return Intermediate Steps**, **Automatically Passthrough Binary Images**, **Tracing Metadata**, and **Enable Streaming**. Two more options:
+这些选项与 AI Agent 节点相同。**System Message**（系统消息）、**Max Iterations**（最大迭代次数，默认 `10`）、**Return Intermediate Steps**（返回中间步骤）、**Automatically Passthrough Binary Images**（自动透传二进制图像）、**Tracing Metadata**（追踪元数据）和 **Enable Streaming**（启用流式输出）的说明，请参阅 [Tools Agent](n8n-nodes-langchain.agent/tools-agent.md)。另有两个选项：
 
-- **Automatically Passthrough Binary PDFs**: Whether to pass binary PDF documents from the input to the model as part of the message. Turned off by default. Use it with a model that accepts PDF input.
-- **Batch Processing**: **Batch Size** sets how many input items the agent processes at once (default `1`), and **Delay Between Batches** waits the given number of milliseconds between batches (default `0`). Use it to stay under the rate limit of a pay-per-token model service.
+- **Automatically Passthrough Binary PDFs**（自动透传二进制 PDF）：是否将输入中的二进制 PDF 文档作为消息的一部分传给模型。默认关闭。请搭配支持 PDF 输入的模型使用。
+- **Batch Processing**（批量处理）：**Batch Size**（批次大小）设置智能体一次处理的输入项数量（默认 `1`）；**Delay Between Batches**（批次间延迟）设置批次之间等待的毫秒数（默认 `0`）。可用此功能避免超过按 token 计费的模型服务的速率限制。
 
-## What the node exports
+## 节点导出的内容 <a id="what-the-node-exports"></a>
 
-Each item the node processes becomes one trace. A trace holds a tree of spans:
+节点处理的每个数据项对应一条追踪。追踪包含由跨度组成的树：
 
-- The agent run at the top, with the user message as input and the final answer as output.
-- One span for each model call, with the full message list sent to the model and its completion in OpenAI format. The message list includes the system message, the conversation history loaded from memory, and any images or PDFs passed to the model as base64. The span also records tool calls and the token usage of the call.
-- One span for each tool call, with the arguments and the result. A vector store tool's span shows the documents it returned.
-- One span for each retriever call, when a tool such as the Vector Store Question Answer Tool queries a vector store through a retriever.
+- 顶层是智能体运行，以用户消息为输入，以最终答案为输出。
+- 每次模型调用对应一个跨度，包含发送给模型的完整消息列表，以及 OpenAI 格式的模型补全结果。消息列表包含系统消息、从记忆加载的对话历史，以及以 base64 传给模型的图像或 PDF。跨度还记录工具调用和本次调用的 token 用量。
+- 每次工具调用对应一个跨度，包含参数和结果。向量存储工具的跨度会显示其返回的文档。
+- 当 Vector Store Question Answer Tool 等工具通过检索器查询向量存储时，每次检索器调用对应一个跨度。
 
-Every span carries its start and end time. The trace itself carries:
+每个跨度都包含开始和结束时间。追踪本身包含：
 
-- `client_request_id`: the n8n execution ID, so a trace in the workspace maps back to one execution in n8n.
-- The tags `n8n.source` (`n8n`), `n8n.workflowId`, and `n8n.node` (the node's name).
-- A request preview and a response preview, the first 1,000 characters of the question and the answer, shown as the two columns of the trace list.
-- The total token usage of the run, so the trace list shows cost per run without opening a span.
-- A state: `OK`, or `ERROR` when the run failed. A failed model call makes the trace `ERROR` with the Databricks error message on the model span. A tool that throws is recorded as an `ERROR` tool span, while the trace stays `OK` when the agent recovers and answers.
+- `client_request_id`：n8n 执行 ID，用于将工作区中的追踪对应到 n8n 中的一次执行。
+- 标签 `n8n.source`（`n8n`）、`n8n.workflowId` 和 `n8n.node`（节点名称）。
+- 请求预览和响应预览，即问题和答案的前 1,000 个字符，显示为追踪列表中的两列。
+- 本次运行的总 token 用量，使追踪列表无需打开跨度即可显示每次运行的成本。
+- 状态：`OK`，或运行失败时的 `ERROR`。模型调用失败时，追踪变为 `ERROR`，模型跨度中包含 Databricks 错误消息。工具抛出异常时，记录为 `ERROR` 工具跨度；如果智能体恢复并作答，追踪仍保持 `OK`。
 
-Streaming runs export the same spans, with end times and token counts filled in. When you cancel a run, the export stops with it. The experiment then shows no trace for the run, or a trace without spans. Either way, n8n logs an export failure. A model span is named `ChatOpenAI` rather than after the model service, because the Databricks Chat Model node calls the gateway through an OpenAI-compatible client.
+流式运行会导出相同的跨度，并填入结束时间和 token 数。取消运行时，导出也随之停止。实验中可能没有本次运行的追踪，也可能有一条不含跨度的追踪。无论哪种情况，n8n 都会记录导出失败。模型跨度命名为 `ChatOpenAI`，而非模型服务名称，因为 Databricks Chat Model 节点通过兼容 OpenAI 的客户端调用网关。
 
 {% hint style="warning" %}
-**Traces contain your data**
+**追踪包含你的数据**
 
-Trace export sends the real prompts, including the system message and memory, model outputs, tool results, and retrieved documents of every run to the Databricks workspace of the selected credential. Inside spans, n8n redacts well-known token formats and labeled secrets such as `password=...`, and nothing else. The question and answer previews shown in the trace list aren't redacted. The export is off by default, and the data goes only to your own workspace, never to n8n or a third party. Agree the setting with your security team before you turn it on for workflows that handle personal or confidential data.
+追踪导出会将每次运行的真实提示词（包括系统消息和记忆）、模型输出、工具结果以及检索到的文档，发送到所选凭据对应的 Databricks 工作区。在跨度内，n8n 仅对已知 token 格式和 `password=...` 等带标签的秘密信息进行脱敏，不会脱敏其他内容。追踪列表中的问题和答案预览不会脱敏。导出默认关闭，数据仅发送到你自己的工作区，不会发送给 n8n 或第三方。对于处理个人或机密数据的工作流，开启此功能前，请与安全团队确认设置。
 {% endhint %}
 
-## How export failures behave
+## 导出失败时的行为 <a id="how-export-failures-behave"></a>
 
-Trace export is observability, so it never changes the result of a run:
+追踪导出用于可观测性，因此不会改变运行结果：
 
-- When the node can't prepare the export, because the credential doesn't work, the experiment lookup fails, or the identity lacks permission, the agent still runs and answers. n8n writes `Databricks AI Agent: could not prepare MLflow trace export` with the reason to its log.
-- When the trace write fails after the run, the run's output stands and n8n logs `Databricks AI Agent: MLflow trace export failed` with the Databricks error. The warning appears in the n8n server log only, not in the execution.
-- A partial export is possible: Databricks can register the trace but reject the upload of its spans. The trace then appears in the list without spans.
-- The one hard failure is a missing credential. With **Export Traces to MLflow** on and no credential selected, the node fails before any model call with `Select a Databricks credential to export traces to MLflow`.
+- 因凭据不可用、实验查找失败或身份权限不足，导致节点无法准备导出时，智能体仍会运行并作答。n8n 会将 `Databricks AI Agent: could not prepare MLflow trace export` 及其原因写入日志。
+- 运行结束后追踪写入失败时，运行输出仍有效，n8n 会记录 `Databricks AI Agent: MLflow trace export failed` 及 Databricks 错误。此警告仅显示在 n8n 服务器日志中，不会显示在执行中。
+- 可能发生部分导出：Databricks 可以注册追踪，但拒绝上传其跨度，此时列表中会出现不含跨度的追踪。
+- 唯一会直接导致失败的情况是缺少凭据。开启 **Export Traces to MLflow**（将追踪导出到 MLflow）却未选择凭据时，节点会在调用任何模型之前失败，返回 `Select a Databricks credential to export traces to MLflow`。
 
-The export makes three calls for each trace: it registers the trace in the experiment, requests a signed upload URL, and uploads the spans to that URL. The upload URL carries its own short-lived credential, so the workspace token is never sent to it.
+每条追踪的导出包含三次调用：在实验中注册追踪、请求带签名的上传 URL、将跨度上传到该 URL。上传 URL 自带短期有效的凭据，因此工作区 token 不会发送到该 URL。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-- [AI Agent](n8n-nodes-langchain.agent/README.md) and [Tools Agent](n8n-nodes-langchain.agent/tools-agent.md) for the agent's options and common issues
+- 智能体选项和常见问题，请参阅 [AI Agent](n8n-nodes-langchain.agent/README.md) 和 [Tools Agent](n8n-nodes-langchain.agent/tools-agent.md)
 - [Databricks Chat Model](../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md)
-- [Databricks Vector Store](n8n-nodes-langchain.vectorstoredatabricks/README.md), including a [worked example](n8n-nodes-langchain.vectorstoredatabricks/README.md#example-answer-questions-from-a-databricks-index-with-an-ai-agent) of an agent that answers from a Databricks index
+- [Databricks Vector Store](n8n-nodes-langchain.vectorstoredatabricks/README.md)，包括智能体根据 Databricks 索引作答的[完整示例](n8n-nodes-langchain.vectorstoredatabricks/README.md#example-answer-questions-from-a-databricks-index-with-an-ai-agent)
 - [Embeddings Databricks](../sub-nodes/n8n-nodes-langchain.embeddingsdatabricks.md)
-- [Databricks Genie One MCP server](../sub-nodes/n8n-mcp-registry.databricksgenie.md)
-- [Databricks credentials](../../credentials/databricks.md)
-- Migrating from the community package: refer to [Migrate from the n8n-nodes-databricks community package](n8n-nodes-langchain.vectorstoredatabricks/migrate-from-the-community-package.md)
-- [MLflow Tracing](https://docs.databricks.com/aws/en/mlflow3/genai/tracing/) and [MLflow experiment permissions](https://docs.databricks.com/aws/en/security/auth/access-control/#mlflow-experiment-acls) in the Databricks documentation
+- [Databricks Genie One MCP 服务器](../sub-nodes/n8n-mcp-registry.databricksgenie.md)
+- [Databricks 凭据](../../credentials/databricks.md)
+- 从社区包迁移：请参阅[从 n8n-nodes-databricks 社区包迁移](n8n-nodes-langchain.vectorstoredatabricks/migrate-from-the-community-package.md)
+- Databricks 文档中的 [MLflow Tracing](https://docs.databricks.com/aws/en/mlflow3/genai/tracing/) 和 [MLflow 实验权限](https://docs.databricks.com/aws/en/security/auth/access-control/#mlflow-experiment-acls)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Common issues
+## 常见问题 <a id="common-issues"></a>
 
-### Select a Databricks credential to export traces to MLflow
+### Select a Databricks credential to export traces to MLflow（请选择 Databricks 凭据以将追踪导出到 MLflow） <a id="select-a-databricks-credential-to-export-traces-to-mlflow"></a>
 
-**Export Traces to MLflow** is on, but the node has no credential. Select a Databricks OAuth2 credential under **Credential to connect with**, or turn the option off.
+已开启 **Export Traces to MLflow**（将追踪导出到 MLflow），但节点没有凭据。请在 **Credential to connect with**（连接凭据）中选择 Databricks OAuth2 凭据，或关闭该选项。
 
-### No traces appear in the experiment
+### 实验中未出现追踪 <a id="no-traces-appear-in-the-experiment"></a>
 
-The run succeeded but the experiment stays empty. Check the n8n server log for a line that starts with `Databricks AI Agent:`. It names the cause: a `403` means the identity lacks **CAN EDIT** on the experiment, a `404` with `RESOURCE_DOES_NOT_EXIST` means the **By ID** experiment doesn't exist, and a token error means the credential can't reach the workspace. After granting a permission, wait a minute before you run again.
+运行成功但实验仍为空。请检查 n8n 服务器日志中以 `Databricks AI Agent:` 开头的日志行，其中会说明原因：`403` 表示该身份没有实验的 **CAN EDIT** 权限；`404` 且包含 `RESOURCE_DOES_NOT_EXIST` 表示 **By ID**（按 ID）指定的实验不存在；token 错误则表示凭据无法访问工作区。授予权限后，请等待一分钟再运行。
 
-### A trace has no spans
+### 追踪不含跨度 <a id="a-trace-has-no-spans"></a>
 
-Databricks registered the trace but rejected the span upload, so the trace list shows the run without its tree. Check the n8n server log for the upload error and the identity's **CAN EDIT** permission on the experiment.
+Databricks 注册了追踪，但拒绝上传跨度，因此追踪列表显示该运行却没有跨度树。请检查 n8n 服务器日志中的上传错误，以及该身份是否具有实验的 **CAN EDIT** 权限。
 
-### Agent issues
+### 智能体问题 <a id="agent-issues"></a>
 
-For problems with the agent itself, such as a model that doesn't call tools or hits a rate limit, refer to [Choose a model for agents](../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md#choose-a-model-for-agents) on the Databricks Chat Model page and the AI Agent [common issues](n8n-nodes-langchain.agent/common-issues.md).
+模型不调用工具或触发速率限制等智能体本身的问题，请参阅 Databricks Chat Model 页面的[为智能体选择模型](../sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md#choose-a-model-for-agents)和 AI Agent 的[常见问题](n8n-nodes-langchain.agent/common-issues.md)。
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
-[^2]: In an AI context, a tool is an add-on resource that the AI can refer to for specific information or functionality when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks.
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大语言模型（LLM）理解用户输入，利用可用的信息和资源，决定如何最好地处理请求。
+[^2]: 在 AI 场景中，工具是附加资源，AI 可在响应请求时调用它获取特定信息或功能。AI 模型可以通过工具与外部系统交互，或完成具体、专门的任务。

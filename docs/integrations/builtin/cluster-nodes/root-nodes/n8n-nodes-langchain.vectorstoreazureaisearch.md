@@ -1,20 +1,14 @@
 ---
-title: Azure AI Search Vector Store node documentation
+title: Azure AI Search Vector Store（Azure AI Search 向量存储） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Azure AI Search Vector Store node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch
-description: >-
-  Learn how to use the Azure AI Search Vector Store node in n8n. Follow
-  technical documentation to integrate Azure AI Search Vector Store node into
-  your workflows.
+nodeTitle: Azure AI Search Vector Store（Azure AI Search 向量存储） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch
+description: 了解如何在 n8n 中使用 Azure AI Search Vector Store（Azure AI Search 向量存储） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -34,40 +28,42 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Azure AI Search Vector Store
 
-Azure AI Search (formerly Azure Cognitive Search) is a cloud search service with vector search capabilities for RAG and semantic search applications. Use this node to store, retrieve, and query vector embeddings alongside their content and metadata.
+# Azure AI Search Vector Store（Azure AI Search 向量存储） <a id="azure-ai-search-vector-store"></a>
 
-On this page, you'll find the node parameters for the Azure AI Search Vector Store node, and links to more resources.
+Azure AI Search（原名 Azure Cognitive Search）是一项云搜索服务，提供适用于 RAG 和语义搜索应用的向量搜索能力。使用此节点，存储、检索和查询嵌入向量及其对应的内容和元数据。
+
+本页列出了 Azure AI Search Vector Store 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Azure AI Search credentials documentation](../../credentials/azureaisearch.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Azure AI Search 凭据文档](../../credentials/azureaisearch.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Before using this node, you need:
+使用此节点前，需要：
 
-1. An [Azure subscription](https://azure.microsoft.com)
-2. An [Azure AI Search service](https://learn.microsoft.com/azure/search/search-create-service-portal)
-3.  API key authentication configured (admin key for write operations, query key for read-only)
+1. [Azure 订阅](https://azure.microsoft.com)
+2. [Azure AI Search 服务](https://learn.microsoft.com/azure/search/search-create-service-portal)
+3. 已配置 API 密钥身份验证（写入操作使用管理员密钥，只读操作使用查询密钥）
 
-    See [credentials documentation](../../credentials/azureaisearch.md) for setup instructions.
+    设置说明，请参阅[凭据文档](../../credentials/azureaisearch.md)。
 
-### Index configuration <a href="#index-configuration" id="index-configuration"></a>
+### 索引配置 <a href="#index-configuration" id="index-configuration"></a>
 
-The node automatically creates indexes if they don't exist. When auto-creating, the node configures:
+索引不存在时，节点会自动创建索引。自动创建时，节点会配置：
 
-* Vector fields with appropriate dimensions based on your embeddings model
-* HNSW algorithm for efficient similarity search with cosine metric
-* Content and metadata fields for filtering and retrieval
+* 根据嵌入模型设置适当维度的向量字段
+* 使用余弦度量的 HNSW 算法，实现高效相似度搜索
+* 用于过滤和检索的内容及元数据字段
 
-You can also pre-create indexes in Azure Portal for custom configurations. Example schema:
+也可在 Azure Portal 中预先创建索引，使用自定义配置。架构示例：
 
 ```json
 {
@@ -121,232 +117,232 @@ You can also pre-create indexes in Azure Portal for custom configurations. Examp
 ```
 
 {% hint style="info" %}
-**Vector dimensions**
+**向量维度**
 
-The `vectorSearchDimensions` value must match your embeddings model output.
+`vectorSearchDimensions` 值必须与嵌入模型的输出匹配。
 {% endhint %}
 
-## Node usage patterns <a href="#node-usage-patterns" id="node-usage-patterns"></a>
+## 节点使用模式 <a href="#node-usage-patterns" id="node-usage-patterns"></a>
 
-### Use as a regular node to insert and retrieve documents <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
+### 作为普通节点插入和检索文档 <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
 
-Use the node directly in workflows to insert or retrieve documents without an agent. See [this template](https://n8n.io/workflows/2621-ai-agent-to-chat-with-files-in-supabase-storage/) for an example pattern (uses Supabase, but the pattern is identical).
+直接在工作流中使用此节点插入或检索文档，无需智能体。模式示例，请参阅[此模板](https://n8n.io/workflows/2621-ai-agent-to-chat-with-files-in-supabase-storage/)（使用 Supabase，但模式完全相同）。
 
-### Connect directly to an AI agent as a tool <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
+### 作为工具直接连接到 AI 智能体 <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
 
-Connect to an [AI agent's](n8n-nodes-langchain.agent/README.md) tool connector to use the vector store as a searchable knowledge base:
+连接到 [AI 智能体](n8n-nodes-langchain.agent/README.md)的工具连接器，将向量存储用作可搜索的知识库：
 
-AI agent (tools connector) → Azure AI Search Vector Store node
+AI Agent（工具连接器）→ Azure AI Search Vector Store 节点
 
-### Use a retriever to fetch documents <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
+### 使用检索器获取文档 <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
 
-Use with [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) and [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) for retrieval-augmented generation:
+与 [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) 和 [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) 配合使用，实现检索增强生成：
 
-Question and Answer Chain (Retriever) → Vector Store Retriever (Vector Store) → Azure AI Search Vector Store
+Question and Answer Chain（Retriever）→ Vector Store Retriever（Vector Store）→ Azure AI Search Vector Store
 
-See [this example workflow](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/).
+请参阅[此示例工作流](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/)。
 
-### Use the Vector Store Question Answer Tool <a href="#use-the-vector-store-question-answer-tool" id="use-the-vector-store-question-answer-tool"></a>
+### 使用 Vector Store Question Answer Tool <a href="#use-the-vector-store-question-answer-tool" id="use-the-vector-store-question-answer-tool"></a>
 
-Use [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md) to summarize and answer questions:
+使用 [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md) 汇总信息并回答问题：
 
-AI agent (tools) → Vector Store Question Answer Tool (Vector Store) → Azure AI Search Vector Store
+AI Agent（工具）→ Vector Store Question Answer Tool（Vector Store）→ Azure AI Search Vector Store
 
-See [this example](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/).
+请参阅[此示例](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/)。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/5aeZAt5P1m2YndTmiFTG/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-mode-with-update.md" %}
 
-### Rerank Results <a href="#rerank-results" id="rerank-results"></a>
+### Rerank Results（结果重排序） <a href="#rerank-results" id="rerank-results"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/KcxcfJWhy81cjCSzO4vQ/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-rerank-results.md" %}
 
 {% hint style="info" %}
-**Azure AI Search semantic reranking**
+**Azure AI Search 语义重排序**
 
-Azure AI Search has built-in [semantic reranking](https://learn.microsoft.com/azure/search/semantic-search-overview) available when you use **Semantic Hybrid** query mode with a semantic configuration. To use it:
+Azure AI Search 内置[语义重排序](https://learn.microsoft.com/azure/search/semantic-search-overview)，使用 **Semantic Hybrid**（语义混合）查询模式并配置语义设置时可用。使用步骤：
 
-1. Set **Query Mode** to **Semantic Hybrid** in Options
-2. Set **Semantic Configuration** to your configuration name (defaults to `semantic-search-config` if not specified)
+1. 在 Options（选项）中，将 **Query Mode**（查询模式）设为 **Semantic Hybrid**（语义混合）
+2. 将 **Semantic Configuration**（语义配置）设为你的配置名称（未指定时默认为 `semantic-search-config`）
 
-The built-in semantic reranker uses machine learning models to improve relevance. You can chain an additional reranking node after semantic reranking for further refinement.
+内置语义重排序器使用机器学习模型提高相关性。还可在语义重排序之后串联额外的重排序节点，进一步优化结果。
 
-[Semantic reranking](https://learn.microsoft.com/azure/search/semantic-search-overview) is only available if your index has a semantic configuration defined.
+仅当索引定义了语义配置时，[语义重排序](https://learn.microsoft.com/azure/search/semantic-search-overview)才可用。
 {% endhint %}
 
-### Get Many parameters <a href="#get-many-parameters" id="get-many-parameters"></a>
+### Get Many（获取多条）参数 <a href="#get-many-parameters" id="get-many-parameters"></a>
 
-* **Endpoint**: Your Azure AI Search endpoint (format: `https://your-service.search.windows.net`)
-* **Index Name**: The index to query
-* **Limit**: Maximum documents to return (default: 4)
+* **Endpoint**（端点）：Azure AI Search 端点（格式：`https://your-service.search.windows.net`）
+* **Index Name**（索引名称）：要查询的索引
+* **Limit**（上限）：返回的最大文档数量（默认值：4）
 
-### Insert Documents parameters <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
+### Insert Documents（插入文档）参数 <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
 
-* **Endpoint**: Your Azure AI Search endpoint
-* **Index Name**: The index to use (created automatically if it doesn't exist)
-* **Batch Size**: Number of documents uploaded per batch to Azure AI Search. Adjust based on document size and your service tier limits. This controls upload batching only—embedding generation batching is configured in embedding nodes.
+* **Endpoint**（端点）：Azure AI Search 端点
+* **Index Name**（索引名称）：要使用的索引（不存在时自动创建）
+* **Batch Size**（批次大小）：每批上传到 Azure AI Search 的文档数量。请根据文档大小及服务层级限制调整。此选项仅控制上传批次；生成嵌入的批次在嵌入节点中配置。
 
-### Update Documents parameters <a href="#update-documents-parameters" id="update-documents-parameters"></a>
+### Update Documents（更新文档）参数 <a href="#update-documents-parameters" id="update-documents-parameters"></a>
 
-* **Endpoint**: Your Azure AI Search endpoint
-* **Index Name**: The index to update
+* **Endpoint**（端点）：Azure AI Search 端点
+* **Index Name**（索引名称）：要更新的索引
 
-### Retrieve Documents parameters (As Vector Store for Chain/Tool) <a href="#retrieve-documents-parameters-as-vector-store-for-chaintool" id="retrieve-documents-parameters-as-vector-store-for-chaintool"></a>
+### Retrieve Documents（作为链或工具的向量存储）参数 <a href="#retrieve-documents-parameters-as-vector-store-for-chaintool" id="retrieve-documents-parameters-as-vector-store-for-chaintool"></a>
 
-* **Endpoint**: Your Azure AI Search endpoint
-* **Index Name**: The index to query
+* **Endpoint**（端点）：Azure AI Search 端点
+* **Index Name**（索引名称）：要查询的索引
 
-### Retrieve Documents (As Tool for AI Agent) parameters <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
+### Retrieve Documents（作为 AI 智能体的工具）参数 <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
 
-* **Name**: Tool name shown to the LLM
-* **Description**: Explain to the LLM what this tool does. Be specific to help the LLM choose when to use this tool.
-* **Endpoint**: Your Azure AI Search endpoint
-* **Index Name**: The index to query
-* **Limit**: Maximum results to retrieve (e.g., `10` for ten best matches)
+* **Name**（名称）：向 LLM 显示的工具名称
+* **Description**（描述）：向 LLM 说明此工具的用途。描述应具体，帮助 LLM 判断何时使用此工具。
+* **Endpoint**（端点）：Azure AI Search 端点
+* **Index Name**（索引名称）：要查询的索引
+* **Limit**（上限）：检索结果的最大数量（例如，`10` 表示最匹配的十条结果）
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-### Options <a href="#options" id="options"></a>
+### Options（选项） <a href="#options" id="options"></a>
 
-* **Filter**: [OData filter expression](https://learn.microsoft.com/azure/search/search-query-odata-filter) to filter results by document fields or metadata. See filter examples below.
-* **Query Mode**: Search strategy to use:
-  * **Vector**: Similarity search using embeddings only
-  * **Keyword**: Full-text search using BM25 ranking
-  * **Hybrid** (default): Combines vector and keyword search with Reciprocal Rank Fusion (RRF)
-  * **Semantic Hybrid**: Hybrid search with [semantic reranking](https://learn.microsoft.com/azure/search/semantic-search-overview) for improved relevance
-* **Semantic Configuration**: Name of the semantic configuration to use for [semantic ranking](https://learn.microsoft.com/azure/search/semantic-search-overview). Defaults to `semantic-search-config` if not specified. Only required if you pre-created an index with a custom semantic configuration name.
+* **Filter**（过滤器）：使用 [OData 过滤表达式](https://learn.microsoft.com/azure/search/search-query-odata-filter)，按文档字段或元数据过滤结果。请参阅下方过滤器示例。
+* **Query Mode**（查询模式）：使用的搜索策略：
+  * **Vector**（向量）：仅使用嵌入进行相似度搜索
+  * **Keyword**（关键词）：使用 BM25 排序进行全文搜索
+  * **Hybrid**（混合，默认）：使用倒数排名融合（RRF），结合向量搜索和关键词搜索
+  * **Semantic Hybrid**（语义混合）：结合[语义重排序](https://learn.microsoft.com/azure/search/semantic-search-overview)的混合搜索，提高相关性
+* **Semantic Configuration**（语义配置）：用于[语义排序](https://learn.microsoft.com/azure/search/semantic-search-overview)的语义配置名称。未指定时默认为 `semantic-search-config`。仅当预先创建索引并使用自定义语义配置名称时，才需要填写。
 
 {% hint style="info" %}
-**Query mode selection**
+**选择查询模式**
 
-Use **Vector** for semantic similarity, **Keyword** for exact term matching, **Hybrid** for balanced results, or **Semantic Hybrid** when you've configured semantic search in your index for maximum relevance.
+语义相似度搜索使用 **Vector**（向量）；精确词项匹配使用 **Keyword**（关键词）；均衡结果使用 **Hybrid**（混合）；如果已在索引中配置语义搜索，希望尽可能提高相关性，则使用 **Semantic Hybrid**（语义混合）。
 {% endhint %}
 
-### OData filter examples <a href="#odata-filter-examples" id="odata-filter-examples"></a>
+### OData 过滤器示例 <a href="#odata-filter-examples" id="odata-filter-examples"></a>
 
-Azure AI Search uses [OData syntax](https://learn.microsoft.com/azure/search/search-query-odata-filter) for filtering. Metadata fields are accessed using `metadata/fieldName` format.
+Azure AI Search 使用 [OData 语法](https://learn.microsoft.com/azure/search/search-query-odata-filter)进行过滤，元数据字段通过 `metadata/fieldName` 格式访问。
 
-**Filter by document ID:**
+**按文档 ID 过滤：**
 
 ```
 id eq '3da6491a-f930-4a4e-9471-c05dcd450ba0'
 ```
 
-**Filter by metadata field:**
+**按元数据字段过滤：**
 
 ```
 metadata/source eq 'user-guide'
 ```
 
-**Complex AND filter:**
+**复杂 AND 过滤器：**
 
 ```
 metadata/category eq 'technology' and metadata/author eq 'John'
 ```
 
-**Complex OR filter:**
+**复杂 OR 过滤器：**
 
 ```
 metadata/source eq 'user-guide' or metadata/rating ge 4
 ```
 
-**Numeric comparison:**
+**数值比较：**
 
 ```
 metadata/rating ge 4 and metadata/rating lt 10
 ```
 
-**String matching with NOT:**
+**使用 NOT 的字符串匹配：**
 
 ```
 metadata/category eq 'technology' and metadata/title ne 'Deprecated'
 ```
 
-**Supported OData operators:**
+**支持的 OData 运算符：**
 
-* Comparison: `eq`, `ne`, `gt`, `ge`, `lt`, `le`
-* Logical: `and`, `or`, `not`
-* String functions: `startswith()`, `endswith()`, `contains()`
-* Collection functions: `any()`, `all()`
+* 比较：`eq`、`ne`、`gt`、`ge`、`lt`、`le`
+* 逻辑：`and`、`or`、`not`
+* 字符串函数：`startswith()`、`endswith()`、`contains()`
+* 集合函数：`any()`、`all()`
 
 {% hint style="info" %}
-**Filter format**
+**过滤器格式**
 
-Filters work across all query modes (Vector, Keyword, Hybrid, Semantic Hybrid) and all operation modes (retrieve, load, retrieve-as-tool).
+过滤器适用于所有查询模式（Vector、Keyword、Hybrid、Semantic Hybrid）和所有操作模式（retrieve、load、retrieve-as-tool）。
 {% endhint %}
 
-## Azure AI Search specific features <a href="#azure-ai-search-specific-features" id="azure-ai-search-specific-features"></a>
+## Azure AI Search 特有功能 <a href="#azure-ai-search-specific-features" id="azure-ai-search-specific-features"></a>
 
-### Hybrid search with RRF <a href="#hybrid-search-with-rrf" id="hybrid-search-with-rrf"></a>
+### 使用 RRF 的混合搜索 <a href="#hybrid-search-with-rrf" id="hybrid-search-with-rrf"></a>
 
-Azure AI Search's hybrid search uses Reciprocal Rank Fusion to merge vector and keyword results, providing better accuracy than either method alone.
+Azure AI Search 的混合搜索使用倒数排名融合，合并向量和关键词结果，比单独使用任一方法更准确。
 
-### [Semantic ranking](https://learn.microsoft.com/azure/search/semantic-search-overview) <a href="#semantic-rankinghttpslearnmicrosoftcomazuresearchsemantic-search-overview" id="semantic-rankinghttpslearnmicrosoftcomazuresearchsemantic-search-overview"></a>
+### [语义排序](https://learn.microsoft.com/azure/search/semantic-search-overview) <a href="#semantic-rankinghttpslearnmicrosoftcomazuresearchsemantic-search-overview" id="semantic-rankinghttpslearnmicrosoftcomazuresearchsemantic-search-overview"></a>
 
-Semantic Hybrid mode applies machine learning models to rerank results based on semantic understanding of your query. This requires a semantic configuration in your index.
+Semantic Hybrid（语义混合）模式应用机器学习模型，根据对查询的语义理解重新排序结果。索引中必须具备语义配置。
 
-### OData filters <a href="#odata-filters" id="odata-filters"></a>
+### OData 过滤器 <a href="#odata-filters" id="odata-filters"></a>
 
-Use OData syntax to filter by document fields or metadata before vector search executes. This improves performance and precision when you need results from specific sources or with certain attributes.
+在向量搜索执行之前，使用 OData 语法按文档字段或元数据过滤。需要来自特定来源或具有特定属性的结果时，这有助于提高性能和精度。
 
-### HNSW algorithm <a href="#hnsw-algorithm" id="hnsw-algorithm"></a>
+### HNSW 算法 <a href="#hnsw-algorithm" id="hnsw-algorithm"></a>
 
-Azure AI Search uses Hierarchical Navigable Small World (HNSW) graphs for approximate nearest neighbor search, providing fast retrieval at scale with configurable accuracy/speed tradeoffs.
+Azure AI Search 使用分层可导航小世界（HNSW）图进行近似最近邻搜索，在大规模数据上快速检索，并可配置准确性与速度之间的取舍。
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排查 <a href="#troubleshooting" id="troubleshooting"></a>
 
-### Index issues <a href="#index-issues" id="index-issues"></a>
+### 索引问题 <a href="#index-issues" id="index-issues"></a>
 
-**Index not found**: Verify the index name is correct (case-sensitive) and exists in your Azure AI Search service. If using auto-creation, check that the index was created successfully.
+**找不到索引**：确认索引名称正确（区分大小写），且索引存在于 Azure AI Search 服务中。使用自动创建时，检查索引是否创建成功。
 
-**Vector dimension mismatch**: Ensure your embedding model dimensions match the index vector field dimensions. Check the index schema to confirm the `vectorSearchDimensions` setting.
+**向量维度不匹配**：确保嵌入模型维度与索引向量字段维度一致。检查索引架构中的 `vectorSearchDimensions` 设置。
 
-**Document insert failures**:
+**文档插入失败**：
 
-* Verify write permissions (admin API key required)
-* Check document fields match your index schema
-* Ensure required fields are provided in documents
-* Review batch size settings if experiencing timeouts with large document sets
+* 验证写入权限（需要管理员 API 密钥）
+* 检查文档字段是否与索引架构匹配
+* 确保文档提供了所有必需字段
+* 大量文档导致超时时，检查批次大小设置
 
-### Filter issues <a href="#filter-issues" id="filter-issues"></a>
+### 过滤器问题 <a href="#filter-issues" id="filter-issues"></a>
 
-**Filter not working**:
+**过滤器不生效**：
 
-* Verify OData syntax is correct
-* Ensure metadata fields use `metadata/` prefix: `metadata/source eq 'value'`
-* Check that filtered fields are marked as `filterable` in your index schema
-* Test with simple filters first (`id eq 'value'`) before complex expressions
+* 确认 OData 语法正确
+* 确保元数据字段使用 `metadata/` 前缀：`metadata/source eq 'value'`
+* 检查索引架构中用于过滤的字段是否标记为 `filterable`
+* 先测试简单过滤器（`id eq 'value'`），再测试复杂表达式
 
-**Invalid OData syntax**:
+**OData 语法无效**：
 
-* Use single quotes for string values: `metadata/source eq 'value'`
-* Use proper operators: `eq`, `ne`, `gt`, `ge`, `lt`, `le`, `and`, `or`, `not`
-* Refer to [OData filter documentation](https://learn.microsoft.com/azure/search/search-query-odata-filter) for syntax details
+* 字符串值使用单引号：`metadata/source eq 'value'`
+* 使用正确的运算符：`eq`、`ne`、`gt`、`ge`、`lt`、`le`、`and`、`or`、`not`
+* 语法详情，请参阅 [OData 过滤器文档](https://learn.microsoft.com/azure/search/search-query-odata-filter)
 
-### Connection issues <a href="#connection-issues" id="connection-issues"></a>
+### 连接问题 <a href="#connection-issues" id="connection-issues"></a>
 
-**Unable to connect**:
+**无法连接**：
 
-* Verify endpoint URL format: `https://your-service.search.windows.net`
-* Confirm your Azure AI Search service is running and accessible
-* Check network security groups, firewall rules, and private endpoint configurations
-* For Azure-hosted n8n, verify virtual network peering or service endpoint configuration if using private endpoints
+* 验证端点 URL 格式：`https://your-service.search.windows.net`
+* 确认 Azure AI Search 服务正在运行且可访问
+* 检查网络安全组、防火墙规则和专用终结点配置
+* 对于托管在 Azure 上的 n8n，如果使用专用终结点，请验证虚拟网络对等互连或服务终结点配置
 
-### Authentication issues <a href="#authentication-issues" id="authentication-issues"></a>
+### 身份验证问题 <a href="#authentication-issues" id="authentication-issues"></a>
 
-For authentication troubleshooting including API key errors, refer to the [credentials documentation troubleshooting section](../../credentials/azureaisearch.md#troubleshooting).
+包括 API 密钥错误在内的身份验证问题，请参阅[凭据文档的故障排查部分](../../credentials/azureaisearch.md#troubleshooting)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Azure AI Search Vector Store node documentation integration templates](https://n8n.io/integrations/azure-ai-search-vector-store) or [search all templates](https://n8n.io/workflows/)
+[浏览 Azure AI Search Vector Store（Azure AI Search 向量存储） 集成模板](https://n8n.io/integrations/azure-ai-search-vector-store)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-* [Azure AI Search Vector Search documentation](https://learn.microsoft.com/azure/search/vector-search-overview)
-* [Azure AI Search REST API reference](https://learn.microsoft.com/rest/api/searchservice/)
-* [OData filter syntax for Azure AI Search](https://learn.microsoft.com/azure/search/search-query-odata-filter)
+* [Azure AI Search 向量搜索文档](https://learn.microsoft.com/azure/search/vector-search-overview)
+* [Azure AI Search REST API 参考](https://learn.microsoft.com/rest/api/searchservice/)
+* [Azure AI Search 的 OData 过滤器语法](https://learn.microsoft.com/azure/search/search-query-odata-filter)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dN5Se1JVH7wYGtmN4n0v/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/starter-kits/self-hosted-ai-starter-kit.md" %}

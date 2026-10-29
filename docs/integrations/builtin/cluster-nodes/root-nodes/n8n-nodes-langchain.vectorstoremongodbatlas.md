@@ -1,20 +1,14 @@
 ---
-title: MongoDB Atlas Vector Store node documentation
+title: MongoDB Atlas Vector Store（MongoDB Atlas 向量存储） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: MongoDB Atlas Vector Store node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas
-description: >-
-  Learn how to use the MongoDB Atlas Vector Store node in n8n. Follow technical
-  documentation to integrate MongoDB Atlas Vector Store node into your
-  workflows.
+nodeTitle: MongoDB Atlas Vector Store（MongoDB Atlas 向量存储） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas
+description: 了解如何在 n8n 中使用 MongoDB Atlas Vector Store（MongoDB Atlas 向量存储） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -34,31 +28,33 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MongoDB Atlas Vector Store
 
-MongoDB Atlas Vector Search is a feature of MongoDB Atlas that enables users to store and query vector embeddings. Use this node to interact with Vector Search indexes in your MongoDB Atlas collections. You can insert documents, retrieve documents, and use the vector store in chains or as a tool for agents.
+# MongoDB Atlas Vector Store（MongoDB Atlas 向量存储） <a id="mongodb-atlas-vector-store"></a>
 
-On this page, you'll find the node parameters for the MongoDB Atlas Vector Store node, and links to more resources.
+MongoDB Atlas Vector Search 是 MongoDB Atlas 的一项功能，可存储和查询嵌入向量。使用此节点，与 MongoDB Atlas 集合中的 Vector Search 索引交互。可插入和检索文档，在链中使用向量存储，或将其用作智能体的工具。
+
+本页列出了 MongoDB Atlas Vector Store 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [MongoDB credentials documentation](../../credentials/mongodb.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [MongoDB 凭据文档](../../credentials/mongodb.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Before using this node, create a [Vector Search index](https://www.mongodb.com/docs/atlas/atlas-vector-search/vector-search-type/) in your MongoDB Atlas collection. Follow these steps to create one:
+使用此节点前，请先在 MongoDB Atlas 集合中创建 [Vector Search 索引](https://www.mongodb.com/docs/atlas/atlas-vector-search/vector-search-type/)。创建步骤如下：
 
-1. Log in to the [MongoDB Atlas dashboard](https://cloud.mongodb.com/).
-2. Select your organization and project.
-3. Find "Search & Vector Search" section.
-4. Select your cluster and click "Go to search".
-5. Click "Create Search Index".
-6.  Choose "Vector Search" mode and use the visual or JSON editors. For example:
+1. 登录 [MongoDB Atlas 控制台](https://cloud.mongodb.com/)。
+2. 选择组织和项目。
+3. 找到“Search & Vector Search”（搜索与向量搜索）部分。
+4. 选择集群，点击“Go to search”（前往搜索）。
+5. 点击“Create Search Index”（创建搜索索引）。
+6. 选择“Vector Search”（向量搜索）模式，使用可视化编辑器或 JSON 编辑器。例如：
 
     ```json
     {
@@ -72,97 +68,97 @@ Before using this node, create a [Vector Search index](https://www.mongodb.com/d
       ]
     }
     ```
-7. Adjust the "dimensions" value according to your embedding model (For example, `1536` for OpenAI's `text-embedding-small-3`).
-8. Name your index and create.
+7. 根据嵌入模型调整“dimensions”（维度）值（例如，`1536` 适用于 OpenAI 的 `text-embedding-small-3`）。
+8. 为索引命名并创建。
 
-Make sure to note the following values which are required when configuring the node:
+请记下以下值，配置节点时需要使用：
 
-* Collection name
-* Vector index name
-* Field names for embeddings and metadata
+* 集合名称
+* 向量索引名称
+* 嵌入和元数据的字段名称
 
-## Node usage patterns <a href="#node-usage-patterns" id="node-usage-patterns"></a>
+## 节点使用模式 <a href="#node-usage-patterns" id="node-usage-patterns"></a>
 
-You can use the MongoDB Atlas Vector Store node in the following patterns:
+可按以下方式使用 MongoDB Atlas Vector Store 节点：
 
-### Use as a regular node to insert and retrieve documents <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
+### 作为普通节点插入和检索文档 <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
 
-You can use the MongoDB Atlas Vector Store as a regular node to insert or get documents. This pattern places the MongoDB Atlas Vector Store in the regular connection flow without using an agent.
+可将 MongoDB Atlas Vector Store 用作普通节点，插入或获取文档。此模式将 MongoDB Atlas Vector Store 放在常规连接流程中，无需使用智能体。
 
-You can see an example of this in scenario 1 of [this template](https://n8n.io/workflows/2621-ai-agent-to-chat-with-files-in-supabase-storage/) (the template uses the Supabase Vector Store, but the pattern is the same).
+示例请参阅[此模板](https://n8n.io/workflows/2621-ai-agent-to-chat-with-files-in-supabase-storage/)的场景 1（该模板使用 Supabase Vector Store，但模式相同）。
 
-### Connect directly to an AI agent as a tool <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
+### 作为工具直接连接到 AI 智能体 <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
 
-You can connect the MongoDB Atlas Vector Store node directly to the tool connector of an [AI agent](n8n-nodes-langchain.agent/README.md) to use the vector store as a resource when answering queries.
+可将 MongoDB Atlas Vector Store 节点直接连接到 [AI 智能体](n8n-nodes-langchain.agent/README.md)的工具连接器，让智能体在回答查询时将向量存储用作资源。
 
-Here, the connection would be: AI agent (tools connector) -> MongoDB Atlas Vector Store node.
+此时连接方式为：AI Agent（工具连接器）→ MongoDB Atlas Vector Store 节点。
 
-### Use a retriever to fetch documents <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
+### 使用检索器获取文档 <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
 
-You can use the [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) node with the MongoDB Atlas Vector Store node to fetch documents from the MongoDB Atlas Vector Store node. This is often used with the [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) node to fetch documents from the vector store that match the given chat input.
+可将 [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) 节点与 MongoDB Atlas Vector Store 节点配合使用，从 MongoDB Atlas Vector Store 节点获取文档。这通常与 [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) 节点配合，从向量存储获取与给定聊天输入匹配的文档。
 
-An [example of the connection flow](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/) (the linked example uses Pinecone, but the pattern is the same) would be: Question and Answer Chain (Retriever connector) -> Vector Store Retriever (Vector Store connector) -> MongoDB Atlas Vector Store.
+[连接流程示例](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/)如下（链接示例使用 Pinecone，但模式相同）：Question and Answer Chain（Retriever 连接器）→ Vector Store Retriever（Vector Store 连接器）→ MongoDB Atlas Vector Store。
 
-### Use the Vector Store Question Answer Tool to answer questions <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
+### 使用 Vector Store Question Answer Tool 回答问题 <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
 
-Another pattern uses the [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md) to summarize results and answer questions from the MongoDB Atlas Vector Store node. Rather than connecting the MongoDB Atlas Vector Store directly as a tool, this pattern uses a tool specifically designed to summarize data in the vector store.
+另一种模式使用 [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md)，汇总 MongoDB Atlas Vector Store 节点的结果并回答问题。此模式通过专门用于汇总向量存储数据的工具工作，无需将 MongoDB Atlas Vector Store 直接作为工具连接。
 
-The [connections flow](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/) (the linked example uses the In-Memory Vector Store, but the pattern is the same) in this case would look like this: AI agent (tools connector) -> Vector Store Question Answer Tool (Vector Store connector) -> In-Memory Vector store.
+此时的[连接流程](https://n8n.io/workflows/2465-building-your-first-whatsapp-chatbot/)如下（链接示例使用 In-Memory Vector Store，但模式相同）：AI Agent（工具连接器）→ Vector Store Question Answer Tool（Vector Store 连接器）→ In-Memory Vector Store。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/eiIkcF23uZ2A8BkFVQM5/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-mode.md" %}
 
-### Rerank Results <a href="#rerank-results" id="rerank-results"></a>
+### Rerank Results（结果重排序） <a href="#rerank-results" id="rerank-results"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/KcxcfJWhy81cjCSzO4vQ/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-rerank-results.md" %}
 
-### Get Many parameters <a href="#get-many-parameters" id="get-many-parameters"></a>
+### Get Many（获取多条）参数 <a href="#get-many-parameters" id="get-many-parameters"></a>
 
-* **Mongo Collection**: Enter the name of the MongoDB collection to use.
-* **Vector Index Name**: Enter the name of the Vector Search index in your MongoDB Atlas collection.
-* **Embedding Field**: Enter the field name in your documents that contains the vector embeddings.
-* **Metadata Field**: Enter the field name in your documents that contains the text metadata.
+* **Mongo Collection**（Mongo 集合）：输入要使用的 MongoDB 集合名称。
+* **Vector Index Name**（向量索引名称）：输入 MongoDB Atlas 集合中 Vector Search 索引的名称。
+* **Embedding Field**（嵌入字段）：输入文档中包含嵌入向量的字段名称。
+* **Metadata Field**（元数据字段）：输入文档中包含文本元数据的字段名称。
 
-### Insert Documents parameters <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
+### Insert Documents（插入文档）参数 <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
 
-* **Mongo Collection**: Enter the name of the MongoDB collection to use.
-* **Vector Index Name**: Enter the name of the Vector Search index in your MongoDB Atlas collection.
-* **Embedding Field**: Enter the field name in your documents that contains the vector embeddings.
-* **Metadata Field**: Enter the field name in your documents that contains the text metadata.
+* **Mongo Collection**（Mongo 集合）：输入要使用的 MongoDB 集合名称。
+* **Vector Index Name**（向量索引名称）：输入 MongoDB Atlas 集合中 Vector Search 索引的名称。
+* **Embedding Field**（嵌入字段）：输入文档中包含嵌入向量的字段名称。
+* **Metadata Field**（元数据字段）：输入文档中包含文本元数据的字段名称。
 
-### Retrieve Documents parameters (As Vector Store for Chain/Tool) <a href="#retrieve-documents-parameters-as-vector-store-for-chaintool" id="retrieve-documents-parameters-as-vector-store-for-chaintool"></a>
+### Retrieve Documents（作为链或工具的向量存储）参数 <a href="#retrieve-documents-parameters-as-vector-store-for-chaintool" id="retrieve-documents-parameters-as-vector-store-for-chaintool"></a>
 
-* **Mongo Collection**: Enter the name of the MongoDB collection to use.
-* **Vector Index Name**: Enter the name of the Vector Search index in your MongoDB Atlas collection.
-* **Embedding Field**: Enter the field name in your documents that contains the vector embeddings.
-* **Metadata Field**: Enter the field name in your documents that contains the text metadata.
+* **Mongo Collection**（Mongo 集合）：输入要使用的 MongoDB 集合名称。
+* **Vector Index Name**（向量索引名称）：输入 MongoDB Atlas 集合中 Vector Search 索引的名称。
+* **Embedding Field**（嵌入字段）：输入文档中包含嵌入向量的字段名称。
+* **Metadata Field**（元数据字段）：输入文档中包含文本元数据的字段名称。
 
-### Retrieve Documents (As Tool for AI Agent) parameters <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
+### Retrieve Documents（作为 AI 智能体的工具）参数 <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
 
-* **Name**: The name of the vector store.
-* **Description**: Explain to the LLM what this tool does. A good, specific description allows LLMs to produce expected results more often.
-* **Mongo Collection**: Enter the name of the MongoDB collection to use.
-* **Vector Index Name**: Enter the name of the Vector Search index in your MongoDB Atlas collection.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `10` to get the ten best results.
+* **Name**（名称）：向量存储的名称。
+* **Description**（描述）：向 LLM 说明此工具的用途。清晰、具体的描述有助于 LLM 更经常地生成预期结果。
+* **Mongo Collection**（Mongo 集合）：输入要使用的 MongoDB 集合名称。
+* **Vector Index Name**（向量索引名称）：输入 MongoDB Atlas 集合中 Vector Search 索引的名称。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `10` 可获取最匹配的十条结果。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-### Options <a href="#options" id="options"></a>
+### Options（选项） <a href="#options" id="options"></a>
 
-* **Metadata Filter**: Filters results based on metadata.
+* **Metadata Filter**（元数据过滤器）：根据元数据过滤结果。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse MongoDB Atlas Vector Store node documentation integration templates](https://n8n.io/integrations/mongodb-atlas-vector-store) or [search all templates](https://n8n.io/workflows/)
+[浏览 MongoDB Atlas Vector Store（MongoDB Atlas 向量存储） 集成模板](https://n8n.io/integrations/mongodb-atlas-vector-store)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to:
+请参阅：
 
-* [LangChain's MongoDB Atlas Vector Search documentation](https://docs.langchain.com/oss/javascript/integrations/vectorstores/mongodb_atlas) for more information about the service.
-* [MongoDB Atlas Vector Search documentation](https://www.mongodb.com/docs/atlas/atlas-vector-search/) for more information about MongoDB Atlas Vector Search.
+* [LangChain MongoDB Atlas Vector Search 文档](https://docs.langchain.com/oss/javascript/integrations/vectorstores/mongodb_atlas)，了解该服务的更多信息。
+* [MongoDB Atlas Vector Search 文档](https://www.mongodb.com/docs/atlas/atlas-vector-search/)，了解 MongoDB Atlas Vector Search 的更多信息。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dN5Se1JVH7wYGtmN4n0v/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/starter-kits/self-hosted-ai-starter-kit.md" %}

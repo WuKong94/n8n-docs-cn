@@ -1,19 +1,14 @@
 ---
-title: Redis Vector Store node documentation
+title: Redis Vector Store（Redis 向量存储） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Redis Vector Store node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreredis.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreredis
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreredis
-description: >-
-  Learn how to use the Redis Vector Store node in n8n. Follow technical
-  documentation to integrate Redis Vector Store node into your workflows.
+nodeTitle: Redis Vector Store（Redis 向量存储） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreredis.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreredis
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreredis
+description: 了解如何在 n8n 中使用 Redis Vector Store（Redis 向量存储） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -33,145 +28,147 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Redis Vector Store
 
-Use the Redis Vector Store node to interact with your Redis database as a [vector store](#user-content-fn-1)[^1]. You can insert documents into the vector database, get documents from the vector database, retrieve documents using a retriever connected to a chain[^2], or connect it directly to an agent[^3] to use as a tool[^4].
+# Redis Vector Store（Redis 向量存储） <a id="redis-vector-store"></a>
 
-On this page, you'll find the node parameters for the Redis Vector Store node, and links to more resources.
+使用 Redis Vector Store 节点，将 Redis 数据库作为[向量存储](#user-content-fn-1)[^1]进行交互。可向向量数据库插入文档、从中获取文档、通过连接到链[^2]的检索器检索文档，或直接连接到智能体[^3]作为工具[^4]使用。
 
-{% hint style="info" %}
-**Credentials**
-
-Refer to the [Redis credentials documentation](../../credentials/redis.md) for authentication information for this node.
-{% endhint %}
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+本页列出了 Redis Vector Store 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Feature availability**
+**凭据**
 
-Redis query filters and the **Metadata Schema** option are available from node version 1.4 of the Redis Vector Store node. For earlier node versions, refer to [Metadata Filter](#metadata-filter).
-
-Existing Redis Vector Store nodes keep their node version, and their indexes keep working. To use node version 1.4, add a new Redis Vector Store node with a new index, then reimport your documents. Don't point a node version 1.4 node at an index that an earlier node version created. Its metadata will be missing, and filters will return wrong results.
+此节点的身份验证信息，请参阅 [Redis 凭据文档](../../credentials/redis.md)。
 {% endhint %}
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
-
-Before using this node, you need a Redis database with the [Redis Query Engine](https://redis.io/docs/latest/develop/ai/search-and-query/?utm_source=n8n\&utm_medium=docs) enabled. Use one of the following:
-
-* **Redis Open Source (v8.0 and later)** : includes the Redis Query Engine by default
-* [**Redis Cloud**](https://cloud.redis.io/?utm_source=n8n\&utm_medium=docs) : fully managed service
-* [**Redis Software**](https://redis.io/software/?utm_source=n8n\&utm_medium=docs) : self-managed deployment
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
 {% hint style="info" %}
-**A new index will be created if you don't have one.**
+**功能可用性**
 
-Creating your own indices in advance is only necessary if you want to use a custom index schema or reuse an existing index. Otherwise, you can skip this step and let the node create a new index for you based on the options you specify.
+Redis 查询过滤器和 **Metadata Schema**（元数据架构）选项从 Redis Vector Store 节点版本 1.4 起可用。更早的节点版本，请参阅 [Metadata Filter（元数据过滤器）](#metadata-filter)。
+
+现有 Redis Vector Store 节点会保留其节点版本，原有索引仍可使用。如需使用节点版本 1.4，请添加新的 Redis Vector Store 节点并使用新索引，然后重新导入文档。请勿将节点版本 1.4 的节点指向早期节点版本创建的索引，否则元数据会缺失，过滤器将返回错误结果。
 {% endhint %}
 
-## Node usage patterns <a href="#node-usage-patterns" id="node-usage-patterns"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-You can use the Redis Vector Store node in the following patterns:
+使用此节点前，需要一个启用了 [Redis Query Engine](https://redis.io/docs/latest/develop/ai/search-and-query/?utm_source=n8n\&utm_medium=docs) 的 Redis 数据库。可使用以下任一选项：
 
-### Use as a regular node to insert and retrieve documents <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
+* **Redis Open Source（v8.0 及更高版本）**：默认包含 Redis Query Engine
+* [**Redis Cloud**](https://cloud.redis.io/?utm_source=n8n\&utm_medium=docs)：全托管服务
+* [**Redis Software**](https://redis.io/software/?utm_source=n8n\&utm_medium=docs)：自行管理的部署
 
-You can use the Redis Vector Store as a regular node to insert or get documents. This pattern places the Redis Vector Store in the regular connection flow without using an agent.
+{% hint style="info" %}
+**如果没有索引，将创建新索引。**
 
-You can see an example in [this template](https://n8n.io/workflows/10887-reduce-llm-costs-with-semantic-caching-using-redis-vector-store-and-huggingface/) where the semantic cache is stored in Redis and retrieved using the Redis Vector Store node in the start of the workflow.
+只有需要自定义索引架构或复用现有索引时，才需要提前创建索引。否则可跳过此步骤，让节点根据你指定的选项创建新索引。
+{% endhint %}
 
-### Connect directly to an AI agent as a tool <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
+## 节点使用模式 <a href="#node-usage-patterns" id="node-usage-patterns"></a>
 
-You can connect the Redis Vector Store node directly to the tool[^4] connector of an [AI agent](n8n-nodes-langchain.agent/README.md) to use a vector store as a resource when answering queries.
+可按以下方式使用 Redis Vector Store 节点：
 
-Here, the connection would be: AI agent (tools connector) -> Redis Vector Store node.
+### 作为普通节点插入和检索文档 <a href="#use-as-a-regular-node-to-insert-and-retrieve-documents" id="use-as-a-regular-node-to-insert-and-retrieve-documents"></a>
 
-### Use a retriever to fetch documents <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
+可将 Redis Vector Store 用作普通节点，插入或获取文档。此模式将 Redis Vector Store 放在常规连接流程中，无需使用智能体。
 
-You can use the [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) node with the Redis Vector Store node to fetch documents from the Redis Vector Store node. This is often used with the [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) node to fetch documents from the vector store that match the given chat input.
+示例请参阅[此模板](https://n8n.io/workflows/10887-reduce-llm-costs-with-semantic-caching-using-redis-vector-store-and-huggingface/)，其中将语义缓存存储在 Redis 中，并在工作流开头使用 Redis Vector Store 节点检索。
 
-An [example of the connection flow](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/) (the linked example uses Pinecone, but the pattern is the same) would be: Question and Answer Chain (Retriever connector) -> Vector Store Retriever (Vector Store connector) -> Redis Vector Store.
+### 作为工具直接连接到 AI 智能体 <a href="#connect-directly-to-an-ai-agent-as-a-tool" id="connect-directly-to-an-ai-agent-as-a-tool"></a>
 
-### Use the Vector Store Question Answer Tool to answer questions <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
+可将 Redis Vector Store 节点直接连接到 [AI 智能体](n8n-nodes-langchain.agent/README.md)的工具[^4]连接器，让智能体在回答查询时将向量存储用作资源。
 
-Another pattern uses the [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md) to summarize results and answer questions from the Redis Vector Store node. Rather than connecting the Redis Vector Store directly as a tool, this pattern uses a tool specifically designed to summarizes data in the vector store.
+此时连接方式为：AI Agent（工具连接器）→ Redis Vector Store 节点。
 
-This [template](https://n8n.io/workflows/10837-chat-with-github-issues-using-openai-and-redis-vector-search/) shows how to use the Vector Store Question Answer Tool with the Redis Vector Store node. The connections flow in this case would look like this: AI agent (tools connector) -> Vector Store Question Answer Tool (Vector Store connector) -> Redis Vector store.
+### 使用检索器获取文档 <a href="#use-a-retriever-to-fetch-documents" id="use-a-retriever-to-fetch-documents"></a>
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+可将 [Vector Store Retriever](../sub-nodes/n8n-nodes-langchain.retrievervectorstore.md) 节点与 Redis Vector Store 节点配合使用，从 Redis Vector Store 节点获取文档。这通常与 [Question and Answer Chain](n8n-nodes-langchain.chainretrievalqa/README.md) 节点配合，从向量存储获取与给定聊天输入匹配的文档。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/eiIkcF23uZ2A8BkFVQM5/" %}
+[连接流程示例](https://n8n.io/workflows/1960-ask-questions-about-a-pdf-using-ai/)如下（链接示例使用 Pinecone，但模式相同）：Question and Answer Chain（Retriever 连接器）→ Vector Store Retriever（Vector Store 连接器）→ Redis Vector Store。
 
-### Rerank Results <a href="#rerank-results" id="rerank-results"></a>
+### 使用 Vector Store Question Answer Tool 回答问题 <a href="#use-the-vector-store-question-answer-tool-to-answer-questions" id="use-the-vector-store-question-answer-tool-to-answer-questions"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/KcxcfJWhy81cjCSzO4vQ/" %}
+另一种模式使用 [Vector Store Question Answer Tool](../sub-nodes/n8n-nodes-langchain.toolvectorstore.md)，汇总 Redis Vector Store 节点的结果并回答问题。此模式通过专门用于汇总向量存储数据的工具工作，无需将 Redis Vector Store 直接作为工具连接。
 
-### Get Many parameters <a href="#get-many-parameters" id="get-many-parameters"></a>
+此[模板](https://n8n.io/workflows/10837-chat-with-github-issues-using-openai-and-redis-vector-search/)展示了如何将 Vector Store Question Answer Tool 与 Redis Vector Store 节点配合使用。此时的连接流程为：AI Agent（工具连接器）→ Vector Store Question Answer Tool（Vector Store 连接器）→ Redis Vector Store。
 
-* **Redis Index**: Enter the name of the Redis vector search index to use. Optionally choose an existing one from the list.
-* **Prompt**: Enter the search query.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `10` to get the ten best results.
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-This Operation Mode includes the [Metadata Filter](#metadata-filter) **Node option**. From node version 1.4, it also includes the [Metadata Schema](#metadata-schema) **Node option**.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-mode.md" %}
 
-### Insert Documents parameters <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
+### Rerank Results（结果重排序） <a href="#rerank-results" id="rerank-results"></a>
 
-* **Redis Index**: Enter the name of the Redis vector search index to use. Optionally choose an existing one from the list.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-rerank-results.md" %}
 
-From node version 1.4, this Operation Mode includes the [Metadata Schema](#metadata-schema) **Node option**.
+### Get Many（获取多条）参数 <a href="#get-many-parameters" id="get-many-parameters"></a>
 
-### Retrieve Documents (As Vector Store for Chain/Tool) parameters <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
+* **Redis Index**（Redis 索引）：输入要使用的 Redis 向量搜索索引名称，也可从列表中选择现有索引。
+* **Prompt**（提示词）：输入搜索查询。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `10` 可获取最匹配的十条结果。
 
-* **Redis Index**: Enter the name of the Redis vector search index to use. Optionally choose an existing one from the list.
+此操作模式包含 [Metadata Filter（元数据过滤器）](#metadata-filter)**节点选项**。从节点版本 1.4 起，还包含 [Metadata Schema（元数据架构）](#metadata-schema)**节点选项**。
 
-This Operation Mode includes the [Metadata Filter](#metadata-filter) **Node option**. From node version 1.4, it also includes the [Metadata Schema](#metadata-schema) **Node option**.
+### Insert Documents（插入文档）参数 <a href="#insert-documents-parameters" id="insert-documents-parameters"></a>
 
-### Retrieve Documents (As Tool for AI Agent) parameters <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
+* **Redis Index**（Redis 索引）：输入要使用的 Redis 向量搜索索引名称，也可从列表中选择现有索引。
 
-* **Name**: The name of the vector store.
-* **Description**: Explain to the LLM what this tool does. A good, specific description allows LLMs to produce expected results more often.
-* **Redis Index**: Enter the name of the Redis vector search index to use. Optionally choose an existing one from the list.
-* **Limit**: Enter how many results to retrieve from the vector store. For example, set this to `10` to get the ten best results.
+从节点版本 1.4 起，此操作模式包含 [Metadata Schema（元数据架构）](#metadata-schema)**节点选项**。
 
-This Operation Mode includes the [Metadata Filter](#metadata-filter) **Node option**. From node version 1.4, it also includes the [Metadata Schema](#metadata-schema) **Node option**.
+### Retrieve Documents（作为链或工具的向量存储）参数 <a href="#retrieve-documents-as-vector-store-for-chaintool-parameters" id="retrieve-documents-as-vector-store-for-chaintool-parameters"></a>
 
-### Include Metadata <a href="#include-metadata" id="include-metadata"></a>
+* **Redis Index**（Redis 索引）：输入要使用的 Redis 向量搜索索引名称，也可从列表中选择现有索引。
 
-Whether to include document metadata.
+此操作模式包含 [Metadata Filter（元数据过滤器）](#metadata-filter)**节点选项**。从节点版本 1.4 起，还包含 [Metadata Schema（元数据架构）](#metadata-schema)**节点选项**。
 
-You can use this with the [Get Many](n8n-nodes-langchain.vectorstoreredis.md#get-many-parameters) and [Retrieve Documents (As Tool for AI Agent)](n8n-nodes-langchain.vectorstoreredis.md#retrieve-documents-as-tool-for-ai-agent-parameters) modes.
+### Retrieve Documents（作为 AI 智能体的工具）参数 <a href="#retrieve-documents-as-tool-for-ai-agent-parameters" id="retrieve-documents-as-tool-for-ai-agent-parameters"></a>
 
-## Node options <a href="#node-options" id="node-options"></a>
+* **Name**（名称）：向量存储的名称。
+* **Description**（描述）：向 LLM 说明此工具的用途。清晰、具体的描述有助于 LLM 更经常地生成预期结果。
+* **Redis Index**（Redis 索引）：输入要使用的 Redis 向量搜索索引名称，也可从列表中选择现有索引。
+* **Limit**（上限）：输入从向量存储检索的结果数量。例如，设为 `10` 可获取最匹配的十条结果。
 
-### Metadata Filter <a href="#metadata-filter" id="metadata-filter"></a>
+此操作模式包含 [Metadata Filter（元数据过滤器）](#metadata-filter)**节点选项**。从节点版本 1.4 起，还包含 [Metadata Schema（元数据架构）](#metadata-schema)**节点选项**。
 
-The **Metadata Filter** option limits results to documents whose metadata matches a filter. It's available for the [Get Many](#get-many-parameters), [Retrieve Documents (As Vector Store for Chain/Tool)](#retrieve-documents-as-vector-store-for-chaintool-parameters), and [Retrieve Documents (As Tool for AI Agent)](#retrieve-documents-as-tool-for-ai-agent-parameters) operation modes. The filter syntax depends on the node version.
+### Include Metadata（包含元数据） <a href="#include-metadata" id="include-metadata"></a>
 
-When inserting data, the document loader sets the metadata. Refer to [Default Data Loader](../sub-nodes/n8n-nodes-langchain.documentdefaultdataloader.md) for more information on loading documents.
+是否包含文档元数据。
 
-#### Redis query filters in node version 1.4
+可与 [Get Many（获取多条）](n8n-nodes-langchain.vectorstoreredis.md#get-many-parameters)和 [Retrieve Documents（作为 AI 智能体的工具）](n8n-nodes-langchain.vectorstoreredis.md#retrieve-documents-as-tool-for-ai-agent-parameters)模式配合使用。
 
-From node version 1.4, **Metadata Filter** takes a Redis query expression. You can filter on tag, numeric, text, and geo fields, and combine conditions with AND and OR logic. A filter only works on a field that the index stores with a matching type. Refer to [Metadata Schema](#metadata-schema) to set field types.
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-| Filter type | Example | Matches documents where |
+### Metadata Filter（元数据过滤器） <a href="#metadata-filter" id="metadata-filter"></a>
+
+**Metadata Filter**（元数据过滤器）选项将结果限定为元数据匹配过滤器的文档，适用于 [Get Many（获取多条）](#get-many-parameters)、[Retrieve Documents（作为链或工具的向量存储）](#retrieve-documents-as-vector-store-for-chaintool-parameters)和 [Retrieve Documents（作为 AI 智能体的工具）](#retrieve-documents-as-tool-for-ai-agent-parameters)操作模式。过滤器语法取决于节点版本。
+
+插入数据时，由文档加载器设置元数据。加载文档的更多信息，请参阅 [Default Data Loader](../sub-nodes/n8n-nodes-langchain.documentdefaultdataloader.md)。
+
+#### 节点版本 1.4 中的 Redis 查询过滤器 <a id="redis-query-filters-in-node-version-14"></a>
+
+从节点版本 1.4 起，**Metadata Filter**（元数据过滤器）接受 Redis 查询表达式。可对标签、数值、文本和地理位置字段进行过滤，并用 AND 和 OR 逻辑组合条件。过滤器仅对索引中以匹配类型存储的字段有效。字段类型设置方法，请参阅 [Metadata Schema（元数据架构）](#metadata-schema)。
+
+| 过滤类型 | 示例 | 匹配文档的条件 |
 |-------------|---------|-------------------------|
-| Tag | `@category:{electronics}` | `category` is `electronics` |
-| Several tags | `@category:{electronics\|books}` | `category` is `electronics` or `books` |
-| Numeric range | `@price:[0 100]` | `price` is from 0 to 100 |
-| Combined | `@category:{electronics} @price:[0 100]` | both conditions match |
-| Text | `@description:laptop` | `description` contains the word `laptop` |
+| 标签 | `@category:{electronics}` | `category` 为 `electronics` |
+| 多个标签 | `@category:{electronics\|books}` | `category` 为 `electronics` 或 `books` |
+| 数值范围 | `@price:[0 100]` | `price` 在 0 到 100 之间 |
+| 组合 | `@category:{electronics} @price:[0 100]` | 两个条件都匹配 |
+| 文本 | `@description:laptop` | `description` 包含单词 `laptop` |
 
-For the full syntax, refer to [LangChain's Redis Vector Store advanced features documentation](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis#advanced-features) and the [Redis Query Engine documentation](https://redis.io/docs/latest/develop/ai/search-and-query/query/).
+完整语法，请参阅 [LangChain Redis Vector Store 高级功能文档](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis#advanced-features)和 [Redis Query Engine 文档](https://redis.io/docs/latest/develop/ai/search-and-query/query/)。
 
-#### Comma-separated filters in node version 1.3 and earlier
+#### 节点版本 1.3 及更早版本中以逗号分隔的过滤器 <a id="comma-separated-filters-in-node-version-13-and-earlier"></a>
 
-In node version 1.3 and earlier, **Metadata Filter** takes a comma-separated list of words, for example `Item1,Item2,Item3`. The node runs an `OR` query, so a document matches if at least one of the words matches.
+在节点版本 1.3 及更早版本中，**Metadata Filter**（元数据过滤器）接受以逗号分隔的词列表，例如 `Item1,Item2,Item3`。节点执行 `OR` 查询，只要至少一个词匹配，文档即匹配。
 
-### Metadata Schema
+### Metadata Schema（元数据架构） <a id="metadata-schema"></a>
 
-The **Metadata Schema** option sets the type of each metadata field in the index. It's available from node version 1.4 for the [Insert Documents](#insert-documents-parameters), [Get Many](#get-many-parameters), [Retrieve Documents (As Vector Store for Chain/Tool)](#retrieve-documents-as-vector-store-for-chaintool-parameters), and [Retrieve Documents (As Tool for AI Agent)](#retrieve-documents-as-tool-for-ai-agent-parameters) operation modes.
+**Metadata Schema**（元数据架构）选项设置索引中各个元数据字段的类型。从节点版本 1.4 起，适用于 [Insert Documents（插入文档）](#insert-documents-parameters)、[Get Many（获取多条）](#get-many-parameters)、[Retrieve Documents（作为链或工具的向量存储）](#retrieve-documents-as-vector-store-for-chaintool-parameters)和 [Retrieve Documents（作为 AI 智能体的工具）](#retrieve-documents-as-tool-for-ai-agent-parameters)操作模式。
 
-Enter a JSON array with one object for each metadata field. Each object needs a `name` and a `type`, and can have an `options` object:
+输入 JSON 数组，每个元数据字段对应一个对象。每个对象必须包含 `name` 和 `type`，还可包含 `options` 对象：
 
 ```json
 [
@@ -182,70 +179,71 @@ Enter a JSON array with one object for each metadata field. Each object needs a 
 ]
 ```
 
-If the JSON isn't valid, or a field has a missing name or an unknown type, the node stops with an error and leaves the index unchanged.
+如果 JSON 无效、字段缺少名称或类型未知，节点将报错停止，索引保持不变。
 
-| Type | Use it for | Example filter |
+| 类型 | 用途 | 过滤器示例 |
 |------|------------|----------------|
-| `tag` | Exact matches on categories, labels, and status values | `@category:{electronics}` |
-| `text` | Full-text search on descriptions and content | `@description:laptop` |
-| `numeric` | Ranges of prices, scores, and dates (store dates as Unix timestamps) | `@price:[0 100]` |
-| `geo` | Locations, stored as `"<longitude>,<latitude>"` | `@location:[-73.98 40.75 5 km]` |
+| `tag` | 精确匹配类别、标签和状态值 | `@category:{electronics}` |
+| `text` | 对描述和内容进行全文搜索 | `@description:laptop` |
+| `numeric` | 价格、分数和日期范围（日期以 Unix 时间戳存储） | `@price:[0 100]` |
+| `geo` | 地理位置，以 `"<longitude>,<latitude>"` 格式存储 | `@location:[-73.98 40.75 5 km]` |
 
-| Option | Field types | Description |
+| 选项 | 字段类型 | 描述 |
 |--------|-------------|-------------|
-| `sortable` | `numeric`, `text` | Lets Redis sort results on the field. Default: `false`. |
-| `separator` | `tag` | The character that separates several tags in one value. Default: `,`. |
-| `caseSensitive` | `tag` | Matches tags with case sensitivity. Default: `false`. |
-| `weight` | `text` | The weight of the field when Redis scores text matches. Default: `1.0`. |
-| `noStem` | `text` | Turns off stemming, so `laptops` doesn't match `laptop`. Default: `false`. |
-| `noindex` | All types | Stores the field without indexing it, so you can't filter on it. Default: `false`. |
+| `sortable` | `numeric`、`text` | 允许 Redis 按该字段对结果排序。默认值：`false`。 |
+| `separator` | `tag` | 同一个值中分隔多个标签的字符。默认值：`,`。 |
+| `caseSensitive` | `tag` | 区分大小写匹配标签。默认值：`false`。 |
+| `weight` | `text` | Redis 对文本匹配评分时，该字段的权重。默认值：`1.0`。 |
+| `noStem` | `text` | 关闭词干提取，使 `laptops` 不匹配 `laptop`。默认值：`false`。 |
+| `noindex` | 所有类型 | 存储字段但不为其建立索引，因此无法按此字段过滤。默认值：`false`。 |
 
-If you leave **Metadata Schema** empty, the node infers a type for each field from all the documents you insert:
+如果将 **Metadata Schema**（元数据架构）留空，节点会根据插入的所有文档推断各字段的类型：
 
-| Metadata values | Inferred type |
+| 元数据值 | 推断类型 |
 |-----------------|---------------|
-| Numbers or dates | `numeric` |
-| Arrays | `tag` |
-| Strings in the form `"<longitude>,<latitude>"` | `geo` |
-| Any other strings | `text` |
+| 数值或日期 | `numeric` |
+| 数组 | `tag` |
+| 格式为 `"<longitude>,<latitude>"` 的字符串 | `geo` |
+| 其他字符串 | `text` |
 
-A plain string field becomes `text`, so tag filters such as `@category:{electronics}` don't match it. To use tag filters on a string field, declare the field as `tag` in **Metadata Schema**.
+普通字符串字段会成为 `text` 类型，因此 `@category:{electronics}` 等标签过滤器无法匹配。要对字符串字段使用标签过滤器，请在 **Metadata Schema**（元数据架构）中将该字段声明为 `tag`。
 
-For more details, refer to [LangChain's Redis Vector Store documentation](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis#advanced-features).
+更多详情，请参阅 [LangChain Redis Vector Store 文档](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis#advanced-features)。
 
-### Redis Configuration Options <a href="#redis-configuration-options" id="redis-configuration-options"></a>
+### Redis 配置选项 <a href="#redis-configuration-options" id="redis-configuration-options"></a>
 
-Available for all operation modes:
+适用于所有操作模式：
 
-* **Metadata Key**: Enter the key for the metadata field in the Redis hash (default: `metadata`).
-* **Key Prefix**: Enter the key prefix for storing documents (default: `doc:`).
-* **Content Key**: Enter the key for the content field in the Redis hash (default: `content`).
-* **Embedding Key**: Enter the key for the embedding field in the Redis hash (default: `embedding`).
+* **Metadata Key**（元数据键）：输入 Redis 哈希中元数据字段的键（默认值：`metadata`）。
+* **Key Prefix**（键前缀）：输入存储文档使用的键前缀（默认值：`doc:`）。
+* **Content Key**（内容键）：输入 Redis 哈希中内容字段的键（默认值：`content`）。
+* **Embedding Key**（嵌入键）：输入 Redis 哈希中嵌入字段的键（默认值：`embedding`）。
 
-### Insert Options <a href="#insert-options" id="insert-options"></a>
+### 插入选项 <a href="#insert-options" id="insert-options"></a>
 
-Available for the [Insert Documents](n8n-nodes-langchain.vectorstoreredis.md#insert-documents-parameters) operation mode:
+适用于 [Insert Documents（插入文档）](n8n-nodes-langchain.vectorstoreredis.md#insert-documents-parameters)操作模式：
 
-* **Overwrite Documents**: Select whether to overwrite existing documents (turned on) or not (turned off). Also deletes the index.
-* **Time-to-Live**: Enter the time-to-live for documents in seconds. Does not expire the index.
+* **Overwrite Documents**（覆盖文档）：开启时覆盖现有文档，关闭时不覆盖。此操作还会删除索引。
+* **Time-to-Live**（存活时间）：输入文档的存活时间，单位为秒。不会使索引过期。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Redis Vector Store node documentation integration templates](https://n8n.io/integrations/redis-vector-store) or [search all templates](https://n8n.io/workflows/)
+[浏览 Redis Vector Store（Redis 向量存储） 集成模板](https://n8n.io/integrations/redis-vector-store)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to:
+请参阅：
 
-* [Redis Vector Search documentation](https://redis.io/docs/latest/develop/ai/search-and-query/vectors/) for more information about Redis vector capabilities.
-* [RediSearch documentation](https://redis.io/docs/latest/develop/ai/search-and-query/query/) for detailed query syntax and filter expressions.
-* [LangChain's Redis Vector Store documentation](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis) for more information about the service, including [advanced filtering and custom schema features](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis#advanced-features).
+* [Redis Vector Search 文档](https://redis.io/docs/latest/develop/ai/search-and-query/vectors/)，了解 Redis 向量功能的更多信息。
+* [RediSearch 文档](https://redis.io/docs/latest/develop/ai/search-and-query/query/)，了解详细查询语法和过滤表达式。
+* [LangChain Redis Vector Store 文档](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis)，了解该服务的更多信息，包括[高级过滤与自定义架构功能](https://docs.langchain.com/oss/javascript/integrations/vectorstores/redis#advanced-features)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dN5Se1JVH7wYGtmN4n0v/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/starter-kits/self-hosted-ai-starter-kit.md" %}
 
-[^1]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
-[^2]: AI chains allow you to interact with large language models (LLMs) and other resources in sequences of calls to components. AI chains in n8n don't use persistent memory, so you can't use them to reference previous context (use AI agents for this).
-[^3]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
-[^4]: In an AI context, a tool is an add-on resource that the AI can refer to for specific information or functionality when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks.
+<a id="user-content-fn-1"></a>
+[^1]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。
+[^2]: AI 链通过对组件的一系列调用，让你与大语言模型（LLM）及其他资源交互。n8n 中的 AI 链不使用持久记忆，因此不能通过它引用先前的上下文（此用途请使用 AI 智能体）。
+[^3]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大语言模型（LLM）理解用户输入，利用可用的信息和资源，决定如何最好地处理请求。
+[^4]: 在 AI 场景中，工具是附加资源，AI 可在响应请求时调用它获取特定信息或功能。AI 模型可以通过工具与外部系统交互，或完成具体、专门的任务。

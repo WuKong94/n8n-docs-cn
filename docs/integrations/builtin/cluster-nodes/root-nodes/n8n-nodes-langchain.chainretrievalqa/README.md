@@ -1,49 +1,47 @@
 ---
-title: Question and Answer Chain node documentation
-description: >-
-  Learn how to use the Question and Answer Chain node in n8n. Follow technical
-  documentation to integrate Question and Answer Chain node into your workflows.
+title: Question and Answer Chain（问答链） 节点文档
+description: 了解如何在 n8n 中使用 Question and Answer Chain（问答链） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-langchain.chainretrievalqa
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa/index.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.chainretrievalqa
 layout:
   description:
     visible: false
 ---
-
-# Question and Answer Chain node <a href="#question-and-answer-chain-node" id="question-and-answer-chain-node"></a>
-
-Use the Question and Answer Chain node to use a [vector store](#user-content-fn-1)[^1] as a retriever.
-
-On this page, you'll find the node parameters for the Question and Answer Chain node, and links to more resources.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-### Query <a href="#query" id="query"></a>
-
-The question you want to ask.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse n8n-nodes-langchain.chainretrievalqa integration templates](https://n8n.io/integrations/retrieval-qanda-chain) or [search all templates](https://n8n.io/workflows/)
+# Question and Answer Chain（问答链） 节点 <a href="#question-and-answer-chain-node" id="question-and-answer-chain-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+使用 Question and Answer Chain 节点，将[向量存储](#user-content-fn-1)[^1]用作检索器。
 
-Refer to [LangChain's semantic search tutorial](https://docs.langchain.com/oss/javascript/langchain/knowledge-base) for an example of how LangChain uses a vector store as a retriever.
+本页列出了 Question and Answer Chain 节点的参数，并提供更多资源的链接。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+### Query（查询） <a href="#query" id="query"></a>
 
-For common errors or issues and suggested resolution steps, refer to [Common Issues](common-issues.md).
+你要提出的问题。
 
-[^1]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Question and Answer Chain（问答链）集成模板](https://n8n.io/integrations/retrieval-qanda-chain)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+LangChain 将向量存储用作检索器的示例，请参阅 [LangChain 语义搜索教程](https://docs.langchain.com/oss/javascript/langchain/knowledge-base)。
+
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
+
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+常见错误和问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。
+
+<a id="user-content-fn-1"></a>
+[^1]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。

@@ -1,107 +1,104 @@
 ---
-title: ReAct AI Agent node documentation
-description: >-
-  Learn how to use the ReAct Agent of the AI Agent node in n8n. Follow technical
-  documentation to integrate the ReAct Agent into your workflows.
+title: ReAct AI Agent（ReAct AI 智能体） 节点文档
+description: 了解如何在 n8n 的 AI Agent 节点中使用 ReAct Agent，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: ReAct AI Agent node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/react-agent.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/react-agent
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/react-agent
+nodeTitle: ReAct AI Agent（ReAct AI 智能体） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/react-agent.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/react-agent
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/react-agent
 layout:
   description:
     visible: false
 tags:
-  - tag: deprecated
-    primary: true
+- tag: deprecated
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# ReAct AI Agent node <a href="#react-ai-agent-node" id="react-ai-agent-node"></a>
+
+# ReAct AI Agent（ReAct AI 智能体） 节点 <a href="#react-ai-agent-node" id="react-ai-agent-node"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用性**
 
-The ReAct Agent is deprecated from n8n 1.82.0. New or updated AI Agent nodes use the [Tools Agent](tools-agent.md) instead. Only workflows still using node version 1 of the AI Agent node can select the ReAct Agent.
+ReAct Agent 从 n8n 1.82.0 起弃用。新增或更新的 AI Agent 节点改用 [Tools Agent](tools-agent.md)。只有仍使用 AI Agent 节点版本 1 的工作流可选择 ReAct Agent。
 
-Node version 1 of the AI Agent node is removed from n8n 3.0, so the ReAct Agent stops working for all workflows. See [n8n 3.0 breaking changes](https://app.gitbook.com/s/hhM8Cox90Piiv0u0EgHM/v30-breaking-changes) for details.
+AI Agent 节点版本 1 从 n8n 3.0 中移除，因此 ReAct Agent 将在所有工作流中停止工作。详情请参阅 [n8n 3.0 破坏性变更](../../../../../changelog/v30-breaking-changes.md)。
 {% endhint %}
 
-The ReAct Agent node implements [ReAct](https://react-lm.github.io/) logic. ReAct (reasoning and acting) brings together the reasoning powers of chain-of-thought prompting and action plan generation.
+ReAct Agent 节点实现 [ReAct](https://react-lm.github.io/) 逻辑。ReAct（推理与行动）结合了思维链提示和行动计划生成的推理能力。
 
-The ReAct Agent reasons about a given task, determines the necessary actions, and then executes them. It follows the cycle of reasoning and acting until it completes the task. The ReAct agent can break down complex tasks into smaller sub-tasks, prioritise them, and execute them one after the other.
+ReAct Agent 针对给定任务进行推理，确定所需行动并执行，持续进行推理与行动循环，直到任务完成。它可以将复杂任务拆成更小的子任务，确定优先级并依次执行。
 
-Refer to [AI Agent](README.md) for more information on the AI Agent node itself.
+AI Agent 节点本身的更多信息，请参阅 [AI Agent](README.md)。
 
 {% hint style="info" %}
-**No memory**
+**无记忆**
 
-The ReAct agent doesn't support memory sub-nodes. This means it can't recall previous prompts or simulate an ongoing conversation.
+ReAct 智能体不支持记忆子节点，因此无法回忆之前的提示词或模拟持续对话。
 {% endhint %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Configure the ReAct Agent using the following parameters.
+使用以下参数配置 ReAct Agent。
 
-### Prompt <a href="#prompt" id="prompt"></a>
+### Prompt（提示词） <a href="#prompt" id="prompt"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Ss9Y6clfLTwlXMx69w6E/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/prompt.md" %}
 
-### Require Specific Output Format <a href="#require-specific-output-format" id="require-specific-output-format"></a>
+### Require Specific Output Format（要求指定输出格式） <a href="#require-specific-output-format" id="require-specific-output-format"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/IsHMhvgDA3Ok5qdqnHnJ/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/output-format.md" %}
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Use the options to create a message to send to the agent at the start of the conversation. The message type depends on the model you're using:
+使用以下选项创建在对话开始时发送给智能体的消息。消息类型取决于所用模型：
 
-* **Chat models**: These models have the concept of three components interacting (AI, system, and human). They can receive system messages and human messages (prompts).
-* **Instruct models**: These models don't have the concept of separate AI, system, and human components. They receive one body of text, the instruct message.
+* **Chat models**（聊天模型）：具有 AI、系统和用户三个组件交互的概念，可接收系统消息和用户消息（提示词）。
+* **Instruct models**（指令模型）：不区分独立的 AI、系统和用户组件，只接收一段指令消息文本。
 
-### Human Message Template <a href="#human-message-template" id="human-message-template"></a>
+### Human Message Template（用户消息模板） <a href="#human-message-template" id="human-message-template"></a>
 
-Use this option to extend the user prompt. This is a way for the agent to pass information from one iteration to the next.
+使用此选项扩展用户提示词，让智能体将信息从一次迭代传给下一次。
 
-Available LangChain expressions:
+可用的 LangChain 表达式：
 
-* `{input}`: Contains the user prompt.
-* `{agent_scratchpad}`: Information to remember for the next iteration.
+* `{input}`：包含用户提示词。
+* `{agent_scratchpad}`：需要为下一次迭代记住的信息。
 
-### Prefix Message <a href="#prefix-message" id="prefix-message"></a>
+### Prefix Message（前缀消息） <a href="#prefix-message" id="prefix-message"></a>
 
-Enter text to prefix the tools list at the start of the conversation. You don't need to add the list of tools. LangChain automatically adds the tools list.
+输入对话开始时放在工具列表前的文本。无需添加工具列表，LangChain 会自动添加。
 
-### Suffix Message for Chat Model <a href="#suffix-message-for-chat-model" id="suffix-message-for-chat-model"></a>
+### Suffix Message for Chat Model（聊天模型后缀消息） <a href="#suffix-message-for-chat-model" id="suffix-message-for-chat-model"></a>
 
-Add text to append after the tools list at the start of the conversation when the agent uses a chat model. You don't need to add the list of tools. LangChain automatically adds the tools list.
+输入智能体使用聊天模型时，在对话开始处放在工具列表后的文本。无需添加工具列表，LangChain 会自动添加。
 
-### Suffix Message for Regular Model <a href="#suffix-message-for-regular-model" id="suffix-message-for-regular-model"></a>
+### Suffix Message for Regular Model（常规模型后缀消息） <a href="#suffix-message-for-regular-model" id="suffix-message-for-regular-model"></a>
 
-Add text to append after the tools list at the start of the conversation when the agent uses a regular/instruct model. You don't need to add the list of tools. LangChain automatically adds the tools list.
+输入智能体使用常规模型或指令模型时，在对话开始处放在工具列表后的文本。无需添加工具列表，LangChain 会自动添加。
 
-### Return Intermediate Steps <a href="#return-intermediate-steps" id="return-intermediate-steps"></a>
+### Return Intermediate Steps（返回中间步骤） <a href="#return-intermediate-steps" id="return-intermediate-steps"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/skA96E8hAnMMKG7c4Lta/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/return-intermediate-steps.md" %}
 
-### Tracing Metadata <a href="#tracing-metadata" id="tracing-metadata"></a>
+### Tracing Metadata（追踪元数据） <a href="#tracing-metadata" id="tracing-metadata"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/GAsqtB1RVGEDrT5PMMLl/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/tracing-metadata.md" %}
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to LangChain's [ReAct Agents](https://docs.langchain.com/oss/javascript/langchain/agents) documentation for more information.
+更多信息请参阅 LangChain 的 [ReAct Agents](https://docs.langchain.com/oss/javascript/langchain/agents) 文档。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-Refer to the main AI Agent node's [Templates and examples](README.md#templates-and-examples) section.
+请参阅 AI Agent 主节点的[模板与示例](README.md#templates-and-examples)部分。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。
 
 
