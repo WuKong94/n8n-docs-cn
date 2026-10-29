@@ -1,18 +1,14 @@
 ---
-title: Telegram node Chat operations documentation
+title: Telegram 节点聊天操作
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Telegram node Chat operations documentation
+nodeTitle: Telegram 节点聊天操作
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations
-description: >-
-  Documentation for the Chat operations in the Telegram node in n8n, a workflow
-  automation platform. Includes details to configure all Chat operations.
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations
+description: 了解 n8n 工作流自动化平台中 Telegram 节点的聊天操作，以及各项操作的配置详情。
 layout:
   width: default
   title:
@@ -32,96 +28,98 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Chat operations
 
-Use these operations to get information about chats, members, administrators, leave chat, and set chat titles and descriptions. Refer to [Telegram](./README.md) for more information on the Telegram node itself.
+# 聊天操作 <a id="chat-operations"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+使用这些操作获取聊天、成员和管理员信息，退出聊天，以及设置聊天标题和描述。有关 Telegram 节点本身的更多信息，请参阅 [Telegram](./README.md)。
 
-## Get Chat <a href="#get-chat" id="get-chat"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-Use this operation to get up to date information about a chat using the Bot API [getChat](https://core.telegram.org/bots/api#getchat) method.
+## Get Chat（获取聊天信息） <a href="#get-chat" id="get-chat"></a>
 
-Enter these parameters:
+此操作通过 Bot API 的 [getChat](https://core.telegram.org/bots/api#getchat) 方法获取聊天的最新信息。
 
-* **Credential to connect with**: Create or select an existing [Telegram credential](../../credentials/telegram.md).
-* **Resource**: Select **Chat**.
-* **Operation**: Select **Get**.
-* **Chat ID**: Enter the Chat ID or username of the target channel in the format `@channelusername`.
-  * To feed a Chat ID directly into this node, use the [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md) node. Refer to [Common Issues | Get the Chat ID](common-issues.md#get-the-chat-id) for more information.
+填写以下参数：
 
-Refer to the Telegram Bot API [getChat](https://core.telegram.org/bots/api#getchat) documentation for more information.
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Telegram 凭据](../../credentials/telegram.md)。
+* **Resource**（资源）：选择 **Chat**（聊天）。
+* **Operation**（操作）：选择 **Get**（获取）。
+* **Chat ID**（聊天 ID）：输入目标聊天的 ID；使用频道用户名时，格式为 `@channelusername`。
+  * 要将聊天 ID 直接传入此节点，可使用 [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md)（Telegram 触发器）节点。更多信息，请参阅[常见问题 | 获取聊天 ID](common-issues.md#get-the-chat-id)。
 
-## Get Administrators <a href="#get-administrators" id="get-administrators"></a>
+更多信息，请参阅 Telegram Bot API 的 [getChat](https://core.telegram.org/bots/api#getchat) 文档。
 
-Use this operation to get a list of all administrators in a chat using the Bot API [getChatAdministrators](https://core.telegram.org/bots/api#getchatadministrators) method.
+## Get Administrators（获取管理员） <a href="#get-administrators" id="get-administrators"></a>
 
-Enter these parameters:
+此操作通过 Bot API 的 [getChatAdministrators](https://core.telegram.org/bots/api#getchatadministrators) 方法获取聊天的管理员列表。
 
-* **Credential to connect with**: Create or select an existing [Telegram credential](../../credentials/telegram.md).
-* **Resource**: Select **Chat**.
-* **Operation**: Select **Get Administrators**.
-* **Chat ID**: Enter the Chat ID or username of the target channel in the format `@channelusername`.
-  * To feed a Chat ID directly into this node, use the [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md) node. Refer to [Common Issues | Get the Chat ID](common-issues.md#get-the-chat-id) for more information.
+填写以下参数：
 
-Refer to the Telegram Bot API [getChatAdministrators](https://core.telegram.org/bots/api#getchatadministrators) documentation for more information.
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Telegram 凭据](../../credentials/telegram.md)。
+* **Resource**（资源）：选择 **Chat**（聊天）。
+* **Operation**（操作）：选择 **Get Administrators**（获取管理员）。
+* **Chat ID**（聊天 ID）：输入目标聊天的 ID；使用频道用户名时，格式为 `@channelusername`。
+  * 要将聊天 ID 直接传入此节点，可使用 [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md)（Telegram 触发器）节点。更多信息，请参阅[常见问题 | 获取聊天 ID](common-issues.md#get-the-chat-id)。
 
-## Get Chat Member <a href="#get-chat-member" id="get-chat-member"></a>
+更多信息，请参阅 Telegram Bot API 的 [getChatAdministrators](https://core.telegram.org/bots/api#getchatadministrators) 文档。
 
-Use this operation to get the details of a chat member using the Bot API [getChatMember](https://core.telegram.org/bots/api#getchatmember) method.
+## Get Chat Member（获取聊天成员） <a href="#get-chat-member" id="get-chat-member"></a>
 
-Enter these parameters:
+此操作通过 Bot API 的 [getChatMember](https://core.telegram.org/bots/api#getchatmember) 方法获取聊天成员的详细信息。
 
-* **Credential to connect with**: Create or select an existing [Telegram credential](../../credentials/telegram.md).
-* **Resource**: Select **Chat**.
-* **Operation**: Select **Get Member**.
-* **Chat ID**: Enter the Chat ID or username of the target channel in the format `@channelusername`.
-  * To feed a Chat ID directly into this node, use the [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md) node. Refer to [Common Issues | Get the Chat ID](common-issues.md#get-the-chat-id) for more information.
-* **User ID**: Enter the unique identifier of the user whose information you want to get.
+填写以下参数：
 
-Refer to the Telegram Bot API [getChatMember](https://core.telegram.org/bots/api#getchatmember) documentation for more information.
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Telegram 凭据](../../credentials/telegram.md)。
+* **Resource**（资源）：选择 **Chat**（聊天）。
+* **Operation**（操作）：选择 **Get Member**（获取成员）。
+* **Chat ID**（聊天 ID）：输入目标聊天的 ID；使用频道用户名时，格式为 `@channelusername`。
+  * 要将聊天 ID 直接传入此节点，可使用 [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md)（Telegram 触发器）节点。更多信息，请参阅[常见问题 | 获取聊天 ID](common-issues.md#get-the-chat-id)。
+* **User ID**（用户 ID）：输入要获取其信息的用户的唯一标识符。
 
-## Leave Chat <a href="#leave-chat" id="leave-chat"></a>
+更多信息，请参阅 Telegram Bot API 的 [getChatMember](https://core.telegram.org/bots/api#getchatmember) 文档。
 
-Use this operation to leave a chat using the Bot API [leaveChat](https://core.telegram.org/bots/api#leavechat) method.
+## Leave Chat（退出聊天） <a href="#leave-chat" id="leave-chat"></a>
 
-Enter these parameters:
+此操作通过 Bot API 的 [leaveChat](https://core.telegram.org/bots/api#leavechat) 方法退出聊天。
 
-* **Credential to connect with**: Create or select an existing [Telegram credential](../../credentials/telegram.md).
-* **Resource**: Select **Chat**.
-* **Operation**: Select **Leave**.
-* **Chat ID**: Enter the Chat ID or username of the channel you wish to leave in the format `@channelusername`.
-  * To feed a Chat ID directly into this node, use the [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md) node. Refer to [Common Issues | Get the Chat ID](common-issues.md#get-the-chat-id) for more information.
+填写以下参数：
 
-Refer to the Telegram Bot API [leaveChat](https://core.telegram.org/bots/api#leavechat) documentation for more information.
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Telegram 凭据](../../credentials/telegram.md)。
+* **Resource**（资源）：选择 **Chat**（聊天）。
+* **Operation**（操作）：选择 **Leave**（退出）。
+* **Chat ID**（聊天 ID）：输入要退出的聊天的 ID；使用频道用户名时，格式为 `@channelusername`。
+  * 要将聊天 ID 直接传入此节点，可使用 [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md)（Telegram 触发器）节点。更多信息，请参阅[常见问题 | 获取聊天 ID](common-issues.md#get-the-chat-id)。
 
-## Set Description <a href="#set-description" id="set-description"></a>
+更多信息，请参阅 Telegram Bot API 的 [leaveChat](https://core.telegram.org/bots/api#leavechat) 文档。
 
-Use this operation to set the description of a chat using the Bot API [setChatDescription](https://core.telegram.org/bots/api#setchatdescription) method.
+## Set Description（设置描述） <a href="#set-description" id="set-description"></a>
 
-Enter these parameters:
+此操作通过 Bot API 的 [setChatDescription](https://core.telegram.org/bots/api#setchatdescription) 方法设置聊天描述。
 
-* **Credential to connect with**: Create or select an existing [Telegram credential](../../credentials/telegram.md).
-* **Resource**: Select **Chat**.
-* **Operation**: Select **Set Description**.
-* **Chat ID**: Enter the Chat ID or username of the channel you wish to leave in the format `@channelusername`.
-  * To feed a Chat ID directly into this node, use the [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md) node. Refer to [Common Issues | Get the Chat ID](common-issues.md#get-the-chat-id) for more information.
-* **Description**: Enter the new description you'd like to set the chat to use, maximum of 255 characters.
+填写以下参数：
 
-Refer to the Telegram Bot API [setChatDescription](https://core.telegram.org/bots/api#setchatdescription) documentation for more information.
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Telegram 凭据](../../credentials/telegram.md)。
+* **Resource**（资源）：选择 **Chat**（聊天）。
+* **Operation**（操作）：选择 **Set Description**（设置描述）。
+* **Chat ID**（聊天 ID）：输入目标聊天的 ID；使用频道用户名时，格式为 `@channelusername`。
+  * 要将聊天 ID 直接传入此节点，可使用 [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md)（Telegram 触发器）节点。更多信息，请参阅[常见问题 | 获取聊天 ID](common-issues.md#get-the-chat-id)。
+* **Description**（描述）：输入要为聊天设置的新描述，最多 255 个字符。
 
-## Set Title <a href="#set-title" id="set-title"></a>
+更多信息，请参阅 Telegram Bot API 的 [setChatDescription](https://core.telegram.org/bots/api#setchatdescription) 文档。
 
-Use this operation to set the title of a chat using the Bot API [setChatTitle](https://core.telegram.org/bots/api#setchattitle) method.
+## Set Title（设置标题） <a href="#set-title" id="set-title"></a>
 
-Enter these parameters:
+此操作通过 Bot API 的 [setChatTitle](https://core.telegram.org/bots/api#setchattitle) 方法设置聊天标题。
 
-* **Credential to connect with**: Create or select an existing [Telegram credential](../../credentials/telegram.md).
-* **Resource**: Select **Chat**.
-* **Operation**: Select **Set Title**.
-* **Chat ID**: Enter the Chat ID or username of the channel you wish to leave in the format `@channelusername`.
-  * To feed a Chat ID directly into this node, use the [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md) node. Refer to [Common Issues | Get the Chat ID](common-issues.md#get-the-chat-id) for more information.
-* **Title**: Enter the new title you'd like to set the chat to use, maximum of 255 characters.
+填写以下参数：
 
-Refer to the Telegram Bot API [setChatTitle](https://core.telegram.org/bots/api#setchattitle) documentation for more information.
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Telegram 凭据](../../credentials/telegram.md)。
+* **Resource**（资源）：选择 **Chat**（聊天）。
+* **Operation**（操作）：选择 **Set Title**（设置标题）。
+* **Chat ID**（聊天 ID）：输入目标聊天的 ID；使用频道用户名时，格式为 `@channelusername`。
+  * 要将聊天 ID 直接传入此节点，可使用 [Telegram Trigger](../../trigger-nodes/n8n-nodes-base.telegramtrigger/README.md)（Telegram 触发器）节点。更多信息，请参阅[常见问题 | 获取聊天 ID](common-issues.md#get-the-chat-id)。
+* **Title**（标题）：输入要为聊天设置的新标题，最多 128 个字符。译注：原文的 255 与 Telegram setChatTitle 的标题上限不符，此处按该方法修正。
+
+更多信息，请参阅 Telegram Bot API 的 [setChatTitle](https://core.telegram.org/bots/api#setchattitle) 文档。

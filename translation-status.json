@@ -15440,5 +15440,91 @@
       "oracle-bind-example-parameter-source-note",
       "oracle-delete-ddl-transaction-source-note"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.telegram/README.md": {
+    "status": "translated",
+    "source_sha256": "5135acc3d86d45bafdb667fc1a5c79c5b9c72220be96305bd204df597925d2d2",
+    "translation_sha256": "022e98c45da29b513b73a276ab99cc0edb56ce260cc6b198757587df5a2b244d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "telegram-overview-channel-membership-context",
+      "telegram-overview-inline-query-kind"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.telegram/callback-operations.md": {
+    "status": "translated",
+    "source_sha256": "aca88ebf42dc05ee5f5c821a977b1eaaf9a76910de2bec0b4ca07bec461996ae",
+    "translation_sha256": "440c592f773b020a24db944bb02c53d5f74a4a692dd66566fcb4c425c74c4f8b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "telegram-answer-callback-results-source-note",
+      "telegram-answer-inline-query-kind",
+      "telegram-inline-query-additional-fields-source-note"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations.md": {
+    "status": "translated",
+    "source_sha256": "772a18d8550f2427ffbc34a3a9af699e570b315ff002e3369ffc7a3eaf20fe39",
+    "translation_sha256": "12509924abc7e27a45d9e31e114cd511233199b48f1befbe9793bcea606fb7c8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "telegram-set-chat-target-not-leave",
+      "telegram-chat-title-length-limit"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "56c3821c9d36a63f94543dd3d8dc08ac312863af72910461185318df216f99b8",
+    "translation_sha256": "0f6951d0c26c9403657c68d2069d7dc88476bb1ada12c19486331ed3a10480a7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "telegram-channel-public-username-condition",
+      "telegram-chat-id-public-supergroup-username",
+      "telegram-bulk-message-batching-heading",
+      "telegram-bulk-message-batching-limit-context"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md": {
+    "status": "translated",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3",
+    "translation_sha256": "9e03187fb9fab4dcbdd42dd85948f859ecbbd44a87bd602e65fe839cf6579a0b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "telegram-message-channel-membership-context",
+      "telegram-delete-message-chat-target",
+      "telegram-edit-message-chat-target",
+      "telegram-link-preview-option-nesting",
+      "telegram-pin-notification-channel-private-exception",
+      "telegram-send-message-batching-limit-context",
+      "telegram-sticker-file-field-context",
+      "telegram-unpin-operation-name",
+      "telegram-remove-keyboard-reference-source-note",
+      "telegram-selective-reply-current-message-context"
+    ]
   }
 }

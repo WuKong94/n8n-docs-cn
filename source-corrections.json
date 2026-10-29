@@ -817,5 +817,286 @@
     ],
     "scope": "仅明确 Cascade 在 Truncate 与 Drop 下的不同含义，不更改选项可用条件、SQL、参数、链接及源快照，不执行任何级联操作，也不推断节点内部请求实现。",
     "source_sha256": "4e7a864d8f24ab389b986174c112af69992e38d357d35e540ef987f24abcbdc2"
+  },
+  {
+    "id": "telegram-overview-channel-membership-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/README.md",
+    "original_sentence": "    <div data-gb-custom-block data-tag=\"hint\" data-style=\"info\" class=\"hint hint-info\"><p><strong>Add bot to channel</strong></p><p>To use most of the <strong>Message</strong> operations, you must add your bot to a channel so that it can send messages to that channel. Refer to <a href=\"common-issues.md#add-a-bot-to-a-telegram-channel\">Common Issues | Add a bot to a Telegram channel</a> for more information.</p></div>",
+    "translated_sentence": "    <div data-gb-custom-block data-tag=\"hint\" data-style=\"info\" class=\"hint hint-info\"><p><strong>将机器人添加到频道</strong></p><p>如果要通过 <strong>Message</strong>（消息）操作向频道发送消息，需要先将机器人添加到该频道。更多信息，请参阅<a href=\"common-issues.md#add-a-bot-to-a-telegram-channel\">常见问题 | 将机器人添加到 Telegram 频道</a>。</p></div>",
+    "evidence": "频道成员要求仅适用于向频道发送消息；Telegram Bot FAQ 同时列出私聊与群组场景，消息操作并非普遍要求加入频道。保留 HTML 和提示链接，仅将适用条件限定为向频道发送消息。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/README.md",
+      "https://core.telegram.org/bots/faq#what-messages-will-my-bot-get"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "5135acc3d86d45bafdb667fc1a5c79c5b9c72220be96305bd204df597925d2d2"
+  },
+  {
+    "id": "telegram-overview-inline-query-kind",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/README.md",
+    "original_sentence": "  * [**Answer Inline Query**](callback-operations.md#answer-inline-query): Send answers to callback queries sent from inline queries.",
+    "translated_sentence": "  * [**Answer Inline Query**](callback-operations.md#answer-inline-query)（回答内联查询）：回答内联查询。",
+    "evidence": "answerInlineQuery 回答内联查询，原文将其写成来自内联查询的回调查询。按该方法定义区分两类查询。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/README.md",
+      "https://core.telegram.org/bots/api#answerinlinequery"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "5135acc3d86d45bafdb667fc1a5c79c5b9c72220be96305bd204df597925d2d2"
+  },
+  {
+    "id": "telegram-answer-callback-results-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/callback-operations.md",
+    "original_sentence": "* **Results**: Enter a JSON-serialized array of results you want to use as answers to the query. Refer to the Telegram [InlineQueryResults](https://core.telegram.org/bots/api#inlinequeryresult) documentation for more information on formatting your array.",
+    "translated_sentence": "* **Results**（结果）：原文在此列出用于回答查询的 JSON 序列化结果数组，并引用 Telegram [InlineQueryResults](https://core.telegram.org/bots/api#inlinequeryresult) 格式文档。译注：结果数组属于 answerInlineQuery，answerCallbackQuery 不接受此参数。",
+    "evidence": "answerCallbackQuery 参数列表没有 results，结果数组属于 answerInlineQuery。保留原字段和 InlineQueryResults 链接，以译注指出此处来源错误，不指导向回调回答传入结果数组。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/callback-operations.md",
+      "https://core.telegram.org/bots/api#answercallbackquery",
+      "https://core.telegram.org/bots/api#answerinlinequery"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "aca88ebf42dc05ee5f5c821a977b1eaaf9a76910de2bec0b4ca07bec461996ae"
+  },
+  {
+    "id": "telegram-answer-inline-query-kind",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/callback-operations.md",
+    "original_sentence": "Use this operation to send answers to callback queries sent from inline queries using the Bot API [answerInlineQuery](https://core.telegram.org/bots/api#answerinlinequery) method.",
+    "translated_sentence": "此操作通过 Bot API 的 [answerInlineQuery](https://core.telegram.org/bots/api#answerinlinequery) 方法回答内联查询。",
+    "evidence": "answerInlineQuery 用于回答内联查询；原文误称来自内联查询的回调查询。按对应 API 定义修正查询类型，不更改方法链接。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/callback-operations.md",
+      "https://core.telegram.org/bots/api#answerinlinequery"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "aca88ebf42dc05ee5f5c821a977b1eaaf9a76910de2bec0b4ca07bec461996ae"
+  },
+  {
+    "id": "telegram-inline-query-additional-fields-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/callback-operations.md",
+    "original_sentence": "* **Cache Time**: The maximum amount of time in seconds that the client may cache the result of the callback query. Telegram defaults to `300` seconds for this method.\n* **Show Alert**: Telegram can display the answer as a notification at the top of the chat screen or as an alert. Choose whether you want to keep the default notification display (turned off) or display the answer as an alert (turned on).\n* **Text**: If you want the answer to show text, enter up to 200 characters of text here.\n* **URL**: Enter a URL that the user's client will open.",
+    "translated_sentence": "* **Cache Time**（缓存时间）：服务端可缓存内联查询结果的最长时间，单位为秒。Telegram 对此方法的默认值为 `300` 秒。译注：原文此处误写为客户端缓存回调查询结果。\n* **Show Alert**（显示弹窗）：原文在此列出顶部通知与弹窗的切换选项（关闭时使用顶部通知，开启时使用弹窗）。译注：这是 answerCallbackQuery 的选项，不是 answerInlineQuery 的顶层参数。\n* **Text**（文本）：原文在此列出最多 200 个字符的回答文本。译注：这是 answerCallbackQuery 的通知文本参数，不是 answerInlineQuery 的顶层参数。\n* **URL**：原文在此列出由用户客户端打开的 URL。译注：此处所述选项属于 answerCallbackQuery，不是 answerInlineQuery 的顶层参数。",
+    "evidence": "内联查询 cache_time 在服务端缓存，默认 300 秒。原文误写客户端并沿用回调回答的 Show Alert、Text、URL 说明；这些不是 answerInlineQuery 的顶层参数。保留原字段清单与数字，通过逐项译注区分参数所属方法，不否认内联结果对象内部可以包含文本或 URL。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/callback-operations.md",
+      "https://core.telegram.org/bots/api#answerinlinequery",
+      "https://core.telegram.org/bots/api#answercallbackquery"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "aca88ebf42dc05ee5f5c821a977b1eaaf9a76910de2bec0b4ca07bec461996ae"
+  },
+  {
+    "id": "telegram-set-chat-target-not-leave",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations.md",
+    "original_sentence": "* **Chat ID**: Enter the Chat ID or username of the channel you wish to leave in the format `@channelusername`.",
+    "translated_sentence": "* **Chat ID**（聊天 ID）：输入目标聊天的 ID；使用频道用户名时，格式为 `@channelusername`。",
+    "evidence": "Set Description 与 Set Title 的 Chat ID 沿用了 Leave 的“退出频道”说明；同页操作及各 API 明确修改目标聊天描述或标题。两处改为目标聊天 ID，不修改 Leave 本身。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations.md",
+      "https://core.telegram.org/bots/api#setchatdescription",
+      "https://core.telegram.org/bots/api#setchattitle"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "772a18d8550f2427ffbc34a3a9af699e570b315ff002e3369ffc7a3eaf20fe39"
+  },
+  {
+    "id": "telegram-chat-title-length-limit",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations.md",
+    "original_sentence": "* **Title**: Enter the new title you'd like to set the chat to use, maximum of 255 characters.",
+    "translated_sentence": "* **Title**（标题）：输入要为聊天设置的新标题，最多 128 个字符。译注：原文的 255 与 Telegram setChatTitle 的标题上限不符，此处按该方法修正。",
+    "evidence": "setChatTitle 的 title 上限为 128 个字符，原文误用了聊天描述的 255。译文修正标题上限并明确说明来源错误，描述字段仍保持 255。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/chat-operations.md",
+      "https://core.telegram.org/bots/api#setchattitle",
+      "https://core.telegram.org/bots/api#setchatdescription"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "772a18d8550f2427ffbc34a3a9af699e570b315ff002e3369ffc7a3eaf20fe39"
+  },
+  {
+    "id": "telegram-channel-public-username-condition",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+    "original_sentence": "2. Label the channel name as **public channel**.",
+    "translated_sentence": "2. 如果要通过公开用户名访问频道，将其设为 **public channel**（公开频道）；使用数字聊天 ID 访问私有频道时，无需将频道公开。",
+    "evidence": "Bot API chat_id 支持数字 ID 或用户名，添加机器人并不要求先将私有频道公开。原文无条件公开频道的步骤改为仅在使用公开用户名时适用，数字 ID 访问私有频道无需公开。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+      "https://core.telegram.org/bots/api#sendmessage",
+      "https://core.telegram.org/bots/api#getchat"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "56c3821c9d36a63f94543dd3d8dc08ac312863af72910461185318df216f99b8"
+  },
+  {
+    "id": "telegram-chat-id-public-supergroup-username",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+    "original_sentence": "You can only use `@channelusername` on public channels. To interact with a Telegram group, you need that group's Chat ID.",
+    "translated_sentence": "`@channelusername` 形式适用于具有公开用户名的频道或超级群组。没有可用公开用户名的群组等聊天，需要使用其聊天 ID。",
+    "evidence": "getChat 的 chat_id 可接受目标超级群组或频道的用户名，原文仅称公开频道。译文说明具有公开用户名的频道或超级群组可使用用户名，无可用用户名时使用聊天 ID。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+      "https://core.telegram.org/bots/api#getchat"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "56c3821c9d36a63f94543dd3d8dc08ac312863af72910461185318df216f99b8"
+  },
+  {
+    "id": "telegram-bulk-message-batching-heading",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+    "original_sentence": "## Send more than 30 messages per second <a href=\"#send-more-than-30-messages-per-second\" id=\"send-more-than-30-messages-per-second\"></a>",
+    "translated_sentence": "## 分批发送超过 30 条消息 <a href=\"#send-more-than-30-messages-per-second\" id=\"send-more-than-30-messages-per-second\"></a>",
+    "evidence": "后文明确每批最多 30 个聊天 ID 并等待数秒，属于按限制分批发送更多总量，不是突破每秒上限。标题按分批发送的实际步骤修正，原英文锚点不变。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+      "https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "56c3821c9d36a63f94543dd3d8dc08ac312863af72910461185318df216f99b8"
+  },
+  {
+    "id": "telegram-bulk-message-batching-limit-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+    "original_sentence": "The Telegram API has a [limitation](https://core.telegram.org/bots/faq#broadcasting-to-users) of sending only 30 messages per second. Follow these steps to send more than 30 messages:",
+    "translated_sentence": "Telegram API 的普通批量发送[速率限制](https://core.telegram.org/bots/faq#broadcasting-to-users)约为每秒 30 条消息。要发送总计超过 30 条的消息，可按以下步骤分批并等待；这种做法用于遵守速率限制，并不能提高每秒速率上限：",
+    "evidence": "Telegram Bot FAQ 描述普通批量通知约每秒 30 条。原文分批等待的步骤用于遵守速率限制，不能实现超过该每秒速率；译文明确总量与速率的区别，不引入付费广播配置。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/common-issues.md",
+      "https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "56c3821c9d36a63f94543dd3d8dc08ac312863af72910461185318df216f99b8"
+  },
+  {
+    "id": "telegram-message-channel-membership-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "To use most of these operations, you must add your bot to a channel so that it can send messages to that channel. Refer to [Common Issues | Add a bot to a Telegram channel](common-issues.md#add-a-bot-to-a-telegram-channel) for more information.",
+    "translated_sentence": "如果要向频道发送消息，需要先将机器人添加到该频道。更多信息，请参阅[常见问题 | 将机器人添加到 Telegram 频道](common-issues.md#add-a-bot-to-a-telegram-channel)。",
+    "evidence": "与节点总览相同，将频道成员要求限定为向频道发送消息，而不是多数消息操作的通用前置条件。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/faq#what-messages-will-my-bot-get"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-delete-message-chat-target",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "* **Chat ID**: Enter the Chat ID or username of the channel you wish to delete in the format `@channelusername`.",
+    "translated_sentence": "* **Chat ID**（聊天 ID）：输入待删除消息所在聊天的 ID；使用频道用户名时，格式为 `@channelusername`。",
+    "evidence": "Delete Chat Message 调用 deleteMessage 删除指定聊天内的一条消息，并不删除频道。Chat ID 改为待删除消息所在聊天，保留消息 ID 和用户名格式。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/api#deletemessage"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-edit-message-chat-target",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "* **Chat ID**: Enter the Chat ID or username of the channel you wish to leave in the format `@channelusername`.",
+    "translated_sentence": "* **Chat ID**（聊天 ID）：输入待编辑消息所在聊天的 ID；使用频道用户名时，格式为 `@channelusername`。",
+    "evidence": "Edit Message Text 调用 editMessageText，Chat ID 标识待编辑消息所在聊天；原文沿用退出频道说明。修正此处语境，保留 Chat ID 格式和消息 ID。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/api#editmessagetext"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-link-preview-option-nesting",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "* **Disable WebPage Preview**: Select whether you want to enable link previews for links in this message (turned off) or disable link previews for links in this message (turned on). This sets the `link_preview_options` parameter for `is_disabled`. Refer to the [LinkPreviewOptions](https://core.telegram.org/bots/api#linkpreviewoptions) documentation for more information.",
+    "translated_sentence": "* **Disable WebPage Preview**（禁用网页预览）：关闭时启用消息中链接的预览，开启时禁用链接预览。此选项通过 `link_preview_options` 中的 `is_disabled` 参数控制。更多信息，请参阅 [LinkPreviewOptions](https://core.telegram.org/bots/api#linkpreviewoptions) 文档。",
+    "evidence": "LinkPreviewOptions 对象内部包含 is_disabled，原文句式将父对象与参数所属关系写反。编辑与发送消息两处均明确为 link_preview_options 中的 is_disabled，保留行内代码原顺序与 API 链接。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/api#linkpreviewoptions"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-pin-notification-channel-private-exception",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "* **Disable Notifications**: By default, Telegram will notify all chat members that the message has been pinned. If you don't want these notifications to go out, turn this control on. Sets the `disable_notification` parameter to `true`.",
+    "translated_sentence": "* **Disable Notifications**（禁用通知）：默认情况下，Telegram 会通知聊天成员有新的置顶消息。开启此选项可停止通知。它会将 `disable_notification` 参数设为 `true`。译注：频道和私聊的置顶通知始终禁用。",
+    "evidence": "pinChatMessage 的 disable_notification 说明明确频道和私聊始终禁用通知；原文默认通知所有成员未说明该例外。保留开关与 true 设置，并补充适用边界。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/api#pinchatmessage"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-send-message-batching-limit-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "Telegram limits the number of messages you can send to 30 per second. If you expect to hit this limit, refer to [Send more than 30 messages per second](common-issues.md#send-more-than-30-messages-per-second) for a suggested workaround.",
+    "translated_sentence": "Telegram 普通批量发送的速率上限约为每秒 30 条消息。如果预计会达到此上限，请参阅[分批发送超过 30 条消息](common-issues.md#send-more-than-30-messages-per-second)，按建议分批并等待，遵守该速率限制。",
+    "evidence": "Send Message 和 Send and Wait for Response 两处同样将分批等待称为绕过限制；统一明确普通批量发送约每秒 30 条，链接指向分批遵守限制的步骤，不承诺提高每秒速率。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-sticker-file-field-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "* **Sticker**: If you aren't using the **Binary File**, enter the photo to send here. Pass a `file_id` to send a file that exists on the Telegram servers (recommended) or an HTTP URL for Telegram to get a file from the internet.",
+    "translated_sentence": "* **Sticker**（贴纸）：不使用 **Binary File**（二进制文件）时，在此指定要发送的贴纸。传入 `file_id` 可发送 Telegram 服务器上已有的文件（推荐），也可提供 HTTP URL，让 Telegram 从互联网获取文件。",
+    "evidence": "Send Sticker 的 Sticker 字段原文误写发送 photo；同段 sendSticker、Sticker 字段及文件类型清楚指向贴纸。修正为贴纸，保留 file_id、HTTP URL 和二进制文件条件。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/api#sendsticker"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-unpin-operation-name",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "* **Operation**: Select **Pin Chat Message**.",
+    "translated_sentence": "* **Operation**（操作）：选择 **Unpin Chat Message**（取消置顶聊天消息）。",
+    "evidence": "Unpin Chat Message 段的 Operation 误写 Pin Chat Message。固定 n8n 源码包含 Unpin Chat Message 选项值 unpinChatMessage 且分支调用同名端点；同段标题、消息 ID 与 API 引用也均为取消置顶。仅修正此段操作名。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/nodes/Telegram/Telegram.node.ts",
+      "https://core.telegram.org/bots/api#unpinchatmessage"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-remove-keyboard-reference-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "* **Reply Keyboard Remove**: The Telegram client will remove the current custom keyboard and display the default letter-keyboard. Refer to [Reply Keyboard parameters](message-operations.md#reply-keyboard-remove-parameters) for further guidance on this option.",
+    "translated_sentence": "* **Reply Keyboard Remove**（移除回复键盘）：Telegram 客户端会移除当前自定义键盘，并显示默认的字母键盘。原文链接指向 [Reply Keyboard 参数](message-operations.md#reply-keyboard-remove-parameters)；移除键盘的具体选项请参阅下文 Reply Keyboard Remove 参数。",
+    "evidence": "Reply Keyboard Remove 选项的原链接指向 Reply Keyboard 参数，而同页下文另有专门移除键盘参数。保留原链接并说明其目标，文字指向下文正确小节，不新增或替换链接。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/api#replykeyboardremove"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "telegram-selective-reply-current-message-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+    "original_sentence": "  * The sender of the original message, if this Send Animation message is a reply to a message.",
+    "translated_sentence": "  * 如果当前发送的消息是一条回复，则包括被回复消息的发送者。",
+    "evidence": "Force Reply、Reply Keyboard、Reply Keyboard Remove 的选择性说明都沿用 Send Animation 语境。API 的 Selective 规则指当前消息作为回复时的原消息发送者，不限于动画。三处统一为当前发送的消息，保留其层级与被提及用户规则。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.telegram/message-operations.md",
+      "https://core.telegram.org/bots/api#forcereply",
+      "https://core.telegram.org/bots/api#replykeyboardmarkup",
+      "https://core.telegram.org/bots/api#replykeyboardremove"
+    ],
+    "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
+    "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
   }
 ]
