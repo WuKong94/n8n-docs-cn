@@ -16364,5 +16364,223 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/README.md": {
+    "status": "translated",
+    "source_sha256": "9a3713d0a1525cf4515265fdb99aecbbd1ce851418f83a9a8696870333dcf7e3",
+    "translation_sha256": "4c66399a61ec02a6ebeffa27c01ea7bcf04112e033f31f502cd42c647ca4e71a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples.md": {
+    "status": "translated",
+    "source_sha256": "e2c9bc3a618f4af1508f2027b8f898278f3ac4747df0ce49c9e65a17b95931c9",
+    "translation_sha256": "ca97d7b9d4b863ec6c2fe1d9c84b8737ba288ea361d8d0c71c1222a729f62705",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "remove-duplicates-repeated-operation-label-spelling"
+    ]
+  },
+  "integrations/README.md": {
+    "status": "translated",
+    "source_sha256": "1ace2a4904f60efb37cdf54c23000bbe0dacc76751b6e84e23be8f2e5f8924f9",
+    "translation_sha256": "5192d2469ae16e87f5d8f7bf6920790ad3e0e326a32db52cf8c99ae876ccff41",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/custom-api-actions-for-existing-nodes.md": {
+    "status": "translated",
+    "source_sha256": "b0017866226f92c40d3c5c78f8eafd7e7e09822bc4d43e75249c883ddebf18b1",
+    "translation_sha256": "f79f6e57a61bdb20ba88633b7d1428f4a35093810afd01be29845d7e4f0be1b2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/handle-rate-limits.md": {
+    "status": "translated",
+    "source_sha256": "b04118f580123a0bf39aae26aa2478dd2caf26f811497f64c6292e88d9f69a8c",
+    "translation_sha256": "cd13560122154af7b2ca4160ff4d763478e21ab0ff07cbb0a1c69a123cd574ad",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "rate-limit-wait-duration-not-request-frequency",
+      "http-batching-rate-limit-description-not-request-payload-size",
+      "rate-limit-items-per-batch-not-items-per-request",
+      "rate-limit-batch-interval-example-setting-name"
+    ]
+  },
+  "integrations/builtin/node-types.md": {
+    "status": "translated",
+    "source_sha256": "a3a17c685859300527f773e14fb07a7b75e10ecd94e5e5f97d3b549db9f8b0ba",
+    "translation_sha256": "b35f547b2bf7aa09a7959c16b154cd48cd7d8dde86bf7f855d0af9dac4498233",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/deprecated-nodes.md": {
+    "status": "translated",
+    "source_sha256": "59bf48a1a52847bf7267ac348d1fbfec1879876d90c7b5314904b72ea24e146e",
+    "translation_sha256": "68f9368d152bc0b7f60a7cf7a78470a3c6a640e5cf9210151764dddf0bced9f0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/data-function-code/smartjoin.md": {
+    "status": "translated",
+    "source_sha256": "1ae96c89395a2edcb044f4933ad0f912e422f095d73d7c94a70ee99b58c531d4",
+    "translation_sha256": "18bdcde7f532cdf929496772989caf0934ccf6414e4282352243997210d969a1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/credential-only-intro.md": {
+    "status": "translated",
+    "source_sha256": "04a8d63bfaba8b80183a5c3987d4fd4a2e04e84132c30dd9e6ed0a6bb65cb617",
+    "translation_sha256": "e8862019f71829b2e8c612ae26ed295e203c7362d56cd8395ebbf852b199b426",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/all.md": {
+    "status": "translated",
+    "source_sha256": "b355abdec0abff4bdb511906acbad599f899e60221354acf54f3679cf194402d",
+    "translation_sha256": "5c07ef01444adca32b2717e2bff3255b39dd3f40dbd2f9b48f661ff6d786112c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/try-it-out/new-workflow.md": {
+    "status": "translated",
+    "source_sha256": "f3f767e506b75a608c1a6e6ae1beb52fbea9474616bd8c9b155fd5bb749fb2e7",
+    "translation_sha256": "3d32dcc1d376674e3579c8320d6a2cbab07de7eac3360011fbd74cddf6680d1b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/update-n8n.md": {
+    "status": "translated",
+    "source_sha256": "ce3d7136dfef837609d6182d4211215edc1c5a3a61d40dc0c1d97acf1d0a9566",
+    "translation_sha256": "c54133e0a53505f9d19338a359aa3f4206012ce689471c8933980239ac104c30",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/README.md": {
+    "status": "translated",
+    "source_sha256": "5b682c33bed8831d1325804770fe886a323c8482964cd3781755ee0387462447",
+    "translation_sha256": "d1b7dbbd55996f2fe687216e71c45c4ad3c9bcc5d713f02f5ee157e9638973d9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "4dccb8093f2a3c04af4d5f833fb653d7e88b61f08b40e0fd8540216ee97daf8d",
+    "translation_sha256": "55b1de234819469dcae9d3d99448030ff40401e4c8c450b7ad1367842efc01aa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/temporary-page-2.md": {
+    "status": "translated",
+    "source_sha256": "3615e2da2f2530252b0e3b1c11d63a0f6959308a156faf3a015a7599fafd3b93",
+    "translation_sha256": "aca14b844978c9ad4e986221fe4034f9ca91aa04c0ae31cd9c1469695fc2884c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "n8n-community-license/README.md": {
+    "status": "translated",
+    "source_sha256": "8c8923790723e5b9959c7e7f5c09c48c9946e4fe2006d308909f3ece9825be16",
+    "translation_sha256": "4da5b4c64af51f5ead17559fe4d367c71b2c2274adfe5a8b8cfaf8dab789db28",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "n8n-community-license/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "55ff5af83906540076bd42fc21b7d3e7ce4acf5f0a47d38281cc09b5ee71fbc5",
+    "translation_sha256": "9a21a1f13781a96fc5c431cdf4f2351e41a592bcb5a702f170cc2e7c11dc048b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "n8n-community-license/license-faq.md": {
+    "status": "translated",
+    "source_sha256": "768ce814c2a68c97ddebfd86020bddaf42317fb284252847fdadc0cd8c7c50d6",
+    "translation_sha256": "88c1b3422fd46150e3942fb0ab74579486434d1aedca125729c261e38d772e42",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "af560bd63da22592ccb8deb2cc3d7073ef7a65b6b66395bebf0e8a3efbc328ac",
+    "translation_sha256": "e28a9a17b1b5bf7e7befd5cf86a5421c69a4d83608ada59d3a825038e65d546e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

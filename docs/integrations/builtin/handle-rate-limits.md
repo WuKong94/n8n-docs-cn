@@ -1,11 +1,11 @@
 ---
-title: Handling API rate limits
+title: 处理 API 速率限制
 contentType: howto
-nodeTitle: Handle rate limits
+nodeTitle: 处理速率限制
 originalFilePath: integrations/builtin/rate-limits.md
 originalUrl: https://docs.n8n.io/integrations/builtin/rate-limits
 url: https://docs.n8n.io/integrations/builtin/handle-rate-limits
-description: How to handle API rate limits when using n8n integrations.
+description: 了解使用 n8n 集成时如何处理 API 速率限制。
 layout:
   width: default
   title:
@@ -25,62 +25,64 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Handle rate limits
 
-API[^1] rate limits are restrictions on request frequency. For example, an API may limit the number of requests you can make per minute, or per day.
+# 处理速率限制 <a id="handle-rate-limits"></a>
 
-APIs can also limits how much data you can send in one request, or how much data the API sends in a single response.
+API[^1] 速率限制用于限制请求频率。例如，API 可能限制每分钟或每天可发送的请求数量。
 
-## Identify rate limit issues <a href="#identify-rate-limit-issues" id="identify-rate-limit-issues"></a>
+API 也可能限制单次请求可发送的数据量，或单次响应返回的数据量。
 
-When an n8n node hits a rate limit, it errors. n8n displays the error message in the node output panel. This includes the error message from the service.
+## 识别速率限制问题 <a href="#identify-rate-limit-issues" id="identify-rate-limit-issues"></a>
 
-If n8n received error 429 (too many requests) from the service, the error message is **The service is receiving too many requests from you**.
+n8n 节点触发速率限制时会报错。n8n 会在节点输出面板显示错误消息，其中包括服务返回的错误消息。
 
-To check the rate limits for the service you're using, refer to the API documentation for the service.
+如果服务向 n8n 返回 429（请求过多）错误，错误消息为 **The service is receiving too many requests from you**（该服务收到来自你的过多请求）。
 
-## Handle rate limits for integrations <a href="#handle-rate-limits-for-integrations" id="handle-rate-limits-for-integrations"></a>
+要查看所用服务的速率限制，请参阅该服务的 API 文档。
 
-There are two ways to handle rate limits in n8n's integrations: using the Retry On Fail setting, or using a combination of the [Loop Over Items](core-nodes/n8n-nodes-base.splitinbatches.md) and [Wait](core-nodes/n8n-nodes-base.wait.md) nodes:
+## 处理集成的速率限制 <a href="#handle-rate-limits-for-integrations" id="handle-rate-limits-for-integrations"></a>
 
-* Retry On Fail adds a pause between API request attempts.
-* With Loop Over Items and Wait you can break you request data into smaller chunks, as well as pausing between requests.
+n8n 集成有两种处理速率限制的方式：使用 Retry On Fail（失败时重试）设置，或组合使用 [Loop Over Items](core-nodes/n8n-nodes-base.splitinbatches.md) 与 [Wait](core-nodes/n8n-nodes-base.wait.md) 节点：
 
-### Enable Retry On Fail <a href="#enable-retry-on-fail" id="enable-retry-on-fail"></a>
+* Retry On Fail 会在 API 请求的重试尝试之间暂停。
+* Loop Over Items 配合 Wait，可以将请求数据分成较小的批次，并在请求之间暂停。
 
-When you enable Retry On Fail, the node automatically tries the request again if it fails the first time.
+### 启用 Retry On Fail（失败时重试） <a href="#enable-retry-on-fail" id="enable-retry-on-fail"></a>
 
-1. Open the node.
-2. Select **Settings**.
-3. Enable the **Retry On Fail** toggle.
-4. Configure the retry settings: if using this to work around rate limits, set **Wait Between Tries (ms)** to more than the rate limit. For example, if the API you're using allows one request per second, set **Wait Between Tries (ms)** to `1000` to allow a 1 second wait.
+启用 Retry On Fail 后，如果首次请求失败，节点会自动重试请求。
 
-### Use Loop Over Items and Wait <a href="#use-loop-over-items-and-wait" id="use-loop-over-items-and-wait"></a>
+1. 打开节点。
+2. 选择 **Settings**（设置）。
+3. 开启 **Retry On Fail**（失败时重试）。
+4. 配置重试设置：要避免触发速率限制，将 **Wait Between Tries (ms)**（重试间隔，毫秒）设为满足该限制的等待时长。例如，API 允许每秒一个请求时，可将 **Wait Between Tries (ms)** 设为 `1000`，等待 1 秒。
 
-Use the Loop Over Items node to batch the input items, and the Wait node to introduce a pause between each request.
+### 使用 Loop Over Items 和 Wait <a href="#use-loop-over-items-and-wait" id="use-loop-over-items-and-wait"></a>
 
-1. Add the Loop Over Items node before the node that calls the API. Refer to [Loop Over Items](core-nodes/n8n-nodes-base.splitinbatches.md) for information on how to configure the node.
-2. Add the Wait node after the node that calls the API, and connect it back to the Loop Over Items node. Refer to [Wait](core-nodes/n8n-nodes-base.wait.md) for information on how to configure the node.
+使用 Loop Over Items 节点将输入项分批，并使用 Wait 节点在每次请求之间暂停。
 
-For example, to handle rate limits when using OpenAI:
+1. 在调用 API 的节点前添加 Loop Over Items 节点。配置方法，请参阅 [Loop Over Items](core-nodes/n8n-nodes-base.splitinbatches.md)。
+2. 在调用 API 的节点后添加 Wait 节点，并将其连接回 Loop Over Items 节点。配置方法，请参阅 [Wait](core-nodes/n8n-nodes-base.wait.md)。
 
-![Workflow using Loop Over Items and Wait nodes to pace requests to the OpenAI API](../.gitbook/assets/loop-wait.png)
+例如，使用 OpenAI 时，可以这样处理速率限制：
 
-## Handle rate limits in the HTTP Request node <a href="#handle-rate-limits-in-the-http-request-node" id="handle-rate-limits-in-the-http-request-node"></a>
+![使用 Loop Over Items 和 Wait 节点控制 OpenAI API 请求节奏的工作流](../.gitbook/assets/loop-wait.png)
 
-The HTTP Request node has built-in settings for handling rate limits and large amounts of data.
+## 处理 HTTP Request 节点的速率限制 <a href="#handle-rate-limits-in-the-http-request-node" id="handle-rate-limits-in-the-http-request-node"></a>
 
-### Batch requests <a href="#batch-requests" id="batch-requests"></a>
+HTTP Request 节点提供内置设置，用于处理速率限制和大量数据。
 
-Use the Batching option to send more than one request, reducing the request size, and introducing a pause between requests. This is the equivalent of using Loop Over Items and Wait.
+### 分批请求 <a href="#batch-requests" id="batch-requests"></a>
 
-1. In the HTTP Request node, select **Add Option** > **Batching**.
-2. Set **Items per Batch**: this is the number of input items to include in each request.
-3. Set **Batch Interval (ms)** to introduce a delay between requests. For example, if the API you're using allows one request per second, set **Wait Between Tries (ms)** to `1000` to allow a 1 second wait.
+使用 Batching（分批）选项，将大量输入项分批处理，并在各批请求之间暂停，达到类似组合使用 Loop Over Items 和 Wait 的效果。分批不会把多个输入项自动合并为一个请求；每批大小与批次间隔的含义见下文。
 
-### Paginate results <a href="#paginate-results" id="paginate-results"></a>
+1. 在 HTTP Request 节点中，选择 **Add Option**（添加选项）> **Batching**（分批）。
+2. 设置 **Items per Batch**（每批数据项数）：每批要处理的输入项数量。
+3. 设置 **Batch Interval (ms)**（批次间隔，毫秒），在各批请求之间等待。例如，API 允许每秒一个请求时，将每批大小设为一个数据项，并将 **Batch Interval (ms)** 设为 `1000`，在批次之间等待 1 秒。
 
-APIs paginate their results when they need to send more data than they can handle in a single response. For more information on pagination in the HTTP Request node, refer to [HTTP Request node | Pagination](core-nodes/n8n-nodes-base.httprequest/README.md#pagination).
+### 对结果分页 <a href="#paginate-results" id="paginate-results"></a>
 
-[^1]: APIs, or application programming interfaces, offer programmatic access to a service's data and functionality. APIs make it easier for software to interact with external systems. They're often offered as an alternative to traditional user-focused interfaces accessed through web browsers or UI.
+如果数据量超过单次响应可返回的范围，API 会对结果分页。HTTP Request 节点的分页功能详见 [HTTP Request 节点 | Pagination（分页）](core-nodes/n8n-nodes-base.httprequest/README.md#pagination)。
+
+[^1]: API（应用程序编程接口）提供以编程方式访问服务数据和功能的途径，使软件更容易与外部系统交互。API 通常作为传统网页或图形用户界面的替代访问方式提供。

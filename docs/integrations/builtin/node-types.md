@@ -1,47 +1,49 @@
 ---
-description: Learn about n8n's core nodes, cluster nodes, credentials, and community nodes.
+description: 了解 n8n 的核心节点、集群节点、凭据和社区节点。
 contentType: overview
-nodeTitle: Node types
+nodeTitle: 节点类型
 originalFilePath: integrations/builtin/node-types.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/node-types'
-url: 'https://docs.n8n.io/integrations/builtin/node-types'
+originalUrl: https://docs.n8n.io/integrations/builtin/node-types
+url: https://docs.n8n.io/integrations/builtin/node-types
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Built-in integrations <a href="#built-in-integrations" id="built-in-integrations"></a>
 
-This section contains the node[^1] library: reference documentation for every built-in node in n8n, and their credentials.
+# 内置集成 <a href="#built-in-integrations" id="built-in-integrations"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/nqwVeyXZtOyDsX8afllD/" %}
+本节为节点[^1]库，提供 n8n 每个内置节点及其凭据的参考文档。
 
-## Core nodes <a href="#core-nodes" id="core-nodes"></a>
+{% include "../../reusable-content/.gitbook/includes/integrations/builtin/node-operations.md" %}
 
-Core nodes can be actions or triggers[^2]. Whereas most nodes connect to a specific external service, core nodes provide functionality such as logic, scheduling, or generic API calls.
+## 核心节点 <a href="#core-nodes" id="core-nodes"></a>
 
-## Cluster nodes <a href="#cluster-nodes" id="cluster-nodes"></a>
+核心节点可以是动作节点或触发器[^2]。大多数节点连接特定外部服务，而核心节点提供逻辑、调度或通用 API 调用等功能。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/nQYOCBZiuZBtHlBAOFq9/" %}
+## 集群节点 <a href="#cluster-nodes" id="cluster-nodes"></a>
 
-## Credentials <a href="#credentials" id="credentials"></a>
+{% include "../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/cluster-nodes-summary.md" %}
 
-External services need a way to identify and authenticate users. This data can range from an API key over an email/password combination to a long multi-line private key. You can save these in n8n as credentials[^3].
+## 凭据 <a href="#credentials" id="credentials"></a>
 
-Nodes in n8n can then request that credential information. As another layer of security, only node types with specific access rights can access the credentials.
+外部服务需要识别和验证用户身份，所需信息可能是 API 密钥、邮箱与密码组合，或多行私钥。可以在 n8n 中将这些信息保存为凭据[^3]。
 
-To make sure that the data is secure, it gets saved to the database encrypted. n8n uses a random personal encryption key, which it automatically generates on the first run of n8n and then saves under `~/.n8n/config`.
+随后 n8n 中的节点即可请求这些凭据信息。作为另一层安全保障，只有具有特定访问权限的节点类型才能访问凭据。
 
-To learn more about creating, managing, and sharing credentials, refer to [Manage credentials](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/create-and-edit-credentials).
+为保障数据安全，凭据会加密存储到数据库。n8n 使用随机的个人加密密钥，在首次运行时自动生成，并保存到 `~/.n8n/config`。
 
-## Community nodes <a href="#community-nodes" id="community-nodes"></a>
+创建、管理和共享凭据的更多信息，请参阅[管理凭据](../../build/understand-workflows/create-and-edit-credentials.md)。
 
-n8n supports community nodes. Refer to [Community nodes](../community-nodes/installation-and-management/README.md) for guidance on installing and using these nodes.
+## 社区节点 <a href="#community-nodes" id="community-nodes"></a>
 
-For help building and publishing your own community nodes to [npm](https://www.npmjs.com/), refer to [Create nodes](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/overview) for more information.
+n8n 支持社区节点。安装和使用方法，请参阅[社区节点](../community-nodes/installation-and-management/README.md)。
 
-See [Built-in nodes](./) for other integration topics.
+要了解如何构建自己的社区节点并发布到 [npm](https://www.npmjs.com/)，请参阅[创建节点](../../connect/create-nodes/overview.md)。
 
-[^1]: In n8n, nodes are individual components that you compose to create workflows. Nodes define when the workflow should run, allow you to fetch, send, and process data, can define flow control logic, and connect with external services.
-[^2]: A trigger node is a special node responsible for executing the workflow in response to certain conditions. All production workflows need at least one trigger to determine when the workflow should run.
-[^3]: In n8n, credentials store authentication information to connect with specific apps and services. After creating credentials with your authentication information (username and password, API key, OAuth secrets, etc.), you can use the associated app node to interact with the service.
+其他集成主题，请参阅[内置节点](./)。
+
+[^1]: 在 n8n 中，节点是组成工作流的独立组件。节点可以决定工作流何时运行，获取、发送和处理数据，定义流程控制逻辑，以及连接外部服务。
+[^2]: 触发器节点是一种特殊节点，负责在特定条件下执行工作流。所有生产工作流至少需要一个触发器，以决定何时运行。
+[^3]: 在 n8n 中，凭据存储连接特定应用和服务所需的身份验证信息。使用用户名和密码、API 密钥、OAuth 密钥等信息创建凭据后，即可通过对应的应用节点与服务交互。

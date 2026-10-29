@@ -1,34 +1,36 @@
 ---
 contentType: explanation
-nodeTitle: Custom API actions for existing nodes
+nodeTitle: 现有节点的自定义 API 动作
 originalFilePath: integrations/custom-operations.md
-originalUrl: 'https://docs.n8n.io/integrations/custom-operations'
-url: 'https://docs.n8n.io/integrations/builtin/custom-api-actions-for-existing-nodes'
+originalUrl: https://docs.n8n.io/integrations/custom-operations
+url: https://docs.n8n.io/integrations/builtin/custom-api-actions-for-existing-nodes
 layout:
   description:
     visible: false
 ---
-
-# Custom API operations <a href="#custom-api-operations" id="custom-api-operations"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/k23mQunNshTkLRuOqark/" %}
-
-## Predefined credential types <a href="#predefined-credential-types" id="predefined-credential-types"></a>
-
-A predefined credential type is a credential that already exists in n8n. You can use predefined credential types instead of generic credentials in the HTTP Request and GraphQL nodes.
-
-For example: you create an Asana credential, for use with the Asana node. Later, you want to perform an operation that isn't supported by the Asana node, using Asana's API. You can use your existing Asana credential in the HTTP Request node to perform the operation, without additional authentication setup.
-
-### Using predefined credential types <a href="#using-predefined-credential-types" id="using-predefined-credential-types"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ZmZC9v8B1NG5lgRY44yF/" %}
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-### Credential scopes <a href="#credential-scopes" id="credential-scopes"></a>
+# 自定义 API 操作 <a href="#custom-api-operations" id="custom-api-operations"></a>
 
-Some existing credential types have specific scopes: the parts of the API they can access. n8n warns you about this when you select the credential type.
+{% include "../../reusable-content/.gitbook/includes/integrations/credential-only-intro.md" %}
 
-For example, follow the steps in [Using predefined credential types](#using-predefined-credential-types), and select **Google Calendar OAuth2 API** as your **Credential Type**. n8n displays a box listing the two scopes this credential type covers: `calendar` and `calendar.events`.
+## 预定义凭据类型 <a href="#predefined-credential-types" id="predefined-credential-types"></a>
 
-![Scopes notice for the Google Calendar OAuth2 API credential type](../.gitbook/assets/scopes.png)
+预定义凭据类型是 n8n 中已存在的凭据类型。在 HTTP Request 和 GraphQL 节点中，可以用预定义凭据类型替代通用凭据。
+
+例如，先为 Asana 节点创建 Asana 凭据。以后需要通过 Asana API 执行该节点尚未支持的操作时，可以在 HTTP Request 节点中使用已有的 Asana 凭据，无需再次设置身份验证。
+
+### 使用预定义凭据类型 <a href="#using-predefined-credential-types" id="using-predefined-credential-types"></a>
+
+{% include "../../reusable-content/.gitbook/includes/integrations/predefined-credential-type-how-to.md" %}
+
+
+### 凭据作用域 <a href="#credential-scopes" id="credential-scopes"></a>
+
+部分现有凭据类型具有特定作用域，即它们可以访问的 API 范围。选择凭据类型时，n8n 会提示此限制。
+
+例如，按照[使用预定义凭据类型](#using-predefined-credential-types)的步骤操作，并将 **Credential Type**（凭据类型）选为 **Google Calendar OAuth2 API**。n8n 会显示提示框，列出此凭据类型涵盖的两个作用域：`calendar` 和 `calendar.events`。
+
+![Google Calendar OAuth2 API 凭据类型的作用域提示](../.gitbook/assets/scopes.png)
 

@@ -1,121 +1,119 @@
 ---
-title: Remove Duplicates node documentation
-description: >-
-  Documentation for the Remove Duplicates node in n8n, a workflow automation
-  platform. Includes guidance on usage and links to examples.
+title: Remove Duplicates（去重）节点
+description: 了解 n8n 中 Remove Duplicates 节点的用法，包括当前输入去重、跨执行去重及相关示例。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
 nodeTitle: n8n-nodes-base.removeduplicates
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Remove Duplicates node <a href="#remove-duplicates-node" id="remove-duplicates-node"></a>
 
-Use the Remove Duplicates node to identify and delete items that are:
+# Remove Duplicates（去重）节点 <a href="#remove-duplicates-node" id="remove-duplicates-node"></a>
 
-* identical across all fields or a subset of fields in a single execution
-* identical to or surpassed by items seen in previous executions
+使用 Remove Duplicates 节点识别并删除符合以下条件的数据项：
 
-This is helpful in situations where you can end up with duplicate data, such as a user creating multiple accounts, or a customer submitting the same order multiple times. When working with large datasets it becomes more difficult to spot and remove these items.
+* 在单次执行中，所有字段或部分字段相同。
+* 与先前执行中出现的数据项相同，或其值、日期未超过先前执行中的数据项。
 
-By comparing against data from previous executions, the Remove Duplicates node can  delete items seen in earlier executions. It can also ensure that new items have a later date or a higher value than previous values.
+当数据可能重复时，这个节点很有用，例如用户创建多个账户，或客户多次提交同一订单。数据集较大时，识别和移除这些数据项会更加困难。
+
+通过与先前执行的数据比较，Remove Duplicates 节点可以删除以前已出现过的数据项，也可以确保新数据项的日期晚于先前日期，或其值高于先前值。
 
 {% hint style="info" %}
-**Major changes in 1.64.0**
+**1.64.0 中的重大变更**
 
-The n8n team overhauled this node in n8n 1.64.0. This document reflects the latest version of the node. If you're using an older version of n8n, you can find [the previous version of this document](https://github.com/n8n-io/n8n-docs/blob/7a66308290e6e5b104fcb82a3beafa0d6987df36/docs/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates.md).
+n8n 团队在 n8n 1.64.0 中全面改进了此节点。本文档介绍新版节点。如果使用较早的 n8n 版本，请参阅[此文档的旧版本](https://github.com/n8n-io/n8n-docs/blob/7a66308290e6e5b104fcb82a3beafa0d6987df36/docs/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates.md)。
 {% endhint %}
 
-## Operation modes <a href="#operation-modes" id="operation-modes"></a>
+## 操作模式 <a href="#operation-modes" id="operation-modes"></a>
 
-The remove duplication node works differently depending on the value of the **operation** parameter:
+Remove Duplicates 节点的行为取决于 **operation**（操作）参数：
 
-* **[Remove Items Repeated Within Current Input](#remove-items-repeated-within-current-input)**: Identify and remove duplicate items in the current input across all fields or a subset of fields.
-* **[Remove Items Processed in Previous Executions](#remove-items-processed-in-previous-executions)**: Compare items in the current input to items from previous executions and remove duplicates.
-* **[Clear Deduplication History](#clear-deduplication-history)**: Wipe the memory of items from previous executions.
+* **[Remove Items Repeated Within Current Input](#remove-items-repeated-within-current-input)**（移除当前输入内的重复项）：比较所有字段或部分字段，识别并移除当前输入中的重复数据项。
+* **[Remove Items Processed in Previous Executions](#remove-items-processed-in-previous-executions)**（移除先前执行已处理的数据项）：将当前输入与先前执行的数据项比较，移除重复项。
+* **[Clear Deduplication History](#clear-deduplication-history)**（清除去重历史）：清除记录的先前执行数据项。
 
-### Remove Items Repeated Within Current Input <a href="#remove-items-repeated-within-current-input" id="remove-items-repeated-within-current-input"></a>
+### Remove Items Repeated Within Current Input（移除当前输入内的重复项） <a href="#remove-items-repeated-within-current-input" id="remove-items-repeated-within-current-input"></a>
 
-When you set the "Operations" field to **Remove Items Repeated Within Current Input**, the Remove Duplicate node identifies and removes duplicate items in the current input. It can do this across all fields, or within a subset of fields.
+将“Operations”字段设为 **Remove Items Repeated Within Current Input**（移除当前输入内的重复项）时，Remove Duplicates 节点会识别并移除当前输入中的重复数据项，可以比较所有字段，也可以只比较部分字段。
 
-#### Remove Items Repeated Within Current Input parameters <a href="#remove-items-repeated-within-current-input-parameters" id="remove-items-repeated-within-current-input-parameters"></a>
+#### 移除当前输入内的重复项：参数 <a href="#remove-items-repeated-within-current-input-parameters" id="remove-items-repeated-within-current-input-parameters"></a>
 
-When using the **Remove Items Repeated Within Current Input** operation, the following parameter is available:
+使用 **Remove Items Repeated Within Current Input** 操作时，可配置以下参数：
 
-* **Compare**: Select which fields of the input data n8n should compare to check if they're the same. The following options are available:
-	* **All Fields**: Compares all fields of the input data.
-	* **All Fields Except**: Enter which input data fields n8n should exclude from the comparison. You can provide multiple values separated by commas.
-	* **Selected Fields**: Enter which input data fields n8n should include in the comparison. You can provide multiple values separated by commas.
+* **Compare**（比较）：选择 n8n 应比较哪些输入字段，判断数据项是否相同。可选：
+	* **All Fields**（所有字段）：比较输入数据的所有字段。
+	* **All Fields Except**（除指定字段外的所有字段）：输入要从比较中排除的字段，多个值用逗号分隔。
+	* **Selected Fields**（选定字段）：输入要纳入比较的字段，多个值用逗号分隔。
 
-#### Remove Items Repeated Within Current Input options <a href="#remove-items-repeated-within-current-input-options" id="remove-items-repeated-within-current-input-options"></a>
+#### 移除当前输入内的重复项：选项 <a href="#remove-items-repeated-within-current-input-options" id="remove-items-repeated-within-current-input-options"></a>
 
-If you choose **All Fields Except** or **Selected Fields** as your compare type, you can add these options:
+比较类型选择 **All Fields Except** 或 **Selected Fields** 时，可以添加以下选项：
 
-* **Disable Dot Notation**: Set whether to use dot notation to reference child fields in the format `parent.child` (turned off) or not (turn on).
-* **Remove Other Fields**: Set whether to remove any fields that aren't used in the comparison (turned on) or not (turned off).
+* **Disable Dot Notation**（禁用点号表示法）：关闭时，使用 `parent.child` 格式的点号表示法引用子字段；开启时，不使用这种表示法。
+* **Remove Other Fields**（移除其他字段）：开启时，移除未参与比较的字段；关闭时，保留这些字段。
 
-### Remove Items Processed in Previous Executions <a href="#remove-items-processed-in-previous-executions" id="remove-items-processed-in-previous-executions"></a>
+### Remove Items Processed in Previous Executions（移除先前执行已处理的数据项） <a href="#remove-items-processed-in-previous-executions" id="remove-items-processed-in-previous-executions"></a>
 
-When you set the "Operation" field to **Remove Items Processed in Previous Executions**, the Remove Duplicate node compares items in the current input to items from previous executions.
+将“Operation”字段设为 **Remove Items Processed in Previous Executions** 时，Remove Duplicates 节点会将当前输入与先前执行的数据项比较。
 
-#### Remove Items Processed in Previous Executions parameters <a href="#remove-items-processed-in-previous-executions-parameters" id="remove-items-processed-in-previous-executions-parameters"></a>
+#### 移除先前执行已处理的数据项：参数 <a href="#remove-items-processed-in-previous-executions-parameters" id="remove-items-processed-in-previous-executions-parameters"></a>
 
-When using the **Remove Items Processed in Previous Executions** operation, the following parameters are available:
+使用 **Remove Items Processed in Previous Executions** 操作时，可配置以下参数：
 
-* **Keep Items Where**: Select how n8n decides which items to keep. The following options are available:
-	* **Value Is New**: n8n removes items if their value matches items from earlier executions.
-	* **Value Is Higher than Any Previous Value**: n8n removes items if the current value isn't higher than previous values.
-	* **Value Is a Date Later than Any Previous Date**: n8n removes date items if the current date isn't later than previous dates.
+* **Keep Items Where**（保留条件）：选择 n8n 判断应保留哪些数据项的方式。可选：
+	* **Value Is New**（值是新的）：如果数据项的值与先前执行中的值相同，n8n 会移除该项。
+	* **Value Is Higher than Any Previous Value**（值高于所有先前值）：如果当前值未高于先前的所有值，n8n 会移除该项。
+	* **Value Is a Date Later than Any Previous Date**（日期晚于所有先前日期）：如果当前日期未晚于先前的所有日期，n8n 会移除该日期数据项。
 
-* **Value to Dedupe On**: The input field or fields to compare. The option you select for the **Keep Items Where** parameter determines the exact format you need:
-	* When using **Value Is New**, this must be an input field or combination of fields with a unique ID.
-	* When using **Value Is Higher than Any Previous Value**, this must be an input field or combination of fields that has an incremental value.
-	* When using **Value Is a Date Later than Any Previous Date**, this must be an input field that has a date value in ISO format.
+* **Value to Dedupe On**（去重依据值）：要比较的一个或多个输入字段。所需的具体格式由 **Keep Items Where** 的选择决定：
+	* 使用 **Value Is New** 时，必须是具有唯一 ID 的输入字段或字段组合。
+	* 使用 **Value Is Higher than Any Previous Value** 时，必须是具有递增值的输入字段或字段组合。
+	* 使用 **Value Is a Date Later than Any Previous Date** 时，必须是包含 ISO 格式日期值的输入字段。
 
-#### Remove Items Processed in Previous Executions options <a href="#remove-items-processed-in-previous-executions-options" id="remove-items-processed-in-previous-executions-options"></a>
+#### 移除先前执行已处理的数据项：选项 <a href="#remove-items-processed-in-previous-executions-options" id="remove-items-processed-in-previous-executions-options"></a>
 
-When using the **Remove Items Processed in Previous Executions** operation, the following option is available:
+使用 **Remove Items Processed in Previous Executions** 操作时，可配置以下选项：
 
-* **Scope**: Sets how n8n stores and uses the deduplication data for comparisons. The following options are available:
-	* **Node**: (default) Stores the data for this node independently from other Remove Duplicates instances in the workflow. When you use this scope, you can [clear the duplication history](#clear-deduplication-history) for this node instance without affecting other nodes.
-	* **Workflow**: Stores the duplication data at the workflow level. This shares duplication data with any other Remove Duplicate nodes set to use "workflow" scope.  n8n will still manage the duplication data for other Remove Duplicate nodes set to "node" scope independently.
+* **Scope**（作用域）：设置 n8n 存储和使用去重比较数据的方式。可选：
+	* **Node**（节点，默认）：此节点的数据独立于工作流中其他 Remove Duplicates 节点实例存储。使用此作用域时，可以[清除此节点实例的去重历史](#clear-deduplication-history)，而不影响其他节点。
+	* **Workflow**（工作流）：在工作流级别存储去重数据，与其他使用“workflow”作用域的 Remove Duplicates 节点共享。使用“node”作用域的其他 Remove Duplicates 节点，其去重数据仍独立管理。
 
-When you select **Value Is New** as your **Keep Items Where** choice, this option is also available:
+**Keep Items Where** 选择 **Value Is New** 时，还可配置以下选项：
 
-* **History Size**: The number of items for n8n to store to track duplicates across executions. The value of the **Scope** option determines whether this history size is specific to this individual Remove Duplicate node instance or shared with other instances in the workflow. By default, n8n stores 10,000 items.
+* **History Size**（历史大小）：n8n 为跨执行去重而存储的数据项数量。**Scope** 决定此历史大小是仅针对当前 Remove Duplicates 节点实例，还是与工作流中其他实例共享。默认存储 10,000 个数据项。
 
-### Clear Deduplication History <a href="#clear-deduplication-history" id="clear-deduplication-history"></a>
+### Clear Deduplication History（清除去重历史） <a href="#clear-deduplication-history" id="clear-deduplication-history"></a>
 
-When you set the "Operation" field to **Clear Deduplication History**, the Remove Duplicates node manages and clears the stored items from previous executions. This operation doesn't affect any items in the current input. Instead, it manages the database of items that the "Remove Items Processed in Previous Executions" operation uses.
+将“Operation”字段设为 **Clear Deduplication History** 时，Remove Duplicates 节点会管理并清除先前执行所存储的数据项。此操作不影响当前输入中的任何数据项，而是管理“Remove Items Processed in Previous Executions”操作使用的数据项数据库。
 
-#### Clear Deduplication History parameters <a href="#clear-deduplication-history-parameters" id="clear-deduplication-history-parameters"></a>
+#### 清除去重历史：参数 <a href="#clear-deduplication-history-parameters" id="clear-deduplication-history-parameters"></a>
 
-When using the **Clear Deduplication History** operation, the following parameter is available:
+使用 **Clear Deduplication History** 操作时，可配置以下参数：
 
-* **Mode**: How you want to manage the key / value items stored in the database. The following option is available:
-	* **Clean Database**: Deletes all duplication data stored in the database. This resets the duplication database to its original state.
+* **Mode**（模式）：选择如何管理数据库中存储的键／值项。可选：
+	* **Clean Database**（清理数据库）：删除数据库中存储的全部去重数据，将去重数据库重置为初始状态。
 
-#### Clear Deduplication History options <a href="#clear-deduplication-history-options" id="clear-deduplication-history-options"></a>
+#### 清除去重历史：选项 <a href="#clear-deduplication-history-options" id="clear-deduplication-history-options"></a>
 
-When using the **Clear Deduplication History** operation, the following option is available:
+使用 **Clear Deduplication History** 操作时，可配置以下选项：
 
-* **Scope**: Sets the scope n8n uses when managing the duplication database.
-	* **Node**: (default) Manages the duplication database specific to this Remove Duplicates node instance.
-	* **Workflow**: Manages the duplication database shared by all Remove Duplicate node instances that use workflow scope.
+* **Scope**（作用域）：设置 n8n 管理去重数据库时使用的范围。
+	* **Node**（节点，默认）：管理当前 Remove Duplicates 节点实例专用的去重数据库。
+	* **Workflow**（工作流）：管理所有使用工作流作用域的 Remove Duplicates 节点实例共享的去重数据库。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-For templates using the Remove Duplicates node and examples of how to use it, refer to [Templates and examples](templates-and-examples.md).
+使用 Remove Duplicates 节点的模板及用法示例，请参阅[模板与示例](templates-and-examples.md)。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/0nvcx1EqJQgGVzUXOOMN/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/data-transformation-actions/data-section-link.md" %}

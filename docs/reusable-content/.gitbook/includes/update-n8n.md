@@ -1,11 +1,13 @@
 ---
-title: update-n8n
+title: 更新 n8n
 ---
-## How to update n8n <a href="#how-to-update-n8n" id="how-to-update-n8n"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-The steps to update your n8n depend on which n8n platform you use. Refer to the documentation for your n8n:
+## 如何更新 n8n <a href="#how-to-update-n8n" id="how-to-update-n8n"></a>
 
-* [Cloud](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/update-your-version)
-* Self-hosted options:
-    * [npm](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/install-options/install-with-npm)
-    * [Docker](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/install-options/install-with-docker)
+更新步骤取决于所使用的 n8n 平台。请参阅对应文档：
+
+* [Cloud（云版）](../../../deploy/use-n8n-cloud/update-your-version.md)
+* 自托管选项：
+    * [npm](../../../deploy/host-n8n/install-options/install-with-npm.md)
+    * [Docker](../../../deploy/host-n8n/install-options/install-with-docker.md)

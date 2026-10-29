@@ -1,47 +1,43 @@
 ---
-title: Remove Duplicates node templates and Examples
-description: >-
-  Documentation for templates and examples in the Remove Duplicates node in n8n,
-  a workflow automation platform. Includes templates using the node and examples
-  of how to use it.
+title: Remove Duplicates 节点模板与示例
+description: 通过连续示例了解 Remove Duplicates 节点的当前输入去重、跨执行去重及数值和日期比较，并查找相关模板。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Remove Duplicates node templates and Examples
-originalFilePath: >-
-  integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples
+nodeTitle: Remove Duplicates 节点模板与示例
+originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples.md
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-Here are some templates and examples for the [Remove Duplicates node](README.md).
+# 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+以下是 [Remove Duplicates 节点](README.md)的模板和示例。
 
 {% hint style="info" %}
-**Continuous examples**
+**连续示例**
 
-The examples included in this section are a sequence. Follow from one to another to avoid unexpected results.
+本节示例前后衔接，请按顺序操作，避免出现意外结果。
 {% endhint %}
 
-## Templates <a href="#templates" id="templates"></a>
+## 模板 <a href="#templates" id="templates"></a>
 
 
-[Browse Remove Duplicates node templates and Examples integration templates](https://n8n.io/integrations/remove-duplicates) or [search all templates](https://n8n.io/workflows/)
+[浏览 Remove Duplicates 节点集成模板](https://n8n.io/integrations/remove-duplicates)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Set up sample data using the Code node <a href="#set-up-sample-data-using-the-code-node" id="set-up-sample-data-using-the-code-node"></a>
+## 使用 Code 节点准备示例数据 <a href="#set-up-sample-data-using-the-code-node" id="set-up-sample-data-using-the-code-node"></a>
 
-Create a workflow with some example input data to try out the Remove Duplicates node.
+创建一个带示例输入数据的工作流，尝试使用 Remove Duplicates 节点。
 
-1. Add a Code node to the canvas and connect it to the Manual Trigger node.
-2. In the Code node, set **Mode** to **Run Once for Each Item** and **Language** to **JavaScript**.
-3. Paste the following JavaScript code snippet in the **JavaScript** field:
+1. 向画布添加 Code 节点，并将其连接到 Manual Trigger 节点。
+2. 在 Code 节点中，将 **Mode**（模式）设为 **Run Once for Each Item**（对每个数据项运行一次），将 **Language**（语言）设为 **JavaScript**。
+3. 将以下 JavaScript 代码片段粘贴到 **JavaScript** 字段：
 ```js
 let data =[];
 
@@ -66,17 +62,17 @@ return {
   ]
 }
 ```
-4. Add a Split Out node to the canvas and connect it to the Code node.
-5. In the Split Out node, enter `data` in the **Fields To Split Out** field.
+4. 向画布添加 Split Out 节点，并将其连接到 Code 节点。
+5. 在 Split Out 节点的 **Fields To Split Out**（要拆分的字段）中输入 `data`。
 
-## Removing duplicates from the current input <a href="#removing-duplicates-from-the-current-input" id="removing-duplicates-from-the-current-input"></a>
+## 移除当前输入中的重复项 <a href="#removing-duplicates-from-the-current-input" id="removing-duplicates-from-the-current-input"></a>
 
-1. Add a Remove Duplicates node to the canvas and connect it to the Split Out node. Choose **Remove items repeated within current input** as the **Action** to start.
-2. Open the Remove Duplicates node and ensure that the **Operation** is set to **Remove Items Repeated Within Current Input**.
-3. Choose **All fields** in the **Compare** field.
-4. Select **Execute step** to run the Remove Duplicates node, removing duplicated data in the current input.
+1. 向画布添加 Remove Duplicates 节点，并将其连接到 Split Out 节点。先将 **Action**（动作）选为 **Remove items repeated within current input**（移除当前输入内的重复项）。
+2. 打开 Remove Duplicates 节点，确保 **Operation**（操作）为 **Remove Items Repeated Within Current Input**。
+3. 在 **Compare**（比较）字段中选择 **All fields**（所有字段）。
+4. 选择 **Execute step**（执行步骤），运行 Remove Duplicates 节点，移除当前输入中的重复数据。
 
-n8n removes the items that have the same data across all fields. Your output in table view should look like this:
+n8n 会移除所有字段数据均相同的重复项。表格视图中的输出应如下所示：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |
@@ -91,11 +87,11 @@ n8n removes the items that have the same data across all fields. Your output in 
 | 8      | Rihanna       | Pop star          | 2024-10-01T11:50:22.493Z |
 
 
-5. Open the Remove Duplicates node again and change the **Compare** parameter to **Selected Fields**.
-6. In the **Fields To Compare** field, enter `job`.
-7. Select **Execute step** to run the Remove Duplicates node, removing duplicated data in the current input.
+5. 再次打开 Remove Duplicates 节点，将 **Compare** 参数改为 **Selected Fields**（选定字段）。
+6. 在 **Fields To Compare**（要比较的字段）中输入 `job`。
+7. 选择 **Execute step**（执行步骤），运行 Remove Duplicates 节点，移除当前输入中的重复数据。
 
-n8n removes the items in the current input that have the same `job` data. Your output in table view should look like this:
+n8n 会移除当前输入中 `job` 数据相同的重复项。表格视图中的输出应如下所示：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |
@@ -104,14 +100,14 @@ n8n removes the items in the current input that have the same `job` data. Your o
 | 2      | Ed Sheeran    | Singer-songwriter | 2024-10-05T08:30:59.493Z |
 
 
-## Keep items where the value is new <a href="#keep-items-where-the-value-is-new" id="keep-items-where-the-value-is-new"></a>
+## 保留值是新的数据项 <a href="#keep-items-where-the-value-is-new" id="keep-items-where-the-value-is-new"></a>
 
-1. Open the Remove Duplicates node and set the **Operation** to **Remove Items Processed in Previous Executions**.
-2. Set the **Keep Items Where** parameter to **Value Is New**.
-3. Set the **Value to Dedupe On** parameter to `{{ $json.name }}`.
-4. On the canvas, select **Execute workflow** to run the workflow. Open the Remove Duplicates node to examine the results.
+1. 打开 Remove Duplicates 节点，将 **Operation**（操作）设为 **Remove Items Processed in Previous Executions**（移除先前执行已处理的数据项）。
+2. 将 **Keep Items Where**（保留条件）设为 **Value Is New**（值是新的）。
+3. 将 **Value to Dedupe On**（去重依据值）设为 `{{ $json.name }}`。
+4. 在画布上选择 **Execute workflow**（执行工作流）运行工作流，再打开 Remove Duplicates 节点查看结果。
 
-n8n compares the current input data to the items stored from previous executions. Since this is the first time running the Remove Duplicates node with this operation, n8n processes all data items and places them into the **Kept** output tab. The order of the items may be different than the order in the input data:
+n8n 将当前输入与先前执行存储的数据项比较。由于这是首次以此操作运行 Remove Duplicates 节点，n8n 会处理所有数据项，并将其放入 **Kept**（保留）输出标签页。数据项的顺序可能与输入顺序不同：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |
@@ -130,15 +126,15 @@ n8n compares the current input data to the items stored from previous executions
 
 
 {% hint style="info" %}
-**Items are only compared against previous executions**
+**仅与先前执行比较数据项**
 
-The current input items are only compared against the stored items from previous executions. This means that items repeated within the current input aren't removed in this mode of operation. If you need to remove duplicate items within the current input *and* across executions, connect two Remove Duplicate nodes together sequentially. Set the first to use the **Remove Items Repated Within Current Input** operation and the second to use the **Remove Items Processed in Previous Executions** operation.
+当前输入项只与先前执行存储的数据项比较。因此，此操作模式不会移除当前输入内部的重复项。如果需要同时移除当前输入内部的重复项和跨执行的重复项，请依次连接两个 Remove Duplicates 节点：第一个使用 **Remove Items Repeated Within Current Input**，第二个使用 **Remove Items Processed in Previous Executions**。
 {% endhint %}
 
-5. Open the Code node and uncomment (remove the `//` from) the line for "Tom Hanks."
-6. On the canvas, select **Execute workflow** again. Open the Remove Duplicates node again to examine the results.
+5. 打开 Code 节点，取消“Tom Hanks”对应行的注释（移除 `//`）。
+6. 在画布上再次选择 **Execute workflow**，再打开 Remove Duplicates 节点查看结果。
 
-n8n compares the current input data to the items stored from previous executions. This time, the **Kept** tab contains the one new record from the Code node:
+n8n 将当前输入与先前执行存储的数据项比较。这次 **Kept**（保留）标签页只包含 Code 节点中新增的一条记录：
 
 
 | **id** | **name**  | **job** | **last_updated**         |
@@ -146,7 +142,7 @@ n8n compares the current input data to the items stored from previous executions
 | 9      | Tom Hanks | Actor   | 2024-10-17T13:58:31.493Z |
 
 
-The **Discarded** tab contains the items processed by the previous execution:
+**Discarded**（丢弃）标签页包含上一次执行已处理的数据项：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |
@@ -164,19 +160,19 @@ The **Discarded** tab contains the items processed by the previous execution:
 | 8      | Rihanna       | Pop star          | 2024-10-01T11:50:22.493Z |
 
 
-Before continuing, clear the duplication history to get ready for the next example:
+继续之前，先清除去重历史，为下一个示例做好准备：
 
-7. Open the Remove Duplicates node and set the **Operation** to **Clear Deduplication History**.
-8. Select **Execute step** to clear the current duplication history.
+7. 打开 Remove Duplicates 节点，将 **Operation**（操作）设为 **Clear Deduplication History**（清除去重历史）。
+8. 选择 **Execute step**（执行步骤），清除当前去重历史。
 
-## Keep items where the value is higher than any previous value <a href="#keep-items-where-the-value-is-higher-than-any-previous-value" id="keep-items-where-the-value-is-higher-than-any-previous-value"></a>
+## 保留值高于所有先前值的数据项 <a href="#keep-items-where-the-value-is-higher-than-any-previous-value" id="keep-items-where-the-value-is-higher-than-any-previous-value"></a>
 
-1. Open the Remove Duplicates node and set the **Operation** to **Remove Items Processed in Previous Executions**.
-2. Set the **Keep Items Where** parameter to **Value Is Higher than Any Previous Value**.
-3. Set the **Value to Dedupe On** parameter to `{{ $json.id }}`.
-4. On the canvas, select **Execute workflow** to run the workflow. Open the Remove Duplicates node to examine the results.
+1. 打开 Remove Duplicates 节点，将 **Operation**（操作）设为 **Remove Items Processed in Previous Executions**（移除先前执行已处理的数据项）。
+2. 将 **Keep Items Where**（保留条件）设为 **Value Is Higher than Any Previous Value**（值高于所有先前值）。
+3. 将 **Value to Dedupe On**（去重依据值）设为 `{{ $json.id }}`。
+4. 在画布上选择 **Execute workflow**（执行工作流）运行工作流，再打开 Remove Duplicates 节点查看结果。
 
-n8n compares the current input data to the items stored from previous executions. Since this is the first time running the Remove Duplicates node after clearing the history, n8n processes all data items and places them into the **Kept** output tab. The order of the items may be different than the order in the input data:
+n8n 将当前输入与先前执行存储的数据项比较。由于这是清除历史后首次运行 Remove Duplicates 节点，n8n 会处理所有数据项，并将其放入 **Kept**（保留）输出标签页。数据项的顺序可能与输入顺序不同：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |
@@ -195,10 +191,10 @@ n8n compares the current input data to the items stored from previous executions
 | 9      | Tom Hanks     | Actor             | 2024-10-17T13:58:31.493Z |
 
 
-5. Open the Code node and uncomment (remove the `//` from) the lines for "Madonna" and "Bob Dylan."
-6. On the canvas, select **Execute workflow** again. Open the Remove Duplicates node again to examine the results.
+5. 打开 Code 节点，取消“Madonna”和“Bob Dylan”对应行的注释（移除 `//`）。
+6. 在画布上再次选择 **Execute workflow**，再打开 Remove Duplicates 节点查看结果。
 
-n8n compares the current input data to the items stored from previous executions. This time, the **Kept** tab contains a single entry for "Bob Dylan." n8n keeps this item because its `id` column value (15) is higher than any previous values (the previous maximum value was 9):
+n8n 将当前输入与先前执行存储的数据项比较。这次 **Kept**（保留）标签页只有“Bob Dylan”一条记录，因为其 `id` 列的值（15）高于先前的所有值（先前最大值为 9）：
 
 
 | **id** | **name**  | **job**     | **last_updated**         |
@@ -206,7 +202,7 @@ n8n compares the current input data to the items stored from previous executions
 | 15     | Bob Dylan | Folk singer | 2024-09-24T08:03:16.493Z |
 
 
-The **Discarded** tab contains the 13 items with an `id` column value equal to or less than the previous maximum value (9). Even though it's new, this table includes the entry for "Madonna" because its `id` value isn't larger than the previous maximum value:
+**Discarded**（丢弃）标签页包含 `id` 列的值小于或等于先前最大值（9）的 13 个数据项。“Madonna”虽然是新记录，也在此表中，因为其 `id` 值未超过先前最大值：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |
@@ -226,19 +222,19 @@ The **Discarded** tab contains the 13 items with an `id` column value equal to o
 | 9      | Tom Hanks     | Actor             | 2024-10-17T13:58:31.493Z |
 
 
-Before continuing, clear the duplication history to get ready for the next example:
+继续之前，先清除去重历史，为下一个示例做好准备：
 
-7. Open the Remove Duplicates node and set the **Operation** to **Clear Deduplication History**.
-8. Select **Execute step** to clear the current duplication history.
+7. 打开 Remove Duplicates 节点，将 **Operation**（操作）设为 **Clear Deduplication History**（清除去重历史）。
+8. 选择 **Execute step**（执行步骤），清除当前去重历史。
 
-## Keep items where the value is a date later than any previous date <a href="#keep-items-where-the-value-is-a-date-later-than-any-previous-date" id="keep-items-where-the-value-is-a-date-later-than-any-previous-date"></a>
+## 保留日期晚于所有先前日期的数据项 <a href="#keep-items-where-the-value-is-a-date-later-than-any-previous-date" id="keep-items-where-the-value-is-a-date-later-than-any-previous-date"></a>
 
-1. Open the Remove Duplicates node and set the **Operation** to **Remove Items Processed in Previous Executions**.
-2. Set the **Keep Items Where** parameter to **Value Is a Date Later than Any Previous Date**.
-3. Set the **Value to Dedupe On** parameter to `{{ $json.last_updated }}`.
-4. On the canvas, select **Execute workflow** to run the workflow. Open the Remove Duplicates node to examine the results.
+1. 打开 Remove Duplicates 节点，将 **Operation**（操作）设为 **Remove Items Processed in Previous Executions**（移除先前执行已处理的数据项）。
+2. 将 **Keep Items Where**（保留条件）设为 **Value Is a Date Later than Any Previous Date**（日期晚于所有先前日期）。
+3. 将 **Value to Dedupe On**（去重依据值）设为 `{{ $json.last_updated }}`。
+4. 在画布上选择 **Execute workflow**（执行工作流）运行工作流，再打开 Remove Duplicates 节点查看结果。
 
-n8n compares the current input data to the items stored from previous executions. Since this is the first time running the Remove Duplicates node after clearing the history, n8n processes all data items and places them into the **Kept** output tab. The order of the items may be different than the order in the input data:
+n8n 将当前输入与先前执行存储的数据项比较。由于这是清除历史后首次运行 Remove Duplicates 节点，n8n 会处理所有数据项，并将其放入 **Kept**（保留）输出标签页。数据项的顺序可能与输入顺序不同：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |
@@ -260,12 +256,12 @@ n8n compares the current input data to the items stored from previous executions
 
 
 
-5. Open the Code node and uncomment (remove the `//` from) the lines for "Harry Nilsson" and "Kylie Minogue."
+5. 打开 Code 节点，取消“Harry Nilsson”和“Kylie Minogue”对应行的注释（移除 `//`）。
 
-6. On the canvas, select **Execute workflow** again. Open the Remove Duplicates node again to examine the results.
+6. 在画布上再次选择 **Execute workflow**，再打开 Remove Duplicates 节点查看结果。
 
 
-n8n compares the current input data to the items stored from previous executions. This time, the **Kept** tab contains a single entry for "Kylie Minogue." n8n keeps this item because its `last_updated` column value (`2024-10-24T08:03:16.493Z`) is later than any previous values (the previous latest date was `2024-10-17T17:11:38.493Z`):
+n8n 将当前输入与先前执行存储的数据项比较。这次 **Kept**（保留）标签页只有“Kylie Minogue”一条记录，因为其 `last_updated` 列的值（`2024-10-24T08:03:16.493Z`）晚于先前的所有日期（先前最晚日期为 `2024-10-17T17:11:38.493Z`）：
 
 
 
@@ -274,7 +270,7 @@ n8n compares the current input data to the items stored from previous executions
 | 11     | Kylie Minogue | Pop star          | 2024-10-24T08:03:16.493Z |
 
 
-The **Discarded** tab contains the 15 items with a `last_updated` column value equal to or earlier than the previous latest date (`2024-10-17T17:11:38.493Z`). Even though it's new, this table includes the entry for "Harry Nilsson" because its `last_updated` value isn't later than the previous maximum value:
+**Discarded**（丢弃）标签页包含 `last_updated` 列的值早于或等于先前最晚日期（`2024-10-17T17:11:38.493Z`）的 15 个数据项。“Harry Nilsson”虽然是新记录，也在此表中，因为其 `last_updated` 值未晚于先前最大值：
 
 
 | **id** | **name**      | **job**           | **last_updated**         |

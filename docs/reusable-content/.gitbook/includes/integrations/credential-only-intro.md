@@ -1,7 +1,9 @@
 ---
-title: credential-only-intro
+title: 仅凭据节点简介
 ---
-One of the most complex parts of setting up API calls is managing authentication. n8n provides [credentials](https://app.gitbook.com/s/CxSeOtVxqqhfxMSac0AV/key-concept-glossary#credential-n8n) support for operations and services beyond those supported by built-in nodes.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-* Custom operations for existing nodes: n8n supplies hundreds of nodes to create workflows that link multiple products. However, some nodes don't include all the possible operations supported by a product's API. You can work around this by making a custom API call using the [HTTP Request](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.httprequest) node.
-* Credential-only nodes: n8n includes credential-only nodes. These are integrations where n8n supports setting up credentials for use in the HTTP Request node, but doesn't provide a standalone node. You can find a credential-only node in the nodes panel, as you would for any other integration.
+设置 API 调用时，管理身份验证是最复杂的部分之一。对于内置节点尚未支持的操作和服务，n8n 也提供[凭据](../../../../get-started/key-concept-glossary.md#credential-n8n)支持。
+
+* 现有节点的自定义操作：n8n 提供数百个节点，可构建连接多个产品的工作流。但部分节点没有涵盖产品 API 支持的全部操作。此时可以通过 [HTTP Request](../../../../integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md) 节点发起自定义 API 调用。
+* 仅凭据节点：n8n 提供某些集成的凭据配置，供 HTTP Request 节点使用，但不提供独立节点。这些集成称为仅凭据节点。与其他集成一样，可以在节点面板中找到它们。

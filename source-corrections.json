@@ -1648,5 +1648,69 @@
     ],
     "scope": "仅修正有原文或官方代码依据的可见名称、开关方向、认证角色及说明歧义。原始快照、演示工作流、代码、参数值、资源与锚点保持原样；不执行工作流或实际网络请求，不改变官方基线。",
     "source_sha256": "b8784dc002cec27a54a3634a271d336ee6be27d020e5c50df58b2963d9845780"
+  },
+  {
+    "id": "remove-duplicates-repeated-operation-label-spelling",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples.md",
+    "original_sentence": "The current input items are only compared against the stored items from previous executions. This means that items repeated within the current input aren't removed in this mode of operation. If you need to remove duplicate items within the current input *and* across executions, connect two Remove Duplicate nodes together sequentially. Set the first to use the **Remove Items Repated Within Current Input** operation and the second to use the **Remove Items Processed in Previous Executions** operation.",
+    "translated_sentence": "当前输入项只与先前执行存储的数据项比较。因此，此操作模式不会移除当前输入内部的重复项。如果需要同时移除当前输入内部的重复项和跨执行的重复项，请依次连接两个 Remove Duplicates 节点：第一个使用 **Remove Items Repeated Within Current Input**，第二个使用 **Remove Items Processed in Previous Executions**。",
+    "evidence": "同页此前操作步骤以及同版本节点参考均使用 Remove Items Repeated Within Current Input。提示段误拼为 Repated，译文统一为 Repeated，不改变两个节点顺序和比较范围。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/templates-and-examples.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/README.md"
+    ],
+    "scope": "仅修正操作名称笔误、速率与等待时长的表达，以及分批参数说明。原始快照、代码、表达式、表格示例数据、参数值及资源保持原样；不执行文档示例，不推断服务端限流算法。",
+    "source_sha256": "e2c9bc3a618f4af1508f2027b8f898278f3ac4747df0ce49c9e65a17b95931c9"
+  },
+  {
+    "id": "rate-limit-wait-duration-not-request-frequency",
+    "path": "integrations/builtin/handle-rate-limits.md",
+    "original_sentence": "4. Configure the retry settings: if using this to work around rate limits, set **Wait Between Tries (ms)** to more than the rate limit. For example, if the API you're using allows one request per second, set **Wait Between Tries (ms)** to `1000` to allow a 1 second wait.",
+    "translated_sentence": "4. 配置重试设置：要避免触发速率限制，将 **Wait Between Tries (ms)**（重试间隔，毫秒）设为满足该限制的等待时长。例如，API 允许每秒一个请求时，可将 **Wait Between Tries (ms)** 设为 `1000`，等待 1 秒。",
+    "evidence": "原文称等待毫秒数应大于 rate limit，但速率和时长不能直接比较，且同一句示例使用每秒一次与 1000 毫秒。译文按同句示例表达为满足速率限制的等待时长，不推断服务端的具体窗口算法。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/handle-rate-limits.md"
+    ],
+    "scope": "仅修正操作名称笔误、速率与等待时长的表达，以及分批参数说明。原始快照、代码、表达式、表格示例数据、参数值及资源保持原样；不执行文档示例，不推断服务端限流算法。",
+    "source_sha256": "b04118f580123a0bf39aae26aa2478dd2caf26f811497f64c6292e88d9f69a8c"
+  },
+  {
+    "id": "http-batching-rate-limit-description-not-request-payload-size",
+    "path": "integrations/builtin/handle-rate-limits.md",
+    "original_sentence": "Use the Batching option to send more than one request, reducing the request size, and introducing a pause between requests. This is the equivalent of using Loop Over Items and Wait.",
+    "translated_sentence": "使用 Batching（分批）选项，将大量输入项分批处理，并在各批请求之间暂停，达到类似组合使用 Loop Over Items 和 Wait 的效果。分批不会把多个输入项自动合并为一个请求；每批大小与批次间隔的含义见下文。",
+    "evidence": "限流指南将 Batching 描述为缩小请求大小，容易误解为把数据项合并成请求。锁定版本 HTTP Request 节点的 Batching 明确控制输入项分批以及每批请求之间的等待；译文据此表述，未更改任何请求负载或代码。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/handle-rate-limits.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md#batching"
+    ],
+    "scope": "仅修正操作名称笔误、速率与等待时长的表达，以及分批参数说明。原始快照、代码、表达式、表格示例数据、参数值及资源保持原样；不执行文档示例，不推断服务端限流算法。",
+    "source_sha256": "b04118f580123a0bf39aae26aa2478dd2caf26f811497f64c6292e88d9f69a8c"
+  },
+  {
+    "id": "rate-limit-items-per-batch-not-items-per-request",
+    "path": "integrations/builtin/handle-rate-limits.md",
+    "original_sentence": "2. Set **Items per Batch**: this is the number of input items to include in each request.",
+    "translated_sentence": "2. 设置 **Items per Batch**（每批数据项数）：每批要处理的输入项数量。",
+    "evidence": "原文误将 Items per Batch 解释为每次请求包含的输入项数量。相同锁定版本 HTTP Request 节点明确为 each batch，译文改为每批输入项数量。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/handle-rate-limits.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md#batching"
+    ],
+    "scope": "仅修正操作名称笔误、速率与等待时长的表达，以及分批参数说明。原始快照、代码、表达式、表格示例数据、参数值及资源保持原样；不执行文档示例，不推断服务端限流算法。",
+    "source_sha256": "b04118f580123a0bf39aae26aa2478dd2caf26f811497f64c6292e88d9f69a8c"
+  },
+  {
+    "id": "rate-limit-batch-interval-example-setting-name",
+    "path": "integrations/builtin/handle-rate-limits.md",
+    "original_sentence": "3. Set **Batch Interval (ms)** to introduce a delay between requests. For example, if the API you're using allows one request per second, set **Wait Between Tries (ms)** to `1000` to allow a 1 second wait.",
+    "translated_sentence": "3. 设置 **Batch Interval (ms)**（批次间隔，毫秒），在各批请求之间等待。例如，API 允许每秒一个请求时，将每批大小设为一个数据项，并将 **Batch Interval (ms)** 设为 `1000`，在批次之间等待 1 秒。",
+    "evidence": "Batching 配置步骤先要求 Batch Interval (ms)，示例却误沿用失败重试的 Wait Between Tries (ms)。同版本 HTTP Request 节点明确批次间隔以毫秒计。译文统一为 Batch Interval (ms)，同时明确每秒一次示例需每批一个输入项；原 1000 毫秒值不变，不把每批项数误当为每个请求的负载大小。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/handle-rate-limits.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md#batching"
+    ],
+    "scope": "仅修正操作名称笔误、速率与等待时长的表达，以及分批参数说明。原始快照、代码、表达式、表格示例数据、参数值及资源保持原样；不执行文档示例，不推断服务端限流算法。",
+    "source_sha256": "b04118f580123a0bf39aae26aa2478dd2caf26f811497f64c6292e88d9f69a8c"
   }
 ]

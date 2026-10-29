@@ -1,29 +1,31 @@
 ---
 contentType: reference
-nodeTitle: Deprecated nodes
+nodeTitle: 已弃用节点
 originalFilePath: integrations/builtin/deprecated-and-versioned-nodes.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/deprecated-and-versioned-nodes'
-url: 'https://docs.n8n.io/integrations/builtin/deprecated-nodes'
+originalUrl: https://docs.n8n.io/integrations/builtin/deprecated-and-versioned-nodes
+url: https://docs.n8n.io/integrations/builtin/deprecated-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Deprecated and versioned nodes <a href="#deprecated-and-versioned-nodes" id="deprecated-and-versioned-nodes"></a>
 
-n8n improves its node library over time. This page lists removed nodes (fully removed), deprecated nodes (retired but still functional), and versioned nodes (active with multiple versions available).
+# 已弃用节点与版本化节点 <a href="#deprecated-and-versioned-nodes" id="deprecated-and-versioned-nodes"></a>
 
-## Deprecated nodes <a href="#deprecated-nodes" id="deprecated-nodes"></a>
+n8n 会持续改进节点库。本页列出已移除节点（已完全移除）、已弃用节点（停止维护但仍可使用），以及版本化节点（仍在维护，且有多个版本可用）。
 
-n8n won't release further updates or bug fixes for deprecated nodes. Existing workflows that use them continue to run, but you should migrate to a supported alternative.
+## 已弃用节点 <a href="#deprecated-nodes" id="deprecated-nodes"></a>
+
+n8n 不再为已弃用节点发布更新或修复缺陷。使用这些节点的现有工作流仍可运行，但应迁移到受支持的替代节点。
 
 {% hint style="info" %}
-**Migrate deprecated nodes**
+**迁移已弃用节点**
 
-Replace deprecated nodes in your workflows before n8n removes them in a future release.
+请在 n8n 后续版本移除这些节点之前，替换工作流中的已弃用节点。
 {% endhint %}
 
-| Node | Final node version |
+| 节点 | 最后一个节点版本 |
 |------|:-----------------:|
 | Binary Input Loader | 1 |
 | Chat Messages Retriever | 1 |
@@ -68,30 +70,30 @@ Replace deprecated nodes in your workflows before n8n removes them in a future r
 | Zep Vector Store: Insert | 1 |
 | Zep Vector Store: Load | 1 |
 
-## Removed nodes <a href="#removed-nodes" id="removed-nodes"></a>
+## 已移除节点 <a href="#removed-nodes" id="removed-nodes"></a>
 
-n8n removes nodes when the external service they connect to is no longer available. Workflows that use a removed node will fail.
+当节点所连接的外部服务不再可用时，n8n 会移除该节点。使用已移除节点的工作流将会失败。
 
 {% hint style="warning" %}
-**Update or remove affected workflows**
+**更新或移除受影响的工作流**
 
-If your workflows use any of these nodes, update them to use an alternative or remove them to avoid errors.
+如果工作流使用下列任意节点，请更新为替代节点，或移除相关工作流，以免报错。
 {% endhint %}
 
-| Node | n8n version |
+| 节点 | n8n 版本 |
 |------|:-----------:|
 | Automizy | 2.0 |
 | crowd.dev | 2.0 |
 | Kitemaker | 2.0 |
 | Spontit | 2.0 |
 
-## Versioned nodes <a href="#versioned-nodes" id="versioned-nodes"></a>
+## 版本化节点 <a href="#versioned-nodes" id="versioned-nodes"></a>
 
-When n8n makes significant improvements to a node, n8n releases a new default version and keeps older versions available. Existing workflows using an older version continue to work unchanged.
+对节点进行重大改进时，n8n 会发布新的默认版本，同时保留旧版本。使用旧版本的现有工作流仍按原有方式运行。
 
-Always use the current version in new workflows to get the latest features and bug fixes.
+新工作流应始终使用当前版本，以获得最新功能和缺陷修复。
 
-| Node | Current node version | Previous node versions |
+| 节点 | 当前节点版本 | 先前节点版本 |
 |------|:--------------------:|:-----------------------|
 | AI Agent | 3.1 | 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 3 |
 | AI Agent Tool | 3 | 2.2 |
