@@ -1,46 +1,42 @@
 ---
-title: Recursive Character Text Splitter node documentation
-description: >-
-  Learn how to use the Recursive Character Text Splitter node in n8n. Follow
-  technical documentation to integrate Recursive Character Text Splitter node
-  into your workflows.
+title: Recursive Character Text Splitter（递归字符文本拆分器） 节点文档
+description: 了解如何在 n8n 中使用 Recursive Character Text Splitter（递归字符文本拆分器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Recursive Character Text Splitter node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter
+nodeTitle: Recursive Character Text Splitter（递归字符文本拆分器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter
 layout:
   description:
     visible: false
 ---
-
-# Recursive Character Text Splitter node <a href="#recursive-character-text-splitter-node" id="recursive-character-text-splitter-node"></a>
-
-The Recursive Character Text Splitter node splits document data recursively to keep all paragraphs, sentences then words together as long as possible.
-
-On this page, you'll find the node parameters for the Recursive Character Text Splitter node, and links to more resources.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-* **Chunk Size**: Enter the number of characters in each chunk.
-* **Chunk Overlap**: Enter how much overlap to have between chunks.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Recursive Character Text Splitter node documentation integration templates](https://n8n.io/integrations/recursive-character-text-splitter) or [search all templates](https://n8n.io/workflows/)
+# Recursive Character Text Splitter（递归字符文本拆分器） 节点 <a href="#recursive-character-text-splitter-node" id="recursive-character-text-splitter-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+Recursive Character Text Splitter 节点递归拆分文档数据，尽可能保持段落完整，其次是句子，再其次是单词。
 
-Refer to [LangChain's text splitter documentation](https://docs.langchain.com/oss/javascript/integrations/splitters) and [LangChain's recursively split by character documentation](https://reference.langchain.com/javascript/langchain-textsplitters/RecursiveCharacterTextSplitter) for more information about the service.
+本页列出了 Recursive Character Text Splitter 节点的参数，并提供更多资源的链接。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Chunk Size**（块大小）：输入每个块的字符数。
+* **Chunk Overlap**（块重叠量）：输入相邻块之间的重叠量。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Recursive Character Text Splitter（递归字符文本拆分器） 集成模板](https://n8n.io/integrations/recursive-character-text-splitter)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+该服务的更多信息，请参阅 [LangChain 文本拆分器文档](https://docs.langchain.com/oss/javascript/integrations/splitters)和 [LangChain 按字符递归拆分文档](https://reference.langchain.com/javascript/langchain-textsplitters/RecursiveCharacterTextSplitter)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

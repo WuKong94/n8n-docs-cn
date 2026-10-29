@@ -1,55 +1,52 @@
 ---
-title: Embeddings Ollama node documentation
-description: >-
-  Learn how to use the Embeddings Ollama node in n8n. Follow technical
-  documentation to integrate Embeddings Ollama node into your workflows.
+title: Embeddings Ollama（Ollama 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings Ollama（Ollama 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Embeddings Ollama node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsollama.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsollama
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsollama
+nodeTitle: Embeddings Ollama（Ollama 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsollama.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsollama
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsollama
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Ollama node <a href="#embeddings-ollama-node" id="embeddings-ollama-node"></a>
 
-Use the Embeddings Ollama node to generate embeddings[^1] for a given text.
+# Embeddings Ollama（Ollama 嵌入模型） 节点 <a href="#embeddings-ollama-node" id="embeddings-ollama-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings Ollama node, and links to more resources.
+使用 Embeddings Ollama 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings Ollama 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Ollama credentials documentation](../../credentials/ollama.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Ollama 凭据文档](../../credentials/ollama.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model to use to generate the embedding. Choose from:
-    * [all-minilm](https://ollama.com/library/all-minilm) (384 Dimensions)
-    * [nomic-embed-text](https://ollama.com/library/nomic-embed-text) (768 Dimensions)
+* **Model**（模型）：选择用于生成嵌入向量的模型，可选：
+    * [all-minilm](https://ollama.com/library/all-minilm)（384 维）
+    * [nomic-embed-text](https://ollama.com/library/nomic-embed-text)（768 维）
 
-Learn more about available models in [Ollama's models documentation](https://ollama.ai/library).
+可用模型的更多信息，请参阅 [Ollama 模型文档](https://ollama.ai/library)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Embeddings Ollama node documentation integration templates](https://n8n.io/integrations/embeddings-ollama) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings Ollama（Ollama 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-ollama)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Ollama embeddings documentation](https://docs.langchain.com/oss/javascript/integrations/embeddings/ollama) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Ollama 嵌入文档](https://docs.langchain.com/oss/javascript/integrations/embeddings/ollama)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

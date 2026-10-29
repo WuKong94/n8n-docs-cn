@@ -1,51 +1,48 @@
 ---
-title: Embeddings Lemonade node documentation
-description: >-
-  Learn how to use the Embeddings Lemonade node in n8n. Follow technical
-  documentation to integrate Embeddings Lemonade node into your workflows.
+title: Embeddings Lemonade（Lemonade 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings Lemonade（Lemonade 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Embeddings Lemonade node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingslemonade.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingslemonade
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingslemonade
+- integration
+- reference
+nodeTitle: Embeddings Lemonade（Lemonade 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingslemonade.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingslemonade
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingslemonade
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Lemonade node <a href="#embeddings-lemonade-node" id="embeddings-lemonade-node"></a>
 
-Use the Embeddings Lemonade node to generate vector embeddings using models hosted and managed by a Lemonade server. This node is useful for workflows that perform semantic search, clustering, similarity matching, or any task that requires numerical vector representations of text.
+# Embeddings Lemonade（Lemonade 嵌入模型） 节点 <a href="#embeddings-lemonade-node" id="embeddings-lemonade-node"></a>
 
-On this page, you'll find a list of operations the Embeddings Lemonade node supports, and links to more resources.
+使用 Embeddings Lemonade 节点，通过 Lemonade 服务器托管和管理的模型生成嵌入向量。此节点适用于语义搜索、聚类、相似度匹配，以及其他需要将文本表示为数值向量的工作流。
+
+本页列出了 Embeddings Lemonade 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Lemonade credentials documentation](../../credentials/lemonade.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Lemonade 凭据文档](../../credentials/lemonade.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Configure the node with the following parameters.
+使用以下参数配置节点。
 
-### Model <a href="#model" id="model"></a>
+### 模型 <a href="#model" id="model"></a>
 
-The model which will generate the embeddings. Models are loaded and managed through the Lemonade server configured for this node. Select the desired model from the list of available options served by your Lemonade instance.
+用于生成嵌入向量的模型。模型通过为此节点配置的 Lemonade 服务器加载和管理。请从 Lemonade 实例提供的可用模型列表中选择所需模型。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Embeddings Lemonade node documentation integration templates](https://n8n.io/integrations/embeddings-lemonade) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings Lemonade（Lemonade 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-lemonade)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Lemonade Server's documentation](https://lemonade-server.ai/docs/) for more information about the service.
+该服务的更多信息，请参阅 [Lemonade Server 文档](https://lemonade-server.ai/docs/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}

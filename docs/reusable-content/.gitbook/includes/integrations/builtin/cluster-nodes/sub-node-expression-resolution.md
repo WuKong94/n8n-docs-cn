@@ -1,12 +1,14 @@
 ---
-title: sub-node-expression-resolution
+title: 子节点表达式解析
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 {% hint style="info" %}
-**Parameter resolution in sub-nodes**
+**子节点中的参数解析**
 
-Sub-nodes behave differently to other nodes when processing multiple items using an expression.
+使用表达式处理多个数据项时，子节点的行为与其他节点不同。
 
-Most nodes, including root nodes, take any number of items as input, process these items, and output the results. You can use expressions to refer to input items, and the node resolves the expression for each item in turn. For example, given an input of five `name` values, the expression `{{ $json.name }}` resolves to each name in turn.
+多数节点，包括根节点，可以接收任意数量的输入数据项，处理后输出结果。你可以用表达式引用输入数据项，节点会依次对每个数据项解析表达式。例如，输入包含五个 `name` 值时，表达式 `{{ $json.name }}` 会依次解析为每个名称。
 
-In sub-nodes, the expression always resolves to the first item. For example, given an input of five `name` values, the expression `{{ $json.name }}` always resolves to the first name.
+在子节点中，表达式始终解析为第一个数据项。例如，输入包含五个 `name` 值时，表达式 `{{ $json.name }}` 始终解析为第一个名称。
 {% endhint %}

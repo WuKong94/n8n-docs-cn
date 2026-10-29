@@ -1,51 +1,53 @@
 ---
-title: Embeddings Oracle Database node documentation
-description: Learn how to use the Embeddings Oracle Database node in n8n. Follow technical documentation to integrate Embeddings Oracle Database node into your workflows.
+title: Embeddings Oracle Database（Oracle Database 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings Oracle Database（Oracle Database 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Oracle Database node
 
-Use the Embeddings Oracle Database node to generate embeddings[^1] with ONNX models stored in Oracle Database. This node is useful for workflows that perform semantic search, similarity matching, retrieval-augmented generation, or other tasks that require vector representations of text.
+# Embeddings Oracle Database（Oracle Database 嵌入模型） 节点 <a id="embeddings-oracle-database-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings Oracle Database node, and links to more resources.
+使用 Embeddings Oracle Database 节点，通过存储在 Oracle Database 中的 ONNX 模型生成嵌入向量[^1]。此节点适用于语义搜索、相似度匹配、检索增强生成，以及其他需要文本向量表示的工作流。
+
+本页列出了 Embeddings Oracle Database 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Oracle Database credentials documentation](../../credentials/oracledb.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Oracle Database 凭据文档](../../credentials/oracledb.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**ONNX models**
+**ONNX 模型**
 
-Your Oracle Database instance must support Oracle AI Vector Search and ONNX model execution capabilities.
+Oracle Database 实例必须支持 Oracle AI Vector Search 和 ONNX 模型执行功能。
 
-Import one or more ONNX embedding models into Oracle Database before using this node. Only imported models are available for selection.
+使用此节点前，请向 Oracle Database 导入一个或多个 ONNX 嵌入模型。仅已导入的模型可供选择。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters
+## 节点参数 <a id="node-parameters"></a>
 
-* **Model**: Select the ONNX model used to generate embeddings. Choose a model from the list of models available in your Oracle Database instance or specify a model ID manually. The selected model determines the embedding dimensions and supported input types.
+* **Model**（模型）：选择用于生成嵌入向量的 ONNX 模型。可从 Oracle Database 实例的可用模型列表中选择，也可手动指定模型 ID。所选模型决定嵌入维度和支持的输入类型。
 
-The node loads available models from the `USER_MINING_MODELS` view in the configured Oracle Database connection. Only models accessible to the current database user are displayed.
+节点通过已配置的 Oracle Database 连接，从 `USER_MINING_MODELS` 视图加载可用模型，仅显示当前数据库用户可访问的模型。
 
-## Templates and examples
+## 模板与示例 <a id="templates-and-examples"></a>
 
-[Browse Embeddings Oracle Database node documentation integration templates](https://n8n.io/integrations/embeddings-oracle-database) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings Oracle Database（Oracle Database 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-oracle-database)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-Refer to [Oracle's ONNX model import documentation](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/import-onnx-models-oracle-ai-database-end-end-example.html) for more information about importing ONNX models into Oracle Database.
+向 Oracle Database 导入 ONNX 模型的更多信息，请参阅 [Oracle 的 ONNX 模型导入文档](https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/import-onnx-models-oracle-ai-database-end-end-example.html)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

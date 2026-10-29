@@ -1,6 +1,8 @@
 ---
-title: max-iterations
+title: 最大迭代次数
 ---
-Enter the number of times the model should run to try and generate a good answer from the user's prompt.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Defaults to `10`.
+输入模型为尝试根据用户提示词生成良好答案而运行的次数。
+
+默认为 `10`。

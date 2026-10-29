@@ -1,44 +1,41 @@
 ---
-title: MultiQuery Retriever node documentation
-description: >-
-  Learn how to use the MultiQuery Retriever node in n8n. Follow technical
-  documentation to integrate MultiQuery Retriever node into your workflows.
+title: MultiQuery Retriever（多查询检索器） 节点文档
+description: 了解如何在 n8n 中使用 MultiQuery Retriever（多查询检索器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: MultiQuery Retriever node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievermultiquery.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievermultiquery
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievermultiquery
+nodeTitle: MultiQuery Retriever（多查询检索器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievermultiquery.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievermultiquery
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievermultiquery
 layout:
   description:
     visible: false
 ---
-
-# MultiQuery Retriever node <a href="#multiquery-retriever-node" id="multiquery-retriever-node"></a>
-
-The MultiQuery Retriever node automates the process of prompt tuning by using an LLM to generate multiple queries from different perspectives for a given user input query.
-
-On this page, you'll find the node parameters for the MultiQuery Retriever node, and links to more resources.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-* **Query Count**: Enter how many different versions of the query to generate.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse MultiQuery Retriever node documentation integration templates](https://n8n.io/integrations/multiquery-retriever) or [search all templates](https://n8n.io/workflows/)
+# MultiQuery Retriever（多查询检索器） 节点 <a href="#multiquery-retriever-node" id="multiquery-retriever-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+MultiQuery Retriever 节点使用 LLM，针对给定的用户输入查询，从不同角度生成多个查询，从而自动完成提示词调优过程。
 
-Refer to [LangChain's retriever documentation](https://docs.langchain.com/oss/javascript/integrations/retrievers) for more information about the service.
+本页列出了 MultiQuery Retriever 节点的参数，并提供更多资源的链接。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+* **Query Count**（查询数量）：输入要生成的不同查询版本数量。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 MultiQuery Retriever（多查询检索器） 集成模板](https://n8n.io/integrations/multiquery-retriever)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+该服务的更多信息，请参阅 [LangChain 检索器文档](https://docs.langchain.com/oss/javascript/integrations/retrievers)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

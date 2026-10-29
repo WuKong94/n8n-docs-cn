@@ -1,9 +1,11 @@
 ---
-title: prompt
+title: 提示词
 ---
-Select how you want the node to construct the prompt (also known as the user's query or input from the chat).
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Choose from:
+选择节点构建提示词的方式，提示词也称为用户查询或聊天输入。
 
-* **Take from previous node automatically**: If you select this option, the node expects an input from a previous node called `chatInput`.
-* **Define below**: If you select this option, provide either static text or an expression for dynamic content to serve as the prompt in the **Prompt (User Message)** field.
+可选择：
+
+* **Take from previous node automatically**（自动取自上一个节点）：选择后，节点期望从上一个节点接收名为 `chatInput` 的输入。
+* **Define below**（在下方定义）：选择后，在 **Prompt (User Message)**（提示词，用户消息）字段中提供静态文本或用于动态内容的表达式，作为提示词。

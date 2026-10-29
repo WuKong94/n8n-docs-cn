@@ -1,46 +1,43 @@
 ---
-title: Character Text Splitter node documentation
-description: >-
-  Learn how to use the Character Text Splitter node in n8n. Follow technical
-  documentation to integrate Character Text Splitter node into your workflows.
+title: Character Text Splitter（字符文本拆分器） 节点文档
+description: 了解如何在 n8n 中使用 Character Text Splitter（字符文本拆分器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Character Text Splitter node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter
+nodeTitle: Character Text Splitter（字符文本拆分器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter
 layout:
   description:
     visible: false
 ---
-
-# Character Text Splitter node <a href="#character-text-splitter-node" id="character-text-splitter-node"></a>
-
-Use the Character Text Splitter node to split document data based on characters.
-
-On this page, you'll find the node parameters for the Character Text Splitter node, and links to more resources.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-* **Separator**: Select the separator used to split the document into separate items.
-* **Chunk Size**: Enter the number of characters in each chunk.
-* **Chunk Overlap**: Enter how much overlap to have between chunks.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Character Text Splitter node documentation integration templates](https://n8n.io/integrations/character-text-splitter) or [search all templates](https://n8n.io/workflows/)
+# Character Text Splitter（字符文本拆分器） 节点 <a href="#character-text-splitter-node" id="character-text-splitter-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+使用 Character Text Splitter 节点，按字符拆分文档数据。
 
-Refer to [LangChain's text splitter documentation](https://docs.langchain.com/oss/javascript/integrations/splitters) and [LangChain's API documentation for character text splitting](https://reference.langchain.com/javascript/langchain-textsplitters/CharacterTextSplitter) for more information about the service.
+本页列出了 Character Text Splitter 节点的参数，并提供更多资源的链接。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Separator**（分隔符）：选择用于将文档拆成独立数据项的分隔符。
+* **Chunk Size**（块大小）：输入每个块的字符数。
+* **Chunk Overlap**（块重叠量）：输入相邻块之间的重叠量。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Character Text Splitter（字符文本拆分器） 集成模板](https://n8n.io/integrations/character-text-splitter)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+该服务的更多信息，请参阅 [LangChain 文本拆分器文档](https://docs.langchain.com/oss/javascript/integrations/splitters)和 [LangChain 字符文本拆分 API 文档](https://reference.langchain.com/javascript/langchain-textsplitters/CharacterTextSplitter)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

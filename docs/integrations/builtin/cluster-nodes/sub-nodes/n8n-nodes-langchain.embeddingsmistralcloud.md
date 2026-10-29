@@ -1,57 +1,54 @@
 ---
-title: Embeddings Mistral Cloud node documentation
-description: >-
-  Learn how to use the Embeddings Mistral Cloud node in n8n. Follow technical
-  documentation to integrate Embeddings Mistral Cloud node into your workflows.
+title: Embeddings Mistral Cloud（Mistral Cloud 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings Mistral Cloud（Mistral Cloud 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Embeddings Mistral Cloud node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud
+- integration
+- reference
+nodeTitle: Embeddings Mistral Cloud（Mistral Cloud 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Mistral Cloud node <a href="#embeddings-mistral-cloud-node" id="embeddings-mistral-cloud-node"></a>
 
-Use the Embeddings Mistral Cloud node to generate embeddings[^1] for a given text.
+# Embeddings Mistral Cloud（Mistral Cloud 嵌入模型） 节点 <a href="#embeddings-mistral-cloud-node" id="embeddings-mistral-cloud-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings Mistral Cloud node, and links to more resources.
+使用 Embeddings Mistral Cloud 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings Mistral Cloud 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Mistral Cloud credentials documentation](../../credentials/mistral.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Mistral Cloud 凭据文档](../../credentials/mistral.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model to use to generate the embedding.
+* **Model**（模型）：选择用于生成嵌入向量的模型。
 
-Learn more about available models in [Mistral's models documentation](https://docs.mistral.ai/models/).
+可用模型的更多信息，请参阅 [Mistral 模型文档](https://docs.mistral.ai/models/)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Batch Size**: Enter the maximum number of documents to send in each request.
-* **Strip New Lines**: Select whether to remove new line characters from input text (turned on) or not (turned off). n8n enables this by default.
+* **Batch Size**（批次大小）：输入每次请求发送的最大文档数量。
+* **Strip New Lines**（移除换行符）：开启时移除输入文本中的换行符，关闭时不移除。n8n 默认启用此项。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Embeddings Mistral Cloud node documentation integration templates](https://n8n.io/integrations/embeddings-mistral-cloud) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings Mistral Cloud（Mistral Cloud 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-mistral-cloud)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Mistral embeddings documentation](https://docs.langchain.com/oss/javascript/integrations/embeddings/mistralai) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Mistral 嵌入文档](https://docs.langchain.com/oss/javascript/integrations/embeddings/mistralai)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

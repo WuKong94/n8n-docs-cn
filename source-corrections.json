@@ -358,5 +358,14 @@
     "translated_sentence": "* **In B only Branch**（仅 B 分支）：包含仅出现在第二个输入中的数据。",
     "evidence": "同页开头明确说明比较两个输入流；输出说明依次列出仅 A、相同、不同、仅 B 四个分支，且仅 A 分支明确指第一输入。仅 B 分支中的 second output 与本节所描述的输入集合及对称分支不符。",
     "scope": "仅将仅 B 分支说明中误写的“第二个输出”改为“第二个输入”；保留分支标签、数据集示例、字段、代码和链接，不声称已执行节点。"
+  },
+  {
+    "id": "google-vertex-embedding-meta-node-name",
+    "path": "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex.md",
+    "source_sha256": "cae36d09f0847698d3ad0fa9c21649cc3e3b001b094a2fae5f1c39a38571a3bd",
+    "original_sentence": "documentation to integrate Embeddings Google Gemini node into your workflows.",
+    "translated_sentence": "了解如何在 n8n 中使用 Google Vertex 嵌入模型节点，并将其集成到工作流中。",
+    "evidence": "同页 title、nodeTitle、H1、简介以及 Google Vertex AI 凭据、项目和区域参数均明确对应 Embeddings Google Vertex；仅 description 第二句误称 Embeddings Google Gemini。",
+    "scope": "仅修正页面元描述中的节点名称，不修改 Google Gemini 独立页面、模型参数、代码、凭据选择、链接或端点。"
   }
 ]

@@ -1,7 +1,9 @@
 ---
-title: tracing-metadata
+title: 追踪元数据
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Add custom key-value metadata to tracing events for this agent. This is useful for filtering and debugging runs in tracing tools like [LangSmith](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/langchain-in-n8n#use-langsmith-with-a-self-hosted-n8n-instance).
 
-Entries with empty keys or values are ignored.
+为此智能体的追踪事件添加自定义键值元数据，便于在 [LangSmith](../../../../../../../build/integrate-ai/langchain-in-n8n.md#use-langsmith-with-a-self-hosted-n8n-instance) 等追踪工具中筛选和调试运行。
+
+键或值为空的条目会被忽略。

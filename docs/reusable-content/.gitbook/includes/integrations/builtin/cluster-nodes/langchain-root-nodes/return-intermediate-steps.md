@@ -1,6 +1,8 @@
 ---
-title: return-intermediate-steps
+title: 返回中间步骤
 ---
-Select whether to include intermediate steps the agent took in the final output (turned on) or not (turned off).
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-This could be useful for further refining the agent's behavior based on the steps it took.
+选择是否在最终输出中包含智能体执行的中间步骤，开启时包含，关闭时不包含。
+
+可根据智能体执行的步骤，进一步调整其行为。

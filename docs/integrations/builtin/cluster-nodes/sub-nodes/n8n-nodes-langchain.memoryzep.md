@@ -1,61 +1,59 @@
 ---
-title: Zep node documentation
-description: >-
-  Learn how to use the Zep node in n8n. Follow technical documentation to
-  integrate Zep node into your workflows.
+title: Zep（记忆） 节点文档
+description: 了解如何在 n8n 中使用 Zep（记忆） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Zep node documentation
+nodeTitle: Zep（记忆） 节点文档
 originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryzep.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryzep
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryzep
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryzep
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryzep
 layout:
   description:
     visible: false
 tags:
-  - tag: deprecated
-    primary: true
+- tag: deprecated
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Zep node <a href="#zep-node" id="zep-node"></a>
+
+# Zep（记忆） 节点 <a href="#zep-node" id="zep-node"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用性**
 
-The Zep node is deprecated from n8n 1.108.0. Refer to [Deprecated and versioned nodes](../../deprecated-nodes.md) for more information.
+Zep 节点从 n8n 1.108.0 起弃用。更多信息请参阅[已弃用和具有版本的节点](../../deprecated-nodes.md)。
 {% endhint %}
 
-Use the Zep node to use Zep as a memory[^1] server.
+使用 Zep 节点，将 Zep 用作记忆[^1]服务器。
 
-On this page, you'll find a list of operations the Zep node supports, and links to more resources.
+本页列出了 Zep 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Zep credentials documentation](../../credentials/zep.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Zep 凭据文档](../../credentials/zep.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Session ID**: Enter the ID to use to store the memory in the workflow data.
+* **Session ID**（会话 ID）：输入在工作流数据中存储记忆时使用的 ID。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Zep node documentation integration templates](https://n8n.io/integrations/zep) or [search all templates](https://n8n.io/workflows/)
+[浏览 Zep（记忆） 集成模板](https://n8n.io/integrations/zep)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Single memory instance <a href="#single-memory-instance" id="single-memory-instance"></a>
+## 单个记忆实例 <a href="#single-memory-instance" id="single-memory-instance"></a>
 
-If you add more than one Zep node to your workflow, all nodes access the same memory instance by default. Be careful when doing destructive actions that override existing memory contents, such as the override all messages operation in the [Chat Memory Manager](./n8n-nodes-langchain.memorymanager.md) node. If you want more than one memory instance in your workflow, set different session IDs in different memory nodes.
+向工作流添加多个 Zep 节点时，默认情况下所有这些节点都访问同一个记忆实例。执行会覆盖现有记忆内容的破坏性操作时，请谨慎，例如 [Chat Memory Manager](./n8n-nodes-langchain.memorymanager.md) 节点中的覆盖全部消息操作。如果希望在工作流中使用多个记忆实例，请为不同记忆节点设置不同的会话 ID。
 
-[^1]: In an AI context, memory allows AI tools to persist message context across interactions. This allows you to have a continuing conversations with AI agents, for example, without submitting ongoing context with each message. In n8n, AI agent nodes can use memory, but AI chains can't.
+[^1]: 在 AI 场景中，记忆让 AI 工具能够在多次交互之间保存消息上下文。例如，与 AI 智能体持续对话时，无需在每条消息中重复提交上下文。在 n8n 中，AI 智能体节点可以使用记忆，而 AI 链不能。

@@ -1,55 +1,52 @@
 ---
-title: Embeddings Cohere node documentation
-description: >-
-  Learn how to use the Embeddings Cohere node in n8n. Follow technical
-  documentation to integrate Embeddings Cohere node into your workflows.
+title: Embeddings Cohere（Cohere 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings Cohere（Cohere 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Embeddings Cohere node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere
+- integration
+- reference
+nodeTitle: Embeddings Cohere（Cohere 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Cohere node <a href="#embeddings-cohere-node" id="embeddings-cohere-node"></a>
 
-Use the Embeddings Cohere node to generate embeddings[^1] for a given text.
+# Embeddings Cohere（Cohere 嵌入模型） 节点 <a href="#embeddings-cohere-node" id="embeddings-cohere-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings Cohere node, and links to more resources.
+使用 Embeddings Cohere 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings Cohere 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Cohere credentials documentation](../../credentials/cohere.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Cohere 凭据文档](../../credentials/cohere.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model to use to generate the embedding. Choose from:
-    * **Embed-English-v2.0(4096 Dimensions)**
-	* **Embed-English-Light-v2.0(1024 Dimensions)**
-	* **Embed-Multilingual-v2.0(768 Dimensions)**
+* **Model**（模型）：选择用于生成嵌入向量的模型，可选：
+    * **Embed-English-v2.0(4096 Dimensions)**（4096 维）
+    * **Embed-English-Light-v2.0(1024 Dimensions)**（1024 维）
+    * **Embed-Multilingual-v2.0(768 Dimensions)**（768 维）
 
-Learn more about available models in [Cohere's models documentation](https://docs.cohere.com/docs/models).
+可用模型的更多信息，请参阅 [Cohere 模型文档](https://docs.cohere.com/docs/models)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Embeddings Cohere node documentation integration templates](https://n8n.io/integrations/embeddings-cohere) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings Cohere（Cohere 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-cohere)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Cohere embeddings documentation](https://docs.langchain.com/oss/javascript/integrations/embeddings/cohere) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Cohere 嵌入文档](https://docs.langchain.com/oss/javascript/integrations/embeddings/cohere)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

@@ -1,63 +1,60 @@
 ---
-title: Embeddings AWS Bedrock node documentation
-description: >-
-  Learn how to use the Embeddings AWS Bedrock node in n8n. Follow technical
-  documentation to integrate Embeddings AWS Bedrock node into your workflows.
+title: Embeddings AWS Bedrock（AWS Bedrock 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings AWS Bedrock（AWS Bedrock 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Embeddings AWS Bedrock node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsawsbedrock.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsawsbedrock
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsawsbedrock
+- integration
+- reference
+nodeTitle: Embeddings AWS Bedrock（AWS Bedrock 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsawsbedrock.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsawsbedrock
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsawsbedrock
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings AWS Bedrock node <a href="#embeddings-aws-bedrock-node" id="embeddings-aws-bedrock-node"></a>
 
-Use the Embeddings AWS Bedrock node to generate embeddings[^1] for a given text.
+# Embeddings AWS Bedrock（AWS Bedrock 嵌入模型） 节点 <a href="#embeddings-aws-bedrock-node" id="embeddings-aws-bedrock-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings AWS Bedrock node, and links to more resources.
+使用 Embeddings AWS Bedrock 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings AWS Bedrock 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [AWS credentials documentation](../../credentials/aws.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [AWS 凭据文档](../../credentials/aws.md)。
 
-If you route Bedrock through a [VPC interface endpoint (PrivateLink)](https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html) without private DNS, set the **Bedrock Endpoint** and **Bedrock Runtime Endpoint** custom endpoints in the credential.
+如果通过未启用私有 DNS 的 [VPC 接口端点（PrivateLink）](https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html)访问 Bedrock，请在凭据中设置 **Bedrock Endpoint**（Bedrock 端点）和 **Bedrock Runtime Endpoint**（Bedrock 运行时端点）自定义端点。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Authentication**: Select the authentication method:
-    * **AWS (IAM)**: Use an IAM access key. Select an **AWS** credential.
-    * **AWS (Assume Role)**: Temporarily assume an IAM role. Select an **AWS (Assume Role)** credential.
-* **Model**: Select the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html) that generates the embedding. The dropdown lists on-demand embedding models and embedding inference profiles together. If the dropdown is empty or incomplete, your IAM role may lack the `bedrock:ListFoundationModels` or `bedrock:ListInferenceProfiles` permission. Switch the field to **Expression** mode and enter the model or inference profile ID directly.
+* **Authentication**（身份验证）：选择身份验证方式：
+    * **AWS (IAM)**：使用 IAM 访问密钥，选择 **AWS** 凭据。
+    * **AWS (Assume Role)**：临时扮演 IAM 角色，选择 **AWS (Assume Role)** 凭据。
+* **Model**（模型）：选择生成嵌入向量的模型或[推理配置文件](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html)。下拉菜单同时列出按需嵌入模型和嵌入推理配置文件。如果列表为空或不完整，IAM 角色可能缺少 `bedrock:ListFoundationModels` 或 `bedrock:ListInferenceProfiles` 权限。可将字段切换为 **Expression**（表达式）模式，直接输入模型或推理配置文件 ID。
 
-Learn more about available models in the [Amazon Bedrock documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html).
+可用模型的更多信息，请参阅 [Amazon Bedrock 文档](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)。
 
-## Node options
+## 节点选项 <a id="node-options"></a>
 
-* **Additional Model Request Fields**: Enter model-specific request fields as JSON, for example Titan's `dimensions` and `normalize` or Cohere's `input_type` and `truncate`. Refer to the [AWS model parameters documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) for the fields each model family supports.
-* **Max Retries**: Enter the maximum number of times to retry a request.
-* **Timeout**: Enter the maximum time in milliseconds to wait for a request to complete. Set it to `0` to disable the timeout.
+* **Additional Model Request Fields**（附加模型请求字段）：以 JSON 输入模型专用的请求字段，例如 Titan 的 `dimensions` 和 `normalize`，或 Cohere 的 `input_type` 和 `truncate`。各模型系列支持的字段，请参阅 [AWS 模型参数文档](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html)。
+* **Max Retries**（最大重试次数）：输入请求的最大重试次数。
+* **Timeout**（超时）：输入等待请求完成的最长时间，单位为毫秒。设为 `0` 可禁用超时。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Embeddings AWS Bedrock node documentation integration templates](https://n8n.io/integrations/embeddings-aws-bedrock) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings AWS Bedrock（AWS Bedrock 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-aws-bedrock)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to the [AWS Bedrock documentation](https://docs.aws.amazon.com/bedrock/) for more information about AWS Bedrock.
+AWS Bedrock 的更多信息，请参阅 [AWS Bedrock 文档](https://docs.aws.amazon.com/bedrock/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

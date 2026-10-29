@@ -1,45 +1,42 @@
 ---
-title: Token Splitter node documentation
-description: >-
-  Learn how to use the Token Splitter node in n8n. Follow technical
-  documentation to integrate Token Splitter node into your workflows.
+title: Token Splitter（词元拆分器） 节点文档
+description: 了解如何在 n8n 中使用 Token Splitter（词元拆分器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Token Splitter node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittertokensplitter.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittertokensplitter
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittertokensplitter
+nodeTitle: Token Splitter（词元拆分器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittertokensplitter.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittertokensplitter
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittertokensplitter
 layout:
   description:
     visible: false
 ---
-
-# Token Splitter node <a href="#token-splitter-node" id="token-splitter-node"></a>
-
-The Token Splitter node splits a raw text string by first converting the text into BPE tokens, then splits these tokens into chunks and converts the tokens within a single chunk back into text.
-
-On this page, you'll find the node parameters for the Token Splitter node, and links to more resources.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-* **Chunk Size**: Enter the number of characters in each chunk.
-* **Chunk Overlap**: Enter how much overlap to have between chunks.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Token Splitter node documentation integration templates](https://n8n.io/integrations/token-splitter) or [search all templates](https://n8n.io/workflows/)
+# Token Splitter（词元拆分器） 节点 <a href="#token-splitter-node" id="token-splitter-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+Token Splitter 节点先将原始文本字符串转换为 BPE token（词元），再将这些 token 分块，并将每个块中的 token 转换回文本。
 
-Refer to [LangChain's split by token documentation](https://docs.langchain.com/oss/javascript/integrations/splitters/split_by_token) and [LangChain's text splitter documentation](https://docs.langchain.com/oss/javascript/integrations/splitters) for more information about the service.
+本页列出了 Token Splitter 节点的参数，并提供更多资源的链接。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Chunk Size**（块大小）：输入每个块的字符数。
+* **Chunk Overlap**（块重叠量）：输入相邻块之间的重叠量。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Token Splitter（词元拆分器） 集成模板](https://n8n.io/integrations/token-splitter)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+该服务的更多信息，请参阅 [LangChain 按 token 拆分文档](https://docs.langchain.com/oss/javascript/integrations/splitters/split_by_token)和 [LangChain 文本拆分器文档](https://docs.langchain.com/oss/javascript/integrations/splitters)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

@@ -1,6 +1,8 @@
 ---
-title: system-message
+title: 系统消息
 ---
-If you'd like to send a message to the agent before the conversation starts, enter the message you'd like to send.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Use this option to guide the agent's decision-making.
+如果希望在对话开始前向智能体发送消息，请输入要发送的消息。
+
+使用此选项引导智能体的决策。

@@ -1,58 +1,55 @@
 ---
-title: Embeddings HuggingFace Inference node documentation
-description: >-
-  Learn how to use the Embeddings HuggingFace Inference node in n8n. Follow
-  technical documentation to integrate Embeddings HuggingFace Inference node
-  into your workflows.
+title: Embeddings HuggingFace Inference（HuggingFace Inference 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings HuggingFace Inference（HuggingFace Inference
+  嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Embeddings HuggingFace Inference node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference
+nodeTitle: Embeddings HuggingFace Inference（HuggingFace Inference 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings HuggingFace Inference node <a href="#embeddings-huggingface-inference-node" id="embeddings-huggingface-inference-node"></a>
 
-Use the Embeddings HuggingFace Inference node to generate embeddings[^1] for a given text.
+# Embeddings HuggingFace Inference（HuggingFace Inference 嵌入模型） 节点 <a href="#embeddings-huggingface-inference-node" id="embeddings-huggingface-inference-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings HuggingFace Inference, and links to more resources.
+使用 Embeddings HuggingFace Inference 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings HuggingFace Inference 的节点参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Hugging Face credentials documentation](../../credentials/huggingface.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Hugging Face 凭据文档](../../credentials/huggingface.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model to use to generate the embedding.
+* **Model**（模型）：选择用于生成嵌入向量的模型。
 
-Refer to the [Hugging Face models documentation](https://huggingface.co/models?other=embeddings) for available models.
+可用模型请参阅 [Hugging Face 模型文档](https://huggingface.co/models?other=embeddings)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Custom Inference Endpoint**: Enter the URL of your deployed model, hosted by HuggingFace. If you set this, n8n ignores the **Model Name**.
+* **Custom Inference Endpoint**（自定义推理端点）：输入部署在 HuggingFace 上的模型 URL。设置后，n8n 会忽略 **Model Name**（模型名称）。
 
-Refer to [HuggingFace's guide to inference](https://huggingface.co/inference-endpoints) for more information.
+更多信息请参阅 [HuggingFace 推理指南](https://huggingface.co/inference-endpoints)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Embeddings HuggingFace Inference node documentation integration templates](https://n8n.io/integrations/embeddings-hugging-face-inference) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings HuggingFace Inference（HuggingFace Inference 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-hugging-face-inference)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

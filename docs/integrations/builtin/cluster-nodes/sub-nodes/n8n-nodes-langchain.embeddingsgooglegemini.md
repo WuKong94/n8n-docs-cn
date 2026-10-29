@@ -1,53 +1,50 @@
 ---
-title: Embeddings Google Gemini node documentation
-description: >-
-  Learn how to use the Embeddings Google Gemini node in n8n. Follow technical
-  documentation to integrate Embeddings Google Gemini node into your workflows.
+title: Embeddings Google Gemini（Google Gemini 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings Google Gemini（Google Gemini 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Embeddings Google Gemini node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini
+nodeTitle: Embeddings Google Gemini（Google Gemini 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Google Gemini node <a href="#embeddings-google-gemini-node" id="embeddings-google-gemini-node"></a>
 
-Use the Embeddings Google Gemini node to generate embeddings[^1] for a given text.
+# Embeddings Google Gemini（Google Gemini 嵌入模型） 节点 <a href="#embeddings-google-gemini-node" id="embeddings-google-gemini-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings Google Gemini node, and links to more resources.
+使用 Embeddings Google Gemini 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings Google Gemini 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Google Gemini(PaLM) credentials documentation](../../credentials/googleai.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Google Gemini(PaLM) 凭据文档](../../credentials/googleai.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model to use to generate the embedding.
+* **Model**（模型）：选择用于生成嵌入向量的模型。
 
-Learn more about available models in [Google Gemini's models documentation](https://ai.google.dev/models/gemini).
+可用模型的更多信息，请参阅 [Google Gemini 模型文档](https://ai.google.dev/models/gemini)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Embeddings Google Gemini node documentation integration templates](https://n8n.io/integrations/embeddings-google-gemini) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings Google Gemini（Google Gemini 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-google-gemini)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Google Generative AI embeddings documentation](https://docs.langchain.com/oss/javascript/integrations/embeddings/google_generative_ai) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Google Generative AI 嵌入文档](https://docs.langchain.com/oss/javascript/integrations/embeddings/google_generative_ai)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

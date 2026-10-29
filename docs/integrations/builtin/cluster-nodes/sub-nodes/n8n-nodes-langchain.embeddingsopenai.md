@@ -1,56 +1,53 @@
 ---
-title: Embeddings OpenAI node documentation
-description: >-
-  Learn how to use the Embeddings OpenAI node in n8n. Follow technical
-  documentation to integrate Embeddings OpenAI node into your workflows.
+title: Embeddings OpenAI（OpenAI 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Embeddings OpenAI（OpenAI 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Embeddings OpenAI node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai
+nodeTitle: Embeddings OpenAI（OpenAI 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings OpenAI node <a href="#embeddings-openai-node" id="embeddings-openai-node"></a>
 
-Use the Embeddings OpenAI node to generate embeddings[^1] for a given text.
+# Embeddings OpenAI（OpenAI 嵌入模型） 节点 <a href="#embeddings-openai-node" id="embeddings-openai-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings OpenAI node, and links to more resources.
+使用 Embeddings OpenAI 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings OpenAI 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [OpenAI credentials documentation](../../credentials/openai.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [OpenAI 凭据文档](../../credentials/openai.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Model**: Select the model to use for generating embeddings.
-* **Base URL**: Enter the URL to send the request to. Use this if you are using a self-hosted OpenAI-like model. 
-* **Batch Size**: Enter the maximum number of documents to send in each request.
-* **Strip New Lines**: Select whether to remove new line characters from input text (turned on) or not (turned off). n8n enables this by default.
-* **Timeout**: Enter the maximum amount of time a request can take in seconds. Set to `-1` for no timeout.
+* **Model**（模型）：选择用于生成嵌入向量的模型。
+* **Base URL**（基础 URL）：输入请求发送到的 URL。使用自行托管、兼容 OpenAI 的模型时，可设置此项。
+* **Batch Size**（批次大小）：输入每次请求发送的最大文档数量。
+* **Strip New Lines**（移除换行符）：开启时移除输入文本中的换行符，关闭时不移除。n8n 默认启用此项。
+* **Timeout**（超时）：输入请求的最长耗时，单位为秒。设为 `-1` 表示不设置超时。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Embeddings OpenAI node documentation integration templates](https://n8n.io/integrations/embeddings-openai) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings OpenAI（OpenAI 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-openai)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's OpenAI embeddings documentation](https://docs.langchain.com/oss/javascript/integrations/embeddings/openai) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 OpenAI 嵌入文档](https://docs.langchain.com/oss/javascript/integrations/embeddings/openai)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

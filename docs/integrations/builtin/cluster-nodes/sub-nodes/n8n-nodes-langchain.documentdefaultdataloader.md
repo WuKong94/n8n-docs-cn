@@ -1,56 +1,54 @@
 ---
-title: Default Data Loader node documentation
-description: >-
-  Learn how to use the Default Data Loader node in n8n. Follow technical
-  documentation to integrate Default Data Loader node into your workflows.
+title: Default Data Loader（默认数据加载器） 节点文档
+description: 了解如何在 n8n 中使用 Default Data Loader（默认数据加载器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Default Data Loader node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader
+nodeTitle: Default Data Loader（默认数据加载器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader
 layout:
   description:
     visible: false
 ---
-
-# Default Data Loader node <a href="#default-data-loader-node" id="default-data-loader-node"></a>
-
-Use the Default Data Loader node to load binary data files or JSON data for [vector stores](#user-content-fn-1)[^1] or summarization.
-
-On this page, you'll find a list of parameters the Default Data Loader node supports, and links to more resources.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-* **Text Splitting**: Choose from:
-	* **Simple**: Uses the [Recursive Character Text Splitter](n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter.md) with a chunk size of 1000 and an overlap of 200.
-	* **Custom**: Allows you to connect a text splitter of your choice.
-* **Type of Data**: Select **Binary** or **JSON**.
-* **Mode**: Choose from:
-	* **Load All Input Data**: Use all the node's input data.
-	* **Load Specific Data**: Use [expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes) to define the data you want to load. You can add text as well as expressions. This means you can create a custom document from a mix of text and expressions.
-* **Data Format**: Displays when you set **Type of Data** to **Binary**. Select the file MIME type for your binary data. Set to **Automatically Detect by MIME Type** if you want n8n to set the data format for you. If you set a specific data format and the incoming file MIME type doesn't match it, the node errors. If you use **Automatically Detect by MIME Type**, the node falls back to text format if it can't match the file MIME type to a supported data format.
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-* **Metadata**: Set the metadata that should accompany the document in the vector store. This is what you match to using the **Metadata Filter** option when retrieving data using the vector store nodes.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Default Data Loader node documentation integration templates](https://n8n.io/integrations/default-data-loader) or [search all templates](https://n8n.io/workflows/)
+# Default Data Loader（默认数据加载器） 节点 <a href="#default-data-loader-node" id="default-data-loader-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+使用 Default Data Loader 节点，为[向量存储](#user-content-fn-1)[^1]或摘要处理加载二进制数据文件或 JSON 数据。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7MPhMVJM8wcmiOf5zn2m/" %}
+本页列出了 Default Data Loader 节点支持的参数，并提供更多资源的链接。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-[^1]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Text Splitting**（文本拆分）：可选择：
+    * **Simple**（简单）：使用 [Recursive Character Text Splitter（递归字符文本拆分器）](n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter.md)，块大小为 1000，重叠量为 200。
+    * **Custom**（自定义）：可连接你选择的文本拆分器。
+* **Type of Data**（数据类型）：选择 **Binary**（二进制）或 **JSON**。
+* **Mode**（模式）：可选择：
+    * **Load All Input Data**（加载全部输入数据）：使用节点的所有输入数据。
+    * **Load Specific Data**（加载指定数据）：使用[表达式](../../../../build/work-with-data/expressions-versus-data-nodes.md)定义要加载的数据。除表达式外，也可添加文本，从而混合文本和表达式创建自定义文档。
+* **Data Format**（数据格式）：**Type of Data**（数据类型）设为 **Binary**（二进制）时显示。选择二进制数据的文件 MIME 类型。如果希望 n8n 自动设置数据格式，选择 **Automatically Detect by MIME Type**（按 MIME 类型自动检测）。指定数据格式后，如果传入文件的 MIME 类型与其不符，节点会报错；使用自动检测时，如果文件 MIME 类型无法匹配受支持的数据格式，节点会回退到文本格式。
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+* **Metadata**（元数据）：设置文档在向量存储中应附带的元数据。使用向量存储节点检索数据时，**Metadata Filter**（元数据筛选）选项会与这些元数据匹配。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Default Data Loader（默认数据加载器） 集成模板](https://n8n.io/integrations/default-data-loader)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-doc-loaders-link.md" %}
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
+
+<a id="user-content-fn-1"></a>
+[^1]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。

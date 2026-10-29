@@ -1,119 +1,119 @@
 ---
-description: >-
-  Learn how to use the Embeddings Databricks node in n8n. Generate embeddings
-  with a Databricks model service and pair the node with the Databricks Vector
-  Store node.
+description: 了解如何在 n8n 中使用 Embeddings Databricks 节点，通过 Databricks 模型服务生成嵌入向量，并与 Databricks
+  Vector Store 节点配合。
 status: preview
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Databricks node
 
-Use the Embeddings Databricks node to generate embeddings[^1] for text with an embeddings model served by your Databricks workspace. The node queries [Unity AI Gateway model services](https://docs.databricks.com/aws/en/ai-gateway/model-services), the same gateway the [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md) node uses. Its main job is to pair with the [Databricks Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md) node, which needs an embeddings connection in every operation mode.
+# Embeddings Databricks（Databricks 嵌入模型） 节点 <a id="embeddings-databricks-node"></a>
 
-On this page, you'll find the prerequisites, setup steps, pairing rules, node parameters, and known issues for the Embeddings Databricks node.
+使用 Embeddings Databricks 节点，通过 Databricks 工作区提供的嵌入模型为文本生成嵌入向量[^1]。节点查询 [Unity AI Gateway 模型服务](https://docs.databricks.com/aws/en/ai-gateway/model-services)，与 [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md) 节点使用相同网关。它主要与 [Databricks Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md) 节点配合，后者在每种操作模式下都需要嵌入连接。
+
+本页介绍 Embeddings Databricks 节点的前置条件、配置步骤、配对规则、节点参数及已知问题。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Databricks credentials](../../credentials/databricks.md) for guidance on setting up authentication. The node accepts the **Databricks OAuth2 API** credential only, with a service principal or user login. It doesn't accept a personal access token.
+身份验证设置方法，请参阅 [Databricks 凭据](../../credentials/databricks.md)。此节点仅接受 **Databricks OAuth2 API** 凭据，可使用服务主体或用户登录，不接受个人访问令牌。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-The Embeddings Databricks node is in Preview from n8n 2.45.0 and may change in future releases. Avoid relying on it in production workflows.
+Embeddings Databricks 节点从 n8n 2.45.0 起处于 Preview（预览）阶段，未来版本可能发生变化。请避免在生产工作流中依赖此节点。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Prerequisites
+## 前置条件 <a id="prerequisites"></a>
 
-- A Databricks workspace with Unity AI Gateway enabled.
-- A [Databricks OAuth2 credential](../../credentials/databricks.md#supported-authentication-methods) in n8n, using either a service principal or user login.
-- The identity the credential authenticates as needs **USE CATALOG** and **USE SCHEMA** on the catalog and schema that hold the model service, and **EXECUTE** on the model service. Databricks grants **EXECUTE** on the `system.ai` model services to all workspace users by default. Refer to [Required Databricks privileges](../../credentials/databricks.md#required-databricks-privileges).
+- 已启用 Unity AI Gateway 的 Databricks 工作区。
+- n8n 中的 [Databricks OAuth2 凭据](../../credentials/databricks.md#supported-authentication-methods)，使用服务主体或用户登录。
+- 凭据对应的身份需要对模型服务所在的目录和架构具有 **USE CATALOG** 和 **USE SCHEMA** 权限，并对模型服务具有 **EXECUTE** 权限。Databricks 默认向所有工作区用户授予 `system.ai` 模型服务的 **EXECUTE** 权限。请参阅[所需 Databricks 权限](../../credentials/databricks.md#required-databricks-privileges)。
 
-## Set up the node
+## 配置节点 <a id="set-up-the-node"></a>
 
-1. Add a [Databricks Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md) node, or another node that takes an embeddings sub-node, to your workflow.
-2. Select the **+** on the node's **Embedding** connector, then select **Embeddings Databricks**.
-3. Under **Credential to connect with**, select an existing Databricks OAuth2 credential or create a new one.
-4. In **Model**, open the list and pick a model service. n8n loads the model services the credential can access that support embeddings, and leaves out chat models. Type to filter the list. To use a service that isn't listed, switch to **ID** and enter its full name, for example `system.ai.gte-large-en`.
+1. 向工作流添加 [Databricks Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md) 节点，或其他接受嵌入子节点的节点。
+2. 选择节点 **Embedding**（嵌入）连接器上的 **+**，再选择 **Embeddings Databricks**。
+3. 在 **Credential to connect with**（连接凭据）下，选择现有 Databricks OAuth2 凭据或创建新凭据。
+4. 在 **Model**（模型）中打开列表，选择模型服务。n8n 加载凭据可访问且支持嵌入的模型服务，排除聊天模型。输入文字可筛选列表。要使用未列出的服务，将模式切换为 **ID**，输入完整名称，例如 `system.ai.gte-large-en`。
 
-## Pair the node with a Databricks index
+## 将节点与 Databricks 索引配对 <a id="pair-the-node-with-a-databricks-index"></a>
 
-Which model you pick depends on the index the Databricks Vector Store node works with:
+模型选择取决于 Databricks Vector Store 节点使用的索引：
 
-- **Managed index** (a Delta Sync index with a Databricks embedding model): Databricks embeds the queries itself with the index's own model. The Embeddings Databricks node must be connected, but it's never called, so any model service works.
-- **Self-managed index** (a Direct Access index, or a Delta Sync index with its own vector column): the Embeddings Databricks node embeds every search query, and on a Direct Access index every inserted document. Pick the model and dimension the index was built with. An index built with `databricks-gte-large-en`, which has 1024 dimensions, needs the `system.ai.gte-large-en` model service. A different model fails with `query vector dimension <n> does not match index vector dimension <m>` on a search, and with `Databricks rejected the upsert into <index>. Failed primary keys: ...` on an insert.
+- **Managed index**（托管索引，即使用 Databricks 嵌入模型的 Delta Sync 索引）：Databricks 自行使用索引的模型生成查询嵌入。必须连接 Embeddings Databricks 节点，但不会实际调用，因此任意模型服务均可。
+- **Self-managed index**（自行管理的索引，即 Direct Access 索引，或使用自有向量列的 Delta Sync 索引）：Embeddings Databricks 节点为每次搜索查询生成嵌入；对于 Direct Access 索引，也为每个插入文档生成嵌入。请选择与构建索引时相同的模型和维度。使用 1024 维的 `databricks-gte-large-en` 构建的索引，需要 `system.ai.gte-large-en` 模型服务。使用不同模型时，搜索会报 `query vector dimension <n> does not match index vector dimension <m>`，插入会报 `Databricks rejected the upsert into <index>. Failed primary keys: ...`。
 
-Refer to [Index types and embeddings](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md#index-types-and-embeddings) on the Databricks Vector Store page for how the vector store node decides which query form to send.
+向量存储节点如何决定发送哪种查询形式，请参阅 Databricks Vector Store 页面中的[索引类型与嵌入](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md#index-types-and-embeddings)。
 
-The node is a standard embeddings sub-node, so it also works with the other vector store nodes in n8n, such as the [Simple Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoreinmemory.md).
+此节点是标准嵌入子节点，也可与 n8n 的其他向量存储节点配合，例如 [Simple Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoreinmemory.md)。
 
-## Node parameters
+## 节点参数 <a id="node-parameters"></a>
 
-- **Model**: The Unity AI Gateway model service that generates the embeddings, named `catalog.schema.service`.
-	- **From List**: Choose from the model services the credential can access that support embeddings.
-	- **ID**: Enter the full name of a model service directly. Use this for a service that supports embeddings but isn't advertised as embeddings-capable.
+- **Model**（模型）：生成嵌入向量的 Unity AI Gateway 模型服务，名称格式为 `catalog.schema.service`。
+    - **From List**（从列表选择）：从凭据可访问且支持嵌入的模型服务中选择。
+    - **ID**：直接输入模型服务的完整名称。适用于支持嵌入、但未声明具备嵌入能力的服务。
 
-## Node options
+## 节点选项 <a id="node-options"></a>
 
-- **Batch Size**: The maximum number of documents to send in one request. Default `512`, maximum `2048`. Refer to [Rate limits](#rate-limits) before lowering it.
-- **Strip New Lines**: Whether to remove new line characters from the input text before embedding it. Turned on by default.
-- **Timeout**: The maximum time a request may take, in milliseconds. Default `360000` (six minutes). A request that runs out of time fails with `Request timed out.`
-- **Max Retries**: How many times to retry a failed request. Default `2`.
+- **Batch Size**（批次大小）：单次请求发送的最大文档数量，默认为 `512`，最大为 `2048`。减小此值前，请参阅[速率限制](#rate-limits)。
+- **Strip New Lines**（移除换行符）：是否在生成嵌入前移除输入文本中的换行符，默认开启。
+- **Timeout**（超时）：请求的最长耗时，单位为毫秒，默认为 `360000`（六分钟）。请求超时会报 `Request timed out.`。
+- **Max Retries**（最大重试次数）：请求失败后的重试次数，默认为 `2`。
 
-## Rate limits
+## 速率限制 <a id="rate-limits"></a>
 
-Pay-per-token model services are rate limited per workspace. When the Databricks Vector Store node inserts documents, it embeds them in chunks of its **Embedding Batch Size** (`200` by default), and each chunk is split into requests of this node's **Batch Size** that go out in parallel. A small **Batch Size** turns one chunk into many simultaneous requests, which can exceed the workspace limit of the model service. The node retries a rejected request with backoff up to **Max Retries**, then the insert fails with `Databricks rate limit reached for <service>: REQUEST_LIMIT_EXCEEDED: Exceeded workspace QPS rate limit`. The node doesn't write the chunk that hit the limit, but chunks it embedded and wrote before it stay in the index, so check the index before you retry.
+按 token 付费的模型服务按工作区实施速率限制。Databricks Vector Store 节点插入文档时，会按 **Embedding Batch Size**（嵌入批次大小，默认为 `200`）分块生成嵌入，每个块再按此节点的 **Batch Size**（批次大小）拆成并行请求。较小的 **Batch Size** 会将一个块拆成大量同时发出的请求，可能超过工作区对模型服务的限制。节点会对被拒绝的请求进行退避重试，最多重试 **Max Retries** 次，之后插入会以 `Databricks rate limit reached for <service>: REQUEST_LIMIT_EXCEEDED: Exceeded workspace QPS rate limit` 失败。触及限制的块不会写入，但此前已完成嵌入并写入的块仍保留在索引中，因此重试前请检查索引。
 
-To avoid it, keep **Batch Size** at its default so a chunk goes out in one request, keep concurrent inserts low, or use a [provisioned throughput](https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/deploy-prov-throughput-foundation-model-apis) endpoint for the model.
+避免此问题的方法是保持默认 **Batch Size**（批次大小），使每个块通过一次请求发送；降低并发插入数量；或为模型使用[预配吞吐量](https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/deploy-prov-throughput-foundation-model-apis)端点。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-- [Databricks Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md)
-- [Databricks AI Agent](../root-nodes/n8n-nodes-langchain.databricksaiagent.md)
-- [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md)
-- [Databricks credentials](../../credentials/databricks.md)
-- [Unity AI Gateway model services](https://docs.databricks.com/aws/en/ai-gateway/model-services) in the Databricks documentation
-- Migrating from the community package: refer to [Migrate from the n8n-nodes-databricks community package](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/migrate-from-the-community-package.md)
+- [Databricks Vector Store（Databricks 向量存储）](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md)
+- [Databricks AI Agent（Databricks AI 智能体）](../root-nodes/n8n-nodes-langchain.databricksaiagent.md)
+- [Databricks Chat Model（Databricks 聊天模型）](n8n-nodes-langchain.lmchatdatabricks.md)
+- [Databricks 凭据](../../credentials/databricks.md)
+- Databricks 文档中的 [Unity AI Gateway 模型服务](https://docs.databricks.com/aws/en/ai-gateway/model-services)
+- 从社区软件包迁移：请参阅[从 n8n-nodes-databricks 社区软件包迁移](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/migrate-from-the-community-package.md)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Common issues
+## 常见问题 <a id="common-issues"></a>
 
-### No model services found
+### No model services found（未找到模型服务） <a id="no-model-services-found"></a>
 
-The model list is empty and the node reports `No model services found`. Unity AI Gateway isn't enabled on the workspace, or the credential's identity can't access any model service. Check the workspace settings, then grant **USE CATALOG**, **USE SCHEMA**, and **EXECUTE** on at least one model service.
+模型列表为空，节点报告 `No model services found`。工作区未启用 Unity AI Gateway，或凭据对应的身份无法访问任何模型服务。请检查工作区设置，再为至少一个模型服务授予 **USE CATALOG**、**USE SCHEMA** 和 **EXECUTE** 权限。
 
-### No embeddings-capable model services found
+### No embeddings-capable model services found（未找到支持嵌入的模型服务） <a id="no-embeddings-capable-model-services-found"></a>
 
-The credential can see model services, but none advertises embeddings. Switch **Model** to **ID** and enter the service name directly. Chat-only services don't work in this node.
+凭据可以访问模型服务，但没有任何服务声明支持嵌入。将 **Model**（模型）切换为 **ID**，直接输入服务名称。仅支持聊天的服务不适用于此节点。
 
-### Model service not found
+### Model service not found（未找到模型服务） <a id="model-service-not-found"></a>
 
-The node fails with `The resource you are requesting could not be found`, and the error description names the missing service. The **Model** name doesn't exist in the workspace. Check the three-part name, or pick the service **From List**.
+节点以 `The resource you are requesting could not be found` 失败，错误描述指出缺失的服务。**Model**（模型）名称在工作区中不存在。请检查三段式名称，或通过 **From List**（从列表选择）选择服务。
 
-### Query vector dimension doesn't match the index
+### 查询向量维度与索引不匹配 <a id="query-vector-dimension-doesnt-match-the-index"></a>
 
-The model doesn't match the index the Databricks Vector Store node searches. Refer to [Pair the node with a Databricks index](#pair-the-node-with-a-databricks-index).
+模型与 Databricks Vector Store 节点搜索的索引不匹配。请参阅[将节点与 Databricks 索引配对](#pair-the-node-with-a-databricks-index)。
 
-### Rate limit reached
+### 达到速率限制 <a id="rate-limit-reached"></a>
 
-The execution fails with `Databricks rate limit reached for <service>` and a 429 status. Refer to [Rate limits](#rate-limits).
+执行以 `Databricks rate limit reached for <service>` 和 429 状态失败。请参阅[速率限制](#rate-limits)。
 
-### Host must use HTTPS
+### 主机必须使用 HTTPS <a id="host-must-use-https"></a>
 
-The node fails with `Databricks host must use https` because the credential's **Host** isn't an `https://` URL, for example because it starts with `http://` or has no scheme. Every request carries a token, so the node refuses plain HTTP. Enter the full workspace URL with `https://`.
+节点以 `Databricks host must use https` 失败，因为凭据的 **Host**（主机）不是 `https://` URL，例如以 `http://` 开头或缺少协议。每次请求都携带令牌，因此节点拒绝纯 HTTP。请输入使用 `https://` 的完整工作区 URL。
 
-### Connection error
+### 连接错误 <a id="connection-error"></a>
 
-The node reports `Connection error.` without a Databricks message. The credential's **Host** doesn't point at a Databricks workspace, or the workspace isn't reachable from your n8n instance. Check the host URL and the network path.
+节点报告 `Connection error.`，但没有 Databricks 消息。凭据的 **Host**（主机）未指向 Databricks 工作区，或 n8n 实例无法访问该工作区。请检查主机 URL 和网络路径。
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

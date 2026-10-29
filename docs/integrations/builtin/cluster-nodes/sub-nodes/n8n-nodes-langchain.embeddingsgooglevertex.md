@@ -1,57 +1,54 @@
 ---
-title: Embeddings Google Vertex node documentation
-description: >-
-  Learn how to use the Embeddings Google Vertex node in n8n. Follow technical
-  documentation to integrate Embeddings Google Gemini node into your workflows.
+title: Embeddings Google Vertex（Google Vertex 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Google Vertex 嵌入模型节点，并将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Embeddings Google Vertex node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex
+nodeTitle: Embeddings Google Vertex（Google Vertex 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Embeddings Google Vertex node <a href="#embeddings-google-vertex-node" id="embeddings-google-vertex-node"></a>
 
-Use the Embeddings Google Vertex node to generate embeddings[^1] for a given text.
+# Embeddings Google Vertex（Google Vertex 嵌入模型） 节点 <a href="#embeddings-google-vertex-node" id="embeddings-google-vertex-node"></a>
 
-On this page, you'll find the node parameters for the Embeddings Google Vertex node, and links to more resources.
+使用 Embeddings Google Vertex 节点，为指定文本生成嵌入向量[^1]。
+
+本页列出了 Embeddings Google Vertex 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Use [Google Vertex AI credentials](../../credentials/googlevertexai.md) to store the project and region with your service account details. This node also supports [Google Service Account credentials](../../credentials/google/service-account.md).
+使用 [Google Vertex AI 凭据](../../credentials/googlevertexai.md)，将项目、区域和服务账户详情一并存储。此节点也支持 [Google 服务账户凭据](../../credentials/google/service-account.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-- **Authentication**: Select **Google Service Account** (the default) or **Google Vertex AI**.
-- **Project ID**: For **Google Service Account** authentication, n8n loads the project list using the service account's access. Select a listed project, or enter the project ID manually. For **Google Vertex AI** authentication, configure the project in the credential.
-- **Model Name**: Enter the model name to use to generate the embedding.
-- **Region**: Select **Default (Use Credential Region)** to use the region set in the credential. To override it, select **Global**, **EU (Multi-Region)**, or **US (Multi-Region)**.
+- **Authentication**（身份验证）：选择 **Google Service Account**（Google 服务账户，默认）或 **Google Vertex AI**。
+- **Project ID**（项目 ID）：使用 **Google Service Account** 身份验证时，n8n 根据服务账户的访问权限加载项目列表。可选择列表中的项目，也可手动输入项目 ID。使用 **Google Vertex AI** 身份验证时，在凭据中配置项目。
+- **Model Name**（模型名称）：输入用于生成嵌入向量的模型名称。
+- **Region**（区域）：选择 **Default (Use Credential Region)**（默认，使用凭据区域），使用凭据中设置的区域。要覆盖此值，选择 **Global**（全球）、**EU (Multi-Region)**（欧盟，多区域）或 **US (Multi-Region)**（美国，多区域）。
 
-Learn more about available embedding models in [Google VertexAI embeddings API documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api).
+可用嵌入模型的更多信息，请参阅 [Google Vertex AI 嵌入 API 文档](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/text-embeddings-api)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
 
-[Browse Embeddings Google Vertex node documentation integration templates](https://n8n.io/integrations/embeddings-google-vertex) or [search all templates](https://n8n.io/workflows/)
+[浏览 Embeddings Google Vertex（Google Vertex 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-google-vertex)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Google Vertex AI embeddings documentation](https://docs.langchain.com/oss/javascript/integrations/embeddings/google_vertex_ai) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Google Vertex AI 嵌入文档](https://docs.langchain.com/oss/javascript/integrations/embeddings/google_vertex_ai)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

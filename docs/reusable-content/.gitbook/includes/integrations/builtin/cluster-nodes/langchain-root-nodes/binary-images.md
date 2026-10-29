@@ -1,4 +1,6 @@
 ---
-title: binary-images
+title: 二进制图像
 ---
-Use this option to control whether binary images should be automatically passed through to the agent as image type messages (turned on) or not (turned off).
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+使用此选项，控制是否自动将二进制图像作为图像类型消息传给智能体，开启时传递，关闭时不传递。

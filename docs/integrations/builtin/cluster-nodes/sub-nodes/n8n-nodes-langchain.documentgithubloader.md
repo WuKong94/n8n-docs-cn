@@ -1,68 +1,66 @@
 ---
-title: GitHub Document Loader node documentation
-description: >-
-  Learn how to use the GitHub Document Loader node in n8n. Follow technical
-  documentation to integrate GitHub Document Loader node into your workflows.
+title: GitHub Document Loader（GitHub 文档加载器） 节点文档
+description: 了解如何在 n8n 中使用 GitHub Document Loader（GitHub 文档加载器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: GitHub Document Loader node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentgithubloader.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentgithubloader
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentgithubloader
+- integration
+- reference
+nodeTitle: GitHub Document Loader（GitHub 文档加载器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentgithubloader.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentgithubloader
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentgithubloader
 layout:
   description:
     visible: false
 tags:
-  - tag: deprecated
-    primary: true
+- tag: deprecated
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# GitHub Document Loader node <a href="#github-document-loader-node" id="github-document-loader-node"></a>
+
+# GitHub Document Loader（GitHub 文档加载器） 节点 <a href="#github-document-loader-node" id="github-document-loader-node"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用性**
 
-The GitHub Document Loader node is deprecated from n8n 1.122.0. Refer to [Deprecated and versioned nodes](../../deprecated-nodes.md) for more information.
+GitHub Document Loader 节点从 n8n 1.122.0 起弃用。更多信息请参阅[已弃用和具有版本的节点](../../deprecated-nodes.md)。
 {% endhint %}
 
-Use the GitHub Document Loader node to load data from a GitHub repository for [vector stores](#user-content-fn-1)[^1] or summarization.
+使用 GitHub Document Loader 节点，从 GitHub 仓库加载数据，用于[向量存储](#user-content-fn-1)[^1]或摘要处理。
 
-On this page, you'll find the node parameters for the GitHub Document Loader node, and links to more resources.
+本页列出了 GitHub Document Loader 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [GitHub credentials documentation](../../credentials/github.md) for authentication information for this node. This node doesn't support OAuth for authentication.
+此节点的身份验证信息，请参阅 [GitHub 凭据文档](../../credentials/github.md)。此节点不支持 OAuth 身份验证。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Text Splitting**: Choose from:
-	* **Simple**: Uses the [Recursive Character Text Splitter](n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter.md) with a chunk size of 1000 and an overlap of 200.
-    * **Custom**: Allows you to connect a text splitter of your choice.
-* **Repository Link**: Enter the URL of your GitHub repository.
-* **Branch**: Enter the branch name to use.
+* **Text Splitting**（文本拆分）：可选择：
+    * **Simple**（简单）：使用 [Recursive Character Text Splitter（递归字符文本拆分器）](n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter.md)，块大小为 1000，重叠量为 200。
+    * **Custom**（自定义）：可连接你选择的文本拆分器。
+* **Repository Link**（仓库链接）：输入 GitHub 仓库的 URL。
+* **Branch**（分支）：输入要使用的分支名称。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Recursive**: Select whether to include sub-folders and files (turned on) or not (turned off).
-* **Ignore Paths**: Enter directories to ignore.
+* **Recursive**（递归）：选择是否包含子文件夹和文件，开启时包含，关闭时不包含。
+* **Ignore Paths**（忽略路径）：输入要忽略的目录。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse GitHub Document Loader node documentation integration templates](https://n8n.io/integrations/github-document-loader) or [search all templates](https://n8n.io/workflows/)
+[浏览 GitHub Document Loader（GitHub 文档加载器） 集成模板](https://n8n.io/integrations/github-document-loader)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7MPhMVJM8wcmiOf5zn2m/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-doc-loaders-link.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
+<a id="user-content-fn-1"></a>
+[^1]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。

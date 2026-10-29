@@ -1,43 +1,40 @@
 ---
-title: Item List Output Parser node documentation
-description: >-
-  Learn how to use the Item List Output Parser node in n8n. Follow technical
-  documentation to integrate Item List Output Parser node into your workflows.
+title: Item List Output Parser（数据项列表输出解析器） 节点文档
+description: 了解如何在 n8n 中使用 Item List Output Parser（数据项列表输出解析器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Item List Output Parser node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparseritemlist.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparseritemlist
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparseritemlist
+nodeTitle: Item List Output Parser（数据项列表输出解析器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparseritemlist.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparseritemlist
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparseritemlist
 layout:
   description:
     visible: false
 ---
-
-# Item List Output Parser node <a href="#item-list-output-parser-node" id="item-list-output-parser-node"></a>
-
-Use the Item List Output Parser node to return a list of items with a specific length and separator.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-* **Number of Items**: Enter the maximum items to return. Set to `-1` for unlimited items.
-* **Separator**: Select the separator used to split the results into separate items. Defaults to a new line.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Item List Output Parser node documentation integration templates](https://n8n.io/integrations/item-list-output-parser) or [search all templates](https://n8n.io/workflows/)
+# Item List Output Parser（数据项列表输出解析器） 节点 <a href="#item-list-output-parser-node" id="item-list-output-parser-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+使用 Item List Output Parser 节点，返回具有指定长度和分隔符的数据项列表。
 
-Refer to [LangChain's structured output documentation](https://docs.langchain.com/oss/javascript/langchain/structured-output) for more information about the service.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+* **Number of Items**（数据项数量）：输入要返回的最大数据项数量，设为 `-1` 表示不限制。
+* **Separator**（分隔符）：选择用于将结果拆成独立数据项的分隔符，默认为换行符。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Item List Output Parser（数据项列表输出解析器） 集成模板](https://n8n.io/integrations/item-list-output-parser)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+该服务的更多信息，请参阅 [LangChain 结构化输出文档](https://docs.langchain.com/oss/javascript/langchain/structured-output)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

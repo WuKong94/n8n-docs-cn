@@ -1,58 +1,55 @@
 ---
-title: Simple Memory node documentation
-description: >-
-  Learn how to use the Simple Memory node in n8n. Follow technical documentation
-  to integrate Simple Memory node into your workflows.
+title: Simple Memory（简单记忆） 节点文档
+description: 了解如何在 n8n 中使用 Simple Memory（简单记忆） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-langchain.memorybufferwindow
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/index.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Simple Memory node <a href="#simple-memory-node" id="simple-memory-node"></a>
 
-Use the Simple Memory node to persist[^1] chat history in your workflow.
+# Simple Memory（简单记忆） 节点 <a href="#simple-memory-node" id="simple-memory-node"></a>
 
-On this page, you'll find a list of operations the Simple Memory node supports, and links to more resources.
+使用 Simple Memory 节点，在工作流中保存[^1]聊天历史记录。
+
+本页列出了 Simple Memory 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="warning" %}
-**Don't use this node if running n8n in queue mode**
+**队列模式下不要使用此节点**
 
-If your n8n instance uses [queue mode](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/scaling/enable-queue-mode), this node doesn't work in an active production workflow. This is because n8n can't guarantee that every call to Simple Memory will go to the same worker.
+如果 n8n 实例使用[队列模式](../../../../../deploy/host-n8n/configure-n8n/scaling/enable-queue-mode.md)，此节点无法在活跃的生产工作流中正常工作，因为 n8n 无法保证每次调用 Simple Memory 都由同一个工作进程处理。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Configure these parameters to configure the node:
+使用以下参数配置节点：
 
-* **Session Key**: Enter the key to use to store the memory in the workflow data.
-* **Context Window Length**: Enter the number of previous interactions to consider for context.
+* **Session Key**（会话键）：输入在工作流数据中存储记忆时使用的键。
+* **Context Window Length**（上下文窗口长度）：输入作为上下文考虑的历史交互次数。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse n8n-nodes-langchain.memorybufferwindow integration templates](https://n8n.io/integrations/window-buffer-memory) or [search all templates](https://n8n.io/workflows/)
+[浏览 Simple Memory（简单记忆）集成模板](https://n8n.io/integrations/window-buffer-memory)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's short-term memory documentation](https://docs.langchain.com/oss/javascript/langchain/short-term-memory) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 短期记忆文档](https://docs.langchain.com/oss/javascript/langchain/short-term-memory)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。
 
-[^1]: In an AI context, memory allows AI tools to persist message context across interactions. This allows you to have a continuing conversations with AI agents, for example, without submitting ongoing context with each message. In n8n, AI agent nodes can use memory, but AI chains can't.
+[^1]: 在 AI 场景中，记忆让 AI 工具能够在多次交互之间保存消息上下文。例如，与 AI 智能体持续对话时，无需在每条消息中重复提交上下文。在 n8n 中，AI 智能体节点可以使用记忆，而 AI 链不能。

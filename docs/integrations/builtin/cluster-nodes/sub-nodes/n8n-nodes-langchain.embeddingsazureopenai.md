@@ -1,64 +1,61 @@
 ---
-title: Microsoft Foundry Embeddings node documentation
-description: >-
-  Learn how to use the Microsoft Foundry Embeddings node in n8n. Follow technical
-  documentation to integrate Microsoft Foundry Embeddings node into your workflows.
+title: Microsoft Foundry Embeddings（Microsoft Foundry 嵌入模型） 节点文档
+description: 了解如何在 n8n 中使用 Microsoft Foundry Embeddings（Microsoft Foundry 嵌入模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Microsoft Foundry Embeddings node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai
+- integration
+- reference
+nodeTitle: Microsoft Foundry Embeddings（Microsoft Foundry 嵌入模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Foundry Embeddings node <a href="#embeddings-azure-openai-node" id="embeddings-azure-openai-node"></a>
 
-Use the Microsoft Foundry Embeddings node to generate embeddings[^1] for a given text.
+# Microsoft Foundry Embeddings（Microsoft Foundry 嵌入模型） 节点 <a href="#embeddings-azure-openai-node" id="embeddings-azure-openai-node"></a>
 
-This node was previously called the **Embeddings Azure OpenAI** node.
+使用 Microsoft Foundry Embeddings 节点，为指定文本生成嵌入向量[^1]。
 
-On this page, you'll find the node parameters for the Microsoft Foundry Embeddings node, and links to more resources.
+此节点此前名为 **Embeddings Azure OpenAI**。
+
+本页列出了 Microsoft Foundry Embeddings 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Microsoft Foundry credentials documentation](../../credentials/azureopenai.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Microsoft Foundry 凭据文档](../../credentials/azureopenai.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Authentication**: Choose how the node signs in to Azure. Each option uses its own credential.
-    * **API Key**: Use a stored API key. This is the default. Refer to [Using API key](../../credentials/azureopenai.md#using-api-key).
-    * **Azure Entra ID (OAuth2)**: Sign in as your Entra application with a client ID and secret. Use this when your organization doesn't allow stored API keys. No API key is stored in n8n. Refer to [Using Microsoft Foundry (Entra ID)](../../credentials/azureopenai.md#using-azure-entra-id-oauth2).
+* **Authentication**（身份验证）：选择节点登录 Azure 的方式，每个选项使用独立凭据。
+    * **API Key**（API 密钥）：使用已保存的 API 密钥，为默认选项。请参阅[使用 API 密钥](../../credentials/azureopenai.md#using-api-key)。
+    * **Azure Entra ID (OAuth2)**：使用客户端 ID 和密钥，以 Entra 应用身份登录。组织不允许存储 API 密钥时，使用此项。n8n 中不会保存 API 密钥。请参阅[使用 Microsoft Foundry（Entra ID）](../../credentials/azureopenai.md#using-azure-entra-id-oauth2)。
 
-Both options work with the **Classic** and the **Microsoft Foundry** endpoint types.
+两种方式均支持 **Classic**（经典）和 **Microsoft Foundry** 端点类型。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Model (Deployment) Name**: Select the model (deployment) to use for generating embeddings.
-* **Batch Size**: Enter the maximum number of documents to send in each request.
-* **Strip New Lines**: Select whether to remove new line characters from input text (turned on) or not (turned off). n8n enables this by default.
-* **Timeout**: Enter the maximum amount of time a request can take in seconds. Set to `-1` for no timeout.
+* **Model (Deployment) Name**（模型或部署名称）：选择用于生成嵌入向量的模型（部署）。
+* **Batch Size**（批次大小）：输入每次请求发送的最大文档数量。
+* **Strip New Lines**（移除换行符）：开启时移除输入文本中的换行符，关闭时不移除。n8n 默认启用此项。
+* **Timeout**（超时）：输入请求的最长耗时，单位为秒。设为 `-1` 表示不设置超时。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Microsoft Foundry Embeddings node documentation integration templates](https://n8n.io/integrations/embeddings-azure-openai) or [search all templates](https://n8n.io/workflows/)
+[浏览 Microsoft Foundry Embeddings（Microsoft Foundry 嵌入模型） 集成模板](https://n8n.io/integrations/embeddings-azure-openai)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Azure OpenAI embeddings documentation](https://docs.langchain.com/oss/javascript/integrations/embeddings/azure_openai) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Azure OpenAI 嵌入文档](https://docs.langchain.com/oss/javascript/integrations/embeddings/azure_openai)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: Embeddings are numerical representations of data using vectors. They're used by AI to interpret complex data and relationships by mapping values across many dimensions. Vector databases, or vector stores, are databases designed to store and access embeddings.
+[^1]: 嵌入是使用向量对数据进行数值化表示。AI 通过将值映射到多个维度，利用嵌入理解复杂数据及其关系。向量数据库或向量存储是专门用于存储和访问嵌入的数据库。

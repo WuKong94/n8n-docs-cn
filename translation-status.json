@@ -11845,5 +11845,624 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/cluster-nodes/README.md": {
+    "status": "translated",
+    "source_sha256": "fac1621fee3fe8ac2ec9fa6a810fb1f0964367d93a1ffc8c67d987cd85632825",
+    "translation_sha256": "f6a26258a22428aeaccfc97d047704211028f818c614825f346dee7188acf845",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/root-nodes/README.md": {
+    "status": "translated",
+    "source_sha256": "ec228a97ac0d5654d9d85aff89b6baf5cc73f63061bc5cc4df2ca090862efd7e",
+    "translation_sha256": "f0fb2e9332464c062b20a06318fba39b55d7f8788d9e484cea9f5909c170eb65",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/README.md": {
+    "status": "translated",
+    "source_sha256": "df9bdb6ad2e4697046c95ad106b1aaf3afacb857109686a94b80ab21c741833c",
+    "translation_sha256": "f15c9974a0da62e8c66b7ca43e5c23796d740679d39e6393d63464c733d00c5c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentdefaultdataloader.md": {
+    "status": "translated",
+    "source_sha256": "331494d738ec64e83134609d23e347b72ac36bdf87b0d598769e58036f67d598",
+    "translation_sha256": "de929dd41519e255e3f5935e0eee91af022d4c7b5079bafb105466b0e9dce0b9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.documentgithubloader.md": {
+    "status": "translated",
+    "source_sha256": "b4e10ac830d6e1c1a83002818419b33cc7297f959451687082db04da7f736b9e",
+    "translation_sha256": "0cff33a447971b6f85aed3c5d3ab5e7c96c76dcde234a386c2cbc129e521f8b6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsawsbedrock.md": {
+    "status": "translated",
+    "source_sha256": "c3f9d2b4e541fb7d0a9119f7ef8b82a2361042d546b5620f627ff996a5fe5436",
+    "translation_sha256": "74f96005b9e6c5b0325cf8902859df433e33853c31202737d4d3a66308977bc3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai.md": {
+    "status": "translated",
+    "source_sha256": "fabcfe5dda4695eab2f2ed1e2db230cd990b03122e0e1f86a8db96d7bbe89d8b",
+    "translation_sha256": "648266150065ee40894e8e2c4ba5ce4f906554fde7e4ef8231065fc9a857fa71",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere.md": {
+    "status": "translated",
+    "source_sha256": "fe44886af92bfcb93da5458f57fe028ce7f2f211455407358d559ac80a6727b2",
+    "translation_sha256": "8ee56691abc93ffccd72194714237525c82050ec4ca804e499b2202fbf1f7818",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini.md": {
+    "status": "translated",
+    "source_sha256": "61628abc6f3f390ceae7fa7b81a35e90f8037c9b3d4050adeb0181fb21cbf4c9",
+    "translation_sha256": "53cb5fda4e5b3cb0f233ac956df47715031145e3b4f63be423c8b748351be5f0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglepalm.md": {
+    "status": "translated",
+    "source_sha256": "fddd832eb980a2de250c681a33c1f3bea6f1d425864b0a009315d53d306f2726",
+    "translation_sha256": "efd741632e30b31e7cbd01b04fb12db68f14bdc77508e3bd3226efaab6af26fa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingshuggingfaceinference.md": {
+    "status": "translated",
+    "source_sha256": "ee24d57462320129169863cfd7f3628a5e3d2d239b8fc7b5c3fd797ddc6ec5ce",
+    "translation_sha256": "81e76785c4aeebe1d10d345e97c46570c5f331f9a0ced49203b50922cca9fee1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingslemonade.md": {
+    "status": "translated",
+    "source_sha256": "02bc3506ec0e5905d6a001bffeb5e1940b3b1bcd3d751fabff8f4a3871ca5c44",
+    "translation_sha256": "f245c545ccc7623a6a302fcbc059f5e513eec16ca55f17b8c9243ed4c49df20e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud.md": {
+    "status": "translated",
+    "source_sha256": "0055faf17e6a6ad644c0caa3847ba6a980699495e3b9821b7fdcf0918f3c6f69",
+    "translation_sha256": "4590be073c3c20d27edf5819152d400aa0a717fdc9b53b343135a2e75603648d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsollama.md": {
+    "status": "translated",
+    "source_sha256": "7e2373768ae7b39c2c525a8b72a97b82a58bd075420ed94c602f0295a75a7423",
+    "translation_sha256": "23f90133840d1cac9b0517ef7f58e1f4eb31f4cca9786f7f27bfe757fb6b02ac",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai.md": {
+    "status": "translated",
+    "source_sha256": "701b635d2b8e96df7d99ed55997c03e23a19757dc7588181134c0a5384e7139f",
+    "translation_sha256": "8a59100235274229269036c01c9598e5762dcab6ef3b1a59f5aea736fe8ceccd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsoracledb.md": {
+    "status": "translated",
+    "source_sha256": "060ec1a178b09c3751a7b60309c71f2fe4b069db6c2757a15ff1f8d54c52e18a",
+    "translation_sha256": "ab2413c8e95a726c0026875c08287a38d751a03b9ded6905eb68842f01f27a98",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglevertex.md": {
+    "status": "translated",
+    "source_sha256": "cae36d09f0847698d3ad0fa9c21649cc3e3b001b094a2fae5f1c39a38571a3bd",
+    "translation_sha256": "f2b8eac9ca1819e8edf1e3d6d0f93628a5728a4d5e9fe7db7e415315d97437e9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "google-vertex-embedding-meta-node-name"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsdatabricks.md": {
+    "status": "translated",
+    "source_sha256": "66b56f299b054af04c538374f70ea2fbc698f27961ae94573cef59e250550f87",
+    "translation_sha256": "a43567b91365c14807cd8e3fe150b32441a75d8fe340414dc2be4e2220bc1b28",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/README.md": {
+    "status": "translated",
+    "source_sha256": "cab703d4e44811df5a4a62274dabc91af4b6e773aa9a7f583c6c9c5d708f99f3",
+    "translation_sha256": "e733b7fbdb68e88455e9685003fd24162a7b0ebaed6c712e4a3ad4ed180a2461",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "a80c42d202da1865a87064ad8cf027c9383804b458d20fe28a0f10ec5c27f485",
+    "translation_sha256": "337fd2f0811817b1b104f34c8190e91bb4c8a8c658017a485f395523595cd5c3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorylakebasechat.md": {
+    "status": "translated",
+    "source_sha256": "e9cfe5aa6b7654514ed7bf51966347441f0ac7a70236ff3b31f8a402397c0362",
+    "translation_sha256": "1c984e91dc991bd3fe6870806780de3507abeb33c18a7e3a2c70b003980dbc66",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymongochat.md": {
+    "status": "translated",
+    "source_sha256": "e398b46a94255c81d30a888cd6c5c559d8a9f8d2519bf16a9ab8b0825d0640c2",
+    "translation_sha256": "3e41f0c44f693fd8348de03b6dd743f79026c63b1939c4fe2aaa936ac1988df7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymotorhead.md": {
+    "status": "translated",
+    "source_sha256": "57634a43430c23a6f45cb5bafa75532f1f3a7b5a3d00d4034b95086c5110f2b9",
+    "translation_sha256": "258aecf9d6a12d56a9fecfa3dad29894c6698d9cb9b2ad49562b27bd4918e5a9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorypostgreschat.md": {
+    "status": "translated",
+    "source_sha256": "4b2f93b2a41ebad8bf31940c6ea054da8450214882bd8aba4745358797d7a6e3",
+    "translation_sha256": "5603929324a97f7d5739712b2486e6b6c2e0ff8284deaab09c6fc79083adff98",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryredischat.md": {
+    "status": "translated",
+    "source_sha256": "8512628f2091b6440aa795d71d7e1ffa90af9d5245e46823cee1f1252f89aa1b",
+    "translation_sha256": "64fe596bdef84eb3b67ac018a6aae4f6d628967db3630acdfad8c56f48df737d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryxata.md": {
+    "status": "translated",
+    "source_sha256": "102437a86f96b10776b21858c85c8acf4a20e41cdaa9ee463949b2dfd979dd32",
+    "translation_sha256": "7dc300c15390e7296dfb2eb40127b53fe4d50d81411226373ee35231390ce615",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryzep.md": {
+    "status": "translated",
+    "source_sha256": "bf4bf87a9b6db8963b2b9983a6be9af990622c7f8636cdbc1af8d6e448b06e17",
+    "translation_sha256": "db1dbd01ff573c7759adc1b11ac9d0418b523455d8f45d1c59c79a9eb7983b16",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.modelselector.md": {
+    "status": "translated",
+    "source_sha256": "4b405959aa80aefb56981215e68b3dafb05325d6fe5b7668de0efff24d4f5c4d",
+    "translation_sha256": "0ee0c5dcb8af73ed2b37da9b425020ee748e7bcf75868ccb546c7007177b8619",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserautofixing.md": {
+    "status": "translated",
+    "source_sha256": "a4f7d3b3f41998426e5738553bf3e3b672b3571a4c52e1f5af4e4d12c52b4344",
+    "translation_sha256": "364fe10607bb4636f8938da57b89c1f655dc9ae21167a43167ead13d5ef0c388",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparseritemlist.md": {
+    "status": "translated",
+    "source_sha256": "f919c7a613dce91fed35e2f887142e3f7aa82491e1692f11a2a85fa787b5ba93",
+    "translation_sha256": "8fd19b80168de258977d1fc8f5526839f28ad8893ed5b34d7dceaf21c7b05865",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/README.md": {
+    "status": "translated",
+    "source_sha256": "92a1ff812b37b403b6bd1fd27cffddedb32f2ef602d4799183e6a5806a3495cb",
+    "translation_sha256": "7316aadda90f075ba3d7dbbf08e23b206d5e0eb67bd9daa1d42e2a5824a31368",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.outputparserstructured/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "2ff47af2faba5737787193aff36414e3c6d29d0de464e4de8870f2908454661a",
+    "translation_sha256": "863abd0b397df8b1f1f05879e2e5c2fa3a093ea718df6b751cac74054e3616fb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.rerankercohere.md": {
+    "status": "translated",
+    "source_sha256": "e19bce7e644d618a3fe8fba26ba4d60069c3385916236812f69f295ad7a4179a",
+    "translation_sha256": "02f5f38202826d33f5c57d2e1373bb723f8c7df2b8ed251408fe427d09c12ccf",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievercontextualcompression.md": {
+    "status": "translated",
+    "source_sha256": "f045b354a8bb52a636368abf7d214ed4d999efeb849a855770e901c6f5600e83",
+    "translation_sha256": "37b62cc84bba3a26e6118a0e0c11d20bb17433199748e104d73fc5031bfce38d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievermultiquery.md": {
+    "status": "translated",
+    "source_sha256": "6c9c60f0927ebb2ce3f915f18add7e973bbebcb5dc4552badd149eead5cf0795",
+    "translation_sha256": "2bfa8407dd17250846c2a33f7f0d017bd745a1c9b5bad9b07092aa74547fd2e4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrievervectorstore.md": {
+    "status": "translated",
+    "source_sha256": "8d29fc65566c944d4ab16ae4e18fd4c0ab70338af4087a596c2d19b02e48f55f",
+    "translation_sha256": "15468b05d052c754b24688846623658209766b40a38e8fe1fd6e7cd6924c8279",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.retrieverworkflow.md": {
+    "status": "translated",
+    "source_sha256": "c54c0cda62ad40ce3a273289da1502b2fec5e81f33024672b27f2a6945858a1c",
+    "translation_sha256": "863e8c4babdcc077630e1ae76121de6a08efebd4c8a0151dee0fb1e5445c34a2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittercharactertextsplitter.md": {
+    "status": "translated",
+    "source_sha256": "73c619b86aa5f6b559191bf4507a21c5ccf8849d1ab4a11313ecea2b1e58d02c",
+    "translation_sha256": "0ed07e85da12efe5aee1a05ce9dce200eb43804c5e39c914516f0742d22b50d3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplitterrecursivecharactertextsplitter.md": {
+    "status": "translated",
+    "source_sha256": "f563b08e4b160c122c1bd1eda0554ad3538382e66eb14ab8837bc4d261fcb286",
+    "translation_sha256": "45e4112f4eb1feafd9d34b74a586a813592821cfeab7107270b74b842d7a53b7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.textsplittertokensplitter.md": {
+    "status": "translated",
+    "source_sha256": "02a62c4b2d103d921fb8020c44815341c3771805d79557fa1f9200e2b030e65f",
+    "translation_sha256": "1f2ebd9354f042b597942eab00546be4e0c54392b1400f1308a87a54d4ef5853",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/cluster-nodes-summary.md": {
+    "status": "translated",
+    "source_sha256": "c9643cd190bcc0332f1331d707f02a5eaa006ee2d4cf411bd326371e21e3842b",
+    "translation_sha256": "f5769e595265e04f29c84ce30466ab188730a1a84c4c5e0b342efa7bc2568658",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/common-vector-store-modes.md": {
+    "status": "translated",
+    "source_sha256": "3fcd591f0398a6ec8fba01222c0cd19494af8420c85c7defc6f19ffb573b2db5",
+    "translation_sha256": "8b24088fb7f79ef3602cacd9c284b6c4ce71e3585f963e5c7ccadd3de0c8ba1e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/binary-images.md": {
+    "status": "translated",
+    "source_sha256": "d50666d794bd3151d356ae67b583f8e0e1aa37fa5fa9f0da8f0411c82958a04b",
+    "translation_sha256": "73d8de13a687340a2321f64d843f3d2715948f5f962ad4b9811921b0c1650dcd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/max-iterations.md": {
+    "status": "translated",
+    "source_sha256": "9da465f3050dcc7e7c24bcca2172cdbb5bba7712e384a921150ac128c36f4571",
+    "translation_sha256": "663d82449dc2279b8ac291b7a3d1ee01c166d0ef31ae1eea7af969d930b3d290",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/output-format.md": {
+    "status": "translated",
+    "source_sha256": "63843560ac31de881096e85a5e7ddf9995c7cd778d4897324b800a207ceba675",
+    "translation_sha256": "17814d9b852c212722cec21002e8cd5e39f13c1437230e2e7bb62ee13756792e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/prompt.md": {
+    "status": "translated",
+    "source_sha256": "66d9aed8034afb71b0d55cbdeddbd842b19fb5d9079b99e0b247caea574f736f",
+    "translation_sha256": "ffed2c7caa3a4072e8dba39dd4f9251c0aef58b7cbf8ed652cfb1df529edcb7c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/return-intermediate-steps.md": {
+    "status": "translated",
+    "source_sha256": "93d6325e28532bfbf2aba9dbb46a37b1e27e19a2b98c9e2a7959bac2faaefcbe",
+    "translation_sha256": "4d0b1880a73bf9d3ce97a42ad6231646d6a78bc8a8a268512a4961635156ad76",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/system-message.md": {
+    "status": "translated",
+    "source_sha256": "da73320c618d2b6bbde61847ee90fc447823a9454f1dc614e60349e5ad22ff24",
+    "translation_sha256": "542f5785c678f37416135128cc8ddf88c74b89b6346ce861243c9fa49f8060c9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/tracing-metadata.md": {
+    "status": "translated",
+    "source_sha256": "f782a9cf124e5dc5ac82ca6b57edf08e3d98c20396545ffe5fd9bdbb50461890",
+    "translation_sha256": "afddd1deeb6b1692e14eab9c846b57a66080e33fc8aa91d5234d4dbfa5252c66",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/vector-store-metadata-filter.md": {
+    "status": "translated",
+    "source_sha256": "97e4388771d2513454c979fb7222daf140f98e43ad08b41e0f5ab48c997899b6",
+    "translation_sha256": "3c59154f1a079f1ed3680f081890e88d405ca5c54d33a0d3af4f021e3296bc9e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-sub-nodes/schema-type-structuring.md": {
+    "status": "translated",
+    "source_sha256": "5490e776d860b40094277a9ce02a324dc43f47271c452f11cb6dc88e545edf3b",
+    "translation_sha256": "00df27e110bf2d4df931ad7e94684de2e9bdc82bb9928fa9666f67127baf68bf",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-sub-nodes/workflow-values.md": {
+    "status": "translated",
+    "source_sha256": "13f110407b5256905ec105c5374914924c9e5edfbf5b02a15fa3850a25a6b98b",
+    "translation_sha256": "570d44b9780622899d1a09e2f0395cd273185c62be97e81f34dc9104ced37f3a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md": {
+    "status": "translated",
+    "source_sha256": "d74d4234fff224cae7c1aaf7ba4e817a14da55e1a53353c2cf6a79d6bc3ca4d0",
+    "translation_sha256": "7dbd6e91bb9a8a216b13008dc999496c7e7b037d9cd2854c26783af4cec3ce5d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-mode-with-update.md": {
+    "status": "translated",
+    "source_sha256": "8ebe4a2d6352284a7affcbb87d7f8e208d4b03c63900ce269189442e102d516e",
+    "translation_sha256": "68098e8b67511df35e13fafc9baaff4e984822e076a40615ef2f02fe38613cdc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-mode.md": {
+    "status": "translated",
+    "source_sha256": "1a3424d3d7d294d92c69c83c1170ea5029ed490953094266643587d65378e3a4",
+    "translation_sha256": "c88fabc1ff6617414754cbace6076c2d681685cfe4c1f0b3a1a485223f05536f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/vector-store-rerank-results.md": {
+    "status": "translated",
+    "source_sha256": "9f0ed190da685252c0020c2ad073c546599ffa573b025eb39833505590cac454",
+    "translation_sha256": "6bf4544556be07c7ac9ff44d9a815d92d6b180c6f91a8688039da7aee45a98b2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
