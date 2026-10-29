@@ -1,27 +1,24 @@
 ---
-title: OpenAI node common issues
-description: >-
-  Documentation for common issues and questions in the OpenAI node in n8n, a
-  workflow automation platform. Includes details of the issue and suggested
-  solutions.
+title: OpenAI 节点常见问题
+description: 了解 n8n 工作流自动化平台中 OpenAI 节点的常见错误和问题，包括问题详情及建议的解决方法。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: OpenAI node common issues
+nodeTitle: OpenAI 节点常见问题
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-langchain.openai/common-issues.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/common-issues
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/common-issues
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/common-issues
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/common-issues
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenAI node common issues <a href="#openai-node-common-issues" id="openai-node-common-issues"></a>
 
-Here are some common errors and issues with the [OpenAI node](README.md) and steps to resolve or troubleshoot them.
+# OpenAI 节点常见问题 <a href="#openai-node-common-issues" id="openai-node-common-issues"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/wqdQXLzKrIsqxA7CuhxT/" %}
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/nAnAPqDqAcOOqFiJJrTl/" %}
+以下介绍 [OpenAI 节点](README.md)的常见错误和问题，以及解决或排查步骤。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/openai-api-issues.md" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/referenced-node-unexecuted.md" %}

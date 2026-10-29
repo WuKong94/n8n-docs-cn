@@ -14950,5 +14950,90 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.databricks.md": {
+    "status": "translated",
+    "source_sha256": "b9ac1f610f2f788ec3db6cc9a78f804a2e12ceaa901139fec30cb70124385e57",
+    "translation_sha256": "bdce17773ebe78d802fc55d052b2570d4f4156a3cb0ce14f52fd7557a3fa5567",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/README.md": {
+    "status": "translated",
+    "source_sha256": "caf4977092c9aedb0edcc2a1980862a2f3cc1cfd23eaafef5e2ed1036c4d76a7",
+    "translation_sha256": "c0e7668bd79d4c86dd5676054fe1b38831bcdbcb370458a6622c32e85c4103a7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "839ae7e5957e743fedd9ab58e36ba9f4efda8c272673ed3c06c6d3d11145150f",
+    "translation_sha256": "59fc87d952efc0eb5b1721e86f342a575d423a48156f11d8c8fa2eb9105e9384",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.egoi.md": {
+    "status": "translated",
+    "source_sha256": "8cac9db964eb039bdbfe3437a386396dcd9355731746f75d62467d6f3f246ff7",
+    "translation_sha256": "acfd27f5fad86b725ee6b289f7512357a1ad25808adfbf9aeb42920d3d8ad251",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.telegram/file-operations.md": {
+    "status": "translated",
+    "source_sha256": "ba9c180e6fd8cd5c9ad219d22d8ec1a8081b7c8287680222de4054ee8e658e6d",
+    "translation_sha256": "978004b1f9762f97375402d329d95cb911c770a6c6175dba3e63782700f7a816",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "4efaed211d93b87681c82bb79e4a427e3adef4f716191161acb64fed376d05a0",
+    "translation_sha256": "0ad6398ac111bd592f090a00cb7d5553557f82ddc91580994292231321829610",
+    "checks": [
+      "code-examples-identical-except-reviewed-prompt-translations",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "prose_fences": [
+      {
+        "index": 0,
+        "kind": "prompt",
+        "source_sha256": "cf1acb09258bd21d6d06f00dcea69713a5b66f2af71d79d81b0511be00cc27df",
+        "translation_sha256": "72b090d3e26e23095594032eecdb00fec6db379b5cc53ece62c58ef2a26f2606"
+      }
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/referenced-node-unexecuted.md": {
+    "status": "translated",
+    "source_sha256": "b0e0baabc5d2d6a6b1c4bf5000ae92b4827efadf3908d29c01c389b16477a828",
+    "translation_sha256": "13932fed3e9e7539c06acaab97c4c216df571b167c58e9764af7a3f83c267e35",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
