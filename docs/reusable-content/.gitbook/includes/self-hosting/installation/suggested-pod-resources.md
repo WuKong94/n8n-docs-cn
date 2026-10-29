@@ -1,8 +1,10 @@
 ---
-title: suggested-pod-resources
+title: 建议的 Pod 资源
 ---
-| Tier | RAM | CPU |
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+| 套餐层级 | RAM | CPU |
 | :--- | :--- | :--- |
-| Starter | 320mb | 10 millicore burstable |
-| Pro (10k executions) | 640mb | 20 millicore burstable |
-| Pro (50k executions) | 1280mb | 80 millicore burstable |
+| Starter | 320mb | 10 millicore，可突发 |
+| Pro，10k 次执行 | 640mb | 20 millicore，可突发 |
+| Pro，50k 次执行 | 1280mb | 80 millicore，可突发 |

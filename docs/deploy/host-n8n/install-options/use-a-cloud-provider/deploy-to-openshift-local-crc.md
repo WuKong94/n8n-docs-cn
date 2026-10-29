@@ -1,59 +1,60 @@
 ---
 contentType: tutorial
-nodeTitle: Deploy to OpenShift Local (CRC)
+nodeTitle: 部署到 OpenShift Local（CRC）
 originalFilePath: hosting/installation/server-setups/openshift-crc.md
-originalUrl: 'https://docs.n8n.io/hosting/installation/server-setups/openshift-crc'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-openshift-local-crc
+originalUrl: https://docs.n8n.io/hosting/installation/server-setups/openshift-crc
+url: https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-openshift-local-crc
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Hosting n8n on OpenShift Local (CRC) <a href="#hosting-n8n-on-openshift-local-crc" id="hosting-n8n-on-openshift-local-crc"></a>
 
-This guide walks you through deploying n8n on OpenShift Local (CRC), Red Hat's tool for running a local OpenShift cluster. It mirrors AWS/EKS deployment, but runs entirely on your local machine. It's designed for testing n8n in an OpenShift environment locally, without cloud costs.
+# 在 OpenShift Local（CRC）上托管 n8n <a href="#hosting-n8n-on-openshift-local-crc" id="hosting-n8n-on-openshift-local-crc"></a>
 
-You will need a machine with significant resources available, given how many resources OpenShift itself consumes.
+本指南介绍如何在 OpenShift Local（CRC）上部署 n8n。CRC 是 Red Hat 提供的本地 OpenShift 集群运行工具。此部署与 AWS/EKS 类似，但完全运行在本机，适合在本地 OpenShift 环境中测试 n8n，无需云服务费用。
 
-## OpenShift concepts vs standard Kubernetes <a href="#openshift-concepts-vs-standard-kubernetes" id="openshift-concepts-vs-standard-kubernetes"></a>
+OpenShift 本身消耗较多资源，因此需要一台具有充足可用资源的机器。
 
-OpenShift is built on Kubernetes but uses different terminology and has stricter security defaults. If you are familiar with standard Kubernetes, or with a guide that targets a managed Kubernetes service such as EKS, the table below maps the equivalent concepts so you know what to expect.
+## OpenShift 与标准 Kubernetes 的概念对照 <a href="#openshift-concepts-vs-standard-kubernetes" id="openshift-concepts-vs-standard-kubernetes"></a>
 
-| Standard Kubernetes / EKS | OpenShift Local (CRC) |
+OpenShift 基于 Kubernetes 构建，但术语有所不同，默认安全限制也更严格。如果熟悉标准 Kubernetes，或参考过 EKS 等托管 Kubernetes 服务指南，下表可帮助理解对应概念。
+
+| 标准 Kubernetes / EKS | OpenShift Local（CRC） |
 | --- | --- |
-| `kubectl` | `oc` (OpenShift CLI; also understands `kubectl` commands) |
-| Namespace | Project (same concept, different command) |
-| Ingress / LoadBalancer | Route (built into OpenShift, no controller needed) |
-| EBS StorageClass (gp3) | CRC built-in storage provisioner (no setup needed) |
-| RDS PostgreSQL | In-cluster PostgreSQL via Helm (Bitnami) |
-| ElastiCache Redis | In-cluster Redis via Helm (Bitnami) |
-| AWS S3 | MinIO in-cluster (S3-compatible) |
-| Pod Identity / IRSA | Access keys via Kubernetes Secret |
-| AWS Load Balancer Controller | Not needed (Routes are built-in) |
-| OIDC / IAM | Not needed |
-| ~$135–400/month | Free (runs on your machine) |
+| `kubectl` | `oc`，OpenShift CLI，也支持 `kubectl` 命令 |
+| Namespace，命名空间 | Project，项目，概念相同、命令不同 |
+| Ingress / LoadBalancer | Route，OpenShift 内置，无需控制器 |
+| EBS StorageClass（gp3） | CRC 内置存储提供程序，无需设置 |
+| RDS PostgreSQL | 通过 Helm 在集群内运行 PostgreSQL，使用 Bitnami |
+| ElastiCache Redis | 通过 Helm 在集群内运行 Redis，使用 Bitnami |
+| AWS S3 | 集群内的 MinIO，兼容 S3 |
+| Pod Identity / IRSA | 通过 Kubernetes Secret 提供访问密钥 |
+| AWS Load Balancer Controller | 不需要，Route 已内置 |
+| OIDC / IAM | 不需要 |
+| 约每月 135–400 美元 | 免费，在本机运行 |
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前提条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Before starting, confirm your machine has:
+开始前，确认机器具备：
 
-- **CPU**: 4 or more physical cores (not just threads) with virtualization support
-- **RAM**: 32+ GB free minimum (CRC reserves 9 GB for its VM)
-- **Disk**: 100 GB free
-- **OS**: Ubuntu (22.04 LTS or newer)
+- **CPU**：至少 4 个物理核心，而非仅计算线程，支持虚拟化。
+- **RAM**：至少 32 GB 可用内存，CRC 会为其虚拟机预留 9 GB。
+- **磁盘**：100 GB 可用空间。
+- **操作系统**：Ubuntu 22.04 LTS 或更新版本。
 
-## Prepare Ubuntu <a href="#prepare-ubuntu" id="prepare-ubuntu"></a>
+## 准备 Ubuntu <a href="#prepare-ubuntu" id="prepare-ubuntu"></a>
 
-### Open a terminal <a href="#open-a-terminal" id="open-a-terminal"></a>
+### 打开终端 <a href="#open-a-terminal" id="open-a-terminal"></a>
 
-Press `Ctrl+Alt+T` or search for **Terminal** in the Applications menu.
+按 `Ctrl+Alt+T`，或在应用菜单中搜索 **Terminal**（终端）。
 
-Every command in this guide is typed into the terminal and run by pressing **Enter**.
+本指南的所有命令都在终端输入，并按 **Enter** 运行。
 
-### Update your system <a href="#update-your-system" id="update-your-system"></a>
+### 更新系统 <a href="#update-your-system" id="update-your-system"></a>
 
-Start with a system update to avoid dependency issues:
+先更新系统，以避免依赖问题：
 
 ```shell
 sudo apt update && sudo apt upgrade -y
@@ -62,52 +63,52 @@ sudo apt update && sudo apt upgrade -y
 {% hint style="info" %}
 **sudo**
 
-`sudo` means “run as administrator”. You will be prompted for your password. Characters you type won't appear on screen, this is normal.
+`sudo` 表示“以管理员身份运行”。系统会提示输入密码，输入的字符不会显示在屏幕上，这是正常行为。
 {% endhint %}
 
-### Check CPU virtualization support <a href="#check-cpu-virtualization-support" id="check-cpu-virtualization-support"></a>
+### 检查 CPU 虚拟化支持 <a href="#check-cpu-virtualization-support" id="check-cpu-virtualization-support"></a>
 
-CRC runs a virtual machine. Your CPU must support hardware virtualization:
+CRC 会运行虚拟机，因此 CPU 必须支持硬件虚拟化：
 
 ```shell
 egrep -c '(vmx|svm)' /proc/cpuinfo
 ```
 
-- **Output `0`**: Virtualization is disabled. Enter your BIOS/UEFI settings and enable VT-x (Intel) or AMD-V (AMD), then reboot and try again.
-- **Output `1` or higher**: You are good to continue.
+- **输出 `0`**：虚拟化已禁用。进入 BIOS/UEFI 设置，启用 VT-x（Intel）或 AMD-V（AMD），重启后再试。
+- **输出 `1` 或更大值**：可以继续。
 
-### Install KVM and libvirt <a href="#install-kvm-and-libvirt" id="install-kvm-and-libvirt"></a>
+### 安装 KVM 和 libvirt <a href="#install-kvm-and-libvirt" id="install-kvm-and-libvirt"></a>
 
-KVM is Linux’s built-in hypervisor. CRC uses it to run the OpenShift cluster VM:
+KVM 是 Linux 内置虚拟机监控器，CRC 使用它运行 OpenShift 集群虚拟机：
 
 ```shell
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 ```
 
-Install `virtiofsd`, which CRC requires to share the filesystem with the cluster VM:
+安装 `virtiofsd`，CRC 需要它与集群虚拟机共享文件系统：
 
 ```shell
 sudo apt install -y virtiofsd
 ```
 
-Start the libvirt service and configure it to start automatically on boot:
+启动 libvirt 服务，并配置开机自动启动：
 
 ```shell
 sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
 ```
 
-Verify it's running:
+验证服务正在运行：
 
 ```shell
 sudo systemctl status libvirtd
 ```
 
-Look for `Active: active (running)` in green. Press `q` to exit.
+查找绿色的 `Active: active (running)`，按 `q` 退出。
 
-### Add user to required groups <a href="#add-user-to-required-groups" id="add-user-to-required-groups"></a>
+### 将用户加入必需用户组 <a href="#add-user-to-required-groups" id="add-user-to-required-groups"></a>
 
-This allows you to use KVM and libvirt without typing `sudo` for every command:
+这样使用 KVM 和 libvirt 时，无需为每条命令都输入 `sudo`：
 
 ```shell
 sudo usermod -aG libvirt $USER
@@ -115,28 +116,28 @@ sudo usermod -aG kvm $USER
 ```
 
 {% hint style="info" %}
-**Warning**
+**警告**
 
-**You must log out and log back in (or reboot) for this to take effect.** If you skip this step, CRC will fail with a “permission denied” error.
+**必须退出登录后重新登录，或重启，才能生效。**跳过此步骤，CRC 会因“permission denied”（权限被拒绝）而失败。
 {% endhint %}
 
-Reboot now:
+现在重启：
 
 ```shell
 sudo reboot
 ```
 
-After logging back in, open a terminal and verify group membership:
+重新登录后，打开终端验证所属用户组：
 
 ```shell
 groups
 ```
 
-You should see `libvirt` and `kvm` listed.
+列表中应包含 `libvirt` 和 `kvm`。
 
-### Install NetworkManager <a href="#install-networkmanager" id="install-networkmanager"></a>
+### 安装 NetworkManager <a href="#install-networkmanager" id="install-networkmanager"></a>
 
-CRC requires NetworkManager to manage DNS entries for the cluster’s internal domains (`*.apps-crc.testing`, `api.crc.testing`):
+CRC 需要 NetworkManager 管理集群内部域名的 DNS 条目（`*.apps-crc.testing`、`api.crc.testing`）：
 
 ```shell
 sudo apt install -y network-manager
@@ -144,68 +145,68 @@ sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
 ```
 
-Verify it's connected:
+验证连接状态：
 
 ```shell
 nmcli general status
 ```
 
-The `STATE` column should show `connected`.
+`STATE` 列应显示 `connected`。
 
-## Install tools <a href="#install-tools" id="install-tools"></a>
+## 安装工具 <a href="#install-tools" id="install-tools"></a>
 
-### Get a Red Hat account and pull secret <a href="#get-a-red-hat-account-and-pull-secret" id="get-a-red-hat-account-and-pull-secret"></a>
+### 获取 Red Hat 账号和拉取密钥 <a href="#get-a-red-hat-account-and-pull-secret" id="get-a-red-hat-account-and-pull-secret"></a>
 
-CRC requires a free Red Hat account to pull container images.
+CRC 需要免费的 Red Hat 账号来拉取容器镜像。
 
-1. [Create a free Red Hat account](https://console.redhat.com/), if you don't already have one.
-2. In [console.redhat.com/openshift/create/local](https://console.redhat.com/openshift/create/local), click **Download OpenShift Local**.
-3. Select **Linux**, and download the `.tar.xz` file to `~/Downloads`.
-4. On the same page of the Red Hat console, click **Copy pull secret**. Paste it into a text file and save it for later.
+1. 如果还没有账号，请[创建免费 Red Hat 账号](https://console.redhat.com/)。
+2. 在 [console.redhat.com/openshift/create/local](https://console.redhat.com/openshift/create/local) 中点击 **Download OpenShift Local**（下载 OpenShift Local）。
+3. 选择 **Linux**，将 `.tar.xz` 文件下载到 `~/Downloads`。
+4. 在 Red Hat 控制台的同一页面，点击 **Copy pull secret**（复制拉取密钥），粘贴到文本文件中保存，供后续使用。
 
-### Install CRC <a href="#install-crc" id="install-crc"></a>
+### 安装 CRC <a href="#install-crc" id="install-crc"></a>
 
-Open a terminal in your Downloads folder.
+在 Downloads 文件夹中打开终端。
 
 ```shell
 cd ~/Downloads
 ```
 
-Extract the archive.
+解压归档文件。
 
 ```shell
 tar xf crc-linux-amd64.tar.xz
 ```
 
-Move the `crc` binary to a system-wide location, so it's available in any terminal:
+将 `crc` 二进制文件移到系统级位置，使其可在任意终端使用：
 
 ```shell
 sudo mv crc-*-linux-amd64/crc /usr/local/bin/
 ```
 
-Verify the installation:
+验证安装：
 
 ```shell
 crc version
 ```
 
-A version number should print to the terminal.
+终端应输出版本号。
 
-### Install Helm <a href="#install-helm" id="install-helm"></a>
+### 安装 Helm <a href="#install-helm" id="install-helm"></a>
 
-Helm installs n8n and supporting services into the cluster:
+Helm 将 n8n 及支持服务安装到集群：
 
 ```shell
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 
-Verify:
+验证：
 
 ```shell
 helm version
 ```
 
-### Set environment variables <a href="#set-environment-variables" id="set-environment-variables"></a>
+### 设置环境变量 <a href="#set-environment-variables" id="set-environment-variables"></a>
 
 ```shell
 export NAMESPACE=n8n-$(date +%Y%m%d)
@@ -213,34 +214,34 @@ echo "Namespace:$NAMESPACE"
 ```
 
 {% hint style="info" %}
-**Variable persistence**
+**变量持久性**
 
-These variables only last for the current terminal session. Re-run this line whenever you open a new terminal before continuing.
+这些变量仅在当前终端会话中有效。每次打开新终端继续操作前，都要重新运行此行。
 {% endhint %}
 
-## Start OpenShift Local <a href="#start-openshift-local" id="start-openshift-local"></a>
+## 启动 OpenShift Local <a href="#start-openshift-local" id="start-openshift-local"></a>
 
-### Run CRC setup <a href="#run-crc-setup" id="run-crc-setup"></a>
+### 运行 CRC 设置 <a href="#run-crc-setup" id="run-crc-setup"></a>
 
-You only need to run this once. It configures KVM networking, checks system requirements, and downloads the CRC bundle (~2.5 GB):
+此步骤仅需运行一次，会配置 KVM 网络、检查系统要求，并下载约 2.5 GB 的 CRC 包：
 
 ```shell
 crc setup
 ```
 
-This takes several minutes. If it reports any missing packages, install them with `sudo apt install -y <package-name>` and re-run.
+这需要几分钟。如果提示缺少软件包，请使用 `sudo apt install -y <package-name>` 安装后重新运行。
 
-### Configure CRC memory and start the cluster <a href="#configure-crc-memory-and-start-the-cluster" id="configure-crc-memory-and-start-the-cluster"></a>
+### 配置 CRC 内存并启动集群 <a href="#configure-crc-memory-and-start-the-cluster" id="configure-crc-memory-and-start-the-cluster"></a>
 
-CRC defaults to 9 GB of RAM for its VM. n8n and its supporting services need more headroom. Set the memory to 14 GB before starting:
+CRC 默认为虚拟机分配 9 GB RAM。n8n 及支持服务需要更多余量，启动前请将内存设为 14 GB：
 
 ```shell
 crc config set memory 14336
 ```
 
-You only need to run this once. The setting persists across `crc stop` / `crc start` cycles.
+只需设置一次，`crc stop` / `crc start` 循环后仍会保留。
 
-**Recommended:** Save your pull secret to a file first so you don’t have to paste it every time:
+**建议：**先将拉取密钥保存为文件，避免每次都需粘贴：
 
 ```shell
 # Open the file, paste your pull secret (from earlier), then Ctrl+O to save, Ctrl+X to exit <a href="#open-the-file-paste-your-pull-secret-from-earlier-then-ctrlo-to-save-ctrlx-to-exit" id="open-the-file-paste-your-pull-secret-from-earlier-then-ctrlo-to-save-ctrlx-to-exit"></a>
@@ -250,15 +251,15 @@ nano ~/pull-secret.txt
 chmod 600 ~/pull-secret.txt
 ```
 
-Start CRC using the file:
+使用该文件启动 CRC：
 
 ```shell
 crc start --pull-secret-file ~/pull-secret.txt
 ```
 
-Alternatively, run `crc start` without the flag and paste the secret when prompted.
+也可以运行不带此标志的 `crc start`，并在提示时粘贴密钥。
 
-**This takes 10–15 minutes.** When complete you will see something like:
+**这需要 10–15 分钟。**完成后会看到类似输出：
 
 ```
 Started the OpenShift cluster.
@@ -275,89 +276,89 @@ Log in as user:
   Password: developer
 ```
 
-**Save the `kubeadmin` password now.** You will need it in the next step. You can retrieve it later using `crc console --credentials`.
+**现在请保存 `kubeadmin` 密码。**下一步需要使用，之后也可通过 `crc console --credentials` 获取。
 
-### Verify DNS resolution <a href="#verify-dns-resolution" id="verify-dns-resolution"></a>
+### 验证 DNS 解析 <a href="#verify-dns-resolution" id="verify-dns-resolution"></a>
 
-On Ubuntu, CRC configures the system resolver automatically with NetworkManager and systemd-resolved. No manual `/etc/hosts` entries are needed.
+在 Ubuntu 上，CRC 通过 NetworkManager 和 systemd-resolved 自动配置系统解析器，无需手动添加 `/etc/hosts` 条目。
 
-Verify the API is reachable:
+验证 API 可访问：
 
 ```shell
 sudo ss -tlnp | grep 6443
 ```
 
-You should see a process bound to `127.0.0.1:6443`. If nothing appears, re-run `crc start`. If DNS doesn't resolve `*.apps-crc.testing`, see the troubleshooting section.
+应能看到绑定到 `127.0.0.1:6443` 的进程。如果没有输出，请重新运行 `crc start`。如果 DNS 无法解析 `*.apps-crc.testing`，请参阅故障排查章节。
 
-### Configure your shell <a href="#configure-your-shell" id="configure-your-shell"></a>
+### 配置 Shell <a href="#configure-your-shell" id="configure-your-shell"></a>
 
-CRC bundles the `oc` CLI inside the VM. This command makes it available in your terminal:
+CRC 在虚拟机中包含 `oc` CLI。此命令让它可在终端中使用：
 
 ```shell
 eval $(crc oc-env)
 ```
 
-To make this permanent so you don't have to run it every time you open a terminal:
+要永久生效，避免每次打开终端都重新运行：
 
 ```shell
 echo 'eval $(crc oc-env)' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Verify `oc` works:
+验证 `oc` 可用：
 
 ```shell
 oc version
 ```
 
-### Log in to the cluster <a href="#log-in-to-the-cluster" id="log-in-to-the-cluster"></a>
+### 登录集群 <a href="#log-in-to-the-cluster" id="log-in-to-the-cluster"></a>
 
 ```shell
 oc login -u kubeadmin -p <your-kubeadmin-password> https://api.crc.testing:6443
 ```
 
-Replace `<your-kubeadmin-password>` with the password printed when you [configured CRC memory and started the cluster](#configure-crc-memory-and-start-the-cluster).
+将 `<your-kubeadmin-password>` 替换为[配置 CRC 内存并启动集群](#configure-crc-memory-and-start-the-cluster)时输出的密码。
 
-Verify you are logged in:
+验证已登录：
 
 ```shell
 oc whoami
 ```
 
-`kubeadmin` should print to the screen.
+屏幕应输出 `kubeadmin`。
 
-## Standalone deployment <a href="#standalone-deployment" id="standalone-deployment"></a>
+## 单实例部署 <a href="#standalone-deployment" id="standalone-deployment"></a>
 
-Standalone mode runs n8n as a single pod with SQLite. No external database or Redis is required. This is ideal for exploring n8n and testing workflows locally.
+单实例模式以单个 Pod 运行 n8n，使用 SQLite，无需外部数据库或 Redis，适合在本地探索 n8n 和测试工作流。
 
-### Create the project <a href="#create-the-project" id="create-the-project"></a>
+### 创建项目 <a href="#create-the-project" id="create-the-project"></a>
 
-In OpenShift, a **project** is the same as a Kubernetes namespace: an isolated space for your resources:
+OpenShift 中的**项目**等同于 Kubernetes 命名空间，是资源的隔离空间：
 
 ```shell
 oc new-project $NAMESPACE
 ```
 
-### Grant the required security permission <a href="#grant-the-required-security-permission" id="grant-the-required-security-permission"></a>
+### 授予必需的安全权限 <a href="#grant-the-required-security-permission" id="grant-the-required-security-permission"></a>
 
-OpenShift enforces strict security policies called **Security Context Constraints (SCCs)**. By default, pods can't run with a specific user ID. The n8n chart runs as user ID `1000`, so you must explicitly allow this.
+OpenShift 强制执行名为 **Security Context Constraints（SCC，安全上下文约束）**的严格安全策略。默认情况下，Pod 无法以指定用户 ID 运行。n8n chart 以用户 ID `1000` 运行，因此必须显式允许。
 
-Use the full explicit form. The shorthand `-z` flag can silently fail in some OpenShift versions:
+请使用完整的显式形式。简写 `-z` 标志在某些 OpenShift 版本中可能无提示失败：
 
 ```shell
 oc adm policy add-scc-to-user anyuid \
   system:serviceaccount:$NAMESPACE:n8n
 ```
 
-Verify the binding was created:
+验证绑定已创建：
 
 ```shell
 oc get rolebindings -n $NAMESPACE
 ```
 
-You should see a binding referencing `system:openshift:scc:anyuid`.
+应看到引用 `system:openshift:scc:anyuid` 的绑定。
 
-### Create the required secret <a href="#create-the-required-secret" id="create-the-required-secret"></a>
+### 创建必需 Secret <a href="#create-the-required-secret" id="create-the-required-secret"></a>
 
 ```shell
 oc create secret generic n8n-secrets \
@@ -368,24 +369,24 @@ oc create secret generic n8n-secrets \
   --from-literal=N8N_PROTOCOL="http"
 ```
 
-**Back up the encryption key immediately:**
+**立即备份加密密钥：**
 
 ```shell
 oc get secret n8n-secrets -n $NAMESPACE \
   -o jsonpath='{.data.N8N_ENCRYPTION_KEY}' | base64 --decode
 ```
 
-Copy that output and store it somewhere safe. Losing it means all stored credentials in your workflows become permanently unreadable.
+复制输出并妥善保存。丢失密钥会使工作流中所有已存储的凭据永久无法读取。
 
-### Create your values file <a href="#create-your-values-file" id="create-your-values-file"></a>
+### 创建 values 文件 <a href="#create-your-values-file" id="create-your-values-file"></a>
 
-Create a file called `n8n-standalone-values.yaml`. You can use `nano` (a simple text editor):
+创建名为 `n8n-standalone-values.yaml` 的文件，可以使用简单文本编辑器 `nano`：
 
 ```shell
 nano n8n-standalone-values.yaml
 ```
 
-Paste the following, then press `Ctrl+O` to save and `Ctrl+X` to exit:
+粘贴以下内容，然后按 `Ctrl+O` 保存、`Ctrl+X` 退出：
 
 ```yaml
 # n8n-standalone-values.yaml <a href="#n8n-standalone-valuesyaml" id="n8n-standalone-valuesyaml"></a>
@@ -434,11 +435,11 @@ config:
   timezone: UTC
 ```
 
-### Deploy n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
+### 部署 n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
 
-The n8n Helm chart hard codes `seccompProfile: RuntimeDefault` in the pod spec. OpenShift 4.14+ converts this to a deprecated alpha annotation that's rejected at admission, even when `anyuid` SCC is granted. The fix is to pull the chart locally, remove those two lines, and install from the patched copy.
+n8n Helm chart 在 Pod 规范中硬编码了 `seccompProfile: RuntimeDefault`。OpenShift 4.14 及更高版本会将其转换为已弃用的 alpha 注解，在准入阶段被拒绝，即使已授予 `anyuid` SCC 也如此。解决方式是将 chart 拉取到本地，移除这两行，并从修补后的副本安装。
 
-**Pull and patch the chart:**
+**拉取并修补 chart：**
 
 ```shell
 helm pull oci://ghcr.io/n8n-io/n8n-helm-chart/n8n --version 1.0.3 --untar
@@ -448,7 +449,7 @@ sed -i '/seccompProfile:/d; /type: RuntimeDefault/d' ~/n8n/templates/deployment-
 grep -n "seccomp\|RuntimeDefault" ~/n8n/templates/deployment-main.yaml
 ```
 
-**Install from the patched chart:**
+**从修补后的 chart 安装：**
 
 ```shell
 helm install n8n ~/n8n/ \
@@ -458,73 +459,73 @@ helm install n8n ~/n8n/ \
   --timeout 10m
 ```
 
-### Access n8n using port forward <a href="#access-n8n-using-port-forward" id="access-n8n-using-port-forward"></a>
+### 通过端口转发访问 n8n <a href="#access-n8n-using-port-forward" id="access-n8n-using-port-forward"></a>
 
-OpenShift Routes require a hostname, which adds complexity for standalone local access. Port-forward is simpler:
+OpenShift Route 需要主机名，会增加单实例本地访问的复杂性，使用端口转发更简单：
 
 ```shell
 oc port-forward service/n8n-main --namespace $NAMESPACE 5678:5678
 ```
 
-Leave this running, then open your browser to:
+保持命令运行，然后在浏览器打开：
 
 ```
 http://localhost:5678
 ```
 
-n8n will prompt you to create an owner account.
+n8n 会提示创建所有者账号。
 
 {% hint style="info" %}
-**Stop tunnel**
+**停止隧道**
 
-Press `Ctrl+C` to stop the tunnel. Re-run the `port-forward` command to access n8n again later.
+按 `Ctrl+C` 停止隧道。以后需要再次访问 n8n 时，重新运行 `port-forward` 命令。
 {% endhint %}
 
-### Check deployment status <a href="#check-deployment-status" id="check-deployment-status"></a>
+### 检查部署状态 <a href="#check-deployment-status" id="check-deployment-status"></a>
 
 ```shell
 oc get pods -n $NAMESPACE
 ```
 
-Expected:
+预期输出：
 
 ```
 NAME                       READY   STATUS    RESTARTS   AGE
 n8n-main-7d9f8b-xxxx       1/1     Running   0          3m
 ```
 
-**Standalone deployment complete.**
+**单实例部署完成。**
 
-## Multi-instance queue mode <a href="#multi-instance-queue-mode" id="multi-instance-queue-mode"></a>
+## 多实例队列模式 <a href="#multi-instance-queue-mode" id="multi-instance-queue-mode"></a>
 
-Multi-instance queue mode runs multiple n8n pods with a shared database, message queue, and object storage. It requires an [n8n Enterprise license](https://n8n.io/pricing/).
+多实例队列模式运行多个 n8n Pod，共享数据库、消息队列和对象存储。需要 [n8n Enterprise 许可证](https://n8n.io/pricing/)。
 
-Instead of AWS managed services, this guide uses in-cluster equivalents that mirror what you would find in an on-premises or customer OpenShift environment:
+本指南不使用 AWS 托管服务，而使用集群内的对应组件，模拟本地部署或客户 OpenShift 环境：
 
-| AWS Service | Local Equivalent |
+| AWS 服务 | 本地对应组件 |
 | --- | --- |
-| RDS PostgreSQL | PostgreSQL (Bitnami Helm chart) |
-| ElastiCache Redis | Redis (Bitnami Helm chart) |
-| S3 | MinIO (S3-compatible, Bitnami Helm chart) |
+| RDS PostgreSQL | PostgreSQL，Bitnami Helm chart |
+| ElastiCache Redis | Redis，Bitnami Helm chart |
+| S3 | MinIO，兼容 S3，Bitnami Helm chart |
 
-### Install in-cluster services <a href="#install-in-cluster-services" id="install-in-cluster-services"></a>
+### 安装集群内服务 <a href="#install-in-cluster-services" id="install-in-cluster-services"></a>
 
-#### Create the Project and add Bitnami Helm repo <a href="#create-the-project-and-add-bitnami-helm-repo" id="create-the-project-and-add-bitnami-helm-repo"></a>
+#### 创建项目并添加 Bitnami Helm 仓库 <a href="#create-the-project-and-add-bitnami-helm-repo" id="create-the-project-and-add-bitnami-helm-repo"></a>
 
 ```shell
 oc new-project $NAMESPACE
 ```
 
-Add the Bitnami chart repository (only needed once):
+添加 Bitnami chart 仓库，仅需一次：
 
 ```shell
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 ```
 
-#### Install PostgreSQL <a href="#install-postgresql" id="install-postgresql"></a>
+#### 安装 PostgreSQL <a href="#install-postgresql" id="install-postgresql"></a>
 
-In the command below, replace `YourStrongPassword123` with a suitable complex password.
+以下命令中，请将 `YourStrongPassword123` 替换为合适的复杂密码。
 
 ```shell
 helm install postgresql bitnami/postgresql \
@@ -537,20 +538,20 @@ helm install postgresql bitnami/postgresql \
 ```
 
 {% hint style="info" %}
-**Flag**
+**标志**
 
-The `global.compatibility.openshift.adaptSecurityContext=auto` flag tells Bitnami to let OpenShift assign the correct user ID automatically (avoids SCC errors).
+`global.compatibility.openshift.adaptSecurityContext=auto` 标志告知 Bitnami，让 OpenShift 自动分配正确用户 ID，避免 SCC 错误。
 {% endhint %}
 
-Save the endpoint, as it's fixed for in-cluster services:
+保存端点，集群内服务的端点固定：
 
 ```
 postgresql.YOUR_NAMESPACE.svc.cluster.local
 ```
 
-Replace `YOUR_NAMESPACE` with your actual `$NAMESPACE` value (e.g. `n8n-20260306`).
+将 `YOUR_NAMESPACE` 替换为实际 `$NAMESPACE` 值，例如 `n8n-20260306`。
 
-#### Install Redis <a href="#install-redis" id="install-redis"></a>
+#### 安装 Redis <a href="#install-redis" id="install-redis"></a>
 
 ```shell
 helm install redis bitnami/redis \
@@ -561,11 +562,11 @@ helm install redis bitnami/redis \
   --wait
 ```
 
-Redis endpoint: `redis-master.$NAMESPACE.svc.cluster.local`
+Redis 端点：`redis-master.$NAMESPACE.svc.cluster.local`
 
-#### Install MinIO (S3-compatible storage) <a href="#install-minio-s3-compatible-storage" id="install-minio-s3-compatible-storage"></a>
+#### 安装 MinIO，兼容 S3 的存储 <a href="#install-minio-s3-compatible-storage" id="install-minio-s3-compatible-storage"></a>
 
-In the command below, replace `MinioStrongPassword123` with a suitable complex password.
+以下命令中，请将 `MinioStrongPassword123` 替换为合适的复杂密码。
 
 ```shell
 helm install minio bitnami/minio \
@@ -576,43 +577,43 @@ helm install minio bitnami/minio \
   --wait
 ```
 
-MinIO endpoint: `http://minio:9000` (within the same namespace, just the service name works)
+MinIO 端点：`http://minio:9000`，在同一命名空间中仅使用服务名称即可。
 
-#### Create the n8n storage bucket in MinIO <a href="#create-the-n8n-storage-bucket-in-minio" id="create-the-n8n-storage-bucket-in-minio"></a>
+#### 在 MinIO 中创建 n8n 存储桶 <a href="#create-the-n8n-storage-bucket-in-minio" id="create-the-n8n-storage-bucket-in-minio"></a>
 
-MinIO needs a bucket created before n8n can use it. Use the MinIO web console:
+n8n 使用 MinIO 前，需要先创建存储桶。请使用 MinIO Web 控制台：
 
-**Open the MinIO console:**
+**打开 MinIO 控制台：**
 
 ```shell
 oc port-forward svc/minio 9001:9001 -n $NAMESPACE
 ```
 
-Leave this running, then open your browser to `http://localhost:9001`.
+保持命令运行，然后在浏览器打开 `http://localhost:9001`。
 
-Log in with:
-- **Username:** `minioadmin`
-- **Password:** `MinioStrongPassword123`
+使用以下信息登录：
+- **用户名：**`minioadmin`
+- **密码：**`MinioStrongPassword123`
 
-In the console:
-1. Click **Buckets** in the left sidebar → **Create Bucket**
-2. **Bucket Name:** `n8n-data`
-3. Click **Create Bucket**
+在控制台中：
+1. 点击左侧栏 **Buckets**（存储桶）→ **Create Bucket**（创建存储桶）。
+2. **Bucket Name**（存储桶名称）：`n8n-data`
+3. 点击 **Create Bucket**（创建存储桶）。
 
-Go back to the terminal and press `Ctrl+C` to stop the port-forward.
+回到终端，按 `Ctrl+C` 停止端口转发。
 
-### Deploy n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
+### 部署 n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
 
-#### Grant SCC for n8n <a href="#grant-scc-for-n8n" id="grant-scc-for-n8n"></a>
+#### 为 n8n 授予 SCC <a href="#grant-scc-for-n8n" id="grant-scc-for-n8n"></a>
 
 ```shell
 oc adm policy add-scc-to-user anyuid \
   system:serviceaccount:$NAMESPACE:n8n-enterprise
 ```
 
-Verify that `oc get rolebindings -n $NAMESPACE` shows a binding for `system:openshift:scc:anyuid`.
+确认 `oc get rolebindings -n $NAMESPACE` 显示了 `system:openshift:scc:anyuid` 的绑定。
 
-#### Create required secrets <a href="#create-required-secrets" id="create-required-secrets"></a>
+#### 创建必需 Secret <a href="#create-required-secrets" id="create-required-secrets"></a>
 
 ```shell
 # Core n8n secrets <a href="#core-n8n-secrets" id="core-n8n-secrets"></a>
@@ -624,16 +625,16 @@ oc create secret generic n8n-enterprise-secrets \
   --from-literal=N8N_PROTOCOL="http"
 ```
 
-**Back up the encryption key immediately:**
+**立即备份加密密钥：**
 
 ```shell
 oc get secret n8n-enterprise-secrets -n $NAMESPACE \
   -o jsonpath='{.data.N8N_ENCRYPTION_KEY}' | base64 --decode
 ```
 
-Store that value somewhere safe.
+将该值妥善保存。
 
-In the commands below, replace `YourStrongPassword123` and `MinioStrongPassword123` with the passwords from the earlier steps.
+以下命令中，请将 `YourStrongPassword123` 和 `MinioStrongPassword123` 替换为前面步骤设置的密码。
 
 ```shell
 # Database password (must match what you set when installing PostgreSQL) <a href="#database-password-must-match-what-you-set-when-installing-postgresql" id="database-password-must-match-what-you-set-when-installing-postgresql"></a>
@@ -647,9 +648,9 @@ oc create secret generic n8n-minio-secret \
   --from-literal=root-password='MinioStrongPassword123'
 ```
 
-#### Create values file <a href="#create-values-file" id="create-values-file"></a>
+#### 创建 values 文件 <a href="#create-values-file" id="create-values-file"></a>
 
-Create `n8n-multimain-ocp-values.yaml`. Replace the **3 placeholder values** marked `# <-- REPLACE`:
+创建 `n8n-multimain-ocp-values.yaml`。替换标为 `# <-- REPLACE` 的 **3 个占位值**：
 
 ```shell
 nano n8n-multimain-ocp-values.yaml
@@ -728,9 +729,9 @@ serviceAccount:
   name: n8n
 ```
 
-Save and exit nano (`Ctrl+O`, `Ctrl+X`).
+保存并退出 nano（`Ctrl+O`、`Ctrl+X`）。
 
-**Before deploying**, replace the two `YOUR_NAMESPACE` placeholders with your actual namespace value:
+**部署前**，将两个 `YOUR_NAMESPACE` 占位符替换为实际命名空间值：
 
 ```shell
 # Check your namespace value <a href="#check-your-namespace-value" id="check-your-namespace-value"></a>
@@ -740,17 +741,17 @@ echo $NAMESPACE
 sed -i "s/YOUR_NAMESPACE/$NAMESPACE/g" n8n-multimain-ocp-values.yaml
 ```
 
-Verify the replacements:
+验证替换结果：
 
 ```shell
 grep "svc.cluster.local" n8n-multimain-ocp-values.yaml
 ```
 
-Both lines should show your actual namespace name, not `YOUR_NAMESPACE`.
+两行都应显示实际命名空间名称，而非 `YOUR_NAMESPACE`。
 
-#### Deploy n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
+#### 部署 n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
 
-If you didn't patch the chart previously, pull and patch it now:
+如果此前未修补 chart，现在请拉取并修补：
 
 ```shell
 helm pull oci://ghcr.io/n8n-io/n8n-helm-chart/n8n --version 1.0.3 --untar
@@ -758,7 +759,7 @@ sed -i '/seccompProfile:/d; /type: RuntimeDefault/d' ~/n8n/templates/deployment-
 grep -n "seccomp\|RuntimeDefault" ~/n8n/templates/deployment-main.yaml  # should return nothing
 ```
 
-Install from the patched chart:
+从修补后的 chart 安装：
 
 ```shell
 helm install n8n ~/n8n/ \
@@ -768,26 +769,26 @@ helm install n8n ~/n8n/ \
   --timeout 15m
 ```
 
-#### Create a route for external access <a href="#create-a-route-for-external-access" id="create-a-route-for-external-access"></a>
+#### 创建供外部访问的 Route <a href="#create-a-route-for-external-access" id="create-a-route-for-external-access"></a>
 
-In OpenShift, a **Route** exposes a service to the outside world. It's the equivalent of a Kubernetes Ingress or LoadBalancer, and requires no extra controller:
+OpenShift 的 **Route** 将服务暴露到外部，等同于 Kubernetes Ingress 或 LoadBalancer，无需额外控制器：
 
 ```shell
 oc expose svc/n8n-main -n $NAMESPACE
 ```
 
-Get the URL:
+获取 URL：
 
 ```shell
 export ROUTE=$(oc get route n8n-main -n $NAMESPACE -o jsonpath='{.spec.host}')
 echo "n8n URL: http://$ROUTE"
 ```
 
-The URL will look like: `http://n8n-main-n8n-20260306.apps-crc.testing`
+URL 类似：`http://n8n-main-n8n-20260306.apps-crc.testing`
 
-#### Update the host secret <a href="#update-the-host-secret" id="update-the-host-secret"></a>
+#### 更新主机 Secret <a href="#update-the-host-secret" id="update-the-host-secret"></a>
 
-n8n needs to know its public URL. Update the secret with the Route hostname, then restart the pods:
+n8n 需要知道其公开 URL。请使用 Route 主机名更新 Secret，然后重启 Pod：
 
 ```shell
 ENCRYPTION_KEY=$(oc get secret n8n-enterprise-secrets -n $NAMESPACE \
@@ -804,19 +805,19 @@ oc create secret generic n8n-enterprise-secrets \
 oc rollout restart deployment -n $NAMESPACE
 ```
 
-Wait for the rollout to complete:
+等待滚动部署完成：
 
 ```shell
 oc rollout status deployment/n8n-main -n $NAMESPACE
 ```
 
-#### Verify all pods are running <a href="#verify-all-pods-are-running" id="verify-all-pods-are-running"></a>
+#### 验证所有 Pod 正在运行 <a href="#verify-all-pods-are-running" id="verify-all-pods-are-running"></a>
 
 ```shell
 oc get pods -n $NAMESPACE
 ```
 
-Expected (all `Running`):
+预期输出，所有 Pod 均为 `Running`：
 
 ```
 NAME                                    READY   STATUS    RESTARTS   AGE
@@ -830,14 +831,14 @@ redis-master-0                          1/1     Running   0          15m
 minio-xxxx-xxxx                         1/1     Running   0          15m
 ```
 
-Open your browser to the URL printed above.
+在浏览器中打开上方输出的 URL。
 
-**Multi-instance deployment complete.**
+**多实例部署完成。**
 
 
-## Updating n8n <a href="#updating-n8n" id="updating-n8n"></a>
+## 更新 n8n <a href="#updating-n8n" id="updating-n8n"></a>
 
-To change configuration or upgrade the chart version, pull and re-patch the new chart version, then upgrade:
+要更改配置或升级 chart 版本，请拉取新版 chart，重新修补，然后升级：
 
 ```shell
 # Remove the old local chart copy <a href="#remove-the-old-local-chart-copy" id="remove-the-old-local-chart-copy"></a>
@@ -858,9 +859,9 @@ helm upgrade n8n ~/n8n/ \
   --values n8n-multimain-ocp-values.yaml
 ```
 
-## Stopping and resuming CRC <a href="#stopping-and-resuming-crc" id="stopping-and-resuming-crc"></a>
+## 停止与恢复 CRC <a href="#stopping-and-resuming-crc" id="stopping-and-resuming-crc"></a>
 
-CRC doesn't need to be deleted between sessions. You can stop and restart it:
+不同会话之间无需删除 CRC，可以停止后再重启：
 
 ```shell
 # Stop the cluster (saves state) <a href="#stop-the-cluster-saves-state" id="stop-the-cluster-saves-state"></a>
@@ -870,7 +871,7 @@ crc stop
 crc start
 ```
 
-After restarting, re-run:
+重启后重新运行：
 
 ```shell
 eval $(crc oc-env)
@@ -878,34 +879,34 @@ export NAMESPACE=n8n-YYYYMMDD   # use your original date
 oc login -u kubeadmin -p <password> https://api.crc.testing:6443
 ```
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排查 <a href="#troubleshooting" id="troubleshooting"></a>
 
-### `crc setup` fails with “libvirt not found” <a href="#crc-setup-fails-with-libvirt-not-found" id="crc-setup-fails-with-libvirt-not-found"></a>
+### `crc setup` 失败，提示“libvirt not found”，找不到 libvirt <a href="#crc-setup-fails-with-libvirt-not-found" id="crc-setup-fails-with-libvirt-not-found"></a>
 
 ```shell
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients
 sudo systemctl start libvirtd
 ```
 
-Then re-run `crc setup`.
+然后重新运行 `crc setup`。
 
 
-### `crc start` fails with “insufficient memory” <a href="#crc-start-fails-with-insufficient-memory" id="crc-start-fails-with-insufficient-memory"></a>
+### `crc start` 失败，提示“insufficient memory”，内存不足 <a href="#crc-start-fails-with-insufficient-memory" id="crc-start-fails-with-insufficient-memory"></a>
 
-CRC requires at least 9 GB of free RAM. Close other applications and try again. If you [followed instructions for configuring CRC memory](#configure-crc-memory-and-start-the-cluster), CRC is configured to use 14 GB.
+CRC 至少需要 9 GB 可用 RAM。请关闭其他应用后重试。如果已[按说明配置 CRC 内存](#configure-crc-memory-and-start-the-cluster)，CRC 会使用 14 GB。
 
 
-### n8n pod stuck in `Pending` or never created SCC error <a href="#n8n-pod-stuck-in-pending-or-never-created-scc-error" id="n8n-pod-stuck-in-pending-or-never-created-scc-error"></a>
+### n8n Pod 卡在 `Pending`，或因 SCC 错误始终未创建 <a href="#n8n-pod-stuck-in-pending-or-never-created-scc-error" id="n8n-pod-stuck-in-pending-or-never-created-scc-error"></a>
 
-Check events for the error:
+检查事件中的错误：
 
 ```shell
 oc get events -n $NAMESPACE --sort-by='.lastTimestamp' | tail -20
 ```
 
-If you see `unable to validate against any security context constraint` or `seccomp may not be set`, the chart’s hard coded `seccompProfile: RuntimeDefault` is being rejected. OpenShift 4.14+ converts this to a deprecated alpha annotation that admission rejects even when `anyuid` SCC is granted.
+如果看到 `unable to validate against any security context constraint` 或 `seccomp may not be set`，说明 chart 硬编码的 `seccompProfile: RuntimeDefault` 被拒绝。OpenShift 4.14 及更高版本会将其转换为已弃用的 alpha 注解，即使已授予 `anyuid` SCC，准入仍会拒绝。
 
-**1. Grant anyuid using the explicit form** (the `-z` shorthand can silently fail):
+**1. 使用显式形式授予 anyuid**，简写 `-z` 可能无提示失败：
 
 ```shell
 # For standalone <a href="#for-standalone" id="for-standalone"></a>
@@ -917,9 +918,9 @@ oc adm policy add-scc-to-user anyuid \
   system:serviceaccount:$NAMESPACE:n8n-enterprise
 ```
 
-Verify: run `oc get rolebindings -n $NAMESPACE`. You should see a binding for `system:openshift:scc:anyuid`.
+验证：运行 `oc get rolebindings -n $NAMESPACE`，应看到 `system:openshift:scc:anyuid` 的绑定。
 
-**2. Pull the chart locally and remove the `seccompProfile` lines:**
+**2. 将 chart 拉取到本地，并移除 `seccompProfile` 行：**
 
 ```shell
 helm pull oci://ghcr.io/n8n-io/n8n-helm-chart/n8n --version 1.0.3 --untar
@@ -929,7 +930,7 @@ sed -i '/seccompProfile:/d; /type: RuntimeDefault/d' ~/n8n/templates/deployment-
 grep -n "seccomp\|RuntimeDefault" ~/n8n/templates/deployment-main.yaml
 ```
 
-**3. Uninstall and reinstall from the patched chart:**
+**3. 卸载后，从修补过的 chart 重新安装：**
 
 ```shell
 helm uninstall n8n -n $NAMESPACE
@@ -940,26 +941,26 @@ helm install n8n ~/n8n/ \
   --timeout 10m
 ```
 
-### Route URL returns “Application not available” <a href="#route-url-returns-application-not-available" id="route-url-returns-application-not-available"></a>
+### Route URL 返回“Application not available”，应用不可用 <a href="#route-url-returns-application-not-available" id="route-url-returns-application-not-available"></a>
 
-The pods may still be starting. Check:
+Pod 可能仍在启动。请检查：
 
 ```shell
 oc get pods -n $NAMESPACE
 oc rollout status deployment/n8n-main -n $NAMESPACE
 ```
 
-Also confirm the Route exists:
+同时确认 Route 已存在：
 
 ```shell
 oc get route -n $NAMESPACE
 ```
 
-### n8n pod stuck in `Pending` with `Insufficient memory` <a href="#n8n-pod-stuck-in-pending-with-insufficient-memory" id="n8n-pod-stuck-in-pending-with-insufficient-memory"></a>
+### n8n Pod 卡在 `Pending`，提示 `Insufficient memory` <a href="#n8n-pod-stuck-in-pending-with-insufficient-memory" id="n8n-pod-stuck-in-pending-with-insufficient-memory"></a>
 
-The CRC node doesn’t have enough free memory to schedule the pod.
+CRC 节点没有足够的可用内存来调度 Pod。
 
-**Fix:** Increase CRC’s VM memory and restart:
+**解决方法：**增加 CRC 虚拟机内存并重启：
 
 ```shell
 crc stop
@@ -967,13 +968,13 @@ crc config set memory 14336
 crc start
 ```
 
-After CRC restarts, the pod should schedule automatically. If the pod is still pending after a few minutes, delete it to force a reschedule:
+CRC 重启后，Pod 应自动调度。几分钟后仍处于等待状态时，可删除 Pod，强制重新调度：
 
 ```shell
 oc delete pod -n $NAMESPACE -l app.kubernetes.io/component=main
 ```
 
-If your machine can’t spare 14 GB, you can also lower the pod’s memory request in `n8n-standalone-values.yaml`:
+如果机器无法分配 14 GB，也可以在 `n8n-standalone-values.yaml` 中降低 Pod 的内存请求：
 
 ```yaml
 resources:
@@ -982,18 +983,18 @@ resources:
       memory: 256Mi
 ```
 
-Then upgrade: `helm upgrade n8n ~/n8n/ -n $NAMESPACE -f n8n-standalone-values.yaml`
+然后升级：`helm upgrade n8n ~/n8n/ -n $NAMESPACE -f n8n-standalone-values.yaml`
 
 
-### DNS not resolving `.apps-crc.testing` or `api.crc.testing` <a href="#dns-not-resolving-apps-crctesting-or-apicrctesting" id="dns-not-resolving-apps-crctesting-or-apicrctesting"></a>
+### DNS 无法解析 `.apps-crc.testing` 或 `api.crc.testing` <a href="#dns-not-resolving-apps-crctesting-or-apicrctesting" id="dns-not-resolving-apps-crctesting-or-apicrctesting"></a>
 
-On Ubuntu, CRC configures DNS automatically. If it fails, restart NetworkManager:
+Ubuntu 上 CRC 会自动配置 DNS。失败时，请重启 NetworkManager：
 
 ```shell
 sudo systemctl restart NetworkManager
 ```
 
-If still broken, add entries manually (CRC routes traffic through `127.0.0.1`):
+如果仍有问题，手动添加条目，CRC 通过 `127.0.0.1` 路由流量：
 
 ```shell
 sudo tee -a /etc/hosts <<EOF
@@ -1005,20 +1006,20 @@ EOF
 ```
 
 {% hint style="info" %}
-**Subdomains**
+**子域名**
 
-When you expose Routes in the multi-instance section, new `*.apps-crc.testing` subdomains are created. Add them to `/etc/hosts` pointing to `127.0.0.1` if your browser can’t reach them.
+多实例章节暴露 Route 时，会创建新的 `*.apps-crc.testing` 子域名。如果浏览器无法访问，请在 `/etc/hosts` 中添加条目，指向 `127.0.0.1`。
 {% endhint %}
 
 
-### n8n pod crashes with `EACCES: permission denied` writing to `/home/node/.n8n/` <a href="#n8n-pod-crashes-with-eacces-permission-denied-writing-to-homenoden8n" id="n8n-pod-crashes-with-eacces-permission-denied-writing-to-homenoden8n"></a>
+### n8n Pod 因 `EACCES: permission denied` 崩溃，发生于写入 `/home/node/.n8n/` 时 <a href="#n8n-pod-crashes-with-eacces-permission-denied-writing-to-homenoden8n" id="n8n-pod-crashes-with-eacces-permission-denied-writing-to-homenoden8n"></a>
 
-This means the pod is running as a random OpenShift-assigned UID instead of UID 1000 (the `node` user the n8n image expects). It happens when `securityContext.enabled: false` is set in values without `runAsUser: 1000` and `fsGroup: 1000`, OpenShift assigns a random UID that can’t write to the PVC.
+这表示 Pod 以 OpenShift 随机分配的 UID 运行，而非 UID 1000，即 n8n 镜像预期的 `node` 用户。values 中设置 `securityContext.enabled: false`，但未设置 `runAsUser: 1000` 和 `fsGroup: 1000` 时会出现此问题：OpenShift 分配随机 UID，无法写入 PVC。
 
-**Fix:** Ensure `securityContext.enabled: true` is set in your values file, and that the chart has been patched to remove `seccompProfile` (see the SCC error section above). Both are required together.
+**解决方法：**确保 values 文件中已设置 `securityContext.enabled: true`，且已修补 chart、移除 `seccompProfile`，参阅上方 SCC 错误章节。两项必须同时满足。
 
 
-### View pod logs <a href="#view-pod-logs" id="view-pod-logs"></a>
+### 查看 Pod 日志 <a href="#view-pod-logs" id="view-pod-logs"></a>
 
 ```shell
 # Main process <a href="#main-process" id="main-process"></a>
@@ -1031,15 +1032,15 @@ oc logs -n $NAMESPACE -l app.kubernetes.io/component=worker --tail=50
 oc logs -n $NAMESPACE -l app.kubernetes.io/component=webhook-processor --tail=50
 ```
 
-### All events in the namespace <a href="#all-events-in-the-namespace" id="all-events-in-the-namespace"></a>
+### 查看命名空间中的所有事件 <a href="#all-events-in-the-namespace" id="all-events-in-the-namespace"></a>
 
 ```shell
 oc get events -n $NAMESPACE --sort-by='.lastTimestamp'
 ```
 
-## Quick Reference <a href="#quick-reference" id="quick-reference"></a>
+## 速查参考 <a href="#quick-reference" id="quick-reference"></a>
 
-### Re-export variables after reopening terminal <a href="#re-export-variables-after-reopening-terminal" id="re-export-variables-after-reopening-terminal"></a>
+### 重新打开终端后重新导出变量 <a href="#re-export-variables-after-reopening-terminal" id="re-export-variables-after-reopening-terminal"></a>
 
 ```shell
 eval $(crc oc-env)
@@ -1047,38 +1048,38 @@ export NAMESPACE=n8n-YYYYMMDD   # use the date from your original deployment
 oc login -u kubeadmin -p <password> https://api.crc.testing:6443
 ```
 
-### Check cluster status <a href="#check-cluster-status" id="check-cluster-status"></a>
+### 检查集群状态 <a href="#check-cluster-status" id="check-cluster-status"></a>
 
 ```shell
 crc status
 ```
 
-### Open the OpenShift web console <a href="#open-the-openshift-web-console" id="open-the-openshift-web-console"></a>
+### 打开 OpenShift Web 控制台 <a href="#open-the-openshift-web-console" id="open-the-openshift-web-console"></a>
 
 ```shell
 crc console
 ```
 
-Log in with `kubeadmin` / your password to see a graphical view of everything running.
+使用 `kubeadmin` 和密码登录，以图形界面查看所有运行内容。
 
-### Things to save <a href="#things-to-save" id="things-to-save"></a>
+### 需要保存的内容 <a href="#things-to-save" id="things-to-save"></a>
 
-| Item | Why it matters |
+| 项目 | 重要原因 |
 | --- | --- |
-| `kubeadmin` password | Log in to the cluster |
-| n8n encryption key | Lose this = all stored credentials unreadable |
-| `n8n-standalone-values.yaml` | Required for `helm upgrade` |
-| `n8n-multimain-ocp-values.yaml` | Required for `helm upgrade` |
-| MinIO root password | Access the MinIO console |
-| PostgreSQL password | Database access |
+| `kubeadmin` 密码 | 登录集群。 |
+| n8n 加密密钥 | 丢失后，所有已存储凭据都将无法读取。 |
+| `n8n-standalone-values.yaml` | `helm upgrade` 所必需。 |
+| `n8n-multimain-ocp-values.yaml` | `helm upgrade` 所必需。 |
+| MinIO root 密码 | 访问 MinIO 控制台。 |
+| PostgreSQL 密码 | 访问数据库。 |
 
-## Next steps <a href="#next-steps" id="next-steps"></a>
+## 后续步骤 <a href="#next-steps" id="next-steps"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/GtC2RL8itCPuNiwv5UUW/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/server-setups-next-steps.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use a cloud provider](./)
+* [使用云提供商](./)
 * [DigitalOcean](deploy-to-digital-ocean.md)
 * [Heroku](deploy-to-heroku.md)
 * [Hetzner Cloud](deploy-to-hetzner.md)
@@ -1086,4 +1087,4 @@ Log in with `kubeadmin` / your password to see a graphical view of everything ru
 * [Azure](deploy-to-azure.md)
 * [Google Cloud Run](deploy-to-google-cloud-run.md)
 * [Google Kubernetes Engine](deploy-to-google-kubernetes.md)
-* [Use Docker Compose](use-docker-compose.md)
+* [使用 Docker Compose](use-docker-compose.md)

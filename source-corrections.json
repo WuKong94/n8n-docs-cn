@@ -151,5 +151,32 @@
     "translated_sentence": "译注：本节原文未区分调度器模式。同一版本的“持久调度器”文档说明，Schedule Trigger 的运行记录可以跨重启保留，宽限期内会延迟触发，超过宽限期则遵循错过执行策略；该调度器自 n8n 2.45.0 起默认启用。这里保留原文，不将其“无法恢复”的描述推广到所有定时执行，也不推断 Webhook 请求会自动重放。",
     "evidence": "同一锁定版本的 deploy/host-n8n/configure-n8n/durable-scheduler.md 在 Runs survive restarts、Misfire policy 和 Feature availability 中说明：持久队列中的运行记录跨重启保留，宽限期内延迟触发，超期由策略处理，自 2.45.0 默认启用。该文件来源哈希为 33dd01819827c477f15d742671f601a54126c81ad41561c233673fd7fb32744b。",
     "scope": "保留 OEM 原文的重启描述，添加针对 Schedule Trigger 持久调度的版本内对照说明；不改写代码示例，不扩展为 Webhook 自动重放保证。"
+  },
+  {
+    "id": "aws-dns-record-without-service-port",
+    "path": "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-aws.md",
+    "source_sha256": "f90c6009b07b9d9d881a0ada810f11c7eaeea79a6a39bd4ded9d85e92985a6e8",
+    "original_sentence": "4. Select the **n8n** service and copy the **Load balancer URLs** value. Use this value suffixed with the n8n service port (5678) for DNS.",
+    "translated_sentence": "4. 选择 **n8n** 服务，复制 **Load balancer URLs**（负载均衡器 URL）对应的主机名。DNS 记录应指向该主机名，不要在记录值中附加端口。浏览器访问 n8n 服务时，再在 URL 中使用端口 5678。",
+    "evidence": "AWS Route 53 官方指南要求 Alias 指向 ELB 的 DNS 名称，普通记录说明 A 值为 IPv4 地址、CNAME 值为规范名称，不在此类记录值中拼接应用端口。来源：https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html 和 https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values-basic.html （本批核对）。",
+    "scope": "纠正将服务端口拼接到 DNS 记录值的说明，区分 DNS 目标主机名与浏览器 URL 中的端口；保留原部署命令、服务端口和上游快照。"
+  },
+  {
+    "id": "hetzner-sandbox-provider-name",
+    "path": "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-hetzner.md",
+    "source_sha256": "5bb8da8c647236d9e587789cbded40e536f6e19b4b9cc2612c2b9d6117791f90",
+    "original_sentence": "* This sandbox is suitable for local development and testing. The stack below uses n8n's own bundled sandbox (`n8n-sandbox`). Since a DigitalOcean droplet with a public domain is often a real deployment, consider Daytona instead if this is going to production.",
+    "translated_sentence": "* 此沙箱适合本地开发和测试。以下组件栈使用 n8n 自带的沙箱（`n8n-sandbox`）。具有公开域名的 Hetzner Cloud 服务器通常是真实部署，如果要用于生产，请考虑改用 Daytona。",
+    "evidence": "同页 H1 为 Hosting n8n on Hetzner cloud，开篇为 Hetzner cloud server，创建服务器和资源规格说明均属于 Hetzner。沙箱段落误沿用 DigitalOcean droplet。依据同页部署对象更正平台名称，来源哈希与本记录 source_sha256 一致。",
+    "scope": "仅纠正复制产生的平台名称笔误；保留沙箱模式、生产环境建议及代码配置。"
+  },
+  {
+    "id": "hetzner-sandbox-server-name",
+    "path": "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-hetzner.md",
+    "source_sha256": "5bb8da8c647236d9e587789cbded40e536f6e19b4b9cc2612c2b9d6117791f90",
+    "original_sentence": "Replace the `change-me-...` placeholders in `.env` with your own unique secrets before exposing this Droplet to the internet. `sandbox-runner-1` runs privileged Docker-in-Docker. Never publish its ports, and don't route Caddy to it.",
+    "translated_sentence": "将服务器暴露到互联网之前，请将 `change-me-...` 占位符替换为你自己的唯一密钥，占位符位于 `.env` 中。`sandbox-runner-1` 以特权模式运行 Docker-in-Docker。不要公开其端口，也不要让 Caddy 路由到它。",
+    "evidence": "同页标题、创建服务器和登录步骤均描述 Hetzner Cloud server。沙箱暴露提示误称 Droplet，该名称属于前文 DigitalOcean 指南；依据同页上下文改称服务器。来源哈希与本记录 source_sha256 一致。",
+    "scope": "仅纠正服务器名称；占位符、环境文件路径、运行器服务名和网络限制保持原样。"
   }
 ]

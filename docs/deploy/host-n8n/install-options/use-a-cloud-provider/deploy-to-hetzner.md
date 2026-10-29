@@ -1,106 +1,107 @@
 ---
 contentType: tutorial
-nodeTitle: Deploy to Hetzner
+nodeTitle: 部署到 Hetzner
 originalFilePath: hosting/installation/server-setups/hetzner.md
-originalUrl: 'https://docs.n8n.io/hosting/installation/server-setups/hetzner'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-hetzner
+originalUrl: https://docs.n8n.io/hosting/installation/server-setups/hetzner
+url: https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-hetzner
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Hosting n8n on Hetzner cloud <a href="#hosting-n8n-on-hetzner-cloud" id="hosting-n8n-on-hetzner-cloud"></a>
 
-This hosting guide shows you how to self-host n8n on a Hetzner cloud server. It uses:
+# 在 Hetzner Cloud 上托管 n8n <a href="#hosting-n8n-on-hetzner-cloud" id="hosting-n8n-on-hetzner-cloud"></a>
 
-* [Caddy](https://caddyserver.com) (a reverse proxy) to allow access to the Server from the internet.
-* [Docker Compose](https://docs.docker.com/compose/) to create and define the application components and how they work together.
+本指南介绍如何在 Hetzner Cloud 服务器上自托管 n8n，采用以下组件：
 
-Once n8n is up and running, an optional last section covers adding n8n Assistant.
+* [Caddy](https://caddyserver.com)，反向代理，让服务器可以从互联网访问。
+* [Docker Compose](https://docs.docker.com/compose/)，创建并定义应用组件及其协作方式。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/YLv7Cqg70tj1alDgktSX/" %}
+n8n 启动运行后，最后的可选章节介绍如何添加 n8n Assistant。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/iFLUKG9zJaouigaM7IOo/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/warning.md" %}
 
-## Create a server <a href="#create-a-server" id="create-a-server"></a>
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/latest-next-version.md" %}
 
-1. [Log in](https://console.hetzner.cloud/) to the Hetzner Cloud Console.
-2. Select the project to host the server, or create a new project by selecting **+ NEW PROJECT**.
-3. Select **+ CREATE SERVER** on the project tile you want to add it to.
+## 创建服务器 <a href="#create-a-server" id="create-a-server"></a>
 
-You can change most of the settings to suit your needs, but as this guide uses Docker to run the application, under the **Image** section, select "Docker CE" from the **APPS** tab.
+1. [登录](https://console.hetzner.cloud/) Hetzner Cloud 控制台。
+2. 选择托管服务器的项目，或点击 **+ NEW PROJECT**（新建项目）创建项目。
+3. 在希望添加服务器的项目卡片上，选择 **+ CREATE SERVER**（创建服务器）。
+
+大多数设置可按需更改，但本指南使用 Docker 运行应用，因此请在 **Image**（镜像）区域的 **APPS**（应用）选项卡中，选择 Docker CE。
 
 {% hint style="info" %}
-**Type**
+**类型**
 
-When creating the server, Hetzner asks you to choose a plan. For most usage levels, the CPX11 type is enough. If you plan to add n8n Assistant, choose a plan with at least 4 GB RAM / 2 vCPU instead. CPX11 doesn't have enough headroom once the sandbox is added.
+创建服务器时，Hetzner 会要求选择套餐。对于大多数使用量，CPX11 类型就足够。如果计划添加 n8n Assistant，请改选至少具有 4 GB RAM 和 2 vCPU 的套餐。添加沙箱后，CPX11 的资源余量不足。
 {% endhint %}
 {% hint style="info" %}
-**SSH keys**
+**SSH 密钥**
 
-Hetzner lets you choose between SSH and password-based authentication. SSH is more secure. The rest of this guide assumes you are using SSH.
+Hetzner 支持选择 SSH 或密码身份验证，SSH 更安全。后续步骤假定使用 SSH。
 {% endhint %}
 
-## Log in to your server <a href="#log-in-to-your-server" id="log-in-to-your-server"></a>
+## 登录服务器 <a href="#log-in-to-your-server" id="log-in-to-your-server"></a>
 
-The rest of this guide requires you to log in to the server using a terminal with SSH. Refer to [Access with SSH/rsync/BorgBackup](https://docs.hetzner.com/robot/storage-box/access/access-ssh-rsync-borg) for more information. You can find the public IP in the listing of the servers in your project.
+后续步骤需要在终端中通过 SSH 登录服务器。更多信息请参阅[通过 SSH、rsync 或 BorgBackup 访问](https://docs.hetzner.com/robot/storage-box/access/access-ssh-rsync-borg)。可在项目的服务器列表中找到公网 IP。
 
-## Install Docker Compose <a href="#install-docker-compose" id="install-docker-compose"></a>
+## 安装 Docker Compose <a href="#install-docker-compose" id="install-docker-compose"></a>
 
-The Hetzner Docker app image doesn't have Docker compose installed. Install it with the following commands:
+Hetzner Docker 应用镜像未安装 Docker Compose。请运行以下命令安装：
 
 ```shell
 apt update && apt -y upgrade
 apt install docker-compose-plugin
 ```
 
-## Clone configuration repository <a href="#clone-configuration-repository" id="clone-configuration-repository"></a>
+## 克隆配置仓库 <a href="#clone-configuration-repository" id="clone-configuration-repository"></a>
 
-Docker Compose, n8n, and Caddy require a series of folders and configuration files. You can clone these from [this repository](https://github.com/n8n-io/n8n-docker-caddy) into the root user folder of the server. The following steps will tell you which file to change and what changes to make.
+Docker Compose、n8n 和 Caddy 需要一系列文件夹和配置文件。可以从[此仓库](https://github.com/n8n-io/n8n-docker-caddy)克隆到服务器 root 用户的主目录。以下步骤说明要更改哪些文件，以及具体修改内容。
 
-Clone the repository with the following command:
+使用以下命令克隆仓库：
 
 ```shell
 git clone https://github.com/n8n-io/n8n-docker-caddy.git
 ```
 
-And change directory to the root of the repository you cloned:
+然后切换到所克隆仓库的根目录：
 
 ```shell
 cd n8n-docker-caddy
 ```
 
-## Default folders and files <a href="#default-folders-and-files" id="default-folders-and-files"></a>
+## 默认文件夹和文件 <a href="#default-folders-and-files" id="default-folders-and-files"></a>
 
-The host operating system (the server) copies the two folders you created to Docker containers to make them available to Docker. The two folders are:
+主机操作系统，即服务器，将创建的两个文件夹复制到 Docker 容器中，供 Docker 使用。这两个文件夹是：
 
-- `caddy_config`: Holds the Caddy configuration files.
-- `local_files`: A folder for files you upload or add using n8n.
+- `caddy_config`：保存 Caddy 配置文件。
+- `local_files`：保存通过 n8n 上传或添加的文件。
 
-### Create Docker volume <a href="#create-docker-volume" id="create-docker-volume"></a>
+### 创建 Docker 卷 <a href="#create-docker-volume" id="create-docker-volume"></a>
 
-To persist the Caddy cache between restarts and speed up start times, create [a Docker volume](https://docs.docker.com/storage/volumes/) that Docker reuses between restarts:
+要在重启间保留 Caddy 缓存并加快启动，请创建一个可在重启后复用的 [Docker 卷](https://docs.docker.com/storage/volumes/)：
 
 ```shell
 docker volume create caddy_data
 ```
 
-Create a Docker volume for the n8n data:
+为 n8n 数据创建 Docker 卷：
 
 ```shell
 sudo docker volume create n8n_data
 ```
 
-## Set up DNS <a href="#set-up-dns" id="set-up-dns"></a>
+## 设置 DNS <a href="#set-up-dns" id="set-up-dns"></a>
 
-n8n typically operates on a subdomain. Create a DNS record with your provider for the subdomain and point it to the IP address of the server. The exact steps for this depend on your DNS provider, but typically you need to create a new "A" record for the n8n subdomain. DigitalOcean provide [An Introduction to DNS Terminology, Components, and Concepts](https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts).
+n8n 通常运行在子域名上。请在 DNS 提供商处为子域名创建记录，指向服务器 IP 地址。具体步骤取决于 DNS 提供商，通常需要为 n8n 子域名创建 A 记录。DigitalOcean 提供了 [DNS 术语、组件和概念介绍](https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts)。
 
-## Open ports <a href="#open-ports" id="open-ports"></a>
+## 开放端口 <a href="#open-ports" id="open-ports"></a>
 
-n8n runs as a web application, so the server needs to allow incoming access to traffic on port 80 for non-secure traffic, and port 443 for secure traffic.
+n8n 作为 Web 应用运行，因此服务器需要允许端口 80 的非加密入站流量，以及端口 443 的加密入站流量。
 
-Open the following ports in the server's firewall by running the following two commands:
+运行以下两条命令，在服务器防火墙中开放端口：
 
 ```shell
 sudo ufw allow 80
@@ -109,42 +110,42 @@ sudo ufw allow 443
 
 {% hint style="info" %} If you add n8n Assistant later, its sandbox services stay internal to the Compose network. You don't need to open any additional ports for them. {% endhint %}
 
-## Configure n8n <a href="#configure-n8n" id="configure-n8n"></a>
+## 配置 n8n <a href="#configure-n8n" id="configure-n8n"></a>
 
-n8n needs some environment variables set to pass to the application running in the Docker container. The example `.env` file contains placeholders you need to replace with values of your own.
+需要为 n8n 设置一些环境变量，并传递给 Docker 容器中的应用。示例 `.env` 文件包含占位符，请替换为你自己的值。
 
-Open the file with the following command:
+使用以下命令打开文件：
 
 ```shell
 nano .env
 ```
 
-The file contains inline comments to help you know what to change.
+文件内包含行内注释，说明需要更改哪些内容。
 
-Refer to [Environment variables](../../configure-n8n/basic-configuration/use-environment-variables/README.md) for n8n environment variables details.
+n8n 环境变量详情请参阅[环境变量](../../configure-n8n/basic-configuration/use-environment-variables/README.md)。
 
-## The Docker Compose file <a href="#the-docker-compose-file" id="the-docker-compose-file"></a>
+## Docker Compose 文件 <a href="#the-docker-compose-file" id="the-docker-compose-file"></a>
 
-The Docker Compose file (`docker-compose.yml`) defines the services the application needs, in this case Caddy and n8n. There's no separate database service. n8n uses its built-in SQLite database by default.
+Docker Compose 文件（`docker-compose.yml`）定义应用所需的服务，此处为 Caddy 和 n8n。没有独立数据库服务，n8n 默认使用内置 SQLite 数据库。
 
-- The Caddy service definition defines the ports it uses and the local volumes to copy to the containers.
-- The n8n service definition defines the ports it uses, the environment variables n8n needs to run (some defined in the `.env` file), and the volumes it needs to copy to the containers.
+- Caddy 服务定义使用的端口，以及要复制到容器中的本地卷。
+- n8n 服务定义使用的端口、运行所需的环境变量，其中部分在 `.env` 文件中定义，以及要复制到容器中的卷。
 
-The Docker Compose file uses the environment variables set in the `.env` file, so you shouldn't need to change it's content, but to take a look, run the following command:
+Docker Compose 文件使用 `.env` 文件中设置的环境变量，因此通常无需修改。要查看其内容，请运行：
 
 ```shell
 nano docker-compose.yml
 ```
 
-## Configure Caddy <a href="#configure-caddy" id="configure-caddy"></a>
+## 配置 Caddy <a href="#configure-caddy" id="configure-caddy"></a>
 
-Caddy needs to know which domains it should serve, and which port to expose to the outside world. Edit the `Caddyfile` file in the `caddy_config` folder.
+Caddy 需要知道应提供服务的域名，以及向外暴露的端口。请编辑 `Caddyfile` 文件，它位于 `caddy_config` 文件夹中。
 
 ```shell
 nano caddy_config/Caddyfile
 ```
 
-Change the placeholder subdomain to yours. If you followed the steps to name the subdomain n8n, your full domain is similar to `n8n.example.com`. The `n8n` in the `reverse_proxy` setting tells Caddy to use the service definition defined in the `docker-compose.yml` file:
+将占位子域名改为你的子域名。如果按照上述步骤将子域名命名为 n8n，完整域名会类似 `n8n.example.com`。`n8n` 位于 `reverse_proxy` 设置中，指示 Caddy 使用 `docker-compose.yml` 文件中定义的服务：
 
 ```text
 n8n.<domain>.<suffix> {
@@ -154,37 +155,37 @@ n8n.<domain>.<suffix> {
 }
 ```
 
-## Start Docker Compose <a href="#start-docker-compose" id="start-docker-compose"></a>
+## 启动 Docker Compose <a href="#start-docker-compose" id="start-docker-compose"></a>
 
-Start n8n and Caddy with the following command:
+使用以下命令启动 n8n 和 Caddy：
 
 ```shell
 docker compose up -d
 ```
 
-This may take a few minutes.
+这可能需要几分钟。
 
-## Test your setup <a href="#test-your-setup" id="test-your-setup"></a>
+## 测试配置 <a href="#test-your-setup" id="test-your-setup"></a>
 
-In your browser, open the URL formed of the subdomain and domain name defined earlier. Enter the user name and password defined earlier, and you should be able to access n8n.
+在浏览器中打开前面定义的子域名和域名组成的 URL。输入前面定义的用户名和密码，应能访问 n8n。
 
-## Stop n8n and Caddy <a href="#stop-n8n-and-caddy" id="stop-n8n-and-caddy"></a>
+## 停止 n8n 和 Caddy <a href="#stop-n8n-and-caddy" id="stop-n8n-and-caddy"></a>
 
-You can stop n8n and Caddy with the following command:
+使用以下命令停止 n8n 和 Caddy：
 
 ```shell
 sudo docker compose stop
 ```
 
-## Optional: Add n8n Assistant <a href="#optional-add-n8n-assistant" id="optional-add-n8n-assistant"></a>
+## 可选：添加 n8n Assistant <a href="#optional-add-n8n-assistant" id="optional-add-n8n-assistant"></a>
 
-n8n Assistant needs a sandbox to run code in. You can add the same sandbox stack used in the [Docker Compose guide](../install-using-docker-compose.md) to this setup. A few things are worth knowing before you start:
+n8n Assistant 需要沙箱来运行代码。可以向此部署添加 [Docker Compose 指南](../install-using-docker-compose.md)使用的相同沙箱组件栈。开始前请了解：
 
-* This sandbox is suitable for local development and testing. The stack below uses n8n's own bundled sandbox (`n8n-sandbox`). Since a DigitalOcean droplet with a public domain is often a real deployment, consider Daytona instead if this is going to production.
-* **Resize if needed.** The sandbox runner uses Docker-in-Docker, which needs more headroom than n8n alone. Make sure you provision at least 4 GB RAM / 2 vCPU.
-* **No networking changes required.** Caddy only ever proxies n8n itself; the sandbox services stay internal to the Compose network and don't need DNS, firewall, or Caddyfile changes.
+* 此沙箱适合本地开发和测试。以下组件栈使用 n8n 自带的沙箱（`n8n-sandbox`）。具有公开域名的 Hetzner Cloud 服务器通常是真实部署，如果要用于生产，请考虑改用 Daytona。
+* **按需调整规格。**沙箱运行器使用 Docker-in-Docker，需要比单独运行 n8n 更多的资源余量。请至少提供 4 GB RAM 和 2 vCPU。
+* **无需更改网络。**Caddy 仅代理 n8n 本身，沙箱服务保留在 Compose 内部网络，无需更改 DNS、防火墙或 Caddyfile。
 
-1. Add the sandbox secrets to `.env`, alongside the variables already there:
+1. 将沙箱密钥添加到 `.env`，与现有变量放在一起：
 
    ```
    # Sandbox service secrets — pick your own values
@@ -196,7 +197,7 @@ n8n Assistant needs a sandbox to run code in. You can add the same sandbox stack
    SEARXNG_SECRET=change-me-searxng-secret
    ```
 
-2. Create a `searxng-settings.yml` file alongside your other config files (the stock SearXNG image only serves HTML; this turns on the JSON API n8n's web search needs):
+2. 在其他配置文件旁创建 `searxng-settings.yml` 文件。默认 SearXNG 镜像仅提供 HTML，此配置启用 n8n 网页搜索需要的 JSON API：
 
    ``` yaml
    use_default_settings: true
@@ -206,7 +207,7 @@ n8n Assistant needs a sandbox to run code in. You can add the same sandbox stack
        - json
    ```
 
-3. Open `docker-compose.yml` and add the sandbox and search services alongside the existing `caddy` and `n8n` services:
+3. 打开 `docker-compose.yml`，在现有 `caddy` 和 `n8n` 服务旁添加沙箱和搜索服务：
 
    ```yaml
    volumes:
@@ -288,7 +289,7 @@ n8n Assistant needs a sandbox to run code in. You can add the same sandbox stack
        # Internal-only: n8n reaches it by service name. Never publish its port, and don't route Caddy to it.
    ```
 
-4. Add the matching sandbox variables to the existing `n8n` service's `environment` block:
+4. 在现有 `n8n` 服务的 `environment` 块中添加匹配的沙箱变量：
 
    ```yaml
    environment:
@@ -304,34 +305,34 @@ n8n Assistant needs a sandbox to run code in. You can add the same sandbox stack
       condition: service_healthy
    ```
 
-5. Restart everything so the new services pick up the changes:
+5. 重启全部服务，让新服务加载更改：
 
    ```bash
    sudo docker compose up -d
    ```
 
-6. Add your model API key. See [Set up n8n Assistant](../../configure-n8n/set-up-n8n-assistant.md) for the full reference, including how to pick a model provider. Web search works out of the box via the bundled SearXNG service above; add a Brave Search key instead if you'd rather use that.
+6. 添加模型 API 密钥。完整参考及模型提供商选择，请参阅[设置 n8n Assistant](../../configure-n8n/set-up-n8n-assistant.md)。网页搜索可直接使用上方内置的 SearXNG 服务；如果更喜欢 Brave Search，可改为添加其密钥。
 
 {% hint style="warning" %}
-Replace the `change-me-...` placeholders in `.env` with your own unique secrets before exposing this Droplet to the internet. `sandbox-runner-1` runs privileged Docker-in-Docker. Never publish its ports, and don't route Caddy to it.
+将服务器暴露到互联网之前，请将 `change-me-...` 占位符替换为你自己的唯一密钥，占位符位于 `.env` 中。`sandbox-runner-1` 以特权模式运行 Docker-in-Docker。不要公开其端口，也不要让 Caddy 路由到它。
 {% endhint %}
 
-## Updating <a href="#updating" id="updating"></a>
+## 更新 <a href="#updating" id="updating"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/yA5x9FIRtnDGdghFU93g/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/docker-compose-updating.md" %}
 
-## Next steps <a href="#next-steps" id="next-steps"></a>
+## 后续步骤 <a href="#next-steps" id="next-steps"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/GtC2RL8itCPuNiwv5UUW/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/server-setups-next-steps.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use a cloud provider](./)
+* [使用云提供商](./)
 * [DigitalOcean](deploy-to-digital-ocean.md)
 * [Heroku](deploy-to-heroku.md)
 * [AWS](deploy-to-aws.md)
 * [Azure](deploy-to-azure.md)
 * [Google Cloud Run](deploy-to-google-cloud-run.md)
 * [Google Kubernetes Engine](deploy-to-google-kubernetes.md)
-* [OpenShift Local (CRC)](deploy-to-openshift-local-crc.md)
-* [Use Docker Compose](use-docker-compose.md)
+* [OpenShift Local（CRC）](deploy-to-openshift-local-crc.md)
+* [使用 Docker Compose](use-docker-compose.md)

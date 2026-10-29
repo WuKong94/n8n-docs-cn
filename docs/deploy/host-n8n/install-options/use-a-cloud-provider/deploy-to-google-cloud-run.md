@@ -1,58 +1,59 @@
 ---
 contentType: tutorial
-nodeTitle: Deploy to Google Cloud Run
+nodeTitle: 部署到 Google Cloud Run
 originalFilePath: hosting/installation/server-setups/google-cloud-run.md
-originalUrl: 'https://docs.n8n.io/hosting/installation/server-setups/google-cloud-run'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-google-cloud-run
+originalUrl: https://docs.n8n.io/hosting/installation/server-setups/google-cloud-run
+url: https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-google-cloud-run
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Hosting n8n on Google Cloud Run <a href="#hosting-n8n-on-google-cloud-run" id="hosting-n8n-on-google-cloud-run"></a>
 
-This hosting guide shows you how to self-host n8n on Google Cloud Run, a serverless container runtime. If you're just getting started with n8n and don't need a production-grade deployment, you can go with the "easy mode" option below for deployment. Otherwise, if you intend to use this n8n deployment at-scale, refer to the "durable mode" instructions further down.
+# 在 Google Cloud Run 上托管 n8n <a href="#hosting-n8n-on-google-cloud-run" id="hosting-n8n-on-google-cloud-run"></a>
 
-You can also enable access via OAuth to Google Workspace, such as Gmail and Drive, to use these services as n8n workflow tools. Instructions for granting n8n access to these services are at the end of this documentation.
+本指南介绍如何在无服务器容器运行时 Google Cloud Run 上自托管 n8n。如果刚开始使用 n8n，且不需要生产级部署，可以采用下方的“简易模式”。如果计划大规模使用此部署，请参阅后面的“持久模式”。
 
-If you want to deploy to Google Kubernetes Engine (GKE) instead, you can refer to [these instructions](deploy-to-google-kubernetes.md).
+还可以通过 OAuth 允许访问 Gmail、Drive 等 Google Workspace 服务，将其用作 n8n 工作流工具。授权方式见文档末尾。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/YLv7Cqg70tj1alDgktSX/" %}
+如果希望改为部署到 Google Kubernetes Engine（GKE），请参阅[此指南](deploy-to-google-kubernetes.md)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/iFLUKG9zJaouigaM7IOo/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/warning.md" %}
 
-## Before you begin: get a Google Cloud project <a href="#before-you-begin-get-a-google-cloud-project" id="before-you-begin-get-a-google-cloud-project"></a>
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/latest-next-version.md" %}
 
-If you have not yet created a Google Cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your Cloud Run service runs for free you must have billing activated to deploy). Otherwise, navigate to the project where you want to deploy n8n.
+## 开始之前：准备 Google Cloud 项目 <a href="#before-you-begin-get-a-google-cloud-project" id="before-you-begin-get-a-google-cloud-project"></a>
 
-## Easy mode <a href="#easy-mode" id="easy-mode"></a>
+如果尚未创建 Google Cloud 项目，请[先创建](https://developers.google.com/workspace/guides/create-project)，并确保已启用结算。即使 Cloud Run 服务免费运行，部署时也必须启用结算。已有项目时，请前往希望部署 n8n 的项目。
 
-This is the fastest way to deploy n8n on Cloud Run. For this deployment, n8n's data is in-memory so this is only recommended for demo purposes. **Anytime this Cloud Run service scales to zero or is redeployed, the n8n data will be lost.** Refer to the durable mode instructions below if you need a production-grade deployment.
+## 简易模式 <a href="#easy-mode" id="easy-mode"></a>
 
-If you have not yet created a Google Cloud project, [do this first](https://developers.google.com/workspace/guides/create-project) (and ensure you have billing enabled on the project; even if your Cloud Run service will run for free you must have billing enabled to activated to deploy). Otherwise, navigate to the project where you want to deploy n8n.
+这是在 Cloud Run 上部署 n8n 的最快方式。此部署中的 n8n 数据位于内存中，因此仅建议用于演示。**每当 Cloud Run 服务缩容到零或重新部署时，n8n 数据都会丢失。**需要生产级部署时，请参阅下方持久模式。
 
-Open the Cloud Shell Terminal (on the Google Cloud console, either type "G" then "S" or click on the terminal icon on the upper right).
+如果尚未创建 Google Cloud 项目，请[先创建](https://developers.google.com/workspace/guides/create-project)，并确保已启用结算。即使 Cloud Run 服务免费运行，部署时也必须启用结算。已有项目时，请前往希望部署 n8n 的项目。
 
-Once your session is open, you may need to run this command first to login (and follow the steps it asks you to complete):
+打开 Cloud Shell 终端：在 Google Cloud 控制台依次按 G、S，或点击右上角终端图标。
+
+会话打开后，可能需要先运行以下命令登录，并按提示完成操作：
 
 ```sh
 gcloud auth login
 ```
 
-You can also explicitly enable the Cloud Run API (even if you don't do this, it will ask if you want this enabled when you deploy):
+也可以显式启用 Cloud Run API。即使未提前启用，部署时也会询问是否启用：
 
 ```sh
 gcloud services enable run.googleapis.com
 ```
 
 {% hint style="warning" %}
-**Required: Custom health check endpoint**
+**必需：自定义健康检查端点**
 
-Google Cloud Run reserves `/healthz` for its own health checks. Since n8n uses this path by default, it can conflict and cause connection issues in the workflow canvas. To fix this, set the `N8N_ENDPOINT_HEALTH` environment variable to a custom path (included in the deployment commands below).
+Google Cloud Run 将 `/healthz` 保留给自身的健康检查。n8n 默认也使用此路径，可能发生冲突并导致工作流画布连接问题。请将 `N8N_ENDPOINT_HEALTH` 环境变量设为自定义路径，下方部署命令已包含此设置。
 {% endhint %}
 
-To deploy n8n:
+部署 n8n：
 
 ```sh
 gcloud run deploy n8n \
@@ -65,11 +66,11 @@ gcloud run deploy n8n \
     --set-env-vars="N8N_ENDPOINT_HEALTH=health"
 ```
 
-(you can specify whichever region you prefer, instead of "us-west1")
+可以将 us-west1 替换为你希望使用的其他区域。
 
-Once the deployment finishes, open another tab to navigate to the Service URL. n8n may still be loading and you will see a "n8n is starting up. Please wait" message, but shortly thereafter you should see the n8n login screen. 
+部署完成后，在另一个标签页打开 Service URL（服务 URL）。n8n 可能仍在加载，显示“n8n is starting up. Please wait”（n8n 正在启动，请稍候），稍后应出现 n8n 登录页面。
 
-Optional: If you want to keep this n8n service running for as long as possible to avoid data loss, you can also set manual scale to 1 to prevent it from autoscaling to 0. 
+可选：如果希望让 n8n 服务尽量长时间运行以避免数据丢失，也可以将手动扩缩容设为 1，防止自动缩容到 0。
 
 ```sh
 gcloud run deploy n8n \
@@ -83,17 +84,17 @@ gcloud run deploy n8n \
     --set-env-vars="N8N_ENDPOINT_HEALTH=health"
 ```
 
-This does not prevent data loss completely, such as whenever the Cloud Run service is re-deployed/updated. If you want truly persistent data, you should refer to the instructions below for how to attach a database.
+这不能完全避免数据丢失，例如 Cloud Run 服务重新部署或更新时仍会丢失。要真正持久化数据，请按下方说明连接数据库。
 
-## Durable mode <a href="#durable-mode" id="durable-mode"></a>
+## 持久模式 <a href="#durable-mode" id="durable-mode"></a>
 
-The following instructions are intended for a more durable, production-grade deployment of n8n on Cloud Run. It includes resources such as a database for persistance and secret manager for sensitive data.
+以下步骤用于在 Cloud Run 上建立更持久的生产级 n8n 部署，包括持久化数据库，以及保存敏感数据的 Secret Manager 等资源。
 
-If you want to deploy the following setup via Terraform, refer to this [example](https://github.com/ryanpei/n8n-hosting/tree/main/google-cloud-run) which deploys the same setup as the following (without the OAuth setup for Google Workspace tools).
+如果希望通过 Terraform 部署相同配置，请参阅[此示例](https://github.com/ryanpei/n8n-hosting/tree/main/google-cloud-run)。它与下方设置一致，但不包含 Google Workspace 工具的 OAuth 配置。
 
-## Enable APIs and set env vars <a href="#enable-apis-and-set-env-vars" id="enable-apis-and-set-env-vars"></a>
+## 启用 API 并设置环境变量 <a href="#enable-apis-and-set-env-vars" id="enable-apis-and-set-env-vars"></a>
 
-Open the Cloud Shell Terminal (on the Google Cloud console, either type "G" then "S" or click on the terminal icon on the upper right) and run these commands in the terminal session:
+打开 Cloud Shell 终端：在 Google Cloud 控制台依次按 G、S，或点击右上角终端图标，然后在终端会话中运行：
 
 ```sh
 ## You may need to login first <a href="#you-may-need-to-login-first" id="you-may-need-to-login-first"></a>
@@ -104,16 +105,16 @@ gcloud services enable sqladmin.googleapis.com
 gcloud services enable secretmanager.googleapis.com
 ```
 
-You'll also want to set some environment variables for the remainder of these instructions:
+为后续步骤设置一些环境变量：
 
 ```sh
 export PROJECT_ID=your-project
 export REGION=region-where-you-want-this-deployed
 ```
 
-## Setup your Postgres database <a href="#setup-your-postgres-database" id="setup-your-postgres-database"></a>
+## 设置 Postgres 数据库 <a href="#setup-your-postgres-database" id="setup-your-postgres-database"></a>
 
-Run this command to create the Postgres DB instance (it will take a few minutes to complete; also ensure you update the root-password field with your own desired password):
+运行以下命令创建 Postgres 数据库实例。完成可能需要几分钟，请将 root-password 字段替换为你自己的密码：
 
 ```sh
 gcloud sql instances create n8n-db \
@@ -127,13 +128,13 @@ gcloud sql instances create n8n-db \
     --storage-type=HDD
 ```
 
-Once complete, you can add the database that n8n will use:
+完成后，添加 n8n 要使用的数据库：
 
 ```sh
 gcloud sql databases create n8n --instance=n8n-db
 ```
 
-Create the DB user for n8n (change the password value, of course):
+创建 n8n 数据库用户，并更改密码值：
 
 ```sh
 gcloud sql users create n8n-user \
@@ -141,13 +142,13 @@ gcloud sql users create n8n-user \
     --password="change-this-password"
 ```
 
-You can save the password you set for this n8n-user to a file for the next step of saving the password in Secret Manager. Be sure to delete this file later.
+可以将 n8n-user 密码保存到文件，供下一步写入 Secret Manager 使用。之后务必删除此文件。
 
-## Store sensitive data in Secret Manager <a href="#store-sensitive-data-in-secret-manager" id="store-sensitive-data-in-secret-manager"></a>
+## 在 Secret Manager 中保存敏感数据 <a href="#store-sensitive-data-in-secret-manager" id="store-sensitive-data-in-secret-manager"></a>
 
-While not required, it's absolutely recommended to store your sensitive data in Secrets Manager.
+虽然不是必需，但强烈建议将敏感数据保存在 Secret Manager 中。
 
-Create a secret for the database password (replace "/your/password/file" with the file you created above for the n8n-user password):
+为数据库密码创建 Secret，将 /your/password/file 替换为上文创建的 n8n-user 密码文件：
 
 ```sh
 gcloud secrets create n8n-db-password \
@@ -155,13 +156,13 @@ gcloud secrets create n8n-db-password \
     --replication-policy="automatic"
 ```
 
-Create an encryption key (you can use your own, this example generates a random one):
+创建加密密钥。可以使用你自己的密钥，此示例生成随机密钥：
 
 ```sh
 openssl rand -base64 -out my-encryption-key 42
 ```
 
-Create a secret for this encryption key (replace "my-encryption-key" if you are supplying your own):
+为此加密密钥创建 Secret。如果使用自己的密钥，请替换 my-encryption-key：
 
 ```sh
 gcloud secrets create n8n-encryption-key \
@@ -169,11 +170,11 @@ gcloud secrets create n8n-encryption-key \
     --replication-policy="automatic"
 ```
 
-Now you can delete my-encryption-key and the database password files you created. These values are now securely stored in Secret Manager.
+现在可以删除创建的 my-encryption-key 和数据库密码文件，这些值已安全保存在 Secret Manager 中。
 
-## Create a service account for Cloud Run <a href="#create-a-service-account-for-cloud-run" id="create-a-service-account-for-cloud-run"></a>
+## 为 Cloud Run 创建服务账号 <a href="#create-a-service-account-for-cloud-run" id="create-a-service-account-for-cloud-run"></a>
 
-You want this Cloud Run service to be restricted to access only the resources it needs. The following commands create the service account and adds the permissions necessary to access secrets and the database:
+应限制 Cloud Run 服务仅访问所需资源。以下命令创建服务账号，并授予访问 Secret 和数据库所需的权限：
 
 ```sh
 gcloud iam service-accounts create n8n-service-account \
@@ -192,9 +193,9 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --role="roles/cloudsql.client"
 ```
 
-## Deploy the Cloud Run service <a href="#deploy-the-cloud-run-service" id="deploy-the-cloud-run-service"></a>
+## 部署 Cloud Run 服务 <a href="#deploy-the-cloud-run-service" id="deploy-the-cloud-run-service"></a>
 
-Now you can deploy your n8n service:
+现在可以部署 n8n 服务：
 
 ```sh
 gcloud run deploy n8n \
@@ -212,17 +213,17 @@ gcloud run deploy n8n \
     --service-account=n8n-service-account@$PROJECT_ID.iam.gserviceaccount.com
 ```
 
-Once the deployment finishes, open another tab to navigate to the Service URL. You should see the n8n login screen.
+部署完成后，在另一个标签页打开 Service URL（服务 URL），应看到 n8n 登录页面。
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排查 <a href="#troubleshooting" id="troubleshooting"></a>
 
-If you see a "Cannot GET /" screen this usually indicates that n8n is still starting up. You can refresh the page and it should eventually load.
+如果出现“Cannot GET /”页面，通常表示 n8n 仍在启动。可以刷新页面，稍后应能加载。
 
-## (Optional) Enabling Google Workspace services as n8n tools <a href="#optional-enabling-google-workspace-services-as-n8n-tools" id="optional-enabling-google-workspace-services-as-n8n-tools"></a>
+## 可选：将 Google Workspace 服务启用为 n8n 工具 <a href="#optional-enabling-google-workspace-services-as-n8n-tools" id="optional-enabling-google-workspace-services-as-n8n-tools"></a>
 
-If you want to use Google Workspace services (Gmail, Calendar, Drive, etc.) as tools in n8n, it's recommended to setup OAuth to access these services.
+如果希望将 Gmail、Calendar、Drive 等 Google Workspace 服务用作 n8n 工具，建议设置 OAuth 来访问这些服务。
 
-First ensure the respective APIs you want are enabled:
+首先确保已启用所需服务对应的 API：
 
 ```sh
 ## Enable whichever APIs you need <a href="#enable-whichever-apis-you-need" id="enable-whichever-apis-you-need"></a>
@@ -234,7 +235,7 @@ gcloud services enable docs.googleapis.com
 gcloud services enable calendar-json.googleapis.com
 ```
 
-Re-deploy n8n on Cloud Run with the necessary OAuth callback URLs as environment variables:
+在 Cloud Run 上重新部署 n8n，将必需的 OAuth 回调 URL 设为环境变量：
 
 ```sh
 export SERVICE_URL="your-n8n-service-URL"
@@ -245,28 +246,28 @@ gcloud run services update n8n \
     --update-env-vars="N8N_HOST=$(echo $SERVICE_URL | sed 's/https:\/\///'),N8N_WEBHOOK_URL=$SERVICE_URL,N8N_EDITOR_BASE_URL=$SERVICE_URL"
 ```
 
-`N8N_WEBHOOK_URL` is available from n8n 2.30.0; on earlier versions, use `WEBHOOK_URL`.
+自 n8n 2.30.0 起可使用 `N8N_WEBHOOK_URL`，更早版本请使用 `WEBHOOK_URL`。
 
-Lastly, you must setup OAuth for these services. Visit `https://console.cloud.google.com/auth` and follow these steps:
+最后，必须为这些服务设置 OAuth。访问 `https://console.cloud.google.com/auth` 并按以下步骤操作：
 
-1. Click "Get Started" if this button shows (when you have not yet setup OAuth in this Cloud project).
-1. For "App Information", enter whichever "App Name" and "User Support Email" you prefer.
-1. For "Audience", select "Internal" if you intend to only enable access to your user(s) within this same Google Workspace. Otherwise, you can select "External".
-1. Enter "Contact Information".
-1. If you selected "External", then click "Audience" and add any test users you need to grant access.
-1. Click "Clients" > "Create client", select "Web application" for "Application type", enter your n8n service URL into "Authorized JavaScript origins", and "<YOUR-N8N-URL>/rest/oauth2-credential/callback" into "Authorized redirect URIs" where your YOUR-N8N-URL is also the n8n service URL (e.g. `https://n8n-12345678.us-west1.run.app/rest/oauth2-credential/callback`). Make sure you download the created client's JSON file since it contains the client secret which you will not be able to see later in the Console.
-1. Click "Data Access" and add the scopes you want n8n to have access for (e.g. to access Google Sheets, you need `https://googleapis.com/auth/drive.file` and `https://googleapis.com/auth/spreadsheets`)
-1. Now you should be able to use these workspace services. You can test if it works by logging into n8n, add a Tool for the respective service and add its credentials using the information in the OAuth client JSON file from step 6.
+1. 如果显示 **Get Started**（开始）按钮，说明尚未在此 Cloud 项目设置 OAuth，请点击它。
+1. 在 **App Information**（应用信息）中，输入所需的 **App Name**（应用名称）和 **User Support Email**（用户支持邮箱）。
+1. 在 **Audience**（受众）中，如果仅向同一 Google Workspace 内的用户开放访问，选择 **Internal**（内部），否则可选择 **External**（外部）。
+1. 输入 **Contact Information**（联系信息）。
+1. 如果选择 External，请点击 **Audience**，添加需要授予访问权限的测试用户。
+1. 点击 **Clients**（客户端）> **Create client**（创建客户端），将 **Application type**（应用类型）设为 **Web application**（Web 应用）。在 **Authorized JavaScript origins**（已获授权的 JavaScript 来源）中输入 n8n 服务 URL，在 **Authorized redirect URIs**（已获授权的重定向 URI）中输入“<YOUR-N8N-URL>/rest/oauth2-credential/callback”。YOUR-N8N-URL 同样是 n8n 服务 URL，例如 `https://n8n-12345678.us-west1.run.app/rest/oauth2-credential/callback`。请务必下载创建的客户端 JSON 文件，其中包含之后无法再从控制台查看的客户端密钥。
+1. 点击 **Data Access**（数据访问），添加希望授予 n8n 的权限范围。例如，访问 Google Sheets 需要 `https://googleapis.com/auth/drive.file` 和 `https://googleapis.com/auth/spreadsheets`。
+1. 现在应能使用这些 Workspace 服务。可登录 n8n，添加对应服务的工具，并使用第 6 步 OAuth 客户端 JSON 文件中的信息添加凭据，以测试是否有效。
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use a cloud provider](./)
+* [使用云提供商](./)
 * [DigitalOcean](deploy-to-digital-ocean.md)
 * [Heroku](deploy-to-heroku.md)
 * [Hetzner Cloud](deploy-to-hetzner.md)
 * [AWS](deploy-to-aws.md)
 * [Azure](deploy-to-azure.md)
 * [Google Kubernetes Engine](deploy-to-google-kubernetes.md)
-* [OpenShift Local (CRC)](deploy-to-openshift-local-crc.md)
-* [Use Docker Compose](use-docker-compose.md)
+* [OpenShift Local（CRC）](deploy-to-openshift-local-crc.md)
+* [使用 Docker Compose](use-docker-compose.md)

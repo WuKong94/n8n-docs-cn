@@ -1,97 +1,98 @@
 ---
 contentType: tutorial
-nodeTitle: Deploy to Azure
+nodeTitle: 部署到 Azure
 originalFilePath: hosting/installation/server-setups/azure.md
-originalUrl: 'https://docs.n8n.io/hosting/installation/server-setups/azure'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-azure
+originalUrl: https://docs.n8n.io/hosting/installation/server-setups/azure
+url: https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-azure
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Hosting n8n on Azure <a href="#hosting-n8n-on-azure" id="hosting-n8n-on-azure"></a>
 
-This hosting guide shows you how to self-host n8n on Azure. It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy.
+# 在 Azure 上托管 n8n <a href="#hosting-n8n-on-azure" id="hosting-n8n-on-azure"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+本指南介绍如何在 Azure 上自托管 n8n，使用 Postgres 作为数据库后端，并通过 Kubernetes 管理所需资源和反向代理。
 
-You need [The Azure command line tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+## 前提条件 <a href="#prerequisites" id="prerequisites"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/YLv7Cqg70tj1alDgktSX/" %}
+需要 [Azure 命令行工具](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/iFLUKG9zJaouigaM7IOo/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/warning.md" %}
 
-## Hosting options <a href="#hosting-options" id="hosting-options"></a>
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/latest-next-version.md" %}
 
-Azure offers several ways suitable for hosting n8n, including Azure Container Instances (optimized for running containers), Linux Virtual Machines, and Azure Kubernetes Service (containers running with Kubernetes).
+## 托管选项 <a href="#hosting-options" id="hosting-options"></a>
 
-This guide uses the Azure Kubernetes Service (AKS) as the hosting option. Using Kubernetes requires some additional complexity and configuration, but is the best method for scaling n8n as demand changes.
+Azure 提供多种适合托管 n8n 的方式，包括 Azure Container Instances（针对运行容器优化）、Linux 虚拟机和 Azure Kubernetes Service（使用 Kubernetes 运行的容器）。
 
-The steps in this guide use a mix of the Azure UI and command line tool, but you can use either to accomplish most tasks.
+本指南使用 Azure Kubernetes Service（AKS）托管。Kubernetes 会增加一些复杂性和配置，但最适合随需求变化扩展 n8n。
 
-## Open the Azure Kubernetes Service <a href="#open-the-azure-kubernetes-service" id="open-the-azure-kubernetes-service"></a>
+本指南结合使用 Azure 界面和命令行工具，但大多数任务可任选一种方式完成。
 
-From [the Azure portal](https://portal.azure.com/) select **Kubernetes services**.
+## 打开 Azure Kubernetes Service <a href="#open-the-azure-kubernetes-service" id="open-the-azure-kubernetes-service"></a>
 
-## Create a cluster <a href="#create-a-cluster" id="create-a-cluster"></a>
+在 [Azure 门户](https://portal.azure.com/)中选择 **Kubernetes services**（Kubernetes 服务）。
 
-From the Kubernetes services page, select **Create** > **Create a Kubernetes cluster**.
+## 创建集群 <a href="#create-a-cluster" id="create-a-cluster"></a>
 
-You can select any of the configuration options that suit your needs, then select **Create** when done.
+在 Kubernetes 服务页面，选择 **Create**（创建）> **Create a Kubernetes cluster**（创建 Kubernetes 集群）。
 
-## Set Kubectl context <a href="#set-kubectl-context" id="set-kubectl-context"></a>
+选择符合需求的配置选项，完成后选择 **Create**（创建）。
 
-The remainder of the steps in this guide require you to set the Azure instance as the Kubectl context. You can find the connection details for a cluster instance by opening its details page and then the **Connect** button. The resulting code snippets shows the steps to paste and run into a terminal to change your local Kubernetes settings to use the new cluster.
+## 设置 kubectl 上下文 <a href="#set-kubectl-context" id="set-kubectl-context"></a>
 
-## Clone configuration repository <a href="#clone-configuration-repository" id="clone-configuration-repository"></a>
+后续步骤要求将 Azure 实例设为 kubectl 上下文。打开集群实例的详情页，点击 **Connect**（连接），即可找到连接信息。显示的代码片段说明如何在终端中粘贴并运行命令，将本地 Kubernetes 设置切换到新集群。
 
-Kubernetes and n8n require a series of configuration files. You can clone these from [this repository](https://github.com/n8n-io/n8n-hosting). The following steps tell you which file configures what and what you need to change.
+## 克隆配置仓库 <a href="#clone-configuration-repository" id="clone-configuration-repository"></a>
 
-Clone the repository with the following command:
+Kubernetes 和 n8n 需要一系列配置文件，可以从[此仓库](https://github.com/n8n-io/n8n-hosting)克隆。以下步骤说明各文件配置哪些内容，以及需要更改的设置。
+
+使用以下命令克隆仓库：
 
 ```shell
 git clone https://github.com/n8n-io/n8n-hosting.git
 ```
 
-And change directory:
+然后切换目录：
 
 ```shell
 cd n8n-hosting/kubernetes
 ```
 
-## Configure Postgres <a href="#configure-postgres" id="configure-postgres"></a>
+## 配置 Postgres <a href="#configure-postgres" id="configure-postgres"></a>
 
-For larger scale n8n deployments, Postgres provides a more robust database backend than SQLite.
+对于较大规模的 n8n 部署，Postgres 比 SQLite 提供更稳健的数据库后端。
 
-### Configure volume for persistent storage <a href="#configure-volume-for-persistent-storage" id="configure-volume-for-persistent-storage"></a>
+### 配置持久存储卷 <a href="#configure-volume-for-persistent-storage" id="configure-volume-for-persistent-storage"></a>
 
-To maintain data between pod restarts, the Postgres deployment needs a persistent volume. The default storage class is suitable for this purpose and is defined in the `postgres-claim0-persistentvolumeclaim.yaml` manifest.
+为在 Pod 重启后保留数据，Postgres 部署需要持久卷。默认存储类适合此用途，由 `postgres-claim0-persistentvolumeclaim.yaml` 清单定义。
 
 {% hint style="info" %}
-**Specialized storage classes**
+**专用存储类**
 
-If you have specialised or higher requirements for storage classes, [read more on the options Azure offers in the documentation](https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes).
+如果对存储类有特殊或更高要求，请[阅读 Azure 文档中的可用选项](https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes)。
 {% endhint %}
 
-### Postgres environment variables <a href="#postgres-environment-variables" id="postgres-environment-variables"></a>
+### Postgres 环境变量 <a href="#postgres-environment-variables" id="postgres-environment-variables"></a>
 
-Postgres needs some environment variables set to pass to the application running in the containers.
+需要为 Postgres 设置一些环境变量，并传递给容器内运行的应用。
 
-The example `postgres-secret.yaml` file contains placeholders you need to replace with your own values. Postgres will use these details when creating the database..
+示例 `postgres-secret.yaml` 文件包含占位符，需要替换为你自己的值。Postgres 创建数据库时会使用这些信息。
 
-The `postgres-deployment.yaml` manifest then uses the values from this manifest file to send to the application pods.
+随后，`postgres-deployment.yaml` 清单使用此文件中的值，将其传递给应用 Pod。
 
-## Configure n8n <a href="#configure-n8n" id="configure-n8n"></a>
+## 配置 n8n <a href="#configure-n8n" id="configure-n8n"></a>
 
-### Create a volume for file storage <a href="#create-a-volume-for-file-storage" id="create-a-volume-for-file-storage"></a>
+### 创建文件存储卷 <a href="#create-a-volume-for-file-storage" id="create-a-volume-for-file-storage"></a>
 
-While not essential for running n8n, using persistent volumes is required for:
+虽然运行 n8n 并非必须使用持久卷，但以下情况需要：
 
-* Using nodes that interact with files, such as the binary data node.
-* If you want to persist [manual n8n encryption keys](../../configure-n8n/basic-configuration/use-environment-variables/deployment.md) between restarts. This saves a file containing the key into file storage during startup.
+* 使用与文件交互的节点，例如二进制数据节点。
+* 希望在重启间保留[手动设置的 n8n 加密密钥](../../configure-n8n/basic-configuration/use-environment-variables/deployment.md)。启动时，密钥会写入文件存储中的一个文件。
 
-The `n8n-claim0-persistentvolumeclaim.yaml` manifest creates this, and the n8n Deployment mounts that claim in the `volumes` section of the `n8n-deployment.yaml` manifest.
+`n8n-claim0-persistentvolumeclaim.yaml` 清单创建此存储卷声明，n8n Deployment 通过 `volumes` 部分挂载它，该部分位于 `n8n-deployment.yaml` 清单中。
 
 ```yaml
 …
@@ -102,9 +103,9 @@ volumes:
 …
 ```
 
-### Pod resources <a href="#pod-resources" id="pod-resources"></a>
+### Pod 资源 <a href="#pod-resources" id="pod-resources"></a>
 
-[Kubernetes lets you](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) optionally specify the minimum resources application containers need and the limits they can run to. The example YAML files cloned above contain the following in the `resources` section of the `n8n-deployment.yaml` file:
+[Kubernetes 允许](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)按需指定应用容器所需的最小资源和可使用的上限。前文克隆的示例 YAML 文件，其 `resources` 部分包含以下内容，位于 `n8n-deployment.yaml` 文件中：
 
 ```yaml
 …
@@ -116,52 +117,52 @@ resources:
 …    
 ```
 
-This defines a minimum of 250mb per container, a maximum of 500mb, and lets Kubernetes handle CPU. You can change these values to match your own needs. As a guide, here are the resources values for the n8n cloud offerings:
+这为每个容器定义最少 250 MB、最多 500 MB 的内存，并由 Kubernetes 处理 CPU。可以按需更改。以下是 n8n Cloud 套餐的资源值，供参考：
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/I9ftZ1V1rwx3OrFOh0bT/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/suggested-pod-resources.md" %}
 
-### Optional: Environment variables <a href="#optional-environment-variables" id="optional-environment-variables"></a>
+### 可选：环境变量 <a href="#optional-environment-variables" id="optional-environment-variables"></a>
 
-You can configure n8n settings and behaviors using environment variables.
+可以通过环境变量配置 n8n 设置和行为。
 
-Create an `n8n-secret.yaml` file. Refer to [Environment variables](../../configure-n8n/basic-configuration/use-environment-variables/README.md) for n8n environment variables details.
+创建 `n8n-secret.yaml` 文件。n8n 环境变量详情请参阅[环境变量](../../configure-n8n/basic-configuration/use-environment-variables/README.md)。
 
-## Deployments <a href="#deployments" id="deployments"></a>
+## 部署 <a href="#deployments" id="deployments"></a>
 
-The two deployment manifests (`n8n-deployment.yaml` and `postgres-deployment.yaml`) define the n8n and Postgres applications to Kubernetes.
+两个部署清单（`n8n-deployment.yaml` 和 `postgres-deployment.yaml`）向 Kubernetes 定义 n8n 和 Postgres 应用。
 
 {% hint style="warning" %}
-The manifests run PostgreSQL 18. Setting up for the first time needs nothing extra.
+这些清单运行 PostgreSQL 18，首次设置无需额外操作。
 
-If you already have a database running an older PostgreSQL major version, don't apply this to it. PostgreSQL 18 can't open a data directory written by an older major version, and moving the folder doesn't help. The pod stays in `CrashLoopBackOff` with `database files are incompatible with server`. PostgreSQL leaves your data alone, and you can pin the image back to the version you were on.
+如果已有数据库运行较旧的 PostgreSQL 主版本，请勿直接对其应用这些清单。PostgreSQL 18 无法打开旧主版本写入的数据目录，移动文件夹也无济于事。Pod 会持续处于 `CrashLoopBackOff`，并报错 `database files are incompatible with server`。PostgreSQL 不会改动原数据，可以将镜像重新固定回先前版本。
 
-To move an existing database across, follow the official [PostgreSQL upgrade guide](https://www.postgresql.org/docs/18/upgrading.html) first.
+要迁移现有数据库，请先按照官方 [PostgreSQL 升级指南](https://www.postgresql.org/docs/18/upgrading.html)操作。
 {% endhint %}
 
-The manifests define the following:
+这些清单定义以下内容：
 
-- Send the environment variables defined to each application pod
-- Define the container image to use
-- Set resource consumption limits with the `resources` object
-- The `volumes` defined earlier and `volumeMounts` to define the path in the container to mount volumes.
-- Scaling and restart policies. The example manifests define one instance of each pod. You should change this to meet your needs.
+- 将定义的环境变量传递给各应用 Pod。
+- 定义要使用的容器镜像。
+- 通过 `resources` 对象设置资源消耗上限。
+- 使用前文定义的 `volumes` 和 `volumeMounts`，指定容器中挂载卷的路径。
+- 扩展和重启策略。示例清单为每种 Pod 定义一个实例，请按需调整。
 
-## Services <a href="#services" id="services"></a>
+## 服务 <a href="#services" id="services"></a>
 
-The two service manifests (`postgres-service.yaml` and `n8n-service.yaml`) expose the services to the outside world using the Kubernetes load balancer using ports 5432 and 5678 respectively.
+两个服务清单（`postgres-service.yaml` 和 `n8n-service.yaml`）通过 Kubernetes 负载均衡器向外提供服务，端口分别为 5432 和 5678。
 
-## Send to Kubernetes cluster <a href="#send-to-kubernetes-cluster" id="send-to-kubernetes-cluster"></a>
+## 发送到 Kubernetes 集群 <a href="#send-to-kubernetes-cluster" id="send-to-kubernetes-cluster"></a>
 
-Send all the manifests to the cluster with the following command:
+运行以下命令，将所有清单发送到集群：
 
 ```shell
 kubectl apply -f .
 ```
 
 {% hint style="info" %}
-**Namespace error**
+**命名空间错误**
 
-You may see an error message about not finding an "n8n" namespace as that resources isn't ready yet. You can run the same command again, or apply the namespace manifest first with the following command:
+资源尚未就绪时，可能出现找不到“n8n”命名空间的错误。可以再次运行相同命令，或先使用以下命令应用命名空间清单：
 
 ```shell
 kubectl apply -f namespace.yaml
@@ -169,36 +170,36 @@ kubectl apply -f namespace.yaml
 {% endhint %}
 
 
-## Set up DNS <a href="#set-up-dns" id="set-up-dns"></a>
+## 设置 DNS <a href="#set-up-dns" id="set-up-dns"></a>
 
-n8n typically operates on a subdomain. Create a DNS record with your provider for the subdomain and point it to the IP address of the n8n service. Find the IP address of the n8n service from the **Services & ingresses** menu item of the cluster you want to use under the **External IP** column. You need to add the n8n port, "5678" to the URL.
+n8n 通常运行在子域名上。请在 DNS 提供商处为子域名创建记录，指向 n8n 服务的 IP 地址。打开目标集群的 **Services & ingresses**（服务与入口）菜单，在 **External IP**（外部 IP）列查找 n8n 服务地址。URL 中还需添加 n8n 端口 5678。
 
 {% hint style="info" %}
-**Static IP addresses with AKS**
+**AKS 静态 IP 地址**
 
-[Read this tutorial](https://learn.microsoft.com/en-us/azure/aks/static-ip) for more details on how to use a static IP address with AKS.
+如何为 AKS 使用静态 IP 地址，请[阅读此教程](https://learn.microsoft.com/en-us/azure/aks/static-ip)。
 {% endhint %}
 
-## Delete resources <a href="#delete-resources" id="delete-resources"></a>
+## 删除资源 <a href="#delete-resources" id="delete-resources"></a>
 
-Remove the resources created by the manifests with the following command:
+使用以下命令移除清单创建的资源：
 
 ```shell
 kubectl delete -f .
 ```
 
-## Next steps <a href="#next-steps" id="next-steps"></a>
+## 后续步骤 <a href="#next-steps" id="next-steps"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/GtC2RL8itCPuNiwv5UUW/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/server-setups-next-steps.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use a cloud provider](./)
+* [使用云提供商](./)
 * [DigitalOcean](deploy-to-digital-ocean.md)
 * [Heroku](deploy-to-heroku.md)
 * [Hetzner Cloud](deploy-to-hetzner.md)
 * [AWS](deploy-to-aws.md)
 * [Google Cloud Run](deploy-to-google-cloud-run.md)
 * [Google Kubernetes Engine](deploy-to-google-kubernetes.md)
-* [OpenShift Local (CRC)](deploy-to-openshift-local-crc.md)
-* [Use Docker Compose](use-docker-compose.md)
+* [OpenShift Local（CRC）](deploy-to-openshift-local-crc.md)
+* [使用 Docker Compose](use-docker-compose.md)

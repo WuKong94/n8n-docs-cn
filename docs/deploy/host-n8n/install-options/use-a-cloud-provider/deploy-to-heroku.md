@@ -1,95 +1,96 @@
 ---
 contentType: tutorial
-nodeTitle: Deploy to Heroku
+nodeTitle: 部署到 Heroku
 originalFilePath: hosting/installation/server-setups/heroku.md
-originalUrl: 'https://docs.n8n.io/hosting/installation/server-setups/heroku'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-heroku
+originalUrl: https://docs.n8n.io/hosting/installation/server-setups/heroku
+url: https://docs.n8n.io/deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-heroku
 layout:
   description:
     visible: false
 ---
-
-# Hosting n8n on Heroku <a href="#hosting-n8n-on-heroku" id="hosting-n8n-on-heroku"></a>
-
-This hosting guide shows you how to self-host n8n on Heroku. It uses:
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-- [Docker Compose](https://docs.docker.com/compose/) to create and define the application components and how they work together.
-- [Heroku's PostgreSQL service](https://devcenter.heroku.com/categories/heroku-postgres) to host n8n's data storage.
-- A **Deploy to Heroku** button offering a one click, with minor configuration, deployment.
+# 在 Heroku 上托管 n8n <a href="#hosting-n8n-on-heroku" id="hosting-n8n-on-heroku"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/YLv7Cqg70tj1alDgktSX/" %}
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/iFLUKG9zJaouigaM7IOo/" %}
+本指南介绍如何在 Heroku 上自托管 n8n，采用以下组件：
 
 
-## Use the deployment template to create a Heroku project <a href="#use-the-deployment-template-to-create-a-heroku-project" id="use-the-deployment-template-to-create-a-heroku-project"></a>
+- [Docker Compose](https://docs.docker.com/compose/)，创建并定义应用组件及其协作方式。
+- [Heroku PostgreSQL 服务](https://devcenter.heroku.com/categories/heroku-postgres)，托管 n8n 的数据存储。
+- **Deploy to Heroku**（部署到 Heroku）按钮，稍作配置即可一键部署。
 
-The quickest way to get started with deploying n8n to Heroku is using the **Deploy to Heroku** button:
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/warning.md" %}
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/n8n-io/n8n-heroku/tree/main)
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/latest-next-version.md" %}
 
-This opens the **Create New App** page on Heroku. Set a name for the project, and choose the region to deploy the project to.
 
-### Configure environment variables <a href="#configure-environment-variables" id="configure-environment-variables"></a>
+## 使用部署模板创建 Heroku 项目 <a href="#use-the-deployment-template-to-create-a-heroku-project" id="use-the-deployment-template-to-create-a-heroku-project"></a>
 
-Heroku pre-fills the configuration options defined in the `env` section of the `app.json` file, which also sets default values for the environment variables n8n uses.
+在 Heroku 部署 n8n，最快的入门方式是使用 **Deploy to Heroku** 按钮：
 
-You can change any of these values to suit your needs. You must change the following values:
+[![部署](../../../.gitbook/assets/heroku-deploy-button.svg)](https://dashboard.heroku.com/new?template=https://github.com/n8n-io/n8n-heroku/tree/main)
 
-- **N8N_ENCRYPTION_KEY**, which n8n uses to [encrypt user account details](../../configure-n8n/basic-configuration/use-environment-variables/deployment.md) before saving to the database.
-- **WEBHOOK_URL** should match the application name you create to ensure that webhooks have the correct URL.
+点击后会打开 Heroku 的 **Create New App**（创建新应用）页面。请设置项目名称，并选择部署区域。
 
-### Deploy n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
+### 配置环境变量 <a href="#configure-environment-variables" id="configure-environment-variables"></a>
 
-Select **Deploy app**.
+Heroku 会预填 `env` 部分定义的配置选项，该部分位于 `app.json` 文件中，该文件也为 n8n 使用的环境变量设置默认值。
 
-After Heroku builds and deploys the app it provides links to **Manage App** or **View** the application.
+可按需更改这些值，但必须更改以下选项：
 
-{% hint style="info" %}
-**Heroku and DNS**
+- **N8N_ENCRYPTION_KEY**，n8n 将用户账号详情保存到数据库前，用此密钥[加密](../../configure-n8n/basic-configuration/use-environment-variables/deployment.md)。
+- **WEBHOOK_URL**，应与所创建的应用名称匹配，确保 webhook URL 正确。
 
-Refer to the [Heroku documentation](https://devcenter.heroku.com/categories/networking-dns) to find out how to connect your domain to a Heroku application.
-{% endhint %}
+### 部署 n8n <a href="#deploy-n8n" id="deploy-n8n"></a>
 
-## Changing the deployment template <a href="#changing-the-deployment-template" id="changing-the-deployment-template"></a>
+选择 **Deploy app**（部署应用）。
 
-You can make changes to the deployment template by forking the [repository](https://github.com/n8n-io/n8n-heroku) and deploying from you fork.
-
-### The Dockerfile <a href="#the-dockerfile" id="the-dockerfile"></a>
-
-By default the Dockerfile pulls the latest n8n image, if you want to use a different or fixed version, then update the image tag on the top line of the `Dockerfile`.
-
-### Heroku and exposing ports <a href="#heroku-and-exposing-ports" id="heroku-and-exposing-ports"></a>
-
-Heroku doesn't allow Docker-based applications to define an exposed port with the `EXPOSE` command. Instead, Heroku provides a `PORT` environment variable that it dynamically populates at application runtime. The `entrypoint.sh` file overrides the default Docker image command to instead set the port variable that Heroku provides. You can then access n8n on port 80 in a web browser.
+Heroku 构建并部署应用后，会提供 **Manage App**（管理应用）和 **View**（查看应用）链接。
 
 {% hint style="info" %}
-**Docker limitations with Heroku**
+**Heroku 与 DNS**
 
-[Read this guide](https://devcenter.heroku.com/articles/container-registry-and-runtime#unsupported-dockerfile-commands) for more details on the limitations of using Docker with Heroku.
+如何将域名连接到 Heroku 应用，请参阅 [Heroku 文档](https://devcenter.heroku.com/categories/networking-dns)。
 {% endhint %}
 
-### Configuring Heroku <a href="#configuring-heroku" id="configuring-heroku"></a>
+## 更改部署模板 <a href="#changing-the-deployment-template" id="changing-the-deployment-template"></a>
 
-The `heroku.yml` file defines the application you want to create on Heroku. It consists of two sections:
+可以派生此[仓库](https://github.com/n8n-io/n8n-heroku)并从派生仓库部署，以修改部署模板。
 
-* `setup` > `addons` defines the Heroku addons to use. In this case, the PostgreSQL database addon.
-* The `build` section defines how Heroku builds the application. In this case it uses the Docker buildpack to build a `web` service based on the supplied `Dockerfile`.
+### Dockerfile <a href="#the-dockerfile" id="the-dockerfile"></a>
 
-## Next steps <a href="#next-steps" id="next-steps"></a>
+Dockerfile 默认拉取最新 n8n 镜像。如果希望使用其他或固定版本，请更新 `Dockerfile` 首行的镜像标签。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/GtC2RL8itCPuNiwv5UUW/" %}
+### Heroku 与端口暴露 <a href="#heroku-and-exposing-ports" id="heroku-and-exposing-ports"></a>
 
-## Related resources
+Heroku 不允许基于 Docker 的应用通过 `EXPOSE` 命令定义暴露端口，而是提供在应用运行时动态填充的 `PORT` 环境变量。`entrypoint.sh` 文件覆盖默认 Docker 镜像命令，改为设置 Heroku 提供的端口变量。随后可在浏览器通过端口 80 访问 n8n。
 
-* [Use a cloud provider](./)
+{% hint style="info" %}
+**Heroku 的 Docker 限制**
+
+在 Heroku 使用 Docker 的限制，请[阅读此指南](https://devcenter.heroku.com/articles/container-registry-and-runtime#unsupported-dockerfile-commands)。
+{% endhint %}
+
+### 配置 Heroku <a href="#configuring-heroku" id="configuring-heroku"></a>
+
+`heroku.yml` 文件定义要在 Heroku 创建的应用，由两个部分组成：
+
+* `setup` > `addons` 定义要使用的 Heroku 附加组件，此处为 PostgreSQL 数据库附加组件。
+* `build` 部分定义 Heroku 如何构建应用。此处使用 Docker buildpack 构建 `web` 服务，依据是提供的 `Dockerfile`。
+
+## 后续步骤 <a href="#next-steps" id="next-steps"></a>
+
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/installation/server-setups-next-steps.md" %}
+
+## 相关资源 <a id="related-resources"></a>
+
+* [使用云提供商](./)
 * [DigitalOcean](deploy-to-digital-ocean.md)
 * [Hetzner Cloud](deploy-to-hetzner.md)
 * [AWS](deploy-to-aws.md)
 * [Azure](deploy-to-azure.md)
 * [Google Cloud Run](deploy-to-google-cloud-run.md)
 * [Google Kubernetes Engine](deploy-to-google-kubernetes.md)
-* [OpenShift Local (CRC)](deploy-to-openshift-local-crc.md)
-* [Use Docker Compose](use-docker-compose.md)
+* [OpenShift Local（CRC）](deploy-to-openshift-local-crc.md)
+* [使用 Docker Compose](use-docker-compose.md)

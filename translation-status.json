@@ -6126,5 +6126,144 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/README.md": {
+    "status": "translated",
+    "source_sha256": "a9cfaa4a4ae9a555090a999d806df4e6d9d3cdd75612c21c582d002593ccdc63",
+    "translation_sha256": "0d413b53e4eb560f344e15cfaa2153785c1dc32d788b48ed0a1326db1f0476b9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-aws.md": {
+    "status": "translated",
+    "source_sha256": "f90c6009b07b9d9d881a0ada810f11c7eaeea79a6a39bd4ded9d85e92985a6e8",
+    "translation_sha256": "7d04cb760e898b24bf439bdd6ab2e1b9b27e82d0e21b7706f1cbe01ea89dcc92",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "aws-dns-record-without-service-port"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-azure.md": {
+    "status": "translated",
+    "source_sha256": "6e5982d2a8f0c204543b0a266f0c9a29b0c718efa82b65f3a8ac189e5cde3439",
+    "translation_sha256": "4219cb0a319c07156fa96f0178359b2448b50b6c9cb3af4574abcf09469c4f0e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-digital-ocean.md": {
+    "status": "translated",
+    "source_sha256": "cd75d3b1f76890b2523f6441a26a01618e756796ac750fe5e311d3184b7adac6",
+    "translation_sha256": "1555e678fcc99c7b4fcd18267e87849d9d8d2dc4c7304d804ce3d14218964a93",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-google-cloud-run.md": {
+    "status": "translated",
+    "source_sha256": "f3022ac2453068fa01079ef3ce37930e49bb66a293b2c7b48310aade52d5817d",
+    "translation_sha256": "613748560c618e5b58a466141d5f2211418f7c50535f0214bc895bcc3734e7e3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-google-kubernetes.md": {
+    "status": "translated",
+    "source_sha256": "e245863458a58dbd1ef093628f8ec4c9a75f4034f56ceea0be3cb0746987f581",
+    "translation_sha256": "40092d09b34ab2b477806c738b8720c243afa92c57bc5d46fa897f99cfc3868f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-heroku.md": {
+    "status": "translated",
+    "source_sha256": "e66ca48b0884747d3f0c24648b2f14e89fee2080cf3d46bb3950e4bf119f20c3",
+    "translation_sha256": "47b05f7c8c9f3ac32824ee32803fe54103823ccaadeb695c9d55a0f5d9609aa7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-hetzner.md": {
+    "status": "translated",
+    "source_sha256": "5bb8da8c647236d9e587789cbded40e536f6e19b4b9cc2612c2b9d6117791f90",
+    "translation_sha256": "3df12833855aec80c0f2d772b3d5b0e4a1adc12cce5d1bae002371cc33be0b56",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "hetzner-sandbox-provider-name",
+      "hetzner-sandbox-server-name"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/use-docker-compose.md": {
+    "status": "translated",
+    "source_sha256": "700f617f112bf65523a08caef4a2c78e721b4d2646bd2dde461c61c5d77a6eb9",
+    "translation_sha256": "0746068b1b7398e7316c05550a7314ba8ea1d4fdb4205b701bc33c5663d3d081",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-openshift-local-crc.md": {
+    "status": "translated",
+    "source_sha256": "7774e033479a8f8a68b05b068f4a3a76653d779e5b740ecbc079865966173c7e",
+    "translation_sha256": "1d53c318af85e6dcfa627c5b7d63a64f636c5305b20a2d65779fbf05f5aa132f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "3d2fd6d69d30d1c10e1a33a04baf17e4dfa24091ba0d9442baea8f27f024f00b",
+    "translation_sha256": "6e7610f2d892f5cb7e60406d741e915f2f673bfc134b87ef9434db21e3817bdc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/installation/suggested-pod-resources.md": {
+    "status": "translated",
+    "source_sha256": "c6211029ab54599a1053d9e5d1f42171d8b89397597d11d7145562f09e9185d4",
+    "translation_sha256": "1f875f1de1d3beb32e98fee3d887b890e7f96b7101af1ab3031db85edb6e1046",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
