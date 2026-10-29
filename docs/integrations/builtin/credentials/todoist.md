@@ -1,68 +1,68 @@
 ---
-title: Todoist credentials
-description: >-
-  Documentation for Todoist credentials. Use these credentials to authenticate
-  Todoist in n8n, a workflow automation platform.
+title: Todoist 凭据
+description: Todoist 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Todoist 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Todoist credentials
+nodeTitle: Todoist 凭据
 originalFilePath: integrations/builtin/credentials/todoist.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/todoist'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/todoist'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/todoist
+url: https://docs.n8n.io/integrations/builtin/credentials/todoist
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Todoist credentials <a href="#todoist-credentials" id="todoist-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Todoist 凭据 <a href="#todoist-credentials" id="todoist-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Todoist](../app-nodes/n8n-nodes-base.todoist.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Todoist's REST API documentation](https://developer.todoist.com/rest/v2/#overview) for more information about the service.
+有关该服务的更多信息，请参阅 [Todoist REST API 文档](https://developer.todoist.com/rest/v2/#overview)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need a [Todoist](https://todoist.com/) account and:
+配置此凭据需要一个 [Todoist](https://todoist.com/) 账号，以及：
 
-- An **API Key**
+- 一个 **API Key（API 密钥）**
 
-To get your **API Key**:
+获取 **API Key**（API 密钥）的步骤如下：
 
-1. In Todoist, open your [**Settings > Integrations**](https://app.todoist.com/app/settings/integrations).
-2. Select the **Developer** tab.
-3. Copy your **API token** and enter it as the **API Key** in your n8n credential.
+1. 在 Todoist 中打开 [**Settings > Integrations**（设置 > 集成）](https://app.todoist.com/app/settings/integrations)。
+2. 选择 **Developer**（开发者）选项卡。
+3. 复制 **API token**（API 令牌），填入 n8n 凭据的 **API Key**（API 密钥）。
 
-Refer to [Find your API token](https://todoist.com/help/articles/find-your-api-token-Jpzx9IIlB) for more information.
+更多信息，请参阅[查找 API 令牌](https://todoist.com/help/articles/find-your-api-token-Jpzx9IIlB)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're [self-hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n) n8n, you'll need a [Todoist](https://todoist.com/) account and:
+如果[自托管](../../../deploy/host-n8n/README.md) n8n，需要一个 [Todoist](https://todoist.com/) 账户，以及：
 
-- A **Client ID**
-- A **Client Secret**
+- 一个 **Client ID（客户端 ID）**
+- 一个 **Client Secret（客户端密钥）**
 
-Get both by creating an application:
+创建应用即可获取这两项：
 
-1. Open the Todoist [App Management Console](https://developer.todoist.com/appconsole.html).
-2. Select **Create a new app**.
-3. Enter an **App name** for your app, like `n8n integration`.
-4. Select **Create app**.
-5. Copy the n8n **OAuth Redirect URL** and enter it as the **OAuth redirect URL** in Todoist.
-6. Copy the **Client ID** from Todoist and enter it in your n8n credential.
-7. Copy the **Client Secret** from Todoist and enter it in your n8n credential.
-8. Configure the rest of your Todoist app as it makes sense for your use case.
+1. 打开 Todoist 的[应用管理控制台](https://developer.todoist.com/appconsole.html)。
+2. 选择 **Create a new app**（创建新应用）。
+3. 输入应用的 **App name**（应用名称），例如 `n8n integration`。
+4. 选择 **Create app**（创建应用）。
+5. 从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL），填入 Todoist 的 **OAuth redirect URL**（OAuth 重定向 URL）。
+6. 从 Todoist 复制 **Client ID**（客户端 ID），填入 n8n 凭据。
+7. 从 Todoist 复制 **Client Secret**（客户端密钥），填入 n8n 凭据。
+8. 根据具体使用场景，配置 Todoist 应用的其余部分。
 
-Refer to the Todoist [Authorization Guide](https://developer.todoist.com/guides/#authorization) for more information.
+更多信息，请参阅 Todoist 的[授权指南](https://developer.todoist.com/guides/#authorization)。

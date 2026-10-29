@@ -1,69 +1,69 @@
 ---
-title: Figma credentials
-description: >-
-  Documentation for Figma credentials. Use these credentials to authenticate
-  Figma in n8n, a workflow automation platform.
+title: Figma 凭据
+description: Figma 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Figma 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Figma credentials
+- integration
+- reference
+nodeTitle: Figma 凭据
 originalFilePath: integrations/builtin/credentials/figma.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/figma'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/figma'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/figma
+url: https://docs.n8n.io/integrations/builtin/credentials/figma
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Figma credentials <a href="#figma-credentials" id="figma-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Figma 凭据 <a href="#figma-credentials" id="figma-credentials"></a>
 
-- [Figma Trigger (Beta)](../trigger-nodes/n8n-nodes-base.figmatrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [Figma Trigger（Beta 触发器）](../trigger-nodes/n8n-nodes-base.figmatrigger.md)
 
-Create a [Figma](https://www.figma.com/) account. You need an admin or owner level account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建 [Figma](https://www.figma.com/) 账户，需要管理员或所有者级别的账户。
 
-- Access token
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+
+- Access token（访问令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Figma's API documentation](https://www.figma.com/developers/api) for more information about the service.
+有关该服务的更多信息，请参阅 [Figma API 文档](https://www.figma.com/developers/api)。
 
-## Using Access token <a href="#using-access-token" id="using-access-token"></a>
+## 使用访问令牌 <a href="#using-access-token" id="using-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A Personal **Access Token** (PAT): Refer to the [Figma API Access Tokens documentation](https://www.figma.com/developers/api#access-tokens) for instructions on generating a Personal **Access Token**.
+- 个人 **Access Token**（访问令牌，PAT）：生成步骤，请参阅 [Figma API 访问令牌文档](https://www.figma.com/developers/api#access-tokens)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need a [Figma](https://www.figma.com/) account.
+配置此凭据需要一个 [Figma](https://www.figma.com/) 账户。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're [self-hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n) n8n, you'll need to register an application to set up OAuth:
+如果[自托管](../../../deploy/host-n8n/README.md) n8n，需要注册应用以设置 OAuth：
 
-1. Open the Figma [developer apps](https://www.figma.com/developers/apps) page.
-2. Select **Create a new app**.
-3. Enter a **Name** for your app, like `n8n integration`.
-4. In n8n, copy the **OAuth Redirect URL**.
-5. In Figma, select **Add a callback** and enter the URL you copied from n8n.
-6. Save the app.
-7. Copy the **Client ID** from Figma and enter it in your n8n credential.
-8. Copy the **Client Secret** from Figma and enter it in your n8n credential.
+1. 打开 Figma 的[开发者应用](https://www.figma.com/developers/apps)页面。
+2. 选择 **Create a new app**（创建新应用）。
+3. 输入应用的 **Name**（名称），例如 `n8n integration`。
+4. 在 n8n 中复制 **OAuth Redirect URL**（OAuth 重定向 URL）。
+5. 在 Figma 中选择 **Add a callback**（添加回调），输入从 n8n 复制的 URL。
+6. 保存应用。
+7. 从 Figma 复制 **Client ID**（客户端 ID），填入 n8n 凭据。
+8. 从 Figma 复制 **Client Secret**（客户端密钥），填入 n8n 凭据。
 
-Refer to the [Figma OAuth documentation](https://www.figma.com/developers/api#oauth2) for more information.
+更多信息，请参阅 [Figma OAuth 文档](https://www.figma.com/developers/api#oauth2)。
 
-## Setting custom scopes <a href="#setting-custom-scopes" id="setting-custom-scopes"></a>
+## 设置自定义权限范围 <a href="#setting-custom-scopes" id="setting-custom-scopes"></a>
 
-Figma OAuth2 credentials use the following scopes by default:
+Figma OAuth2 凭据默认使用以下作用域：
 
 * `webhooks:read`
 * `webhooks:write`
 
-To select different scopes for your credentials, enable the **Custom Scopes** slider and edit the **Enabled Scopes** list. Keep in mind that some features may not work as expected with more restrictive scopes. Refer to [Figma's OAuth scopes](https://developers.figma.com/docs/rest-api/scopes/) for the full list of available scopes.
+如需为凭据选择其他作用域，请启用 **Custom Scopes**（自定义作用域）开关，并编辑 **Enabled Scopes**（已启用的作用域）列表。使用更严格的作用域时，部分功能可能无法正常运行。全部可用作用域，请参阅 [Figma OAuth 作用域](https://developers.figma.com/docs/rest-api/scopes/)。

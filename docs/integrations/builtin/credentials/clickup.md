@@ -1,63 +1,63 @@
 ---
-title: ClickUp credentials
-description: >-
-  Documentation for ClickUp credentials. Use these credentials to authenticate
-  ClickUp in n8n, a workflow automation platform.
+title: ClickUp 凭据
+description: ClickUp 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 ClickUp 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: ClickUp credentials
+nodeTitle: ClickUp 凭据
 originalFilePath: integrations/builtin/credentials/clickup.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/clickup'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/clickup'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/clickup
+url: https://docs.n8n.io/integrations/builtin/credentials/clickup
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# ClickUp credentials <a href="#clickup-credentials" id="clickup-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# ClickUp 凭据 <a href="#clickup-credentials" id="clickup-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [ClickUp](../app-nodes/n8n-nodes-base.clickup.md)
-- [ClickUp Trigger](../trigger-nodes/n8n-nodes-base.clickuptrigger.md)
+- [ClickUp Trigger（触发器）](../trigger-nodes/n8n-nodes-base.clickuptrigger.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
+- API access token（API 访问令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [ClickUp's documentation](https://clickup.com/api/) for more information about the service.
+有关该服务的更多信息，请参阅 [ClickUp 文档](https://clickup.com/api/)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need a [ClickUp](https://www.clickup.com/) account and:
+配置此凭据需要一个 [ClickUp](https://www.clickup.com/) 账号，以及：
 
-- A Personal API **Access Token**
+- 个人 API **Access Token**（访问令牌）
 
-To get your personal API token:
+获取个人 API 令牌的步骤如下：
 
-1. If you're using ClickUp 2.0, select your avatar in the lower-left corner and select **Apps**. If you're using ClickUp 3.0, select your avatar in the upper-right corner, select **Settings**, and scroll down to select **Apps** in the sidebar.
-2. Under **API Token**, select **Generate**.
-3. Copy your **Personal API token** and enter it in your n8n credential as the **Access Token**.
+1. 使用 ClickUp 2.0 时，选择左下角的头像，再选择 **Apps**（应用）。使用 ClickUp 3.0 时，选择右上角的头像，选择 **Settings**（设置），向下滚动后在侧边栏选择 **Apps**（应用）。
+2. 在 **API Token**（API 令牌）下选择 **Generate**（生成）。
+3. 复制 **Personal API token**（个人 API 令牌），填入 n8n 凭据的 **Access Token**（访问令牌）。
 
-Refer to [ClickUp's Personal Token documentation](https://clickup.com/api/developer-portal/authentication#personal-token) for more information.
+更多信息，请参阅 [ClickUp 个人令牌文档](https://clickup.com/api/developer-portal/authentication#personal-token)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're [self-hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n) n8n, you'll need to create an OAuth app:
+如果[自托管](../../../deploy/host-n8n/README.md) n8n，则需要创建 OAuth 应用：
 
-1. In ClickUp, select your avatar and select **Integrations**.
-2. Select **ClickUp API**.
-3. Select **Create an App**.
-4. Enter a **Name** for your app.
-5. In n8n, copy the **OAuth Redirect URL**. Enter this as your ClickUp app's **Redirect URL**.
-6. Once you create your app, copy the **client_id** and **secret** and enter them in your n8n credential.
-7. Select **Connect my account** and follow the on-screen prompts to finish connecting the credential.
+1. 在 ClickUp 中选择头像，再选择 **Integrations**（集成）。
+2. 选择 **ClickUp API**。
+3. 选择 **Create an App**（创建应用）。
+4. 输入应用的 **Name**（名称）。
+5. 在 n8n 中复制 **OAuth Redirect URL**（OAuth 重定向 URL），填入 ClickUp 应用的 **Redirect URL**（重定向 URL）。
+6. 创建应用后，复制 **client_id** 和 **secret**，填入 n8n 凭据。
+7. 选择 **Connect my account**（连接我的账户），按照屏幕提示完成凭据连接。
 
- Refer to the [ClickUp Oauth flow documentation](https://clickup.com/api/developer-portal/authentication#oauth-flow) for more information.
+ 更多信息，请参阅 [ClickUp OAuth 流程文档](https://clickup.com/api/developer-portal/authentication#oauth-flow)。

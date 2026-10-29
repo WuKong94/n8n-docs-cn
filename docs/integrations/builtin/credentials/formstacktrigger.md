@@ -1,78 +1,78 @@
 ---
-title: Formstack Trigger credentials
-description: >-
-  Documentation for Formstack Trigger credentials. Use these credentials to
-  authenticate Formstack Trigger in n8n, a workflow automation platform.
+title: Formstack Trigger 凭据
+description: Formstack Trigger 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Formstack Trigger 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Formstack Trigger credentials
+- integration
+- reference
+nodeTitle: Formstack Trigger 凭据
 originalFilePath: integrations/builtin/credentials/formstacktrigger.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/formstacktrigger'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/formstacktrigger'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/formstacktrigger
+url: https://docs.n8n.io/integrations/builtin/credentials/formstacktrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Formstack Trigger credentials <a href="#formstack-trigger-credentials" id="formstack-trigger-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Formstack Trigger 凭据 <a href="#formstack-trigger-credentials" id="formstack-trigger-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Formstack Trigger](../trigger-nodes/n8n-nodes-base.formstacktrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Formstack](https://www.formstack.com/) account.
+创建 [Formstack](https://www.formstack.com/) 账户。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
+- API access token（API 访问令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Formstack's API documentation](https://developers.formstack.com/reference/api-overview) for more information about the service.
+有关该服务的更多信息，请参阅 [Formstack API 文档](https://developers.formstack.com/reference/api-overview)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An API **Access Token**: To generate an Access Token, [create a new application](https://www.formstack.com/admin/apiKey/main) in Formstack using the following details:
-    * **Redirect URI**: For cloud n8n instances, enter `https://oauth.n8n.cloud/oauth2/callback`.
-        - For self-hosted n8n instances, enter the OAuth callback URL for your n8n instance in the format `https://<n8n_url>/rest/oauth2-credential/callback`. For example `https://localhost:5678/rest/oauth2-credential/callback`.
-    * **Platform**: Select **Website**.
+- API **Access Token**（访问令牌）：如需生成访问令牌，请在 Formstack 中使用以下信息[创建新应用](https://www.formstack.com/admin/apiKey/main)：
+    * **Redirect URI**（重定向 URI）：n8n 云实例请填写 `https://oauth.n8n.cloud/oauth2/callback`。
+        - 自托管 n8n 实例请填写该实例的 OAuth 回调 URL，格式为 `https://<n8n_url>/rest/oauth2-credential/callback`，例如 `https://localhost:5678/rest/oauth2-credential/callback`。
+    * **Platform**（平台）：选择 **Website**（网站）。
 
-Once you've created the application, copy the access token either from the applications list or by selecting the application to view its details.
+创建应用后，从应用列表中复制访问令牌，或选择应用并查看详情以复制令牌。
 
-Refer to [Formstack's API Authorization documentation](https://developers.formstack.com/reference/api-overview#obtaining-an-api-key-oauth2-access-token) for more detailed instructions.
+更详细的说明，请参阅 [Formstack API 授权文档](https://developers.formstack.com/reference/api-overview#obtaining-an-api-key-oauth2-access-token)。
 
 {% hint style="info" %}
-**Access token permissions**
+**访问令牌权限**
 
-Formstack ties access tokens to a Formstack user. Access tokens follow Formstack (in-app) user permissions.
+Formstack 将访问令牌关联到 Formstack 用户。访问令牌遵循 Formstack 应用内的用户权限。
 {% endhint %}
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Client ID**
-- A **Client Secret**
+- 一个 **Client ID（客户端 ID）**
+- 一个 **Client Secret（客户端密钥）**
 
-To generate both of these, [create a new application](https://www.formstack.com/admin/apiKey/main) in Formstack using the following details:
+如需生成这两项，请在 Formstack 中使用以下信息[创建新应用](https://www.formstack.com/admin/apiKey/main)：
 
-- **Redirect URI**: Copy the **OAuth Redirect URL** from the n8n credential to enter here.
-    - For self-hosted n8n instances, enter the OAuth callback URL for your n8n instance in the format `https://<n8n_url>/rest/oauth2-credential/callback`. For example `https://localhost:5678/rest/oauth2-credential/callback`.
-- **Platform**: Select **Website**.
+- **Redirect URI**（重定向 URI）：从 n8n 凭据中复制 **OAuth Redirect URL**（OAuth 重定向 URL），填入此处。
+    - 自托管 n8n 实例请填写该实例的 OAuth 回调 URL，格式为 `https://<n8n_url>/rest/oauth2-credential/callback`，例如 `https://localhost:5678/rest/oauth2-credential/callback`。
+- **Platform**（平台）：选择 **Website**（网站）。
 
-Once you've created the application, select it from the applications list to view the **Application Details**. Copy the **Client ID** and **Client Secret** and add them to n8n. Once you've added both, select the **Connect my account** button to begin the OAuth2 flow and authorization process.
+创建应用后，在应用列表中选择该应用，查看 **Application Details**（应用详情）。复制 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥），填入 n8n。添加两项信息后，选择 **Connect my account**（连接我的账户）按钮，开始 OAuth2 流程和授权过程。
 
-Refer to [Formstack's API Authorization documentation](https://developers.formstack.com/reference/api-overview#obtaining-an-api-key-oauth2-access-token) for more detailed instructions.
+更详细的说明，请参阅 [Formstack API 授权文档](https://developers.formstack.com/reference/api-overview#obtaining-an-api-key-oauth2-access-token)。
 
 {% hint style="info" %}
-**Access token permissions**
+**访问令牌权限**
 
-Formstack ties access tokens to a Formstack user. Access tokens follow Formstack (in-app) user permissions.
+Formstack 将访问令牌关联到 Formstack 用户。访问令牌遵循 Formstack 应用内的用户权限。
 {% endhint %}
 

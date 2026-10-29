@@ -1,52 +1,52 @@
 ---
-title: AMQP credentials
-description: >-
-  Documentation for AMQP credentials. Use these credentials to authenticate AMQP
-  in n8n, a workflow automation platform.
+title: AMQP 凭据
+description: AMQP 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 AMQP 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: AMQP credentials
+nodeTitle: AMQP 凭据
 originalFilePath: integrations/builtin/credentials/amqp.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/amqp'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/amqp'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/amqp
+url: https://docs.n8n.io/integrations/builtin/credentials/amqp
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AMQP credentials <a href="#amqp-credentials" id="amqp-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# AMQP 凭据 <a href="#amqp-credentials" id="amqp-credentials"></a>
 
-- [AMQP Sender](../app-nodes/n8n-nodes-base.amqp.md)
-- [AMQP Trigger](../trigger-nodes/n8n-nodes-base.amqptrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [AMQP Sender（发送器）](../app-nodes/n8n-nodes-base.amqp.md)
+- [AMQP Trigger（触发器）](../trigger-nodes/n8n-nodes-base.amqptrigger.md)
 
-Install an AMQP 1.0-compatible message broker like [ActiveMQ](https://activemq.apache.org/). Refer to [AMQP Products](https://www.amqp.org/about/examples.html) for a list of options.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+安装兼容 AMQP 1.0 的消息代理，例如 [ActiveMQ](https://activemq.apache.org/)。可选产品列表，请参阅 [AMQP 产品](https://www.amqp.org/about/examples.html)。
 
-- AMQP connection
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- AMQP connection（连接）
 
-Advanced Message Queuing Protocol (AMQP) is an open standard application layer protocol for message-oriented middleware. The defining features of AMQP are message orientation, queuing, routing, reliability and security. Refer to the [OASIS AMQP Version 1.0 Standard](https://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) for more information.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to your provider's documentation for more information about the service. Refer to [ActiveMQ's API documentation](https://activemq.apache.org/components/classic/documentation/rest) as one example.
+高级消息队列协议（AMQP）是面向消息的中间件所使用的开放标准应用层协议，主要特性包括面向消息、队列、路由、可靠性及安全性。更多信息，请参阅 [OASIS AMQP 1.0 版本标准](https://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)。
 
-## Using AMQP connection <a href="#using-amqp-connection" id="using-amqp-connection"></a>
+有关该服务的更多信息，请参阅提供商的文档，例如 [ActiveMQ API 文档](https://activemq.apache.org/components/classic/documentation/rest)。
 
-To configure this credential, you'll need:
+## 使用 AMQP 连接 <a href="#using-amqp-connection" id="using-amqp-connection"></a>
 
-- A **Hostname**: Enter the hostname of your AMQP message broker.
-- A **Port**: Enter the port number the connection should use.
-- A **User**: Enter the name of the user to establish the connection as.
-    - For example, the default username in ActiveMQ is `admin`.
-- A **Password**: Enter the user's password.
-    - For example, the default password in ActiveMQ is `admin`.
-- _Optional:_ **Transport Type**: Enter either `tcp` or `tls`.
+配置此凭据需要：
 
-Refer to your provider's documentation for more detailed instructions.
+- **Hostname**（主机名）：输入 AMQP 消息代理的主机名。
+- **Port**（端口）：输入连接使用的端口号。
+- **User**（用户）：输入建立连接时使用的用户名。
+    - 例如，ActiveMQ 的默认用户名为 `admin`。
+- **Password**（密码）：输入该用户的密码。
+    - 例如，ActiveMQ 的默认密码为 `admin`。
+- _可选：_ **Transport Type**（传输类型）：输入 `tcp` 或 `tls`。
+
+更详细的说明，请参阅提供商的文档。

@@ -1,65 +1,65 @@
 ---
-title: Elastic Security credentials
-description: >-
-  Documentation for Elastic Security credentials. Use these credentials to
-  authenticate Elastic Security in n8n, a workflow automation platform.
+title: Elastic Security 凭据
+description: Elastic Security 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Elastic Security 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Elastic Security credentials
+- integration
+- reference
+nodeTitle: Elastic Security 凭据
 originalFilePath: integrations/builtin/credentials/elasticsecurity.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/elasticsecurity'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/elasticsecurity'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/elasticsecurity
+url: https://docs.n8n.io/integrations/builtin/credentials/elasticsecurity
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Elastic Security credentials <a href="#elastic-security-credentials" id="elastic-security-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Elastic Security 凭据 <a href="#elastic-security-credentials" id="elastic-security-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Elastic Security](../app-nodes/n8n-nodes-base.elasticsecurity.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create an [Elastic Security](https://www.elastic.co/security) account.
-- [Deploy](https://www.elastic.co/guide/en/cloud/current/ec-create-deployment.html) an application.
+- 创建一个 [Elastic Security](https://www.elastic.co/security) 账户。
+- [部署](https://www.elastic.co/guide/en/cloud/current/ec-create-deployment.html)应用。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Basic auth
-- API Key
+- Basic auth（基本身份验证）
+- API Key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Elastic Security's documentation](https://www.elastic.co/guide/en/security/current/es-overview.html) for more information about the service.
+有关该服务的更多信息，请参阅 [Elastic Security 文档](https://www.elastic.co/guide/en/security/current/es-overview.html)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Username**: For the user account you log into Elasticsearch with.
-- A **Password**: For the user account you log into Elasticsearch with.
-- Your Elasticsearch application's **Base URL** (also known as the Elasticsearch application endpoint):
+- **Username**（用户名）：登录 Elasticsearch 所用用户账户的用户名。
+- **Password**（密码）：登录 Elasticsearch 所用用户账户的密码。
+- Elasticsearch 应用的 **Base URL**（基础 URL，也称为 Elasticsearch 应用端点）：
 
-    1. In Elasticsearch, select the option to **Manage this deployment**.
-    2. In the **Applications** section, copy the endpoint of the **Elasticsearch** application.
-    3. Add this in n8n as the **Base URL**.
+    1. 在 Elasticsearch 中选择 **Manage this deployment**（管理此部署）。
+    2. 在 **Applications**（应用）部分，复制 **Elasticsearch** 应用的端点。
+    3. 在 n8n 中，将其填入 **Base URL**（基础 URL）。
 
 {% hint style="info" %}
-**Custom endpoint aliases**
+**自定义端点别名**
 
-If you add a [custom endpoint alias](https://www.elastic.co/guide/en/cloud/current/ec-regional-deployment-aliases.html) to a deployment, update your n8n credential **Base URL** with the new endpoint.
+如果为部署添加了[自定义端点别名](https://www.elastic.co/guide/en/cloud/current/ec-regional-deployment-aliases.html)，请将 n8n 凭据的 **Base URL**（基础 URL）更新为新端点。
 {% endhint %}
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: For the user account you log into Elasticsearch with. Refer to Elasticsearch's [Create API key documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-api-key.html) for more information.
-- Your Elasticsearch application's **Base URL** (also known as the Elasticsearch application endpoint):
+- **API Key**（API 密钥）：用于登录 Elasticsearch 的用户账户。更多信息，请参阅 Elasticsearch 的[创建 API 密钥文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-api-key.html)。
+- Elasticsearch 应用的 **Base URL**（基础 URL，也称为 Elasticsearch 应用端点）：
 
-    1. In Elasticsearch, select the option to **Manage this deployment**.
-    2. In the **Applications** section, copy the endpoint of the **Elasticsearch** application.
-    3. Add this in n8n as the **Base URL**.
+    1. 在 Elasticsearch 中选择 **Manage this deployment**（管理此部署）。
+    2. 在 **Applications**（应用）部分，复制 **Elasticsearch** 应用的端点。
+    3. 在 n8n 中，将其填入 **Base URL**（基础 URL）。

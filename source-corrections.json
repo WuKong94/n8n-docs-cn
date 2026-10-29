@@ -394,5 +394,15 @@
     "translated_sentence": "为此工作流工具输入描述，告诉智能体何时使用它。例如：",
     "evidence": "本页节点是 Call n8n Workflow Tool，简介明确调用其他 n8n 工作流，后续参数为 Source 和 Workflow Inputs；Description 小节误沿用了 Custom Code Tool 的自定义代码表述。",
     "scope": "仅修正 Description 小节中复制的自定义代码措辞；保留工具描述用途、示例提示词、工作流来源、发布要求、输入参数、代码和链接。"
+  },
+  {
+    "id": "zoho-cn-data-center-region",
+    "path": "integrations/builtin/credentials/zoho.md",
+    "source_sha256": "83dbc7cd852deac8241221a4fb6d08a9043985ecb0f8c52860a6dbea7eaab0ad",
+    "original_sentence": "- **CN**: Select this option for Canada data center.",
+    "translated_sentence": "- **CN**：中国数据中心选择此项。",
+    "translator_note": "译注：原文将 CN 说明为加拿大。Zoho 官方 Multi DC 文档列出 CN 对应 accounts.zoho.com.cn，加拿大则为 CA，对应 accounts.zohocloud.ca。此处仅修正区域说明，保留原有选项列表，不据此推断其他 n8n 版本是否提供 CA 选项。",
+    "evidence": "原页面自身引用的 Zoho CRM v3 Multi DC 文档（https://www.zoho.com/crm/developer/docs/api/v3/multi-dc.html）将 CN 列为 accounts.zoho.com.cn，将 CA(Canada) 列为 accounts.zohocloud.ca；Zoho 官方 Server Domains（https://www.zoho.com/communityspaces/api/oauth-authentication-server-domains.html）明确将 .com.cn 和 accounts.zoho.com.cn 列为 China。2026-10-29 核对，原文 CN 的 Canada 说明与供应商映射冲突。",
+    "scope": "仅修正 CN 的国家说明并添加译注，保留 AU/CN/EU/IN/US 原选项、OAuth 回调配置、链接和代码；不为原文添加 CA 选项，不宣称验证了节点运行或当前产品支持范围。"
   }
 ]

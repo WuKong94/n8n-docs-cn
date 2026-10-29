@@ -1,60 +1,60 @@
 ---
-title: NVIDIA Nemotron credentials
-description: >-
-  Documentation for NVIDIA Nemotron credentials. Use these credentials to
-  authenticate NVIDIA Nemotron in n8n, a workflow automation platform.
+title: NVIDIA Nemotron 凭据
+description: NVIDIA Nemotron 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 NVIDIA Nemotron 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: NVIDIA Nemotron credentials
+nodeTitle: NVIDIA Nemotron 凭据
 originalFilePath: integrations/builtin/credentials/nvidia.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/nvidia'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/nvidia'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/nvidia
+url: https://docs.n8n.io/integrations/builtin/credentials/nvidia
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# NVIDIA Nemotron credentials <a href="#nvidia-nemotron-credentials" id="nvidia-nemotron-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# NVIDIA Nemotron 凭据 <a href="#nvidia-nemotron-credentials" id="nvidia-nemotron-credentials"></a>
 
-- [NVIDIA Nemotron Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia.md)
+这些凭据可用于以下节点的身份验证：
 
-A single credential covers both deployment modes:
+- [NVIDIA Nemotron Chat Model（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia.md)
 
-- **Cloud**: NVIDIA-hosted Nemotron models on [build.nvidia.com](https://build.nvidia.com/).
-- **Self-hosted NIM**: a [NVIDIA Inference Microservice](https://docs.nvidia.com/nim/) container running on your own infrastructure.
+同一凭据适用于两种部署模式：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- **Cloud**（云）：[build.nvidia.com](https://build.nvidia.com/) 上由 NVIDIA 托管的 Nemotron 模型。
+- **Self-hosted NIM**（自托管 NIM）：在你自己的基础设施上运行的 [NVIDIA Inference Microservice](https://docs.nvidia.com/nim/) 容器。
 
-For cloud access, create an [NVIDIA build](https://build.nvidia.com/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-For self-hosted access, run a NIM container that exposes an OpenAI-spec compatible endpoint. Refer to [NVIDIA NIM documentation](https://docs.nvidia.com/nim/) for setup guidance.
+如需访问云服务，请创建 [NVIDIA build](https://build.nvidia.com/) 账户。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+如需访问自托管服务，请运行提供兼容 OpenAI 规范端点的 NIM 容器。设置指南，请参阅 [NVIDIA NIM 文档](https://docs.nvidia.com/nim/)。
 
-- API key (optional when connecting to a self-hosted NIM that doesn't enforce authentication)
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥；连接未强制身份验证的自托管 NIM 时可选）
 
-Refer to NVIDIA's [build catalogue](https://build.nvidia.com/models) for the list of available Nemotron models and to the [NIM documentation](https://docs.nvidia.com/nim/) for self-hosting guidance.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+可用的 Nemotron 模型列表，请参阅 NVIDIA 的 [build 目录](https://build.nvidia.com/models)；自托管指南，请参阅 [NIM 文档](https://docs.nvidia.com/nim/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- A **Base URL**: the OpenAI-spec compatible endpoint to call. Use the default `https://integrate.api.nvidia.com/v1` for build.nvidia.com cloud, or replace it with your self-hosted NIM URL (for example, `http://localhost:8000/v1`).
-- An **API Key**: required for build.nvidia.com cloud. Leave blank for a self-hosted NIM that doesn't require authentication.
+配置此凭据需要：
 
-To generate an API key for build.nvidia.com:
+- **Base URL**（基础 URL）：要调用的兼容 OpenAI 规范的端点。使用 build.nvidia.com 云服务时，使用默认值 `https://integrate.api.nvidia.com/v1`；自托管时，替换为 NIM URL（例如 `http://localhost:8000/v1`）。
+- **API Key**（API 密钥）：build.nvidia.com 云服务必填。自托管 NIM 不要求身份验证时，可留空。
 
-1. Sign in to your [NVIDIA build](https://build.nvidia.com/) account.
-2. Open a Nemotron model in the catalogue and select **Get API Key**.
-3. Copy your key and add it as the **API Key** in n8n.
+为 build.nvidia.com 生成 API 密钥的步骤如下：
 
-To connect to a self-hosted NIM:
+1. 登录 [NVIDIA build](https://build.nvidia.com/) 账户。
+2. 在目录中打开一个 Nemotron 模型，选择 **Get API Key**（获取 API 密钥）。
+3. 复制密钥，填入 n8n 的 **API Key**（API 密钥）。
 
-1. Set **Base URL** to your NIM endpoint, including the `/v1` path (for example, `http://localhost:8000/v1`).
-2. If your NIM requires authentication, paste the token into **API Key**. Otherwise, leave the field blank.
+连接自托管 NIM 的步骤如下：
+
+1. 将 **Base URL**（基础 URL）设为 NIM 端点，包含 `/v1` 路径（例如 `http://localhost:8000/v1`）。
+2. 如果 NIM 要求身份验证，将令牌粘贴到 **API Key**（API 密钥）；否则将该字段留空。
