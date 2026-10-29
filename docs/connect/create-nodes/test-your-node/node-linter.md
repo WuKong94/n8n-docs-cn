@@ -1,59 +1,61 @@
 ---
 contentType: howto
-nodeTitle: Node linter
+nodeTitle: 节点 linter
 originalFilePath: integrations/creating-nodes/test/node-linter.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/test/node-linter'
-url: 'https://docs.n8n.io/connect/create-nodes/test-your-node/node-linter'
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/test/node-linter
+url: https://docs.n8n.io/connect/create-nodes/test-your-node/node-linter
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# n8n node linter <a href="#n8n-node-linter" id="n8n-node-linter"></a>
 
-n8n's node linter, [`@n8n/eslint-plugin-community-nodes`](https://github.com/n8n-io/n8n/tree/master/packages/%40n8n/eslint-plugin-community-nodes), statically analyzes ("lints") the source code of n8n nodes and credentials in community packages. The linter detects issues and automatically fixes them to help you follow best practices.
+# n8n 节点 linter <a href="#n8n-node-linter" id="n8n-node-linter"></a>
 
-`@n8n/eslint-plugin-community-nodes` contains a [collection of rules](https://github.com/n8n-io/n8n/tree/master/packages/%40n8n/eslint-plugin-community-nodes#rules) for node files (`*.node.ts`), credential files (`*.credentials.ts`), and the `package.json` of a community package.
+n8n 节点 linter [`@n8n/eslint-plugin-community-nodes`](https://github.com/n8n-io/n8n/tree/master/packages/%40n8n/eslint-plugin-community-nodes) 对社区软件包中的 n8n 节点和凭据源代码执行静态分析（lint），发现问题并自动修复，帮助遵循最佳实践。
 
-## Setup <a href="#setup" id="setup"></a>
+`@n8n/eslint-plugin-community-nodes` 包含一组[规则](https://github.com/n8n-io/n8n/tree/master/packages/%40n8n/eslint-plugin-community-nodes#rules)，用于检查社区软件包的节点文件（`*.node.ts`）、凭据文件（`*.credentials.ts`）和 `package.json`。
 
-If using the [n8n node starter](https://github.com/n8n-io/n8n-nodes-starter): Run `npm install` in the starter project to install all dependencies. Once the installation finishes, the linter is available to you.
+## 设置 <a href="#setup" id="setup"></a>
 
-If using VS Code, install the [ESLint VS Code extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). For other IDEs, refer to their ESLint integrations.
+使用 [n8n 节点入门项目](https://github.com/n8n-io/n8n-nodes-starter)时，在项目中运行 `npm install` 安装全部依赖，安装完成后即可使用 linter。
+
+使用 VS Code 时，请安装 [ESLint VS Code 扩展](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)。其他 IDE 请参阅各自的 ESLint 集成说明。
 
 {% hint style="info" %}
-**Don't edit the configuration file**
+**不要编辑配置文件**
 
-[`eslint.config.mjs`](https://github.com/n8n-io/n8n-nodes-starter/blob/master/eslint.config.mjs) contains the ESLint configuration provided by [`@n8n/node-cli`](https://www.npmjs.com/package/@n8n/node-cli). Don't edit this file.
+[`eslint.config.mjs`](https://github.com/n8n-io/n8n-nodes-starter/blob/master/eslint.config.mjs) 包含由 [`@n8n/node-cli`](https://www.npmjs.com/package/@n8n/node-cli) 提供的 ESLint 配置，请勿编辑此文件。
 {% endhint %}
 
-## Usage <a href="#usage" id="usage"></a>
+## 用法 <a href="#usage" id="usage"></a>
 
-You can use the linter in a community package or in the main n8n repository.
+可在社区软件包或 n8n 主仓库中使用 linter。
 
-### Linting <a href="#linting" id="linting"></a>
+### 执行 lint 检查 <a href="#linting" id="linting"></a>
 
-In a community package, the linter runs automatically after installing dependencies and before publishing the package to npm. In the [main n8n repository](https://github.com/n8n-io/n8n), the linter runs automatically using GitHub Actions whenever you push to your pull request.
+社区软件包在安装依赖后、发布到 npm 前会自动运行 linter。在 [n8n 主仓库](https://github.com/n8n-io/n8n)中，每次向拉取请求推送时，会通过 GitHub Actions 自动运行。
 
-In both cases, VS Code lints in the background as you work on your project. Hover over a detected issue to see a full description of the linting and a link to further information.
+这两种情况下，VS Code 都会在开发时于后台执行 lint 检查。将鼠标悬停在问题上，可查看完整说明及更多信息链接。
 
-You can also run the linter manually:
+也可手动运行 linter：
 
-* Run `npm run lint` to lint and view detected issues in your console.
-* Run `npm run lint:fix` to lint and automatically fix issues. The linter fixes violations of rules [marked as automatically fixable](https://github.com/n8n-io/n8n/tree/master/packages/%40n8n/eslint-plugin-community-nodes#rules).
+* 运行 `npm run lint`，执行 lint 检查并在控制台查看问题。
+* 运行 `npm run lint:fix`，执行 lint 检查并自动修复问题。linter 只自动修复[标记为可自动修复](https://github.com/n8n-io/n8n/tree/master/packages/%40n8n/eslint-plugin-community-nodes#rules)的规则违规。
 
-Both commands can run in the root directory of your community package, or in `/packages/nodes-base/` in the main repository.
+两个命令均可在社区软件包根目录运行，或在主仓库的 `/packages/nodes-base/` 中运行。
 
-### Exceptions <a href="#exceptions" id="exceptions"></a>
+### 例外 <a href="#exceptions" id="exceptions"></a>
 
-Instead of fixing a rule violation, you can also make an exception for it, so the linter doesn't flag it.
+除了修正规则违规，也可为特定情况设置例外，使 linter 不再报告。
 
-To make a lint exception from VS Code: hover over the issue and click on `Quick fix` (or `cmd+.` in macOS) and select **Disable {rule} for this line**. Only disable rules for a line where you have good reason to. If you think the linter is incorrectly reporting an issue, please [report it in the n8n repository](https://github.com/n8n-io/n8n/issues).
+在 VS Code 中设置 lint 例外：悬停在问题上，按 `Quick fix`（macOS 为 `cmd+.`），选择 **Disable {rule} for this line**（对此行禁用该规则）。只有理由充分时，才为单行禁用规则。如果认为 linter 误报，请[向 n8n 仓库报告](https://github.com/n8n-io/n8n/issues)。
 
-To add a lint exception to a single file, add a code comment. Refer to the [ESLint documentation](https://eslint.org/docs/latest/use/configure/rules#disabling-rules) for more guidance.
+要为单个文件添加 lint 例外，请添加代码注释。更多指南请参阅 [ESLint 文档](https://eslint.org/docs/latest/use/configure/rules#disabling-rules)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Test your node](./)
-* [Run your node locally](run-your-node-locally.md)
-* [Troubleshooting](troubleshooting.md)
+* [测试节点](./)
+* [在本地运行节点](run-your-node-locally.md)
+* [故障排查](troubleshooting.md)

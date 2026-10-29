@@ -1,26 +1,27 @@
 ---
 contentType: howto
-nodeTitle: Install private nodes
+nodeTitle: 安装私有节点
 originalFilePath: integrations/creating-nodes/deploy/install-private-nodes.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/deploy/install-private-nodes'
-url: >-
-  https://docs.n8n.io/connect/create-nodes/deploy-your-node/install-private-nodes
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/deploy/install-private-nodes
+url: https://docs.n8n.io/connect/create-nodes/deploy-your-node/install-private-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Install private nodes <a href="#install-private-nodes" id="install-private-nodes"></a>
 
-You can build your own nodes and install them in your n8n instance without publishing them on npm. This is useful for nodes that you create for internal use only at your company.
+# 安装私有节点 <a href="#install-private-nodes" id="install-private-nodes"></a>
 
-## Install your node in a Docker n8n instance <a href="#install-your-node-in-a-docker-n8n-instance" id="install-your-node-in-a-docker-n8n-instance"></a>
+可以自行构建节点，安装到 n8n 实例中，而不发布到 npm，适合仅供公司内部使用的节点。
 
-If you're running n8n using Docker, you need to create a Docker image with the node installed in n8n. 
+## 在 Docker n8n 实例中安装节点 <a href="#install-your-node-in-a-docker-n8n-instance" id="install-your-node-in-a-docker-n8n-instance"></a>
 
-1. Create a Dockerfile and paste the code from [this Dockerfile](https://github.com/n8n-io/n8n/blob/master/docker/images/n8n/Dockerfile).
+使用 Docker 运行 n8n 时，需要创建一个已在 n8n 中安装节点的 Docker 镜像。
 
-	Your Dockerfile should look like this:
+1. 创建 Dockerfile，粘贴[此 Dockerfile](https://github.com/n8n-io/n8n/blob/master/docker/images/n8n/Dockerfile)中的代码。
+
+	Dockerfile 应如下所示：
 
 	```Dockerfile
 	FROM node:16-alpine
@@ -61,11 +62,11 @@ If you're running n8n using Docker, you need to create a Docker image with the n
 	EXPOSE 5678/tcp
 	```
 
-2. Compile your custom node code (`npm run build` if you are using nodes starter). Copy the **node** and **credential** folders from within the **dist** folder into your container's `~/.n8n/custom/` directory. This makes them available to Docker.
+2. 编译自定义节点代码，使用节点入门项目时运行 `npm run build`。将 **dist** 中的 **node** 和 **credential** 目录复制到容器的 `~/.n8n/custom/` 目录，使 Docker 能够使用它们。
 
-3. Download the [docker-entrypoint.sh](https://github.com/n8n-io/n8n/blob/master/docker/images/n8n/docker-entrypoint.sh) file, and place it in the same directory as your Dockerfile.
+3. 下载 [docker-entrypoint.sh](https://github.com/n8n-io/n8n/blob/master/docker/images/n8n/docker-entrypoint.sh) 文件，与 Dockerfile 放在同一目录。
 
-4. Build your Docker image:
+4. 构建 Docker 镜像：
 
 	```Dockerfile
 	# Replace <n8n-version-number> with the n8n release version number. 
@@ -73,13 +74,13 @@ If you're running n8n using Docker, you need to create a Docker image with the n
 	docker build --build-arg N8N_VERSION=<n8n-version-number> --tag=customizedn8n .
 	```
 
-You can now use your node in Docker.
+现在可在 Docker 中使用节点。
 
-## Install your node in a global n8n instance <a href="#install-your-node-in-a-global-n8n-instance" id="install-your-node-in-a-global-n8n-instance"></a>
+## 在全局安装的 n8n 实例中安装节点 <a href="#install-your-node-in-a-global-n8n-instance" id="install-your-node-in-a-global-n8n-instance"></a>
 
-If you've installed n8n globally, make sure that you install your node inside n8n. n8n will find the module and load it automatically.
+如果全局安装了 n8n，请确保在 n8n 内部安装节点，n8n 会找到模块并自动加载。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Deploy your node](./)
-* [Submit community nodes](submit-community-nodes.md)
+* [部署节点](./)
+* [提交社区节点](submit-community-nodes.md)

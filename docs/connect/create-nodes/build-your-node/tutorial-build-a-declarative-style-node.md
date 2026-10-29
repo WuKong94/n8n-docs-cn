@@ -1,108 +1,109 @@
 ---
 contentType: tutorial
-nodeTitle: 'Tutorial: Build a declarative-style node'
+nodeTitle: 教程：构建声明式节点
 originalFilePath: integrations/creating-nodes/build/declarative-style-node.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node'
-url: >-
-  https://docs.n8n.io/connect/create-nodes/build-your-node/tutorial-build-a-declarative-style-node
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/tutorial-build-a-declarative-style-node
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Build a declarative-style node <a href="#build-a-declarative-style-node" id="build-a-declarative-style-node"></a>
 
-This tutorial walks through building a declarative-style node. Before you begin, make sure this is the node style you need. Refer to [Choose your node building approach](../plan-your-node/choose-a-node-building-style.md) for more information.
+# 构建声明式节点 <a href="#build-a-declarative-style-node" id="build-a-declarative-style-node"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+本教程逐步介绍如何构建声明式节点。开始前，请确认这正是所需的开发方式，更多信息请参阅[选择节点开发方式](../plan-your-node/choose-a-node-building-style.md)。
 
-You need the following installed on your development machine:
+## 前提条件 <a href="#prerequisites" id="prerequisites"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7rCdLiI9qnTIK3Afb3NX/" %}
+开发机器需要安装以下工具：
 
-You need some understanding of:
+{% include "../../../reusable-content/.gitbook/includes/integrations/creating-nodes/prerequisites.md" %}
+
+还需要了解：
 
 - JavaScript/TypeScript
-- REST APIs
-- git
+- REST API
+- Git
 
-## Build your node <a href="#build-your-node" id="build-your-node"></a>
+## 构建节点 <a href="#build-your-node" id="build-your-node"></a>
 
-In this section, you'll clone n8n's node starter repository, and build a node that integrates the [NASA API](https://api.nasa.gov/). You'll create a node that uses two of NASA's services: APOD (Astronomy Picture of the Day) and Mars Rover Photos. To keep the code examples short, the node won't implement every available option for the Mars Rover Photos endpoint.
+本节将克隆 n8n 节点入门仓库，构建集成 [NASA API](https://api.nasa.gov/) 的节点，使用 NASA 的 APOD（每日天文图片）和 Mars Rover Photos（火星车照片）两项服务。为缩短代码示例，不会实现火星车照片端点的全部选项。
 
 {% hint style="info" %}
-**Existing node**
+**已有节点**
 
-n8n has a built-in NASA node. To avoid clashing with the existing node, you'll give your version a different name.
+n8n 已内置 NASA 节点。为避免冲突，本教程的版本将使用不同名称。
 {% endhint %}
 
-### Step 1: Set up the project <a href="#step-1-set-up-the-project" id="step-1-set-up-the-project"></a>
+### 第一步：设置项目 <a href="#step-1-set-up-the-project" id="step-1-set-up-the-project"></a>
 
 
-n8n provides a starter repository for node development. Using the starter ensures you have all necessary dependencies. It also provides a linter. 
+n8n 提供节点开发入门仓库，确保包含所需的全部依赖，并提供 linter。
 
-Clone the repository and navigate into the directory:
+克隆仓库并进入目录：
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from the template repository.
-2. Clone your new repository:
+1. 根据模板仓库[生成新仓库](https://github.com/n8n-io/n8n-nodes-starter/generate)。
+2. 克隆新仓库：
 		```shell
 		git clone https://github.com/<your-organization>/<your-repo-name>.git n8n-nodes-nasa-pics
 		cd n8n-nodes-nasa-pics
 		```
 
-The starter contains example nodes and credentials. Delete the following directories and files:
+入门项目包含示例节点和凭据，请删除以下目录和文件：
 
 * `nodes/Example`
 * `nodes/GithubIssues`
 * `credentials/GithubIssuesApi.credentials.ts`
 * `credentials/GithubIssuesOAuth2Api.credentials.ts`
 
-Now create the following directories and files:
+然后创建以下目录和文件：
 
 `nodes/NasaPics`  
 `nodes/NasaPics/NasaPics.node.json`  
 `nodes/NasaPics/NasaPics.node.ts`  
 `credentials/NasaPicsApi.credentials.ts`  
 
-These are the key files required for any node. Refer to [Node file structure](../plan-your-node/choose-node-file-structure.md) for more information on required files and recommended organization.
+这些是所有节点必需的关键文件。必需文件和推荐组织方式的更多说明，请参阅[节点文件结构](../plan-your-node/choose-node-file-structure.md)。
 
-Now install the project dependencies:
+现在安装项目依赖：
 
 ```shell
 npm i
 ```
 
-### Step 2: Add an icon <a href="#step-2-add-an-icon" id="step-2-add-an-icon"></a>
+### 第二步：添加图标 <a href="#step-2-add-an-icon" id="step-2-add-an-icon"></a>
 
-Save [the NASA SVG logo](https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg) as `nasapics.svg` in `nodes/NasaPics/`.
-
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dGOXJYk0OQgOLlRpyJnn/" %}
+将 [NASA SVG 标志](https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg)另存为 `nasapics.svg`，放入 `nodes/NasaPics/`。
 
 
-### Step 3: Create the node <a href="#step-3-create-the-node" id="step-3-create-the-node"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/creating-nodes/node-icons.md" %}
 
-Every node must have a base file. Refer to [Node base file](reference/base-files/README.md) for detailed information about base file parameters.
 
-In this example, the file is `NasaPics.node.ts`. To keep this tutorial short, you'll place all the node functionality in this one file. When building more complex nodes, you should consider splitting out your functionality into modules. Refer to [Node file structure](../plan-your-node/choose-node-file-structure.md) for more information.
+### 第三步：创建节点 <a href="#step-3-create-the-node" id="step-3-create-the-node"></a>
 
-#### Step 3.1: Imports <a href="#step-31-imports" id="step-31-imports"></a>
+每个节点都必须有基础文件，参数详情请参阅[节点基础文件](reference/base-files/README.md)。
 
-Start by adding the import statements:
+此示例使用 `NasaPics.node.ts` 文件。为简化教程，节点全部功能都放在这一个文件中。构建更复杂的节点时，应考虑按模块拆分功能。更多信息请参阅[节点文件结构](../plan-your-node/choose-node-file-structure.md)。
+
+#### 第 3.1 步：导入 <a href="#step-31-imports" id="step-31-imports"></a>
+
+先添加导入语句：
 
 ```typescript
 import { NodeConnectionTypes } from 'n8n-workflow';
 import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
 ```
 
-#### Step 3.2: Create the main class <a href="#step-32-create-the-main-class" id="step-32-create-the-main-class"></a>
+#### 第 3.2 步：创建主类 <a href="#step-32-create-the-main-class" id="step-32-create-the-main-class"></a>
 
-The node must export an interface that implements INodeType. This interface must include a `description` interface, which in turn contains the `properties` array.
+节点必须导出一个实现 INodeType 的类。类的 `description` 配置对象必须包含 `properties` 数组。
 
 {% hint style="info" %}
-**Class names and file names**
+**类名与文件名**
 
-Make sure the class name and the file name match. For example, given a class `NasaPics`, the filename must be `NasaPics.node.ts`.
+请确保类名与文件名匹配。例如，类名为 `NasaPics` 时，文件名必须为 `NasaPics.node.ts`。
 {% endhint %}
 ```typescript
 export class NasaPics implements INodeType {
@@ -115,9 +116,9 @@ export class NasaPics implements INodeType {
 }
 ```
 
-#### Step 3.3: Add node details <a href="#step-33-add-node-details" id="step-33-add-node-details"></a>
+#### 第 3.3 步：添加节点详情 <a href="#step-33-add-node-details" id="step-33-add-node-details"></a>
 
-All nodes need some basic parameters, such as their display name, icon, and the basic information for making a request using the node. Add the following to the `description`:
+所有节点都需要显示名称、图标及请求基本信息等参数。将以下内容添加到 `description`：
 
 ```typescript
 displayName: 'NASA Pics',
@@ -148,11 +149,11 @@ requestDefaults: {
 },
 ```
 
-n8n uses some of the properties set in `description` to render the node in the Editor UI. These properties are `displayName`, `icon`, `description`, and `subtitle`.
+n8n 使用 `description` 中的部分属性，在编辑器界面渲染节点，包括 `displayName`、`icon`、`description` 和 `subtitle`。
 
-#### Step 3.4: Add resources <a href="#step-34-add-resources" id="step-34-add-resources"></a>
+#### 第 3.4 步：添加资源 <a href="#step-34-add-resources" id="step-34-add-resources"></a>
 
-The resource object defines the API resource that the node uses. In this tutorial, you're creating a node to access two of NASA's API endpoints: `planetary/apod` and `mars-photos`. This means you need to define two resource options in `NasaPics.node.ts`. Update the `properties` array with the resource object:
+资源对象定义节点使用的 API 资源。本教程创建的节点访问两个 NASA API 端点：`planetary/apod` 和 `mars-photos`，因此需在 `NasaPics.node.ts` 中定义两个资源选项。将资源对象添加到 `properties` 数组：
 
 ```typescript
 properties: [
@@ -178,15 +179,15 @@ properties: [
 ]
 ```
 
-`type` controls which UI element n8n displays for the resource, and tells n8n what type of data to expect from the user. `options` results in n8n adding a dropdown that allows users to choose one option. Refer to [Node UI elements](reference/node-ui-elements.md) for more information.
+`type` 控制 n8n 为资源显示哪种界面元素，并指定用户应输入的数据类型。`options` 会添加一个供用户单选的下拉菜单。更多信息请参阅[节点界面元素](reference/node-ui-elements.md)。
 
-#### Step 3.5: Add operations <a href="#step-35-add-operations" id="step-35-add-operations"></a>
+#### 第 3.5 步：添加操作 <a href="#step-35-add-operations" id="step-35-add-operations"></a>
 
-The operations object defines the available operations on a resource.
+操作对象定义可对资源执行哪些操作。
 
-In a declarative-style node, the operations object includes `routing` (within the `options` array). This sets up the details of the API call.
+声明式节点的操作对象包含 `routing`，位于 `options` 数组中，用于配置 API 调用详情。
 
-Add the following to the `properties` array, after the `resource` object:
+将以下内容添加到 `properties` 数组中，放在 `resource` 对象之后：
 
 ```typescript
 {
@@ -296,15 +297,15 @@ Add the following to the `properties` array, after the `resource` object:
 // Optional/additional fields will go here
 ```
 
-This code creates two operations: one to get today's APOD image, and another to send a get request for photos from one of the Mars Rovers. The object named `roverName` requires the user to choose which Rover they want photos from. The `routing` object in the Mars Rover operation references this to create the URL for the API call.
+此代码创建两个操作：获取当天的 APOD 图片，以及发送 GET 请求以获取某辆火星车的照片。名为 `roverName` 的对象要求用户选择哪辆火星车，火星车操作中的 `routing` 对象再引用此值来构建 API 调用 URL。
 
-#### Step 3.6: Optional fields <a href="#step-36-optional-fields" id="step-36-optional-fields"></a>
+#### 第 3.6 步：可选字段 <a href="#step-36-optional-fields" id="step-36-optional-fields"></a>
 
-Most APIs, including the NASA API that you're using in this example, have optional fields you can use to refine your query.
+多数 API 都有用于细化查询的可选字段，本示例的 NASA API 也不例外。
 
-To avoid overwhelming users, n8n displays these under **Additional Fields** in the UI.
+为避免一次显示过多选项，n8n 将这些字段放在界面的 **Additional Fields**（附加字段）中。
 
-For this tutorial, you'll add one additional field, to allow users to pick a date to use with the APOD endpoint. Add the following to the properties array:
+本教程将添加一个附加字段，让用户选择 APOD 端点使用的日期。将以下内容添加到 properties 数组：
 
 ```typescript
 {
@@ -343,11 +344,11 @@ For this tutorial, you'll add one additional field, to allow users to pick a dat
 ```
 
 
-### Step 4: Set up authentication and a credential test <a href="#step-4-set-up-authentication-and-a-credential-test" id="step-4-set-up-authentication-and-a-credential-test"></a>
+### 第四步：设置身份验证和凭据测试 <a href="#step-4-set-up-authentication-and-a-credential-test" id="step-4-set-up-authentication-and-a-credential-test"></a>
 
-The NASA API requires users to authenticate with an API key. You can also send a request to check that the API key works.
+NASA API 要求使用 API 密钥进行身份验证，也可通过发送请求检查密钥是否有效。
 
-Add the following to `nasaPicsApi.credentials.ts`:
+将以下内容添加到 `nasaPicsApi.credentials.ts`：
 
 ```typescript
 import {
@@ -388,14 +389,14 @@ export class NasaPicsApi implements ICredentialType {
 }
 ```
 
-For more information about credentials files and options, refer to [Credentials file](reference/credentials-files.md).
+凭据文件和选项的更多信息，请参阅[凭据文件](reference/credentials-files.md)。
 
 
-### Step 5: Add node metadata <a href="#step-5-add-node-metadata" id="step-5-add-node-metadata"></a>
+### 第五步：添加节点元数据 <a href="#step-5-add-node-metadata" id="step-5-add-node-metadata"></a>
 
-Metadata about your node goes in the JSON file at the root of your node. n8n refers to this as the codex file. In this example, the file is `NasaPics.node.json`.
+节点元数据保存在节点根目录的 JSON 文件中，n8n 将其称为 codex 文件。此示例的文件为 `NasaPics.node.json`。
 
-Add the following code to the JSON file:
+将以下代码添加到 JSON 文件：
 
 ```json
 {
@@ -420,11 +421,11 @@ Add the following code to the JSON file:
 }
 ```
 
-For more information on these parameters, refer to [Node codex files](reference/codex-files.md).
+这些参数的更多信息，请参阅[节点 codex 文件](reference/codex-files.md)。
 
-### Step 6: Update the npm package details <a href="#step-6-update-the-npm-package-details" id="step-6-update-the-npm-package-details"></a>
+### 第六步：更新 npm 软件包信息 <a href="#step-6-update-the-npm-package-details" id="step-6-update-the-npm-package-details"></a>
 
-Your npm package details are in the `package.json` at the root of the project. It's essential to include the `n8n` object with links to the credentials and base node file. Update this file to include the following information:
+npm 软件包信息位于项目根目录的 `package.json` 中，必须包含 `n8n` 对象，并指向凭据文件和节点基础文件。请更新该文件，加入以下信息：
 
 ```json
 {
@@ -474,22 +475,22 @@ Your npm package details are in the `package.json` at the root of the project. I
 }
 ```
 
-You need to update the `package.json` to include your own information, such as your name and repository URL. For more information on npm `package.json` files, refer to [npm's package.json documentation](https://docs.npmjs.com/cli/v8/configuring-npm/package-json).
+请更新 `package.json`，填入自己的姓名、仓库 URL 等信息。npm `package.json` 文件的更多说明，请参阅 [npm 的 package.json 文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)。
 
-## Test your node <a href="#test-your-node" id="test-your-node"></a>
+## 测试节点 <a href="#test-your-node" id="test-your-node"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/WlCAEDxY4EZLDV85eB8C/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/creating-nodes/testing.md" %}
 
-## Next steps <a href="#next-steps" id="next-steps"></a>
+## 后续步骤 <a href="#next-steps" id="next-steps"></a>
 
-* [Deploy your node](../deploy-your-node/README.md).
-* View an example of a declarative node: n8n's [Brevo node](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Brevo). Note that the main node is declarative, while the trigger node is in programmatic style.
-* Learn about [node versioning](reference/versioning.md).
+* [部署节点](../deploy-your-node/README.md)。
+* 查看声明式节点示例：n8n 的 [Brevo 节点](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Brevo)。主节点采用声明式，触发节点则采用编程式。
+* 了解[节点版本控制](reference/versioning.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Build your node](./)
-* [Set up your development environment](set-up-your-development-environment.md)
-* [Using the n8n-node tool](using-the-n8n-node-tool.md)
-* [Tutorial: Build a programmatic-style node](tutorial-build-a-programmatic-style-node.md)
-* [Reference](reference/README.md)
+* [构建节点](./)
+* [设置开发环境](set-up-your-development-environment.md)
+* [使用 n8n-node 工具](using-the-n8n-node-tool.md)
+* [教程：构建编程式节点](tutorial-build-a-programmatic-style-node.md)
+* [参考](reference/README.md)

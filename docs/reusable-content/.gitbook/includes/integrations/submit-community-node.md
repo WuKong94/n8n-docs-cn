@@ -1,79 +1,81 @@
 ---
-title: submit-community-node
+title: 提交社区节点
 ---
-Community nodes are npm packages, hosted in the npm registry.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-When building a node to submit to the community node repository, use the following resources to make sure your node setup is correct:
+社区节点是托管在 npm registry 中的 npm 软件包。
 
-* n8n recommends using the [`n8n-node` CLI tool](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/build-your-node/using-the-n8n-node-tool) to build and test your node. In particular, this is important if you plan on [submitting your node for verification](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/deploy-your-node/submit-community-nodes#submit-your-node-for-verification-by-n8n). This ensures that your node has the correct structure and follows community node requirements. It also simplifies linting and testing.
-* View [n8n's own nodes](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes) for examples of patterns you can use in your nodes.
-* Refer to the documentation on [building your own nodes](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/overview).
-* Make sure your node respects the following standards for community nodes.
+开发准备提交到社区节点仓库的节点时，请使用以下资源，确保配置正确：
 
-## Standards <a href="#standards" id="standards"></a>
+* n8n 建议使用 [`n8n-node` CLI 工具](../../../../connect/create-nodes/build-your-node/using-the-n8n-node-tool.md)构建和测试节点，尤其是计划[提交节点验证](../../../../connect/create-nodes/deploy-your-node/submit-community-nodes.md#submit-your-node-for-verification-by-n8n)时。这样可确保节点结构正确、符合社区节点要求，也能简化 lint 检查和测试。
+* 查看 [n8n 自身的节点](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes)，参考可采用的实现模式。
+* 参阅[构建自己的节点](../../../../connect/create-nodes/overview.md)文档。
+* 确保节点符合以下社区节点标准。
 
-Developing with the [`n8n-node` tool](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/build-your-node/using-the-n8n-node-tool) ensures that your node adheres to the following standards required to make your node available in the n8n community node repository:
+## 标准 <a href="#standards" id="standards"></a>
 
-* Make sure the package name starts with `n8n-nodes-` or `@<scope>/n8n-nodes-`. For example, `n8n-nodes-weather` or `@weatherPlugins/n8n-nodes-weather`.
-* Include `n8n-community-node-package` in your package keywords.
-* Make sure that you add your nodes and credentials to the `package.json` file inside the `n8n` attribute.
-* Check your node using the linter (`npm run lint`) and test it locally (`npm run dev`) to ensure it works.
-* Publish the package to npm. If you plan to submit your node for verification through the [n8n Creator Portal](https://creators.n8n.io/nodes), you must publish using a GitHub Actions workflow with a [provenance statement](https://docs.npmjs.com/generating-provenance-statements). See **Publishing to npm** below.
+使用 [`n8n-node` 工具](../../../../connect/create-nodes/build-your-node/using-the-n8n-node-tool.md)开发，可确保节点符合以下标准，以加入 n8n 社区节点仓库：
 
-## Publishing to npm <a href="#publishing-to-npm" id="publishing-to-npm"></a>
+* 软件包名称必须以 `n8n-nodes-` 或 `@<scope>/n8n-nodes-` 开头，例如 `n8n-nodes-weather` 或 `@weatherPlugins/n8n-nodes-weather`。
+* 在软件包关键词中加入 `n8n-community-node-package`。
+* 确保将节点和凭据添加到 `package.json` 文件的 `n8n` 属性中。
+* 使用 linter（`npm run lint`）检查节点，并在本地测试（`npm run dev`），确保正常工作。
+* 将软件包发布到 npm。如果计划通过 [n8n Creator Portal](https://creators.n8n.io/nodes) 提交节点验证，必须使用带有[构建来源证明](https://docs.npmjs.com/generating-provenance-statements)的 GitHub Actions 工作流发布。请参阅下文**发布到 npm**。
+
+## 发布到 npm <a href="#publishing-to-npm" id="publishing-to-npm"></a>
 
 {% hint style="info" %}
-**Required for Creator Portal verification**
+**Creator Portal 验证的必要条件**
 
-From May 1st 2026, nodes submitted for verification must be published using GitHub Actions with a [provenance statement](https://docs.npmjs.com/generating-provenance-statements). n8n won't accept verified nodes published directly from a local machine.
+自 2026 年 5 月 1 日起，提交验证的节点必须通过 GitHub Actions 发布，并附带[构建来源证明](https://docs.npmjs.com/generating-provenance-statements)。n8n 不接受直接从本地机器发布的已验证节点。
 {% endhint %}
 
-To submit your node for verification through the n8n Creator Portal, publish using a GitHub Actions workflow with a provenance statement. Provenance lets anyone cryptographically verify that a specific workflow built the package, from a specific repository and commit. GitHub Actions signs the provenance statement using its OIDC infrastructure.
+要通过 n8n Creator Portal 提交节点验证，请使用带有构建来源证明的 GitHub Actions 工作流发布。来源证明让任何人都能通过密码学方法确认：某个软件包由特定仓库、特定提交中的工作流构建。GitHub Actions 使用自身的 OIDC 基础设施签署来源证明。
 
-### New nodes <a href="#new-nodes" id="new-nodes"></a>
+### 新节点 <a href="#new-nodes" id="new-nodes"></a>
 
-If you scaffold your node with `npm create @n8n/node`, the scaffolding includes a ready-to-use `publish.yml` workflow. Run `npm run release` locally to bump the version, commit, tag, and push. This triggers the workflow to publish to npm.
+使用 `npm create @n8n/node` 生成节点脚手架时，会包含可直接使用的 `publish.yml` 工作流。在本地运行 `npm run release` 更新版本、提交、打标签并推送，即会触发工作流发布到 npm。
 
-### Existing nodes <a href="#existing-nodes" id="existing-nodes"></a>
+### 已有节点 <a href="#existing-nodes" id="existing-nodes"></a>
 
-Add the [publish workflow from the n8n-nodes-starter](https://github.com/n8n-io/n8n-nodes-starter/blob/master/.github/workflows/publish.yml) to your repository at `.github/workflows/publish.yml`.
+将 [n8n-nodes-starter 中的发布工作流](https://github.com/n8n-io/n8n-nodes-starter/blob/master/.github/workflows/publish.yml)添加到仓库的 `.github/workflows/publish.yml`。
 
-Also make sure your project has `@n8n/node-cli` version `0.23.0` or later as a `devDependency`, as earlier versions don't support the provenance flag used by the workflow:
+同时确保项目将 `@n8n/node-cli` 版本 `0.23.0` 或更高版本列为 `devDependency`，因为更早版本不支持工作流使用的来源证明选项：
 
 ```sh
 npm list @n8n/node-cli
 ```
 
-### One-time setup <a href="#one-time-setup" id="one-time-setup"></a>
+### 一次性设置 <a href="#one-time-setup" id="one-time-setup"></a>
 
-Configure npm to trust your repository's GitHub Actions workflow so it can publish on your behalf. No long-lived token required:
+配置 npm 信任仓库的 GitHub Actions 工作流，使其可代你发布，无需长期有效的令牌：
 
-1. Log in to [npmjs.com](https://www.npmjs.com/) and open your package's settings.
-2. Under **Publish access > Trusted Publishers**, click **Add a publisher**.
-3. Select **GitHub Actions** and fill in:
-   - **Repository owner**: your GitHub username or organisation
-   - **Repository name**: your repository name
-   - **Workflow name**: `publish.yml` (the filename, not the workflow `name:` field)
+1. 登录 [npmjs.com](https://www.npmjs.com/)，打开软件包设置。
+2. 在 **Publish access > Trusted Publishers**（发布访问 > 可信发布者）下，点击 **Add a publisher**（添加发布者）。
+3. 选择 **GitHub Actions**，填写：
+   - **Repository owner**（仓库所有者）：GitHub 用户名或组织名。
+   - **Repository name**（仓库名称）：你的仓库名称。
+   - **Workflow name**（工作流名称）：`publish.yml`，指文件名，不是工作流的 `name:` 字段。
 
-To use a token instead, create a Granular Access Token on npmjs.com and store it as `NPM_TOKEN` in your repository's Actions secrets. See the comments in the workflow file for details.
+也可改用令牌：在 npmjs.com 创建 Granular Access Token（细粒度访问令牌），并作为 `NPM_TOKEN` 保存到仓库的 Actions secrets 中。详情请参阅工作流文件的注释。
 
-## Submit your node for verification by n8n <a href="#submit-your-node-for-verification-by-n8n" id="submit-your-node-for-verification-by-n8n"></a>
+## 提交节点供 n8n 验证 <a href="#submit-your-node-for-verification-by-n8n" id="submit-your-node-for-verification-by-n8n"></a>
 
-n8n vets verified community nodes. Users can discover and install verified community nodes from the nodes panel in n8n. These nodes need to adhere to certain technical and UX standards and constraints.
+n8n 会审核已验证社区节点。用户可在 n8n 节点面板中发现和安装这些节点，因此节点需要遵循特定的技术、用户体验标准和限制。
 
 {% hint style="info" %}
-**GitHub Actions publish required for verification**
+**验证要求通过 GitHub Actions 发布**
 
-From May 1st 2026, nodes submitted for verification through the [n8n Creator Portal](https://creators.n8n.io/nodes) must be published using GitHub Actions with a provenance statement. See Publishing to npm for setup instructions.
+自 2026 年 5 月 1 日起，通过 [n8n Creator Portal](https://creators.n8n.io/nodes) 提交验证的节点，必须使用 GitHub Actions 发布并附带构建来源证明。设置说明请参阅“发布到 npm”。
 {% endhint %}
 
-Before submitting your node for review by n8n, you must:
+提交节点给 n8n 审核前，必须：
 
-* Start from the [`n8n-node` tool](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/build-your-node/using-the-n8n-node-tool) generated scaffolding. While this isn't strictly required, n8n strongly suggests using the `n8n-node` CLI tool for any community node you plan to submit for verification. Using the tool ensures that your node follows the expected conventions and adheres to the community node requirements.
-* Make sure that your node follows the [technical guidelines for verified community nodes](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/build-your-node/reference/verification-guidelines) and that all automated checks pass. Specifically, verified community nodes aren't allowed to use any run-time dependencies.
-* Ensure that your node follows the [UX guidelines](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/build-your-node/reference/ux-guidelines).
-* Make sure that the node has appropriate documentation in the form of a README in the [npm package](https://docs.npmjs.com/about-package-readme-files) or a related public repository.
-* Publish your node to npm using a GitHub Actions workflow with provenance, as described in **Publishing to npm**. n8n will fetch it from there for final vetting.
+* 从 [`n8n-node` 工具](../../../../connect/create-nodes/build-your-node/using-the-n8n-node-tool.md)生成的脚手架开始。虽然不是硬性要求，但 n8n 强烈建议对所有计划提交验证的社区节点使用 `n8n-node` CLI 工具，确保遵循预期约定及社区节点要求。
+* 确保符合[已验证社区节点的技术指南](../../../../connect/create-nodes/build-your-node/reference/verification-guidelines.md)，并通过全部自动检查。特别需要注意，已验证社区节点不允许使用任何运行时依赖。
+* 确保符合[用户体验指南](../../../../connect/create-nodes/build-your-node/reference/ux-guidelines.md)。
+* 确保在 [npm 软件包](https://docs.npmjs.com/about-package-readme-files)或相关公开仓库的 README 中提供适当文档。
+* 按**发布到 npm**所述，使用带来源证明的 GitHub Actions 工作流发布到 npm，n8n 会从那里获取并做最终审核。
 
-## Ready to submit? <a href="#ready-to-submit" id="ready-to-submit"></a>
-If your node meets all the above requirements, sign up or log in to the [n8n Creator Portal](https://creators.n8n.io/nodes) and submit your node for verification. Note that n8n reserves the right to reject nodes that compete with any of n8n's paid features, especially enterprise functionality.
+## 准备好提交了吗？ <a href="#ready-to-submit" id="ready-to-submit"></a>
+如果符合以上全部要求，请注册或登录 [n8n Creator Portal](https://creators.n8n.io/nodes) 并提交节点验证。注意，n8n 保留拒绝与其付费功能（尤其是企业功能）竞争的节点的权利。

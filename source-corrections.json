@@ -241,5 +241,32 @@
     "translated_sentence": "| `detailLevel` | \"full\" \\| \"execution\" | 否 | `\"full\"` | |",
     "evidence": "同页 get_workflow_details 参数表有 Name、Type、Required、Default、Description 五列；detailLevel 行将反引号转义为普通文本，full/execution 联合类型的竖线却未转义，且缺少末尾说明单元格。原行中允许值为 full 和 execution、Required 为 No、Default 为 full；修复仅重新呈现这些原始内容。CommonMark 解析出的全部代码内容在修复前后完全一致。",
     "scope": "仅修复 Markdown 表格格式并补齐空说明列；不改变参数名、枚举值、必填含义或默认值，不新增接口行为或推断运行兼容性。"
+  },
+  {
+    "id": "node-development-prerequisite-version-note",
+    "path": "reusable-content/.gitbook/includes/integrations/creating-nodes/prerequisites.md",
+    "original_sentence": "Minimum version Node 18.17.0.",
+    "translated_sentence": "译注：此共用片段仍列 Node 18.17.0，而同一版本“设置开发环境”页面要求最低 Node 22.22.0。此处保留两处原文并提示差异，不据此推断所用 n8n 或开发工具版本的实际兼容范围。",
+    "evidence": "同版本 connect/create-nodes/build-your-node/set-up-your-development-environment.md 明确写 Minimum version Node 22.22.0；对照来源哈希：50af092f8c491a41b1c306d0f121ce9a06fa81dbf4f35ae3fe64923a65903166。",
+    "scope": "保留原文版本号，仅添加同版本文档间的对照译注；不执行安装或断言运行兼容性。",
+    "source_sha256": "df9006df11bf057c2dcc36481140c33ca7a4973ca04edfc4481d57bcc69301bc"
+  },
+  {
+    "id": "node-tutorial-declarative-exported-class",
+    "path": "connect/create-nodes/build-your-node/tutorial-build-a-declarative-style-node.md",
+    "original_sentence": "The node must export an interface that implements INodeType. This interface must include a `description` interface, which in turn contains the `properties` array.",
+    "translated_sentence": "节点必须导出一个实现 INodeType 的类。类的 `description` 配置对象必须包含 `properties` 数组。",
+    "evidence": "同页紧接的 TypeScript 示例明确使用 export class NasaPics implements INodeType，并在类中定义 description: INodeTypeDescription 配置对象及其 properties 数组；原文误将导出的类及配置对象称为 interface。",
+    "scope": "依据同页示例修正文中类与配置对象的称谓；不修改 TypeScript、接口名、属性名或任何示例代码，不测试节点运行。",
+    "source_sha256": "e177dd522b53d9037bc4adb106769cfe945f045d30d3d73f1bf45f9269e573d8"
+  },
+  {
+    "id": "node-tutorial-programmatic-exported-class",
+    "path": "connect/create-nodes/build-your-node/tutorial-build-a-programmatic-style-node.md",
+    "original_sentence": "The node must export an interface that implements `INodeType`. This interface must include a `description` interface, which in turn contains the `properties` array.",
+    "translated_sentence": "节点必须导出一个实现 `INodeType` 的类。类的 `description` 配置对象必须包含 `properties` 数组。",
+    "evidence": "同页紧接的 TypeScript 示例明确使用 export class FriendGrid implements INodeType，并在类中定义 description: INodeTypeDescription 配置对象及其 properties 数组；原文误将导出的类及配置对象称为 interface。",
+    "scope": "依据同页示例修正文中类与配置对象的称谓；不修改 TypeScript、接口名、属性名或任何示例代码，不测试节点运行。",
+    "source_sha256": "3f9c79195426052844af25ef40baf7f6e79c3dd52e2b762ffd2e07bf5390b104"
   }
 ]

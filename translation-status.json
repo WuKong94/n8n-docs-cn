@@ -7089,5 +7089,179 @@
     "source_correction_ids": [
       "mcp-detail-level-table-format"
     ]
+  },
+  "connect/create-nodes/build-your-node/README.md": {
+    "status": "translated",
+    "source_sha256": "967cb1e0e2126e263788f8f66d676db299024b0882c01e107323442845c43c58",
+    "translation_sha256": "08c4a87bee3f6aebdf693e43f17bee004fdf7c3bbfdeff96e09e199901d5e6c8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/set-up-your-development-environment.md": {
+    "status": "translated",
+    "source_sha256": "50af092f8c491a41b1c306d0f121ce9a06fa81dbf4f35ae3fe64923a65903166",
+    "translation_sha256": "2034da39ea6d58e79f3e310a60111e8323efac64520d2a9e667f0da0401a95f3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/using-the-n8n-node-tool.md": {
+    "status": "translated",
+    "source_sha256": "13b6599bf9b9a85b4a82b9415498d8aff0bda058acabc96e9dddf4873ea69606",
+    "translation_sha256": "effdc5b845e237289b026737a54c1bf0bc8da630251c9df0aa1e2adb8911746a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/tutorial-build-a-declarative-style-node.md": {
+    "status": "translated",
+    "source_sha256": "e177dd522b53d9037bc4adb106769cfe945f045d30d3d73f1bf45f9269e573d8",
+    "translation_sha256": "df3c36441fd016757e0a5043ed53e47409d644037e96b7e178a060dac249c32b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "node-tutorial-declarative-exported-class"
+    ]
+  },
+  "connect/create-nodes/build-your-node/tutorial-build-a-programmatic-style-node.md": {
+    "status": "translated",
+    "source_sha256": "3f9c79195426052844af25ef40baf7f6e79c3dd52e2b762ffd2e07bf5390b104",
+    "translation_sha256": "6a553825f99308841e32341fb598be322f0ffc48af0c39c8844414121deec22f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "node-tutorial-programmatic-exported-class"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/creating-nodes/prerequisites.md": {
+    "status": "translated",
+    "source_sha256": "df9006df11bf057c2dcc36481140c33ca7a4973ca04edfc4481d57bcc69301bc",
+    "translation_sha256": "cc9f26353218e5d33faada1a5ba5a185015e973dd7548256697e03e528d8f938",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "node-development-prerequisite-version-note"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/creating-nodes/testing.md": {
+    "status": "translated",
+    "source_sha256": "05f032e80c1c915af00d0b8a9f5daf06616a98d715c0d325442ebe042175db5e",
+    "translation_sha256": "b09ce41c5a62079126b5cf6a330b7a8c2388664debd36e43f30575e0ee8c713f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/test-your-node/README.md": {
+    "status": "translated",
+    "source_sha256": "36aefa0e22ef3496ff3ab5e6c553865ab20820ce4326be2aa2c271bfb20f37db",
+    "translation_sha256": "4cc30af372a012d660cb1639840ac604c6347946e21e822c1ccc33da997d232e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/test-your-node/run-your-node-locally.md": {
+    "status": "translated",
+    "source_sha256": "278253e0c5159a18fc7eaa18b759caac7feecfe6ecf24c4bd2ceaa7cfa3aae60",
+    "translation_sha256": "0ce7106e6c93c5ed269cf664f7d6292cad593011dd5d44be77083f67a5a5919c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/test-your-node/node-linter.md": {
+    "status": "translated",
+    "source_sha256": "1d1ec85b3acb747feba796d7f9a1badd482ce915e73b97fecb74867bb2c1dfd3",
+    "translation_sha256": "345f79cb315d8e30ec6eaea3e82b32dde71b3df8013d10fb619f5fcde8ceb02c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/test-your-node/troubleshooting.md": {
+    "status": "translated",
+    "source_sha256": "ef139aa2368dac73d61995a0d77ff49e37cd314ae98d7359989b9ad828980391",
+    "translation_sha256": "99c5e4728ae5b90527ffc94c282d279833680c98d6ad10202d1e046d733e0763",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/deploy-your-node/README.md": {
+    "status": "translated",
+    "source_sha256": "e5744193e258b88319669ac3501d28624d00fe07de40f48b3ed5510ff20a5a5b",
+    "translation_sha256": "44c4b6feef9a7fc62bcd0b61e142c6240455d568b2aa3d553496564b031588dc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/deploy-your-node/install-private-nodes.md": {
+    "status": "translated",
+    "source_sha256": "46aae5826bad965f6a9ccbe15481a70b32dc9eeb368b414b708ce2edc5c658ae",
+    "translation_sha256": "46db0aec62f60b6ccf1c3a74ea945dd695c5a79789758b7cf3b05647fa1df3fa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/deploy-your-node/submit-community-nodes.md": {
+    "status": "translated",
+    "source_sha256": "47d188ddd70de48523f7983b9dfa1f927f54ad2ce0c01254e24a2e6f63a5e839",
+    "translation_sha256": "09699fd3a4d4bdd54ecb0cf2c47344a637b000ae7e46dfb1ee84a338170654e7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/submit-community-node.md": {
+    "status": "translated",
+    "source_sha256": "a6802e02689e79a0333e8054602d6564f094e63acf61b2b82fb083ab92722f0e",
+    "translation_sha256": "bd8d9abb08758bef1f859bd488c756fa13c2cefc7518e172f6831e0455904649",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

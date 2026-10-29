@@ -1,38 +1,40 @@
 ---
 contentType: overview
-nodeTitle: Build your node
+nodeTitle: 构建节点
 originalFilePath: integrations/creating-nodes/build/index.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/build'
-url: 'https://docs.n8n.io/connect/create-nodes/build-your-node'
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build
+url: https://docs.n8n.io/connect/create-nodes/build-your-node
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Build a node <a href="#build-a-node" id="build-a-node"></a>
 
-This section provides tutorials on building nodes. It covers:
+# 构建节点 <a href="#build-a-node" id="build-a-node"></a>
 
-## In this section
+本节提供节点开发教程，涵盖：
 
-* [Set up your development environment](set-up-your-development-environment.md): install the tools you need to build a node.
-* [Using the `n8n-node` tool](using-the-n8n-node-tool.md): create, build, and test your node.
-* [Tutorial: Build a declarative-style node](tutorial-build-a-declarative-style-node.md): build a node using the declarative style.
-* [Tutorial: Build a programmatic-style node](tutorial-build-a-programmatic-style-node.md): build a node using the programmatic style.
-* [Reference](reference/README.md): parameter definitions, code standards, error handling, versioning, and more.
+## 本节内容 <a id="in-this-section"></a>
 
-Coming soon:
+* [设置开发环境](set-up-your-development-environment.md)：安装构建节点所需的工具。
+* [使用 `n8n-node` 工具](using-the-n8n-node-tool.md)：创建、构建和测试节点。
+* [教程：构建声明式节点](tutorial-build-a-declarative-style-node.md)：采用声明式开发节点。
+* [教程：构建编程式节点](tutorial-build-a-programmatic-style-node.md)：采用编程式开发节点。
+* [参考](reference/README.md)：参数定义、代码标准、错误处理、版本控制等。
 
-* More tutorials
-* Revised guidance on standards
+即将提供：
 
-## Related resources
+* 更多教程。
+* 修订后的标准指南。
 
-* [Create nodes](../)
-* [Overview](../overview.md)
-* [Plan your node](../plan-your-node/README.md)
-* [Test your node](../test-your-node/README.md)
-* [Deploy your node](../deploy-your-node/README.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [创建节点](../)
+* [概览](../overview.md)
+* [规划节点](../plan-your-node/README.md)
+* [测试节点](../test-your-node/README.md)
+* [部署节点](../deploy-your-node/README.md)
 
 
 
