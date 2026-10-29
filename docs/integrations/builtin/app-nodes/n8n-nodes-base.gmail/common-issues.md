@@ -1,74 +1,71 @@
 ---
-title: Gmail node common issues
-description: >-
-  Documentation for common issues and questions in the Gmail node in n8n, a
-  workflow automation platform. Includes details of the issue and suggested
-  solutions.
+title: Gmail 节点常见问题
+description: 了解 n8n 工作流自动化平台中 Gmail 节点的常见错误和问题，包括问题详情及建议的解决方法。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Gmail node common issues
+nodeTitle: Gmail 节点常见问题
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.gmail/common-issues.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/common-issues
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/common-issues
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/common-issues
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/common-issues
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Gmail node common issues <a href="#gmail-node-common-issues" id="gmail-node-common-issues"></a>
 
-Here are some common errors and issues with the [Gmail node](README.md) and steps to resolve or troubleshoot them.
+# Gmail 节点常见问题 <a href="#gmail-node-common-issues" id="gmail-node-common-issues"></a>
 
-## Remove the n8n attribution from sent messages <a href="#remove-the-n8n-attribution-from-sent-messages" id="remove-the-n8n-attribution-from-sent-messages"></a>
+以下介绍 [Gmail 节点](README.md)的常见错误和问题，以及解决或排查步骤。
 
-If you're using the node to [send a message](message-operations.md#send-a-message) or [reply to a message](message-operations.md#reply-to-a-message), the node appends this statement to the end of the email:
+## 从已发送消息中移除 n8n 标识 <a href="#remove-the-n8n-attribution-from-sent-messages" id="remove-the-n8n-attribution-from-sent-messages"></a>
 
-> This email was sent automatically with n8n
+使用节点[发送消息](message-operations.md#send-a-message)或[回复消息](message-operations.md#reply-to-a-message)时，节点会在邮件末尾附加以下声明：
 
-To remove this attribution:
+> This email was sent automatically with n8n（此电子邮件由 n8n 自动发送）
 
-1. In the node's **Options** section, select **Add option**.
-2. Select **Append n8n attribution**.
-3. Turn the toggle off.
+要移除此标识：
 
-Refer to [Send options](message-operations.md#send-options) and [Reply options](message-operations.md#reply-options) for more information.
+1. 在节点的 **Options**（选项）部分选择 **Add option**（添加选项）。
+2. 选择 **Append n8n attribution**（附加 n8n 标识）。
+3. 关闭开关。
 
-## Forbidden - perhaps check your credentials <a href="#forbidden-perhaps-check-your-credentials" id="forbidden-perhaps-check-your-credentials"></a>
+更多信息，请参阅[发送选项](message-operations.md#send-options)和[回复选项](message-operations.md#reply-options)。
 
-This error displays next to certain dropdowns in the node, like the **Label Names or IDs** dropdown. The full text looks something like this:
+## Forbidden - perhaps check your credentials（禁止访问，请检查凭据） <a href="#forbidden-perhaps-check-your-credentials" id="forbidden-perhaps-check-your-credentials"></a>
+
+此错误显示在节点的某些下拉菜单旁，例如 **Label Names or IDs**（标签名称或 ID）。完整错误文本类似于：
 
 ```
 There was a problem loading the parameter options from server: "Forbidden - perhaps check your credentials?"
 ```
 
-The error most often displays when you're using a Google Service Account as the credential and the credential doesn't have **Impersonate a User** turned on.
+最常见的原因是使用了 Google 服务账户凭据，但未开启凭据中的 **Impersonate a User**（模拟用户）。
 
-Refer to [Google Service Account: Finish your n8n credential](../../credentials/google/service-account.md#finish-your-n8n-credential) for more information.
+更多信息，请参阅 [Google 服务账户：完成 n8n 凭据设置](../../credentials/google/service-account.md#finish-your-n8n-credential)。
 
-## 401 unauthorized error <a href="#401-unauthorized-error" id="401-unauthorized-error"></a>
+## 401 unauthorized（未授权）错误 <a href="#401-unauthorized-error" id="401-unauthorized-error"></a>
 
-The full text of the error looks like this:
+完整错误文本如下：
 
 ```
 401 - {"error":"unauthorized_client","error_description":"Client is unauthorized to retrieve access tokens using this method, or client not authorized for any of the scopes requested."}
 ```
 
 
-This error occurs when there's an issue with the credential you're using and its scopes or permissions.
+所用凭据及其作用域或权限存在问题时，会出现此错误。
 
-To resolve:
+解决方法：
 
-1. For [OAuth2](../../credentials/google/oauth-single-service.md) credentials, make sure you've enabled the Gmail API in **APIs & Services > Library**. Refer to [Google OAuth2 Single Service - Enable APIs](../../credentials/google/oauth-single-service.md#enable-apis) for more information.
-2. For [Service Account](../../credentials/google/service-account.md) credentials:
-    1. [Enable domain-wide delegation](../../credentials/google/service-account.md#enable-domain-wide-delegation).
-    2. Make sure you add the Gmail API as part of the domain-wide delegation configuration.
+1. 对于 [OAuth2](../../credentials/google/oauth-single-service.md) 凭据，请确认已在 **APIs & Services > Library**（API 和服务 > 库）中启用 Gmail API。更多信息，请参阅 [Google OAuth2 单服务：启用 API](../../credentials/google/oauth-single-service.md#enable-apis)。
+2. 对于[服务账户](../../credentials/google/service-account.md)凭据：
+    1. [启用全域委派](../../credentials/google/service-account.md#enable-domain-wide-delegation)。
+    2. 确认已将 Gmail API 添加到全域委派配置中。
 
-## Bad request - please check your parameters <a href="#bad-request-please-check-your-parameters" id="bad-request-please-check-your-parameters"></a>
+## Bad request - please check your parameters（请求无效，请检查参数） <a href="#bad-request-please-check-your-parameters" id="bad-request-please-check-your-parameters"></a>
 
-This error most often occurs if you enter a Message ID, Thread ID, or Label ID that doesn't exist.
+此错误通常是因为输入的消息 ID、邮件线程 ID 或标签 ID 不存在。
 
-Try a **Get** operation with the ID to confirm it exists.
+尝试使用该 ID 执行 **Get**（获取）操作，确认其是否存在。

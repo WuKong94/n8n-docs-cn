@@ -1,244 +1,242 @@
 ---
-title: Gmail node Message Operations documentation
-description: >-
-  Learn how to use the Message Operations of the Gmail node in n8n. Follow
-  technical documentation to integrate Message Operations into your workflows.
+title: Gmail 节点消息操作文档
+description: 了解如何在 n8n 中使用 Gmail 节点的消息操作，并按照技术文档将这些操作集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Gmail node Message Operations documentation
+nodeTitle: Gmail 节点消息操作文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations
 layout:
   description:
     visible: false
 ---
-
-# Gmail node Message Operations <a href="#gmail-node-message-operations" id="gmail-node-message-operations"></a>
-
-Use the Message operations to send, reply to, delete, mark read or unread, add a label to, remove a label from, or get a message or get a list of messages in Gmail. Refer to the [Gmail node](README.md) for more information on the Gmail node itself.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/sYWM3IB0LEL4RkPx8ndF/" %}
-
-## Add Label to a message <a href="#add-label-to-a-message" id="add-label-to-a-message"></a>
-
-Use this operation to add one or more labels to a message.
-
-Enter these parameters:
-
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Add Label**.
-* **Message ID**: Enter the ID of the message you want to add the label to.
-* **Label Names or IDs**: Select the Label names you want to add or enter an expression to specify IDs. The dropdown populates based on the **Credential** you selected.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-Refer to the [Gmail API Method: users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify) documentation for more information.
+# Gmail 节点消息操作 <a href="#gmail-node-message-operations" id="gmail-node-message-operations"></a>
+
+使用 Message（消息）操作在 Gmail 中发送、回复、删除消息，将消息标记为已读或未读，为消息添加或移除标签，以及获取单个消息或消息列表。有关 Gmail 节点本身的更多信息，请参阅 [Gmail 节点](README.md)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/hitl-tools.md" %}
+
+## 为消息添加标签 <a href="#add-label-to-a-message" id="add-label-to-a-message"></a>
+
+此操作用于为消息添加一个或多个标签。
+
+填写以下参数：
+
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Add Label**（添加标签）。
+* **Message ID**（消息 ID）：输入要添加标签的消息 ID。
+* **Label Names or IDs**（标签名称或 ID）：选择要添加的标签名称，或输入表达式指定 ID。下拉列表根据所选 **Credential**（凭据）填充。
 
 
-## Delete a message <a href="#delete-a-message" id="delete-a-message"></a>
+更多信息，请参阅 [Gmail API 方法：users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify)文档。
 
-Use this operation to immediately and permanently delete a message.
+
+## 删除消息 <a href="#delete-a-message" id="delete-a-message"></a>
+
+此操作用于立即永久删除消息。
 
 {% hint style="info" %}
-**Permanent deletion**
+**永久删除**
 
-This operation can't be undone. For recoverable deletions, use the [Thread Trash operation](thread-operations.md#trash-a-thread) instead.
+此操作无法撤销。如需可恢复的删除，请改用[邮件线程的 Trash（移至垃圾箱）操作](thread-operations.md#trash-a-thread)。
 {% endhint %}
 
-Enter these parameters:
+填写以下参数：
 
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Delete**.
-* **Message ID**: Enter the ID of the message you want to delete.
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Delete**（删除）。
+* **Message ID**（消息 ID）：输入要删除的消息 ID。
 
-Refer to the [Gmail API Method: users.messages.delete](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/delete) documentation for more information.
+更多信息，请参阅 [Gmail API 方法：users.messages.delete](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/delete)文档。
 
-## Get a message <a href="#get-a-message" id="get-a-message"></a>
+## 获取消息 <a href="#get-a-message" id="get-a-message"></a>
 
-Use this operation to get a single message.
+此操作用于获取单个消息。
 
-Enter these parameters:
+填写以下参数：
 
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Get**.
-* **Message ID**: Enter the ID of the message you wish to retrieve.
-* **Simplify**: Choose whether to return a simplified version of the response (turned on) or the raw data (turned off). Default is on.
-    * This is the same as setting the `format` for the API call to `metadata`, which returns email message IDs, labels, and email headers, including: From, To, CC, BCC, and Subject.
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Get**（获取）。
+* **Message ID**（消息 ID）：输入要获取的消息 ID。
+* **Simplify**（简化）：开启时返回简化后的响应，关闭时返回原始数据。默认开启。
+    * 这相当于将 API 调用的 `format` 设为 `metadata`，返回邮件 ID、标签和邮件头，包括 From（发件人）、To（收件人）、CC（抄送）、BCC（密送）及 Subject（主题）。
 
-Refer to the [Gmail API Method: users.messages.get](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/get) documentation for more information.
-
-
-## Get Many messages <a href="#get-many-messages" id="get-many-messages"></a>
+更多信息，请参阅 [Gmail API 方法：users.messages.get](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/get)文档。
 
 
-Use this operation to get two or more messages.
-
-Enter these parameters:
-
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Get Many**.
-* **Return All**: Choose whether the node returns all messages (turned on) or only up to a set limit (turned off).
-* **Limit**: Enter the maximum number of messages to return. Only used if you've turned off **Return All**.
-* **Simplify**: Choose whether to return a simplified version of the response (turned on) or the raw data (turned off). Default is on.
-    * This is the same as setting the `format` for the API call to `metadata`, which returns email message IDs, labels, and email headers, including: From, To, CC, BCC, and Subject.
+## 获取多个消息 <a href="#get-many-messages" id="get-many-messages"></a>
 
 
-### Get Many messages filters <a href="#get-many-messages-filters" id="get-many-messages-filters"></a>
+此操作用于获取两个或更多消息。
+
+填写以下参数：
+
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Get Many**（获取多项）。
+* **Return All**（返回全部）：开启时返回所有消息，关闭时仅返回设定数量以内的消息。
+* **Limit**（数量限制）：输入返回消息的最大数量，仅在关闭 **Return All**（返回全部）时使用。
+* **Simplify**（简化）：开启时返回简化后的响应，关闭时返回原始数据。默认开启。
+    * 这相当于将 API 调用的 `format` 设为 `metadata`，返回邮件 ID、标签和邮件头，包括 From（发件人）、To（收件人）、CC（抄送）、BCC（密送）及 Subject（主题）。
 
 
-Use these filters to further refine the node's behavior:
-
-* **Include Spam and Trash**: Select whether the node should get messages in the Spam and Trash folders (turned on) or not (turned off).
-* **Label Names or IDs**: Only return messages with the selected labels added to them. Select the Label names you want to apply or enter an expression to specify IDs. The dropdown populates based on the **Credential** you selected.
-* **Search**: Enter Gmail search refine filters, like `from:`, to filter the messages returned. Refer to [Refine searches in Gmail](https://support.google.com/mail/answer/7190?hl=en) for more information.
-* **Read Status**: Choose whether to receive **Unread and read emails**, **Unread emails only** (default), or **Read emails only**.
-* **Received After**: Return only those emails received after the specified date and time. Use the date picker to select the day and time or enter an expression to set a date as a string in ISO format or a timestamp in milliseconds. Refer to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) for more information on formatting the string.
-* **Received Before**: Return only those emails received before the specified date and time. Use the date picker to select the day and time or enter an expression to set a date as a string in ISO format or a timestamp in milliseconds. Refer to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) for more information on formatting the string.
-* **Sender**: Enter an email or a part of a sender name to return messages from only that sender.
-
-Refer to the [Gmail API Method: users.messages.list](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list) documentation for more information.
-
-## Mark as Read <a href="#mark-as-read" id="mark-as-read"></a>
-
-Use this operation to mark a message as read.
-
-Enter these parameters:
-
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Mark as Read**.
-* **Message ID**: Enter the ID of the message you wish to mark as read.
+### 获取多个消息的筛选条件 <a href="#get-many-messages-filters" id="get-many-messages-filters"></a>
 
 
-Refer to the [Gmail API Method: users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify) documentation for more information.
+使用以下筛选条件进一步调整节点行为：
+
+* **Include Spam and Trash**（包含垃圾邮件和垃圾箱）：选择是否获取 Spam（垃圾邮件）和 Trash（垃圾箱）文件夹中的消息，开启表示包含，关闭表示不包含。
+* **Label Names or IDs**（标签名称或 ID）：仅返回带有所选标签的消息。选择要应用的标签名称，或输入表达式指定 ID。下拉列表根据所选 **Credential**（凭据）填充。
+* **Search**（搜索）：输入 Gmail 搜索筛选条件，例如 `from:`，筛选返回的消息。更多信息，请参阅[优化 Gmail 搜索](https://support.google.com/mail/answer/7190?hl=en)。
+* **Read Status**（已读状态）：选择 **Unread and read emails**（未读及已读邮件）、**Unread emails only**（仅未读邮件，默认）或 **Read emails only**（仅已读邮件）。
+* **Received After**（接收时间晚于）：仅返回指定日期和时间之后收到的邮件。通过日期选择器选择日期和时间，或输入表达式，将日期设为 ISO 格式字符串或毫秒时间戳。字符串格式的更多信息，请参阅 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)。
+* **Received Before**（接收时间早于）：仅返回指定日期和时间之前收到的邮件。通过日期选择器选择日期和时间，或输入表达式，将日期设为 ISO 格式字符串或毫秒时间戳。字符串格式的更多信息，请参阅 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)。
+* **Sender**（发件人）：输入邮箱地址或发件人姓名的一部分，仅返回该发件人的消息。
+
+更多信息，请参阅 [Gmail API 方法：users.messages.list](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list)文档。
+
+## 标记为已读 <a href="#mark-as-read" id="mark-as-read"></a>
+
+此操作用于将消息标记为已读。
+
+填写以下参数：
+
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Mark as Read**（标记为已读）。
+* **Message ID**（消息 ID）：输入要标记为已读的消息 ID。
 
 
-## Mark as Unread <a href="#mark-as-unread" id="mark-as-unread"></a>
-
-Use this operation to mark a message as unread.
-
-Enter these parameters:
-
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Mark as Unread**.
-* **Message ID**: Enter the ID of the message you wish to mark as unread.
+更多信息，请参阅 [Gmail API 方法：users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify)文档。
 
 
-Refer to the [Gmail API Method: users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify) documentation for more information.
+## 标记为未读 <a href="#mark-as-unread" id="mark-as-unread"></a>
+
+此操作用于将消息标记为未读。
+
+填写以下参数：
+
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Mark as Unread**（标记为未读）。
+* **Message ID**（消息 ID）：输入要标记为未读的消息 ID。
 
 
-## Remove Label from a message <a href="#remove-label-from-a-message" id="remove-label-from-a-message"></a>
-
-Use this operation to remove one or more labels from a message.
-
-Enter these parameters:
-
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Remove Label**.
-* **Message ID**: Enter the ID of the message you want to remove the label from.
-* **Label Names or IDs**: Select the Label names you want to remove or enter an expression to specify IDs. The dropdown populates based on the **Credential** you selected.
+更多信息，请参阅 [Gmail API 方法：users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify)文档。
 
 
-Refer to the [Gmail API Method: users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify) documentation for more information.
+## 从消息中移除标签 <a href="#remove-label-from-a-message" id="remove-label-from-a-message"></a>
+
+此操作用于从消息中移除一个或多个标签。
+
+填写以下参数：
+
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Remove Label**（移除标签）。
+* **Message ID**（消息 ID）：输入要移除标签的消息 ID。
+* **Label Names or IDs**（标签名称或 ID）：选择要移除的标签名称，或输入表达式指定 ID。下拉列表根据所选 **Credential**（凭据）填充。
 
 
-## Reply to a message <a href="#reply-to-a-message" id="reply-to-a-message"></a>
+更多信息，请参阅 [Gmail API 方法：users.messages.modify](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/modify)文档。
 
-Use this operation to send a message as a reply to an existing message.
 
-Enter these parameters:
+## 回复消息 <a href="#reply-to-a-message" id="reply-to-a-message"></a>
 
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Reply**.
-* **Message ID**: Enter the ID of the message you want to reply to.
-* Select the **Email Type**. Choose from **Text** or **HTML**.
-* **Message**: Enter the email message body.
+此操作用于发送消息，以回复已有消息。
 
-### Reply options <a href="#reply-options" id="reply-options"></a>
+填写以下参数：
 
-Use these options to further refine the node's behavior:
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Reply**（回复）。
+* **Message ID**（消息 ID）：输入要回复的消息 ID。
+* 选择 **Email Type**（邮件类型），可选 **Text**（文本）或 **HTML**。
+* **Message**（消息）：输入电子邮件正文。
 
-* **Append n8n attribution**: By default, the node appends the statement `This email was sent automatically with n8n` to the end of the email. To remove this statement, turn this option off.
-* **Attachments**: Select **Add Attachment** to add an attachment. Enter the **Attachment Field Name (in Input)** to identify which field from the input node contains the attachment.
-    * For multiple properties, enter a comma-separated list.
-* **BCC**: Enter one or more email addresses for blind copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.
-* **CC**: Enter one or more email addresses for carbon copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.
-* **Sender Name**: Enter the name you want displayed in your recipients' email as the sender.
-* **Reply to Sender Only**: Choose whether to reply all (turned off) or reply to the sender only (turned on).
+### 回复选项 <a href="#reply-options" id="reply-options"></a>
 
-Refer to the [Gmail API Method: users.messages.send](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send) documentation for more information.
+使用以下选项进一步调整节点行为：
 
-## Send a message <a href="#send-a-message" id="send-a-message"></a>
+* **Append n8n attribution**（附加 n8n 标识）：默认情况下，节点会在邮件末尾附加 `This email was sent automatically with n8n` 声明。关闭此选项即可移除。
+* **Attachments**（附件）：选择 **Add Attachment**（添加附件）。填写 **Attachment Field Name (in Input)**（输入中的附件字段名），指定输入节点中包含附件的字段。
+    * 多个属性请用英文逗号分隔。
+* **BCC**（密送）：输入一个或多个密送收件人的邮箱地址。多个地址用英文逗号分隔，例如 `jay@gatsby.com, jon@smith.com`。
+* **CC**（抄送）：输入一个或多个抄送收件人的邮箱地址。多个地址用英文逗号分隔，例如 `jay@gatsby.com, jon@smith.com`。
+* **Sender Name**（发件人名称）：输入希望收件人在邮件中看到的发件人名称。
+* **Reply to Sender Only**（仅回复发件人）：选择回复所有人（关闭），或仅回复发件人（开启）。
 
-Use this operation to send a message.
+更多信息，请参阅 [Gmail API 方法：users.messages.send](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send)文档。
 
-Enter these parameters:
+## 发送消息 <a href="#send-a-message" id="send-a-message"></a>
 
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Send**.
-* **To**: Enter the email address you want the email sent to.
-* **Subject**: Enter the subject line.
-* Select the **Email Type**. Choose from **Text** or **HTML**.
-* **Message**: Enter the email message body.
+此操作用于发送消息。
 
-### Send options <a href="#send-options" id="send-options"></a>
+填写以下参数：
 
-Use these options to further refine the node's behavior:
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Send**（发送）。
+* **To**（收件人）：输入要发送邮件的目标邮箱地址。
+* **Subject**（主题）：输入邮件主题。
+* 选择 **Email Type**（邮件类型），可选 **Text**（文本）或 **HTML**。
+* **Message**（消息）：输入电子邮件正文。
 
-* **Append n8n attribution**: By default, the node appends the statement `This email was sent automatically with n8n` to the end of the email. To remove this statement, turn this option off.
-* **Attachments**: Select **Add Attachment** to add an attachment. Enter the **Attachment Field Name (in Input)** to identify which field from the input node contains the attachment.
-    * For multiple properties, enter a comma-separated list.
-* **BCC**: Enter one or more email addresses for blind copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.
-* **CC**: Enter one or more email addresses for carbon copy recipients. Separate multiple email addresses with a comma, for example `jay@gatsby.com, jon@smith.com`.
-* **Sender Name**: Enter the name you want displayed in your recipients' email as the sender.
-* **Send Replies To**: Enter an email address to set as the reply to address.
-* **Reply to Sender Only**: Choose whether to reply all (turned off) or reply to the sender only (turned on).
+### 发送选项 <a href="#send-options" id="send-options"></a>
 
-Refer to the [Gmail API Method: users.messages.send](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send) documentation for more information.
+使用以下选项进一步调整节点行为：
 
-## Send a message and wait for approval <a href="#send-a-message-and-wait-for-approval" id="send-a-message-and-wait-for-approval"></a>
+* **Append n8n attribution**（附加 n8n 标识）：默认情况下，节点会在邮件末尾附加 `This email was sent automatically with n8n` 声明。关闭此选项即可移除。
+* **Attachments**（附件）：选择 **Add Attachment**（添加附件）。填写 **Attachment Field Name (in Input)**（输入中的附件字段名），指定输入节点中包含附件的字段。
+    * 多个属性请用英文逗号分隔。
+* **BCC**（密送）：输入一个或多个密送收件人的邮箱地址。多个地址用英文逗号分隔，例如 `jay@gatsby.com, jon@smith.com`。
+* **CC**（抄送）：输入一个或多个抄送收件人的邮箱地址。多个地址用英文逗号分隔，例如 `jay@gatsby.com, jon@smith.com`。
+* **Sender Name**（发件人名称）：输入希望收件人在邮件中看到的发件人名称。
+* **Send Replies To**（回复地址）：输入用作回复地址的邮箱地址。
+* **Reply to Sender Only**（仅回复发件人）：选择回复所有人（关闭），或仅回复发件人（开启）。
 
-Use this operation to send a message and wait for approval from the recipient before continuing the workflow execution.
+更多信息，请参阅 [Gmail API 方法：users.messages.send](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send)文档。
+
+## 发送消息并等待审批 <a href="#send-a-message-and-wait-for-approval" id="send-a-message-and-wait-for-approval"></a>
+
+此操作用于发送消息，并在继续执行工作流前等待收件人审批。
 
 {% hint style="info" %}
-**Use Wait for complex approvals**
+**复杂审批请使用 Wait 节点**
 
-The **Send and Wait for Approval** operation is well-suited for simple approval processes. For more complex approvals, consider using the [Wait node](../../core-nodes/n8n-nodes-base.wait.md).
+**Send and Wait for Approval**（发送并等待审批）操作适用于简单审批流程。对于更复杂的审批，可考虑使用 [Wait 节点](../../core-nodes/n8n-nodes-base.wait.md)。
 {% endhint %}
 
-Enter these parameters:
+填写以下参数：
 
-* Select the **Credential to connect with** or create a new one.
-* **Resource**: Select **Message**.
-* **Operation**: Select **Send and Wait for Approval**.
-* **To**: Enter the email address you want the email sent to.
-* **Subject**: Enter the subject line.
-* **Message**: Enter the email message body.
+* 选择 **Credential to connect with**（连接所用凭据），或创建新凭据。
+* **Resource**（资源）：选择 **Message**（消息）。
+* **Operation**（操作）：选择 **Send and Wait for Approval**（发送并等待审批）。
+* **To**（收件人）：输入要发送邮件的目标邮箱地址。
+* **Subject**（主题）：输入邮件主题。
+* **Message**（消息）：输入电子邮件正文。
 
-### Send and wait for approval options <a href="#send-and-wait-for-approval-options" id="send-and-wait-for-approval-options"></a>
+### 发送并等待审批的选项 <a href="#send-and-wait-for-approval-options" id="send-and-wait-for-approval-options"></a>
 
-Use these options to further refine the node's behavior:
+使用以下选项进一步调整节点行为：
 
-* **Type of Approval**: Choose **Approve Only** (default) to include only an approval button or **Approve and Disapprove** to also include a disapproval option.
-* **Approve Button Label**: The label to use for the approval button (**Approve** by default).
-* **Approve Button Style**: Whether to style the approval button as a **Primary** (default) or **Secondary** button.
-* **Disapprove Button Label**: The label to use for the disapproval button (**Decline** by default). Only visible when you set **Type of Approval** to **Approve and Disapprove**.
-* **Disapprove Button Style**: Whether to style the disapproval button as a **Primary** or **Secondary** (default) button. Only visible when you set **Type of Approval** to **Approve and Disapprove**.
+* **Type of Approval**（审批类型）：选择 **Approve Only**（仅批准，默认）时，只包含批准按钮；选择 **Approve and Disapprove**（批准和拒绝）时，还会包含拒绝选项。
+* **Approve Button Label**（批准按钮文字）：批准按钮使用的文字，默认为 **Approve**。
+* **Approve Button Style**（批准按钮样式）：选择 **Primary**（主要，默认）或 **Secondary**（次要）按钮样式。
+* **Disapprove Button Label**（拒绝按钮文字）：拒绝按钮使用的文字，默认为 **Decline**。仅在 **Type of Approval**（审批类型）设为 **Approve and Disapprove**（批准和拒绝）时显示。
+* **Disapprove Button Style**（拒绝按钮样式）：选择 **Primary**（主要）或 **Secondary**（次要，默认）按钮样式。仅在 **Type of Approval**（审批类型）设为 **Approve and Disapprove**（批准和拒绝）时显示。
 
-Refer to the [Gmail API Method: users.messages.send](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send) documentation for more information.
+更多信息，请参阅 [Gmail API 方法：users.messages.send](https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send)文档。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common errors or issues and suggested resolution steps, refer to [Common Issues](common-issues.md).
+常见错误或问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。

@@ -15177,5 +15177,78 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.gmail/README.md": {
+    "status": "translated",
+    "source_sha256": "304ba71970a1e088277c4b744f91d1d48d605abd6af6ab82be5c83ef8489f6e7",
+    "translation_sha256": "0132fec441ac1dedbd71c500d87c476e52a0109648f15f1822d5075c473f0663",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.gmail/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "9535b89e6b0e88d7725e2a07ae051029b0b8bbbc033207a7498fd7097d068bba",
+    "translation_sha256": "ca2861970b7805c7c915154040a8b2d22a2813d630f3d77975ece1fddded1e4a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations.md": {
+    "status": "translated",
+    "source_sha256": "7621b0148f576d98872751c7638672c619fca3dcf98c2c8bb2d129b82fd4a0f5",
+    "translation_sha256": "9c1c0f36ad1cdba21faf075e16eba224df19eeb5c3912528ebb5d976e6db37ca",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "gmail-draft-attachment-prefix-quote-format"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.gmail/label-operations.md": {
+    "status": "translated",
+    "source_sha256": "6f32f883a7df64df9de28b3f401da8b6fb737f43f7a585bdf12cbbdadd922b89",
+    "translation_sha256": "394b41b5b53dae7a141fe1576e35889430013e04d08e4d8a415aaf64ef8c7f2f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.gmail/message-operations.md": {
+    "status": "translated",
+    "source_sha256": "e6f13cdac75dafd205ee18f930d147312cc089444534556ed1154a1ef1968410",
+    "translation_sha256": "a68b6f07ad8576113c5ff32ad21ed5287d06f100f56d82968b23c89df47611ce",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.gmail/thread-operations.md": {
+    "status": "translated",
+    "source_sha256": "e867e46ce0e528b913ca2bbd3db01237bba77fd6457b3735f87ddd769d5d26e0",
+    "translation_sha256": "4bca1c10d4c87ca4be41884239016d13d80143c0d35d462c5e06c8e3128a5a89",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "gmail-thread-add-label-operation-description",
+      "gmail-thread-untrash-id-direction"
+    ]
   }
 }

@@ -1,16 +1,14 @@
 ---
-title: Gmail node documentation
+title: Gmail 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-base.gmail
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.gmail/index.md
 originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail
 url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail
-description: >-
-  Learn how to use the Gmail node in n8n. Follow technical documentation to
-  integrate Gmail node into your workflows.
+description: 了解如何在 n8n 中使用 Gmail 节点，并按照技术文档将 Gmail 节点集成到工作流中。
 layout:
   width: default
   title:
@@ -30,65 +28,67 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Gmail
 
-Use the Gmail node to automate work in Gmail, and integrate Gmail with other applications. n8n has built-in support for a wide range of Gmail features, including creating, updating, deleting, and getting drafts, messages, labels, and threads.
+# Gmail <a id="gmail"></a>
 
-On this page, you'll find a list of operations the Gmail node supports and links to more resources.
+使用 Gmail 节点自动处理 Gmail 中的工作，并将其与其他应用集成。n8n 内置支持多种 Gmail 功能，包括创建、更新、删除和获取草稿、消息、标签及邮件线程。
+
+本页列出了 Gmail 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Google credentials](../../credentials/google/README.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Google 凭据](../../credentials/google/README.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* **Draft**
-  * [**Create**](draft-operations.md#create-a-draft) a draft
-  * [**Delete**](draft-operations.md#delete-a-draft) a draft
-  * [**Get**](draft-operations.md#get-a-draft) a draft
-  * [**Get Many**](draft-operations.md#get-many-drafts) drafts
-* **Label**
-  * [**Create**](label-operations.md#create-a-label) a label
-  * [**Delete**](label-operations.md#delete-a-label) a label
-  * [**Get**](label-operations.md#get-a-label) a label
-  * [**Get Many**](label-operations.md#get-many-labels) labels
-* **Message**
-  * [**Add Label**](message-operations.md#add-label-to-a-message) to a message
-  * [**Delete**](message-operations.md#delete-a-message) a message
-  * [**Get**](message-operations.md#get-a-message) a message
-  * [**Get Many**](message-operations.md#get-many-messages) messages
-  * [**Mark as Read**](message-operations.md#mark-as-read)
-  * [**Mark as Unread**](message-operations.md#mark-as-unread)
-  * [**Remove Label**](message-operations.md#remove-label-from-a-message) from a message
-  * [**Reply**](message-operations.md#reply-to-a-message) to a message
-  * [**Send**](message-operations.md#send-a-message) a message
-* **Thread**
-  * [**Add Label**](thread-operations.md#add-label-to-a-thread) to a thread
-  * [**Delete**](thread-operations.md#delete-a-thread) a thread
-  * [**Get**](thread-operations.md#get-a-thread) a thread
-  * [**Get Many**](thread-operations.md#get-many-threads) threads
-  * [**Remove Label**](thread-operations.md#remove-label-from-a-thread) from thread
-  * [**Reply**](thread-operations.md#reply-to-a-message) to a message
-  * [**Trash**](thread-operations.md#trash-a-thread) a thread
-  * [**Untrash**](thread-operations.md#untrash-a-thread) a thread
+* **Draft**（草稿）
+  * [**Create**](draft-operations.md#create-a-draft)（创建）草稿
+  * [**Delete**](draft-operations.md#delete-a-draft)（删除）草稿
+  * [**Get**](draft-operations.md#get-a-draft)（获取）草稿
+  * [**Get Many**](draft-operations.md#get-many-drafts)（获取多项）：获取多个草稿
+* **Label**（标签）
+  * [**Create**](label-operations.md#create-a-label)（创建）标签
+  * [**Delete**](label-operations.md#delete-a-label)（删除）标签
+  * [**Get**](label-operations.md#get-a-label)（获取）标签
+  * [**Get Many**](label-operations.md#get-many-labels)（获取多项）：获取多个标签
+* **Message**（消息）
+  * [**Add Label**](message-operations.md#add-label-to-a-message)（添加标签）：为消息添加标签
+  * [**Delete**](message-operations.md#delete-a-message)（删除）消息
+  * [**Get**](message-operations.md#get-a-message)（获取）消息
+  * [**Get Many**](message-operations.md#get-many-messages)（获取多项）：获取多个消息
+  * [**Mark as Read**](message-operations.md#mark-as-read)（标记为已读）
+  * [**Mark as Unread**](message-operations.md#mark-as-unread)（标记为未读）
+  * [**Remove Label**](message-operations.md#remove-label-from-a-message)（移除标签）：从消息中移除标签
+  * [**Reply**](message-operations.md#reply-to-a-message)（回复）消息
+  * [**Send**](message-operations.md#send-a-message)（发送）消息
+* **Thread**（邮件线程）
+  * [**Add Label**](thread-operations.md#add-label-to-a-thread)（添加标签）：为邮件线程添加标签
+  * [**Delete**](thread-operations.md#delete-a-thread)（删除）邮件线程
+  * [**Get**](thread-operations.md#get-a-thread)（获取）邮件线程
+  * [**Get Many**](thread-operations.md#get-many-threads)（获取多项）：获取多个邮件线程
+  * [**Remove Label**](thread-operations.md#remove-label-from-a-thread)（移除标签）：从邮件线程中移除标签
+  * [**Reply**](thread-operations.md#reply-to-a-message)（回复）消息
+  * [**Trash**](thread-operations.md#trash-a-thread)（移至垃圾箱）邮件线程
+  * [**Untrash**](thread-operations.md#untrash-a-thread)（从垃圾箱恢复）邮件线程
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Gmail integration templates](https://n8n.io/integrations/gmail) or [search all templates](https://n8n.io/workflows/)
+[浏览 Gmail 集成模板](https://n8n.io/integrations/gmail)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to Google's [Gmail API documentation](https://developers.google.com/gmail/api) for detailed information about the API that this node integrates with.
+有关此节点所集成 API 的详细信息，请参阅 Google 的 [Gmail API 文档](https://developers.google.com/gmail/api)。
 
-n8n provides a trigger node for Gmail. See the [Gmail Trigger node docs](../../trigger-nodes/n8n-nodes-base.gmailtrigger/README.md).
+n8n 提供 Gmail 触发器节点。请参阅 [Gmail Trigger 节点文档](../../trigger-nodes/n8n-nodes-base.gmailtrigger/README.md)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common errors or issues and suggested resolution steps, refer to [Common Issues](common-issues.md).
+常见错误或问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。

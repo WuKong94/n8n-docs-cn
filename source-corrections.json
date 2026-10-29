@@ -638,5 +638,41 @@
     ],
     "scope": "仅修正相关资源说明中的节点类型，不改变链接、操作、凭据、代码、原始元数据或源快照，不执行 Notion 操作。",
     "source_sha256": "7cf52f6e2d57a862a558a4e10f445a9dbbded83b0a97311176e7dea9c828ba20"
+  },
+  {
+    "id": "gmail-thread-add-label-operation-description",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/thread-operations.md",
+    "original_sentence": "Use this operation to create a new draft.",
+    "translated_sentence": "此操作用于为邮件线程添加标签。",
+    "evidence": "原句位于 Add Label to a thread 章节，却描述创建草稿。同一章节的 Resource 为 Thread、Operation 为 Add Label，参数为 Thread ID 和 Label Names or IDs，引用 users.threads.modify。因此将说明修正为给邮件线程添加标签；不修改草稿页同名原句。",
+    "scope": "仅修正邮件线程添加标签章节的复制错误，资源、操作、参数、API 引用和源快照保持原样，不执行邮件操作。",
+    "source_sha256": "e867e46ce0e528b913ca2bbd3db01237bba77fd6457b3735f87ddd769d5d26e0",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.gmail/thread-operations.md"
+    ]
+  },
+  {
+    "id": "gmail-thread-untrash-id-direction",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/thread-operations.md",
+    "original_sentence": "* **Thread ID**: Enter the ID of the thread you want to move to the trash.",
+    "translated_sentence": "* **Thread ID**（邮件线程 ID）：输入要从垃圾箱恢复的邮件线程 ID。",
+    "evidence": "Untrash a thread 章节明确说明从垃圾箱恢复线程及全部消息，Operation 为 Untrash，引用 users.threads.untrash，但 Thread ID 说明沿用了 Trash 的移入垃圾箱语句。译文仅在 Untrash 章节修正方向，Trash 章节仍为移入垃圾箱。",
+    "scope": "仅修正 Untrash 章节的 Thread ID 用途，不更改 Trash、Delete 或其他操作，不更改 ID、API 地址或源快照，不执行恢复或删除。",
+    "source_sha256": "e867e46ce0e528b913ca2bbd3db01237bba77fd6457b3735f87ddd769d5d26e0",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.gmail/thread-operations.md"
+    ]
+  },
+  {
+    "id": "gmail-draft-attachment-prefix-quote-format",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations.md",
+    "original_sentence": "* **Attachment Prefix**: Enter a prefix for the name of the binary property the node should write any attachments to. n8n adds an index starting with `0` to the prefix. For example, if you enter `attachment_' as the prefix, the first attachment saves to 'attachment_0'.",
+    "translated_sentence": "* **Attachment Prefix**（附件前缀）：输入节点写入附件时所用二进制属性名的前缀。n8n 会在前缀后添加从 `0` 开始的索引。例如，前缀为“attachment_”时，首个附件保存到“attachment_0”。",
+    "evidence": "Get draft options 和 Get Many drafts options 的 Attachment Prefix 示例各出现一次相同的混合引用符号：attachment_ 前为反引号、后为单引号，未形成行内代码。译文使用成对中文引号标识原有前缀与属性示例，保留唯一实际行内代码 `0`、attachment_ 和 attachment_0 的值。",
+    "scope": "仅整理两处示例的引用符号，不新增行内代码，不更改二进制属性名、附件前缀、从零开始的索引、下载开关或源快照。",
+    "source_sha256": "7621b0148f576d98872751c7638672c619fca3dcf98c2c8bb2d129b82fd4a0f5",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations.md"
+    ]
   }
 ]
