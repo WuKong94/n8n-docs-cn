@@ -14917,5 +14917,38 @@
     "source_correction_ids": [
       "freshservice-introduction-service-name"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.slack/README.md": {
+    "status": "translated",
+    "source_sha256": "82c4162ec40ded7444679251d5cbf2b23d07f5dc523016b141ac997eb6524365",
+    "translation_sha256": "a081afec943be1852e14e104ce5570f8d7c8fcf1c8cd069d59330260cdd91425",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.microsoftteams.md": {
+    "status": "translated",
+    "source_sha256": "249ef0b455d58c172924f71bbf33bfca9eb4e7b650408411cf37ca9bf280a09c",
+    "translation_sha256": "6fc7f179ee36e7781c367cb388235765284f36a17ba23839b9b11bc0dedf267d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.slack/approvals.md": {
+    "status": "translated",
+    "source_sha256": "0eb902328fc042e30867404cff92efbb76af4545af4563da882a0e62df6fc2b6",
+    "translation_sha256": "795db2acfbcb0c6ddf2e9b71fae8a6ed99b6de8ab93470615dd73b6be37c0c33",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

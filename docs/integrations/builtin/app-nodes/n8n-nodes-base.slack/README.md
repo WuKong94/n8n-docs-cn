@@ -1,167 +1,167 @@
 ---
-title: Slack node documentation
-description: >-
-  Learn how to use the Slack node in n8n. Follow technical documentation to
-  integrate Slack node into your workflows.
+title: Slack 节点文档
+description: 了解如何在 n8n 中使用 Slack 节点，并按照技术文档将 Slack 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Slack node documentation
+nodeTitle: Slack 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.slack.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Slack node <a href="#slack-node" id="slack-node"></a>
 
-Use the Slack node to automate work in Slack, and integrate Slack with other applications. n8n has built-in support for a wide range of Slack features, including creating, archiving, and closing channels, getting users and files, as well as deleting messages.
+# Slack 节点 <a href="#slack-node" id="slack-node"></a>
 
-On this page, you'll find a list of operations the Slack node supports and links to more resources.
+使用 Slack 节点自动处理 Slack 中的工作，并将其与其他应用集成。n8n 内置支持多种 Slack 功能，包括创建、归档和关闭频道，获取用户及文件，以及删除消息。
+
+本页列出了 Slack 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Slack credentials](../../credentials/slack.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Slack 凭据](../../credentials/slack.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/sYWM3IB0LEL4RkPx8ndF/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/hitl-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* **Channel**
-    * **Archive** a channel.
-    * **Close** a direct message or multi-person direct message.
-    * **Create** a public or private channel-based conversation.
-    * **Get** information about a channel.
-    * **Get Many**: Get a list of channels in Slack.
-    * **History**: Get a channel's history of messages and events.
-    * **Invite** a user to a channel.
-    * **Join** an existing channel.
-    * **Kick**: Remove a user from a channel.
-    * **Leave** a channel.
-    * **Member**: List the members of a channel.
-    * **Open** or resume a direct message or multi-person direct message.
-    * **Rename** a channel.
-    * **Replies**: Get a thread of messages posted to a channel.
-    * **Sets purpose** of a channel.
-    * **Sets topic** of a channel.
-    * **Unarchive** a channel.
-* **File**
-    * **Get** a file.
-    * **Get Many**: Get and filter team files.
-    * **Upload**: Create or upload an existing file.
-* **Message**
-    * **Delete** a message
-    * **Get permalink**: Get a message's permalink.
-    * **Search** for messages
-    * **Send** a message
-    * **Send and Wait for Response**: Send a message and wait for a response from the recipient before continuing. Approvers can also respond directly inside Slack. Refer to [Approvals in Slack](approvals.md) for more information.
-    * **Update** a message
-* **Reaction**
-    * **Add** a reaction to a message.
-    * **Get** a message's reactions.
-    * **Remove** a reaction from a message.
-* **Star**
-    * **Add** a star to an item.
-    * **Delete** a star from an item.
-    * **Get Many**: Get a list of an authenticated user's stars.
-* **User**
-    * **Get** information about a user.
-	* **Get Many**: Get a list of users.
-    * **Get User's Profile**.
-    * **Get User's Status**.
-	* **Update User's Profile**.
-* **User Group**
-    * **Create** a user group.
-    * **Disable** a user group.
-    * **Enable** a user group.
-    * **Get Many**: Get a list of user groups.
-    * **Update** a user group.
+* **Channel**（频道）
+    * **Archive**（归档）频道。
+    * **Close**（关闭）私信或多人私信。
+    * **Create**（创建）基于公开或私密频道的会话。
+    * **Get**（获取）频道信息。
+    * **Get Many**（获取多项）：获取 Slack 频道列表。
+    * **History**（历史记录）：获取频道的消息及事件历史。
+    * **Invite**（邀请）用户加入频道。
+    * **Join**（加入）已有频道。
+    * **Kick**（移除成员）：从频道移除用户。
+    * **Leave**（离开）频道。
+    * **Member**（成员）：列出频道成员。
+    * **Open**（打开）或恢复私信或多人私信。
+    * **Rename**（重命名）频道。
+    * **Replies**（回复）：获取发布在频道中的消息讨论串。
+    * **Sets purpose**（设置用途）：设置频道用途。
+    * **Sets topic**（设置主题）：设置频道主题。
+    * **Unarchive**（取消归档）频道。
+* **File**（文件）
+    * **Get**（获取）文件。
+    * **Get Many**（获取多项）：获取并筛选团队文件。
+    * **Upload**（上传）：创建文件或上传已有文件。
+* **Message**（消息）
+    * **Delete**（删除）消息
+    * **Get permalink**（获取永久链接）：获取消息的永久链接。
+    * **Search**（搜索）消息
+    * **Send**（发送）消息
+    * **Send and Wait for Response**（发送并等待响应）：发送消息，等待接收者响应后再继续。审批人也可直接在 Slack 中响应。更多信息，请参阅 [Slack 中的审批](approvals.md)。
+    * **Update**（更新）消息
+* **Reaction**（回应）
+    * **Add**（添加）消息回应。
+    * **Get**（获取）消息的回应。
+    * **Remove**（移除）消息回应。
+* **Star**（星标）
+    * **Add**（添加）数据项的星标。
+    * **Delete**（删除）数据项的星标。
+    * **Get Many**（获取多项）：获取已通过身份验证的用户的星标列表。
+* **User**（用户）
+    * **Get**（获取）用户信息。
+    * **Get Many**（获取多项）：获取用户列表。
+    * **Get User's Profile**（获取用户资料）。
+    * **Get User's Status**（获取用户状态）。
+    * **Update User's Profile**（更新用户资料）。
+* **User Group**（用户组）
+    * **Create**（创建）用户组。
+    * **Disable**（禁用）用户组。
+    * **Enable**（启用）用户组。
+    * **Get Many**（获取多项）：获取用户组列表。
+    * **Update**（更新）用户组。
 
-## Message search and version-specific behavior <a href="#message-search-and-version-specific-behavior" id="message-search-and-version-specific-behavior"></a>
+## 消息搜索与版本差异 <a href="#message-search-and-version-specific-behavior" id="message-search-and-version-specific-behavior"></a>
 
-### Search messages <a href="#search-messages" id="search-messages"></a>
+### 搜索消息 <a href="#search-messages" id="search-messages"></a>
 
-Node version 2.7 and above uses the [Real-time Search API](https://docs.slack.dev/apis/web-api/real-time-search-api/) (`assistant.search.context`) for the **Message > Search** operation. Node version 2.6 and below use the deprecated [`search.messages`](https://api.slack.com/methods/search.messages) endpoint. n8n gates this by node version, so the change doesn't affect existing workflows on node version 2.6 and below.
+节点第 2.7 版及以上版本的 **Message > Search**（消息 > 搜索）操作使用[实时搜索 API](https://docs.slack.dev/apis/web-api/real-time-search-api/)（`assistant.search.context`）。节点第 2.6 版及以下版本使用已弃用的 [`search.messages`](https://api.slack.com/methods/search.messages) 端点。n8n 按节点版本控制此行为，因此不会影响仍使用节点第 2.6 版及以下版本的已有工作流。
 
-On node version 2.7 and above:
+节点第 2.7 版及以上版本：
 
-- **New options**: **Channel Types** (public, private, group DM, DM), **After** and **Before** (date filters), and **Keyword Search Only** (disables semantic search).
-- **Semantic search**: by default, Slack may apply semantic search to question-style queries (for example, queries that start with a question word or end with a question mark), so results aren't always strictly literal keyword matches. Enable **Keyword Search Only** to force literal matching. Semantic ranking requires Slack AI (a paid plan).
-- **Limit**: **Return All** is removed from node version 2.7 and above. Only **Limit** remains, capped at 50. The endpoint returns 20 results per request and rate limits aggressively (around 10 requests per minute per user), so it isn't built for exhaustive retrieval. Node version 2.6 and below keep **Return All**.
-- **Authentication**: the endpoint needs a user token, so use OAuth2 or supply a user token with Access Token authentication. A bot token can't call this endpoint, and the Slack app must have AI features enabled. If you use OAuth2, reconnect your existing credential so it picks up the new `search:read.*` scopes.
-- **Output fields**: results use `content`, `message_ts`, `channel_id`, `channel_name`, and `author_name`, instead of the previous `text`, `ts`, `channel`, and `username`.
+- **新增选项**：**Channel Types**（频道类型，公开、私密、群组私信、私信）、**After** 和 **Before**（日期筛选），以及 **Keyword Search Only**（仅关键词搜索，禁用语义搜索）。
+- **语义搜索**：默认情况下，Slack 可能对问题形式的查询应用语义搜索，例如以疑问词开头或以问号结尾的查询，因此结果不一定严格按字面匹配关键词。启用 **Keyword Search Only**（仅关键词搜索）可强制字面匹配。语义排序需要 Slack AI（付费套餐）。
+- **数量限制**：节点第 2.7 版及以上版本移除了 **Return All**（返回全部），仅保留 **Limit**（数量限制），上限为 50。端点每次请求返回 20 条结果，且速率限制较严格，约每位用户每分钟 10 次请求，因此不适合穷尽式获取。节点第 2.6 版及以下版本保留 **Return All**。
+- **身份验证**：此端点需要用户令牌，请使用 OAuth2，或在 Access Token（访问令牌）身份验证中提供用户令牌。机器人令牌无法调用此端点，且 Slack 应用必须启用 AI 功能。如果使用 OAuth2，请重新连接已有凭据，以获得新的 `search:read.*` 作用域。
+- **输出字段**：结果使用 `content`、`message_ts`、`channel_id`、`channel_name` 和 `author_name`，代替原先的 `text`、`ts`、`channel` 和 `username`。
 
-### Custom Bot Profile Photo <a href="#custom-bot-profile-photo" id="custom-bot-profile-photo"></a>
+### 自定义机器人头像 <a href="#custom-bot-profile-photo" id="custom-bot-profile-photo"></a>
 
-From node version 2.6, the **Message > Send** option **Custom Bot Profile Photo** (custom icon or emoji) is only available with **Access Token** authentication, not OAuth2. It relies on the `chat:write.customize` scope, which is a bot-token-only scope that the OAuth2 user-token path can't use. Node version 2.5 and below still show the option with OAuth2, though Slack ignores it in that case.
+从节点第 2.6 版起，**Message > Send**（消息 > 发送）中的 **Custom Bot Profile Photo**（自定义机器人头像，自定义图标或表情符号）选项仅适用于 **Access Token**（访问令牌）身份验证，不适用于 OAuth2。它依赖 `chat:write.customize` 作用域，而该作用域仅适用于机器人令牌，OAuth2 用户令牌流程无法使用。节点第 2.5 版及以下版本在使用 OAuth2 时仍显示此选项，但 Slack 会忽略它。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse Slack node documentation integration templates](https://n8n.io/integrations/slack) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-Refer to [Slack's documentation](https://api.slack.com/) for more information about the service.
-
-## Required scopes <a href="#required-scopes" id="required-scopes"></a>
-
-Once you create a Slack app for your [Slack credentials](../../credentials/slack.md), you must add the appropriate scopes to your Slack app for this node to work. Start with the scopes listed in the [Scopes | Slack credentials](../../credentials/slack.md#scopes) page.
-
-If those aren't enough, use the table below to look up the resource and operation you want to use, then follow the link to Slack's API documentation to find the correct scopes.
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
+[浏览 Slack 集成模板](https://n8n.io/integrations/slack)，或[搜索所有模板](https://n8n.io/workflows/)
 
-| **Resource** | **Operation**              | **Slack API method**                                                               |
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+有关该服务的更多信息，请参阅 [Slack 文档](https://api.slack.com/)。
+
+## 所需作用域 <a href="#required-scopes" id="required-scopes"></a>
+
+为 [Slack 凭据](../../credentials/slack.md)创建 Slack 应用后，必须为应用添加合适的作用域，节点才能正常工作。请先使用[作用域 | Slack 凭据](../../credentials/slack.md#scopes)页面列出的作用域。
+
+如果这些作用域仍不足，请通过下表查找要使用的资源和操作，再通过链接查看 Slack API 文档，找到正确作用域。
+
+
+
+| **资源** | **操作** | **Slack API 方法** |
 |--------------|----------------------------|------------------------------------------------------------------------------------|
-| Channel      | Archive                    | [conversations.archive](https://api.slack.com/methods/conversations.archive)       |
-| Channel      | Close                      | [conversations.close](https://api.slack.com/methods/conversations.close)           |
-| Channel      | Create                     | [conversations.create](https://api.slack.com/methods/conversations.create)         |
-| Channel      | Get                        | [conversations.info](https://api.slack.com/methods/conversations.info)             |
-| Channel      | Get Many                   | [conversations.list](https://api.slack.com/methods/conversations.list)             |
-| Channel      | History                    | [conversations.history](https://api.slack.com/methods/conversations.history)       |
-| Channel      | Invite                     | [conversations.invite](https://api.slack.com/methods/conversations.invite)         |
-| Channel      | Join                       | [conversations.join](https://api.slack.com/methods/conversations.join)             |
-| Channel      | Kick                       | [conversations.kick](https://api.slack.com/methods/conversations.kick)             |
-| Channel      | Leave                      | [conversations.leave](https://api.slack.com/methods/conversations.leave)           |
-| Channel      | Member                     | [conversations.members](https://api.slack.com/methods/conversations.members)       |
-| Channel      | Open                       | [conversations.open](https://api.slack.com/methods/conversations.open)             |
-| Channel      | Rename                     | [conversations.rename](https://api.slack.com/methods/conversations.rename)         |
-| Channel      | Replies                    | [conversations.replies](https://api.slack.com/methods/conversations.replies)       |
-| Channel      | Set Purpose                | [conversations.setPurpose](https://api.slack.com/methods/conversations.setPurpose) |
-| Channel      | Set Topic                  | [conversations.setTopic](https://api.slack.com/methods/conversations.setTopic)     |
-| Channel      | Unarchive                  | [conversations.unarchive](https://api.slack.com/methods/conversations.unarchive)   |
-| File         | Get                        | [files.info](https://api.slack.com/methods/files.info)                             |
-| File         | Get Many                   | [files.list](https://api.slack.com/methods/files.list)                             |
-| File         | Upload                     | [files.upload](https://api.slack.com/methods/files.upload)                         |
-| Message      | Delete                     | [chat.delete](https://api.slack.com/methods/chat.delete)                           |
-| Message      | Get Permalink              | [chat.getPermalink](https://api.slack.com/methods/chat.getPermalink)               |
-| Message      | Search                     | Node version 2.7 and above: [assistant.search.context](https://docs.slack.dev/reference/methods/assistant.search.context) (Real-time Search API). Node version 2.6 and below: [search.messages](https://api.slack.com/methods/search.messages) (deprecated). |
-| Message      | Send                       | [chat.postMessage](https://api.slack.com/methods/chat.postMessage)                 |
-| Message      | Send and Wait for Response | [chat.postMessage](https://api.slack.com/methods/chat.postMessage)                 |
-| Message      | Update                     | [chat.update](https://api.slack.com/methods/chat.update)                           |
-| Reaction     | Add                        | [reactions.add](https://api.slack.com/methods/reactions.add)                       |
-| Reaction     | Get                        | [reactions.get](https://api.slack.com/methods/reactions.get)                       |
-| Reaction     | Remove                     | [reactions.remove](https://api.slack.com/methods/reactions.remove)                 |
-| Star         | Add                        | [stars.add](https://api.slack.com/methods/stars.add)                               |
-| Star         | Delete                     | [stars.remove](https://api.slack.com/methods/stars.remove)                         |
-| Star         | Get Many                   | [stars.list](https://api.slack.com/methods/stars.list)                             |
-| User         | Get                        | [users.info](https://api.slack.com/methods/users.info)                             |
-| User         | Get Many                   | [users.list](https://api.slack.com/methods/users.list)                             |
-| User         | Get User's Profile         | [users.profile.get](https://api.slack.com/methods/users.profile.get)               |
-| User         | Get User's Status          | [users.getPresence](https://api.slack.com/methods/users.getPresence)               |
-| User         | Update User's Profile      | [users.profile.set](https://api.slack.com/methods/users.profile.set)               |
-| User Group   | Create                     | [usergroups.create](https://api.slack.com/methods/usergroups.create)               |
-| User Group   | Disable                    | [usergroups.disable](https://api.slack.com/methods/usergroups.disable)             |
-| User Group   | Enable                     | [usergroups.enable](https://api.slack.com/methods/usergroups.enable)               |
-| User Group   | Get Many                   | [usergroups.list](https://api.slack.com/methods/usergroups.list)                   |
-| User Group   | Update                     | [usergroups.update](https://api.slack.com/methods/usergroups.update)               |
+| Channel（频道） | Archive（归档） | [conversations.archive](https://api.slack.com/methods/conversations.archive) |
+| Channel（频道） | Close（关闭） | [conversations.close](https://api.slack.com/methods/conversations.close) |
+| Channel（频道） | Create（创建） | [conversations.create](https://api.slack.com/methods/conversations.create) |
+| Channel（频道） | Get（获取） | [conversations.info](https://api.slack.com/methods/conversations.info) |
+| Channel（频道） | Get Many（获取多项） | [conversations.list](https://api.slack.com/methods/conversations.list) |
+| Channel（频道） | History（历史记录） | [conversations.history](https://api.slack.com/methods/conversations.history) |
+| Channel（频道） | Invite（邀请） | [conversations.invite](https://api.slack.com/methods/conversations.invite) |
+| Channel（频道） | Join（加入） | [conversations.join](https://api.slack.com/methods/conversations.join) |
+| Channel（频道） | Kick（移除成员） | [conversations.kick](https://api.slack.com/methods/conversations.kick) |
+| Channel（频道） | Leave（离开） | [conversations.leave](https://api.slack.com/methods/conversations.leave) |
+| Channel（频道） | Member（成员） | [conversations.members](https://api.slack.com/methods/conversations.members) |
+| Channel（频道） | Open（打开） | [conversations.open](https://api.slack.com/methods/conversations.open) |
+| Channel（频道） | Rename（重命名） | [conversations.rename](https://api.slack.com/methods/conversations.rename) |
+| Channel（频道） | Replies（回复） | [conversations.replies](https://api.slack.com/methods/conversations.replies) |
+| Channel（频道） | Set Purpose（设置用途） | [conversations.setPurpose](https://api.slack.com/methods/conversations.setPurpose) |
+| Channel（频道） | Set Topic（设置主题） | [conversations.setTopic](https://api.slack.com/methods/conversations.setTopic) |
+| Channel（频道） | Unarchive（取消归档） | [conversations.unarchive](https://api.slack.com/methods/conversations.unarchive) |
+| File（文件） | Get（获取） | [files.info](https://api.slack.com/methods/files.info) |
+| File（文件） | Get Many（获取多项） | [files.list](https://api.slack.com/methods/files.list) |
+| File（文件） | Upload（上传） | [files.upload](https://api.slack.com/methods/files.upload) |
+| Message（消息） | Delete（删除） | [chat.delete](https://api.slack.com/methods/chat.delete) |
+| Message（消息） | Get Permalink（获取永久链接） | [chat.getPermalink](https://api.slack.com/methods/chat.getPermalink) |
+| Message（消息） | Search（搜索） | 节点第 2.7 版及以上版本：[assistant.search.context](https://docs.slack.dev/reference/methods/assistant.search.context)（实时搜索 API）。节点第 2.6 版及以下版本：[search.messages](https://api.slack.com/methods/search.messages)（已弃用）。 |
+| Message（消息） | Send（发送） | [chat.postMessage](https://api.slack.com/methods/chat.postMessage) |
+| Message（消息） | Send and Wait for Response（发送并等待响应） | [chat.postMessage](https://api.slack.com/methods/chat.postMessage) |
+| Message（消息） | Update（更新） | [chat.update](https://api.slack.com/methods/chat.update) |
+| Reaction（回应） | Add（添加） | [reactions.add](https://api.slack.com/methods/reactions.add) |
+| Reaction（回应） | Get（获取） | [reactions.get](https://api.slack.com/methods/reactions.get) |
+| Reaction（回应） | Remove（移除） | [reactions.remove](https://api.slack.com/methods/reactions.remove) |
+| Star（星标） | Add（添加） | [stars.add](https://api.slack.com/methods/stars.add) |
+| Star（星标） | Delete（删除） | [stars.remove](https://api.slack.com/methods/stars.remove) |
+| Star（星标） | Get Many（获取多项） | [stars.list](https://api.slack.com/methods/stars.list) |
+| User（用户） | Get（获取） | [users.info](https://api.slack.com/methods/users.info) |
+| User（用户） | Get Many（获取多项） | [users.list](https://api.slack.com/methods/users.list) |
+| User（用户） | Get User's Profile（获取用户资料） | [users.profile.get](https://api.slack.com/methods/users.profile.get) |
+| User（用户） | Get User's Status（获取用户状态） | [users.getPresence](https://api.slack.com/methods/users.getPresence) |
+| User（用户） | Update User's Profile（更新用户资料） | [users.profile.set](https://api.slack.com/methods/users.profile.set) |
+| User Group（用户组） | Create（创建） | [usergroups.create](https://api.slack.com/methods/usergroups.create) |
+| User Group（用户组） | Disable（禁用） | [usergroups.disable](https://api.slack.com/methods/usergroups.disable) |
+| User Group（用户组） | Enable（启用） | [usergroups.enable](https://api.slack.com/methods/usergroups.enable) |
+| User Group（用户组） | Get Many（获取多项） | [usergroups.list](https://api.slack.com/methods/usergroups.list) |
+| User Group（用户组） | Update（更新） | [usergroups.update](https://api.slack.com/methods/usergroups.update) |
 
 
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

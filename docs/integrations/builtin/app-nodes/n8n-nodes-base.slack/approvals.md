@@ -1,81 +1,81 @@
 ---
-description: >-
-  Learn how approvers can approve or decline n8n workflow actions directly
-  inside Slack with the Slack node's Send and Wait for Response operation.
+description: 了解如何通过 Slack 节点的发送并等待响应操作，让审批人直接在 Slack 中批准或拒绝 n8n 工作流操作。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Approvals in Slack
 
-With the **Message** > **Send and Wait for Response** operation, approvers can approve or decline directly inside Slack. No browser page opens: the workflow resumes as soon as someone responds, and the output records who responded.
+# Slack 中的审批 <a id="approvals-in-slack"></a>
 
-## How it differs from link buttons
+使用 **Message**（消息）> **Send and Wait for Response**（发送并等待响应）操作，审批人可直接在 Slack 中批准或拒绝。无需打开浏览器页面：有人响应后，工作流立即恢复，输出会记录响应者。
 
-| What | Link buttons (default) | Approvals in Slack |
+## 与链接按钮的区别 <a id="how-it-differs-from-link-buttons"></a>
+
+| 对比项 | 链接按钮（默认） | Slack 内审批 |
 |------|------------------------|--------------------|
-| Where the decision happens | Opens an n8n page in the browser | One click inside Slack |
-| Who can respond | Anyone who can click the link | Only the approvers you list (an empty list lets anyone who can see the message respond). Anyone else gets a private note you can word yourself, and the workflow keeps waiting. |
-| Output | `approved` and `respondedAt` | Adds who responded (ID, name, username, and email) plus the channel and message |
-| The message after the decision | Unchanged. The buttons stay clickable, but later clicks show a "no action required" page. The first decision stands. | Your choice: show the outcome and remove the buttons (default), remove the buttons only, or leave the message unchanged |
-| Security | Signed links: no one can tamper with the URL or its action, but anyone who has the link can respond, and n8n can't tell who clicked | n8n verifies every callback came from Slack (using Slack's request signing) and checks the responder against your approver list |
+| 作出决定的位置 | 在浏览器中打开 n8n 页面 | 在 Slack 内点击一次 |
+| 谁能响应 | 任何能够点击链接的人 | 仅你列出的审批人；列表为空时，任何能看到消息的人都可响应。其他人会收到一条可自行设置措辞的私密提示，工作流继续等待。 |
+| 输出 | `approved` 和 `respondedAt` | 额外包含响应者的 ID、姓名、用户名和邮箱，以及频道和消息信息 |
+| 决定后的消息 | 保持原样，按钮仍可点击，但后续点击会显示“no action required”（无需操作）页面。以首次决定为准。 | 可选择：显示结果并移除按钮（默认）、仅移除按钮，或保持消息不变 |
+| 安全性 | 签名链接：无法篡改 URL 或操作，但任何持有链接的人都能响应，n8n 无法得知点击者身份 | n8n 使用 Slack 请求签名验证每个回调确实来自 Slack，并检查响应者是否在审批人列表中 |
 
-## Requirements
+## 要求 <a id="requirements"></a>
 
-To approve within Slack, you need:
+要在 Slack 内审批，需要：
 
-- Your n8n instance to be reachable from Slack over public HTTPS. Slack calls your instance back when someone responds, so an instance running on localhost won't work.
-- A Slack credential, using either an API access token or OAuth2.
-- The **Signature Secret** field of your Slack credential must contain your Slack app's signing secret, found in **Settings** > **Basic Information**. Without it, the buttons render but clicks don't resume the workflow.
-- **Response Type** set to **Approval**.
-- The `users:read` and `users:read.email` scopes. The responder's ID, name, and username come from Slack's interaction payload; the email comes from the Slack API and needs these scopes. Missing scopes just mean the output omits the email. If you use an OAuth2 credential created before this feature existed, reconnect it so it picks up the `users:read.email` scope.
+- Slack 可通过公共 HTTPS 访问 n8n 实例。有人响应时，Slack 会回调实例，因此仅运行在 localhost 上的实例无法使用此功能。
+- 使用 API 访问令牌或 OAuth2 的 Slack 凭据。
+- Slack 凭据的 **Signature Secret**（签名密钥）字段必须包含 Slack 应用的签名密钥，可在 **Settings**（设置）> **Basic Information**（基本信息）中找到。没有此值，按钮仍会显示，但点击不会恢复工作流。
+- **Response Type**（响应类型）设为 **Approval**（审批）。
+- `users:read` 和 `users:read.email` 作用域。响应者的 ID、姓名和用户名来自 Slack 交互载荷，邮箱通过 Slack API 获取，需要这些作用域。缺少作用域只会让输出不包含邮箱。如果使用在此功能推出前创建的 OAuth2 凭据，请重新连接以获得 `users:read.email` 作用域。
 
-## Set up approvals
+## 设置审批 <a id="set-up-approvals"></a>
 
-### 1. Create a Slack app and credential
+### 1. 创建 Slack 应用和凭据 <a id="1-create-a-slack-app-and-credential"></a>
 
-Follow [Using API access token](../../credentials/slack.md#using-api-access-token) or [Using OAuth2](../../credentials/slack.md#using-oauth2) to create a Slack app and set up your credential. When you configure your app's scopes, add `users:read` and `users:read.email` so the output can include the responder's email.
+按照[使用 API 访问令牌](../../credentials/slack.md#using-api-access-token)或[使用 OAuth2](../../credentials/slack.md#using-oauth2)的说明创建 Slack 应用并设置凭据。配置应用作用域时，添加 `users:read` 和 `users:read.email`，让输出能够包含响应者邮箱。
 
-### 2. Turn on Interactivity
+### 2. 启用交互功能 <a id="2-turn-on-interactivity"></a>
 
-1. Go to [Your Apps](https://api.slack.com/apps) in Slack and select the app you want to use.
-2. Go to **Features** > **Interactivity & Shortcuts** and turn on **Interactivity**.
-3. In **Request URL**, enter `https://<your-n8n-instance>/webhook-waiting-slack`. All workflows on the instance share this one URL. If you changed the `N8N_ENDPOINT_WEBHOOK_WAIT` environment variable, adjust the path to match.
-4. Select **Save Changes**.
+1. 在 Slack 中进入 [Your Apps（你的应用）](https://api.slack.com/apps)，选择要使用的应用。
+2. 进入 **Features**（功能）> **Interactivity & Shortcuts**（交互与快捷方式），开启 **Interactivity**（交互功能）。
+3. 在 **Request URL**（请求 URL）中输入 `https://<your-n8n-instance>/webhook-waiting-slack`。实例中的所有工作流共用这一个 URL。如果修改了 `N8N_ENDPOINT_WEBHOOK_WAIT` 环境变量，请相应调整路径。
+4. 选择 **Save Changes**（保存更改）。
 
 {% hint style="info" %}
-Slack allows one **Request URL** per app, so one Slack app serves one n8n instance.
+Slack 每个应用只允许设置一个 **Request URL**（请求 URL），因此一个 Slack 应用对应一个 n8n 实例。
 {% endhint %}
 
-### 3. Add the signing secret to your credential
+### 3. 将签名密钥添加到凭据 <a id="3-add-the-signing-secret-to-your-credential"></a>
 
-1. In your Slack app, go to **Settings** > **Basic Information** and copy the **Signing Secret** from the **App Credentials** section.
-2. In n8n, paste it into the **Signature Secret** field of your Slack credential.
+1. 在 Slack 应用中进入 **Settings**（设置）> **Basic Information**（基本信息），复制 **App Credentials**（应用凭据）部分的 **Signing Secret**（签名密钥）。
+2. 在 n8n 中，将其粘贴到 Slack 凭据的 **Signature Secret**（签名密钥）字段。
 
-n8n uses the signing secret to verify that each callback comes from Slack. n8n rejects callbacks that fail verification, and the workflow keeps waiting.
+n8n 使用签名密钥验证每个回调来自 Slack，拒绝未通过验证的回调，工作流继续等待。
 
-### 4. Configure the node
+### 4. 配置节点 <a id="4-configure-the-node"></a>
 
-In the Slack node, select the **Message** resource with the **Send and Wait for Response** operation, and set **Response Type** to **Approval**. The settings below then appear under the **Advanced Interactivity** section header.
+在 Slack 节点中选择 **Message**（消息）资源和 **Send and Wait for Response**（发送并等待响应）操作，将 **Response Type**（响应类型）设为 **Approval**（审批）。随后会在 **Advanced Interactivity**（高级交互）标题下显示以下设置。
 
-- **Capture Who Responded**: turn this on to switch the approval buttons to Slack interactive buttons and record who responded. The remaining settings appear once it's on.
-- **Restrict Who Can Approve**: select the users allowed to act. You can also specify user IDs with an expression. Anyone not on the list who clicks gets a private notice, and the workflow keeps waiting.
-- **Unauthorized Reply**: the private (ephemeral) message shown to someone who clicks but isn't on the approver list. Defaults to `You are not authorized to respond to this request.`
-- **After Decision**: what happens to the original Slack message once someone approves or declines.
-    - **Show Outcome and Remove Buttons** (default): removes the buttons and adds a line naming the decision and the responder.
-    - **Remove Buttons Only**: removes the buttons without adding an outcome line.
-    - **Keep Message Unchanged**: leaves the message as sent, buttons included. Later clicks don't change the recorded decision, which is the first one.
+- **Capture Who Responded**（记录响应者）：开启后，将审批按钮切换为 Slack 交互按钮，并记录响应者。开启后才会显示其余设置。
+- **Restrict Who Can Approve**（限制可审批人员）：选择允许操作的用户，也可通过表达式指定用户 ID。不在列表中的人点击时会收到私密提示，工作流继续等待。
+- **Unauthorized Reply**（未授权响应提示）：向点击按钮但不在审批人列表中的用户显示的私密临时消息。默认值为 `You are not authorized to respond to this request.`
+- **After Decision**（决定之后）：有人批准或拒绝后，如何处理原始 Slack 消息。
+    - **Show Outcome and Remove Buttons**（显示结果并移除按钮，默认）：移除按钮，并添加一行文字，说明决定及响应者。
+    - **Remove Buttons Only**（仅移除按钮）：移除按钮，不添加结果说明行。
+    - **Keep Message Unchanged**（保持消息不变）：保留发送时的消息及按钮。后续点击不会改变已记录的决定，始终以首次决定为准。
 
-If you leave the approver list empty, anyone who can see the message can approve or decline. In a channel, that's every member. The list controls who can respond, not who can see the request, so post sensitive approvals to a private channel or direct message.
+审批人列表留空时，任何能看到消息的人都可以批准或拒绝；在频道中，即所有成员。该列表控制谁能响应，不控制谁能看到请求，因此敏感审批应发送到私密频道或私信。
 
-### 5. Test it
+### 5. 测试 <a id="5-test-it"></a>
 
-Execute the workflow, select **Approve** in Slack, and check the node output.
+执行工作流，在 Slack 中选择 **Approve**（批准），检查节点输出。
 
-## Node output
+## 节点输出 <a id="node-output"></a>
 
-When someone responds in Slack, the node outputs the decision and the responder:
+有人在 Slack 中响应后，节点会输出决定及响应者信息：
 
 ```json
 {
@@ -95,19 +95,19 @@ When someone responds in Slack, the node outputs the decision and the responder:
 }
 ```
 
-With link buttons, the output contains only `approved` and `respondedAt`.
+使用链接按钮时，输出仅包含 `approved` 和 `respondedAt`。
 
-## When you get link buttons instead
+## 何时仍使用链接按钮 <a id="when-you-get-link-buttons-instead"></a>
 
-The node behaves as before, sending buttons that open an n8n confirmation page, when any of these apply:
+满足以下任一条件时，节点维持原有行为，发送打开 n8n 确认页面的按钮：
 
-- **Response Type** is **Free Text** or **Custom Form**.
-- **Capture Who Responded** is off.
+- **Response Type**（响应类型）为 **Free Text**（自由文本）或 **Custom Form**（自定义表单）。
+- **Capture Who Responded**（记录响应者）关闭。
 
-Existing workflows keep working unchanged.
+已有工作流继续按原有方式运行。
 
-## Troubleshooting
+## 故障排查 <a id="troubleshooting"></a>
 
-- **The buttons don't do anything, or Slack shows a warning**: the **Request URL** is wrong, your instance isn't publicly reachable over HTTPS, or the **Signature Secret** is missing or wrong. Slack shows the same warning for a rejected callback as for an unreachable URL.
-- **Someone gets a "not authorized" reply**: that user isn't listed in **Restrict Who Can Approve**. The wording comes from **Unauthorized Reply**.
-- **The workflow never resumes although someone responded**: the **Signature Secret** is missing or doesn't match your app's **Signing Secret**. n8n rejects callbacks it can't verify, and the workflow keeps waiting.
+- **按钮没有反应，或 Slack 显示警告**：**Request URL**（请求 URL）错误、实例无法通过公共 HTTPS 访问，或 **Signature Secret**（签名密钥）缺失/错误。无论是回调被拒绝，还是 URL 无法访问，Slack 都显示相同警告。
+- **有人收到“not authorized”（未授权）回复**：该用户不在 **Restrict Who Can Approve**（限制可审批人员）中。提示措辞来自 **Unauthorized Reply**（未授权响应提示）。
+- **有人响应后工作流仍未恢复**：**Signature Secret**（签名密钥）缺失，或与应用的 **Signing Secret** 不匹配。n8n 会拒绝无法验证的回调，工作流继续等待。
