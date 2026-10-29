@@ -7,7 +7,7 @@ title: 示例工作流导入与便笺颜色说明
 
 1. 下载工作流 JSON 文件。
 1. 在 n8n 实例中打开一个新工作流。
-1. 粘贴 JSON，或选择 **Workflow menu（工作流菜单）** <img src="../assets/three-dots-horizontal.png" alt="Workflow menu icon" data-size="line"> > **Import from file...（从文件导入……）**。
+1. 粘贴 JSON，或选择 **Workflow menu（工作流菜单）** <img src="../assets/three-dots-horizontal.png" alt="工作流菜单图标" data-size="line"> > **Import from file...（从文件导入……）**。
 
 示例工作流使用便笺提供指引：
 

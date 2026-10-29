@@ -82,7 +82,7 @@ tags:
 
 注册现有社区版实例：
 
-1. 选择左下角的**三点图标** <img src="../.gitbook/assets/three-dots-horizontal (1).png" alt="three dots icon" data-size="line">。
+1. 选择左下角的**三点图标** <img src="../.gitbook/assets/three-dots-horizontal (1).png" alt="三点菜单图标" data-size="line">。
 2. 选择 **Settings（设置）**，再选择 **Usage and plan（使用情况与套餐）**。
 3. 选择 **Unlock（解锁）**，输入邮箱，再选择 **Send me a free license key（向我发送免费许可证密钥）**。
 4. 查看所填邮箱收到的邮件。

@@ -11,7 +11,7 @@ title: 创建和调用子工作流
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>从现有工作流创建子工作流</strong></p><p>也可以使用 <a href="../../../../integrations/builtin/core-nodes/n8n-nodes-base.executeworkflow.md">Execute Sub-workflow</a> 节点，直接从现有父工作流创建子工作流。在节点中选择 <strong>Database（数据库）</strong> 和 <strong>From list（从列表选择）</strong> 选项，再在列表中选择 <strong>Create a sub-workflow（创建子工作流）</strong>。</p><p>还可以通过上下文菜单中的 <a href="../../../../build/flow-logic/convert-to-sub-workflows.md">Sub-workflow conversion（子工作流转换）</a>，直接提取选中的节点。</p></div>
 
 1. **可选**：配置哪些工作流可以调用此子工作流：
-	1. 选择 **Options（选项）** <img src="../../assets/three-dot-options-menu.png" alt="Options menu" data-size="line"> 菜单 > **Settings（设置）**。n8n 会打开 **Workflow settings（工作流设置）** 弹窗。
+	1. 选择 **Options（选项）** <img src="../../assets/three-dot-options-menu.png" alt="选项菜单" data-size="line"> 菜单 > **Settings（设置）**。n8n 会打开 **Workflow settings（工作流设置）** 弹窗。
 	1. 更改 **This workflow can be called by（允许调用此工作流的工作流）** 设置。有关配置工作流的更多信息，请参阅[工作流设置](../../../../build/manage-workflows/configure-workflow-settings.md)。
 1. 添加 **Execute Sub-workflow** 触发器节点（在触发器节点中搜索时，也称为 **When Executed by Another Workflow**）。
 1. 设置 **Input data mode（输入数据模式）**，选择如何定义子工作流的输入数据：
