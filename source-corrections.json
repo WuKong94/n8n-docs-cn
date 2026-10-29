@@ -587,5 +587,17 @@
     ],
     "scope": "仅修正简介中的服务名称；操作、资源、参数、凭据链接、代码和结构保持原样，不推断 Freshdesk 与 Freshservice 的能力兼容性，不执行节点。",
     "source_sha256": "b14d6fe6d7740c5e39a350b75a1433d1d03873a36c64ec3c2666f5e0862c1d84"
+  },
+  {
+    "id": "airtable-introduction-table-data-not-tables",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.airtable/README.md",
+    "original_sentence": "Use the Airtable node to automate work in Airtable, and integrate Airtable with other applications. n8n has built-in support for a wide range of Airtable features, including creating, reading, listing, updating and deleting tables.",
+    "translated_sentence": "使用 Airtable 节点自动处理 Airtable 中的工作，并将其与其他应用集成。n8n 内置支持多种 Airtable 功能，包括创建、读取、列出、更新和删除表中的数据。",
+    "evidence": "简介将操作对象笼统写为 tables，而同页 Operations 的五项分别为 Append the data to a table、Delete data from a table、List data from a table、Read data from a table、Update data in a table。后续 Node reference 同样描述通过 Record ID 获取记录及通过 List 和公式筛选记录。依据这些同页具体操作，将简介的对象明确为表中的数据，避免读者误认为本页说明创建或删除数据表结构。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.airtable/README.md"
+    ],
+    "scope": "仅明确此页简介的操作对象，不更改操作列表、Record ID、公式、参数、链接、代码或源快照，不推断其他版本的 Airtable 节点能力，不执行任何 Airtable 操作。",
+    "source_sha256": "0f8ceb9c17277ba02a0baff968b22dc4798e3e97763ed3b9ad6d61e87dc8c6d9"
   }
 ]

@@ -15035,5 +15035,63 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.uproc.md": {
+    "status": "translated",
+    "source_sha256": "6f8fc3bb227fd9832fd3593958b5dfa94b958d116911741025ab7778c6c348dc",
+    "translation_sha256": "5a409ffa7fc7ee5e964fa63c94b0b37afa97a6907447c9817e8fe998bf743a34",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.airtable/README.md": {
+    "status": "translated",
+    "source_sha256": "0f8ceb9c17277ba02a0baff968b22dc4798e3e97763ed3b9ad6d61e87dc8c6d9",
+    "translation_sha256": "dfd03de04b6ee747c5d3948c5b1fbc23d1c773e03d95dee5e70cc71d7ef0faa7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "airtable-introduction-table-data-not-tables"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.airtable/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "1c07e2e7b350e055417d3c82368aaecd29036a4bc64a783a359943c8fa1e7bd0",
+    "translation_sha256": "a719a534bc6b59d823518df6bd0a78be3e4ecdd84c4d131c3c8a730bdb713d48",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.supabase/README.md": {
+    "status": "translated",
+    "source_sha256": "b66b52a4392014a4e145a25bfec7fabc399d87da8dbf7055f7197f6ac4ec2392",
+    "translation_sha256": "9e6bcf5b4841acddcab21668b838f9cf9a559d817fd9dfe1c540cbd64eddc745",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.supabase/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "0bbd97a0bcaa4c6c9b86a2efcd92c1a91f96aab98a0f6f78824e5b2cbd1c578e",
+    "translation_sha256": "faefde487eabe09e3518ba976631438cbe31d1f972368d99ad8969f0e973defd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

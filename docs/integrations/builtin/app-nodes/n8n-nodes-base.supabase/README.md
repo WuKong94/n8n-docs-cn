@@ -1,57 +1,57 @@
 ---
-title: Supabase node documentation
-description: >-
-  Learn how to use the Supabase node in n8n. Follow technical documentation to
-  integrate Supabase node into your workflows.
+title: Supabase 节点文档
+description: 了解如何在 n8n 中使用 Supabase 节点，并按照技术文档将 Supabase 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-base.supabase
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.supabase/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.supabase'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.supabase'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.supabase
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.supabase
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Supabase node <a href="#supabase-node" id="supabase-node"></a>
 
-Use the Supabase node to automate work in Supabase, and integrate Supabase with other applications. n8n has built-in support for a wide range of Supabase features, including creating, deleting, and getting rows. 
+# Supabase 节点 <a href="#supabase-node" id="supabase-node"></a>
 
-On this page, you'll find a list of operations the Supabase node supports and links to more resources.
+使用 Supabase 节点自动处理 Supabase 中的工作，并将其与其他应用集成。n8n 内置支持多种 Supabase 功能，包括创建、删除及获取行。
+
+本页列出了 Supabase 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Supabase credentials](../../credentials/supabase.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Supabase 凭据](../../credentials/supabase.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Row
-    * Create a new row
-    * Delete a row
-    * Get a row
-    * Get all rows
-    * Update a row
+* Row（行）
+    * Create a new row（创建新行）
+    * Delete a row（删除行）
+    * Get a row（获取行）
+    * Get all rows（获取所有行）
+    * Update a row（更新行）
 
-## Using custom schemas <a href="#using-custom-schemas" id="using-custom-schemas"></a>
+## 使用自定义模式 <a href="#using-custom-schemas" id="using-custom-schemas"></a>
 
-By default, the Supabase node only fetches the `public` schema. To fetch [custom schemas](https://supabase.com/docs/guides/api/using-custom-schemas), enable **Use Custom Schema**.
+默认情况下，Supabase 节点仅获取 `public` 模式。要获取[自定义模式](https://supabase.com/docs/guides/api/using-custom-schemas)，请启用 **Use Custom Schema**（使用自定义模式）。
 
-In the new **Schema** field, provide the custom schema the Supabase node should use.
+在新增的 **Schema**（模式）字段中，填写 Supabase 节点应使用的自定义模式。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse n8n-nodes-base.supabase integration templates](https://n8n.io/integrations/supabase) or [search all templates](https://n8n.io/workflows/)
+[浏览 n8n-nodes-base.supabase 集成模板](https://n8n.io/integrations/supabase)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common errors or issues and suggested resolution steps, refer to [Common issues](common-issues.md).
+常见错误或问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。

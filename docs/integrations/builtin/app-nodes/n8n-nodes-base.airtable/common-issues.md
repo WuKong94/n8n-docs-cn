@@ -1,44 +1,41 @@
 ---
-title: Airtable node common issues
-description: >-
-  Documentation for common issues and questions in the Airtable node in n8n, a
-  workflow automation platform. Includes details of the issue and suggested
-  solutions.
+title: Airtable 节点常见问题
+description: 了解 n8n 工作流自动化平台中 Airtable 节点的常见错误和问题，包括问题详情及建议的解决方法。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Airtable node common issues
+nodeTitle: Airtable 节点常见问题
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.airtable/common-issues.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/common-issues
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/common-issues
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/common-issues
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.airtable/common-issues
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Airtable node common issues <a href="#airtable-node-common-issues" id="airtable-node-common-issues"></a>
 
-Here are some common errors and issues with the [Airtable node](README.md) and steps to resolve or troubleshoot them.
+# Airtable 节点常见问题 <a href="#airtable-node-common-issues" id="airtable-node-common-issues"></a>
 
-## Forbidden - perhaps check your credentials <a href="#forbidden-perhaps-check-your-credentials" id="forbidden-perhaps-check-your-credentials"></a>
+以下介绍 [Airtable 节点](README.md)的常见错误和问题，以及解决或排查步骤。
 
-This error displays when trying to perform actions not permitted by your current level of access. The full text looks something like this:
+## Forbidden - perhaps check your credentials（禁止访问，请检查凭据） <a href="#forbidden-perhaps-check-your-credentials" id="forbidden-perhaps-check-your-credentials"></a>
+
+尝试执行当前访问权限不允许的操作时，会出现此错误。完整错误文本类似于：
 
 ```
 There was a problem loading the parameter options from server: "Forbidden - perhaps check your credentials?"
 ```
 
-The error most often displays when the credential you're using doesn't have the scopes it requires on the resources you're attempting to manage.
+最常见的原因是，所用凭据缺少管理目标资源所需的作用域。
 
-Refer to the [Airtable credentials](../../credentials/airtable.md) and [Airtables scopes documentation](https://airtable.com/developers/web/api/scopes) for more information.
+更多信息，请参阅 [Airtable 凭据](../../credentials/airtable.md)及 [Airtable 作用域文档](https://airtable.com/developers/web/api/scopes)。
 
-## Service is receiving too many requests from you <a href="#service-is-receiving-too-many-requests-from-you" id="service-is-receiving-too-many-requests-from-you"></a>
+## Service is receiving too many requests from you（服务收到的请求过多） <a href="#service-is-receiving-too-many-requests-from-you" id="service-is-receiving-too-many-requests-from-you"></a>
 
-Airtable has a hard API limit on the number of requests generated using personal access tokens.
+Airtable 对使用个人访问令牌发出的 API 请求数量有硬性限制。
 
-If you send more than five requests per second per base, you will receive a 429 error, indicating that you have sent too many requests. You will have to wait 30 seconds before resuming requests. This same limit applies for sending more than 50 requests across all bases per access token.
+每个数据库每秒发送超过五个请求时，会收到 429 错误，表示请求过多。必须等待 30 秒后才能继续请求。每个访问令牌跨所有数据库发送超过 50 个请求时，也适用相同限制。
 
-You can find out more in the [Airtable's rate limits documentation](https://airtable.com/developers/web/api/rate-limits). If you find yourself running into rate limits with the Airtable node, consider implementing one of the suggestions on the [handling rate limits](../../handle-rate-limits.md) page.
+更多信息，请参阅 [Airtable 速率限制文档](https://airtable.com/developers/web/api/rate-limits)。如果使用 Airtable 节点时遇到速率限制，可考虑采用[处理速率限制](../../handle-rate-limits.md)页面中的建议。

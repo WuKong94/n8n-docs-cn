@@ -1,515 +1,515 @@
 ---
-title: uProc node documentation
-description: >-
-  Learn how to use the uProc node in n8n. Follow technical documentation to
-  integrate uProc node into your workflows.
+title: uProc 节点文档
+description: 了解如何在 n8n 中使用 uProc 节点，并按照技术文档将 uProc 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: uProc node documentation
+- integration
+- reference
+nodeTitle: uProc 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.uproc.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.uproc'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.uproc'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.uproc
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.uproc
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# uProc node <a href="#uproc-node" id="uproc-node"></a>
 
-Use the uProc node to automate work in uProc, and integrate uProc with other applications. n8n has built-in support for a wide range of uProc features, including getting advanced human audio file, communication data, company, finance and product information. 
+# uProc 节点 <a href="#uproc-node" id="uproc-node"></a>
 
-On this page, you'll find a list of operations the uProc node supports and links to more resources.
+使用 uProc 节点自动处理 uProc 中的工作，并将其与其他应用集成。n8n 内置支持多种 uProc 功能，包括获取高级仿真人声音频文件、通信数据，以及公司、财务和产品信息。
+
+本页列出了 uProc 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [uProc credentials](../credentials/uproc.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [uProc 凭据](../credentials/uproc.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-### Audio <a href="#audio" id="audio"></a>
+### Audio（音频） <a href="#audio" id="audio"></a>
 
-- Get advanced human audio file by provided text and language
-- Get an audio file by provided text and language
+- 根据提供的文本和语言获取高级仿真人声音频文件
+- 根据提供的文本和语言获取音频文件
 
-### Communication <a href="#communication" id="communication"></a>
+### Communication（通信） <a href="#communication" id="communication"></a>
 
-- Discover if a domain has a social network presence
-- Discover if an email is valid, hard bounce, soft bounce, spam-trap, free, temporary, and recipient exists
-- Discover if the email recipient exists, returning email status
-- Check if an email domain has an SMTP server to receive emails
-- Discover if the email has a social network presence
-- Check if an email has a valid format
-- Check if an email domain belongs to a disposable email service
-- Check if email belongs to free service provider like Gmail
-- Check if email is catchall
-- Discover if an email exists in the Robinson list (only Spain)
-- Check if email belongs to a system or role-based account
-- Check if an email is a spam trap
-- Discover if an IMEI number has a valid format
-- Check if a LinkedIn profile is a first-degree contact
-- Discover if mobile phone number exists in network operator, with worldwide coverage
-- Discover if a mobile phone number has a valid format with worldwide coverage
-- Discover if a mobile phone number has a valid format (only Spain)
-- Discover if a mobile phone number has a valid prefix, with worldwide coverage
-- Discover if a Spanish mobile phone number has a valid prefix
-- Discover if a mobile number is switched on to call it later, with worldwide coverage
-- Discover if a mobile number can receive SMS with worldwide coverage
-- Discover if a phone (landline or mobile) exists in a Robinson list (only Spain)
-- Discover if a landline or mobile number has a valid prefix
-- Discover if a landline phone number is valid, with Spain coverage
-- Allows discovering if landline number has a good international format, depending on the country
-- Discover if a landline phone number prefix exists, with worldwide coverage
-- Clean a phone removing non allowed characters
-- Allows getting country code of a mobile phone number with international format
-- Allows getting a domain from an email
-- Discover an email by company website or domain and prospect's first-name and last-name
-- Check if an email is personal or generic
-- Get emails list found on the internet by domain or URI
-- Get an emails list found on the internet by non-free email
-- Get emails list found inside the website by domain or URI
-- Get three first web references of an email published on the internet
-- Allows you to fix the email domain of those misspelled emails
-- Fix the international prefix of a phone based on the ISO code of a country
-- Get GDPR compliant emails list by domain for your Email Marketing campaigns in Europe
-- Discover if mobile exist using real-time HLR query
-- Get personal email by social network profile
-- Get portability data about a landline or mobile number, only for Spain
-- Extract results from a LinkedIn search (employees in a company)
-- Get members in a LinkedIn group
-- Get 'Search LinkedIn Contacts' URL
-- Extract the last 80 connections from your LinkedIn profile
-- Extract the last 80 invitations sent from your LinkedIn
-- Get users who comment on a post on LinkedIn
-- Get users who like a post on LinkedIn
-- Extract a LinkedIn profile
-- Extract results from a LinkedIn search (profiles)
-- Extract last profiles that have published content on LinkedIn by specific keywords
-- Discover if mobile exist using real-time HLR query, as well as portability and roaming data
-- Get existence, portability, and roaming of a mobile phone using MNP query
-- Discover if mobile or landline prefix exists in Spain
-- Allows normalizing email address, removing non allowed characters
-- Allows normalizing a mobile phone, removing non-allowed characters
-- Parse phone number in multiple fields and verify format and prefix validity
-- Allows getting country prefix number by country code
-- Discover an email by company website or domain and prospect's first-name and last-name
-- This tool parses a social URI address and extracts any available indicators
-- Search all social networks by domain, parses all found URLs, and returns social networks data
-- Discover if a domain or a website has social activity and returns all social network profiles found
-- Discover if an email has social activity, and get all social network profiles found
-- Discover if a mobile phone has social activity, and get all social network profiles found
-- Get web references for an email published on the internet
-- Send a custom message invitation to a non connected LinkedIn profile
-- Send a custom email to a recipient
-- Send a custom SMS to a recipient with worldwide coverage
-- Send a custom invitation message if a profile is connected or a custom message otherwise
-- Visits a profile to show interest and get profile views in return from contact, increasing your LinkedIn network
-- Send a custom private message to a connected LinkedIn profile
-- Get an email by contact's LinkedIn profile URI
-- Discover an email by company's name and prospect's full name
-- Discover an email by company's website or domain and prospect's full name
-- Get email by first name, last name, and company
-- Get parsed and validated phone
+- 检查域名是否在社交网络上有相关账户或内容
+- 检查邮箱是否有效，是否存在永久退信、临时退信或垃圾邮件陷阱，是否为免费或临时邮箱，以及收件人是否存在
+- 检查邮箱收件人是否存在，并返回邮箱状态
+- 检查邮箱域名是否具有用于接收邮件的 SMTP 服务器
+- 检查邮箱是否在社交网络上有相关账户或内容
+- 检查邮箱地址格式是否有效
+- 检查邮箱域名是否属于一次性邮箱服务
+- 检查邮箱是否属于 Gmail 等免费服务提供商
+- 检查邮箱是否为全收邮箱（catch-all）
+- 检查邮箱是否在 Robinson 名单中，仅限西班牙
+- 检查邮箱是否属于系统账户或角色账户
+- 检查邮箱是否为垃圾邮件陷阱
+- 检查 IMEI 号码格式是否有效
+- 检查 LinkedIn 用户是否为一度联系人
+- 检查手机号码是否存在于网络运营商中，覆盖全球
+- 检查手机号码格式是否有效，覆盖全球
+- 检查手机号码格式是否有效，仅限西班牙
+- 检查手机号码前缀是否有效，覆盖全球
+- 检查西班牙手机号码前缀是否有效
+- 检查手机是否开机，以便稍后拨打，覆盖全球
+- 检查手机号码是否能接收短信，覆盖全球
+- 检查固定电话或手机号码是否在 Robinson 名单中，仅限西班牙
+- 检查固定电话或手机号码前缀是否有效
+- 检查固定电话号码是否有效，覆盖西班牙
+- 根据国家检查固定电话号码是否符合国际格式
+- 检查固定电话号码前缀是否存在，覆盖全球
+- 清理电话号码，移除不允许的字符
+- 根据国际格式的手机号码获取国家代码
+- 从邮箱地址中获取域名
+- 根据公司网站或域名，以及潜在客户的名和姓，查找邮箱地址
+- 检查邮箱是个人邮箱还是通用邮箱
+- 根据域名或 URI，获取互联网上找到的邮箱列表
+- 根据非免费邮箱，获取互联网上找到的邮箱列表
+- 根据域名或 URI，获取网站内找到的邮箱列表
+- 获取互联网上已公开邮箱的前三个网页引用
+- 修正拼写错误的邮箱域名
+- 根据国家 ISO 代码修正电话号码的国际前缀
+- 按域名获取符合 GDPR 要求的邮箱列表，用于欧洲电子邮件营销活动
+- 使用实时 HLR 查询检查手机号码是否存在
+- 根据社交网络个人资料获取个人邮箱
+- 获取固定电话或手机号码的携号转网数据，仅限西班牙
+- 提取 LinkedIn 搜索结果，即某家公司的员工
+- 获取 LinkedIn 群组成员
+- 获取“Search LinkedIn Contacts”（搜索 LinkedIn 联系人）URL
+- 从你的 LinkedIn 个人资料中提取最近的 80 个联系人
+- 提取你在 LinkedIn 上最近发送的 80 个邀请
+- 获取对 LinkedIn 帖子发表评论的用户
+- 获取对 LinkedIn 帖子点赞的用户
+- 提取 LinkedIn 个人资料
+- 提取 LinkedIn 个人资料搜索结果
+- 根据指定关键词，提取最近在 LinkedIn 发布过内容的用户资料
+- 使用实时 HLR 查询检查手机号码是否存在，并获取携号转网和漫游数据
+- 使用 MNP 查询获取手机号码的存在状态、携号转网和漫游信息
+- 检查手机或固定电话号码前缀是否存在于西班牙
+- 规范化邮箱地址，移除不允许的字符
+- 规范化手机号码，移除不允许的字符
+- 将电话号码解析为多个字段，并验证格式和前缀是否有效
+- 根据国家代码获取电话区号
+- 根据公司网站或域名，以及潜在客户的名和姓，查找邮箱地址
+- 解析社交网络 URI 地址，提取所有可用标识信息
+- 根据域名搜索所有社交网络，解析找到的全部 URL，并返回社交网络数据
+- 检查域名或网站是否存在社交活动，并返回找到的所有社交网络资料
+- 检查邮箱是否存在社交活动，并获取找到的所有社交网络资料
+- 检查手机号码是否存在社交活动，并获取找到的所有社交网络资料
+- 获取互联网上已公开邮箱的网页引用
+- 向尚未建立联系的 LinkedIn 用户发送自定义邀请消息
+- 向收件人发送自定义电子邮件
+- 向接收者发送自定义短信，覆盖全球
+- 如果用户已建立联系，则发送自定义邀请消息；否则发送自定义消息
+- 访问用户资料以表示关注，吸引对方回访，从而扩展你的 LinkedIn 人脉
+- 向已建立联系的 LinkedIn 用户发送自定义私信
+- 根据联系人的 LinkedIn 个人资料 URI 获取邮箱
+- 根据公司名称和潜在客户全名查找邮箱
+- 根据公司网站或域名和潜在客户全名查找邮箱
+- 根据名、姓和公司获取邮箱
+- 获取已解析并验证的电话号码
 
-### Company <a href="#company" id="company"></a>
+### Company（公司） <a href="#company" id="company"></a>
 
-- Discover if a CIF card number is valid
-- Check if a company is a debtor by TaxID
-- Check if the ISIN number is valid
-- Check if the SS number is valid, only for Spain
-- Identify and classify a prospecting role in detecting the right area and seniority to filter later
-- Get a company's contact, social, and technology data by domain
-- Get a company's contact, social, and technology data by email
-- Get a company's data by CIF
-- Get a company's data by DUNS
-- Get a company's data by domain
-- Get a company's data by email
-- Get a company's data by IP address
-- Get a company's data by name
-- Get a company's data by phone number
-- Get a company's data by social networks URI (LinkedIn, Twitter)
-- Get a company's name by company domain
-- Get professional data of a decision-maker by company name/domain and area
-- Discover more suitable decision-maker using search engines (Bing) by company name and area
-- Get professional emails of decision-makers by company domain and area
-- Discover up to ten decision-makers using search engines (Bing) by company name and area
-- Get a company's domain by company name
-- Get employees by company name or domain, area, seniority, and country
-- Get a company's Facebook profile by name without manually searching on Google or Facebook
-- Get geocoded company data by IP address
-- Get a company's LinkedIn profile by name without manually searching on Google or LinkedIn
-- Allows normalizing a CIF number, removing non-allowed characters
-- Get a company's phone by company domain
-- Get a company's sales data by a company's DUNS number
-- Get a company's sales data by a company's domain name
-- Get a company's sales data by a company's name
-- Get a company's sales data by a company's tax ID (CIF)
-- Get a company's Twitter profile by name without manually searching on Google or Twitter
-- Get decision maker by search engine
-- Get decision makers by search engine
-- Get Facebook URI by company's domain
-- Get GitHub URI by company's domain
-- Get Instagram URI by company's domain
-- Get LinkedIn URI by company's domain
-- Get Pinterest URI by company's domain
-- Get Twitter URI by company's domain
-- Get YouTube URI by company's domain
+- 检查 CIF 证件号码是否有效
+- 根据税务识别号（TaxID）检查公司是否为债务人
+- 检查 ISIN 号码是否有效
+- 检查 SS 号码是否有效，仅限西班牙
+- 识别并分类潜在客户的职位，确定所属领域和资历，便于后续筛选
+- 根据域名获取公司的联系信息、社交数据和技术数据
+- 根据邮箱获取公司的联系信息、社交数据和技术数据
+- 根据 CIF 获取公司数据
+- 根据 DUNS 获取公司数据
+- 根据域名获取公司数据
+- 根据邮箱获取公司数据
+- 根据 IP 地址获取公司数据
+- 根据名称获取公司数据
+- 根据电话号码获取公司数据
+- 根据社交网络 URI（LinkedIn、Twitter）获取公司数据
+- 根据公司域名获取公司名称
+- 根据公司名称或域名及所属领域，获取决策者的职业信息
+- 根据公司名称和所属领域，通过 Bing 搜索引擎查找更合适的决策者
+- 根据公司域名和所属领域获取决策者的工作邮箱
+- 根据公司名称和所属领域，通过 Bing 搜索引擎查找最多十位决策者
+- 根据公司名称获取公司域名
+- 根据公司名称或域名、所属领域、资历和国家获取员工
+- 根据公司名称获取其 Facebook 主页，无需在 Google 或 Facebook 手动搜索
+- 根据 IP 地址获取经过地理编码的公司数据
+- 根据公司名称获取其 LinkedIn 主页，无需在 Google 或 LinkedIn 手动搜索
+- 规范化 CIF 号码，移除不允许的字符
+- 根据公司域名获取公司电话
+- 根据公司的 DUNS 号码获取公司销售数据
+- 根据公司域名获取公司销售数据
+- 根据公司名称获取公司销售数据
+- 根据公司税务识别号（CIF）获取公司销售数据
+- 根据公司名称获取其 Twitter 主页，无需在 Google 或 Twitter 手动搜索
+- 通过搜索引擎获取一位决策者
+- 通过搜索引擎获取多位决策者
+- 根据公司域名获取 Facebook URI
+- 根据公司域名获取 GitHub URI
+- 根据公司域名获取 Instagram URI
+- 根据公司域名获取 LinkedIn URI
+- 根据公司域名获取 Pinterest URI
+- 根据公司域名获取 Twitter URI
+- 根据公司域名获取 YouTube URI
 
-### Finance <a href="#finance" id="finance"></a>
+### Finance（财务） <a href="#finance" id="finance"></a>
 
-- Check if crypto wallet is valid
-- Discover if a BIC number has a valid format
-- Discover if an account number has a valid format
-- Check if credit card number checksum is valid
-- Discover if an IBAN account number has a valid format
-- Discover if an ISO currency code is valid
-- Check if a TIN exists in Europe
-- Convert amount between supported currencies and an exchange date
-- Get credit card type
-- Get multiple ISO currency codes by a country name
-- Get all ISO currency by an IP address
-- Get multiple ISO currency codes by a country ISO code
-- Get ISO currency code by IP address
-- Get ISO currency code by a currency ISO code
-- Get ISO currency code by an ISO country code
-- Get ISO currency code by a country name
-- Get related European TIN in Europe
-- Get IBAN by account number of the country
-- Get to search data bank information by IBAN account number
-- Get country VAT by address
-- Get country VAT by coordinates
-- Get Swift code lookup
-- Get VAT by IP address
-- Get VAT value by country ISO code
-- Get VAT by phone number, with worldwide coverage
-- Get VAT by zip code
-
-
-### Geographical <a href="#geographical" id="geographical"></a>
-
-- Check if a country's ISO code exists
-- Discover if the distance between two coordinates is equal to another
-- Discover if the distance (kilometers) between two coordinates is greater than the given input
-- Discover if the distance (kilometers) between two coordinates is greater or equal to the given input
-- Discover if the distance(kilometers) between two coordinates is lower than the given input
-- Check if an address exists by a partial address search
-- Check if a house number exists by a partial address search
-- Check if coordinates have a valid format
-- Discover if a zip code number prefix exists (only for Spain)
-- Discover if a zip code number has a valid format (only for Spain)
-- Get cartesian coordinates(X, Y, Z/WGS84) by Latitude and Longitude
-- Get location by parameters
-- Get multiple cities by phone prefix (only for Spain)
-- Get multiple cities by partial initial text (only for Spain)
-- Get multiple cities by zip code prefix (only for Spain)
-- Get a city from IP
-- City search by partial name (only for Spain)
-- Discover the city name by a local phone number (only for Spain)
-- Discover the city name by the zip code (only for Spain)
-- Discover the community name from a zip code (only for Spain)
-- Discover latitude and longitude coordinates of an IP address
-- Discover latitude and longitude coordinates of a postal address
-- Get multiple country names by currency ISO code
-- Get multiple countries by ISO code
-- Get multiple country names by initial name
-- Get country name by currency ISO code
-- Get country name by IP address
-- Get country name by its ISO code
-- Get country by a prefix
-- Get country name by phone number, with worldwide coverage
-- Get Aplha2 code by a country prefix or a name
-- Get decimal coordinates (degrees, minutes, and seconds) by latitude and longitude
-- Returns straight-line distance (kilometers) between two addresses
-- Returns straight-line distance (kilometers) between two GPS coordinates (latitude and longitude)
-- Returns straight-line distance (kilometers) between two IP addresses
-- Returns straight-line distance (kilometers) between two landline phones, using city and province of every phone
-- Returns straight-line distance (kilometers) between two zip codes, using city and province of every zip code
-- Get an exact address by a partial address search
-- Discover geographical, company, timezone, and reputation data by IPv4 address
-- Discover the city name, zip code, province, country, latitude, and longitude from an IPv4 or IPv6 address and geocodes it
-- Parse postal address into separated fields, getting an improved resolution
-- Discover locale data (currency, language) by IPv4 or IPv6 address
-- Discover the city name, zip code, province, or country by latitude and longitude
-- Discover the city name, zip code, province, country, latitude, and longitude from an IPv4 or IPv6 address
-- Discover the city and the province from a landline phone number (only Spain)
-- Discover location data by name
-- Discover the city and the province from a zip code number (only Spain)
-- Get the most relevant locations by name
-- Get the most relevant locations by name, category, location, and radius
-- Get multiple personal names by a prefix
-- Discover network data by IPv4 or IPv6 address
-- Allow normalizing an address by removing non allowed characters
-- Allow normalizing a city by removing non allowed characters
-- Allow normalizing a country by removing non allowed characters
-- Allow normalizing a province by removing non allowed characters
-- Allow normalizing a zip code by removing non allowed characters
-- Get normalized country
-- Parse postal address into separated fields, getting a basic resolution
-- Discover the province name from an IP address
-- Get the first province by a name prefix (only for Spain)
-- Discover the province name from a landline phone number (only for Spain)
-- Discover the province name from a zip code number (only for Spain)
-- Get a province list by a name prefix (only for Spain)
-- Get a province list by a phone prefix (only for Spain)
-- Get a province list by a zip code prefix (only for Spain)
-- Discover reputation by IPv4 or IPv6 address
-- Returns driving routing time, distance, fuel consumption, and cost between two addresses
-- Returns driving routing time, distance, fuel consumption, and cost between two GPS coordinates
-- Returns driving routing time, distance, fuel consumption, and cost between two  IP addresses
-- Returns driving routing time, distance, fuel consumption, and cost between two landline phones, using city and province of every phone (only for Spain)
-- Returns driving routing time, distance, fuel consumption, and cost between two zip codes, using city and province of every zip code
-- Discover date-time data by IPv4 or IPv6 address
-- Get USNG coordinates by latitude and longitude
-- Get UTM coordinates by latitude and longitude
-- Discover the zip code if you have an IP address
-- Get the first zip code by prefix, only for Spain
-- Get multiple zip codes by prefix, with worldwide coverage
-- Get time data by coordinates
-- Get time data by postal address
+- 检查加密货币钱包是否有效
+- 检查 BIC 号码格式是否有效
+- 检查账户号码格式是否有效
+- 检查信用卡号码校验和是否有效
+- 检查 IBAN 账户号码格式是否有效
+- 检查 ISO 货币代码是否有效
+- 检查 TIN 是否存在于欧洲
+- 根据兑换日期，在支持的货币之间换算金额
+- 获取信用卡类型
+- 根据国家名称获取多个 ISO 货币代码
+- 根据 IP 地址获取所有 ISO 货币
+- 根据国家 ISO 代码获取多个 ISO 货币代码
+- 根据 IP 地址获取 ISO 货币代码
+- 根据货币 ISO 代码获取 ISO 货币代码
+- 根据国家 ISO 代码获取 ISO 货币代码
+- 根据国家名称获取 ISO 货币代码
+- 获取欧洲相关的 TIN
+- 根据所属国家的账户号码获取 IBAN
+- 根据 IBAN 账户号码查询银行信息
+- 根据地址获取所属国家的增值税（VAT）
+- 根据坐标获取所属国家的增值税（VAT）
+- 查询 Swift 代码
+- 根据 IP 地址获取增值税（VAT）
+- 根据国家 ISO 代码获取增值税（VAT）值
+- 根据电话号码获取增值税（VAT），覆盖全球
+- 根据邮政编码获取增值税（VAT）
 
 
-### Image <a href="#image" id="image"></a>
+### Geographical（地理位置） <a href="#geographical" id="geographical"></a>
 
-- Get QR code decoded content by an image URL
-- It allows discovering all geographical and technical EXIF metadata present in a photographic JPEG image
-- Get an encoded barcode by number and a required standard
-- Get QR code encoded by a text
-- Generate a new image by URL and text
-- Discover logo (favicon) used in a domain
-- Generate a screenshot by URL provided using Chrome browser
-- Get OCR text from image
-
-
-### Internet <a href="#internet" id="internet"></a>
-
-- Check if a domain exists
-- Check if a domain has a DNS record
-- Check if a  domain has the given IP address assigned
-- Check if a domain has an MX record
-- Check if a domain has a valid SSL certificate
-- Check if a domain has a valid format
-- Check if a domain accepts all emails, existing or not
-- Check if a domain is a free service domain provider
-- Check if a domain is temporary or not
-- Discover if a computer is switched on
-- Discover if service in a port is available
-- Check if an URL contains a string or regular expression
-- Check if an URL exists
-- Check that an URL has a valid format
-- Get full SSL certificate data by a domain (or website) and monitor your certificate status
-- Get feed entries by domain
-- Get last feed entry by domain
-- Get text data from web, PDF or image allowing to filter some elements by regular expressions or field names
-- Decode URL to recover original
-- Get valid, existing, and default URL when accessing a domain using a web browser
-- Get long version of shortened URL
-- Discover device features by a user agent
-- Get the network name of and IP address
-- Get the domain record by its type
-- Encode URL to avoid problems
-- Copy file from one URL to another URL
-- Fix an IP address to the right format
-- Get the IPv4 address linked with a domain
-- Convert a number to an IP address
-- Get ISP known name of email domain name
-- Convert an IP address to numeric notation
-- Scan a host and returns the most commonly open ports
-- Obtains a list with multiple results from a website
-- Obtains the content of a website
-- Decode URL into multiple fields
-- Generate a PDF file by URL (provided using Chrome browser)
-- Get the root domain of any web address, removing non needed characters
-- Generates shareable URIs to use on social networks and email using a content URI and a text
-- Get data from the existing table in an HTML page or a PDF file
-- Discover client and server technologies used in a domain
-- Discover client and server technologies used in web pages
-- Analyze URL's health status about SSL, broken links, conflictive HTTP links with SSL, and more
-- Get website visits and rank of any domain
-- Get a domain's WHOIS data by fields
-- Get WHOIS data fields by IP address provided
-
-
-### Personal <a href="#personal" id="personal"></a>
-
-- Check if age is between two numbers
-- Check if date returns an age between 20 and 29
-- Check if date returns an age between 40 and 49
-- Check if age is greater than another
-- Check if birth date returns an age greater than 64
-- Check if birth date belongs to an adult (18 years for Spain)
-- Check if age is lower than another
-- Check if age is lower or equal than another
-- Check if ages are equal
-- Discover if a date is between two dates
-- Discover if a date is greater
-- Discover if a date is greater or equal
-- Discover if a date belongs to a leap year
-- Discover if a date is lower
-- Discover if a date is lower or equal
-- Discover if a date has a valid format
-- Discover if a gender value is valid
-- Discover if an NIE card number is valid
-- Discover if a NIF card number is valid
-- Check if a personal name exists in the INE data source (only for Spain)
-- Check if a name contains accepted characters
-- Discover if a NIF exists in the Robinson list (only for Spain)
-- Check if surname contains accepted characters
-- Check if a personal surname appears in INE data source (only for Spain)
-- Discover if a DNI card number is valid
-- Discover the age of a birth date
-- Discover the age range of a person by birth date
-- Get the difference between two dates
-- Discover the gender of a person by the email
-- Discover the gender of a person or company by the name
-- Get LinkedIn employee profile URI by business email
-- Get LinkedIn employee profile URI by first name, last name, and company
-- Discover the letter of a DNI card number
-- Get first personal name matching by prefix and gender from INE data source (only for Spain)
-- Get LinkedIn URI by email
-- Get LinkedIn URI by phone
-- Allow normalizing a DNI number by removing non allowed characters
-- Allow normalizing an NIE number by removing non allowed characters
-- Normalize name by removing non allowed characters
-- Normalize surname
-- Get parsed date-time
-- Normalize full name, fixing abbreviations, sorting if necessary, and returning first name, last name, and gender
-- Get prospect's contact data and the company's location and social data by email
-- Get contact, location, and social data by email and company name and location
-- Get personal and social data by social profile
-- Get personal data by email
-- Get personal data by first name, last name, company, and location
-- Get personal data by mobile
-- Get personal data by social network profile
-- Generate random fake data
-- Get first personal surname matching by prefix from INE data source (only for Spain)
-- Get personal surname matching by prefix from INE data source (only for Spain)
-- Get Twitter profile by first name, last name, and company
-- Get XING profile by first name, last name, and company
-- Add a contact email to a person list
-
-### Product <a href="#product" id="product"></a>
-
-- Check if an ASIN code exists on the Amazon Marketplace
-- Check if an ASIN code has a valid format
-- Check if an EAN code exists on Amazon Marketplace
-- Check if an EAN barcode has a valid format
-- Check if an EAN barcode of 13 digits has a valid format
-- Check if an EAN barcode of 14 digits has a valid format
-- Check if an EAN barcode of 18 digits has a valid format
-- Check if an EAN barcode of 8 digits has a valid format
-- Check if a GTIN barcode has a valid format
-- Check if a GTIN barcode of 13 digits has a valid format
-- Check if a GTIN barcode of 14 digits has a valid format
-- Check if a GTIN barcode of 8 digits has a valid format
-- Check if VIN Number is valid
-- Allows checking if an ISBN book exists
-- Allows checking if an ISBN10/13 code has a valid format
-- Allows checking if an ISBN10 code has a valid format
-- Allows checking if an ISBN13 code has a valid format
-- Check if a UPC exists
-- Check if a UPC has a valid format
-- Get ASIN by EAN
-- Get a book by author's surname
-- Get all publications by category
-- Get book data by an editor's name
-- Get book or publication data by 10 or 13 digits ISBN code
-- Get book data by title
-- Get books by author's surname
-- Get all books by category
-- Get all books by editor
-- Get all books by title
-- Get EAN code by ASIN code
-- Get product data on a UPC on Amazon Marketplace
-- Get ISBN10 code by ISBN13 code
-- Get ISBN13 code by ISBN10 code
-- Get data By VIN number
-
-### Security <a href="#security" id="security"></a>
-
-- Check if a Luhn number is valid
-- Check if a password is strong
-- Check if a UUID number is valid
-- Get blacklists for a domain
-- Get blacklists for an IP address
-
-### Text <a href="#text" id="text"></a>
-
-- Check if a string only contains alphabets
-- Check if a string is alphanumeric
-- Check if a string is boolean
-- Check if the largest item in a list matches the provided item
-- Check if IPv4 or IPv6 address has a valid format
-- Check if IPv4 address has a valid format
-- Check if IPv6 address has a valid format
-- Check if the length of a list is between two quantities
-- Checks if the length of a list equals a specified quantity
-- Checks if the length of a list is greater than or equal to a certain amount
-- Check if the length of a list is lower than a certain amount
-- Check if the list contains a specific item
-- Check if the list ends with a specific element
-- Check if a list is sorted in ascending order
-- Check if the list starts with a specific element
-- Checks if the smallest element in a list matches the provided element
-- Check if a string contains only numbers
-- Check if a string contains a character
-- Check if a string ends with a character
-- Check if a string has no content
-- Check if a string contains random characters
-- Check if a string contains a value that matches with a regular expression
-- Check if the length of a string is between two numbers
-- Check if the length of a string is equal to a number
-- Check if the length of a string is greater than a number
-- Check if the length of a string is greater or equal to a number
-- Check if the length of a string is lower than a number
-- Check if the length of a string is lower or equal to a number
-- Check if a string starts with a character
-- Check if a string contains only lowercase characters
-- Check if a string contains only uppercase characters
-- Check if a list consists of unique elements
-- Check if the supplied values form a valid list of elements
-- Check if the number of words in a sentence is between two determined quantities
-- Check if the number of words in a sentence equals a certain amount
-- Check if the number of words in a sentence is greater than a certain amount
-- Check if the number of words in a sentence is greater than
-- Check if the word count is lower
-- Check if the number of words present in a sentence is less than or equal to a quantity
-- Convert a string to Base64 encoded value
-- Discover banned English words in an email body or subject
-- Get field names by analyzing the field value provided
-- Get HTML code from Markdown
-- Get Markdown text from HTML
-- Get text without HTML
-- Get spin string
-- Format a string using a format pattern
-- Generate random string using a regular expression as a pattern
-- Return the largest item in a list
-- Return the smallest item in a list
-- Convert to lowercase
-- Convert a string to MD5 encoded value
-- Merge two strings
-- Normalize a string depending on the field name
-- Analyze string and return all emails, phones, zip codes, and links
-- Convert a string to an SHA encoded value
-- Analyze an English text with emojis and detect sentiment
-- Returns an ascending sorted list
-- Split a value into two parts and join them using a separator from the original string
-- Split a value into two parts using a separator from the original string
-- Get the length of a string
-- Lookup string between multiple values by fuzzy logic and regex patterns
-- Clean abuse words from a string
-- Replace the first value found in a string with another
-- Replace all values found in a string with another
-- Translate a text into any language
-- Return a single list with no repeating elements
-- Convert all letters to uppercase
-- Count total words in a text
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+- 检查国家 ISO 代码是否存在
+- 检查两个坐标之间的距离是否等于另一个值
+- 检查两个坐标之间的距离（千米）是否大于给定值
+- 检查两个坐标之间的距离（千米）是否大于或等于给定值
+- 检查两个坐标之间的距离（千米）是否小于给定值
+- 通过部分地址搜索，检查地址是否存在
+- 通过部分地址搜索，检查门牌号是否存在
+- 检查坐标格式是否有效
+- 检查邮政编码前缀是否存在，仅限西班牙
+- 检查邮政编码格式是否有效，仅限西班牙
+- 根据纬度和经度获取笛卡尔坐标（X、Y、Z/WGS84）
+- 根据参数获取位置
+- 根据电话区号获取多个城市，仅限西班牙
+- 根据名称开头的部分文本获取多个城市，仅限西班牙
+- 根据邮政编码前缀获取多个城市，仅限西班牙
+- 根据 IP 地址获取城市
+- 根据部分名称搜索城市，仅限西班牙
+- 根据本地电话号码查找城市名称，仅限西班牙
+- 根据邮政编码查找城市名称，仅限西班牙
+- 根据邮政编码查找自治区名称，仅限西班牙
+- 查找 IP 地址对应的纬度和经度坐标
+- 查找邮政地址对应的纬度和经度坐标
+- 根据货币 ISO 代码获取多个国家名称
+- 根据 ISO 代码获取多个国家
+- 根据名称开头文本获取多个国家名称
+- 根据货币 ISO 代码获取国家名称
+- 根据 IP 地址获取国家名称
+- 根据国家 ISO 代码获取国家名称
+- 根据前缀获取国家
+- 根据电话号码获取国家名称，覆盖全球
+- 根据国家电话前缀或名称获取 Alpha2 代码
+- 根据纬度和经度获取十进制坐标（度、分、秒）
+- 返回两个地址之间的直线距离，单位为千米
+- 返回两个 GPS 坐标（纬度和经度）之间的直线距离，单位为千米
+- 返回两个 IP 地址之间的直线距离，单位为千米
+- 根据各固定电话号码对应的城市和省份，返回两个号码所在地之间的直线距离，单位为千米
+- 根据各邮政编码对应的城市和省份，返回两个邮政编码所在地之间的直线距离，单位为千米
+- 通过部分地址搜索获取完整地址
+- 根据 IPv4 地址获取地理位置、公司、时区和信誉数据
+- 根据 IPv4 或 IPv6 地址查找城市名称、邮政编码、省份、国家、纬度和经度，并进行地理编码
+- 将邮政地址解析为独立字段，获得更精细的解析结果
+- 根据 IPv4 或 IPv6 地址查找地区数据，包括货币和语言
+- 根据纬度和经度查找城市名称、邮政编码、省份或国家
+- 根据 IPv4 或 IPv6 地址查找城市名称、邮政编码、省份、国家、纬度和经度
+- 根据固定电话号码查找城市和省份，仅限西班牙
+- 根据名称查找位置数据
+- 根据邮政编码查找城市和省份，仅限西班牙
+- 根据名称获取最相关的位置
+- 根据名称、类别、位置和半径获取最相关的位置
+- 根据前缀获取多个个人姓名
+- 根据 IPv4 或 IPv6 地址查找网络数据
+- 规范化地址，移除不允许的字符
+- 规范化城市名称，移除不允许的字符
+- 规范化国家名称，移除不允许的字符
+- 规范化省份名称，移除不允许的字符
+- 规范化邮政编码，移除不允许的字符
+- 获取规范化的国家名称
+- 将邮政地址解析为独立字段，获得基本解析结果
+- 根据 IP 地址查找省份名称
+- 根据名称前缀获取第一个省份，仅限西班牙
+- 根据固定电话号码查找省份名称，仅限西班牙
+- 根据邮政编码查找省份名称，仅限西班牙
+- 根据名称前缀获取省份列表，仅限西班牙
+- 根据电话区号获取省份列表，仅限西班牙
+- 根据邮政编码前缀获取省份列表，仅限西班牙
+- 根据 IPv4 或 IPv6 地址查找信誉信息
+- 返回两个地址之间的驾车路线时间、距离、油耗和费用
+- 返回两个 GPS 坐标之间的驾车路线时间、距离、油耗和费用
+- 返回两个 IP 地址所在地之间的驾车路线时间、距离、油耗和费用
+- 根据各固定电话号码对应的城市和省份，返回两个号码所在地之间的驾车路线时间、距离、油耗和费用，仅限西班牙
+- 根据各邮政编码对应的城市和省份，返回两个邮政编码所在地之间的驾车路线时间、距离、油耗和费用
+- 根据 IPv4 或 IPv6 地址查找日期和时间数据
+- 根据纬度和经度获取 USNG 坐标
+- 根据纬度和经度获取 UTM 坐标
+- 根据 IP 地址查找邮政编码
+- 根据前缀获取第一个邮政编码，仅限西班牙
+- 根据前缀获取多个邮政编码，覆盖全球
+- 根据坐标获取时间数据
+- 根据邮政地址获取时间数据
 
 
-[Browse uProc node documentation integration templates](https://n8n.io/integrations/uproc) or [search all templates](https://n8n.io/workflows/)
+### Image（图像） <a href="#image" id="image"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+- 根据图像 URL 获取二维码解码内容
+- 查找 JPEG 照片中包含的全部地理位置和技术 EXIF 元数据
+- 根据数字和所需标准获取编码后的条形码
+- 将文本编码为二维码
+- 根据 URL 和文本生成新图像
+- 查找域名使用的标志图标（favicon）
+- 使用 Chrome 浏览器为提供的 URL 生成截图
+- 从图像获取 OCR 文本
+
+
+### Internet（互联网） <a href="#internet" id="internet"></a>
+
+- 检查域名是否存在
+- 检查域名是否具有 DNS 记录
+- 检查域名是否被分配了给定 IP 地址
+- 检查域名是否具有 MX 记录
+- 检查域名是否具有有效的 SSL 证书
+- 检查域名格式是否有效
+- 检查域名是否接收所有收件地址的邮件，无论地址是否存在
+- 检查域名是否属于免费域名服务提供商
+- 检查域名是否为临时域名
+- 检查计算机是否开机
+- 检查某个端口上的服务是否可用
+- 检查 URL 内容是否包含某个字符串，或是否匹配正则表达式
+- 检查 URL 是否存在
+- 检查 URL 格式是否有效
+- 根据域名或网站获取完整 SSL 证书数据，并监控证书状态
+- 根据域名获取订阅源条目
+- 根据域名获取最新订阅源条目
+- 从网页、PDF 或图像获取文本数据，并可按正则表达式或字段名筛选部分元素
+- 解码 URL 以恢复原始值
+- 获取通过网页浏览器访问域名时使用的有效、存在的默认 URL
+- 获取短网址对应的完整 URL
+- 根据 User-Agent 查找设备特征
+- 获取 IP 地址对应的网络名称
+- 根据记录类型获取域名记录
+- 编码 URL 以避免问题
+- 将文件从一个 URL 复制到另一个 URL
+- 将 IP 地址修正为正确格式
+- 获取域名关联的 IPv4 地址
+- 将数字转换为 IP 地址
+- 获取邮箱域名对应的 ISP 常用名称
+- 将 IP 地址转换为数字表示
+- 扫描主机，返回最常见的开放端口
+- 从网站获取包含多个结果的列表
+- 获取网站内容
+- 将 URL 解码为多个字段
+- 根据 URL，使用 Chrome 浏览器生成 PDF 文件
+- 获取任意网址的根域名，移除不必要的字符
+- 根据内容 URI 和文本，生成可用于社交网络和电子邮件的分享 URI
+- 从 HTML 页面或 PDF 文件中的已有表格获取数据
+- 查找域名使用的客户端和服务器端技术
+- 查找网页使用的客户端和服务器端技术
+- 分析 URL 的健康状态，包括 SSL、失效链接、与 SSL 冲突的 HTTP 链接等
+- 获取任意域名的网站访问量和排名
+- 按字段获取域名的 WHOIS 数据
+- 根据提供的 IP 地址获取 WHOIS 数据字段
+
+
+### Personal（个人） <a href="#personal" id="personal"></a>
+
+- 检查年龄是否介于两个数值之间
+- 检查根据日期计算的年龄是否介于 20 和 29 岁之间
+- 检查根据日期计算的年龄是否介于 40 和 49 岁之间
+- 检查年龄是否大于另一个值
+- 检查根据出生日期计算的年龄是否大于 64 岁
+- 检查根据出生日期判断是否已成年，西班牙为 18 岁
+- 检查年龄是否小于另一个值
+- 检查年龄是否小于或等于另一个值
+- 检查两个年龄是否相等
+- 检查日期是否介于两个日期之间
+- 检查日期是否晚于给定日期
+- 检查日期是否晚于或等于给定日期
+- 检查日期是否属于闰年
+- 检查日期是否早于给定日期
+- 检查日期是否早于或等于给定日期
+- 检查日期格式是否有效
+- 检查性别值是否有效
+- 检查 NIE 证件号码是否有效
+- 检查 NIF 证件号码是否有效
+- 检查个人名字是否存在于 INE 数据源中，仅限西班牙
+- 检查名字是否仅包含允许的字符
+- 检查 NIF 是否存在于 Robinson 名单中，仅限西班牙
+- 检查姓氏是否仅包含允许的字符
+- 检查个人姓氏是否存在于 INE 数据源中，仅限西班牙
+- 检查 DNI 证件号码是否有效
+- 根据出生日期计算年龄
+- 根据出生日期确定个人年龄范围
+- 获取两个日期之间的差值
+- 根据邮箱判断个人性别
+- 根据名称判断个人或公司的性别
+- 根据工作邮箱获取 LinkedIn 员工个人资料 URI
+- 根据名、姓和公司获取 LinkedIn 员工个人资料 URI
+- 查找 DNI 证件号码中的字母
+- 根据前缀和性别，从 INE 数据源获取首个匹配的个人名字，仅限西班牙
+- 根据邮箱获取 LinkedIn URI
+- 根据电话号码获取 LinkedIn URI
+- 规范化 DNI 号码，移除不允许的字符
+- 规范化 NIE 号码，移除不允许的字符
+- 规范化名字，移除不允许的字符
+- 规范化姓氏
+- 获取解析后的日期和时间
+- 规范化全名，修正缩写，必要时调整顺序，并返回名、姓和性别
+- 根据邮箱获取潜在客户的联系数据，以及其公司的位置和社交数据
+- 根据邮箱、公司名称和位置，获取联系数据、位置和社交数据
+- 根据社交资料获取个人和社交数据
+- 根据邮箱获取个人数据
+- 根据名、姓、公司和位置获取个人数据
+- 根据手机号码获取个人数据
+- 根据社交网络个人资料获取个人数据
+- 生成随机虚构数据
+- 根据前缀，从 INE 数据源获取首个匹配的个人姓氏，仅限西班牙
+- 根据前缀，从 INE 数据源获取匹配的个人姓氏，仅限西班牙
+- 根据名、姓和公司获取 Twitter 个人资料
+- 根据名、姓和公司获取 XING 个人资料
+- 将联系人的邮箱添加到人员列表
+
+### Product（产品） <a href="#product" id="product"></a>
+
+- 检查 ASIN 代码是否存在于 Amazon Marketplace
+- 检查 ASIN 代码格式是否有效
+- 检查 EAN 代码是否存在于 Amazon Marketplace
+- 检查 EAN 条形码格式是否有效
+- 检查 13 位 EAN 条形码格式是否有效
+- 检查 14 位 EAN 条形码格式是否有效
+- 检查 18 位 EAN 条形码格式是否有效
+- 检查 8 位 EAN 条形码格式是否有效
+- 检查 GTIN 条形码格式是否有效
+- 检查 13 位 GTIN 条形码格式是否有效
+- 检查 14 位 GTIN 条形码格式是否有效
+- 检查 8 位 GTIN 条形码格式是否有效
+- 检查 VIN 号码是否有效
+- 检查 ISBN 对应的图书是否存在
+- 检查 ISBN10/13 代码格式是否有效
+- 检查 ISBN10 代码格式是否有效
+- 检查 ISBN13 代码格式是否有效
+- 检查 UPC 是否存在
+- 检查 UPC 格式是否有效
+- 根据 EAN 获取 ASIN
+- 根据作者姓氏获取一本图书
+- 根据类别获取所有出版物
+- 根据编辑姓名获取图书数据
+- 根据 10 位或 13 位 ISBN 代码获取图书或出版物数据
+- 根据标题获取图书数据
+- 根据作者姓氏获取多本图书
+- 根据类别获取所有图书
+- 根据编辑获取所有图书
+- 根据标题获取所有图书
+- 根据 ASIN 代码获取 EAN 代码
+- 获取 Amazon Marketplace 中某个 UPC 对应的产品数据
+- 根据 ISBN13 代码获取 ISBN10 代码
+- 根据 ISBN10 代码获取 ISBN13 代码
+- 根据 VIN 号码获取数据
+
+### Security（安全） <a href="#security" id="security"></a>
+
+- 检查 Luhn 数字是否有效
+- 检查密码强度
+- 检查 UUID 号码是否有效
+- 获取域名所在的黑名单
+- 获取 IP 地址所在的黑名单
+
+### Text（文本） <a href="#text" id="text"></a>
+
+- 检查字符串是否仅包含字母
+- 检查字符串是否由字母和数字组成
+- 检查字符串是否为布尔值
+- 检查列表中的最大项是否与提供的项匹配
+- 检查 IPv4 或 IPv6 地址格式是否有效
+- 检查 IPv4 地址格式是否有效
+- 检查 IPv6 地址格式是否有效
+- 检查列表长度是否介于两个数量之间
+- 检查列表长度是否等于指定数量
+- 检查列表长度是否大于或等于指定数量
+- 检查列表长度是否小于指定数量
+- 检查列表是否包含指定项
+- 检查列表是否以指定元素结尾
+- 检查列表是否按升序排列
+- 检查列表是否以指定元素开头
+- 检查列表中的最小元素是否与提供的元素匹配
+- 检查字符串是否仅包含数字
+- 检查字符串是否包含某个字符
+- 检查字符串是否以某个字符结尾
+- 检查字符串是否为空
+- 检查字符串是否包含随机字符
+- 检查字符串是否包含与正则表达式匹配的值
+- 检查字符串长度是否介于两个数值之间
+- 检查字符串长度是否等于某个数值
+- 检查字符串长度是否大于某个数值
+- 检查字符串长度是否大于或等于某个数值
+- 检查字符串长度是否小于某个数值
+- 检查字符串长度是否小于或等于某个数值
+- 检查字符串是否以某个字符开头
+- 检查字符串是否仅包含小写字符
+- 检查字符串是否仅包含大写字符
+- 检查列表是否全部由互不重复的元素组成
+- 检查提供的值是否构成有效的元素列表
+- 检查句子中的单词数是否介于两个指定数量之间
+- 检查句子中的单词数是否等于指定数量
+- 检查句子中的单词数是否大于指定数量
+- 检查句子中的单词数是否大于给定值
+- 检查单词数是否小于给定值
+- 检查句子中的单词数是否小于或等于某个数量
+- 将字符串转换为 Base64 编码值
+- 查找电子邮件正文或主题中的禁用英文词语
+- 通过分析提供的字段值获取字段名
+- 将 Markdown 转换为 HTML 代码
+- 将 HTML 转换为 Markdown 文本
+- 获取去除 HTML 后的文本
+- 获取可随机改写的文本字符串（spin string）
+- 使用格式模式格式化字符串
+- 以正则表达式为模式生成随机字符串
+- 返回列表中的最大项
+- 返回列表中的最小项
+- 转换为小写
+- 将字符串转换为 MD5 编码值
+- 合并两个字符串
+- 根据字段名规范化字符串
+- 分析字符串，返回所有邮箱、电话号码、邮政编码和链接
+- 将字符串转换为 SHA 编码值
+- 分析包含表情符号的英文文本，检测情感倾向
+- 返回按升序排列的列表
+- 使用原字符串中的分隔符，将值拆分为两部分后再连接起来
+- 使用原字符串中的分隔符，将值拆分为两部分
+- 获取字符串长度
+- 使用模糊逻辑和正则表达式模式，在多个值中查找字符串
+- 清除字符串中的辱骂词语
+- 将字符串中首次找到的值替换为另一个值
+- 将字符串中找到的所有匹配值替换为另一个值
+- 将文本翻译为任意语言
+- 返回一个不含重复元素的列表
+- 将所有字母转换为大写
+- 统计文本中的单词总数
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 uProc 集成模板](https://n8n.io/integrations/uproc)，或[搜索所有模板](https://n8n.io/workflows/)
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
