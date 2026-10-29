@@ -1,72 +1,72 @@
 ---
-title: Data table
-description: >-
-  Documentation for the data table node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: Data Table 节点
+description: 了解 n8n 中 Data Table 节点的用法，并查看相关示例。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 tags:
-  - data table node
-  - data
+- data table node
+- data
 hide:
-  - tags
+- tags
 search:
   boost: 1.5
 nodeTitle: n8n-nodes-base.datatable
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.datatable/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Data table <a href="#data-table" id="data-table"></a>
 
-Use the Data Table node to create and manage internal data tables. Data tables allow you to store structured data directly inside n8n and use it across workflows.
+# Data Table（数据表） <a href="#data-table" id="data-table"></a>
 
-You can use the Data Table node to:
+使用 Data Table 节点创建和管理内部数据表。数据表可以将结构化数据直接存储在 n8n 内部，并在多个工作流之间使用。
 
-- Create, list, and manage data tables
-- Insert, update, delete, and upsert rows in data tables
-- Query and retrieve rows using matching conditions
+Data Table 节点可以用于：
+
+- 创建、列出和管理数据表
+- 插入、更新、删除数据行，以及执行 upsert（存在则更新，否则插入）
+- 根据匹配条件查询和检索数据行
 
 {% hint style="info" %}
-**Working with data tables**
+**使用数据表**
 
-As well as using the Data Tables node in a workflow, you can view and manage data tables manually from the **Data Tables** tab in your project **Overview**.
+除了在工作流中使用 Data Tables 节点，还可在项目 **Overview**（概览）中的 **Data Tables**（数据表）标签页手动查看和管理数据表。
 
-For information about working with data tables in this tab, and guidance on when to use data tables and their limitations, see [Data tables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/data-tables).
+关于在此标签页中操作数据表，以及数据表的适用场景与限制，请参阅[数据表](../../../../build/work-with-data/data-tables.md)。
 {% endhint %}
 
-## Resources <a href="#resources" id="resources"></a>
+## 资源 <a href="#resources" id="resources"></a>
 
-The Data Table node supports the following resources:
+Data Table 节点支持以下资源：
 
-- **Data Table:** Create, list, update, and delete tables.
-- **Row:** Insert, retrieve, update, delete, and upsert rows within a table.
+- **Data Table:**（数据表）创建、列出、更新和删除表。
+- **Row:**（数据行）插入、检索、更新、删除表内数据行，以及执行 upsert。
 
-### Operations <a href="#operations" id="operations"></a>
+### 操作 <a href="#operations" id="operations"></a>
 
-See available operations below. For detailed information on parameters for different operation types, refer to the [Table operations](tables.md) and [Row operations](rows.md) pages.
+可用操作如下。不同操作类型的详细参数，请参阅[表操作](tables.md)和[行操作](rows.md)。
 
-* **Rows**
-    * [**Delete:**](rows.md#delete-row) Delete one or more rows.
-    * [**Get:**](rows.md#get-row) Get one or more rows from your table based on defined filters.
-    * [**If Row Exists:**](rows.md#if-row-exists) Specify a set of conditions to match input items that exist in the data table.
-    * [**If Row Does Not Exist:**](rows.md#if-row-does-not-exist) Specify a set of conditions to match input items that don't exist in the data table.
-    * [**Insert:**](rows.md#insert-row) Insert rows into an existing table.
-    * [**Update:**](rows.md#update-row) Update one or more rows.
-    * [**Upsert:**](rows.md#upsert-row) Upsert one or more rows. If the row exists, it's updated; otherwise, a new row is created.
+* **Rows**（数据行）
+    * [**Delete:**](rows.md#delete-row)（删除）删除一行或多行。
+    * [**Get:**](rows.md#get-row)（获取）根据筛选条件从表中获取一行或多行。
+    * [**If Row Exists:**](rows.md#if-row-exists)（如果行存在）指定一组条件，匹配数据表中存在对应行的输入数据项。
+    * [**If Row Does Not Exist:**](rows.md#if-row-does-not-exist)（如果行不存在）指定一组条件，匹配数据表中不存在对应行的输入数据项。
+    * [**Insert:**](rows.md#insert-row)（插入）将数据行插入现有表。
+    * [**Update:**](rows.md#update-row)（更新）更新一行或多行。
+    * [**Upsert:**](rows.md#upsert-row)（存在则更新，否则插入）行存在时更新，否则创建新行。
 
-* **Tables**
-    * [**Create:**](tables.md#create-a-data-table) Create a new data table.
-    * [**Delete:**](tables.md#delete-a-data-table) Delete an existing data table.
-    * [**List:**](tables.md#list-data-tables) List existing data tables.
-    * [**Update:**](tables.md#update-a-data-table) Update an existing data table.
+* **Tables**（数据表）
+    * [**Create:**](tables.md#create-a-data-table)（创建）创建新数据表。
+    * [**Delete:**](tables.md#delete-a-data-table)（删除）删除现有数据表。
+    * [**List:**](tables.md#list-data-tables)（列出）列出现有数据表。
+    * [**Update:**](tables.md#update-a-data-table)（更新）更新现有数据表。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-[Data tables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/data-tables) explains how to create and manage data tables.
+[数据表](../../../../build/work-with-data/data-tables.md)介绍了如何创建和管理数据表。

@@ -15931,5 +15931,41 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.datatable/README.md": {
+    "status": "translated",
+    "source_sha256": "d9906b78371e8cf2aeb200ce23718b913edcad39473f46cce802cf479512549a",
+    "translation_sha256": "67dd58fa5b0a74a21b92576a9271a521a8902a4114164a907790ecc630974d31",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.datatable/tables.md": {
+    "status": "translated",
+    "source_sha256": "7a9ee14f0524dbd55e2bd53b54ee0614125ef0b55e1996a20ccdc27c26398aa4",
+    "translation_sha256": "b182c8c27775954b5adb31a25a7991548771e712062d538cfa9022e1c54e4e47",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows.md": {
+    "status": "translated",
+    "source_sha256": "f526b13cc2817c565460e298c68eccc4b6cdbcddf38abe400fc6c8b901cea9f1",
+    "translation_sha256": "0438759fe0b5970db93e1e99c82313f2655bc1dbafa7554244e3d25b46c1e138",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "data-table-row-automatic-mapping-label-spelling"
+    ]
   }
 }

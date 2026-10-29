@@ -1386,5 +1386,17 @@
     ],
     "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
     "source_sha256": "ec546dd0171a38afff255bd6358f32d708c1ba51bb92f5ffd1fc341e4229d80a"
+  },
+  {
+    "id": "data-table-row-automatic-mapping-label-spelling",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows.md",
+    "original_sentence": "    - **Map Auomatically:** Allow the node to automatically match data fields to columns by name. For successful mapping, the field names in your incoming data must exactly match the column names in the data table. All fields will be mapped.",
+    "translated_sentence": "    - **Map Automatically:**（自动映射）让节点按名称自动匹配字段与列。要成功映射，传入数据的字段名称必须与数据表列名完全一致，所有字段都会被映射。",
+    "evidence": "Update 与 Upsert 的自动列映射标签误拼为 Map Auomatically，而同页 Insert 中同一功能正确写作 Map Automatically。两处说明内容完全相同，译文统一英文可见标签为 Map Automatically；仍要求输入字段名与数据表列名完全一致，并保留映射所有字段的行为。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows.md"
+    ],
+    "scope": "仅修正同页两个相同可见标签的拼写；不修改原文快照、字段 ID、示例、图片、链接或锚点，不对数据表执行实际读写。",
+    "source_sha256": "f526b13cc2817c565460e298c68eccc4b6cdbcddf38abe400fc6c8b901cea9f1"
   }
 ]

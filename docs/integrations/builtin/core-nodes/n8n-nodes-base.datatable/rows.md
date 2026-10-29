@@ -1,184 +1,182 @@
 ---
-title: Data Table node row operations
-description: >-
-  Reference documentation for Data Table node row operations, including delete,
-  get, insert, update, and upsert.
+title: Data Table 节点的行操作
+description: Data Table 节点行操作的参考文档，包括删除、获取、插入、更新和 upsert。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Data Table node row operations
+nodeTitle: Data Table 节点的行操作
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datatable/rows
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Use row operations to delete, get, insert, update, upsert, or filter rows in a data table. Refer to the [Data Table node](README.md) documentation for more information on the node itself.
 
-## Delete row <a href="#delete-row" id="delete-row"></a>
+使用行操作删除、获取、插入、更新、upsert 或筛选数据表中的行。有关节点本身的更多信息，请参阅 [Data Table 节点](README.md)文档。
 
-Use this operation to delete one or more rows from a data table, based on a defined condition(s).
+## 删除数据行 <a href="#delete-row" id="delete-row"></a>
 
-Enter these parameters:
+使用此操作，根据指定条件从数据表中删除一行或多行。
 
-- **Resource:** Select **Row**.
-- **Operation:** Select **Delete**.
-- **Data table:** Select how to identify the data table to operate on:
-    - **From list:** Select the table from a drop-down list of all your data tables.
-    - **By Name:** Enter the name of your data table.
-    - **By ID:** Enter the ID of your data table
-- **Must Match:** Select whether to delete rows that match **Any Condition** or **All Conditions** defined in the next step.
-- **Conditions:** Click **Add Condition** to define which rows from the data table to operate on. You can add multiple conditions. For each one:
-    - **Column:** Select the column you want to compare.
-    - **Condition:** Choose how to compare the column value: **Equals**, **Not Equals**, **Greater Than**, **Greater Than or Equal**, **Less Than**, **Less Than or Equal**, **Is Empty**, or **Is Not Empty**.
-    - **Value:** Enter the value to compare the column against. You can use a fixed value or an expression that references data from previous nodes. This field doesn't exist for **Is Empty** and **Is Not Empty** conditions.
+配置以下参数：
 
-### Delete row options <a href="#delete-row-options" id="delete-row-options"></a>
+- **Resource:**（资源）选择 **Row**（数据行）。
+- **Operation:**（操作）选择 **Delete**（删除）。
+- **Data table:**（数据表）选择如何指定要操作的数据表：
+    - **From list:**（从列表选择）从所有数据表的下拉列表中选择。
+    - **By Name:**（按名称）输入数据表名称。
+    - **By ID:**（按 ID）输入数据表 ID。
+- **Must Match:**（匹配要求）选择删除符合下一步所定义的 **Any Condition**（任一条件）或 **All Conditions**（所有条件）的行。
+- **Conditions:**（条件）点击 **Add Condition**（添加条件），定义要操作的数据表行。可以添加多个条件，每个条件配置如下：
+    - **Column:**（列）选择要比较的列。
+    - **Condition:**（比较条件）选择如何比较列值：**Equals**（等于）、**Not Equals**（不等于）、**Greater Than**（大于）、**Greater Than or Equal**（大于或等于）、**Less Than**（小于）、**Less Than or Equal**（小于或等于）、**Is Empty**（为空）或 **Is Not Empty**（非空）。
+    - **Value:**（值）输入用于和列值比较的值。可以使用固定值，或引用前置节点数据的表达式。条件为 **Is Empty**（为空）或 **Is Not Empty**（非空）时，没有此字段。
 
-Use these options to further refine the action's behavior:
+### 删除数据行的选项 <a href="#delete-row-options" id="delete-row-options"></a>
 
-- **Dry Run:** Enable to simulate deletion without modifying the table. The node returns rows that would be deleted, including their state before and after the operation.
+使用以下选项进一步配置操作行为：
 
-## Get row <a href="#get-row" id="get-row"></a>
+- **Dry Run:**（试运行）开启后模拟删除，不修改数据表。节点返回将被删除的行，包括操作前后的状态。
 
-Use this operation to retrieve one or more rows from a data table, based on a defined condition(s).
+## 获取数据行 <a href="#get-row" id="get-row"></a>
 
-Enter these parameters:
+使用此操作，根据指定条件从数据表中检索一行或多行。
 
-- **Resource:** Select **Row**.
-- **Operation:** Select **Get**.
-- **Data table:** Select how to identify the data table to operate on:
-    - **From list:** Select the table from a drop-down list of all your data tables.
-    - **By Name:** Enter the name of your data table.
-    - **By ID:** Enter the ID of your data table
-- **Must Match:** Select whether to get rows that match **Any Condition** or **All Conditions** defined in the next step.
-- **Conditions:** Click **Add Condition** to define which rows from the data table to operate on. You can add multiple conditions. For each one:
-    - **Column:** Select the column you want to compare.
-    - **Condition:** Choose how to compare the column value: **Equals**, **Not Equals**, **Greater Than**, **Greater Than or Equal**, **Less Than**, **Less Than or Equal**, **Is Empty**, or **Is Not Empty**.
-    - **Value:** Enter the value to compare the column against. You can use a fixed value or an expression that references data from previous nodes. This field doesn't exist for **Is Empty** and **Is Not Empty** conditions.
-- **Return All:** Enable to return all matching rows. Or, disable and enter a **Limit** for the number of rows to return, for example `50`.
-- **Order By:** Enable to define the column to order results on, and the direction (ascending or descending). Or, disable for no ordering of results.
+配置以下参数：
 
-### Reading rows while the table changes
+- **Resource:**（资源）选择 **Row**（数据行）。
+- **Operation:**（操作）选择 **Get**（获取）。
+- **Data table:**（数据表）选择如何指定要操作的数据表：
+    - **From list:**（从列表选择）从所有数据表的下拉列表中选择。
+    - **By Name:**（按名称）输入数据表名称。
+    - **By ID:**（按 ID）输入数据表 ID。
+- **Must Match:**（匹配要求）选择获取符合下一步所定义的 **Any Condition**（任一条件）或 **All Conditions**（所有条件）的行。
+- **Conditions:**（条件）点击 **Add Condition**（添加条件），定义要操作的数据表行。可以添加多个条件，每个条件配置如下：
+    - **Column:**（列）选择要比较的列。
+    - **Condition:**（比较条件）选择如何比较列值：**Equals**（等于）、**Not Equals**（不等于）、**Greater Than**（大于）、**Greater Than or Equal**（大于或等于）、**Less Than**（小于）、**Less Than or Equal**（小于或等于）、**Is Empty**（为空）或 **Is Not Empty**（非空）。
+    - **Value:**（值）输入用于和列值比较的值。可以使用固定值，或引用前置节点数据的表达式。条件为 **Is Empty**（为空）或 **Is Not Empty**（非空）时，没有此字段。
+- **Return All:**（返回全部）开启时返回所有匹配的行；关闭时，在 **Limit**（数量上限）中输入要返回的行数量，例如 `50`。
+- **Order By:**（排序）开启时，指定排序列及方向（升序或降序）；关闭时，不对结果排序。
 
-When you ask for a lot of results at once, n8n fetches them in smaller batches ("pages") one after another, rather than all in one go.
+### 获取过程中数据表发生变化 <a id="reading-rows-while-the-table-changes"></a>
 
-Because this can take a little time, if someone changes the underlying data while it's still fetching (adding, editing, or deleting records), the results you get back might be a bit off. Some records could be missing, some could show up twice, and different parts of the results might reflect the data as it was at slightly different moments.
+一次请求大量结果时，n8n 会按较小批次（“页”）依次获取，而不是一次性获取全部数据。
 
-* **To get a fully accurate result:** Make sure no one is adding, editing, or deleting records until the fetch is completely finished.
-* **If you're using "Return All":** If new matching records keep getting added while the fetch is running, **Return All** may never finish, since there's always more data to retrieve. If that happens, you can cancel the operation, and it will stop after the current batch finishes.
+获取需要一定时间。如果此时有人修改底层数据，例如添加、编辑或删除记录，返回结果可能不完全准确：某些记录可能遗漏，某些记录可能重复出现，不同部分的结果也可能反映略有差异的时间点的数据状态。
 
-## If row exists <a href="#if-row-exists" id="if-row-exists"></a>
+* **要获得完全准确的结果：** 确保在获取全部完成前，没有人添加、编辑或删除记录。
+* **使用“Return All”时：** 如果获取期间持续新增匹配记录，由于总有更多数据需要获取，**Return All**（返回全部）可能永远无法完成。发生这种情况时，可以取消操作，操作会在当前批次完成后停止。
 
-Use this operation to check whether a row matching the defined condition(s) exists in a data table. If a matching row is found, the node outputs the same input item it received, unchanged. If no matching rows exist, it outputs nothing.
+## 如果行存在 <a href="#if-row-exists" id="if-row-exists"></a>
 
-Enter these parameters:
+使用此操作，检查数据表中是否存在符合指定条件的行。如果找到匹配行，节点原样输出收到的输入数据项；如果不存在匹配行，则不输出任何内容。
 
-- **Resource:** Select **Row**.
-- **Operation:** Select **If Row Exists**.
-- **Data table:** Select how to identify the data table to operate on:
-    - **From list:** Select the table from a drop-down list of all your data tables.
-    - **By Name:** Enter the name of your data table.
-    - **By ID:** Enter the ID of your data table
-- **Must Match:** Select whether rows must match **Any Condition** or **All Conditions** defined in the next step.
-- **Conditions:** Click **Add Condition** to define the data table rows to operate on. You can add multiple conditions. For each one:
-    - **Column:** Select the column you want to compare.
-    - **Condition:** Choose how to compare the column value: **Equals**, **Not Equals**, **Greater Than**, **Greater Than or Equal**, **Less Than**, **Less Than or Equal**, **Is Empty**, or **Is Not Empty**.
-    - **Value:** Enter the value to compare the column against. You can use a fixed value or an expression that references data from previous nodes. This field doesn't exist for **Is Empty** and **Is Not Empty** conditions.
+配置以下参数：
 
-## If row does not exist <a href="#if-row-does-not-exist" id="if-row-does-not-exist"></a>
+- **Resource:**（资源）选择 **Row**（数据行）。
+- **Operation:**（操作）选择 **If Row Exists**（如果行存在）。
+- **Data table:**（数据表）选择如何指定要操作的数据表：
+    - **From list:**（从列表选择）从所有数据表的下拉列表中选择。
+    - **By Name:**（按名称）输入数据表名称。
+    - **By ID:**（按 ID）输入数据表 ID。
+- **Must Match:**（匹配要求）选择行必须符合下一步所定义的 **Any Condition**（任一条件）或 **All Conditions**（所有条件）。
+- **Conditions:**（条件）点击 **Add Condition**（添加条件），定义要操作的数据表行。可以添加多个条件，每个条件配置如下：
+    - **Column:**（列）选择要比较的列。
+    - **Condition:**（比较条件）选择如何比较列值：**Equals**（等于）、**Not Equals**（不等于）、**Greater Than**（大于）、**Greater Than or Equal**（大于或等于）、**Less Than**（小于）、**Less Than or Equal**（小于或等于）、**Is Empty**（为空）或 **Is Not Empty**（非空）。
+    - **Value:**（值）输入用于和列值比较的值。可以使用固定值，或引用前置节点数据的表达式。条件为 **Is Empty**（为空）或 **Is Not Empty**（非空）时，没有此字段。
 
-Use this operation to check that no rows matching the defined condition(s) exists in a data table. If no matching row is found, the node outputs the same input item it received, unchanged. If a matching row exists, it outputs nothing.
+## 如果行不存在 <a href="#if-row-does-not-exist" id="if-row-does-not-exist"></a>
 
-Enter these parameters:
+使用此操作，检查数据表中是否不存在符合指定条件的行。如果没有找到匹配行，节点原样输出收到的输入数据项；如果存在匹配行，则不输出任何内容。
 
-- **Resource:** Select **Row**.
-- **Operation:** Select **If Row Does Not Exist**.
-- **Data table:** Select how to identify the data table to operate on:
-    - **From list:** Select the table from a drop-down list of all your data tables.
-    - **By Name:** Enter the name of your data table.
-    - **By ID:** Enter the ID of your data table.
-- **Must Match:** Select whether rows must match **Any Condition** or **All Conditions** defined in the next step.
-- **Conditions:** Click **Add Condition** to define the data table rows to operate on. You can add multiple conditions. For each one:
-    - **Column:** Select the column you want to compare.
-    - **Condition:** Choose how to compare the column value: **Equals**, **Not Equals**, **Greater Than**, **Greater Than or Equal**, **Less Than**, **Less Than or Equal**, **Is Empty**, or **Is Not Empty**.
-    - **Value:** Enter the value to compare the column against. You can use a fixed value or an expression that references data from previous nodes. This field doesn't exist for **Is Empty** and **Is Not Empty** conditions.
+配置以下参数：
 
-## Insert row <a href="#insert-row" id="insert-row"></a>
+- **Resource:**（资源）选择 **Row**（数据行）。
+- **Operation:**（操作）选择 **If Row Does Not Exist**（如果行不存在）。
+- **Data table:**（数据表）选择如何指定要操作的数据表：
+    - **From list:**（从列表选择）从所有数据表的下拉列表中选择。
+    - **By Name:**（按名称）输入数据表名称。
+    - **By ID:**（按 ID）输入数据表 ID。
+- **Must Match:**（匹配要求）选择行必须符合下一步所定义的 **Any Condition**（任一条件）或 **All Conditions**（所有条件）。
+- **Conditions:**（条件）点击 **Add Condition**（添加条件），定义要操作的数据表行。可以添加多个条件，每个条件配置如下：
+    - **Column:**（列）选择要比较的列。
+    - **Condition:**（比较条件）选择如何比较列值：**Equals**（等于）、**Not Equals**（不等于）、**Greater Than**（大于）、**Greater Than or Equal**（大于或等于）、**Less Than**（小于）、**Less Than or Equal**（小于或等于）、**Is Empty**（为空）或 **Is Not Empty**（非空）。
+    - **Value:**（值）输入用于和列值比较的值。可以使用固定值，或引用前置节点数据的表达式。条件为 **Is Empty**（为空）或 **Is Not Empty**（非空）时，没有此字段。
 
-Use this operation to insert a new row into a data table.
+## 插入数据行 <a href="#insert-row" id="insert-row"></a>
 
-Enter these parameters:
+使用此操作向数据表插入新行。
 
-- **Resource:** Select **Row**.
-- **Operation:** Select **Insert**.
-- **Data table:** Select how to identify the data table to operate on:
-    - **From list:** Select the table from a drop-down list of all your data tables.
-    - **By Name:** Enter the name of your data table.
-    - **By ID:** Enter the ID of your data table.
-- **Mapping Column Mode:** Select whether to: 
-    - **Map Each Column Manually:** Explicitly select which incoming data fields to map to which column. This allows you to map even when the incoming data field names don't match the data table column names. You can choose to delete certain values from the mapping.
-    - **Map Automatically:** Allow the node to automatically match data fields to columns by name. For successful mapping, the field names in your incoming data must exactly match the column names in the data table. All fields will be mapped.
+配置以下参数：
 
-### Insert row options <a href="#insert-row-options" id="insert-row-options"></a>
+- **Resource:**（资源）选择 **Row**（数据行）。
+- **Operation:**（操作）选择 **Insert**（插入）。
+- **Data table:**（数据表）选择如何指定要操作的数据表：
+    - **From list:**（从列表选择）从所有数据表的下拉列表中选择。
+    - **By Name:**（按名称）输入数据表名称。
+    - **By ID:**（按 ID）输入数据表 ID。
+- **Mapping Column Mode:**（列映射模式）选择：
+    - **Map Each Column Manually:**（逐列手动映射）明确选择传入数据的字段与列之间的映射关系。即使传入字段名称与数据表列名不同，也可映射；还可以从映射中删除某些值。
+    - **Map Automatically:**（自动映射）让节点按名称自动匹配字段与列。要成功映射，传入数据的字段名称必须与数据表列名完全一致，所有字段都会被映射。
 
-Use these options to further refine the action's behavior:
+### 插入数据行的选项 <a href="#insert-row-options" id="insert-row-options"></a>
 
-- **Optimize Bulk:** Enable to prevent inserted data from being returned. This improves bulk insert performance by up to 5x.
+使用以下选项进一步配置操作行为：
 
-## Update row <a href="#update-row" id="update-row"></a>
+- **Optimize Bulk:**（优化批量插入）开启后不返回插入的数据，可使批量插入性能最高提升至 5 倍。
 
-Use this operation to update one or more rows in a data table, based on a defined condition(s).
+## 更新数据行 <a href="#update-row" id="update-row"></a>
 
-Enter these parameters:
+使用此操作，根据指定条件更新数据表中的一行或多行。
 
-- **Resource:** Select **Row**.
-- **Operation:** Select **Update**.
-- **Data table:** Select how to identify the data table to operate on:
-    - **From list:** Select the table from a drop-down list of all your data tables.
-    - **By Name:** Enter the name of your data table.
-    - **By ID:** Enter the ID of your data table.
-- **Must Match:** Select whether to update rows that match **Any Condition** or **All Conditions** defined in the next step.
-- **Conditions:** Click **Add Condition** to define the data table rows to operate on. You can add multiple conditions. For each one:
-    - **Column:** Select the column you want to compare.
-    - **Condition:** Choose how to compare the column value: **Equals**, **Not Equals**, **Greater Than**, **Greater Than or Equal**, **Less Than**, **Less Than or Equal**, **Is Empty**, or **Is Not Empty**.
-    - **Value:** Enter the value to compare the column against. You can use a fixed value or an expression that references data from previous nodes. This field doesn't exist for **Is Empty** and **Is Not Empty** conditions.
-- **Mapping Column Mode:** Select whether to: 
-    - **Map Each Column Manually:** Explicitly select which incoming data fields to map to which column. This allows you to map even when the incoming data field names don't match the data table column names. You can choose to delete certain values from the mapping.
-    - **Map Auomatically:** Allow the node to automatically match data fields to columns by name. For successful mapping, the field names in your incoming data must exactly match the column names in the data table. All fields will be mapped.
+配置以下参数：
 
-### Update row options <a href="#update-row-options" id="update-row-options"></a>
+- **Resource:**（资源）选择 **Row**（数据行）。
+- **Operation:**（操作）选择 **Update**（更新）。
+- **Data table:**（数据表）选择如何指定要操作的数据表：
+    - **From list:**（从列表选择）从所有数据表的下拉列表中选择。
+    - **By Name:**（按名称）输入数据表名称。
+    - **By ID:**（按 ID）输入数据表 ID。
+- **Must Match:**（匹配要求）选择更新符合下一步所定义的 **Any Condition**（任一条件）或 **All Conditions**（所有条件）的行。
+- **Conditions:**（条件）点击 **Add Condition**（添加条件），定义要操作的数据表行。可以添加多个条件，每个条件配置如下：
+    - **Column:**（列）选择要比较的列。
+    - **Condition:**（比较条件）选择如何比较列值：**Equals**（等于）、**Not Equals**（不等于）、**Greater Than**（大于）、**Greater Than or Equal**（大于或等于）、**Less Than**（小于）、**Less Than or Equal**（小于或等于）、**Is Empty**（为空）或 **Is Not Empty**（非空）。
+    - **Value:**（值）输入用于和列值比较的值。可以使用固定值，或引用前置节点数据的表达式。条件为 **Is Empty**（为空）或 **Is Not Empty**（非空）时，没有此字段。
+- **Mapping Column Mode:**（列映射模式）选择：
+    - **Map Each Column Manually:**（逐列手动映射）明确选择传入数据的字段与列之间的映射关系。即使传入字段名称与数据表列名不同，也可映射；还可以从映射中删除某些值。
+    - **Map Automatically:**（自动映射）让节点按名称自动匹配字段与列。要成功映射，传入数据的字段名称必须与数据表列名完全一致，所有字段都会被映射。
 
-Use these options to further refine the action's behavior:
+### 更新数据行的选项 <a href="#update-row-options" id="update-row-options"></a>
 
-- **Dry Run:** Enable to simulate updating, without modifying the table. The node returns rows that would be updated, including their state before and after the operation.
+使用以下选项进一步配置操作行为：
 
-## Upsert row <a href="#upsert-row" id="upsert-row"></a>
+- **Dry Run:**（试运行）开启后模拟更新，不修改数据表。节点返回将被更新的行，包括操作前后的状态。
 
-Use this operation to upsert into a data table. If a row matching the defined condition(s) exists, it's updated with the provided values. If no matching row exists, a new row is created.
+## Upsert 数据行 <a href="#upsert-row" id="upsert-row"></a>
 
-- **Resource:** Select **Row**.
-- **Operation:** Select **Upsert**.
-- **Data table:** Select how to identify the data table to operate on:
-    - **From list:** Select the table from a drop-down list of all your data tables.
-    - **By Name:** Enter the name of your data table.
-    - **By ID:** Enter the ID of your data table.
-- **Must Match:** Select whether to upsert rows that match **Any Condition** or **All Conditions** defined in the next step.
-- **Conditions:** Click **Add Condition** to define the data table rows to operate on. You can add multiple conditions. For each one:
-    - **Column:** Select the column you want to compare.
-    - **Condition:** Choose how to compare the column value: **Equals**, **Not Equals**, **Greater Than**, **Greater Than or Equal**, **Less Than**, **Less Than or Equal**, **Is Empty**, or **Is Not Empty**.
-    - **Value:** Enter the value to compare the column against. You can use a fixed value or an expression that references data from previous nodes. This field doesn't exist for **Is Empty** and **Is Not Empty** conditions.
-- **Mapping Column Mode:** Select whether to: 
-    - **Map Each Column Manually:** Explicitly select which incoming data fields to map to which column. This allows you to map even when the incoming data field names don't match the data table column names. You can choose to delete certain values from the mapping.
-    - **Map Auomatically:** Allow the node to automatically match data fields to columns by name. For successful mapping, the field names in your incoming data must exactly match the column names in the data table. All fields will be mapped.
+使用此操作在数据表中执行 upsert。如果存在符合指定条件的行，就使用提供的值更新该行；如果不存在匹配行，则创建新行。
 
-### Upsert row options <a href="#upsert-row-options" id="upsert-row-options"></a>
+- **Resource:**（资源）选择 **Row**（数据行）。
+- **Operation:**（操作）选择 **Upsert**（存在则更新，否则插入）。
+- **Data table:**（数据表）选择如何指定要操作的数据表：
+    - **From list:**（从列表选择）从所有数据表的下拉列表中选择。
+    - **By Name:**（按名称）输入数据表名称。
+    - **By ID:**（按 ID）输入数据表 ID。
+- **Must Match:**（匹配要求）选择对符合下一步所定义的 **Any Condition**（任一条件）或 **All Conditions**（所有条件）的行执行 upsert。
+- **Conditions:**（条件）点击 **Add Condition**（添加条件），定义要操作的数据表行。可以添加多个条件，每个条件配置如下：
+    - **Column:**（列）选择要比较的列。
+    - **Condition:**（比较条件）选择如何比较列值：**Equals**（等于）、**Not Equals**（不等于）、**Greater Than**（大于）、**Greater Than or Equal**（大于或等于）、**Less Than**（小于）、**Less Than or Equal**（小于或等于）、**Is Empty**（为空）或 **Is Not Empty**（非空）。
+    - **Value:**（值）输入用于和列值比较的值。可以使用固定值，或引用前置节点数据的表达式。条件为 **Is Empty**（为空）或 **Is Not Empty**（非空）时，没有此字段。
+- **Mapping Column Mode:**（列映射模式）选择：
+    - **Map Each Column Manually:**（逐列手动映射）明确选择传入数据的字段与列之间的映射关系。即使传入字段名称与数据表列名不同，也可映射；还可以从映射中删除某些值。
+    - **Map Automatically:**（自动映射）让节点按名称自动匹配字段与列。要成功映射，传入数据的字段名称必须与数据表列名完全一致，所有字段都会被映射。
 
-Use these options to further refine the action's behavior:
+### Upsert 数据行的选项 <a href="#upsert-row-options" id="upsert-row-options"></a>
 
-- **Dry Run:** Enable to simulate the upsert operation without modifying the table. The node returns rows that would be affected, including their state before and after the operation.
+使用以下选项进一步配置操作行为：
+
+- **Dry Run:**（试运行）开启后模拟 upsert，不修改数据表。节点返回将受影响的行，包括操作前后的状态。
