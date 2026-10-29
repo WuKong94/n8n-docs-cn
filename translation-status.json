@@ -15378,5 +15378,67 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.mysql/README.md": {
+    "status": "translated",
+    "source_sha256": "3df7e2721bd3b25c3c18c715412a7dd3498c44c5d9de4efced46689533153914",
+    "translation_sha256": "d1cdb1fb7642bd0cb3b6688c4f2a5935da7587e32d075057c68b1966fa40a7a9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.mysql/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "4b143d7e63fbae02cd2527c7029d4c657254184b066972368fb354d23f198cfd",
+    "translation_sha256": "1606d61739032c24b91370648ef439b2281d95fc7ad3c273569eeb4e20af8ff6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.postgres/README.md": {
+    "status": "translated",
+    "source_sha256": "4e7a864d8f24ab389b986174c112af69992e38d357d35e540ef987f24abcbdc2",
+    "translation_sha256": "342944d8d991ed9f0341e47f5d0031d1a3400cf634e099fa5673faa21e472556",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "postgres-cascade-truncate-versus-drop"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.postgres/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "402686e4f3fdd8c63f2e3010045a16157a2b2c2f425757c1536b7f02db537435",
+    "translation_sha256": "96180a9b3211c967dc54044d7b7fbb7b6738a0d51325fd1adea6218968a698fa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.oracledb.md": {
+    "status": "translated",
+    "source_sha256": "55011ade4324119fda074de8a144988e4660b6a18cc1b933a5554d0cdcf1f278",
+    "translation_sha256": "57a62d019ab374876815053732548e3931a6fb001af92e6b4b08fd275d1ab375",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "oracle-bind-example-parameter-source-note",
+      "oracle-delete-ddl-transaction-source-note"
+    ]
   }
 }

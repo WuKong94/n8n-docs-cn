@@ -1,227 +1,227 @@
 ---
-title: Postgres node documentation
-description: >-
-  Learn how to use the Postgres node in n8n. Follow technical documentation to
-  integrate Postgres node into your workflows.
+title: Postgres 节点文档
+description: 了解如何在 n8n 中使用 Postgres 节点，并按照技术文档将 Postgres 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 nodeTitle: n8n-nodes-base.postgres
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.postgres/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postgres'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postgres'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postgres
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postgres
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Postgres node <a href="#postgres-node" id="postgres-node"></a>
 
-Use the Postgres node to automate work in Postgres, and integrate Postgres with other applications. n8n has built-in support for a wide range of Postgres features, including executing queries, as well as inserting and updating rows in a database. 
+# Postgres 节点 <a href="#postgres-node" id="postgres-node"></a>
 
-On this page, you'll find a list of operations the Postgres node supports and links to more resources.
+使用 Postgres 节点自动处理 Postgres 中的工作，并将其与其他应用集成。n8n 内置支持多种 Postgres 功能，包括执行查询，以及插入和更新数据库中的行。
+
+本页列出了 Postgres 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Postgres credentials](../../credentials/postgres.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Postgres 凭据](../../credentials/postgres.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* [**Delete**](#delete): Delete an entire table or rows in a table
-* [**Execute Query**](#execute-query): Execute an SQL query
-* [**Insert**](#insert): Insert rows in a table
-* [**Insert or Update**](#insert-or-update): Insert or update rows in a table
-* [**Select**](#select): Select rows from a table
-* [**Update**](#update): Update rows in a table
+* [**Delete**](#delete)（删除）：删除整张表或表中的行
+* [**Execute Query**](#execute-query)（执行查询）：执行 SQL 查询
+* [**Insert**](#insert)（插入）：向表中插入行
+* [**Insert or Update**](#insert-or-update)（插入或更新）：插入或更新表中的行
+* [**Select**](#select)（查询）：查询表中的行
+* [**Update**](#update)（更新）：更新表中的行
 
-### Delete <a href="#delete" id="delete"></a>
+### Delete（删除） <a href="#delete" id="delete"></a>
 
-Use this operation to delete an entire table or rows in a table.
+此操作用于删除整张表或表中的行。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [Postgres credential](../../credentials/postgres.md).
-- **Operation**: Select **Delete**.
-- **Schema**: Choose the schema that contains the table you want to work on. Select **From list** to choose the schema from the dropdown list or **By Name** to enter the schema name.
-- **Table**: Choose the table that you want to work on. Select **From list** to choose the table from the dropdown list or **By Name** to enter the table name.
-- **Command**: The deletion action to take:
-	- **Truncate**: Removes the table's data but preserves the table's structure.
-		- **Restart Sequences**: Whether to reset auto increment columns to their initial values as part of the Truncate process.
-	- **Delete**: Delete the rows that match the "Select Rows" condition. If you don't select anything, Postgres deletes all rows.
-		- **Select Rows**: Define a **Column**, **Operator**, and **Value** to match rows on.
-		- **Combine Conditions**: How to combine the conditions in "Select Rows". **AND** requires all conditions to be true, while **OR** requires at least one condition to be true.
-	- **Drop**: Deletes the table's data and structure permanently.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Postgres 凭据](../../credentials/postgres.md)。
+- **Operation**（操作）：选择 **Delete**（删除）。
+- **Schema**（模式）：选择包含目标表的模式。选择 **From list**（从列表）可在下拉列表中选择模式，选择 **By Name**（按名称）可输入模式名。
+- **Table**（表）：选择要操作的表。选择 **From list**（从列表）可在下拉列表中选择表，选择 **By Name**（按名称）可输入表名。
+- **Command**（命令）：要执行的删除动作：
+    - **Truncate**（清空表）：移除表中的数据，但保留表结构。
+        - **Restart Sequences**（重置序列）：是否在清空表时将自增列重置为初始值。
+    - **Delete**（删除行）：删除满足 Select Rows（选择行）条件的行。不设置条件时，Postgres 会删除所有行。
+        - **Select Rows**（选择行）：通过 **Column**（列）、**Operator**（运算符）和 **Value**（值）设置行匹配条件。
+        - **Combine Conditions**（组合条件）：如何组合 Select Rows（选择行）中的条件。**AND**（与）要求所有条件成立，**OR**（或）要求至少一个条件成立。
+    - **Drop**（删除表）：永久删除表的数据及结构。
 
-#### Delete options <a href="#delete-options" id="delete-options"></a>
+#### 删除选项 <a href="#delete-options" id="delete-options"></a>
 
-- **Cascade**: Whether to also drop all objects that depend on the table, like views and sequences. Available if using **Truncate** or **Drop** commands.
-- **Connection Timeout**: The number of seconds to try to connect to the database.
-- **Delay Closing Idle Connection**: The number of seconds to wait before considering idle connections eligible for closing.
-- **Query Batching**: The way to send queries to the database:
-	- **Single Query**: A single query for all incoming items.
-	- **Independently**: Execute one query per incoming item of the execution.
-	- **Transaction**: Execute all queries in a transaction. If a failure occurs, Postgres rolls back all changes.
-- **Output Large-Format Numbers As**: The format to output `NUMERIC` and `BIGINT` columns as:
-	- **Numbers**: Use this for standard numbers.
-	- **Text**: Use this if you expect numbers longer than 16 digits. Without this, numbers may be incorrect.
+- **Cascade**（级联）：使用 **Truncate**（清空表）时，级联清空通过外键引用该表的其他表；使用 **Drop**（删除表）时，级联删除依赖对象，例如视图。
+- **Connection Timeout**（连接超时）：尝试连接数据库的时间，单位为秒。
+- **Delay Closing Idle Connection**（延迟关闭空闲连接）：空闲连接可被关闭前需要等待的秒数。
+- **Query Batching**（查询批处理）：向数据库发送查询的方式：
+    - **Single Query**（单个查询）：对所有输入数据项使用一个查询。
+    - **Independently**（独立执行）：为本次执行中的每个输入数据项执行一个查询。
+    - **Transaction**（事务）：在一个事务中执行所有查询。发生失败时，Postgres 回滚所有更改。
+- **Output Large-Format Numbers As**（大数值输出格式）：`NUMERIC` 和 `BIGINT` 列的输出格式：
+    - **Numbers**（数字）：用于常规数值。
+    - **Text**（文本）：预计数字超过 16 位时使用，否则数字可能不准确。
 
-### Execute Query <a href="#execute-query" id="execute-query"></a>
+### Execute Query（执行查询） <a href="#execute-query" id="execute-query"></a>
 
-Use this operation to execute an SQL query.
+此操作用于执行 SQL 查询。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [Postgres credential](../../credentials/postgres.md).
-- **Operation**: Select **Execute Query**.
-- **Query**: The SQL query to execute. You can use n8n [expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes) and tokens like `$1`, `$2`, and `$3` to build [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) to use with [query parameters](#use-query-parameters).
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Postgres 凭据](../../credentials/postgres.md)。
+- **Operation**（操作）：选择 **Execute Query**（执行查询）。
+- **Query**（查询）：要执行的 SQL 查询。可使用 n8n [表达式](../../../../build/work-with-data/expressions-versus-data-nodes.md)及 `$1`、`$2`、`$3` 等占位符构建[预处理语句](https://www.postgresql.org/docs/current/sql-prepare.html)，配合[查询参数](#use-query-parameters)使用。
 
-#### Execute Query options <a href="#execute-query-options" id="execute-query-options"></a>
+#### 执行查询选项 <a href="#execute-query-options" id="execute-query-options"></a>
 
-- **Connection Timeout**: The number of seconds to try to connect to the database.
-- **Delay Closing Idle Connection**: The number of seconds to wait before considering idle connections eligible for closing.
-- **Query Batching**: The way to send queries to the database:
-	- **Single Query**: A single query for all incoming items.
-	- **Independently**: Execute one query per incoming item of the execution.
-	- **Transaction**: Execute all queries in a transaction. If a failure occurs, Postgres rolls back all changes.
-- **Query Parameters**: A comma-separated list of values that you want to use as [query parameters](#use-query-parameters).
-- **Output Large-Format Numbers As**: The format to output `NUMERIC` and `BIGINT` columns as:
-	- **Numbers**: Use this for standard numbers.
-	- **Text**: Use this if you expect numbers longer than 16 digits. Without this, numbers may be incorrect.
-- **Replace Empty Strings with NULL**: Whether to replace empty strings with NULL in input. This may be useful when working with data exported from spreadsheet software.
+- **Connection Timeout**（连接超时）：尝试连接数据库的时间，单位为秒。
+- **Delay Closing Idle Connection**（延迟关闭空闲连接）：空闲连接可被关闭前需要等待的秒数。
+- **Query Batching**（查询批处理）：向数据库发送查询的方式：
+    - **Single Query**（单个查询）：对所有输入数据项使用一个查询。
+    - **Independently**（独立执行）：为本次执行中的每个输入数据项执行一个查询。
+    - **Transaction**（事务）：在一个事务中执行所有查询。发生失败时，Postgres 回滚所有更改。
+- **Query Parameters**（查询参数）：以英文逗号分隔的值列表，用作[查询参数](#use-query-parameters)。
+- **Output Large-Format Numbers As**（大数值输出格式）：`NUMERIC` 和 `BIGINT` 列的输出格式：
+    - **Numbers**（数字）：用于常规数值。
+    - **Text**（文本）：预计数字超过 16 位时使用，否则数字可能不准确。
+- **Replace Empty Strings with NULL**（将空字符串替换为 NULL）：是否将输入中的空字符串替换为 NULL。处理电子表格软件导出的数据时，此选项可能有用。
 
-### Insert <a href="#insert" id="insert"></a>
+### Insert（插入） <a href="#insert" id="insert"></a>
 
-Use this operation to insert rows in a table.
+此操作用于向表中插入行。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [Postgres credential](../../credentials/postgres.md).
-- **Operation**: Select **Insert**.
-- **Schema**: Choose the schema that contains the table you want to work on. Select **From list** to choose the schema from the dropdown list or **By Name** to enter the schema name.
-- **Table**: Choose the table that you want to work on. Select **From list** to choose the table from the dropdown list or **By Name** to enter the table name.
-- **Mapping Column Mode**: How to map column names to incoming data:
-	- **Map Each Column Manually**: Select the values to use for each column.
-	- **Map Automatically**: Automatically map incoming data to matching column names in Postgres. The incoming data field names must match the column names in Postgres for this to work. If necessary, consider using the [edit fields (set) node](../../core-nodes/n8n-nodes-base.set.md) before this node to adjust the format as needed.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Postgres 凭据](../../credentials/postgres.md)。
+- **Operation**（操作）：选择 **Insert**（插入）。
+- **Schema**（模式）：选择包含目标表的模式。选择 **From list**（从列表）可在下拉列表中选择模式，选择 **By Name**（按名称）可输入模式名。
+- **Table**（表）：选择要操作的表。选择 **From list**（从列表）可在下拉列表中选择表，选择 **By Name**（按名称）可输入表名。
+- **Mapping Column Mode**（列映射模式）：如何将输入数据映射到列名：
+    - **Map Each Column Manually**（手动映射每列）：选择每列使用的值。
+    - **Map Automatically**（自动映射）：自动将输入数据映射到 Postgres 中匹配的列名。输入数据字段名必须与 Postgres 列名一致。必要时，可在此节点前使用 [Edit Fields (Set)](../../core-nodes/n8n-nodes-base.set.md)（编辑字段）节点调整格式。
 
-#### Insert options <a href="#insert-options" id="insert-options"></a>
+#### 插入选项 <a href="#insert-options" id="insert-options"></a>
 
-- **Connection Timeout**: The number of seconds to try to connect to the database.
-- **Delay Closing Idle Connection**: The number of seconds to wait before considering idle connections eligible for closing.
-- **Query Batching**: The way to send queries to the database:
-	- **Single Query**: A single query for all incoming items.
-	- **Independently**: Execute one query per incoming item of the execution.
-	- **Transaction**: Execute all queries in a transaction. If a failure occurs, Postgres rolls back all changes.
-- **Output Columns**: Choose which columns to output. You can select from a list of available columns or specify IDs using [expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes).
-- **Output Large-Format Numbers As**: The format to output `NUMERIC` and `BIGINT` columns as:
-	- **Numbers**: Use this for standard numbers.
-	- **Text**: Use this if you expect numbers longer than 16 digits. Without this, numbers may be incorrect.
-- **Skip on Conflict**: Whether to skip the row if the insert violates a unique or exclusion constraint instead of throwing an error.
-- **Replace Empty Strings with NULL**: Whether to replace empty strings with NULL in input. This may be useful when working with data exported from spreadsheet software.
+- **Connection Timeout**（连接超时）：尝试连接数据库的时间，单位为秒。
+- **Delay Closing Idle Connection**（延迟关闭空闲连接）：空闲连接可被关闭前需要等待的秒数。
+- **Query Batching**（查询批处理）：向数据库发送查询的方式：
+    - **Single Query**（单个查询）：对所有输入数据项使用一个查询。
+    - **Independently**（独立执行）：为本次执行中的每个输入数据项执行一个查询。
+    - **Transaction**（事务）：在一个事务中执行所有查询。发生失败时，Postgres 回滚所有更改。
+- **Output Columns**（输出列）：选择要输出的列，可从可用列列表选择，或使用[表达式](../../../../build/work-with-data/expressions-versus-data-nodes.md)指定 ID。
+- **Output Large-Format Numbers As**（大数值输出格式）：`NUMERIC` 和 `BIGINT` 列的输出格式：
+    - **Numbers**（数字）：用于常规数值。
+    - **Text**（文本）：预计数字超过 16 位时使用，否则数字可能不准确。
+- **Skip on Conflict**（冲突时跳过）：插入违反唯一约束或排除约束时，是否跳过该行，而非抛出错误。
+- **Replace Empty Strings with NULL**（将空字符串替换为 NULL）：是否将输入中的空字符串替换为 NULL。处理电子表格软件导出的数据时，此选项可能有用。
 
-### Insert or Update <a href="#insert-or-update" id="insert-or-update"></a>
+### Insert or Update（插入或更新） <a href="#insert-or-update" id="insert-or-update"></a>
 
-Use this operation to insert or update rows in a table.
+此操作用于插入或更新表中的行。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [Postgres credential](../../credentials/postgres.md).
-- **Operation**: Select **Insert or Update**.
-- **Schema**: Choose the schema that contains the table you want to work on. Select **From list** to choose the schema from the dropdown list or **By Name** to enter the schema name.
-- **Table**: Choose the table that you want to work on. Select **From list** to choose the table from the dropdown list or **By Name** to enter the table name.
-- **Mapping Column Mode**: How to map column names to incoming data:
-	- **Map Each Column Manually**: Select the values to use for each column.
-	- **Map Automatically**: Automatically map incoming data to matching column names in Postgres. The incoming data field names must match the column names in Postgres for this to work. If necessary, consider using the [edit fields (set) node](../../core-nodes/n8n-nodes-base.set.md) before this node to adjust the format as needed.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Postgres 凭据](../../credentials/postgres.md)。
+- **Operation**（操作）：选择 **Insert or Update**（插入或更新）。
+- **Schema**（模式）：选择包含目标表的模式。选择 **From list**（从列表）可在下拉列表中选择模式，选择 **By Name**（按名称）可输入模式名。
+- **Table**（表）：选择要操作的表。选择 **From list**（从列表）可在下拉列表中选择表，选择 **By Name**（按名称）可输入表名。
+- **Mapping Column Mode**（列映射模式）：如何将输入数据映射到列名：
+    - **Map Each Column Manually**（手动映射每列）：选择每列使用的值。
+    - **Map Automatically**（自动映射）：自动将输入数据映射到 Postgres 中匹配的列名。输入数据字段名必须与 Postgres 列名一致。必要时，可在此节点前使用 [Edit Fields (Set)](../../core-nodes/n8n-nodes-base.set.md)（编辑字段）节点调整格式。
 
-#### Insert or Update options <a href="#insert-or-update-options" id="insert-or-update-options"></a>
+#### 插入或更新选项 <a href="#insert-or-update-options" id="insert-or-update-options"></a>
 
-- **Connection Timeout**: The number of seconds to try to connect to the database.
-- **Delay Closing Idle Connection**: The number of seconds to wait before considering idle connections eligible for closing.
-- **Query Batching**: The way to send queries to the database:
-	- **Single Query**: A single query for all incoming items.
-	- **Independently**: Execute one query per incoming item of the execution.
-	- **Transaction**: Execute all queries in a transaction. If a failure occurs, Postgres rolls back all changes.
-- **Output Columns**: Choose which columns to output. You can select from a list of available columns or specify IDs using [expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes).
-- **Output Large-Format Numbers As**: The format to output `NUMERIC` and `BIGINT` columns as:
-	- **Numbers**: Use this for standard numbers.
-	- **Text**: Use this if you expect numbers longer than 16 digits. Without this, numbers may be incorrect.
-- **Replace Empty Strings with NULL**: Whether to replace empty strings with NULL in input. This may be useful when working with data exported from spreadsheet software.
+- **Connection Timeout**（连接超时）：尝试连接数据库的时间，单位为秒。
+- **Delay Closing Idle Connection**（延迟关闭空闲连接）：空闲连接可被关闭前需要等待的秒数。
+- **Query Batching**（查询批处理）：向数据库发送查询的方式：
+    - **Single Query**（单个查询）：对所有输入数据项使用一个查询。
+    - **Independently**（独立执行）：为本次执行中的每个输入数据项执行一个查询。
+    - **Transaction**（事务）：在一个事务中执行所有查询。发生失败时，Postgres 回滚所有更改。
+- **Output Columns**（输出列）：选择要输出的列，可从可用列列表选择，或使用[表达式](../../../../build/work-with-data/expressions-versus-data-nodes.md)指定 ID。
+- **Output Large-Format Numbers As**（大数值输出格式）：`NUMERIC` 和 `BIGINT` 列的输出格式：
+    - **Numbers**（数字）：用于常规数值。
+    - **Text**（文本）：预计数字超过 16 位时使用，否则数字可能不准确。
+- **Replace Empty Strings with NULL**（将空字符串替换为 NULL）：是否将输入中的空字符串替换为 NULL。处理电子表格软件导出的数据时，此选项可能有用。
 
-### Select <a href="#select" id="select"></a>
+### Select（查询） <a href="#select" id="select"></a>
 
-Use this operation to select rows in a table.
+此操作用于查询表中的行。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [Postgres credential](../../credentials/postgres.md).
-- **Operation**: Select **Select**.
-- **Schema**: Choose the schema that contains the table you want to work on. Select **From list** to choose the schema from the dropdown list or **By Name** to enter the schema name.
-- **Table**: Choose the table that you want to work on. Select **From list** to choose the table from the dropdown list or **By Name** to enter the table name.
-- **Return All**: Whether to return all results or only up to a given limit.
-- **Limit**: The maximum number of items to return when **Return All** is disabled.
-- **Select Rows**: Set the conditions to select rows. Define a **Column**, **Operator**, and **Value** to match rows on. If you don't select anything, Postgres selects all rows.
-- **Combine Conditions**: How to combine the conditions in **Select Rows**. **AND** requires all conditions to be true, while **OR** requires at least one condition to be true.
-- **Sort**: Choose how to sort the selected rows. Choose a **Column** from a list or by ID and a sort **Direction**.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Postgres 凭据](../../credentials/postgres.md)。
+- **Operation**（操作）：选择 **Select**（查询）。
+- **Schema**（模式）：选择包含目标表的模式。选择 **From list**（从列表）可在下拉列表中选择模式，选择 **By Name**（按名称）可输入模式名。
+- **Table**（表）：选择要操作的表。选择 **From list**（从列表）可在下拉列表中选择表，选择 **By Name**（按名称）可输入表名。
+- **Return All**（返回全部）：是否返回所有结果，或仅返回指定数量以内的结果。
+- **Limit**（数量限制）：关闭 **Return All**（返回全部）时，返回的最大数据项数量。
+- **Select Rows**（选择行）：通过 **Column**（列）、**Operator**（运算符）和 **Value**（值）设置行匹配条件。不设置条件时，Postgres 会查询所有行。
+- **Combine Conditions**（组合条件）：如何组合 **Select Rows**（选择行）中的条件。**AND**（与）要求所有条件成立，**OR**（或）要求至少一个条件成立。
+- **Sort**（排序）：选择结果行的排序方式。从列表或按 ID 选择 **Column**（列），并设置排序 **Direction**（方向）。
 
-#### Select options <a href="#select-options" id="select-options"></a>
+#### 查询选项 <a href="#select-options" id="select-options"></a>
 
-- **Connection Timeout**: The number of seconds to try to connect to the database.
-- **Delay Closing Idle Connection**: The number of seconds to wait before considering idle connections eligible for closing.
-- **Query Batching**: The way to send queries to the database:
-	- **Single Query**: A single query for all incoming items.
-	- **Independently**: Execute one query per incoming item of the execution.
-	- **Transaction**: Execute all queries in a transaction. If a failure occurs, Postgres rolls back all changes.
-- **Output Columns**: Choose which columns to output. You can select from a list of available columns or specify IDs using [expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes).
-- **Output Large-Format Numbers As**: The format to output `NUMERIC` and `BIGINT` columns as:
-	- **Numbers**: Use this for standard numbers.
-	- **Text**: Use this if you expect numbers longer than 16 digits. Without this, numbers may be incorrect.
+- **Connection Timeout**（连接超时）：尝试连接数据库的时间，单位为秒。
+- **Delay Closing Idle Connection**（延迟关闭空闲连接）：空闲连接可被关闭前需要等待的秒数。
+- **Query Batching**（查询批处理）：向数据库发送查询的方式：
+    - **Single Query**（单个查询）：对所有输入数据项使用一个查询。
+    - **Independently**（独立执行）：为本次执行中的每个输入数据项执行一个查询。
+    - **Transaction**（事务）：在一个事务中执行所有查询。发生失败时，Postgres 回滚所有更改。
+- **Output Columns**（输出列）：选择要输出的列，可从可用列列表选择，或使用[表达式](../../../../build/work-with-data/expressions-versus-data-nodes.md)指定 ID。
+- **Output Large-Format Numbers As**（大数值输出格式）：`NUMERIC` 和 `BIGINT` 列的输出格式：
+    - **Numbers**（数字）：用于常规数值。
+    - **Text**（文本）：预计数字超过 16 位时使用，否则数字可能不准确。
 
-### Update <a href="#update" id="update"></a>
+### Update（更新） <a href="#update" id="update"></a>
 
-Use this operation to update rows in a table.
+此操作用于更新表中的行。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [Postgres credential](../../credentials/postgres.md).
-- **Operation**: Select **Update**.
-- **Schema**: Choose the schema that contains the table you want to work on. Select **From list** to choose the schema from the dropdown list or **By Name** to enter the schema name.
-- **Table**: Choose the table that you want to work on. Select **From list** to choose the table from the dropdown list or **By Name** to enter the table name.
-- **Mapping Column Mode**: How to map column names to incoming data:
-	- **Map Each Column Manually**: Select the values to use for each column.
-	- **Map Automatically**: Automatically map incoming data to matching column names in Postgres. The incoming data field names must match the column names in Postgres for this to work. If necessary, consider using the [edit fields (set) node](../../core-nodes/n8n-nodes-base.set.md) before this node to adjust the format as needed.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Postgres 凭据](../../credentials/postgres.md)。
+- **Operation**（操作）：选择 **Update**（更新）。
+- **Schema**（模式）：选择包含目标表的模式。选择 **From list**（从列表）可在下拉列表中选择模式，选择 **By Name**（按名称）可输入模式名。
+- **Table**（表）：选择要操作的表。选择 **From list**（从列表）可在下拉列表中选择表，选择 **By Name**（按名称）可输入表名。
+- **Mapping Column Mode**（列映射模式）：如何将输入数据映射到列名：
+    - **Map Each Column Manually**（手动映射每列）：选择每列使用的值。
+    - **Map Automatically**（自动映射）：自动将输入数据映射到 Postgres 中匹配的列名。输入数据字段名必须与 Postgres 列名一致。必要时，可在此节点前使用 [Edit Fields (Set)](../../core-nodes/n8n-nodes-base.set.md)（编辑字段）节点调整格式。
 
-#### Update options <a href="#update-options" id="update-options"></a>
+#### 更新选项 <a href="#update-options" id="update-options"></a>
 
-- **Connection Timeout**: The number of seconds to try to connect to the database.
-- **Delay Closing Idle Connection**: The number of seconds to wait before considering idle connections eligible for closing.
-- **Query Batching**: The way to send queries to the database:
-	- **Single Query**: A single query for all incoming items.
-	- **Independently**: Execute one query per incoming item of the execution.
-	- **Transaction**: Execute all queries in a transaction. If a failure occurs, Postgres rolls back all changes.
-- **Output Columns**: Choose which columns to output. You can select from a list of available columns or specify IDs using [expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes).
-- **Output Large-Format Numbers As**: The format to output `NUMERIC` and `BIGINT` columns as:
-	- **Numbers**: Use this for standard numbers.
-	- **Text**: Use this if you expect numbers longer than 16 digits. Without this, numbers may be incorrect.
-- **Replace Empty Strings with NULL**: Whether to replace empty strings with NULL in input. This may be useful when working with data exported from spreadsheet software.
+- **Connection Timeout**（连接超时）：尝试连接数据库的时间，单位为秒。
+- **Delay Closing Idle Connection**（延迟关闭空闲连接）：空闲连接可被关闭前需要等待的秒数。
+- **Query Batching**（查询批处理）：向数据库发送查询的方式：
+    - **Single Query**（单个查询）：对所有输入数据项使用一个查询。
+    - **Independently**（独立执行）：为本次执行中的每个输入数据项执行一个查询。
+    - **Transaction**（事务）：在一个事务中执行所有查询。发生失败时，Postgres 回滚所有更改。
+- **Output Columns**（输出列）：选择要输出的列，可从可用列列表选择，或使用[表达式](../../../../build/work-with-data/expressions-versus-data-nodes.md)指定 ID。
+- **Output Large-Format Numbers As**（大数值输出格式）：`NUMERIC` 和 `BIGINT` 列的输出格式：
+    - **Numbers**（数字）：用于常规数值。
+    - **Text**（文本）：预计数字超过 16 位时使用，否则数字可能不准确。
+- **Replace Empty Strings with NULL**（将空字符串替换为 NULL）：是否将输入中的空字符串替换为 NULL。处理电子表格软件导出的数据时，此选项可能有用。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse n8n-nodes-base.postgres integration templates](https://n8n.io/integrations/postgres) or [search all templates](https://n8n.io/workflows/)
+[浏览 n8n-nodes-base.postgres 集成模板](https://n8n.io/integrations/postgres)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides a trigger node for Postgres. Refer to the [Postgres Trigger node documentation](../../trigger-nodes/n8n-nodes-base.postgrestrigger.md) for more information.
+n8n 提供 Postgres 触发器节点。更多信息，请参阅 [Postgres Trigger 节点文档](../../trigger-nodes/n8n-nodes-base.postgrestrigger.md)。
 
-## Use query parameters <a href="#use-query-parameters" id="use-query-parameters"></a>
+## 使用查询参数 <a href="#use-query-parameters" id="use-query-parameters"></a>
 
-When creating a query to run on a Postgres database, you can use the **Query Parameters** field in the **Options** section to load data into the query. n8n sanitizes data in query parameters, which prevents SQL injection.
+创建在 Postgres 数据库中运行的查询时，可通过 **Options**（选项）中的 **Query Parameters**（查询参数）字段将数据传入查询。n8n 会对查询参数中的数据进行安全处理，防止 SQL 注入。
 
-For example, you want to find a person by their email address. Given the following input data:
+例如，要根据邮箱地址查找某人。给定以下输入数据：
 
 ```js
 [
@@ -238,19 +238,19 @@ For example, you want to find a person by their email address. Given the followi
 ]
 ```
 
-You can write a query like:
+可编写如下查询：
 
 ```sql
 SELECT * FROM $1:name WHERE email = $2;
 ```
 
-Then in **Query Parameters**, provide the field values to use. You can provide fixed values or expressions. For this example, use expressions so the node can pull the email address from each input item in turn:
+然后在 **Query Parameters**（查询参数）中提供要使用的字段值，可填写固定值或表达式。本例使用表达式，使节点依次从每个输入数据项中提取邮箱地址：
 
 ```js
 // users is an example table name
 {{ [ 'users', $json.email ] }} 
 ```
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决方法，请参阅[常见问题](common-issues.md)。

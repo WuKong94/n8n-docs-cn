@@ -1,60 +1,60 @@
 ---
-title: MySQL node documentation
-description: >-
-  Learn how to use the MySQL node in n8n. Follow technical documentation to
-  integrate MySQL node into your workflows.
+title: MySQL 节点文档
+description: 了解如何在 n8n 中使用 MySQL 节点，并按照技术文档将 MySQL 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-base.mysql
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.mysql/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mysql'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mysql'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mysql
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mysql
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MySQL node <a href="#mysql-node" id="mysql-node"></a>
 
-Use the MySQL node to automate work in MySQL, and integrate MySQL with other applications. n8n has built-in support for a wide range of MySQL features, including executing an SQL query, as well as inserting, and updating rows in a database.
+# MySQL 节点 <a href="#mysql-node" id="mysql-node"></a>
 
-On this page, you'll find a list of operations the MySQL node supports and links to more resources.
+使用 MySQL 节点自动处理 MySQL 中的工作，并将其与其他应用集成。n8n 内置支持多种 MySQL 功能，包括执行 SQL 查询，以及插入和更新数据库中的行。
+
+本页列出了 MySQL 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [MySQL credentials](../../credentials/mysql.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [MySQL 凭据](../../credentials/mysql.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Delete
-* Execute SQL
-* Insert
-* Insert or Update
-* Select
-* Update
+* Delete（删除）
+* Execute SQL（执行 SQL）
+* Insert（插入）
+* Insert or Update（插入或更新）
+* Select（查询）
+* Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse n8n-nodes-base.mysql integration templates](https://n8n.io/integrations/mysql) or [search all templates](https://n8n.io/workflows/)
+[浏览 n8n-nodes-base.mysql 集成模板](https://n8n.io/integrations/mysql)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [MySQL's Connectors and APIs documentation](https://dev.mysql.com/doc/index-connectors.html) for more information about the service.
+有关该服务的更多信息，请参阅 [MySQL 连接器与 API 文档](https://dev.mysql.com/doc/index-connectors.html)。
 
-Refer to MySQL's [SELECT statement documentation](https://dev.mysql.com/doc/refman/8.4/en/select.html) for more information on writing SQL queries.
+有关编写 SQL 查询的更多信息，请参阅 MySQL 的 [SELECT 语句文档](https://dev.mysql.com/doc/refman/8.4/en/select.html)。
 
-## Use query parameters <a href="#use-query-parameters" id="use-query-parameters"></a>
+## 使用查询参数 <a href="#use-query-parameters" id="use-query-parameters"></a>
 
-When creating a query to run on a MySQL database, you can use the **Query Parameters** field in the **Options** section to load data into the query. n8n sanitizes data in query parameters, which prevents SQL injection.
+创建在 MySQL 数据库中运行的查询时，可通过 **Options**（选项）中的 **Query Parameters**（查询参数）字段将数据传入查询。n8n 会对查询参数中的数据进行安全处理，防止 SQL 注入。
 
-For example, you want to find a person by their email address. Given the following input data:
+例如，要根据邮箱地址查找某人。给定以下输入数据：
 
 ```js
 [
@@ -71,19 +71,19 @@ For example, you want to find a person by their email address. Given the followi
 ]
 ```
 
-You can write a query like:
+可编写如下查询：
 
 ```sql
 SELECT * FROM $1:name WHERE email = $2;
 ```
 
-Then in **Query Parameters**, provide the field values to use. You can provide fixed values or expressions. For this example, use expressions so the node can pull the email address from each input item in turn:
+然后在 **Query Parameters**（查询参数）中提供要使用的字段值，可填写固定值或表达式。本例使用表达式，使节点依次从每个输入数据项中提取邮箱地址：
 
 ```js
 // users is an example table name
 users, {{ $json.email }} 
 ```
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common errors or issues and suggested resolution steps, refer to [Common issues](common-issues.md).
+常见错误或问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。

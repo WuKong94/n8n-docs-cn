@@ -777,5 +777,45 @@
     ],
     "scope": "仅明确文档与数据的操作对象、纯追加的映射说明或原文 API 引用用途；保留其他参数、ID、链接、表达式、源快照和更新日志，不升级 API，不读写任何真实表格。",
     "source_sha256": "a6b2c628eebe6ddaaf92316d24e02cd3dc33f5b05b437dc36a65b3ce365b48f2"
+  },
+  {
+    "id": "oracle-bind-example-parameter-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.oracledb.md",
+    "original_sentence": "Then in **Bind Variable Placeholder Values**, provide the field values to use. You can provide fixed values or expressions. For this example, use expressions so the node can pull the color from each input item in turn:",
+    "translated_sentence": "然后在 **Bind Variable Placeholder Values**（绑定变量占位符值）中提供要使用的字段值，可填写固定值或表达式。本例使用表达式，使节点依次从每个输入数据项中提取颜色。译注：原文 SQL 仅含 col 绑定占位符，输入字段为大写 COLOR；参数示例却额外包含 fruits 并引用小写 color。实际使用时，应使绑定值与占位符数量及输入字段大小写一致：",
+    "evidence": "同页 SQL 示例为 SELECT * FROM FRUITS WHERE COLOR = :col，只有 col 绑定占位符；输入 JSON 的字段为大写 COLOR，但参数示例额外传入 fruits 且引用小写 $json.color。译文保留三个原始代码块，明确说明占位符、参数数量及字段大小写不一致，要求实际使用时保持一致，不静默修改代码示例或声称已运行 SQL。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.oracledb.md"
+    ],
+    "scope": "仅补充已核实的示例一致性或普通表 DDL 回滚边界；所有 SQL、JSON、表达式、链接、绑定值示例和源快照保持原样，不运行语句、不连接数据库，不推断其他版本的节点请求实现。",
+    "source_sha256": "55011ade4324119fda074de8a144988e4660b6a18cc1b933a5554d0cdcf1f278"
+  },
+  {
+    "id": "oracle-delete-ddl-transaction-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.oracledb.md",
+    "original_sentence": "\t- **Transaction**: Execute all statements in a transaction. If a failure occurs, Oracle Database rolls back all changes.",
+    "translated_sentence": "    - **Transaction**（事务）：在一个事务中执行所有语句。发生失败时，Oracle Database 回滚所有更改。译注：普通表的 Truncate 和 Drop 会触发 DDL 隐式提交，不能依赖此选项回滚这些 DDL 操作。",
+    "evidence": "Delete 部分同时提供 Truncate、Delete 和 Drop，却将 Transaction 描述为失败后回滚所有更改。Oracle Database 19c COMMIT 文档说明有效 DDL 执行前及成功执行后会隐式提交，TRUNCATE TABLE 文档明确该操作不能回滚；私有临时表另有例外，故译注限定普通表。译文保留事务模式说明，补充普通表 Truncate/Drop 的 DDL 隐式提交及不能依赖该选项回滚的边界。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.oracledb.md",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/COMMIT.html",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/TRUNCATE-TABLE.html"
+    ],
+    "scope": "仅补充已核实的示例一致性或普通表 DDL 回滚边界；所有 SQL、JSON、表达式、链接、绑定值示例和源快照保持原样，不运行语句、不连接数据库，不推断其他版本的节点请求实现。",
+    "source_sha256": "55011ade4324119fda074de8a144988e4660b6a18cc1b933a5554d0cdcf1f278"
+  },
+  {
+    "id": "postgres-cascade-truncate-versus-drop",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.postgres/README.md",
+    "original_sentence": "- **Cascade**: Whether to also drop all objects that depend on the table, like views and sequences. Available if using **Truncate** or **Drop** commands.",
+    "translated_sentence": "- **Cascade**（级联）：使用 **Truncate**（清空表）时，级联清空通过外键引用该表的其他表；使用 **Drop**（删除表）时，级联删除依赖对象，例如视图。",
+    "evidence": "原文将 Truncate 和 Drop 的 Cascade 统一描述为删除依赖对象。PostgreSQL 官方 TRUNCATE 文档说明 CASCADE 会清空通过外键引用的其他表；DROP TABLE 的 CASCADE 则删除视图等依赖对象。译文按两种命令区分清空数据与删除依赖对象，不将 TRUNCATE 的级联误写为删除对象。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.postgres/README.md",
+      "https://www.postgresql.org/docs/current/sql-truncate.html",
+      "https://www.postgresql.org/docs/current/sql-droptable.html"
+    ],
+    "scope": "仅明确 Cascade 在 Truncate 与 Drop 下的不同含义，不更改选项可用条件、SQL、参数、链接及源快照，不执行任何级联操作，也不推断节点内部请求实现。",
+    "source_sha256": "4e7a864d8f24ab389b986174c112af69992e38d357d35e540ef987f24abcbdc2"
   }
 ]
