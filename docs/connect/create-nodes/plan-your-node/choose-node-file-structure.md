@@ -1,79 +1,79 @@
 ---
 contentType: explanation
-nodeTitle: Choose node file structure
+nodeTitle: 选择节点文件结构
 originalFilePath: integrations/creating-nodes/build/reference/node-file-structure.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/creating-nodes/build/reference/node-file-structure
-url: >-
-  https://docs.n8n.io/connect/create-nodes/plan-your-node/choose-node-file-structure
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/node-file-structure
+url: https://docs.n8n.io/connect/create-nodes/plan-your-node/choose-node-file-structure
 layout:
   description:
     visible: false
 ---
-
-# Node file structure <a href="#node-file-structure" id="node-file-structure"></a>
-
-Following best practices and standards in your node structure makes your node easier to maintain. It's helpful if other people need to work with the code.
-
-The file and directory structure of your node depends on:
-
-* Your node's complexity.
-* Whether you use node versioning.
-* How many nodes you include in the npm package.
-
-n8n recommends using the [`n8n-node` tool](../build-your-node/using-the-n8n-node-tool.md) to create the expected node file structure. You can customize the generated scaffolding as required to meet more complex needs.
-
-## Required files and directories <a href="#required-files-and-directories" id="required-files-and-directories"></a>
-
-Your node must include:
-
-* A `package.json` file at the root of the project. Every npm module requires this.
-* A `nodes` directory, containing the code for your node:
-    * This directory must contain the [base file](../build-your-node/reference/base-files/README.md), in the format `<node-name>.node.ts`. For example, `MyNode.node.ts`.
-    * n8n recommends including a [codex file](../build-your-node/reference/codex-files.md), containing metadata for your node. The codex filename must match the node base filename. For example, given a node base file named `MyNode.node.ts`, the codex name is `MyNode.node.json`.
-    * The `nodes` directory can contain other files and subdirectories, including directories for versions, and node code split across more than one file to create a modular structure.
-* A `credentials` directory, containing your credentials code. This code lives in a single [credentials file](../build-your-node/reference/credentials-files.md). The filename format is `<node-name>.credentials.ts`. For example, `MyNode.credentials.ts`.
-
-## Modular structure <a href="#modular-structure" id="modular-structure"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-You can choose whether to place all your node's functionality in one file, or split it out into a base file and other modules, which the base file then imports. Unless your node is very simple, it's a best practice to split it out.
+# 节点文件结构 <a href="#node-file-structure" id="node-file-structure"></a>
+
+在节点结构中遵循最佳实践与标准，可以让节点更容易维护，也便于其他人参与代码开发。
+
+节点的文件与目录结构取决于：
+
+* 节点的复杂程度。
+* 是否使用节点版本控制。
+* npm 软件包中包含多少个节点。
+
+n8n 推荐使用 [`n8n-node` 工具](../build-your-node/using-the-n8n-node-tool.md)创建预期的节点文件结构。可按需自定义生成的脚手架，以满足更复杂的需求。
+
+## 必需文件和目录 <a href="#required-files-and-directories" id="required-files-and-directories"></a>
+
+节点必须包含：
+
+* 位于项目根目录的 `package.json` 文件，每个 npm 模块都需要此文件。
+* 包含节点代码的 `nodes` 目录：
+    * 此目录必须包含[基础文件](../build-your-node/reference/base-files/README.md)，格式为 `<node-name>.node.ts`，例如 `MyNode.node.ts`。
+    * n8n 建议包含 [codex 文件](../build-your-node/reference/codex-files.md)，用于保存节点元数据。codex 文件名必须与节点基础文件名匹配。例如，节点基础文件名为 `MyNode.node.ts` 时，codex 文件名应为 `MyNode.node.json`。
+    * `nodes` 目录可包含其他文件和子目录，例如版本目录，以及为实现模块化而拆分到多个文件的节点代码。
+* 包含凭据代码的 `credentials` 目录。代码位于单个[凭据文件](../build-your-node/reference/credentials-files.md)中，文件名格式为 `<node-name>.credentials.ts`，例如 `MyNode.credentials.ts`。
+
+## 模块化结构 <a href="#modular-structure" id="modular-structure"></a>
 
 
-A basic pattern is to separate out operations. Refer to the [GithubIssues starter node](https://github.com/n8n-io/n8n-nodes-starter/tree/master/nodes/GithubIssues) for an example of this.
-
-For more complex nodes, n8n recommends a directory structure. Refer to the [Airtable node](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Airtable) or [Microsoft Outlook node](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Microsoft/Outlook) as examples. 
-
-* `actions`: a directory containing sub-directories that represent resources.
-    * Each sub-directory should contain two types of files: 
-      * An index file with resource description (named either `<resourceName>.resource.ts` or `index.ts`) 
-      * Files for operations `<operationName>.operation.ts`. These files should have two exports: `description` of the operation and an `execute` function.
-* `methods`: an optional directory dynamic parameters' functions.  
-* `transport`: a directory containing the communication implementation.
+可以将节点全部功能放在一个文件中，也可拆分为基础文件和其他模块，再由基础文件导入。除非节点非常简单，否则建议采用拆分方式。
 
 
-## Versioning <a href="#versioning" id="versioning"></a>
+基本模式是将各个操作拆分开，示例请参阅 [GithubIssues 入门节点](https://github.com/n8n-io/n8n-nodes-starter/tree/master/nodes/GithubIssues)。
 
-If your node has more than one version, and you're using full versioning, this makes the file structure more complex. You need a directory for each version, along with a base file that sets the default version. Refer to [Node versioning](../build-your-node/reference/versioning.md) for more information on working with versions, including types of versioning.
+对于更复杂的节点，n8n 建议采用目录结构，可参考 [Airtable 节点](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Airtable)或 [Microsoft Outlook 节点](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Microsoft/Outlook)。
 
-## Decide how many nodes to include in a package <a href="#decide-how-many-nodes-to-include-in-a-package" id="decide-how-many-nodes-to-include-in-a-package"></a>
+* `actions`：包含代表各类资源的子目录。
+    * 每个子目录应包含两类文件：
+      * 包含资源描述的索引文件，命名为 `<resourceName>.resource.ts` 或 `index.ts`。
+      * 操作文件 `<operationName>.operation.ts`。这些文件应有两个导出：操作的 `description` 和一个 `execute` 函数。
+* `methods`：可选目录，用于存放动态参数函数。
+* `transport`：包含通信实现的目录。
 
-There are two possible setups when building a node:
 
-* One node in one npm package.
-* More than one node in a single npm package.
+## 版本控制 <a href="#versioning" id="versioning"></a>
 
-n8n supports both approaches. If you include more than one node, each node should have its own directory in the `nodes` directory.
+如果节点有多个版本且使用完整版本控制，文件结构会更复杂。每个版本需要独立目录，还需要一个设置默认版本的基础文件。版本使用及类型的更多说明，请参阅[节点版本控制](../build-your-node/reference/versioning.md)。
 
-## A best-practice example for programmatic nodes <a href="#a-best-practice-example-for-programmatic-nodes" id="a-best-practice-example-for-programmatic-nodes"></a>
+## 决定软件包包含多少个节点 <a href="#decide-how-many-nodes-to-include-in-a-package" id="decide-how-many-nodes-to-include-in-a-package"></a>
 
-n8n's built-in [Airtable node](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Airtable) implements a modular structure and versioning, following recommended patterns.
+构建节点时有两种配置：
 
-## Related resources
+* 一个 npm 软件包包含一个节点。
+* 一个 npm 软件包包含多个节点。
 
-* [Plan your node](./)
-* [Choose a node type](choose-a-node-type.md)
-* [Choose a node building style](choose-a-node-building-style.md)
-* [Node UI design](node-ui-design.md)
+n8n 支持这两种方式。包含多个节点时，每个节点都应在 `nodes` 目录中拥有自己的目录。
+
+## 编程式节点的最佳实践示例 <a href="#a-best-practice-example-for-programmatic-nodes" id="a-best-practice-example-for-programmatic-nodes"></a>
+
+n8n 内置的 [Airtable 节点](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Airtable)采用模块化结构和版本控制，遵循推荐模式。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [规划节点](./)
+* [选择节点类型](choose-a-node-type.md)
+* [选择节点开发方式](choose-a-node-building-style.md)
+* [节点界面设计](node-ui-design.md)
 
 

@@ -1,31 +1,33 @@
 ---
 contentType: overview
-nodeTitle: Plan your node
+nodeTitle: 规划节点
 originalFilePath: integrations/creating-nodes/plan/index.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/plan'
-url: 'https://docs.n8n.io/connect/create-nodes/plan-your-node'
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/plan
+url: https://docs.n8n.io/connect/create-nodes/plan-your-node
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Plan a node <a href="#plan-a-node" id="plan-a-node"></a>
 
-This section provides guidance on designing your node, including key technical decisions such as choosing your node building style.
+# 规划节点 <a href="#plan-a-node" id="plan-a-node"></a>
 
-When building a node, there are design choices you need to make before you start:
+本节提供节点设计指南，包括选择节点开发方式等关键技术决策。
 
-## In this section
+构建节点前，需要先作出一些设计选择：
 
-* [Choose a node type](choose-a-node-type.md): which node type you need to build.
-* [Choose a node building style](choose-a-node-building-style.md): which node building style to use.
-* [Node UI design](node-ui-design.md): UI design and UX principles.
-* [Choose node file structure](choose-node-file-structure.md): your node's file structure.
+## 本节内容 <a id="in-this-section"></a>
 
-## Related resources
+* [选择节点类型](choose-a-node-type.md)：确定要构建的节点类型。
+* [选择节点开发方式](choose-a-node-building-style.md)：确定采用哪种开发方式。
+* [节点界面设计](node-ui-design.md)：界面设计与用户体验原则。
+* [选择节点文件结构](choose-node-file-structure.md)：确定节点的文件结构。
 
-* [Create nodes](../)
-* [Overview](../overview.md)
-* [Build your node](../build-your-node/README.md)
-* [Test your node](../test-your-node/README.md)
-* [Deploy your node](../deploy-your-node/README.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [创建节点](../)
+* [概览](../overview.md)
+* [构建节点](../build-your-node/README.md)
+* [测试节点](../test-your-node/README.md)
+* [部署节点](../deploy-your-node/README.md)

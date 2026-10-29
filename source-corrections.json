@@ -223,5 +223,14 @@
     "evidence": "同版本 administer/use-source-control-and-environments/use-environments-via-api.md 的 Authentication and scopes 表列出 sourceControl:pull、sourceControl:push 和 sourceControl:read，并在开发到生产的示例中分别配置这些作用域。对照来源哈希：33b5dec4c0bfa3369d50c4c2f1bbe5efc03df34b53af440fb4f48d725bb019ae。",
     "scope": "保留原作用域表，仅加译注指出同版本指南间的列表差异；不增删权限、不推断方案授权或运行兼容性。",
     "source_sha256": "df7a370de958cb7603f7f516884a4823ac7bf9aaae49ea9d764e1a5d1671960e"
+  },
+  {
+    "id": "mcp-execution-mode-default-note",
+    "path": "connect/connect-to-n8n-mcp-server.md",
+    "original_sentence": "Most MCP tools work on unpublished workflows. The exception is `execute_workflow`, which defaults to production mode and runs the published version of a workflow. It also supports a `manual` execution mode to run the current (unpublished) version.",
+    "translated_sentence": "译注：本页原文称 execute_workflow 默认使用生产模式，但同一版本的 MCP 工具参考将 executionMode 标为必填，且没有列出默认值。此处保留两处原文，调用时应显式提供所需执行模式，不据此假定省略参数后的实际行为。",
+    "evidence": "同版本 connect/connect-to-n8n-mcp-server/mcp-server-tools-reference.md 的 execute_workflow 参数表，将 executionMode 的 Required 标为 Yes，Default 为空，允许值为 manual 和 production。工具参考来源哈希：d230f5309517e1b96cb6694f71d5e17558d9fb40e070bc163bca6e30f636e984。",
+    "scope": "保留两处原文，仅添加对照译注，不更改工具参数或示例代码；未执行工具或验证默认模式。",
+    "source_sha256": "f4f08bf9df66f45650f89847f31144c0721704e9b5fcbfbc94b9810e434ce632"
   }
 ]

@@ -1,45 +1,45 @@
 ---
-description: >-
-  n8n CLI is a lightweight client for interacting with n8n programmatically
-  through the Public API.
+description: n8n CLI 是一个轻量级客户端，通过公共 API 以编程方式与 n8n 交互。
 contentType: guide
 status: beta
 nodeTitle: n8n CLI
 originalFilePath: api/n8n-cli/index.md
-originalUrl: 'https://docs.n8n.io/api/n8n-cli'
-url: 'https://docs.n8n.io/connect/'
+originalUrl: https://docs.n8n.io/api/n8n-cli
+url: https://docs.n8n.io/connect/
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Getting started with n8n CLI <a href="#getting-started-with-n8n-cli" id="getting-started-with-n8n-cli"></a>
 
-**n8n CLI** is a lightweight command-line client that communicates with a running n8n instance through the [n8n API](n8n-api/README.md). It can run from any machine with network access and authenticates using an API key.
+# n8n CLI 入门 <a href="#getting-started-with-n8n-cli" id="getting-started-with-n8n-cli"></a>
 
-Use the API CLI to:
+**n8n CLI** 是轻量级命令行客户端，通过 [n8n API](n8n-api/README.md) 与正在运行的 n8n 实例通信。它可在任何能通过网络访问实例的机器上运行，并使用 API 密钥进行身份验证。
 
-- List and inspect workflows  
-- Create a workflow from JSON 
-- Check recent executions  
-- Create a credential  
-- Manage projects
+使用此 API CLI 可以：
 
-All operations respect the permissions of the user and the scope of the API key.
+- 列出和查看工作流。
+- 从 JSON 创建工作流。
+- 查看最近的执行。
+- 创建凭据。
+- 管理项目。
 
-## n8n CLI versus server CLI <a href="#n8n-cli-versus-server-cli" id="n8n-cli-versus-server-cli"></a>
+所有操作均遵循用户权限和 API 密钥的作用域。
 
-If you need to manage your n8n instance (backups, license management, emergency resets), see the [Server CLI](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/use-the-command-line), a built-in tool that runs on the same machine as n8n.
+## n8n CLI 与服务器 CLI <a href="#n8n-cli-versus-server-cli" id="n8n-cli-versus-server-cli"></a>
 
-| Aspect | n8n CLI | Server CLI |
+如需管理 n8n 实例（备份、许可证管理、紧急重置），请参阅[服务器 CLI](../deploy/host-n8n/configure-n8n/use-the-command-line.md)。它是内置工具，在与 n8n 相同的机器上运行。
+
+| 对比项 | n8n CLI | 服务器 CLI |
 |--------|---------|-----------|
-| **Runs from** | Any machine with network access | Same machine as n8n |
-| **Authentication** | API key | Direct database access |
-| **Requires n8n running** | Yes | No (not required for most operations) |
-| **Best for** | Developers, integrations, AI agents | Instance operators, backups, emergencies |
-| **Permissions** | Respects user roles and API key scopes | Bypasses access control |
+| **运行位置** | 任何能通过网络访问实例的机器 | 与 n8n 相同的机器 |
+| **身份验证** | API 密钥 | 直接访问数据库 |
+| **是否要求 n8n 正在运行** | 是 | 否（大多数操作不要求） |
+| **适用场景** | 开发者、集成、AI 智能体 | 实例运维、备份、紧急处理 |
+| **权限** | 遵循用户角色和 API 密钥作用域 | 绕过访问控制 |
 
-## Install n8n-cli <a href="#install-n8n-cli" id="install-n8n-cli"></a>
+## 安装 n8n-cli <a href="#install-n8n-cli" id="install-n8n-cli"></a>
 
 ```bash
 # Use directly with npx (zero install) <a href="#use-directly-with-npx-zero-install" id="use-directly-with-npx-zero-install"></a>
@@ -49,7 +49,7 @@ npx @n8n/cli workflow list
 npm install -g @n8n/cli
 ```
 
-## Connect to your instance <a href="#connect-to-your-instance" id="connect-to-your-instance"></a>
+## 连接到实例 <a href="#connect-to-your-instance" id="connect-to-your-instance"></a>
 
 ```bash
 n8n-cli config set-url https://your-instance.n8n.cloud
@@ -57,33 +57,33 @@ n8n-cli config set-api-key YOUR_API_KEY
 n8n-cli config show
 ```
 
-* The configuration is saved to `~/.n8n-cli/config.json` with restricted file permissions (`0600`).
-* Get your API key from **n8n > Settings > n8n API** 
+* 配置保存在 `~/.n8n-cli/config.json`，文件权限限制为 `0600`。
+* 在 **n8n > Settings > n8n API**（n8n > 设置 > n8n API）中获取 API 密钥。
 
-Alternatively, skip the configuration file and use environment variables:
+也可以不使用配置文件，改为使用环境变量：
 
 ```bash
 export N8N_URL=https://your-instance.n8n.cloud
 export N8N_API_KEY=your_api_key
 ```
 
-## Inline flags <a href="#inline-flags" id="inline-flags"></a>
+## 命令行选项 <a href="#inline-flags" id="inline-flags"></a>
 
 ``` bash
 n8n-cli --url=https://my-n8n.app.n8n.cloud --api-key=n8n_api_xxxxx workflow list
 ```
 
-### Resolution order <a href="#resolution-order" id="resolution-order"></a>
+### 配置解析顺序 <a href="#resolution-order" id="resolution-order"></a>
 
-1. Command-line flags (`--url`, `--api-key`)
-2. Environment variables (`N8N_URL`, `N8N_API_KEY`)
-3. Config file (`~/.n8n-cli/config.json`)
+1. 命令行选项（`--url`、`--api-key`）。
+2. 环境变量（`N8N_URL`、`N8N_API_KEY`）。
+3. 配置文件（`~/.n8n-cli/config.json`）。
 
-## Commands <a href="#commands" id="commands"></a>
+## 命令 <a href="#commands" id="commands"></a>
 
-Every command supports `--help` for detailed usage.
+每个命令都支持使用 `--help` 查看详细用法。
 
-| Topic	| Commands |
+| 主题 | 命令 |
 |---|---|
 | `workflow` | `list`, `get`, `create`, `update`, `delete`, `activate`, `deactivate`, `tags`, `transfer` |
 | `execution` | `list`, `get`, `retry`, `stop`, `delete` |
@@ -97,89 +97,89 @@ Every command supports `--help` for detailed usage.
 | `source-control` | `pull` |
 | `package (preview)` | `export`, `import` |
 | `skill` | `install` |
-| `audit` | (top-level) |
-| `login` / `logout` | (top-level) |
+| `audit` | 顶层命令 |
+| `login` / `logout` | 顶层命令 |
 
 
-## Output formats <a href="#output-formats" id="output-formats"></a>
-All commands support three output formats via `--format`:
+## 输出格式 <a href="#output-formats" id="output-formats"></a>
+所有命令均可通过 `--format` 选择三种输出格式：
 
-| Format | Flag | Use when |
+| 格式 | 选项 | 适用场景 |
 |---|---|---|
-| Table | -`-format=table` (default) | You want human-readable terminal output |
-| JSON | `--format=json` | Piping to jq, programmatic use |
-| ID-only | `--format=id-only` | Piping to xargs, scripting |
+| 表格 | -`-format=table`（默认） | 便于阅读的终端输出 |
+| JSON | `--format=json` | 通过管道传给 jq，或供程序使用 |
+| 仅 ID | `--format=id-only` | 通过管道传给 xargs，或用于脚本 |
 
-### Examples <a href="#examples" id="examples"></a>
-* Human-readable table
+### 示例 <a href="#examples" id="examples"></a>
+* 便于阅读的表格
 
    ``` bash
    n8n-cli workflow list
    ```
 
-* JSON for scripts
+* 供脚本使用的 JSON
 
    ``` bash
    n8n-cli workflow list --format=json | jq '.[] | select(.active) | .id'
    ```
 
-* Pipe IDs into another command
+* 将 ID 通过管道传给其他命令
 
    ``` bash
    n8n-cli workflow list --format=id-only | xargs -I{} n8n-cli workflow deactivate {}
    ```
 
-## Use as skill with Claude Code <a href="#use-as-skill-with-claude-code" id="use-as-skill-with-claude-code"></a>
+## 在 Claude Code 中作为技能使用 <a href="#use-as-skill-with-claude-code" id="use-as-skill-with-claude-code"></a>
 
-Install the skill so Claude always knows how to use n8n-cli:
+安装技能，让 Claude 知道如何使用 n8n-cli：
 
 ```bash
 n8n-cli skill install --global
 ```
 
-Then in Claude Code, type `/n8n-cli` to load it. Claude can now create, update, and manage workflows on your behalf without requiring an MCP.
+然后在 Claude Code 中输入 `/n8n-cli` 加载技能。Claude 随后可代你创建、更新和管理工作流，无需使用 MCP。
 
-## Examples <a href="#examples" id="examples"></a>
+## 示例 <a href="#examples" id="examples"></a>
 
-### List and inspect workflows <a href="#list-and-inspect-workflows" id="list-and-inspect-workflows"></a>
+### 列出和查看工作流 <a href="#list-and-inspect-workflows" id="list-and-inspect-workflows"></a>
 
 ```bash
 n8n-cli workflow list
 n8n-cli workflow get <id>
 ```
     
-### Create a workflow from JSON <a href="#create-a-workflow-from-json" id="create-a-workflow-from-json"></a>
+### 从 JSON 创建工作流 <a href="#create-a-workflow-from-json" id="create-a-workflow-from-json"></a>
     
 ```bash
 cat workflow.json | n8n-cli workflow create --stdin
 ```
     
-### Check recent executions <a href="#check-recent-executions" id="check-recent-executions"></a>
+### 查看最近的执行 <a href="#check-recent-executions" id="check-recent-executions"></a>
 
 ```bash
 n8n-cli execution list --status=error --limit=10
 ```
     
-### Create a credential <a href="#create-a-credential" id="create-a-credential"></a>
+### 创建凭据 <a href="#create-a-credential" id="create-a-credential"></a>
     
 ```bash
 n8n-cli credential schema gmailOAuth2  # see required fields first
 n8n-cli credential create --type=gmailOAuth2 --name='My Gmail' --file=cred.json
 ```
     
-### Manage projects <a href="#manage-projects" id="manage-projects"></a>
+### 管理项目 <a href="#manage-projects" id="manage-projects"></a>
     
 ```bash
 n8n-cli project create --name="My Project"
 n8n-cli workflow transfer <id> --project=<projectId>
 ```
 
-### Export and import packages <a href="#export-and-import-packages" id="export-and-import-packages"></a>
+### 导出和导入软件包 <a href="#export-and-import-packages" id="export-and-import-packages"></a>
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-The `package` command is in Preview and may change in future releases.
+`package` 命令处于预览阶段，未来版本可能更改。
 {% endhint %}
 
 ```bash
@@ -190,12 +190,12 @@ n8n-cli package import --file=export.n8np --project-id=<project-id> --workflow-c
 n8n-cli package import --file=export.n8np --project-id=<project-id> --data-table-schema-conflict-policy=overwrite-non-destructive
 ```
 
-See [n8n packages](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/n8n-packages) for what makes up a package, and [Import a package](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/n8n-packages/import-a-package) for every available flag.
+软件包的组成请参阅 [n8n 软件包](../build/manage-workflows/n8n-packages/README.md)，全部可用选项请参阅[导入软件包](../build/manage-workflows/n8n-packages/import-a-package.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Connect](./)
+* [连接](./)
 * [n8n API](n8n-api/README.md)
-* [Connect to n8n MCP server](connect-to-n8n-mcp-server.md)
-* [Connect to the n8n docs MCP server](connect-to-n8n-docs-mcp-server.md)
-* [Create nodes](create-nodes/README.md)
+* [连接 n8n MCP 服务器](connect-to-n8n-mcp-server.md)
+* [连接 n8n 文档 MCP 服务器](connect-to-n8n-docs-mcp-server.md)
+* [创建节点](create-nodes/README.md)

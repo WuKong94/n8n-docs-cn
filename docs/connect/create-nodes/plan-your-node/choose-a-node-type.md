@@ -1,41 +1,44 @@
 ---
 contentType: explanation
-nodeTitle: Choose a node type
+nodeTitle: 选择节点类型
 originalFilePath: integrations/creating-nodes/plan/node-types.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/plan/node-types'
-url: 'https://docs.n8n.io/connect/create-nodes/plan-your-node/choose-a-node-type'
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/plan/node-types
+url: https://docs.n8n.io/connect/create-nodes/plan-your-node/choose-a-node-type
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Node types: Trigger and Action <a href="#node-types-trigger-and-action" id="node-types-trigger-and-action"></a>
 
-There are two node types you can build for n8n: trigger nodes and action nodes.
+# 节点类型：触发器与操作 <a href="#node-types-trigger-and-action" id="node-types-trigger-and-action"></a>
 
-Both types provide integrations with external services. 
+可以为 n8n 构建两类节点：触发节点和操作节点。
 
-## Trigger nodes <a href="#trigger-nodes" id="trigger-nodes"></a>
+两种类型都能与外部服务集成。
 
-[Trigger nodes](#user-content-fn-1)[^1] start a workflow and supply the initial data. A workflow can contain multiple trigger nodes but with each execution, only one of them will execute, depending on the triggering event.
+## 触发节点 <a href="#trigger-nodes" id="trigger-nodes"></a>
 
-There are three types of trigger nodes in n8n: 
+[触发节点](#user-content-fn-1)[^1]启动工作流并提供初始数据。工作流可包含多个触发节点，但每次执行只会根据触发事件运行其中一个。
 
-| Type | Description | Example Nodes |
+n8n 中有三种触发节点：
+
+| 类型 | 说明 | 示例节点 |
 | --- | --- | --- |
-| Webhook | Nodes for services that support webhooks. These nodes listen for events and trigger workflows in real time. | [Zendesk Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Zendesk), [Telegram Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Telegram), [Brevo Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Brevo) |
-| Polling | Nodes for services that don't support webhooks. These nodes periodically check for new data, triggering workflows when they detect updates. | [Airtable Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Airtable), [Gmail Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Google/Gmail), [Google Sheet Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Google/Sheet), [RssFeed Read Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/RssFeedRead) |
-| Others | Nodes that handle real-time responses not related to HTTP requests or polling. This includes message queue nodes and time-based triggers. | [AMQP Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Amqp), [RabbitMQ Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/RabbitMQ), [MQTT Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/MQTT), [Schedule Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Schedule), [Email Trigger (IMAP)](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/EmailReadImap) |
+| Webhook | 用于支持 Webhook 的服务。监听事件并实时触发工作流。 | [Zendesk Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Zendesk)、[Telegram Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Telegram)、[Brevo Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Brevo) |
+| 轮询 | 用于不支持 Webhook 的服务。定期检查新数据，发现更新时触发工作流。 | [Airtable Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Airtable)、[Gmail Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Google/Gmail)、[Google Sheet Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Google/Sheet)、[RssFeed Read Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/RssFeedRead) |
+| 其他 | 处理与 HTTP 请求或轮询无关的实时响应，包括消息队列节点和基于时间的触发器。 | [AMQP Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Amqp)、[RabbitMQ Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/RabbitMQ)、[MQTT Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/MQTT)、[Schedule Trigger](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Schedule)、[Email Trigger (IMAP)](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/EmailReadImap) |
 
-## Action nodes <a href="#action-nodes" id="action-nodes"></a>
+## 操作节点 <a href="#action-nodes" id="action-nodes"></a>
 
-Action nodes perform operations as part of your workflow. These can include manipulating data, and triggering events in other systems.
+操作节点在工作流中执行具体操作，包括处理数据以及在其他系统中触发事件。
 
-[^1]: A trigger node is a special node responsible for executing the workflow in response to certain conditions. All production workflows need at least one trigger to determine when the workflow should run.
+<a id="user-content-fn-1"></a>
+[^1]: 触发节点是一类特殊节点，负责在满足特定条件时启动工作流。所有生产工作流都需要至少一个触发器，用于确定工作流何时运行。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Plan your node](./)
-* [Choose a node building style](choose-a-node-building-style.md)
-* [Node UI design](node-ui-design.md)
-* [Choose node file structure](choose-node-file-structure.md)
+* [规划节点](./)
+* [选择节点开发方式](choose-a-node-building-style.md)
+* [节点界面设计](node-ui-design.md)
+* [选择节点文件结构](choose-node-file-structure.md)

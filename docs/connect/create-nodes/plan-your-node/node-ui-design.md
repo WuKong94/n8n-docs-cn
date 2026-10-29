@@ -1,213 +1,215 @@
 ---
 contentType: reference
-nodeTitle: Node UI design
+nodeTitle: 节点界面设计
 originalFilePath: integrations/creating-nodes/plan/node-ui-design.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/plan/node-ui-design'
-url: 'https://docs.n8n.io/connect/create-nodes/plan-your-node/node-ui-design'
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/plan/node-ui-design
+url: https://docs.n8n.io/connect/create-nodes/plan-your-node/node-ui-design
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Design your node's user interface <a href="#design-your-nodes-user-interface" id="design-your-nodes-user-interface"></a>
 
-Most nodes are a GUI (graphical user interface) representation of an API. Designing the interface means finding a user-friendly way to represent API endpoints and parameters. Directly translating an entire API into form fields in a node may not result in a good user experience.
+# 设计节点的用户界面 <a href="#design-your-nodes-user-interface" id="design-your-nodes-user-interface"></a>
 
-This document provides design guidance and standards to follow. These guidelines are the same as those used by n8n. This helps provide a smooth and consistent user experience for users mixing community and built-in nodes.
+大多数节点是 API 的图形用户界面（GUI）。设计界面，就是以易用的方式呈现 API 端点和参数。直接将整个 API 映射为节点中的表单字段，不一定能带来良好的用户体验。
 
-## Design guidance <a href="#design-guidance" id="design-guidance"></a>
+本文提供应遵循的设计指南和标准，与 n8n 自身采用的标准相同，有助于用户混合使用社区节点和内置节点时获得流畅、一致的体验。
 
-All node's use n8n's [node UI elements](../build-your-node/reference/node-ui-elements.md), so you don't need to consider style details such as colors, borders, and so on. However, it's still useful to go through a basic design process:
+## 设计指南 <a href="#design-guidance" id="design-guidance"></a>
 
-* Review the documentation for the API you're integrating. Ask yourself:
-    * What can you leave out? 
-    * What can you simplify?
-    * Which parts of the API are confusing? How can you help users understand them?
-* Use a wireframe tool to try out your field layout. If you find your node has a lot of fields and is getting confusing, consider n8n's guidance on [showing and hiding fields](#showing-and-hiding-fields).
+所有节点都使用 n8n 的[节点界面元素](../build-your-node/reference/node-ui-elements.md)，因此无需考虑颜色、边框等样式细节。不过，仍建议遵循基本设计流程：
 
-## Standards <a href="#standards" id="standards"></a>
+* 阅读待集成 API 的文档，并思考：
+    * 哪些内容可以省略？
+    * 哪些内容可以简化？
+    * API 的哪些部分容易令人困惑？如何帮助用户理解？
+* 使用线框图工具尝试布局字段。如果字段过多、界面开始难以理解，请参考 n8n 关于[显示和隐藏字段](#showing-and-hiding-fields)的建议。
 
-### UI text style <a href="#ui-text-style" id="ui-text-style"></a>
+## 标准 <a href="#standards" id="standards"></a>
 
-| Element | Style |
+### 界面文本样式 <a href="#ui-text-style" id="ui-text-style"></a>
+
+| 元素 | 样式 |
 | ------- | ----- |
-| Drop-down value | Title case |
-| Hint | Sentence case |
-| Info box | Sentence case. Don't use a period (`.`) for one-sentence information. Always use a period if there's more than one sentence. This field can include links, which should open in a new tab. |
-| Node name | Title case |
-| Parameter name | Title case |
-| Subtitle | Title case |
-| Tooltip | Sentence case. Don't use a period (`.`) for one-sentence tooltips. Always use a period if there's more than one sentence. This field can include links, which should open in a new tab. |
+| 下拉选项值 | 标题式大小写（Title case） |
+| 提示 | 句首大写（Sentence case） |
+| 信息框 | 句首大写。只有一句话时不加句点（`.`），多于一句时必须加句点。此字段可包含链接，链接应在新选项卡中打开。 |
+| 节点名称 | 标题式大小写（Title case） |
+| 参数名称 | 标题式大小写（Title case） |
+| 副标题 | 标题式大小写（Title case） |
+| 工具提示 | 句首大写。只有一句话时不加句点（`.`），多于一句时必须加句点。此字段可包含链接，链接应在新选项卡中打开。 |
 
-### UI text terminology <a href="#ui-text-terminology" id="ui-text-terminology"></a>
+### 界面文本术语 <a href="#ui-text-terminology" id="ui-text-terminology"></a>
 
-* Use the same terminology as the service the node connects to. For example, a Notion node should refer to Notion blocks, not Notion paragraphs, because Notion calls these elements blocks. There are exceptions to this rule, usually to avoid technical terms (for example, refer to the guidance on [name and description for upsert operations](#upsert-operations)).
-* Sometimes a service has different terms for something in its API and in its GUI. Use the GUI language in your node, as this is what most users are familiar with. If you think some users may need to refer to the service's API docs, consider including this information in a hint.
-* Don't use technical jargon when there are simpler alternatives.
-* Be consistent when naming things. For example, choose one of `directory` or `folder` then stick to it. 
+* 使用与节点所连接服务相同的术语。例如，Notion 将相关元素称为 block，因此 Notion 节点应使用 Notion 块，而不是 Notion 段落。此规则有例外，通常是为了避免技术术语，例如 [upsert 操作的名称和描述](#upsert-operations)指南。
+* 服务的 API 与图形界面有时会使用不同术语。节点应采用图形界面中的用语，因为多数用户更熟悉它。如果认为部分用户需要查阅服务的 API 文档，可考虑在提示中补充对应信息。
+* 存在更简单的说法时，不要使用技术术语。
+* 命名应保持一致。例如，选择 `directory` 或 `folder` 之一，并一直使用。
 
-### Node naming conventions <a href="#node-naming-conventions" id="node-naming-conventions"></a>
+### 节点命名约定 <a href="#node-naming-conventions" id="node-naming-conventions"></a>
 
-| Convention | Correct | Incorrect |
+| 约定 | 正确 | 错误 |
 | ---------- | ------- | --------- |
-| If a node is a trigger node, <br>the displayed name should have 'Trigger' at the end, <br>with a space before. | Shopify Trigger | ShopifyTrigger, Shopify trigger |
-| Don't include 'node' in the name. | Asana | Asana Node, Asana node |
+| 如果是触发节点，<br>显示名称应以“Trigger”结尾，<br>前面加一个空格。 | Shopify Trigger | ShopifyTrigger, Shopify trigger |
+| 名称中不要包含“node”。 | Asana | Asana Node, Asana node |
 
-### Showing and hiding fields <a href="#showing-and-hiding-fields" id="showing-and-hiding-fields"></a>
+### 显示和隐藏字段 <a href="#showing-and-hiding-fields" id="showing-and-hiding-fields"></a>
 
-Fields can either be:
+字段可以：
 
-* Displayed when the node opens: use this for resources and operations, and required fields.
-* Hidden in the **Optional fields** section until a user clicks on that section: use this for optional fields.
+* 打开节点时就显示：适用于资源、操作和必填字段。
+* 隐藏在 **Optional fields**（可选字段）中，直到用户点击该部分才显示：适用于可选字段。
 
-Progressively disclose complexity: hide a field until any earlier fields it depends on have values. For example, if you have a **Filter by date** toggle, and a **Date to filter by** datepicker, don't display **Date to filter by** until the user enables **Filter by date**.
+逐步呈现复杂度：在前置依赖字段尚未填写时，隐藏依赖它的字段。例如，有 **Filter by date**（按日期筛选）开关和 **Date to filter by**（筛选日期）日期选择器时，应在用户启用 **Filter by date** 后再显示 **Date to filter by**。
 
 
-### Conventions by field type <a href="#conventions-by-field-type" id="conventions-by-field-type"></a>
+### 各类字段的约定 <a href="#conventions-by-field-type" id="conventions-by-field-type"></a>
 
-#### Credentials <a href="#credentials" id="credentials"></a>
+#### 凭据 <a href="#credentials" id="credentials"></a>
 
-n8n automatically displays credential fields as the top fields in the node.
+n8n 会自动将凭据字段显示在节点顶部。
 
-#### Resources and operations <a href="#resources-and-operations" id="resources-and-operations"></a>
+#### 资源与操作 <a href="#resources-and-operations" id="resources-and-operations"></a>
 
-APIs usually involve doing something to data. For example, "get all tasks." In this example, "task" is the resource, and "get all" is the operation.
+API 通常对数据执行某种操作。例如，“获取所有任务”中，“任务”是资源，“获取所有”是操作。
 
-When your node has this resource and operation pattern, your first field should be **Resource**, and your second field should be **Operation**.
+节点采用这种资源与操作模式时，第一个字段应为 **Resource**（资源），第二个字段应为 **Operation**（操作）。
 
-#### Required fields <a href="#required-fields" id="required-fields"></a>
+#### 必填字段 <a href="#required-fields" id="required-fields"></a>
 
-Order fields by:
+字段按以下方式排序：
 
-* Most important to least important.
-* Scope: from broad to narrow. For example, you have fields for **Document**, **Page**, and **Text to insert**, put them in that order.
+* 从最重要到最不重要。
+* 按范围从大到小。例如，**Document**（文档）、**Page**（页面）和 **Text to insert**（要插入的文本）应依此顺序排列。
 
-#### Optional fields <a href="#optional-fields" id="optional-fields"></a>
+#### 可选字段 <a href="#optional-fields" id="optional-fields"></a>
 
-* Order fields alphabetically. To group similar things together, you can rename them. For example, rename **Email** and **Secondary Email** to **Email (primary)** and **Email (secondary)**.
-* If an optional field has a default value that the node uses when the value isn't set, load the field with that value. Explain this in the field description. For example, **Defaults to false**.
-* Connected fields: if one optional fields is dependent on another, bundle them together. They should both be under a single option that shows both fields when selected.
-* If you have a lot of optional fields, consider grouping them by theme.
+* 按字母顺序排列。可通过重命名将相关内容放在一起。例如，将 **Email** 和 **Secondary Email** 改为 **Email (primary)**（主要邮箱）和 **Email (secondary)**（次要邮箱）。
+* 如果未设置可选字段时节点会使用默认值，请预填该默认值，并在字段描述中说明，例如 **Defaults to false**（默认为 false）。
+* 关联字段：如果一个可选字段依赖另一个，请将二者组合在单个选项下，选择后同时显示。
+* 可选字段很多时，考虑按主题分组。
 
-#### Help <a href="#help" id="help"></a>
+#### 帮助 <a href="#help" id="help"></a>
 
-There are five types of help built in to the GUI:
+图形界面内置五类帮助：
 
-* Info boxes: yellow boxes that appear between fields. Refer to [UI elements | Notice](../build-your-node/reference/node-ui-elements.md#notice) for more information.
-    * Use info boxes for essential information. Don't over-use them. By making them rare, they stand out more and grab the user's attention.
-* Parameter hints: lines of text displayed beneath a user input field. Use this when there's something the user needs to know, but an info box would be excessive.
-* Node hints: provide help in the input panel, output panel, or node details view. Refer to [UI elements | Hints](../build-your-node/reference/node-ui-elements.md#hints) for more information.
-* Tooltips: callouts that appear when the user hovers over the tooltip icon ![The tooltip icon: a question mark in a grey circle](../../.gitbook/assets/help-tooltip.png). Use tooltips for extra information that the user might need.
-    * You don't have to provide a tooltip for every field. Only add one if it contains useful information. 
-    * When writing tooltips, think about what the user needs. Don't just copy-paste API parameter descriptions. If the description doesn't make sense, or has errors, improve it.
-* Placeholder text: n8n can display placeholder text in a field where the user hasn't entered a value. This can help the user know what's expected in that field.
+* 信息框：显示在字段之间的黄色框，详情请参阅[界面元素 | Notice](../build-your-node/reference/node-ui-elements.md#notice)。
+    * 用于重要信息，避免滥用。较少出现能让信息框更突出，更容易吸引用户注意。
+* 参数提示：显示在用户输入字段下方的文本。用户需要了解某些信息，但使用信息框又过于突出时，可采用参数提示。
+* 节点提示：在输入面板、输出面板或节点详情视图中提供帮助。详情请参阅[界面元素 | Hints](../build-your-node/reference/node-ui-elements.md#hints)。
+* 工具提示：用户悬停在工具提示图标 ![工具提示图标：灰色圆圈中的问号](../../.gitbook/assets/help-tooltip.png) 上时显示的浮层，用于提供用户可能需要的额外信息。
+    * 无需为每个字段都提供工具提示，仅在有用时添加。
+    * 编写工具提示时，应考虑用户需求，不要直接复制粘贴 API 参数描述。如果原描述难懂或有错误，请改进它。
+* 占位文本：用户尚未输入值时，n8n 可在字段中显示占位文本，帮助用户了解应填写的内容。
 
-Info boxes, hints, and tooltips can contain links to more information.
+信息框、提示和工具提示可包含指向更多信息的链接。
 
-#### Errors <a href="#errors" id="errors"></a>
+#### 错误 <a href="#errors" id="errors"></a>
 
-Make it clear which fields are required.
+明确标示必填字段。
 
-Add validation rules to fields if possible. For example, check for valid email patterns if the field expects an email.
+尽可能为字段添加验证规则。例如，要求邮箱的字段可检查邮箱格式是否有效。
 
-When displaying errors, make sure only the main error message displays in the red error title. More information should go in **Details**.
+显示错误时，红色错误标题中只显示主要错误消息，更多信息放在 **Details**（详情）中。
 
-Refer to [Node Error Handling](../build-your-node/reference/error-handling.md) for more information.
+更多信息请参阅[节点错误处理](../build-your-node/reference/error-handling.md)。
 
-#### Toggles <a href="#toggles" id="toggles"></a>
+#### 开关 <a href="#toggles" id="toggles"></a>
 
-* Tooltips for binary states should start with something like **Whether to . . . **.
-* You may need a list rather than a toggle:
-    * Use toggles when it's clear what happens in a false state. For example, **Simplify Output?**. The alternative (don't simplify output) is clear.
-    * Use a dropdown list with named options when you need more clarity. For example, **Append?**. What happens if you don't append is unclear (it could be that nothing happens, or information is overwritten, or discarded).
+* 二元状态的工具提示应以 **Whether to . . .**（是否……）之类的表述开头。
+* 某些情况应使用列表而非开关：
+    * false 状态含义明确时，使用开关。例如 **Simplify Output?**（是否简化输出）：另一种状态“不简化输出”很明确。
+    * 需要更清晰地表达含义时，使用带有明确选项名称的下拉列表。例如 **Append?**（是否追加）：不追加时会发生什么并不明确，可能是不处理、覆盖或丢弃信息。
 
-#### Lists <a href="#lists" id="lists"></a>
+#### 列表 <a href="#lists" id="lists"></a>
 
-* Set default values for lists whenever possible. The default should be the most-used option.
-* Sort list options alphabetically.
-* You can include list option descriptions. Only add descriptions if they provide useful information.
-* If there is an option like **All**, use the word **All**, not shorthand like *****.
+* 尽可能为列表设置默认值，应选择最常用的选项。
+* 按字母顺序排列列表选项。
+* 可为列表选项添加描述，但仅在提供有用信息时添加。
+* 如果有 **All**（全部）之类的选项，请使用 **All** 这个词，不要使用 ***** 之类的简写。
 
-#### Trigger node inputs <a href="#trigger-node-inputs" id="trigger-node-inputs"></a>
+#### 触发节点输入 <a href="#trigger-node-inputs" id="trigger-node-inputs"></a>
 
-When a trigger node has a parameter for specifying which events to trigger on:
+触发节点包含用于指定触发事件的参数时：
 
-* Name the parameter **Trigger on**.
-* Don't include a tooltip.
+* 将参数命名为 **Trigger on**（触发事件）。
+* 不要添加工具提示。
 
-#### Subtitles <a href="#subtitles" id="subtitles"></a>
+#### 副标题 <a href="#subtitles" id="subtitles"></a>
 
-Set subtitles based on the values of the main parameters. For example:
+根据主要参数的值设置副标题，例如：
 
 ```js
 subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 ```
 
-#### IDs <a href="#ids" id="ids"></a>
+#### ID <a href="#ids" id="ids"></a>
 
-When performing an operation on a specific record, such as "update a task comment" you need a way to specify which record you want to change.
+对特定记录执行操作（例如“更新任务评论”）时，需要提供指定待修改记录的方式。
 
-* Wherever possible, provide two ways to specify a record:
-    * By choosing from a pre-populated list. You can generate this list using the `loadOptions` parameter. Refer to [Base files](../build-your-node/reference/base-files/README.md) for more information.
-    * By entering an ID.
-* Name the field `<Record name> name or ID`. For example, **Workspace Name or ID**. Add a tooltip saying "Choose a name from the list, or specify an ID using an expression." Link to n8n's [Expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes) documentation.
-* Build your node so that it can handle users providing more information than required. For example:
-    * If you need a relative path, handle the user pasting in the absolute path.
-    * If the user needs to get an ID from a URL, handle the user pasting in the entire URL.
+* 尽可能提供两种指定记录的方式：
+    * 从预填列表中选择。可使用 `loadOptions` 参数生成此列表，更多信息请参阅[基础文件](../build-your-node/reference/base-files/README.md)。
+    * 输入 ID。
+* 将字段命名为 `<Record name> name or ID`，例如 **Workspace Name or ID**（工作区名称或 ID）。添加工具提示：“从列表中选择名称，或使用表达式指定 ID。”并链接到 n8n 的[表达式](../../../build/work-with-data/expressions-versus-data-nodes.md)文档。
+* 设计节点时，应允许用户提供超出要求的信息。例如：
+    * 需要相对路径时，也能处理用户粘贴的绝对路径。
+    * 用户需要从 URL 获取 ID 时，也能处理粘贴的完整 URL。
 
-#### Dates and timestamps <a href="#dates-and-timestamps" id="dates-and-timestamps"></a>
+#### 日期与时间戳 <a href="#dates-and-timestamps" id="dates-and-timestamps"></a>
 
-n8n uses [ISO timestamp strings](https://en.wikipedia.org/wiki/ISO_8601) for dates and times. Make sure that any date or timestamp field you add supports all ISO 8601 formats.
+n8n 使用 [ISO 时间戳字符串](https://en.wikipedia.org/wiki/ISO_8601)表示日期和时间。新增的日期或时间戳字段应支持全部 ISO 8601 格式。
 
 #### JSON <a href="#json" id="json"></a>
 
-You should support two ways of specifying the content of a text input that expects JSON:
+对于要求 JSON 的文本输入，应支持两种内容指定方式：
 
-* Typing JSON directly into the text input: you need to parse the resulting string into a JSON object.
-* Using an expression that returns JSON.
-
-
-
-#### Node icons <a href="#node-icons" id="node-icons"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dGOXJYk0OQgOLlRpyJnn/" %}
+* 直接在文本框中输入 JSON：需要将输入字符串解析为 JSON 对象。
+* 使用返回 JSON 的表达式。
 
 
-### Common patterns and exceptions <a href="#common-patterns-and-exceptions" id="common-patterns-and-exceptions"></a>
 
-This section provides guidance on handling common design patterns, including some edge cases and exceptions to the main standards.
+#### 节点图标 <a href="#node-icons" id="node-icons"></a>
 
-#### Simplify responses <a href="#simplify-responses" id="simplify-responses"></a>
-
-APIs can return a lot of data that isn't useful. Consider adding a toggle that allows users to choose to simplify the response data:
-
-  * Name: **Simplify Response**
-  * Description: **Whether to return a simplified version of the response instead of the raw data**
-
-#### Upsert operations <a href="#upsert-operations" id="upsert-operations"></a>
-
-This should always be a separate operation with:
-
-  * Name: **Create or Update**
-  * Description: **Create a new record, or update the current one if it already exists (upsert)**
-
-#### Boolean operators <a href="#boolean-operators" id="boolean-operators"></a>
-
-n8n doesn't have good support for combining boolean operators, such as AND and OR, in the GUI. Whenever possible, provide options for all ANDs or all ORs.
+{% include "../../../reusable-content/.gitbook/includes/integrations/creating-nodes/node-icons.md" %}
 
 
-For example, you have a field called **Must match** to test if values match. Include options to test for **Any** and **All**, as separate options.
+### 常见模式与例外 <a href="#common-patterns-and-exceptions" id="common-patterns-and-exceptions"></a>
 
-#### Source keys or binary properties <a href="#source-keys-or-binary-properties" id="source-keys-or-binary-properties"></a>
+本节介绍常见设计模式，包括边界情况及主要标准的例外。
 
-Binary data is file data, such as spreadsheets or images. In n8n, you need a named key to reference the data. Don't use the terms "binary data" or "binary property" for this field. Instead, use a more descriptive name: **Input data field name** / **Output data field name**.
+#### 简化响应 <a href="#simplify-responses" id="simplify-responses"></a>
 
-## Related resources
+API 可能返回大量无用数据，可考虑添加开关，让用户选择是否简化响应：
 
-* [Plan your node](./)
-* [Choose a node type](choose-a-node-type.md)
-* [Choose a node building style](choose-a-node-building-style.md)
-* [Choose node file structure](choose-node-file-structure.md)
+  * 名称：**Simplify Response**（简化响应）。
+  * 描述：**Whether to return a simplified version of the response instead of the raw data**（是否返回简化的响应，而非原始数据）。
+
+#### Upsert 操作 <a href="#upsert-operations" id="upsert-operations"></a>
+
+此操作应始终独立提供，并使用：
+
+  * 名称：**Create or Update**（创建或更新）。
+  * 描述：**Create a new record, or update the current one if it already exists (upsert)**（创建新记录，如果已存在则更新当前记录，即 upsert）。
+
+#### 布尔运算符 <a href="#boolean-operators" id="boolean-operators"></a>
+
+n8n 图形界面对 AND、OR 等布尔运算符的组合支持不佳。尽可能提供“全部使用 AND”或“全部使用 OR”的选项。
+
+
+例如，有一个 **Must match**（必须匹配）字段用于判断值是否匹配，应将 **Any**（任意）和 **All**（全部）作为两个独立选项。
+
+#### 源键或二进制属性 <a href="#source-keys-or-binary-properties" id="source-keys-or-binary-properties"></a>
+
+二进制数据是电子表格、图片等文件数据。在 n8n 中，需要使用命名键引用这些数据。不要将此字段称为“binary data”（二进制数据）或“binary property”（二进制属性），应使用更明确的名称：**Input data field name**（输入数据字段名称）或 **Output data field name**（输出数据字段名称）。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [规划节点](./)
+* [选择节点类型](choose-a-node-type.md)
+* [选择节点开发方式](choose-a-node-building-style.md)
+* [选择节点文件结构](choose-node-file-structure.md)
 
 
 

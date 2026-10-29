@@ -6951,5 +6951,129 @@
     "source_correction_ids": [
       "api-auth-source-control-scope-list-note"
     ]
+  },
+  "connect/n8n-cli.md": {
+    "status": "translated",
+    "source_sha256": "4f6c527c8279ea4e7892ee0a353d8b5ab408a516381d332d4f7573108cd1b54a",
+    "translation_sha256": "ef5fe1eccf5fd2e62772e829ad8c3dd106f578e33dad21b09cad13e07c031317",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/connect-to-n8n-mcp-server/mcp-client-examples.md": {
+    "status": "translated",
+    "source_sha256": "d21591cf14038b80c0b7ab67535bf530693112df09dbfa17da12efe8c185902e",
+    "translation_sha256": "651cfd5c6d09d7cbd398d95fd03d05f5abbd1baeb477d7bf8c8d47d0fae0e0f4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/connect-to-n8n-mcp-server.md": {
+    "status": "translated",
+    "source_sha256": "f4f08bf9df66f45650f89847f31144c0721704e9b5fcbfbc94b9810e434ce632",
+    "translation_sha256": "5867ef5311679c75bae85eb07e0e80d403eeaca783b3e985e2925c34eec62d11",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "mcp-execution-mode-default-note"
+    ]
+  },
+  "connect/create-nodes/README.md": {
+    "status": "translated",
+    "source_sha256": "f47cf9b3566d859f81982bb2c19e190a5cf633a57b67b396b17f7996e664a22f",
+    "translation_sha256": "992f63cefa4f00727b8d53c5ea4d9ba4a3608ab102f3607d03a367b1fe335106",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/overview.md": {
+    "status": "translated",
+    "source_sha256": "452f02835ba062b85c7a597222f6cd62c49969b719e06d62051947b36b9b30aa",
+    "translation_sha256": "fc5e769db634c7f9d6d156e26a504deba2e5548e9bb61cc4fc7deb17cb0c31ae",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/plan-your-node/README.md": {
+    "status": "translated",
+    "source_sha256": "1ec566715590c99ea49fb7e9a84d796cdd29fbe8c6e8e89624a241dd53e12fa3",
+    "translation_sha256": "163ae08e17fe067eb51e30536cfbb5e6c51d3fb2a31bd229def3ece3f4d365e6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/plan-your-node/choose-a-node-type.md": {
+    "status": "translated",
+    "source_sha256": "385947d7b6bf7d5e7d3ba4d08e1c66c846410c4e27682d3877866f7fad13618a",
+    "translation_sha256": "cd160152f19738a4284e83f2e4ee351937cdbd41ee1c219b9c61cc62dc76f1d8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/plan-your-node/choose-a-node-building-style.md": {
+    "status": "translated",
+    "source_sha256": "aef99aebcd1acbe07e9cec6b165ae984c46e38cbad0842d3673ef443048024e9",
+    "translation_sha256": "2dfb62b14549a4cfae60f0c54e36ec37fba4d885ac5faac2052c21ca5ebb6027",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/plan-your-node/choose-node-file-structure.md": {
+    "status": "translated",
+    "source_sha256": "53cd18f7a4dc9264c93687ea5ec96d6e5d3168a84ad950cd6719d92bcb4c5ffe",
+    "translation_sha256": "d70be0a9d317d296b10992d5d3d6b01537c1ae55a45c1cfe3a9e85e32be6b209",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/plan-your-node/node-ui-design.md": {
+    "status": "translated",
+    "source_sha256": "36daae79ffc2f6011b251a00c8e994d06fe23e2eac352756826c137a433dd884",
+    "translation_sha256": "51e92a550e5fdcd54ca01c08781ed1c24de441aba407ef72d932065fffec2e9e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/creating-nodes/node-icons.md": {
+    "status": "translated",
+    "source_sha256": "a29d3779fa94aff148a01b127ceebb7765ffa628f47a4d13e539fdf31c6845ed",
+    "translation_sha256": "74b7953b2895e9bba1b67acbebd402e1931c67fc3471206b8e7819ff04e4d3f8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
