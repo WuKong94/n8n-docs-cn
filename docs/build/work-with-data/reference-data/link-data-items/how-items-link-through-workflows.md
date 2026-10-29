@@ -1,57 +1,58 @@
 ---
 contentType: explanation
-nodeTitle: How items link through workflows
+nodeTitle: 数据项如何在工作流中关联
 originalFilePath: data/data-mapping/data-item-linking/item-linking-concepts.md
-originalUrl: 'https://docs.n8n.io/data/data-mapping/data-item-linking/item-linking-concepts'
-url: >-
-  https://docs.n8n.io/build/work-with-data/reference-data/link-data-items/how-items-link-through-workflows
+originalUrl: https://docs.n8n.io/data/data-mapping/data-item-linking/item-linking-concepts
+url: https://docs.n8n.io/build/work-with-data/reference-data/link-data-items/how-items-link-through-workflows
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# How items link through workflows <a href="#how-items-link-through-workflows" id="how-items-link-through-workflows"></a>
 
-Each output item created by a node includes metadata that links them to the input item (or items) that the node used to generate them. This creates a chain of items that you can work back along to access previous items. This can be complicated to understand, especially if the node splits or merges data. You need to understand item linking when building your own programmatic nodes, or in some scenarios using the Code node. 
+# 数据项如何在工作流中关联 <a href="#how-items-link-through-workflows" id="how-items-link-through-workflows"></a>
 
-This document provides a conceptual overview of this feature. For usage details, refer to:
+节点创建的每个输出数据项，都包含关联元数据，指向用于生成它的一个或多个输入数据项。这形成一条可向前回溯的数据项链，便于访问早期数据项。节点拆分或合并数据时，这一机制可能较难理解。开发自己的编程式节点，或在某些场景中使用 Code 节点时，需要了解数据项关联。
 
-* [Item linking for node creators](item-linking-for-node-creators.md), for details on how to handle item linking when building a node.
-* [Preserving linking in the Code node](preserving-linking-in-the-code-node.md), to learn how to handle item linking in the Code node.
-* [Item linking errors](item-linking-errors.md), to understand the errors you may encounter in the editor UI.
+本文概述这一功能。使用细节见：
 
-## n8n's automatic item linking <a href="#n8ns-automatic-item-linking" id="n8ns-automatic-item-linking"></a>
+* [节点开发者的数据项关联说明](item-linking-for-node-creators.md)：开发节点时如何处理关联。
+* [在 Code 节点中保留关联](preserving-linking-in-the-code-node.md)：Code 节点中的处理方法。
+* [数据项关联错误](item-linking-errors.md)：编辑器中可能遇到的错误。
 
-If a node doesn't control how to link input items to output items, n8n tries to guess how to link the items automatically:
+## n8n 的自动数据项关联 <a href="#n8ns-automatic-item-linking" id="n8ns-automatic-item-linking"></a>
 
-* Single input, single output: the output links to the input.
-* Single input, multiple outputs: all outputs link to that input.
-* Multiple inputs and outputs:
-	* If you keep the input items, but change the order (or remove some but keep others), n8n can automatically add the correct linked item information.
-	* If the number of inputs and outputs is equal, n8n links the items in order. This means that output-1 links to input-1, output-2 to input-2, and so on.
-	* If the number isn't equal, or you create completely new items, n8n can't automatically link items.
+节点未自行控制输入和输出数据项的关联时，n8n 会尝试自动推断：
 
-If n8n can't link items automatically, and the node doesn't handle the item linking, n8n displays an error. Refer to [Item linking errors](item-linking-errors.md) for more information.
+* 单个输入、单个输出：输出关联到该输入。
+* 单个输入、多个输出：所有输出都关联到该输入。
+* 多个输入和输出：
+	* 保留输入数据项但更改顺序，或删除部分、保留其他数据项时，n8n 能自动添加正确的关联信息。
+	* 输入和输出数量相同时，n8n 按顺序关联，即 output-1 对应 input-1，output-2 对应 input-2，依此类推。
+	* 数量不同，或创建了完全新的数据项时，n8n 无法自动关联。
 
-## Item linking example <a href="#item-linking-example" id="item-linking-example"></a>
+如果 n8n 无法自动关联，节点也未处理关联，就会显示错误。更多信息请参阅[数据项关联错误](item-linking-errors.md)。
 
-![A diagram showing the threads linking multiple items back through a workflow](../../../.gitbook/assets/item-linking-multiple-lines.png)
+## 数据项关联示例 <a href="#item-linking-example" id="item-linking-example"></a>
 
-In this example, it's possible for n8n to link an item in one node back several steps, despite the item order changing. This means the node that sorts movies alphabetically can access information about the linked item in the node that gets famous movie actors.
+![示意图展示多个数据项通过关联链回溯工作流的路径](../../../.gitbook/assets/item-linking-multiple-lines.png)
 
-The methods for accessing linked items are different depending on whether you're using the UI, expressions, or the code node. Explore the following resources:
+此示例中，即使数据项顺序改变，n8n 仍能将某个节点的数据项关联回更早的多个步骤。这意味着，按字母顺序排列电影的节点，仍可以访问获取著名演员节点中关联数据项的信息。
 
-* [Mapping in the UI](../use-the-ui-mapper.md)
-* [Preserving linking in the Code node](preserving-linking-in-the-code-node.md)
-* [Item linking errors](item-linking-errors.md)
+根据使用界面、表达式还是 Code 节点，访问关联数据项的方法有所不同。请查看以下资源：
 
-## Related resources
+* [在界面中映射](../use-the-ui-mapper.md)
+* [在 Code 节点中保留关联](preserving-linking-in-the-code-node.md)
+* [数据项关联错误](item-linking-errors.md)
 
-* [Link data items](./)
-* [Accessing linked items in the Code node](accessing-linked-items-in-the-code-node.md)
-* [Preserving linking in the Code node](preserving-linking-in-the-code-node.md)
-* [Item linking errors](item-linking-errors.md)
-* [Item linking for node creators](item-linking-for-node-creators.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [关联数据项](./)
+* [在 Code 节点中访问关联的数据项](accessing-linked-items-in-the-code-node.md)
+* [在 Code 节点中保留关联](preserving-linking-in-the-code-node.md)
+* [数据项关联错误](item-linking-errors.md)
+* [节点开发者的数据项关联说明](item-linking-for-node-creators.md)
 
 
 

@@ -1,19 +1,21 @@
 ---
-title: item-linking-node-creators
+title: 节点开发者的数据项关联说明
 ---
-{% hint style="info" %}
-**Programmatic-style nodes only**
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-This guidance applies to programmatic-style nodes. If you're using declarative style, n8n handles paired items for you automatically.
+{% hint style="info" %}
+**仅适用于编程式节点**
+
+本指南适用于编程式节点。使用声明式节点时，n8n 会自动处理配对数据项。
 {% endhint %}
 
-Use n8n's item linking to access data from items that precede the current item. n8n needs to know which input item a given output item comes from. If this information is missing, expressions in other nodes may break. As a node developer, you must ensure any items returned by your node support this. 
+使用 n8n 数据项关联，可以访问当前数据项之前的数据项内容。n8n 需要知道每个输出数据项来自哪个输入数据项。缺少此信息时，其他节点中的表达式可能失效。作为节点开发者，必须确保节点返回的所有数据项都支持关联。
 
-This applies to programmatic nodes (including trigger nodes). You don't need to consider item linking when building a declarative-style node. Refer to [Choose your node building approach](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/plan-your-node/choose-a-node-building-style) for more information on node styles.
+这适用于编程式节点，包括触发器节点。开发声明式节点时，无需考虑数据项关联。节点类型详见[选择节点开发方式](../../../../../connect/create-nodes/plan-your-node/choose-a-node-building-style.md)。
 
-Start by reading [Item linking concepts](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/reference-data/link-data-items/how-items-link-through-workflows), which provides a conceptual overview of item linking, and details of the scenarios where n8n can handle the linking automatically.
+首先阅读[数据项关联概念](../../../../../build/work-with-data/reference-data/link-data-items/how-items-link-through-workflows.md)，了解其原理，以及 n8n 可以自动处理关联的场景。
 
-If you need to handle item linking manually, do this by setting `pairedItem` on each item your node returns:
+需要手动处理关联时，在节点返回的每个数据项上设置 `pairedItem`：
 
 ```typescript
 // Use the pairedItem information of the incoming item

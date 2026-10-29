@@ -34,5 +34,23 @@
     "translated_sentence": "想法的类型为“Idea”。",
     "evidence": "同页 Example 3 的 JavaScript switch 明确使用 case \"Idea\" 并增加 ideaCount；提示词把 idea 的类型重复写成了 Bug。",
     "scope": "依据同页代码修正提示词中的类型名称；代码、下载示例和上游原文不修改。"
+  },
+  {
+    "id": "data-tables-project-variable-scope-note",
+    "path": "build/work-with-data/data-tables.md",
+    "source_sha256": "23c00251480beb588588db1bc12a4ef34a5222c110ec0f52aca31d76e38dc6f7",
+    "original_sentence": "| Scoped to projects | ✓ | ✗ |",
+    "translated_sentence": "译注：本表关于变量不支持项目作用域的说法，与同一原文版本中的“自定义变量”章节存在差异。该章节说明，自 n8n 1.118.0 起支持仅在指定项目内可用的项目变量。此处保留原表，并提示这一差异。",
+    "evidence": "同一锁定版本的 build/code-in-n8n/define-custom-variables.md 明确说明 Project-scoped variables are available only within the specific project 和自 n8n 1.118.0 起支持项目变量；此表仍为旧标记。该来源哈希为 4e31aafa8e0623fd49cf30c91fe209eb00d29fffe48284dd212d757363265d21。",
+    "scope": "保留原表，仅加译注说明同版本文档之间的差异；未断言或测试产品实际行为。"
+  },
+  {
+    "id": "expression-example-property-access",
+    "path": "build/work-with-data/transform-data/expressions-for-data-transformation.md",
+    "source_sha256": "18edf5e0e73597cd50d6b22a9e268b13113c323171b6afef0f978bc79ea5f2b3",
+    "original_sentence": "Note that this example uses JMESPath syntax to query the JSON data.",
+    "translated_sentence": "此示例通过 JavaScript 属性访问查询 JSON 数据。",
+    "evidence": "同页代码为 {{$json.body.city}}，并给出等价的 {{$json['body']['city']}}。这是属性访问示例，未调用 JMESPath 查询方法。",
+    "scope": "依据同页表达式更正语法说明；表达式代码和输入数据不修改，未测试运行行为。"
   }
 ]

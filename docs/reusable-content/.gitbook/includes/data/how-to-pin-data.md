@@ -1,13 +1,15 @@
 ---
-title: how-to-pin-data
+title: 如何固定数据
 ---
-To pin data in a node:
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-1. Run the node to load data.
-2. In the **OUTPUT** view, select **Pin data** <img src="../../assets/data-pinning-button.png" alt="Pin data icon" data-size="line">. When data pinning is active, the button is disabled and a "This data is pinned" banner is displayed in the **OUTPUT** view.
+在节点中固定数据的步骤如下：
+
+1. 运行节点，加载数据。
+2. 在 **OUTPUT（输出）** 视图中选择 **Pin data（固定数据）** <img src="../../assets/data-pinning-button.png" alt="固定数据图标" data-size="line">。固定生效后，按钮会被禁用，输出视图显示“This data is pinned（数据已固定）”横幅。
 
 {% hint style="info" %}
-**Nodes that output binary data**
+**输出二进制数据的节点**
 
-You can't pin data if the output data includes binary data.
+输出中包含二进制数据时，不能固定数据。
 {% endhint %}

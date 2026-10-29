@@ -1,21 +1,23 @@
 ---
 contentType: explanation
-nodeTitle: Understand n8n's data structure
+nodeTitle: 理解 n8n 的数据结构
 originalFilePath: data/data-structure.md
-originalUrl: 'https://docs.n8n.io/data/data-structure'
-url: 'https://docs.n8n.io/build/work-with-data/understand-n8ns-data-structure'
+originalUrl: https://docs.n8n.io/data/data-structure
+url: https://docs.n8n.io/build/work-with-data/understand-n8ns-data-structure
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# How n8n structures data <a href="#how-n8n-structures-data" id="how-n8n-structures-data"></a>
 
-Understanding how n8n structures and passes data between nodes is fundamental to building workflows. This guide covers both the data structure format and how data flows through your workflow.
+# n8n 如何组织数据 <a href="#how-n8n-structures-data" id="how-n8n-structures-data"></a>
 
-## Data structure <a href="#data-structure" id="data-structure"></a>
+理解 n8n 如何组织数据及在节点之间传递数据，是构建工作流的基础。本指南介绍数据结构格式，以及数据在工作流中的流转方式。
 
-In n8n, all data passed between nodes is an array of objects. It has the following structure:
+## 数据结构 <a href="#data-structure" id="data-structure"></a>
+
+n8n 节点间传递的所有数据都是对象数组，结构如下：
 
 ```json
 [
@@ -45,20 +47,20 @@ In n8n, all data passed between nodes is an array of objects. It has the followi
 ```
 
 {% hint style="info" %}
-**Skipping the `json` key and array syntax**
+**省略 `json` 键和数组语法**
 
-From 0.166.0 on, when using the Function node or Code node, n8n automatically adds the `json` key if it's missing. It also automatically wraps your items in an array (`[]`) if needed. This is only the case when using the Function or Code nodes. When building your own nodes, you must still make sure the node returns data with the `json` key.
+从 0.166.0 起，使用 Function 或 Code 节点时，如果缺少 `json` 键，n8n 会自动添加；必要时，也会自动将数据项包裹在数组（`[]`）中。这仅适用于 Function 和 Code 节点。自行开发节点时，仍必须确保返回数据包含 `json` 键。
 {% endhint %}
 
-## How data flows within nodes <a href="#how-data-flows-within-nodes" id="how-data-flows-within-nodes"></a>
+## 数据如何在节点中流转 <a href="#how-data-flows-within-nodes" id="how-data-flows-within-nodes"></a>
 
-When you connect nodes in a workflow, data automatically passes from one node to the next.
+在工作流中连接节点后，数据会自动从一个节点传递到下一个。
 
-Nodes process multiple items automatically. When a node receives an array of data items, it processes each item individually and performs the configured operation for each one.
+节点会自动处理多个数据项。收到数据项数组时，节点会逐项处理，分别执行配置的操作。
 
-For example, if you set the Trello node to `Create-Card`, and create an expression that sets `Name` using a property called `name-input-value` from the incoming data, the node creates a card for each item, always choosing the `name-input-value` of the current item.
+例如，将 Trello 节点设为 `Create-Card`，并通过表达式设置 `Name`，表达式使用传入数据中的 `name-input-value` 属性时，节点会为每个数据项创建一张卡片，每次使用当前数据项的 `name-input-value`。
 
-For example, this input will create two cards. One named `test1` the other one named `test2`:
+例如，以下输入会创建两张卡片，分别名为 `test1` 和 `test2`：
 
 ```json
 [
@@ -71,9 +73,9 @@ For example, this input will create two cards. One named `test1` the other one n
 ]
 ```
 
-## Understand what you're mapping with drag and drop <a href="#understand-what-youre-mapping-with-drag-and-drop" id="understand-what-youre-mapping-with-drag-and-drop"></a>
+## 理解拖放映射的内容 <a href="#understand-what-youre-mapping-with-drag-and-drop" id="understand-what-youre-mapping-with-drag-and-drop"></a>
 
-Data mapping maps the field path, and loads the field's value. For example, given the following data:
+数据映射会映射字段路径，并加载字段值。例如，对于以下数据：
 
 ```js
 [
@@ -84,11 +86,11 @@ Data mapping maps the field path, and loads the field's value. For example, give
 ]
 ```
 
-You can map `fruit` by dragging and dropping **fruit** from the **INPUT** into the field where you want to use its value. This creates an expression, `{{ $json.fruit }}`. When the node iterates over input items, the value of the field becomes the value of `fruit` for each item.
+将 **INPUT（输入）** 中的 **fruit** 拖到需要使用其值的字段，即可映射 `fruit`，生成表达式 `{{ $json.fruit }}`。节点遍历输入数据项时，该字段会依次使用各数据项的 `fruit` 值。
 
-## Understand nested data <a href="#understand-nested-data" id="understand-nested-data"></a>
+## 理解嵌套数据 <a href="#understand-nested-data" id="understand-nested-data"></a>
 
-Given the following data:
+对于以下数据：
 
 ```js
 [
@@ -109,18 +111,18 @@ Given the following data:
 ]
 ```
 
-n8n displays it in table form like this, showing the `nested` field in bold to show that it contains nested data:
+n8n 会按如下表格显示，并将 `nested` 字段加粗，表示它包含嵌套数据：
 
-![Table view of the example data, with the nested field shown in bold](../.gitbook/assets/nested-data.png)
+![示例数据的表格视图，嵌套字段以粗体显示](../.gitbook/assets/nested-data.png)
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Work with data](./)
-* [Expressions versus data nodes](expressions-versus-data-nodes.md)
-* [Reference data](reference-data/README.md)
-* [Transform data](transform-data/README.md)
-* [Filter out unwanted data](filter-out-unwanted-data.md)
-* [Pin and mock data](pin-and-mock-data.md)
-* [Handle special data types](handle-special-data-types/README.md)
-* [Data tables](data-tables.md)
+* [处理数据](./)
+* [表达式与数据节点](expressions-versus-data-nodes.md)
+* [引用数据](reference-data/README.md)
+* [转换数据](transform-data/README.md)
+* [过滤不需要的数据](filter-out-unwanted-data.md)
+* [固定和模拟数据](pin-and-mock-data.md)
+* [处理特殊数据类型](handle-special-data-types/README.md)
+* [数据表](data-tables.md)
 

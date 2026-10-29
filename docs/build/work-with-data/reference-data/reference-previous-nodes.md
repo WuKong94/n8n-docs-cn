@@ -1,109 +1,108 @@
 ---
-description: >-
-  Methods for working with the input of the current node and the output of
-  previous nodes.
+description: 处理当前节点输入和前面节点输出的方法。
 contentType: reference
-nodeTitle: Reference previous nodes
+nodeTitle: 引用前面的节点
 originalFilePath: data/data-mapping/referencing-other-nodes.md
-originalUrl: 'https://docs.n8n.io/data/data-mapping/referencing-other-nodes'
-url: >-
-  https://docs.n8n.io/build/work-with-data/reference-data/reference-previous-nodes
+originalUrl: https://docs.n8n.io/data/data-mapping/referencing-other-nodes
+url: https://docs.n8n.io/build/work-with-data/reference-data/reference-previous-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Referencing previous nodes <a href="#referencing-previous-nodes" id="referencing-previous-nodes"></a>
 
-When working with data in n8n, you'll often need to reference information from the current node or from previous nodes in your workflow. 
+# 引用前面的节点 <a href="#referencing-previous-nodes" id="referencing-previous-nodes"></a>
 
-## Common ways of referencing <a href="#common-ways-of-referencing" id="common-ways-of-referencing"></a>
+在 n8n 中处理数据时，经常需要引用当前节点或工作流前面节点的信息。
 
-The most frequently used methods for accessing data are:
+## 常见引用方式 <a href="#common-ways-of-referencing" id="common-ways-of-referencing"></a>
 
-- **`$json`**: Access JSON data from the current input item
-- **`$('<node-name>').item.json`**: Access JSON data from a [linked item](link-data-items/README.md) in a previous node
-- **`$('<node-name>').item.binary`**: Access binary data (files, images) from a [linked item](link-data-items/README.md) in a previous node
+最常用的数据访问方法包括：
 
-## Other referencing methods <a href="#other-referencing-methods" id="other-referencing-methods"></a>
+- **`$json`**：访问当前输入数据项的 JSON 数据
+- **`$('<node-name>').item.json`**：访问前面节点中[关联数据项](link-data-items/README.md)的 JSON 数据
+- **`$('<node-name>').item.binary`**：访问前面节点中[关联数据项](link-data-items/README.md)的二进制数据，例如文件和图片
 
-These methods work in both expressions and the Code node:
+## 其他引用方法 <a href="#other-referencing-methods" id="other-referencing-methods"></a>
 
-| Method | Description |
+以下方法可同时用于表达式和 Code 节点：
+
+| 方法 | 说明 |
 | ------ | ----------- |
-| `$binary` | Access binary data from the current input item |
-| `$input.item` | The input item currently being processed |
-| `$('<node-name>').first()` | Get the first item from a specified node |
-| `$('<node-name>').last()` | Get the last item from a specified node |
-| `$('<node-name>').all()` | Get all items from a specified node |
+| `$binary` | 访问当前输入数据项的二进制数据 |
+| `$input.item` | 当前正在处理的输入数据项 |
+| `$('<node-name>').first()` | 获取指定节点的第一个数据项 |
+| `$('<node-name>').last()` | 获取指定节点的最后一个数据项 |
+| `$('<node-name>').all()` | 获取指定节点的所有数据项 |
 
-## Current node input <a href="#current-node-input" id="current-node-input"></a>
+## 当前节点输入 <a href="#current-node-input" id="current-node-input"></a>
 
-Methods for working with the input of the current node. Some methods and variables aren't available in the Code node.
+用于处理当前节点输入的方法。部分方法和变量在 Code 节点中不可用。
 
 {% hint style="info" %}
-**Python support**
+**Python 支持**
 
-You can use Python in the Code node. It isn't available in expressions.
+可以在 Code 节点中使用 Python，但表达式不支持 Python。
 {% endhint %}
 {% tabs %}
 {% tab title="JavaScript" %}
-| Method | Description | Available in Code node? |
+| 方法 | 说明 | Code 节点中是否可用 |
 | ------ | ----------- | :-------------------------: |
-| `$binary` | Shorthand for `$input.item.binary`. Incoming binary data from a node | ❌ |
-| `$input.item` | The input item of the current node that's being processed. Refer to [Item linking](link-data-items/README.md) for more information on paired items and item linking. | ✅ |
-| `$input.all()` | All input items in current node. | ✅ |
-| `$input.first()` | First input item in current node. | ✅ |
-| `$input.last()` | Last input item in current node. | ✅ |
-| `$input.params` | Object containing the query settings of the previous node. This includes data such as the operation it ran, result limits, and so on. | ✅ |
-| `$json` | Shorthand for `$input.item.json`. Incoming JSON data from a node. Refer to [Data structure](../understand-n8ns-data-structure.md) for information on item structure. | ✅ (when running once for each item) |
-| `$input.context.noItemsLeft` | Boolean. Only available when working with the Loop Over Items node. Provides information about what's happening in the node. Use this to determine whether the node is still processing items. | ✅ |
+| `$binary` | `$input.item.binary` 的简写，表示节点传入的二进制数据 | ❌ |
+| `$input.item` | 当前节点正在处理的输入数据项。配对数据项和关联机制的更多信息，见[数据项关联](link-data-items/README.md)。 | ✅ |
+| `$input.all()` | 当前节点的所有输入数据项。 | ✅ |
+| `$input.first()` | 当前节点的第一个输入数据项。 | ✅ |
+| `$input.last()` | 当前节点的最后一个输入数据项。 | ✅ |
+| `$input.params` | 包含前一节点查询设置的对象，例如执行的操作、结果数量上限等。 | ✅ |
+| `$json` | `$input.item.json` 的简写，表示节点传入的 JSON 数据。数据项结构见[数据结构](../understand-n8ns-data-structure.md)。 | ✅（逐项运行时） |
+| `$input.context.noItemsLeft` | 布尔值，仅适用于 Loop Over Items 节点。提供节点运行状态，可用来判断节点是否仍在处理数据项。 | ✅ |
 {% endtab %}
 
 {% tab title="Python" %}
-| Method | Description | 
+| 方法 | 说明 |
 | ------ | ----------- | 
-| `_input.item` | The input item of the current node that's being processed. Refer to [Item linking](link-data-items/README.md) for more information on paired items and item linking. | 
-| `_input.all()` | All input items in current node. | 
-| `_input.first()` | First input item in current node. | 
-| `_input.last()` | Last input item in current node. | 
-| `_input.params` | Object containing the query settings of the previous node. This includes data such as the operation it ran, result limits, and so on.  | 
-| `_json` | Shorthand for `_input.item.json`. Incoming JSON data from a node. Refer to [Data structure](../understand-n8ns-data-structure.md) for information on item structure. Available when you set **Mode** to **Run Once for Each Item**. | 
-| `_input.context.noItemsLeft` | Boolean. Only available when working with the Loop Over Items node. Provides information about what's happening in the node. Use this to determine whether the node is still processing items. | 
+| `_input.item` | 当前节点正在处理的输入数据项。配对数据项和关联机制的更多信息，见[数据项关联](link-data-items/README.md)。 |
+| `_input.all()` | 当前节点的所有输入数据项。 |
+| `_input.first()` | 当前节点的第一个输入数据项。 |
+| `_input.last()` | 当前节点的最后一个输入数据项。 |
+| `_input.params` | 包含前一节点查询设置的对象，例如执行的操作、结果数量上限等。 |
+| `_json` | `_input.item.json` 的简写，表示节点传入的 JSON 数据。数据项结构见[数据结构](../understand-n8ns-data-structure.md)。将 **Mode（模式）** 设为 **Run Once for Each Item（为每个数据项运行一次）** 时可用。 |
+| `_input.context.noItemsLeft` | 布尔值，仅适用于 Loop Over Items 节点。提供节点运行状态，可用来判断节点是否仍在处理数据项。 |
 {% endtab %}
 {% endtabs %}
 
-## Output of other nodes <a href="#output-of-other-nodes" id="output-of-other-nodes"></a>
+## 其他节点的输出 <a href="#output-of-other-nodes" id="output-of-other-nodes"></a>
 
-Methods for working with the output of other nodes. Some methods and variables aren't available in the Code node.
+用于处理其他节点输出的方法。部分方法和变量在 Code 节点中不可用。
 
-| Method | Description | Available in Code node? |
+| 方法 | 说明 | Code 节点中是否可用 |
 | ------ | ----------- | :-------------------------: |
-| `$("<node-name>").all(branchIndex?, runIndex?)` | Returns all items from a given node. If `branchIndex` isn't given it will default to the output that connects `node-name` with the node where you use the expression or code. | ✅ |
-| `$("<node-name>").first(branchIndex?, runIndex?)` | The first item output by the given node. If `branchIndex` isn't given it will default to the output that connects `node-name` with the node where you use the expression or code. | ✅ |
-| `$("<node-name>").last(branchIndex?, runIndex?)` | The last item output by the given node. If `branchIndex` isn't given it will default to the output that connects `node-name` with the node where you use the expression or code. | ✅ |
-| `$("<node-name>").item` | The linked item. This is the item in the specified node used to produce the current item. Refer to [Item linking](link-data-items/README.md) for more information on item linking. | ✅ |
-| `$("<node-name>").item.binary` | Binary data from the linked item, keyed by binary property name (`data` by default). Refer to [`BinaryFile`](../transform-data/expression-reference/binaryfile.md) for the available properties. | ✅ |
-| `$("<node-name>").params` | Object containing the query settings of the given node. This includes data such as the operation it ran, result limits, and so on. | ✅ |
-| `$("<node-name>").context` | Boolean. Only available when working with the Loop Over Items node. Provides information about what's happening in the node. Use this to determine whether the node is still processing items. | ✅ |
-| `$("<node-name>").itemMatching(currentNodeInputIndex)` | Use instead of `$("<node-name>").item` in the Code node if you need to trace back from an input item. | ✅ |
+| `$("<node-name>").all(branchIndex?, runIndex?)` | 返回指定节点的所有数据项。未提供 `branchIndex` 时，默认使用连接 `node-name` 与当前表达式或代码所在节点的输出。 | ✅ |
+| `$("<node-name>").first(branchIndex?, runIndex?)` | 指定节点输出的第一个数据项。未提供 `branchIndex` 时，默认使用连接 `node-name` 与当前表达式或代码所在节点的输出。 | ✅ |
+| `$("<node-name>").last(branchIndex?, runIndex?)` | 指定节点输出的最后一个数据项。未提供 `branchIndex` 时，默认使用连接 `node-name` 与当前表达式或代码所在节点的输出。 | ✅ |
+| `$("<node-name>").item` | 关联的数据项，即指定节点中用于生成当前数据项的数据项。关联机制见[数据项关联](link-data-items/README.md)。 | ✅ |
+| `$("<node-name>").item.binary` | 关联数据项的二进制数据，以二进制属性名为键（默认为 `data`）。可用属性见 [`BinaryFile`](../transform-data/expression-reference/binaryfile.md)。 | ✅ |
+| `$("<node-name>").params` | 包含指定节点查询设置的对象，例如执行的操作、结果数量上限等。 | ✅ |
+| `$("<node-name>").context` | 布尔值，仅适用于 Loop Over Items 节点。提供节点运行状态，可用来判断节点是否仍在处理数据项。 | ✅ |
+| `$("<node-name>").itemMatching(currentNodeInputIndex)` | 在 Code 节点中需要从输入数据项回溯时，用它代替 `$("<node-name>").item`。 | ✅ |
 
-## Reference binary data from a previous node
+## 引用前面节点的二进制数据 <a id="reference-binary-data-from-a-previous-node"></a>
 
-`$('<node-name>').item` returns the whole [linked item](link-data-items/README.md), so you can read its binary data the same way you read its JSON data: use `.item.json` for the item's JSON object and `.item.binary` for its binary data (files, images, and other attachments).
+`$('<node-name>').item` 返回完整的[关联数据项](link-data-items/README.md)，因此读取二进制数据的方式与读取 JSON 类似：`.item.json` 用于该数据项的 JSON 对象，`.item.binary` 用于文件、图片和其他附件等二进制数据。
 
-An item can hold several binary properties, each under its own name, so `.item.binary` returns an object of those properties rather than a single value. Most nodes output binary data under the property name `data`, but the name depends on the upstream node. Each binary property is a `BinaryFile` with fields such as `fileName`, `mimeType`, and `fileExtension`.
+一个数据项可以包含多个二进制属性，每个属性都有自己的名称，因此 `.item.binary` 返回这些属性组成的对象，而非单个值。多数节点将二进制数据放在名为 `data` 的属性下，但具体名称取决于上游节点。每个二进制属性都是 `BinaryFile`，包含 `fileName`、`mimeType` 和 `fileExtension` 等字段。
 
-For example, to get the file name of the binary property `data` produced by an **HTTP Request** node:
+例如，要获取 **HTTP Request** 节点生成的 `data` 二进制属性的文件名：
 
 ```js
 {{ $('HTTP Request').item.binary.data.fileName }}
 ```
 
-For more about binary data and the nodes that produce it, refer to [Binary data](../handle-special-data-types/work-with-files-and-images.md).
+二进制数据及生成它的节点，详见[二进制数据](../handle-special-data-types/work-with-files-and-images.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Reference data](./)
-* [Use the UI mapper](use-the-ui-mapper.md)
-* [Link data items](link-data-items/README.md)
+* [引用数据](./)
+* [使用界面映射器](use-the-ui-mapper.md)
+* [关联数据项](link-data-items/README.md)

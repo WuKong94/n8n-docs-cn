@@ -1,88 +1,90 @@
 ---
-description: Compare expressions, the Code node, the AI Transform node, and data transformation nodes for working with data in n8n.
+description: 比较表达式、Code 节点、AI Transform 节点和数据转换节点在 n8n 中的数据处理方式。
 contentType: howto
-nodeTitle: Expressions versus data nodes
+nodeTitle: 表达式与数据节点
 originalFilePath: data/expressions.md
-originalUrl: 'https://docs.n8n.io/data/expressions'
-url: 'https://docs.n8n.io/build/work-with-data/expressions-versus-data-nodes'
+originalUrl: https://docs.n8n.io/data/expressions
+url: https://docs.n8n.io/build/work-with-data/expressions-versus-data-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Expressions versus data nodes <a href="#expressions-versus-data-nodes" id="expressions-versus-data-nodes"></a>
 
-n8n provides multiple ways to work with and transform data. Understanding when to use each approach helps you build efficient workflows.
+# 表达式与数据节点 <a href="#expressions-versus-data-nodes" id="expressions-versus-data-nodes"></a>
 
-| Approach	| Use when you need to... | Examples | Available on |
+n8n 提供多种数据处理和转换方式。了解各自适用场景，有助于构建高效工作流。
+
+| 方式 | 适用需求 | 示例 | 可用环境 |
 |---|---|---|---|
-| Expressions | Set a single parameter value using existing data | Pull `{{$json.city}}`, format dates, simple math | Cloud and Self-hosted |
-| Code node	| Write full JavaScript/Python for complex transformations | Restructure data, loop through items, use external libraries | Cloud and Self-hosted |
-| AI Transform node | Generate transformation code from natural language	| `Group by user and sum totals`, `categorize by sentiment`	| Cloud only |
-| Other data transformation nodes | Perform common operations with a visual interface | Aggregate items, split arrays, sort data, remove duplicates | Cloud and Self-hosted |
+| 表达式 | 使用已有数据设置单个参数值 | 获取 `{{$json.city}}`、格式化日期、简单计算 | Cloud 和自托管 |
+| Code 节点 | 编写完整 JavaScript/Python 进行复杂转换 | 重组数据、遍历数据项、使用外部库 | Cloud 和自托管 |
+| AI Transform 节点 | 根据自然语言生成转换代码 | `Group by user and sum totals`（按用户分组并求和）、`categorize by sentiment`（按情感分类） | 仅 Cloud |
+| 其他数据转换节点 | 通过可视化界面完成常见操作 | 聚合数据项、拆分数组、排序、去重 | Cloud 和自托管 |
 
-### Expressions <a href="#expressions" id="expressions"></a>
+### 表达式 <a href="#expressions" id="expressions"></a>
 
-Expressions are small pieces of JavaScript-like code you put directly into node parameters using n8n's `{{ ... }}` syntax. They can dynamically set parameter values by using data from previous nodes, workflow metadata, or environment variables.
+表达式是使用 n8n 的 `{{ ... }}` 语法，直接写在节点参数中的小段类似 JavaScript 的代码。它可以根据前面节点的数据、工作流元数据或环境变量动态设置参数值。
 
 {% hint style="info" %}
-**Use expressions when you can**
+**尽可能使用表达式**
 
-Expressions have the advantage of providing an immediate preview of the computed values, so use expressions where you can.
+表达式能即时预览计算结果，因此适用时应优先使用。
 {% endhint %}
 
-**When to use expressions:**
+**表达式的适用场景：**
 
-* To pull a value from previous node data. For example, `{{$json.body.city}}`.
-* To perform light transformations or calculations directly in a field.
-* To avoid adding extra nodes and to keep logic close to the parameter that you are setting.
+* 从前面节点的数据中提取值，例如 `{{$json.body.city}}`。
+* 直接在字段中进行轻量转换或计算。
+* 避免添加额外节点，让逻辑靠近要设置的参数。
 
-### Code node <a href="#code-node" id="code-node"></a>
+### Code 节点 <a href="#code-node" id="code-node"></a>
 
-The [Code node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.code) is a dedicated node where you write JavaScript or Python that runs as a workflow step. It gives you access to incoming data from previous nodes, which you can manipulate by adding, removing, or updating items. You can create any custom function you need and use n8n's built-in methods and variables through `$` syntax.
+[Code 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.code/README.md)专门用于编写 JavaScript 或 Python，并作为工作流步骤运行。可以访问前面节点传入的数据，通过添加、删除或更新数据项进行处理，也可以创建所需的自定义函数，并通过 `$` 语法使用 n8n 内置方法和变量。
 
-**When to use the Code node:**
+**Code 节点的适用场景：**
 
-* You need more complex logic or data transformation than an expression can provide, such as restructuring arrays and objects, aggregating or splitting items, and custom algorithms.
-* You want to transform many items at once.
-* You want to use promises, `console.log`, or, for self-hosted setups, external npm modules.
+* 需要比表达式更复杂的逻辑或转换，例如重组数组和对象、聚合或拆分数据项，以及自定义算法。
+* 希望一次转换多个数据项。
+* 希望使用 Promise、`console.log`，或在自托管环境中使用外部 npm 模块。
 
-### AI Transform node <a href="#ai-transform-node" id="ai-transform-node"></a>
+### AI Transform 节点 <a href="#ai-transform-node" id="ai-transform-node"></a>
 
-This node generates code snippets based on a short natural-language prompt. It's context-aware and understands your workflow's nodes and data types. The generated code is read-only in the node. You can copy it into a Code node to edit.
+此节点根据简短自然语言提示词生成代码片段，能够理解上下文、工作流节点和数据类型。生成的代码在节点中为只读，可复制到 Code 节点编辑。
 
-**When to use the AI Transform node:**
+**AI Transform 节点的适用场景：**
 
-* You know what transformation you want but don't want to hand-write the code.
-* You want AI to draft the transformation logic and then run it directly in the node, or copy into a Code node for further customization.
+* 清楚需要什么转换，但不想手写代码。
+* 希望 AI 起草转换逻辑，再直接在节点中运行，或复制到 Code 节点进一步定制。
 
-### Other data transformation nodes <a href="#other-data-transformation-nodes" id="other-data-transformation-nodes"></a>
+### 其他数据转换节点 <a href="#other-data-transformation-nodes" id="other-data-transformation-nodes"></a>
 
-n8n provides a collection of nodes to transform data:
+n8n 提供一系列数据转换节点：
 
-* [Aggregate](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.aggregate): take separate items, or portions of them, and group them together into individual items.
-* [Limit](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.limit): remove items beyond a defined maximum number.
-* [Remove Duplicates](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.removeduplicates): identify and delete items that are identical across all fields or a subset of fields.
-* [Sort](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.sort): organize lists in a desired ordering, or generate a random selection.
-* [Split Out](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.splitout): separate a single data item containing a list into multiple items.
-* [Summarize](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.summarize): aggregate items together, like Excel pivot tables.
+* [Aggregate](../../integrations/builtin/core-nodes/n8n-nodes-base.aggregate.md)：将多个独立数据项或其中部分内容聚合为单个数据项。
+* [Limit](../../integrations/builtin/core-nodes/n8n-nodes-base.limit.md)：移除超过指定最大数量的数据项。
+* [Remove Duplicates](../../integrations/builtin/core-nodes/n8n-nodes-base.removeduplicates/README.md)：识别并删除所有字段或部分字段相同的数据项。
+* [Sort](../../integrations/builtin/core-nodes/n8n-nodes-base.sort.md)：按所需顺序整理列表，或随机选择数据。
+* [Split Out](../../integrations/builtin/core-nodes/n8n-nodes-base.splitout.md)：将包含列表的单个数据项拆分为多个数据项。
+* [Summarize](../../integrations/builtin/core-nodes/n8n-nodes-base.summarize.md)：聚合数据项，类似 Excel 数据透视表。
 
-**When to use data transformation nodes:**
+**数据转换节点的适用场景：**
 
-* The operation you need matches a specific transformation node's purpose.
-* You want a no-code solution with a guided UI.
-* You prefer visual workflow building over writing expressions or code.
+* 需要的操作与某个专用转换节点的用途相符。
+* 希望使用带有引导界面的无代码方案。
+* 更喜欢可视化构建，而不是编写表达式或代码。
 
-See [Work with data](README.md) for other ways to reference, transform, and structure data.
+更多引用、转换和组织数据的方式，请参阅[处理数据](README.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Work with data](./)
-* [Understand n8n's data structure](understand-n8ns-data-structure.md)
-* [Reference data](reference-data/README.md)
-* [Transform data](transform-data/README.md)
-* [Filter out unwanted data](filter-out-unwanted-data.md)
-* [Pin and mock data](pin-and-mock-data.md)
-* [Handle special data types](handle-special-data-types/README.md)
-* [Data tables](data-tables.md)
+* [处理数据](./)
+* [理解 n8n 的数据结构](understand-n8ns-data-structure.md)
+* [引用数据](reference-data/README.md)
+* [转换数据](transform-data/README.md)
+* [过滤不需要的数据](filter-out-unwanted-data.md)
+* [固定和模拟数据](pin-and-mock-data.md)
+* [处理特殊数据类型](handle-special-data-types/README.md)
+* [数据表](data-tables.md)
 
