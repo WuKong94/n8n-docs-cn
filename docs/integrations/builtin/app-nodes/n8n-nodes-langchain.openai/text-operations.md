@@ -1,126 +1,123 @@
 ---
-title: OpenAI Text operations
-description: >-
-  Documentation for the Text operations in OpenAI node in n8n, a workflow
-  automation platform. Includes details of operations and configuration, and
-  links to examples and credentials information.
+title: OpenAI 文本操作
+description: 了解 n8n 工作流自动化平台中 OpenAI 节点的文本操作，包括操作及配置详情，以及示例和凭据信息链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: OpenAI Text operations
+nodeTitle: OpenAI 文本操作
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenAI Text operations <a href="#openai-text-operations" id="openai-text-operations"></a>
 
-Use this operation to message a model or classify text for violations in OpenAI. Refer to [OpenAI](README.md) for more information on the OpenAI node itself.
+# OpenAI 文本操作 <a href="#openai-text-operations" id="openai-text-operations"></a>
+
+这些操作用于向 OpenAI 模型发送消息，或对文本进行违规分类。有关 OpenAI 节点本身的更多信息，请参阅 [OpenAI](README.md)。
 
 {% hint style="info" %}
-**Previous node versions**
+**此前的节点版本**
 
-n8n 1.117.0 introduces the OpenAI node V2 that supports the OpenAI Responses API. It renames the 'Message a Model' operation to 'Generate a Chat Completion' to clarify its association with the Chat Completions API and introduces a separate 'Generate a Model Response' operation that uses the Responses API.
+n8n 1.117.0 引入了支持 OpenAI Responses API 的 OpenAI 节点 V2。它将“Message a Model”（向模型发送消息）操作重命名为“Generate a Chat Completion”（生成聊天补全），以明确其使用 Chat Completions API；同时新增独立的“Generate a Model Response”（生成模型响应）操作，使用 Responses API。
 {% endhint %}
 
-## Generate a Chat Completion <a href="#generate-a-chat-completion" id="generate-a-chat-completion"></a>
+## Generate a Chat Completion（生成聊天补全） <a href="#generate-a-chat-completion" id="generate-a-chat-completion"></a>
 
-Use this operation to send a message or prompt to an OpenAI model - using the Chat Completions API - and receive a response.
+此操作通过 Chat Completions API 向 OpenAI 模型发送消息或提示词，并接收响应。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [OpenAI credential](../../credentials/openai.md).
-- **Resource**: Select **Text**.
-- **Operation**: Select **Generate a Chat Completion**.
-- **Model**: Select the model you want to use. If you’re not sure which model to use, try `gpt-4o` if you need high intelligence or `gpt-4o-mini` if you need the fastest speed and lowest cost. Refer to [Models overview | OpenAI Platform](https://platform.openai.com/docs/models) for more information. 
-- **Messages**: Enter a **Text** prompt and assign a **Role** that the model will use to generate responses. Refer to [Prompt engineering | OpenAI](https://platform.openai.com/docs/guides/prompt-engineering) for more information on how to write a better prompt by using these roles. Choose from one of these roles: 
-    - **User**: Sends a message as a user and gets a response from the model. 
-    - **Assistant**: Tells the model to adopt a specific tone or personality. 
-    - **System**: By default, there is no system message. You can define instructions in the user message, but the instructions set in the system message are more effective. You can set more than one system message per conversation. Use this to set the model's behavior or context for the next user message. 
-- **Simplify Output**: Turn on to return a simplified version of the response instead of the raw data. 
-- **Output Content as JSON**: Turn on to attempt to return the response in JSON format. Compatible with `GPT-4 Turbo` and all `GPT-3.5 Turbo` models newer than `gpt-3.5-turbo-1106`.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [OpenAI 凭据](../../credentials/openai.md)。
+- **Resource**（资源）：选择 **Text**（文本）。
+- **Operation**（操作）：选择 **Generate a Chat Completion**（生成聊天补全）。
+- **Model**（模型）：选择要使用的模型。按原文给出的示例，需要较高智能水平时可选 `gpt-4o`，优先考虑速度和较低成本时可选 `gpt-4o-mini`。更多信息，请参阅[模型概览 | OpenAI Platform](https://platform.openai.com/docs/models)；这些模型名按原文版本保留。
+- **Messages**（消息）：输入 **Text**（文本）提示词，并指定模型生成响应时使用的 **Role**（角色）。有关如何借助这些角色编写更好的提示词，请参阅[提示词工程 | OpenAI](https://platform.openai.com/docs/guides/prompt-engineering)。可选择以下角色：
+    - **User**（用户）：以用户身份发送消息，并获取模型响应。
+    - **Assistant**（助手）：表示模型在此前交互中生成的消息。译注：原文将此角色描述为设置语气或个性；角色本身用于标记助手消息，整体行为应通过相应的指令角色设定。
+    - **System**（系统）：默认没有系统消息。可以在用户消息中定义指令，但系统消息中的指令更有效。每个会话可设置多条系统消息，用于设定模型行为，或为下一条用户消息提供上下文。
+- **Simplify Output**（简化输出）：开启后，返回简化响应，而不是原始数据。
+- **Output Content as JSON**（以 JSON 输出内容）：开启后，尝试以 JSON 格式返回响应。兼容 `GPT-4 Turbo`，以及 `GPT-3.5 Turbo` 系列中晚于 `gpt-3.5-turbo-1106` 的所有模型。
 
-### Options <a href="#options" id="options"></a>
+### 选项 <a href="#options" id="options"></a>
 
-- **Frequency Penalty**: Apply a penalty to reduce the model's tendency to repeat similar lines. The range is between `0.0` and `2.0`.
-- **Maximum Number of Tokens**: Set the maximum number of tokens for the response. One token is roughly four characters for standard English text. Use this to limit the length of the output. 
-- **Number of Completions**: Defaults to 1. Set the number of completions you want to generate for each prompt. Use carefully since setting a high number will quickly consume your tokens. 
-- **Presence Penalty**: Apply a penalty to influence the model to discuss new topics. The range is between `0.0` and `2.0`.
-- **Output Randomness (Temperature)**: Adjust the randomness of the response. The range is between `0.0` (deterministic) and `1.0` (maximum randomness). We recommend altering this or **Output Randomness (Top P)** but not both. Start with a medium temperature (around `0.7`) and adjust based on the outputs you observe. If the responses are too repetitive or rigid, increase the temperature. If they’re too chaotic or off-track, decrease it. Defaults to `1.0`. 
-- **Output Randomness (Top P)**: Adjust the Top P setting to control the diversity of the assistant's responses. For example, `0.5` means half of all likelihood-weighted options are considered. We recommend altering this or **Output Randomness (Temperature)** but not both. Defaults to `1.0`. 
+- **Frequency Penalty**（频率惩罚）：施加惩罚，降低模型重复类似语句的倾向，范围为 `0.0` 到 `2.0`。
+- **Maximum Number of Tokens**（最大 token 数）：设置响应的最大 token 数。在标准英文文本中，一个 token 约对应四个字符。可用此选项限制输出长度。
+- **Number of Completions**（补全数量）：默认值为 1。设置每个提示词要生成的补全数量。请谨慎设置，较大的数量会快速消耗 token。
+- **Presence Penalty**（存在惩罚）：施加惩罚，引导模型讨论新话题，范围为 `0.0` 到 `2.0`。
+- **Output Randomness (Temperature)**（输出随机性：温度）：调整响应的随机性，范围为 `0.0`（确定性）到 `1.0`（最大随机性）。原文建议只调整此项或 **Output Randomness (Top P)**，不要同时调整两者。可从中等温度（约 `0.7`）开始，再根据观察到的输出调整。如果响应过于重复或僵硬，可提高温度；如果过于混乱或偏离主题，可降低温度。默认值为 `1.0`。
+- **Output Randomness (Top P)**（输出随机性：Top P）：调整 Top P 以控制助手响应的多样性。例如，`0.5` 表示仅考虑按概率加权后累计占一半的候选项。原文建议只调整此项或 **Output Randomness (Temperature)**，不要同时调整两者。默认值为 `1.0`。
 
-Refer to [Chat Completions | OpenAI](https://platform.openai.com/docs/api-reference/chat) documentation for more information.
+更多信息，请参阅[聊天补全 | OpenAI](https://platform.openai.com/docs/api-reference/chat) 文档。
 
-## Generate a Model Response <a href="#generate-a-model-response" id="generate-a-model-response"></a>
+## Generate a Model Response（生成模型响应） <a href="#generate-a-model-response" id="generate-a-model-response"></a>
 
-Use this operation to send a message or prompt to an OpenAI model - using the Responses API - and receive a response.
+此操作通过 Responses API 向 OpenAI 模型发送消息或提示词，并接收响应。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [OpenAI credential](../../credentials/openai.md).
-- **Resource**: Select **Text**.
-- **Operation**: Select **Generate a Model Response**.
-- **Model**: Select the model you want to use. Refer to [Models overview | OpenAI Platform](https://platform.openai.com/docs/models) for an overview. 
-- **Messages**: Choose from one of these a **Message Types**:
-    - **Text**: Enter a **Text** prompt and assign a **Role** that the model will use to generate responses. Refer to [Prompt engineering | OpenAI](https://platform.openai.com/docs/guides/prompt-engineering) for more information on how to write a better prompt by using these roles. 
-    - **Image**: Provide an **Image** either through an Image URL, a File ID (using the [OpenAI Files API](https://platform.openai.com/docs/api-reference/files)) or by passing binary data from an earlier node in your workflow.
-    - **File**: Provide a **File** in a supported format (currently: PDF only), either through a File URL, a File ID (using the [OpenAI Files API](https://platform.openai.com/docs/api-reference/files)) or by passing binary data from an earlier node in your workflow.
-    - For any message type, you can choose from one of these roles: 
-        - **User**: Sends a message as a user and gets a response from the model. 
-        - **Assistant**: Tells the model to adopt a specific tone or personality. 
-        - **System**: By default, the system message is `"You are a helpful assistant"`. You can define instructions in the user message, but the instructions set in the system message are more effective. You can only set one system message per conversation. Use this to set the model's behavior or context for the next user message.
-- **Simplify Output**: Turn on to return a simplified version of the response instead of the raw data. 
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [OpenAI 凭据](../../credentials/openai.md)。
+- **Resource**（资源）：选择 **Text**（文本）。
+- **Operation**（操作）：选择 **Generate a Model Response**（生成模型响应）。
+- **Model**（模型）：选择要使用的模型，概览请参阅[模型概览 | OpenAI Platform](https://platform.openai.com/docs/models)。
+- **Messages**（消息）：选择以下任一种 **Message Types**（消息类型）：
+    - **Text**（文本）：输入 **Text**（文本）提示词，并指定模型生成响应时使用的 **Role**（角色）。有关如何借助这些角色编写更好的提示词，请参阅[提示词工程 | OpenAI](https://platform.openai.com/docs/guides/prompt-engineering)。
+    - **Image**（图片）：通过图片 URL、文件 ID（使用 [OpenAI Files API](https://platform.openai.com/docs/api-reference/files)），或工作流前序节点传入的二进制数据，提供 **Image**（图片）。
+    - **File**（文件）：提供受支持格式的 **File**（文件，本页所述节点版本仅支持 PDF）。可以使用文件 URL、文件 ID（通过 [OpenAI Files API](https://platform.openai.com/docs/api-reference/files)），或工作流前序节点传入的二进制数据。
+    - 对于任意消息类型，都可以选择以下角色之一：
+        - **User**（用户）：以用户身份发送消息，并获取模型响应。
+        - **Assistant**（助手）：表示模型在此前交互中生成的消息。译注：原文将此角色描述为设置语气或个性；角色本身用于标记助手消息，整体行为应通过相应的指令角色设定。
+        - **System**（系统）：默认系统消息为 `"You are a helpful assistant"`。可以在用户消息中定义指令，但系统消息中的指令更有效。本操作中，每个会话只能设置一条系统消息，用于设定模型行为，或为下一条用户消息提供上下文。
+- **Simplify Output**（简化输出）：开启后，返回简化响应，而不是原始数据。
 
-### Built-in Tools <a href="#built-in-tools" id="built-in-tools"></a>
-The OpenAI Responses API provides a range of [built-in tools](https://platform.openai.com/docs/guides/tools) to enrich the model's response:
+### 内置工具 <a href="#built-in-tools" id="built-in-tools"></a>
+OpenAI Responses API 提供多种[内置工具](https://platform.openai.com/docs/guides/tools)，用于丰富模型响应：
 
-- **Web Search**: Allows models to search the web for the latest information before generating a response.
-- **MCP Servers**: Allows models to connect to remote MCP servers. Find out more about [using remote MCP servers as tools](https://platform.openai.com/docs/guides/tools-connectors-mcp).
-- **File Search**: Allow models to search your knowledgebase from previously uploaded files for relevant information before generating a response. Refer to the [OpenAI documentation](https://platform.openai.com/docs/guides/tools-file-search) for more information.
-- **Code Interpreter**: Allows models to write and run Python code in a sandboxed environment.
+- **Web Search**（网页搜索）：允许模型在生成响应前搜索网页，获取最新信息。
+- **MCP Servers**（MCP 服务器）：允许模型连接远程 MCP 服务器。更多信息，请参阅[将远程 MCP 服务器用作工具](https://platform.openai.com/docs/guides/tools-connectors-mcp)。
+- **File Search**（文件搜索）：允许模型在生成响应前，从此前上传文件构成的知识库中搜索相关信息。更多信息，请参阅 [OpenAI 文档](https://platform.openai.com/docs/guides/tools-file-search)。
+- **Code Interpreter**（代码解释器）：允许模型在沙盒环境中编写并运行 Python 代码。
 
-### Options <a href="#options" id="options"></a>
+### 选项 <a href="#options" id="options"></a>
 
-- **Maximum Number of Tokens**: Set the maximum number of tokens for the response. One token is roughly four characters for standard English text. Use this to limit the length of the output. 
-- **Output Randomness (Temperature)**: Adjust the randomness of the response. The range is between `0.0` (deterministic) and `1.0` (maximum randomness). We recommend altering this or **Output Randomness (Top P)** but not both. Start with a medium temperature (around `0.7`) and adjust based on the outputs you observe. If the responses are too repetitive or rigid, increase the temperature. If they’re too chaotic or off-track, decrease it. Defaults to `1.0`. 
-- **Output Randomness (Top P)**: Adjust the Top P setting to control the diversity of the assistant's responses. For example, `0.5` means half of all likelihood-weighted options are considered. We recommend altering this or **Output Randomness (Temperature)** but not both. Defaults to `1.0`.
-- **Conversation ID**: The conversation that this response belongs to. Input items and output items from this response are automatically added to this conversation after this response completes.
-- **Previous Response ID**: The ID of the previous response to continue from. Can't be used in conjunction with Conversation ID.
-- **Reasoning**: The level of reasoning effort the model should spend to generate the response. Includes the ability to return a **Summary** of the reasoning performed by the model (for example, for debugging purposes).
-- **Store**: Whether to store the generated model response for later retrieval via API. Defaults to `true`.
-- **Output Format**: Whether to return the response as **Text**, in a specified **JSON Schema** or as a **JSON Object**.
-- **Background**: Whether to run the model in [background mode](https://platform.openai.com/docs/guides/background). This allows executing long-running tasks more reliably.
+- **Maximum Number of Tokens**（最大 token 数）：设置响应的最大 token 数。在标准英文文本中，一个 token 约对应四个字符。可用此选项限制输出长度。
+- **Output Randomness (Temperature)**（输出随机性：温度）：调整响应的随机性，范围为 `0.0`（确定性）到 `1.0`（最大随机性）。原文建议只调整此项或 **Output Randomness (Top P)**，不要同时调整两者。可从中等温度（约 `0.7`）开始，再根据观察到的输出调整。如果响应过于重复或僵硬，可提高温度；如果过于混乱或偏离主题，可降低温度。默认值为 `1.0`。
+- **Output Randomness (Top P)**（输出随机性：Top P）：调整 Top P 以控制助手响应的多样性。例如，`0.5` 表示仅考虑按概率加权后累计占一半的候选项。原文建议只调整此项或 **Output Randomness (Temperature)**，不要同时调整两者。默认值为 `1.0`。
+- **Conversation ID**（会话 ID）：此响应所属的会话。响应完成后，其输入项和输出项会自动添加到该会话。
+- **Previous Response ID**（前一个响应 ID）：要从中继续交互的前一个响应的 ID，不能与 Conversation ID 同时使用。
+- **Reasoning**（推理）：模型为生成响应所投入的推理强度。可返回模型推理过程的 **Summary**（摘要），例如用于调试。
+- **Store**（存储）：是否存储生成的模型响应，以便后续通过 API 获取。默认值为 `true`。
+- **Output Format**（输出格式）：选择将响应返回为 **Text**（文本）、指定的 **JSON Schema**，或 **JSON Object**（JSON 对象）。
+- **Background**（后台）：是否以[后台模式](https://platform.openai.com/docs/guides/background)运行模型，使长时间运行的任务能够更可靠地执行。
 
-Refer to [Responses | OpenAI](https://platform.openai.com/docs/api-reference/responses/create) documentation for more information.
+更多信息，请参阅[响应 | OpenAI](https://platform.openai.com/docs/api-reference/responses/create) 文档。
 
-## Classify Text for Violations <a href="#classify-text-for-violations" id="classify-text-for-violations"></a>
+## Classify Text for Violations（对文本进行违规分类） <a href="#classify-text-for-violations" id="classify-text-for-violations"></a>
 
-Use this operation to identify and flag content that might be harmful. OpenAI model will analyze the text and return a response containing:
+此操作用于识别并标记可能有害的内容。OpenAI 模型会分析文本，并返回包含以下内容的响应：
 
-- `flagged`: A boolean field indicating if the content is potentially harmful.
-- `categories`: A list of category-specific violation flags.
-- `category_scores`: Scores for each category.
+- `flagged`：布尔字段，表示内容是否可能有害。
+- `categories`：各分类的违规标记列表。
+- `category_scores`：各分类的分数。
 
-Enter these parameters:
+填写以下参数：
 
-- **Credential to connect with**: Create or select an existing [OpenAI credential](../../credentials/openai.md).
-- **Resource**: Select **Text**.
-- **Operation**: Select **Classify Text for Violations**.
-- **Text Input**: Enter text to classify if it violates the moderation policy. 
-- **Simplify Output**: Turn on to return a simplified version of the response instead of the raw data.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [OpenAI 凭据](../../credentials/openai.md)。
+- **Resource**（资源）：选择 **Text**（文本）。
+- **Operation**（操作）：选择 **Classify Text for Violations**（对文本进行违规分类）。
+- **Text Input**（文本输入）：输入要判断是否违反审核政策的文本。
+- **Simplify Output**（简化输出）：开启后，返回简化响应，而不是原始数据。
 
-### Options <a href="#options" id="options"></a>
+### 选项 <a href="#options" id="options"></a>
 
-- **Use Stable Model**: Turn on to use the stable version of the model instead of the latest version, accuracy may be slightly lower.
+- **Use Stable Model**（使用稳定模型）：开启后，使用稳定版模型，而不是最新版，准确率可能略低。
 
-Refer to [Moderations | OpenAI](https://platform.openai.com/docs/api-reference/moderations) documentation for more information.
+更多信息，请参阅[内容审核 | OpenAI](https://platform.openai.com/docs/api-reference/moderations) 文档。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common errors or issues and suggested resolution steps, refer to [Common Issues](common-issues.md).
+常见错误或问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。

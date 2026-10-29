@@ -1,98 +1,95 @@
 ---
-title: OpenAI Image operations
-description: >-
-  Documentation for the Image operations in OpenAI node in n8n, a workflow
-  automation platform. Includes details of operations and configuration, and
-  links to examples and credentials information.
+title: OpenAI 图片操作
+description: 了解 n8n 工作流自动化平台中 OpenAI 节点的图片操作，包括操作及配置详情，以及示例和凭据信息链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: OpenAI Image operations
+nodeTitle: OpenAI 图片操作
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenAI Image operations <a href="#openai-image-operations" id="openai-image-operations"></a>
 
-Use this operation to analyze or generate an image in OpenAI. Refer to [OpenAI](README.md) for more information on the OpenAI node itself.
+# OpenAI 图片操作 <a href="#openai-image-operations" id="openai-image-operations"></a>
 
-## Analyze Image <a href="#analyze-image" id="analyze-image"></a>
+这些操作用于在 OpenAI 中分析或生成图片。有关 OpenAI 节点本身的更多信息，请参阅 [OpenAI](README.md)。
 
-Use this operation to take in images and answer questions about them.
+## Analyze Image（分析图片） <a href="#analyze-image" id="analyze-image"></a>
 
-Enter these parameters:
+此操作接收图片，并回答与图片有关的问题。
 
-- **Credential to connect with**: Create or select an existing [OpenAI credential](../../credentials/openai.md).
-- **Resource**: Select **Image**.
-- **Operation**: Select **Analayze Image**.
-- **Model**: Select the model you want to use to analyze an image. 
-- **Text Input**: Ask a question about the image.
-- **Input Type**: Select how you'd like to input the image. Options include:
-    - **Image URL(s)**: Enter the **URL(s)** of the image(s) to analyze. Add multiple URLs in a comma-separated list.
-    - **Binary File(s)**: Enter the name of the binary property which contains the image(s) in the **Input Data Field Name**.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [OpenAI 凭据](../../credentials/openai.md)。
+- **Resource**（资源）：选择 **Image**（图片）。
+- **Operation**（操作）：选择 **Analyze Image**（分析图片）。
+- **Model**（模型）：选择要用于分析图片的模型。
+- **Text Input**（文本输入）：输入针对图片的问题。
+- **Input Type**（输入类型）：选择图片的输入方式，可选：
+    - **Image URL(s)**（图片 URL）：输入要分析的图片的 **URL(s)**（URL），多个 URL 以逗号分隔。
+    - **Binary File(s)**（二进制文件）：在 **Input Data Field Name**（输入数据字段名称）中填写包含图片的二进制属性名称。
 
-- **Detail**: Specify the balance between response time versus token usage. 
-- **Length of Description (Max Tokens)**: Defaults to 300. Fewer tokens will result in shorter, less detailed image description.
+### 选项 <a href="#options" id="options"></a>
 
-Refer to [Images | OpenAI](https://platform.openai.com/docs/api-reference/images) documentation for more information.
+- **Detail**（详细程度）：指定响应时间与 token 用量之间的平衡。
+- **Length of Description (Max Tokens)**（描述长度：最大 token 数）：默认值为 300。token 越少，生成的图片描述越短，细节也越少。
 
-## Generate an Image <a href="#generate-an-image" id="generate-an-image"></a>
+更多信息，请参阅[图片 | OpenAI](https://platform.openai.com/docs/api-reference/images) 文档。
 
-Use this operation to create an image from a text prompt.
+## Generate an Image（生成图片） <a href="#generate-an-image" id="generate-an-image"></a>
 
-Enter these parameters:
+此操作用于根据文本提示词创建图片。
 
-- **Credential to connect with**: Create or select an existing [OpenAI credential](../../credentials/openai.md).
-- **Resource**: Select **Image**.
-- **Operation**: Select **Generate an Image**.
-- **Model**: Select the model you want to use to generate an image. 
-- **Prompt**: Enter the text description of the desired image(s). The maximum length is 1000 characters for `dall-e-2` and 4000 characters for `dall-e-3`.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [OpenAI 凭据](../../credentials/openai.md)。
+- **Resource**（资源）：选择 **Image**（图片）。
+- **Operation**（操作）：选择 **Generate an Image**（生成图片）。
+- **Model**（模型）：选择要用于生成图片的模型。
+- **Prompt**（提示词）：输入所需图片的文本描述。对于 `dall-e-2`，最多 1000 个字符；对于 `dall-e-3`，最多 4000 个字符。
 
-- **Quality**: The quality of the image you generate. **HD** creates images with finer details and greater consistency across the image. This option is only supported for `dall-e-3`. Otherwise, choose **Standard**.
-- **Resolution**: Select the resolution of the generated images. Select **1024x1024** for `dall-e-2`. Select one of **1024x1024**, **1792x1024**, or **1024x1792** for `dall-e-3` models.
-- **Style**: Select the style of the generated images. This option is only supported for `dall-e-3`. 
-    - **Natural**: Use this to produce more natural looking images.
-    - **Vivid**: Use this to produce hyper-real and dramatic images.
-- **Respond with image URL(s)**: Whether to return image URL(s) instead of binary file(s).
-- **Put Output in Field**: Defaults to `data`. Enter the name of the output field to put the binary file data in. Only available if **Respond with image URL(s)** is turned off.
+### 选项 <a href="#options" id="options"></a>
 
-Refer to [Create image | OpenAI](https://platform.openai.com/docs/api-reference/images/create) documentation for more information.
+- **Quality**（质量）：生成图片的质量。**HD**（高清）可生成细节更丰富、整体一致性更高的图片，仅 `dall-e-3` 支持此选项。其他情况选择 **Standard**（标准）。
+- **Resolution**（分辨率）：选择生成图片的分辨率。`dall-e-2` 选择 **1024x1024**；`dall-e-3` 模型可选择 **1024x1024**、**1792x1024** 或 **1024x1792**。
+- **Style**（风格）：选择生成图片的风格，仅 `dall-e-3` 支持此选项。
+    - **Natural**（自然）：生成外观更自然的图片。
+    - **Vivid**（鲜明）：生成具有超写实感和戏剧效果的图片。
+- **Respond with image URL(s)**（返回图片 URL）：选择是否返回图片 URL，而不是二进制文件。
+- **Put Output in Field**（输出字段）：默认值为 `data`。输入用于存放二进制文件数据的输出字段名称，仅在关闭 **Respond with image URL(s)**（返回图片 URL）时可用。
 
-## Edit an Image <a href="#edit-an-image" id="edit-an-image"></a>
+更多信息，请参阅[创建图片 | OpenAI](https://platform.openai.com/docs/api-reference/images/create) 文档。
 
-Use this operation to edit an image from a text prompt.
+## Edit an Image（编辑图片） <a href="#edit-an-image" id="edit-an-image"></a>
 
-Enter these parameters:
+此操作用于根据文本提示词编辑图片。
 
-- **Credential to connect with**: Create or select an existing [OpenAI credential](../../credentials/openai.md).
-- **Resource**: Select **Image**.
-- **Operation**: Select **Edit Image**.
-- **Model**: Select the model you want to use to generate an image. Supports `dall-e-2` and `gpt-image-1`.
-- **Prompt**: Enter the text description of the desired edits to the input image(s).
-- **Image(s)**: Add one or more binary fields to include images with your prompt. Each image should be a png, webp, or jpg file less than 50MB. You can provide up to 16 images.
-- **Number of Images**: The number of images to generate. Must be between 1 and 10.
-- **Size**: The size and dimensions of the generated images (in px).
-- **Quality**: The quality of the image that will be generated (auto, low, medium, high, standard). Only supported for `gpt-image-1`.
-- **Output Format**: The format in which the generated images are returned (png, webp, or jpg). Only supported for gpt-image-1.
-- **Output Compression**: The compression level (0-100%) for the generated images. Only supported for `gpt-image-1` with webp or jpeg output formats.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
-- **Background**: Allows to set transparency for the background of the generated image(s). Only supported for `gpt-image-1`.
-- **Input Fidelity**: Control how much effort the model will exert to match the style and features of input images. Only supported for `gpt-image-1`.
-- **Image Mask**: Name of the binary property that contains the image. A second image whose fully transparent areas (for example, where alpha is zero) shows where the image should be edited. If there are multiple images provided, the mask will be applied on the first image. Must be a valid PNG file, less than 4MB, and have the same dimensions as image.
-- **User**: A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [OpenAI 凭据](../../credentials/openai.md)。
+- **Resource**（资源）：选择 **Image**（图片）。
+- **Operation**（操作）：选择 **Edit Image**（编辑图片）。
+- **Model**（模型）：选择用于生成编辑结果的模型。支持 `dall-e-2` 和 `gpt-image-1`。
+- **Prompt**（提示词）：输入希望对原始图片进行哪些编辑的文本描述。
+- **Image(s)**（图片）：添加一个或多个二进制字段，将图片与提示词一起传入。每张图片必须是小于 50MB 的 png、webp 或 jpg 文件，最多可提供 16 张图片。
+- **Number of Images**（图片数量）：要生成的图片数量，必须在 1 到 10 之间。
+- **Size**（尺寸）：生成图片的大小和尺寸，单位为 px。
+- **Quality**（质量）：生成图片的质量，可选 auto、low、medium、high、standard。仅 `gpt-image-1` 支持。
+- **Output Format**（输出格式）：生成图片的返回格式，可选 png、webp 或 jpg。仅 gpt-image-1 支持。
+- **Output Compression**（输出压缩）：生成图片的压缩级别（0-100%），仅 `gpt-image-1` 在使用 webp 或 jpeg 输出格式时支持。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+### 选项 <a href="#options" id="options"></a>
+- **Background**（背景）：设置生成图片的背景透明度，仅 `gpt-image-1` 支持。
+- **Input Fidelity**（输入保真度）：控制模型为匹配输入图片的风格和特征投入多少努力，仅 `gpt-image-1` 支持。
+- **Image Mask**（图片遮罩）：填写包含遮罩图片的二进制属性名称。遮罩是第二张图片，其中完全透明的区域（例如 alpha 为零的区域）表示需要编辑的位置。如果提供多张输入图片，遮罩会应用于第一张图片。遮罩必须是有效的 PNG 文件，小于 4MB，且与原图尺寸相同。
+- **User**（用户）：代表最终用户的唯一标识符，可帮助 OpenAI 监控和检测滥用。
 
-For common errors or issues and suggested resolution steps, refer to [Common Issues](common-issues.md).
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+常见错误或问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。

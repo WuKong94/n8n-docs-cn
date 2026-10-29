@@ -1112,5 +1112,120 @@
     ],
     "scope": "仅澄清简介中创建证书的表述与该版本节点操作列表不一致，保留完整操作列表和全部链接，不推断其他版本能力，不调用 AWS API、不创建或续期证书。",
     "source_sha256": "e8112e06fc5b26a08d0e403c8609633d034eafefebe97adb88e2213305f2eb32"
+  },
+  {
+    "id": "openai-overview-assistants-retirement-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/README.md",
+    "original_sentence": "The OpenAI node V2 is available from n8n 1.117.0. It supports the OpenAI Responses API, and removes support for [the Assistants API, which OpenAI has announced plans to retire](https://platform.openai.com/docs/assistants/migration).",
+    "translated_sentence": "从 n8n 1.117.0 起可使用 OpenAI 节点 V2。它支持 OpenAI Responses API，并移除了对 [Assistants API](https://platform.openai.com/docs/assistants/migration) 的支持，原文将后者描述为 OpenAI 已宣布计划退役的接口。译注：核对时，OpenAI 官方文档已明确 Assistants API 于 2026 年 8 月 26 日停用；本文保留的助手内容属于旧版节点说明。",
+    "evidence": "2026-10-30 核对的 OpenAI 官方迁移文档明确 Assistants API 于 2026-08-26 停用，而锁定原文仍表述为计划退役。保留原文版本、V2 引入时间、移除支持的事实与原链接，添加带来源的停用译注，将助手内容限定为旧版节点说明。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/README.md",
+      "https://developers.openai.com/api/docs/guides/migrate-to-responses"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "9956571c156cb113fa2f30eb1eff1c8d81ba28e9fddf3d6909dc5d189f577e47"
+  },
+  {
+    "id": "openai-assistant-operations-retirement-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/assistant-operations.md",
+    "original_sentence": "Assistant operations are deprecated in OpenAI node V2, introduced in n8n 1.117.0. OpenAI node V2 supports the OpenAI Responses API, and removes support for the [to-be-deprecated Assistants API](https://platform.openai.com/docs/assistants/migration).",
+    "translated_sentence": "n8n 1.117.0 引入的 OpenAI 节点 V2 已弃用助手操作。V2 支持 OpenAI Responses API，并移除了对 [Assistants API](https://platform.openai.com/docs/assistants/migration) 的支持，原文将后者描述为即将弃用的接口。译注：核对时，OpenAI 官方文档已明确 Assistants API 于 2026 年 8 月 26 日停用；以下保留为旧版节点操作说明，不代表该接口仍可使用。",
+    "evidence": "与总览相同，助手操作页仍称 Assistants API 即将弃用；官方文档在核对时已明确其停用。保留旧版操作全文、原始模型 ID 与链接，不将旧操作当作 V2 或当前可用接口，不自动替换为 Responses 参数。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/assistant-operations.md",
+      "https://developers.openai.com/api/docs/guides/migrate-to-responses"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "22c3a32b8d821aeb4f45614c2f252838d3a23312754731e0714360dbe6e1e282"
+  },
+  {
+    "id": "openai-audio-temperature-top-p-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/audio-operations.md",
+    "original_sentence": "- **Output Randomness (Temperature)**: Defaults to `1.0`. Adjust the randomness of the response. The range is between `0.0` (deterministic) and `1.0` (maximum randomness). We recommend altering this or **Output Randomness (Top P)** but not both. Start with a medium temperature (around 0.7) and adjust based on the outputs you observe. If the responses are too repetitive or rigid, increase the temperature. If they’re too chaotic or off-track, decrease it. ",
+    "translated_sentence": "- **Output Randomness (Temperature)**（输出随机性：温度）：默认值为 `1.0`。调整响应的随机性，范围为 `0.0`（确定性）到 `1.0`（最大随机性）。原文建议只调整此项或 **Output Randomness (Top P)**，不要同时调整两者；但本页此音频操作的选项未列出 Top P。原文建议从中等温度（约 0.7）开始，根据输出调整：过于重复或僵硬时提高温度，过于混乱或偏离主题时降低温度。",
+    "evidence": "转写和翻译录音的温度字段沿用建议在 Temperature 与 Top P 二选一的说明，但本页这两个音频操作均未列出 Top P 选项。译文保留原文建议与全部默认值、范围，并明确本页未列出该选项；不推断其他版本、端点或界面一定不支持此参数。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/audio-operations.md"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "4ea78312e6780e3e2142650f1312cb71b065e65125d7f9da991f70350fcddb49"
+  },
+  {
+    "id": "openai-audio-translation-reference-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/audio-operations.md",
+    "original_sentence": "Refer to [Create transcription | OpenAI](https://platform.openai.com/docs/api-reference/audio/createTranscription) documentation for more information.",
+    "translated_sentence": "原文在此引用[创建转写 | OpenAI](https://platform.openai.com/docs/api-reference/audio/createTranscription) 文档。译注：该链接说明转写；本节音频翻译对应的接口为 /audio/translations，返回英文文本。",
+    "evidence": "Translate a Recording 的参考文字与 URL 指向转写，而 OpenAI Create translation 明确 /audio/translations 返回英文。保留原始转写链接并说明其用途，正文点明本节翻译接口及英文输出，不将返回语言改为中文，也不升级所用模型。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/audio-operations.md",
+      "https://developers.openai.com/api/reference/resources/audio/subresources/translations/methods/create"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "4ea78312e6780e3e2142650f1312cb71b065e65125d7f9da991f70350fcddb49"
+  },
+  {
+    "id": "openai-file-introduction-operation-objects",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/file-operations.md",
+    "original_sentence": "Use this operation to create, delete, list, message, or update a file in OpenAI. Refer to [OpenAI](README.md) for more information on the OpenAI node itself.",
+    "translated_sentence": "这些操作用于在 OpenAI 中删除、列出和上传文件。有关 OpenAI 节点本身的更多信息，请参阅 [OpenAI](README.md)。",
+    "evidence": "文件页简介沿用创建、删除、列出、发消息和更新的助手操作动词；同页操作仅 Delete a File、List Files、Upload a File。译文按本页实际操作明确为删除、列出和上传文件，不向文件发送消息。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/file-operations.md"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "fd480e81c40a4c695811e6b5170573a78d2208c712c27fd9adb7d76be3bfef72"
+  },
+  {
+    "id": "openai-file-upload-size-and-token-limits",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/file-operations.md",
+    "original_sentence": "- **Input Data Field Name**: Defaults to `data`. Enter the name of the binary property which contains the file. The size of individual files can be a maximum of 512 MB or 2 million tokens for Assistants.",
+    "translated_sentence": "- **Input Data Field Name**（输入数据字段名称）：默认值为 `data`。输入包含文件的二进制属性名称。单个文件最大 512 MB；对于原文所述的旧版 Assistants 用途，还需满足 200 万 token 的上限。译注：文件大小和 token 数是同时适用的不同限制，不能任选其一。",
+    "evidence": "OpenAI Upload file 分别规定单文件最大 512 MB 及 Assistants 文件 2 million tokens 上限，两者不是可任选其一的替代条件。译文明确同时适用，并将 2 million 等值写为 200 万，Assistants 用途限定为原文旧版语境。保留二进制字段默认值及原代码。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/file-operations.md",
+      "https://developers.openai.com/api/reference/resources/files/methods/create"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "fd480e81c40a4c695811e6b5170573a78d2208c712c27fd9adb7d76be3bfef72"
+  },
+  {
+    "id": "openai-image-analyze-operation-spelling",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations.md",
+    "original_sentence": "- **Operation**: Select **Analayze Image**.",
+    "translated_sentence": "- **Operation**（操作）：选择 **Analyze Image**（分析图片）。",
+    "evidence": "Operation 误拼为 Analayze Image；同页 Analyze Image 标题及 OpenAI 总览操作链接均拼作 Analyze Image。只修正此处界面操作名，保留资源、模型、参数与英文锚点。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations.md"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "65f45ffadb73d09f8be5b4e7a88fc709b0fa20ccca06c321c76840fb458af04f"
+  },
+  {
+    "id": "openai-text-assistant-message-role",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations.md",
+    "original_sentence": "    - **Assistant**: Tells the model to adopt a specific tone or personality. ",
+    "translated_sentence": "    - **Assistant**（助手）：表示模型在此前交互中生成的消息。译注：原文将此角色描述为设置语气或个性；角色本身用于标记助手消息，整体行为应通过相应的指令角色设定。",
+    "evidence": "Chat Completions 与 Responses 两处 Assistant 角色被描述为设置语气或人格。官方 ChatCompletionAssistantMessageParam 定义为模型响应用户时发送的消息；同批会话文档也说明 assistant 被视为先前模型生成的消息。两处译文明确角色含义并以译注指出原文误述，不把 Assistant 改成 System 或更改实际角色枚举。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations.md",
+      "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "58abf7b03b2f6a5550a5efe85642e2b9d1a39f6b665046375ee725e30d635010"
+  },
+  {
+    "id": "openai-video-duration-api-values-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/video-operations.md",
+    "original_sentence": "- **Seconds**: Clip duration in seconds (up to 25).",
+    "translated_sentence": "- **Seconds**（秒数）：片段时长，单位为秒，原文给出的上限为 25。译注：实际请求须使用模型及其 API 支持的时长值，不能据此推断上限以内任意秒数都受支持。",
+    "evidence": "原文 Seconds 只给出最多 25 秒，不能据此推断任意秒数均可作为 API 值。官方 Sora 指南将时长列为独立 API 参数，归档的 Sora 2 指南还列出离散支持值。译文保留原文 25 上限，要求使用所选模型/API 支持的值，不用归档指南的另一上限覆盖节点文档，不扩展模型能力。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-langchain.openai/video-operations.md",
+      "https://developers.openai.com/api/docs/guides/video-generation",
+      "https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide"
+    ],
+    "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
+    "source_sha256": "020528f0c1af736fefb14d95fc033b66ea6091f4f1e6326d1d91775f2f1bb28e"
   }
 ]

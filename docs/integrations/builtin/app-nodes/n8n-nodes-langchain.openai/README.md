@@ -1,107 +1,109 @@
 ---
-title: OpenAI node documentation
-description: >-
-  Learn how to use the OpenAI node in n8n. Follow technical documentation to
-  integrate OpenAI node into your workflows.
+title: OpenAI 节点
+description: 了解如何在 n8n 中使用 OpenAI 节点，并将其集成到工作流。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 search:
   boost: 3
 nodeTitle: n8n-nodes-langchain.openai
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-langchain.openai/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.openai
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenAI node <a href="#openai-node" id="openai-node"></a>
+
+# OpenAI 节点 <a href="#openai-node" id="openai-node"></a>
 
 {% hint style="info" %}
-On n8n Cloud, you can use the OpenAI node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own OpenAI API key. Select **Use Gateway credits** in the node's credential field to run the node without an OpenAI account.
+在 n8n Cloud 中，可以使用 [Gateway 额度](../../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 OpenAI 节点，无需提供自己的 OpenAI API 密钥。在节点的凭据字段中选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 OpenAI 账户的情况下运行节点。
 {% endhint %}
 
-Use the OpenAI node to automate work in OpenAI and integrate OpenAI with other applications. n8n has built-in support for a wide range of OpenAI features, including creating images and assistants, as well as chatting with models. 
+使用 OpenAI 节点自动处理 OpenAI 中的工作，并将其与其他应用集成。n8n 内置支持多种 OpenAI 功能，包括创建图片和助手，以及与模型对话。
 
-On this page, you'll find a list of operations the OpenAI node supports and links to more resources.
+本页列出了 OpenAI 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用性**
 
-The OpenAI node V2 is available from n8n 1.117.0. It supports the OpenAI Responses API, and removes support for [the Assistants API, which OpenAI has announced plans to retire](https://platform.openai.com/docs/assistants/migration).
+从 n8n 1.117.0 起可使用 OpenAI 节点 V2。它支持 OpenAI Responses API，并移除了对 [Assistants API](https://platform.openai.com/docs/assistants/migration) 的支持，原文将后者描述为 OpenAI 已宣布计划退役的接口。译注：核对时，OpenAI 官方文档已明确 Assistants API 于 2026 年 8 月 26 日停用；本文保留的助手内容属于旧版节点说明。
 
-From n8n 1.29.0, the OpenAI node replaces the OpenAI assistant node.
+从 n8n 1.29.0 起，OpenAI 节点取代 OpenAI assistant 节点。
 {% endhint %}
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [OpenAI credentials](../../credentials/openai.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [OpenAI 凭据](../../credentials/openai.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-- **Text**
-	- [**Generate a Chat Completion**](text-operations.md#generate-a-chat-completion)
-	- [**Generate a Model Response**](text-operations.md#generate-a-model-response)
-	- [**Classify Text for Violations**](text-operations.md#classify-text-for-violations)
-- **Image**
-	- [**Analyze Image**](image-operations.md#analyze-image)
-	- [**Generate an Image**](image-operations.md#generate-an-image)
-	- [**Edit an Image**](image-operations.md#edit-an-image)
-- **Audio**
-	- [**Generate Audio**](audio-operations.md#generate-audio)
-	- [**Transcribe a Recording**](audio-operations.md#transcribe-a-recording)
-	- [**Translate a Recording**](audio-operations.md#translate-a-recording)
-- **File**
-	- [**Delete a File**](file-operations.md#delete-a-file)
-	- [**List Files**](file-operations.md#list-files)
-	- [**Upload a File**](file-operations.md#upload-a-file)
-- **Video**
-	- [**Generate a Video**](video-operations.md#generate-video)
-- **Conversation**
-	- [**Create a Conversation**](conversation-operations.md#create-a-conversation)
-	- [**Get a Conversation**](conversation-operations.md#get-a-conversation)
-	- [**Update a Conversation**](conversation-operations.md#update-a-conversation)
-	- [**Remove a Conversation**](conversation-operations.md#remove-a-conversation)
-
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+- **Text**（文本）
+    - [**Generate a Chat Completion**](text-operations.md#generate-a-chat-completion)（生成聊天补全）
+    - [**Generate a Model Response**](text-operations.md#generate-a-model-response)（生成模型响应）
+    - [**Classify Text for Violations**](text-operations.md#classify-text-for-violations)（对文本进行违规分类）
+- **Image**（图片）
+    - [**Analyze Image**](image-operations.md#analyze-image)（分析图片）
+    - [**Generate an Image**](image-operations.md#generate-an-image)（生成图片）
+    - [**Edit an Image**](image-operations.md#edit-an-image)（编辑图片）
+- **Audio**（音频）
+    - [**Generate Audio**](audio-operations.md#generate-audio)（生成音频）
+    - [**Transcribe a Recording**](audio-operations.md#transcribe-a-recording)（转写录音）
+    - [**Translate a Recording**](audio-operations.md#translate-a-recording)（翻译录音）
+- **File**（文件）
+    - [**Delete a File**](file-operations.md#delete-a-file)（删除文件）
+    - [**List Files**](file-operations.md#list-files)（列出文件）
+    - [**Upload a File**](file-operations.md#upload-a-file)（上传文件）
+- **Video**（视频）
+    - [**Generate a Video**](video-operations.md#generate-video)（生成视频）
+- **Conversation**（会话）
+    - [**Create a Conversation**](conversation-operations.md#create-a-conversation)（创建会话）
+    - [**Get a Conversation**](conversation-operations.md#get-a-conversation)（获取会话）
+    - [**Update a Conversation**](conversation-operations.md#update-a-conversation)（更新会话）
+    - [**Remove a Conversation**](conversation-operations.md#remove-a-conversation)（移除会话）
 
 
-[Browse n8n-nodes-langchain.openai integration templates](https://n8n.io/integrations/openai) or [search all templates](https://n8n.io/workflows/)
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
 
-Refer to [OpenAI's documentation](https://beta.openai.com/docs/introduction) for more information about the service.
+[浏览 n8n-nodes-langchain.openai 集成模板](https://n8n.io/integrations/openai)，或[搜索所有模板](https://n8n.io/workflows/)
 
-Refer to [OpenAI's assistants documentation](https://platform.openai.com/docs/assistants/how-it-works/objects) for more information about how assistants work.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-For help dealing with rate limits, refer to [Handling rate limits](../../handle-rate-limits.md).
+有关该服务的更多信息，请参阅 [OpenAI 文档](https://beta.openai.com/docs/introduction)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+有关助手工作方式的更多信息，请参阅 [OpenAI 助手文档](https://platform.openai.com/docs/assistants/how-it-works/objects)。
 
-## Using tools with OpenAI assistants <a href="#using-tools-with-openai-assistants" id="using-tools-with-openai-assistants"></a>
+有关速率限制的处理方法，请参阅[处理速率限制](../../handle-rate-limits.md)。
 
-Some operations allow you to connect tools. [Tools](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/understand-ai-components/how-tools-work) act like addons that your AI can use to access extra context or resources.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
-Select the **Tools** connector to browse the available tools and add them.
+## 为 OpenAI 助手使用工具 <a href="#using-tools-with-openai-assistants" id="using-tools-with-openai-assistants"></a>
 
-Once you add a tool connection, the OpenAI node becomes a [root node](#user-content-fn-1)[^1], allowing it to form a [cluster node](#user-content-fn-2)[^2] with the tools sub-nodes[^3]. See [Node types](../../node-types.md#cluster-nodes) for more information on cluster nodes and root nodes.
+部分操作允许连接工具。[工具](../../../../build/integrate-ai/understand-ai-components/how-tools-work.md)类似于扩展组件，可供 AI 访问额外的上下文或资源。
 
-### Operations that support tool connectors <a href="#operations-that-support-tool-connectors" id="operations-that-support-tool-connectors"></a>
+选择 **Tools**（工具）连接器，可浏览可用工具并添加。
 
-- **Text**
-	- [**Generate a Chat Completion**](text-operations.md#generate-a-chat-completion)
-	- [**Generate a Model Response**](text-operations.md#generate-a-model-response)
+添加工具连接后，OpenAI 节点会成为[根节点](#user-content-fn-1)[^1]，从而与工具子节点[^3]组成一个[集群节点](#user-content-fn-2)[^2]。有关集群节点和根节点的更多信息，请参阅[节点类型](../../node-types.md#cluster-nodes)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+### 支持工具连接器的操作 <a href="#operations-that-support-tool-connectors" id="operations-that-support-tool-connectors"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+- **Text**（文本）
+    - [**Generate a Chat Completion**](text-operations.md#generate-a-chat-completion)（生成聊天补全）
+    - [**Generate a Model Response**](text-operations.md#generate-a-model-response)（生成模型响应）
 
-[^1]: Each n8n cluster node contains a single root node that defines the main functionality of the cluster. One or more sub-nodes attach to the root node to extend its functionality.
-[^2]: In n8n, cluster nodes are groups of nodes that work together to provide functionality in a workflow. They consist of a root node and one or more sub-nodes that extend the node's functionality.
-[^3]: n8n cluster nodes consist of one or more sub-nodes connected to a root node. Sub-nodes extend the functionality of the root node, providing access to specific services or resources or offering specific types of dedicated processing, like calculator functionality, for example.
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+常见疑问或问题及建议的解决方法，请参阅[常见问题](common-issues.md)。
+
+<a id="user-content-fn-1"></a>
+[^1]: 每个 n8n 集群节点包含一个根节点，用于定义集群的主要功能。一个或多个子节点连接到根节点，以扩展其功能。
+<a id="user-content-fn-2"></a>
+[^2]: 在 n8n 中，集群节点是协同为工作流提供功能的一组节点，由根节点和一个或多个扩展其功能的子节点组成。
+[^3]: n8n 集群节点由根节点及连接到它的一个或多个子节点组成。子节点扩展根节点的功能，可用于访问特定服务或资源，或提供计算器等专用处理能力。

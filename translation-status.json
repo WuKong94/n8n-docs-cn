@@ -15617,5 +15617,116 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/README.md": {
+    "status": "translated",
+    "source_sha256": "9956571c156cb113fa2f30eb1eff1c8d81ba28e9fddf3d6909dc5d189f577e47",
+    "translation_sha256": "6f538a3dc7763d7294b95f350466f6217bae062b3dac13f074f3aee43375bd6e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "openai-overview-assistants-retirement-source-note"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/assistant-operations.md": {
+    "status": "translated",
+    "source_sha256": "22c3a32b8d821aeb4f45614c2f252838d3a23312754731e0714360dbe6e1e282",
+    "translation_sha256": "fe56a5cbc1c7c0bb2286bf5461a10d45bff5819723708b718fef8f2c4a10eb78",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "openai-assistant-operations-retirement-source-note"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/audio-operations.md": {
+    "status": "translated",
+    "source_sha256": "4ea78312e6780e3e2142650f1312cb71b065e65125d7f9da991f70350fcddb49",
+    "translation_sha256": "e2791f7cbeb41d8c9606fadfb088426afc0fa8337c01892818183a52e6e8a1bd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "openai-audio-temperature-top-p-source-note",
+      "openai-audio-translation-reference-source-note"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/conversation-operations.md": {
+    "status": "translated",
+    "source_sha256": "9af5c9c8d50952754fe9a7b247de24abc83c321e798c16b6f3aa925b3c092e77",
+    "translation_sha256": "20fb8b2742f1b4f4d6ba551e9cbe32e0187d71c8ccee90f304694f377116f6c4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/file-operations.md": {
+    "status": "translated",
+    "source_sha256": "fd480e81c40a4c695811e6b5170573a78d2208c712c27fd9adb7d76be3bfef72",
+    "translation_sha256": "14d105cd39731af4b2cd5d6457646c5f5a0fa6bc0b376eb76dfcca016a9b375a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "openai-file-introduction-operation-objects",
+      "openai-file-upload-size-and-token-limits"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/image-operations.md": {
+    "status": "translated",
+    "source_sha256": "65f45ffadb73d09f8be5b4e7a88fc709b0fa20ccca06c321c76840fb458af04f",
+    "translation_sha256": "6dfa85cb27eb3f59f14b5192dfe803dabbc80c17c584d3ff2208b19c026fa969",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "openai-image-analyze-operation-spelling"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/text-operations.md": {
+    "status": "translated",
+    "source_sha256": "58abf7b03b2f6a5550a5efe85642e2b9d1a39f6b665046375ee725e30d635010",
+    "translation_sha256": "867467c13038913105f7b5c2cca723c026011d0704343ae611b6a0a96296ea43",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "openai-text-assistant-message-role"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.openai/video-operations.md": {
+    "status": "translated",
+    "source_sha256": "020528f0c1af736fefb14d95fc033b66ea6091f4f1e6326d1d91775f2f1bb28e",
+    "translation_sha256": "f115b55b19965aaf56b32f5139880e0ab601270928f2e754d96bc2808534113a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "openai-video-duration-api-values-source-note"
+    ]
   }
 }
