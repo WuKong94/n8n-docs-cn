@@ -16582,5 +16582,2656 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "connect/n8n-api/audit.md": {
+    "status": "translated",
+    "source_sha256": "dd56c4940c9389fef1a799ce307a75384bd13105239590f9af82b02ea3942fa1",
+    "translation_sha256": "03cc0d47a78c799c83c193d9c92e6193c146808e99a48bb309e257eedcfc276e",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "b128109e77c3440a51802d6fc6ab134c2482ddb3a56ad5b7b8264ac729f70b0a",
+        "translation_sha256": "abab9ea3c9cdd69b50706ddd8c7b6ee55439b680fac1cd895df0fd691e6f0547",
+        "structure_sha256": "70edcbc00199a7dc4187f4aa44efd72c4b044bf3138c7662852e05b4e17c1127",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "2f2cc9c4fa6ab4343bdcfcd355a15db449350bcc94271b30af3ec6fe37ad45d4",
+            "translation_sha256": "235a15269d76c74c4308e51c1118f1522da16e5af4da694684bc5f71f9ba84ae"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/idempotencyKey/description",
+            "source_sha256": "724411562d13af5b08f04e691a01eecf3ceaaec414169db193500654b0743112",
+            "translation_sha256": "e328b0225fa6e6713371d1c6bdfe075a7adfd331f8fe4cf0fb407336c77a6c89"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/components/responses/unprocessableEntity/description",
+            "source_sha256": "9dc5d1e9eed0ca55f8d7a819fd374fa8287fd7081bf5d688e68b81e45bace396",
+            "translation_sha256": "1972f3aaadbf943ebe2fae45a939614ad9dac1bf630958eebe8381463ee56bc8"
+          },
+          {
+            "pointer": "/components/responses/internalServerError/description",
+            "source_sha256": "f8d0e720590d5bf2c6ba31cc9783ad2074a08ed795bbf81c224e1661078ccfaa",
+            "translation_sha256": "04c4c6fd806ed58668e4593918e55e5fa8bca6e4f20b659be9bd970cfc996aac"
+          },
+          {
+            "pointer": "/paths/~1audit/post/summary",
+            "source_sha256": "789ffb30aa642b9bf5c25f5f75da4b03bea9b6d0d10b07a7f75a3b209d4d96fa",
+            "translation_sha256": "b8f01ff015b3f0d7919e0c4bde4c9593187e14e3b9ab61c70bab2fb09d5eb8aa"
+          },
+          {
+            "pointer": "/paths/~1audit/post/description",
+            "source_sha256": "63217de5d0bf19b4dc98ecda7c9cd705acf67717755d4d5627a989d24ba9f3ff",
+            "translation_sha256": "5871ca2d20825d59e8697e99583f71f6b20f51dcc313682c76828796273cbd84"
+          },
+          {
+            "pointer": "/paths/~1audit/post/requestBody/content/application~1json/schema/properties/additionalOptions/properties/daysAbandonedWorkflow/description",
+            "source_sha256": "0c4cb18be278d8f30360778a6eec542a65da33c14ef77b0a061419caae6b1775",
+            "translation_sha256": "44d69ae676d87bbe443ea76d9734964accfb893bc25f63d24da4a995f144124d"
+          },
+          {
+            "pointer": "/paths/~1audit/post/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/community-package.md": {
+    "status": "translated",
+    "source_sha256": "46292ecbb46b03e653d3a62b913a230806250e1db7cbcb2251dea76c5c2b80e9",
+    "translation_sha256": "c19dda7c38db506009b23db738d08baa64bf7ea465e7887baf9b869fdfffc162",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "9a6ef57aeec7b718f2920ae2d2ea9cc91b3070e43ff196b6b3bb5a2ea5b91fa1",
+        "translation_sha256": "8e9c070f98e9aaae70075107f3159e102f744776b39b32755c3e523fbb209d80",
+        "structure_sha256": "aca670efc8aa920c1dc36d93e2818fc99a2ea23a5a4db142ea16db43edcfcbf0",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "683424eb050e5f2e72826c0ed4b9631ab746ba0974fb3b0e4b37448a952cf402",
+            "translation_sha256": "2e6511be04a27b78e191c97e21fb77c1e3eb17a3185220e66b4ba1a9f98795d3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/summary",
+            "source_sha256": "2749b912571d5cd28b977d883cec7dfcbaed766e002fe8356dbe8cd841277a0f",
+            "translation_sha256": "68a576a4586604793805ca0ce8a9b289b647aa4aa03282cba8ad488366d64827"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/description",
+            "source_sha256": "2b3ba80decd54b82d18a431fb934ccdf86f63f0aa19d5b406d4d9cca84a04c32",
+            "translation_sha256": "538ce9e68ecd218cd63036329127325ddfa4fe2f0da7e4280817b336d026c8fc"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/content/application~1json/schema/items/properties/packageName/description",
+            "source_sha256": "c2256bd4ce5c86bccd9bd11c770607f64380dba9c2109681694d862544edde9a",
+            "translation_sha256": "c738f94d9406de600edf4df9a78c3ce89dcba1d2d2cd6d1acc9c9fea1363c50b"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/content/application~1json/schema/items/properties/installedVersion/description",
+            "source_sha256": "64fe7aea3773eaff7b664c890a4f215f6951114f9febf2947e7877c45c72d28f",
+            "translation_sha256": "93b9de217e48e57b69d3e5410a4432304739c414cb8f199fbfc445a8f9cfdc0e"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/content/application~1json/schema/items/properties/authorName/description",
+            "source_sha256": "2bc1b401b487de189f787e31ac560121bda4d6772e35a6f385a743ba8bd15c44",
+            "translation_sha256": "582bdc9d193df778793d4f9760c1d52ed9ebed9b254613f04f1ebea26bc48137"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/content/application~1json/schema/items/properties/authorEmail/description",
+            "source_sha256": "df40987ac8affd31462720e7e123a4f17a0aa333cc3433967496277ff7fe0675",
+            "translation_sha256": "3e7de5bab89407c9d9da47f3b064208dcb8a76aaadecd31b6adf0f131247d1b9"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/content/application~1json/schema/items/properties/installedNodes/description",
+            "source_sha256": "0267bf93e3cf87f005994c3ab6e20246dfe4ec590be64146943e726e1d5918da",
+            "translation_sha256": "b31a7b18c03e9d9f6d0b4e52ebe2488525bbec8cb17c1f3bc39a259a42dfbe22"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/content/application~1json/schema/items/properties/updateAvailable/description",
+            "source_sha256": "74765c0549e579fbd1176e7855d1cc387cb87f516ede3fe0dee98e7998537340",
+            "translation_sha256": "304379dec167a5a73bc2bb6b37e764a76e2f03ac7945c9f0bfea7b56ad3bea1a"
+          },
+          {
+            "pointer": "/paths/~1community-packages/get/responses/200/content/application~1json/schema/items/properties/failedLoading/description",
+            "source_sha256": "46d890050f5bc49df49ae68ed8ab15d892f14fa4543b3358835eb5dd54218821",
+            "translation_sha256": "74ebe311da7d07d70475f67af903f7f90ad69b471ed466365da10faef29ed71d"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "9d3520dc5bb0e18ae802876de99ab818e345c1f421474017939859a4e4ff82a3",
+        "translation_sha256": "dfcbcb6b90b5b082264c8486f98887f5bb0c610a8c8aa3000c6d1d21c686d907",
+        "structure_sha256": "d9790751b55830041ca6f42d44005cc9b94cd18014af865971441e14aca082cf",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "683424eb050e5f2e72826c0ed4b9631ab746ba0974fb3b0e4b37448a952cf402",
+            "translation_sha256": "2e6511be04a27b78e191c97e21fb77c1e3eb17a3185220e66b4ba1a9f98795d3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/idempotencyKey/description",
+            "source_sha256": "724411562d13af5b08f04e691a01eecf3ceaaec414169db193500654b0743112",
+            "translation_sha256": "e328b0225fa6e6713371d1c6bdfe075a7adfd331f8fe4cf0fb407336c77a6c89"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/components/responses/unprocessableEntity/description",
+            "source_sha256": "9dc5d1e9eed0ca55f8d7a819fd374fa8287fd7081bf5d688e68b81e45bace396",
+            "translation_sha256": "1972f3aaadbf943ebe2fae45a939614ad9dac1bf630958eebe8381463ee56bc8"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/summary",
+            "source_sha256": "3218c47ec864322cdbe10191f6161ecdcf6ff5062e4686c7c70f52bfd9eeebac",
+            "translation_sha256": "a26cdf3841fd865a1471834c562ccafff0d7a91a7a74c2d503e2b81bca49d618"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/description",
+            "source_sha256": "700cdaab025d5673df6dd291a8f9363ae27de413d7b62fe51b5da413ca4750ca",
+            "translation_sha256": "92a8d379e1f2cc728ccb2090346c99aac2aa23ae34129ef93a5e3b9023de4b50"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/requestBody/content/application~1json/schema/properties/name/description",
+            "source_sha256": "6e002a280cb27900f4a9e33c1030f6496e3e691cbbd570e2c35ad03f990de193",
+            "translation_sha256": "8c7082d40450f687761fae63085d40a98cf0404a97f78a9e2c06f7294c147287"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/requestBody/content/application~1json/schema/properties/version/description",
+            "source_sha256": "8134cbd44bb63aabf60e499e190d4e3380565ba11b287d52ff0f7f457d9cfb08",
+            "translation_sha256": "7b00e436809147e385835d60ed0cf6b98a16bb7fbeead92ba4b8e944208025c6"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/packageName/description",
+            "source_sha256": "c2256bd4ce5c86bccd9bd11c770607f64380dba9c2109681694d862544edde9a",
+            "translation_sha256": "c738f94d9406de600edf4df9a78c3ce89dcba1d2d2cd6d1acc9c9fea1363c50b"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/installedVersion/description",
+            "source_sha256": "64fe7aea3773eaff7b664c890a4f215f6951114f9febf2947e7877c45c72d28f",
+            "translation_sha256": "93b9de217e48e57b69d3e5410a4432304739c414cb8f199fbfc445a8f9cfdc0e"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/authorName/description",
+            "source_sha256": "2bc1b401b487de189f787e31ac560121bda4d6772e35a6f385a743ba8bd15c44",
+            "translation_sha256": "582bdc9d193df778793d4f9760c1d52ed9ebed9b254613f04f1ebea26bc48137"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/authorEmail/description",
+            "source_sha256": "df40987ac8affd31462720e7e123a4f17a0aa333cc3433967496277ff7fe0675",
+            "translation_sha256": "3e7de5bab89407c9d9da47f3b064208dcb8a76aaadecd31b6adf0f131247d1b9"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/installedNodes/description",
+            "source_sha256": "0267bf93e3cf87f005994c3ab6e20246dfe4ec590be64146943e726e1d5918da",
+            "translation_sha256": "b31a7b18c03e9d9f6d0b4e52ebe2488525bbec8cb17c1f3bc39a259a42dfbe22"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/updateAvailable/description",
+            "source_sha256": "74765c0549e579fbd1176e7855d1cc387cb87f516ede3fe0dee98e7998537340",
+            "translation_sha256": "304379dec167a5a73bc2bb6b37e764a76e2f03ac7945c9f0bfea7b56ad3bea1a"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/failedLoading/description",
+            "source_sha256": "46d890050f5bc49df49ae68ed8ab15d892f14fa4543b3358835eb5dd54218821",
+            "translation_sha256": "74ebe311da7d07d70475f67af903f7f90ad69b471ed466365da10faef29ed71d"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/policyRestrictions/properties/nodeTypes/items/properties/type/description",
+            "source_sha256": "ded9a87e9832d11be71231c46c9ebc1569b105051c1383465dcb5cab7a9bd2a6",
+            "translation_sha256": "6ef58f02f006b081daa6bf7f63e5e5c3bc2110f26774ce17b5b476d38fcd5032"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/policyRestrictions/properties/nodeTypes/items/properties/blockedOn/description",
+            "source_sha256": "3264117c270838b02d85aaba0754c7710b95cd45b6cc5818bb35de37b3788e87",
+            "translation_sha256": "ca9faae88506fe9eaef44562f9bbedd06732ec364f3e01d9f9d37b1506999797"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/policyRestrictions/properties/nodeTypes/items/properties/optInAvailable/description",
+            "source_sha256": "8a058c89a112d8d41eb8385707cd673c805a01c8ef898da912a515b065c871aa",
+            "translation_sha256": "73c87ab500473cad1fdee77967f09a9e14334ef984226a9fd2eead54132ac1f9"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/policyRestrictions/properties/nodeTypes/description",
+            "source_sha256": "1709a46e180675ed7c103caa9a996257a67cb3828c13e5aa0e0599ae614d4ea6",
+            "translation_sha256": "905ccb5945d95f14472ba7bd7b72e369ab9164116de4beb9921e02a7682fbd7b"
+          },
+          {
+            "pointer": "/paths/~1community-packages/post/responses/200/content/application~1json/schema/properties/policyRestrictions/description",
+            "source_sha256": "3e3220e3c2a0078f087de5069e40a043d8b6be7109a5f1ee453299aac05c8fb9",
+            "translation_sha256": "67292e65e2f84479758bf29fd10210258dd74b147c2e89d2195e74285d206ada"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "86f39a3c64112571258174aadd32727cd9121b9c988f30e65cf4191052a177bf",
+        "translation_sha256": "3579dabdaa91be66d2d2dfd5e67bd5839d93df78562fec56d6dc6795e3645a15",
+        "structure_sha256": "4e578b30ed57b71baef5a2d3656b12822e11125d9d6b76d93fe77be6beb8657f",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "683424eb050e5f2e72826c0ed4b9631ab746ba0974fb3b0e4b37448a952cf402",
+            "translation_sha256": "2e6511be04a27b78e191c97e21fb77c1e3eb17a3185220e66b4ba1a9f98795d3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/delete/summary",
+            "source_sha256": "cc22c5964e962dd8ad10c5c1d2ad9b99802e9ef9c8c006394e9808a369fafd28",
+            "translation_sha256": "f4a06cd807854f996dad7ce267975712aed06c478643973dfb6e05d967119bc3"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/delete/description",
+            "source_sha256": "a2794b13fe248ff061b8ad365bebeb1977206fff6813d2af42bef0683238c498",
+            "translation_sha256": "0e06231f47bdb3c94bc7a12943eec49254aeed8364a6bd89d694cecccc39d21e"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/delete/parameters/0/description",
+            "source_sha256": "c2256bd4ce5c86bccd9bd11c770607f64380dba9c2109681694d862544edde9a",
+            "translation_sha256": "c738f94d9406de600edf4df9a78c3ce89dcba1d2d2cd6d1acc9c9fea1363c50b"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/delete/responses/204/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "8b9a8d26e4b76a00a75cca8092034369781815330d08e40f08dc59c27cb0f050",
+        "translation_sha256": "ce75e48465145e6529ae4b7e455af8a25c8e40ebabce5f83b4604c56f7aa9846",
+        "structure_sha256": "feda4429992eafcb741b0a471a80eed7a282552617cac7d8623d9632405dcf6b",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "683424eb050e5f2e72826c0ed4b9631ab746ba0974fb3b0e4b37448a952cf402",
+            "translation_sha256": "2e6511be04a27b78e191c97e21fb77c1e3eb17a3185220e66b4ba1a9f98795d3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/summary",
+            "source_sha256": "f6aba4ebfea8dffa124d0a0459ec723a86360a62992a34afc6992e509f3fbfd0",
+            "translation_sha256": "091eada1fd85d180539b1e5e9acec6272f3331aa9deba222b875deb1afb3c502"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/description",
+            "source_sha256": "5b79eb7bbd6c70aa160e006445fb960e0fe623e68ef3978cbb0c16c11f4ffb30",
+            "translation_sha256": "d5b9e48af7300997b7615443023dbc695182a05189e98591a0ec513ceb32799d"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/parameters/0/description",
+            "source_sha256": "c2256bd4ce5c86bccd9bd11c770607f64380dba9c2109681694d862544edde9a",
+            "translation_sha256": "c738f94d9406de600edf4df9a78c3ce89dcba1d2d2cd6d1acc9c9fea1363c50b"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/requestBody/content/application~1json/schema/properties/version/description",
+            "source_sha256": "0b069bdde0c9a6d1a2d2c0789e259fa12cb0b42330215836e32d0c3e7c73fd04",
+            "translation_sha256": "e89f165cb35b4bcaf962a4511b5cc78a1210f580fa49d7ac0708e991389d7c00"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/content/application~1json/schema/properties/packageName/description",
+            "source_sha256": "c2256bd4ce5c86bccd9bd11c770607f64380dba9c2109681694d862544edde9a",
+            "translation_sha256": "c738f94d9406de600edf4df9a78c3ce89dcba1d2d2cd6d1acc9c9fea1363c50b"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/content/application~1json/schema/properties/installedVersion/description",
+            "source_sha256": "64fe7aea3773eaff7b664c890a4f215f6951114f9febf2947e7877c45c72d28f",
+            "translation_sha256": "93b9de217e48e57b69d3e5410a4432304739c414cb8f199fbfc445a8f9cfdc0e"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/content/application~1json/schema/properties/authorName/description",
+            "source_sha256": "2bc1b401b487de189f787e31ac560121bda4d6772e35a6f385a743ba8bd15c44",
+            "translation_sha256": "582bdc9d193df778793d4f9760c1d52ed9ebed9b254613f04f1ebea26bc48137"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/content/application~1json/schema/properties/authorEmail/description",
+            "source_sha256": "df40987ac8affd31462720e7e123a4f17a0aa333cc3433967496277ff7fe0675",
+            "translation_sha256": "3e7de5bab89407c9d9da47f3b064208dcb8a76aaadecd31b6adf0f131247d1b9"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/content/application~1json/schema/properties/installedNodes/description",
+            "source_sha256": "0267bf93e3cf87f005994c3ab6e20246dfe4ec590be64146943e726e1d5918da",
+            "translation_sha256": "b31a7b18c03e9d9f6d0b4e52ebe2488525bbec8cb17c1f3bc39a259a42dfbe22"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/content/application~1json/schema/properties/updateAvailable/description",
+            "source_sha256": "74765c0549e579fbd1176e7855d1cc387cb87f516ede3fe0dee98e7998537340",
+            "translation_sha256": "304379dec167a5a73bc2bb6b37e764a76e2f03ac7945c9f0bfea7b56ad3bea1a"
+          },
+          {
+            "pointer": "/paths/~1community-packages~1{name}/patch/responses/200/content/application~1json/schema/properties/failedLoading/description",
+            "source_sha256": "46d890050f5bc49df49ae68ed8ab15d892f14fa4543b3358835eb5dd54218821",
+            "translation_sha256": "74ebe311da7d07d70475f67af903f7f90ad69b471ed466365da10faef29ed71d"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/discover.md": {
+    "status": "translated",
+    "source_sha256": "00d39c37a01a36d47cb80fb599205592616ac34a8ec41b1f7fd60a7ee4c81be2",
+    "translation_sha256": "c855e6b2a4d8397ee1df3794c8b7593d813b199844f595aafa405e7f0d89aef5",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "872aada57240f7ec6f1df157671b086807837aa36cf474fbfcfada090304d3c4",
+        "translation_sha256": "12b59abff06c5668214126151d0167c6e78edecf1305a4815a8d7c8e4fb668ec",
+        "structure_sha256": "f58b847d1985de2a4615572927966a810ce276e42b3533dc8f49726678ab5c38",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "b6b9bf2eb60fad6b208ec0b788d7c994939ef511fb15268b0ad7de87af01d966",
+            "translation_sha256": "3f90fc270129812539f1910de380ecddcb6bf207684ac14f912a99e37fda0ef8"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/paths/~1discover/get/summary",
+            "source_sha256": "ccd236fc3a02cf9e1d8160d5896c6fb19e8ef7475323af69acc6533d5106bc08",
+            "translation_sha256": "54bde2b179073dced1f1f832b68b07530285aece7a9587912baf638d918d1a7e"
+          },
+          {
+            "pointer": "/paths/~1discover/get/description",
+            "source_sha256": "4ecc30db9218b0f66b5034c3b2cb6fbebf25705f510a63609266c6a74bc02e6b",
+            "translation_sha256": "e3adfe3bf2f3750b8febb2b8b87399d6995a29a4a4cfeb634e7043d605819b30"
+          },
+          {
+            "pointer": "/paths/~1discover/get/parameters/0/schema/description",
+            "source_sha256": "0e90ae55d6643f834ac460c9165fb9543a76bf63b4a6d04a18cc7e37f63b069f",
+            "translation_sha256": "39e39e6ab4ae841f22bedeadd83fd40493c251d278e2f440509e359531ce050f"
+          },
+          {
+            "pointer": "/paths/~1discover/get/parameters/1/schema/description",
+            "source_sha256": "62769b4277727922c4d0b19a05212dc8c913589f4430b8e3bdfa37e60587a590",
+            "translation_sha256": "46323eb028841c03aedb0e0ab08f409a54b9e233b67036dea37f21b31f93a8b7"
+          },
+          {
+            "pointer": "/paths/~1discover/get/parameters/2/schema/description",
+            "source_sha256": "5262d51262e8c7c3523dbc1b61864860c481da3d2cc095a7cec76b2a40a9ede6",
+            "translation_sha256": "f9b0c6f9ea0c89ef85e43caa5814727cb44db7077b2664455fedf344fafa30d6"
+          },
+          {
+            "pointer": "/paths/~1discover/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1discover/get/responses/200/content/application~1json/schema/properties/data/properties/scopes/description",
+            "source_sha256": "43e0cd0afc8719c73ca05fd6ac5c4d0ef24917c3054b16399253d5bc8d6330a5",
+            "translation_sha256": "bd3391f0cea9b4f3e724ab3ec98dab5d122dd20843051170888995b2a6bd5cf2"
+          },
+          {
+            "pointer": "/paths/~1discover/get/responses/200/content/application~1json/schema/properties/data/properties/resources/additionalProperties/properties/endpoints/items/properties/requestSchema/description",
+            "source_sha256": "5c633634e8aea9e9c5ceb34917d38c1c7675669c4d474cad57d1333b0fc047eb",
+            "translation_sha256": "b2121d4f775914629e8c14dc7b235caec94e244473a5084e0b1e9af5559edc15"
+          },
+          {
+            "pointer": "/paths/~1discover/get/responses/200/content/application~1json/schema/properties/data/properties/filters/description",
+            "source_sha256": "be8238d817d04966890201171f72ce676b8f2c78da691871aebc6f9754ec1df8",
+            "translation_sha256": "7681890082f7cae0842649dc3a4f6cccd9a9ffdc40adec78dc6555b47fe1f729"
+          },
+          {
+            "pointer": "/paths/~1discover/get/responses/200/content/application~1json/schema/properties/data/properties/specUrl/description",
+            "source_sha256": "c770abdeaa43e7510b2c1e608df892b37cb6d06612bc037672fd3e6486bacb5a",
+            "translation_sha256": "5d0880b61e71bc08d92dad36c1a2b190360ec7f5b6a5603b9b06e2642724a2bf"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/insights.md": {
+    "status": "translated",
+    "source_sha256": "64ce4db2b1cfe3b76679c3579d518a28c5118e37347ed98ebfe2809518192d4a",
+    "translation_sha256": "b2eb6dfa7e94a8e5f421f878a4fa9ef854c148b7d664646198369955a0897d44",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "e61b024f8adb0d44dcc298b4b4c3867ce1ba2937e6c0d9e108877c2e22632840",
+        "translation_sha256": "cf40a8d9c1adba06388d26db0308b14c4d9fa33b0de407931bf0d83623dccf50",
+        "structure_sha256": "5dd8d03aa11cd1580ffe97798aa9a95ac54cc7272822f6eaccc1ddd4d8c7066e",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "5c24bbbcb1d57856fc772ef18ed7fc8db0db6267fb2f03dc3054ea0fa4875ee9",
+            "translation_sha256": "31fac722b7ecedaa8b0ba472dd45cc3ec1468fed821eb655da3b6434b1b25430"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/paths/~1insights~1summary/get/summary",
+            "source_sha256": "4177ee777ef7782457f9599cf5c6c2f3bc8a315978a6809f72fa176761b33b73",
+            "translation_sha256": "c9f9ff4309128afd23e1302089289728d2600a51db56965732cdb42040bd9245"
+          },
+          {
+            "pointer": "/paths/~1insights~1summary/get/description",
+            "source_sha256": "3f230a37f37d7b81adca9f485265771c9ffc4658949bc1ef62533fb461ff7c84",
+            "translation_sha256": "89fe7662742e93bb0eec1fdf859337510a1d33d5ee8749037f73aa60aa54ae7e"
+          },
+          {
+            "pointer": "/paths/~1insights~1summary/get/parameters/0/schema/description",
+            "source_sha256": "6d7b7967d1ebad6c76b5954e5225e7386749a3c408277bd9e373c1b548db4026",
+            "translation_sha256": "8800b0b084c5483ef300eda97293a826d0f70465c95d784493a2105f0a9fbf5c"
+          },
+          {
+            "pointer": "/paths/~1insights~1summary/get/parameters/1/schema/description",
+            "source_sha256": "a79b23910a946843654338e751244c699f216fb42055b058dadcbc1c4a97e856",
+            "translation_sha256": "b237e60d2d817759dc64fcd8439aeda86769796bb6a3371cd41619a9e39139dc"
+          },
+          {
+            "pointer": "/paths/~1insights~1summary/get/parameters/2/schema/description",
+            "source_sha256": "8c48ad0b596008d2b293f4428ca10c1165819a81cfb739eb4ba664395a07aaf5",
+            "translation_sha256": "fd586a77b8e119f7a19cc3e347012ecee17892d668d070b83fd1018cf9c5cdb7"
+          },
+          {
+            "pointer": "/paths/~1insights~1summary/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/tags.md": {
+    "status": "translated",
+    "source_sha256": "44e9ebd66bfd95f245bc42a5a51d518625b0134740b2fd0163d7ac21d04a8b14",
+    "translation_sha256": "693f9066417b13a37b2550c89ec3c5d448bf1c9927c447825b465e7fcd2a5b7f",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "603403732aaf5dbc63ee470e24528a4b9200acbfccdc77c71b106f48be8cbb86",
+        "translation_sha256": "0990c6a9d581ea7346642b8fe366ac7e0385cef1a56eced7d57104955abbe9b0",
+        "structure_sha256": "1173f5ffa7da5e5e7b10e40479b11a38d2fe2d63330aeb101db5607728291976",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "2c7b95eb97c67c928e900b410b1189904d8e9b232bd80cfb0c55b25aa7ef739f",
+            "translation_sha256": "0802b2e74516430a1cbc686638f2874c0a98edeb004a0c46f388a37a0c83cdb2"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/limit/description",
+            "source_sha256": "ac9910953d44363098e5b501b5ddf773f87fc95a3438475e7705653c8e86e814",
+            "translation_sha256": "176b60d360a95b3d50368a80bff52b599119bed29f7f5327a79087356b964e0c"
+          },
+          {
+            "pointer": "/components/parameters/cursor/description",
+            "source_sha256": "bb66713c62ecba829fa1af268b55208d3e1252900ebe7b9d2c2f2a0405b481bf",
+            "translation_sha256": "6ffd1f53dbf4925678185c0ce079ab962ee2e398b99af5e1335ca13636ddddbb"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/paths/~1tags/get/summary",
+            "source_sha256": "054a0f90220a29b64053eae1671163f038f1cdd806a9122343ba6181c866abd0",
+            "translation_sha256": "4e375287cfd96e31ee0d9c7112a03e0518caa92ac8c19a82a065c96fb23412eb"
+          },
+          {
+            "pointer": "/paths/~1tags/get/description",
+            "source_sha256": "ac3d20c5d7e0dd49aa280cb67c8caf94c7faf6b426d5f4b61fb2424dca3d1394",
+            "translation_sha256": "5453db824f48f41aca582a05772464ccc883a7de6cb008c41197d7597fa855ee"
+          },
+          {
+            "pointer": "/paths/~1tags/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "fc2d23fd734bfa7babd4ebb8beb821e7de04bd88526d66e5a4a6a4844bd97a87",
+        "translation_sha256": "0f6afc86af97283dea03753f0d4b29cc08aef37b687808681c2a263d6082b88d",
+        "structure_sha256": "5b78efcf13027728afc861991c53e5c7b9e557f8dcc1e27dd81aa8c276ea4282",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "2c7b95eb97c67c928e900b410b1189904d8e9b232bd80cfb0c55b25aa7ef739f",
+            "translation_sha256": "0802b2e74516430a1cbc686638f2874c0a98edeb004a0c46f388a37a0c83cdb2"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/idempotencyKey/description",
+            "source_sha256": "724411562d13af5b08f04e691a01eecf3ceaaec414169db193500654b0743112",
+            "translation_sha256": "e328b0225fa6e6713371d1c6bdfe075a7adfd331f8fe4cf0fb407336c77a6c89"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/components/responses/unprocessableEntity/description",
+            "source_sha256": "9dc5d1e9eed0ca55f8d7a819fd374fa8287fd7081bf5d688e68b81e45bace396",
+            "translation_sha256": "1972f3aaadbf943ebe2fae45a939614ad9dac1bf630958eebe8381463ee56bc8"
+          },
+          {
+            "pointer": "/paths/~1tags/post/summary",
+            "source_sha256": "f2f5d3f828b8fd97b080671a9cdf787d9e330757485992f3e288237a1b8b37bd",
+            "translation_sha256": "5a2bb621df77aa9c53713bdbb8bee6a18c4b6cd618ebc4f1a77e8f6b8a1d00e1"
+          },
+          {
+            "pointer": "/paths/~1tags/post/description",
+            "source_sha256": "f4b1f0480652af1c0c034a815404a827b44f31cae2133966f9ec0ca9cca76918",
+            "translation_sha256": "bb1c253f1f8ff5948b582960e6ed043addbda153e1486e946efa1cbd2c8c821e"
+          },
+          {
+            "pointer": "/paths/~1tags/post/responses/201/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "497e355b1d7b3c5f8a2c88a07af03c618d6ad637d52b224fcdc542695fff3867",
+        "translation_sha256": "13ee4b45e4964023db1ebace4dfdc6f3a483fab5464c8fcc23433901fd3c5263",
+        "structure_sha256": "7ff71ffd1d37cde21c5d0a164b9d705e032a75d4c892ce3868e694c78930fed0",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "2c7b95eb97c67c928e900b410b1189904d8e9b232bd80cfb0c55b25aa7ef739f",
+            "translation_sha256": "0802b2e74516430a1cbc686638f2874c0a98edeb004a0c46f388a37a0c83cdb2"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/get/summary",
+            "source_sha256": "fa39e48ff8e50b8bd6bb63b7d5c9f4c055afdf9130b0c7cc6e8c8ecd04aae743",
+            "translation_sha256": "4107bcaca47d8abbd341d6522cb8f051df4021fee906e880c99096e84a239429"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/get/description",
+            "source_sha256": "b21f335c2a8413001152ffe17e08e68072825f8ed0a4e448d09b7dafa561ee8a",
+            "translation_sha256": "0322ec3b2b7b3f535569802ad96eee5001802721c345143724c6b1ab7bff79b8"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/get/parameters/0/description",
+            "source_sha256": "dd4fd431f3b7e676c49e0ebc5ac42d2e9d78f29226ac0803da7a103d203fe7bb",
+            "translation_sha256": "3e9e695182bdfc88591b3de2526263fbeac5882a40fe5081539ad3f47d244902"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "c434a5b1d1d16838c2dd6a3e4867ba230a793e6a7d1cac1e39b45dbc830fc0e6",
+        "translation_sha256": "b339ca54ee3315e44addfb191c95a5ee8bf4a99c9728eafedb69ad90ea02a0d0",
+        "structure_sha256": "9a6bf780ce1c85a14241ab05f94120e11859410a6d3b407a2e164327b3e573b4",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "2c7b95eb97c67c928e900b410b1189904d8e9b232bd80cfb0c55b25aa7ef739f",
+            "translation_sha256": "0802b2e74516430a1cbc686638f2874c0a98edeb004a0c46f388a37a0c83cdb2"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/put/summary",
+            "source_sha256": "f700c3c6c547a227c9546c25f4f3758c9263e9adeb6e2c522ee5a6a9f650e0ca",
+            "translation_sha256": "2f949dec9aba1bd9dda0f75f038e2a6f20ef21c31344b1913d1f1a0bb72a697f"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/put/description",
+            "source_sha256": "e59cff14790c4821d1000cf505b9da0a145e9f8fcc2372987da74143cb963629",
+            "translation_sha256": "52642e9539e07750f5dbadc2590d16eb3c06ca761dde3eeb27da529bd21e58ce"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/put/parameters/0/description",
+            "source_sha256": "dd4fd431f3b7e676c49e0ebc5ac42d2e9d78f29226ac0803da7a103d203fe7bb",
+            "translation_sha256": "3e9e695182bdfc88591b3de2526263fbeac5882a40fe5081539ad3f47d244902"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/put/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "43ee494a07fbb1149826390d9a0bad94ae96fc3818d3bbfd90297c78f8264433",
+        "translation_sha256": "29a9b08ec055b5739536c4f2f89fed41aab3a244c1a65864bf1802661ec04fa1",
+        "structure_sha256": "4fe96875f4c52082faca00fd11f25e5dc84f3577f6e174fb189528ed47423751",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "2c7b95eb97c67c928e900b410b1189904d8e9b232bd80cfb0c55b25aa7ef739f",
+            "translation_sha256": "0802b2e74516430a1cbc686638f2874c0a98edeb004a0c46f388a37a0c83cdb2"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/delete/summary",
+            "source_sha256": "eaff40201955b6a97847433bdc7b3a987ebda2d6349c530cd30ed5cd6db79aec",
+            "translation_sha256": "2be218c1ebac7c05d80bfd21e58d429f319b36b8e06006fa4f2688297cc45150"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/delete/description",
+            "source_sha256": "c82d779c9583e3f4c7d77bfa54552caf31d92b5f96ad7a81a6ff924d95aa23f2",
+            "translation_sha256": "14250efa5ace7aa8523abeca4465f76d44c94b175882973b1f245eaddb42a034"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/delete/parameters/0/description",
+            "source_sha256": "dd4fd431f3b7e676c49e0ebc5ac42d2e9d78f29226ac0803da7a103d203fe7bb",
+            "translation_sha256": "3e9e695182bdfc88591b3de2526263fbeac5882a40fe5081539ad3f47d244902"
+          },
+          {
+            "pointer": "/paths/~1tags~1{tagId}/delete/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/variables.md": {
+    "status": "translated",
+    "source_sha256": "52473c3492601412f6dc3aaf7e7b9db7f78eb8aef813c0c87b55a0ec2c5e7fc3",
+    "translation_sha256": "adb47bed2d19e00291ad92fa7c6c89493dcf1605f20d7b6a82f4cebc3f145179",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "1fc87332b38570ad75529e4a9bba2ae0d72c2da1192aa64786b3da37b8523c31",
+        "translation_sha256": "ca9c724435bd1fdfb02cc4f2a6f31dbdb22548e5520f2d392f3f5a9835eca7cf",
+        "structure_sha256": "52ea0d2ab8dccaff56a91d159551092649c0086da66c8ee25dcf65ea2724d1ff",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "0c1a6ee15cfc5c1543dc6d7057d0e0ccd2cf489bc87ca1c10888926c168381f3",
+            "translation_sha256": "c464704de9ba6c434028294c5fb8af5aeba2393fc5ba9b2215605acdd6212298"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/limit/description",
+            "source_sha256": "ac9910953d44363098e5b501b5ddf773f87fc95a3438475e7705653c8e86e814",
+            "translation_sha256": "176b60d360a95b3d50368a80bff52b599119bed29f7f5327a79087356b964e0c"
+          },
+          {
+            "pointer": "/components/parameters/cursor/description",
+            "source_sha256": "bb66713c62ecba829fa1af268b55208d3e1252900ebe7b9d2c2f2a0405b481bf",
+            "translation_sha256": "6ffd1f53dbf4925678185c0ce079ab962ee2e398b99af5e1335ca13636ddddbb"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/paths/~1variables/get/summary",
+            "source_sha256": "941555f9d6828157a9a9170e8941a7c723193a912991598c1fdf9ceac52541d3",
+            "translation_sha256": "57e75fb2671d94766e957627ee44573ed6a51e01018716281339eccd7ab63544"
+          },
+          {
+            "pointer": "/paths/~1variables/get/description",
+            "source_sha256": "6d9b768c34879b0069b0cba07d50bbcbe23d8cfdbf79bf6226f46b1224c63bf5",
+            "translation_sha256": "12bca1de53ea53f5a9ae227ad2ad09e38ae28bd7e10484ccf0ea6e0180c10c6a"
+          },
+          {
+            "pointer": "/paths/~1variables/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1variables/get/responses/200/content/application~1json/schema/properties/data/items/properties/project/properties/icon/description",
+            "source_sha256": "7ec73011db5c2eabb46241909ba4065068032988067e1f246008e704a5b7fc83",
+            "translation_sha256": "e92bb841a4d33f85aff967e09e853cb2b023116d21999e16b4f97edde921fdcd"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "16a6c87c4d1c7ee01eac47b5eddafa50d1250675742997977a2e7eab167951b5",
+        "translation_sha256": "a83f112a588af68788559cd6a1ddfae8e4635de418f2638c1d06d2d3237b1689",
+        "structure_sha256": "300c777622605ca9fcf3fa222f076a9be014958b5c4fa517aeae82f651b761c2",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "0c1a6ee15cfc5c1543dc6d7057d0e0ccd2cf489bc87ca1c10888926c168381f3",
+            "translation_sha256": "c464704de9ba6c434028294c5fb8af5aeba2393fc5ba9b2215605acdd6212298"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/idempotencyKey/description",
+            "source_sha256": "724411562d13af5b08f04e691a01eecf3ceaaec414169db193500654b0743112",
+            "translation_sha256": "e328b0225fa6e6713371d1c6bdfe075a7adfd331f8fe4cf0fb407336c77a6c89"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/components/responses/unprocessableEntity/description",
+            "source_sha256": "9dc5d1e9eed0ca55f8d7a819fd374fa8287fd7081bf5d688e68b81e45bace396",
+            "translation_sha256": "1972f3aaadbf943ebe2fae45a939614ad9dac1bf630958eebe8381463ee56bc8"
+          },
+          {
+            "pointer": "/paths/~1variables/post/summary",
+            "source_sha256": "bf9bb27b5b62de51397158e4ff9fe80289282b98f76991843fabf395a07d5a49",
+            "translation_sha256": "409541be408bb50d597f47469b13d950ef5ed4af6c4e9c20ab1a39f562ff3147"
+          },
+          {
+            "pointer": "/paths/~1variables/post/description",
+            "source_sha256": "65aba503c212b75c0272fd05153a8b9460273a2d276ad592fece92084018fb4e",
+            "translation_sha256": "c840056885c7d13665e74267ff70a0525395c7851ad3eb7c6d99d1470ca0de9f"
+          },
+          {
+            "pointer": "/paths/~1variables/post/responses/201/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "c731f330e64096cefd89d856d42428f9ad88e4a083c373e55db9bda732f6863e",
+        "translation_sha256": "f3e6492a1b3cd303e3e9290619b60486800ef86d2451e0893f99576b280cc605",
+        "structure_sha256": "0e4ca043365b45412008afdeffc300342a7edb264d1e012adde2a73d44f2c273",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "0c1a6ee15cfc5c1543dc6d7057d0e0ccd2cf489bc87ca1c10888926c168381f3",
+            "translation_sha256": "c464704de9ba6c434028294c5fb8af5aeba2393fc5ba9b2215605acdd6212298"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/put/summary",
+            "source_sha256": "a88b1a4bef2b93ce0310e022f5ae955eca74baa2d6040faa041902e590994c10",
+            "translation_sha256": "7de4cd2a19fde5c3a465198dd4fa5287ff5cb00b6071aa993c05bf14263aff12"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/put/description",
+            "source_sha256": "014b406f0db61cc954eb2c162f136bf0f6d57f0d63aeaa162a84ebbe63aefd0e",
+            "translation_sha256": "fc4228383da1e846ac85832f359ef81bdf41f2a87d71cad6157f85668cc89a1e"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/put/parameters/0/description",
+            "source_sha256": "c108b8e7426faeb3b0804610c4d6adb9291d1736692a9421401aaaf98d8fee2e",
+            "translation_sha256": "8ccef58cde11a1bb65b7658f4dc83f235e7d63e1407cd91b055c8a5ba554c6e6"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/put/responses/204/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "2ff11162c1f82a558a1ec74bab91654f15e9d1229509a2c19516471e0325d3cc",
+        "translation_sha256": "c239e3e09e9975037d3033e3af8f349d6448a3afd1ad53ef753a91eca49c0e26",
+        "structure_sha256": "6b259e407901ed1d348886cf29f554c9b702e4effd2038b3945689ae3bdd7083",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "0c1a6ee15cfc5c1543dc6d7057d0e0ccd2cf489bc87ca1c10888926c168381f3",
+            "translation_sha256": "c464704de9ba6c434028294c5fb8af5aeba2393fc5ba9b2215605acdd6212298"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/delete/summary",
+            "source_sha256": "f153491100ad2ed2eb6cb8b2cb7726351ad337280a73af0aad97bb3b3bf61a2f",
+            "translation_sha256": "ba6b00df1df2f6d7023579c288cfce504c2b5f4e2035f74c004cf506a01b05f3"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/delete/description",
+            "source_sha256": "85eeec7ec92ce1ae80ec2ac669e4086d67989344d251a196ba29a83ed6134638",
+            "translation_sha256": "ae468897b39c6007bc015ffd263fed0ad01d2d816fa9a209ab7b74467fc69bb6"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/delete/parameters/0/description",
+            "source_sha256": "c108b8e7426faeb3b0804610c4d6adb9291d1736692a9421401aaaf98d8fee2e",
+            "translation_sha256": "8ccef58cde11a1bb65b7658f4dc83f235e7d63e1407cd91b055c8a5ba554c6e6"
+          },
+          {
+            "pointer": "/paths/~1variables~1{id}/delete/responses/204/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/user.md": {
+    "status": "translated",
+    "source_sha256": "803f239e162cf722e486d7d3ce075ed66fe8365617c23494c6b6d27fbce3cc14",
+    "translation_sha256": "221f6553858abb328923666a92efe6ae24302a52996f6c49e5e64dcdbb6c4cdb",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "5adaedfce2d54d0eb71dc49c7f6f1028a82f31f29d0fe6e27fa99d9869a6acab",
+        "translation_sha256": "dacf4402ddeb68c2f3c0be2fc4215d3db25b21d6139d8afd79a3ce825c7fa989",
+        "structure_sha256": "9a71af05fc6453ed04c90157430418cf5ccb69b21dd07477d66dfe6ce61b274b",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "34f21f8fc5a88f34de92ca196a234bbc88bcf73642d57ed9fbd03a07b37dd280",
+            "translation_sha256": "b805bd69af46d55e19367b2210cbbc44cd3af704ee7ac6ccd054ecb95dbd4d08"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/limit/description",
+            "source_sha256": "ac9910953d44363098e5b501b5ddf773f87fc95a3438475e7705653c8e86e814",
+            "translation_sha256": "176b60d360a95b3d50368a80bff52b599119bed29f7f5327a79087356b964e0c"
+          },
+          {
+            "pointer": "/components/parameters/cursor/description",
+            "source_sha256": "bb66713c62ecba829fa1af268b55208d3e1252900ebe7b9d2c2f2a0405b481bf",
+            "translation_sha256": "6ffd1f53dbf4925678185c0ce079ab962ee2e398b99af5e1335ca13636ddddbb"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/paths/~1users/get/summary",
+            "source_sha256": "4da6d0903d15f03f42b155d8cd3c6247b96a98e1a925d82d9e7576416adc9250",
+            "translation_sha256": "7234cf99de0f15450b26a7eb12cd9386850cb4e43e74e64aa0ca6190fc9427ff"
+          },
+          {
+            "pointer": "/paths/~1users/get/description",
+            "source_sha256": "40f6884a0622af0c8bd6996fceb8d9a551739d03f050500f3ab2e3390bde9d10",
+            "translation_sha256": "f58cda2536b59145f027e8a7137645418244d1b0dd11d24c6594d9af161abad9"
+          },
+          {
+            "pointer": "/paths/~1users/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1users/get/responses/200/content/application~1json/schema/properties/data/items/properties/isPending/description",
+            "source_sha256": "edc20af7d6beabcc12c9ba9295c775a7d02ef3322baad9bbd650da23386cd73f",
+            "translation_sha256": "7fbe27856d241b5df0ce917977c0071392a1da71d93a12524bc0d85252f5359d"
+          },
+          {
+            "pointer": "/paths/~1users/get/responses/200/content/application~1json/schema/properties/data/items/properties/mfaEnabled/description",
+            "source_sha256": "6dd4679df93b0f3508859d5b935e22153f78458a7e12b1c8c6da66565585b845",
+            "translation_sha256": "5596ed11a6df93e9d7df4230f4d2f5e3dfabaac3486984b75a4896518f936d9a"
+          },
+          {
+            "pointer": "/paths/~1users/get/responses/200/content/application~1json/schema/properties/nextCursor/description",
+            "source_sha256": "f43942fe4ed65ee909e53f858b1125a2aa5181304fa9e7ccd9c349795105b3bd",
+            "translation_sha256": "8e0a19eafc1548686a887aac9d7e9e7aae51e441f8ba51c6f360eca81c826968"
+          },
+          {
+            "pointer": "/paths/~1users/get/responses/404/description",
+            "source_sha256": "b141f63d32a6fa7256945b14138af22c07e50a80ded09ee59bb7bdea01da691a",
+            "translation_sha256": "d56ea08fa0150502f2ee981315d997b2b0e8ea18a9a8df2906b825624410073c"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "f970fdd6c9198d1dda0249dd0bd4776d7137909f47bd5007e6ab9b5c7959105e",
+        "translation_sha256": "ac43da779b3d2ba139885ece1f456cc78c3edf84685334f2fb890d4dd3289b12",
+        "structure_sha256": "8886711a8db804a0afadc2d37e2033c4711869ef5e1bbf053d416e632ef89487",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "34f21f8fc5a88f34de92ca196a234bbc88bcf73642d57ed9fbd03a07b37dd280",
+            "translation_sha256": "b805bd69af46d55e19367b2210cbbc44cd3af704ee7ac6ccd054ecb95dbd4d08"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/idempotencyKey/description",
+            "source_sha256": "724411562d13af5b08f04e691a01eecf3ceaaec414169db193500654b0743112",
+            "translation_sha256": "e328b0225fa6e6713371d1c6bdfe075a7adfd331f8fe4cf0fb407336c77a6c89"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/components/responses/unprocessableEntity/description",
+            "source_sha256": "9dc5d1e9eed0ca55f8d7a819fd374fa8287fd7081bf5d688e68b81e45bace396",
+            "translation_sha256": "1972f3aaadbf943ebe2fae45a939614ad9dac1bf630958eebe8381463ee56bc8"
+          },
+          {
+            "pointer": "/paths/~1users/post/summary",
+            "source_sha256": "1c34f2e9ffc5166ea58dbf3d98fbbb75c4a8e2f5bca1bf7206dab4daba7130ea",
+            "translation_sha256": "65a038126ad7332f1d4590b81009f44da12cc1a3ff24598b384b35c2fca33559"
+          },
+          {
+            "pointer": "/paths/~1users/post/description",
+            "source_sha256": "07bf50598337b12a0d182eaaf3e6633d6c31b0d0cc0ef70812d4882e712e0761",
+            "translation_sha256": "e170ded1b108b698a002cd3450a3848ff4d7a8044a7daa2a528124795dfb1351"
+          },
+          {
+            "pointer": "/paths/~1users/post/responses/201/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1users/post/responses/201/content/application~1json/schema/items/properties/user/properties/inviteAcceptUrl/description",
+            "source_sha256": "18cbffa01f3b594b8ed9de417010f99a1cf5b3f18d953511ea634e27d3d20ccb",
+            "translation_sha256": "91889cdcefa7408825d2279be4077be2bfec5838c42b67927d2b8f324b26f286"
+          },
+          {
+            "pointer": "/paths/~1users/post/responses/201/content/application~1json/schema/items/properties/user/properties/emailSent/description",
+            "source_sha256": "17d46a1da849cae8c84c41ca63b566c2196f5382a695fbfe74da34337c360028",
+            "translation_sha256": "55fb5c7ff4428758b4f4c5a93704ec710790b6fa21d8ec8a28ad527bb6a02ea0"
+          },
+          {
+            "pointer": "/paths/~1users/post/responses/201/content/application~1json/schema/items/properties/error/description",
+            "source_sha256": "45c0703921df077d6b96a1549f75444c730123225987ea60bee2ba5ee6d4822d",
+            "translation_sha256": "a8298f8d273e66033540b627d6a3ca85c29fada35e303d59d9f734973f31b887"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "4e8250baf6fa9f96add6547a838f49b880550ed3e14ad4860d4d3b6abbf2ad67",
+        "translation_sha256": "d576cee0599c1a89380bb1e21c37fb43ffb419b11783db53860e4dc226e0371e",
+        "structure_sha256": "7319e20c8b5b2d5a2f7c463ee1b1d96a21a1b0b25f37bc1f9d915c24208445b0",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "34f21f8fc5a88f34de92ca196a234bbc88bcf73642d57ed9fbd03a07b37dd280",
+            "translation_sha256": "b805bd69af46d55e19367b2210cbbc44cd3af704ee7ac6ccd054ecb95dbd4d08"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/get/summary",
+            "source_sha256": "ef862807560b5c00a4c53a0c68fb900a19f804cc5bbe4c621309787e75579378",
+            "translation_sha256": "5b9edcd581ff2828ceea907ca62a64df93638db4c57a38dca47950c2f504e56c"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/get/description",
+            "source_sha256": "6482aac17339061efae2e154757f2d007dc8335587e67cb976b927201a6c6d9e",
+            "translation_sha256": "17d973a27920642e5a27095f5be87c912618f935c666798b37b41d51f6d64da5"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/get/parameters/0/description",
+            "source_sha256": "df825a7e00a3d40921c0af76acba706d48a097a3ffa5259a4bd88c1b8db8b577",
+            "translation_sha256": "82f296a40471507d13c1c6cdc2a7d66a9f081bd79303e6b4035973379d06dfb9"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/get/responses/200/content/application~1json/schema/properties/isPending/description",
+            "source_sha256": "edc20af7d6beabcc12c9ba9295c775a7d02ef3322baad9bbd650da23386cd73f",
+            "translation_sha256": "7fbe27856d241b5df0ce917977c0071392a1da71d93a12524bc0d85252f5359d"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/get/responses/200/content/application~1json/schema/properties/mfaEnabled/description",
+            "source_sha256": "6dd4679df93b0f3508859d5b935e22153f78458a7e12b1c8c6da66565585b845",
+            "translation_sha256": "5596ed11a6df93e9d7df4230f4d2f5e3dfabaac3486984b75a4896518f936d9a"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/get/responses/404/description",
+            "source_sha256": "c71c8f001db9d8972a0f97d10ba157cabb2a9bf521171525b70e76c3d2c7333c",
+            "translation_sha256": "81b17d4f6c7dea7ae8df8b731cfb90c80878e1560493af7ca1f33250bfdf10cf"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "a43213bae1d30f2b44eba347c065f8d2695c6ba4bb933160e3f834b8f041d41f",
+        "translation_sha256": "4364e79ec64ef6159f482e28ce27bf6f0ae4bc50fc4e7e4eb1a854978dfaf4c8",
+        "structure_sha256": "51c3383818a7f2791c9b2bfa65b95a150fc7d00648e2b83e8d373d4c02d77ae8",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "34f21f8fc5a88f34de92ca196a234bbc88bcf73642d57ed9fbd03a07b37dd280",
+            "translation_sha256": "b805bd69af46d55e19367b2210cbbc44cd3af704ee7ac6ccd054ecb95dbd4d08"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/delete/summary",
+            "source_sha256": "58363fd94240d6775511ccf57ce854d5aeec82c030c9dd80764ba1a9e638c343",
+            "translation_sha256": "b75872bba6f159d81e9bafb6328cff98ff4c747f7d3a39dd2ed9480d2d70928b"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/delete/description",
+            "source_sha256": "a8dd5ce779c2dd40b1a36107353692bafc4b5b9a5e67d9dc7c1c7952636e2bac",
+            "translation_sha256": "64d4610e25359ac5666ff7e3fc41d8bf06786c454e4406c0eadbb8b454075407"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/delete/parameters/0/description",
+            "source_sha256": "c1b037f0c95f5786c49eabca12481bccb45446f0554cc769a39af4d83cb7215e",
+            "translation_sha256": "72d27a7b9e77b478da0a228e08ec97a1a58468228c8996d67684d81deb7c1fe6"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/delete/parameters/1/schema/description",
+            "source_sha256": "dd55aee645cfa4ec36b3739f172b2d8f78d48c45e9d1190734ff4d67984b38dd",
+            "translation_sha256": "97ee60848cd30fefd1a46bc5aaf12a90f93c881fedef7f20b947904e2d40f79a"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}/delete/responses/204/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "0a12c95abab5b5a4ea2495bba341391bf476a96f68c4e880bc2bfb2efee2660e",
+        "translation_sha256": "4ea729141f8768e6fcf16f2caabcfd1f601be7329ee7be6d2f1fe5a254955416",
+        "structure_sha256": "5835aa5aa67da1467ceb9b4b9947da094b361eff7a31d10f0e3a9e075b29a7ce",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "34f21f8fc5a88f34de92ca196a234bbc88bcf73642d57ed9fbd03a07b37dd280",
+            "translation_sha256": "b805bd69af46d55e19367b2210cbbc44cd3af704ee7ac6ccd054ecb95dbd4d08"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}~1role/patch/summary",
+            "source_sha256": "ffcbae17acf0eb5da85a168950a1e6771ddd697ab830ef41b552f94a567b43a1",
+            "translation_sha256": "12ed4ef45da1372277f3ffb7e8d0d1d6cdde40d0a5c88b4deba626d6eea2694d"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}~1role/patch/description",
+            "source_sha256": "ffcbae17acf0eb5da85a168950a1e6771ddd697ab830ef41b552f94a567b43a1",
+            "translation_sha256": "12ed4ef45da1372277f3ffb7e8d0d1d6cdde40d0a5c88b4deba626d6eea2694d"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}~1role/patch/parameters/0/description",
+            "source_sha256": "c1b037f0c95f5786c49eabca12481bccb45446f0554cc769a39af4d83cb7215e",
+            "translation_sha256": "72d27a7b9e77b478da0a228e08ec97a1a58468228c8996d67684d81deb7c1fe6"
+          },
+          {
+            "pointer": "/paths/~1users~1{userId}~1role/patch/responses/204/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/role.md": {
+    "status": "translated",
+    "source_sha256": "4b70ebd3f2dee9761f44d1d1550cc99781ac4ad0de9ec28f7e53cbd6a87da95e",
+    "translation_sha256": "cabb7c916e156db3a1b3bd8aea8fffa7cca959a3ce55b29855dc3a6c302b329f",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "d4a23a75243795e7b7cf374717d30234369c3ab3e2fb445b9e7d50330a052a5e",
+        "translation_sha256": "86403b492839d2470b54454a980ffa2cf651c2ed744f3fd122527af3955132df",
+        "structure_sha256": "4b6e896cb38857fc480c272e43693ca839cb6c8d430060218a11ad06efa82d1d",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "c012b22091c3ad606a0dfbc87af66f51134209af421977f8486cabe4232dbfc5",
+            "translation_sha256": "07821b92e3f7d4b052fc54a553d1798176cfafba6556d311de6212037cf87284"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/paths/~1roles/get/summary",
+            "source_sha256": "33e7bf1b34829b21cbcd5a6dee1de174680ff90a63dd0071c9117dbeaa24ebe3",
+            "translation_sha256": "00cc013b46260d58e8a23f85f296d98e50c300c6955fbc020fb86dedc7add7ba"
+          },
+          {
+            "pointer": "/paths/~1roles/get/description",
+            "source_sha256": "68989aea9b8dccc4dc041d5c149a2ddbf5ace76e68bcde79c71bd9c7a352da4b",
+            "translation_sha256": "fcaddae74c460b93db3bb25bee6bc50d2c6bd010affe9f280ac90a0bc80a148c"
+          },
+          {
+            "pointer": "/paths/~1roles/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "41a7870d596cffccd730b4cd26998bdfbf141acb1dae8ce36ec831b799c94f8a",
+        "translation_sha256": "b94b2810a8ec4cbecf39f166e3f515c274210ab4487132136216618df321bf39",
+        "structure_sha256": "efd309215063fd5fcc7c044a0c1cbb9d097d3ccb6a67628f46cfa18a947b53be",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "c012b22091c3ad606a0dfbc87af66f51134209af421977f8486cabe4232dbfc5",
+            "translation_sha256": "07821b92e3f7d4b052fc54a553d1798176cfafba6556d311de6212037cf87284"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/idempotencyKey/description",
+            "source_sha256": "724411562d13af5b08f04e691a01eecf3ceaaec414169db193500654b0743112",
+            "translation_sha256": "e328b0225fa6e6713371d1c6bdfe075a7adfd331f8fe4cf0fb407336c77a6c89"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/components/responses/unprocessableEntity/description",
+            "source_sha256": "9dc5d1e9eed0ca55f8d7a819fd374fa8287fd7081bf5d688e68b81e45bace396",
+            "translation_sha256": "1972f3aaadbf943ebe2fae45a939614ad9dac1bf630958eebe8381463ee56bc8"
+          },
+          {
+            "pointer": "/paths/~1roles/post/summary",
+            "source_sha256": "6dd06b2529d4e1aa65348f3981b2ad907b31ffca7a77b1cf16b88dc6a823df5b",
+            "translation_sha256": "ffac9ecd3ca8ec6f4ac430328dee9a7a91cdfd4a34efd0f36313f37d1385793a"
+          },
+          {
+            "pointer": "/paths/~1roles/post/description",
+            "source_sha256": "0581c80b24551f635be65d0ab92d1e3846257d313d30dba78a93a3c8c218156a",
+            "translation_sha256": "1fe68e3352153e6d8158a0e35cf081849231960ffb3cecc6069f05083eb73d76"
+          },
+          {
+            "pointer": "/paths/~1roles/post/responses/201/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "caf86f2fb36a1f48efda1ba3b5b4356d80bc1e2eb022ff85bbe907d8be23fbf9",
+        "translation_sha256": "fbf3130ab4830f21fcac5781c5e92b0ece8ff798ad9da4cdb6acdc39a1eaeb51",
+        "structure_sha256": "deee195e2028acd8286dc0b3cf3974f3ced11b107f1eb9645aa2b34678339297",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "c012b22091c3ad606a0dfbc87af66f51134209af421977f8486cabe4232dbfc5",
+            "translation_sha256": "07821b92e3f7d4b052fc54a553d1798176cfafba6556d311de6212037cf87284"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/get/summary",
+            "source_sha256": "731617f8adb20a216ca54ac081fc0b37664bdc71cd0f9d4d5eabd3bb098b225d",
+            "translation_sha256": "9627e625a8c554ac2fdfa7511ce480f298f2d308a856ce483abd3eab0aa2dfe1"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/get/description",
+            "source_sha256": "394e9fb8e8903ae76777aea7a59de0cd8dc4d6b51f0aef437378e3991bdd11ca",
+            "translation_sha256": "bb088e6490002e0281fa41d3e980867899ba5505b4d7d55e079ac91256684119"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/get/parameters/0/description",
+            "source_sha256": "48a02d75689dfb86337269397a3e335955a0b56de29fcaf14b968867f0098c48",
+            "translation_sha256": "908275e121bd89cecf213bee603c37114318f67227112aeb6605444b024ca42c"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "a669f49ffbe8ec86a652310f18a8c114fb8c3f4e1e9555b0f8283017ac0adbdc",
+        "translation_sha256": "d8865b792060d7d49dd4f9fcc1031a9a2d372261bcae0e66f62ee5919b4c25b1",
+        "structure_sha256": "c43792313810fd9d9c412e70dabdead9afd0a69b3e8e569f3d7efcdc5cf969b6",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "c012b22091c3ad606a0dfbc87af66f51134209af421977f8486cabe4232dbfc5",
+            "translation_sha256": "07821b92e3f7d4b052fc54a553d1798176cfafba6556d311de6212037cf87284"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/put/summary",
+            "source_sha256": "6c0cda1bc9674780df8dc8053b7391ed8a9efbe050a1df2d4ae1e7d8d4d8871b",
+            "translation_sha256": "b782562657252d4f8e4328eefc6c97027c5ea320ebd79a123de7d4289e3aa357"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/put/description",
+            "source_sha256": "883c9582ecbf16deba14bf371b3d12adedbc497fac506fab0e61d9dfdf44e7ed",
+            "translation_sha256": "1c8e17c17d5e13bea37651ab2ae89286902ddebfe2988f0e0ac6285c51ed9bc8"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/put/parameters/0/description",
+            "source_sha256": "48a02d75689dfb86337269397a3e335955a0b56de29fcaf14b968867f0098c48",
+            "translation_sha256": "908275e121bd89cecf213bee603c37114318f67227112aeb6605444b024ca42c"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/put/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "89205b2d0dff962a04c803ce049323185de654f9061962ed0457214d31c0ad65",
+        "translation_sha256": "72f5abbc19963733d8f617846be13a6bf9e451742a94e210e9f39743d269c1ca",
+        "structure_sha256": "3ec08701e56ef59e24e7aabc4f2afc94e0d8acc40d7c7a34cd0260eaa8b1fc55",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "c012b22091c3ad606a0dfbc87af66f51134209af421977f8486cabe4232dbfc5",
+            "translation_sha256": "07821b92e3f7d4b052fc54a553d1798176cfafba6556d311de6212037cf87284"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/delete/summary",
+            "source_sha256": "d5a3ab01055ad7064f796aedeb4347976d8f52871a49cf2218b8d9fdc8eda8d3",
+            "translation_sha256": "c387d4e83e8fed634634ab5c2186a5c023ceb9f6fc17ab6c92eff31b012ec97b"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/delete/description",
+            "source_sha256": "74923a40dedf0f7b883cdd8e8e5ad91ec83608226e36f0b9d83cbe0d9b66d0dc",
+            "translation_sha256": "9da0595d1802c8390ab1eeb8405287f3b6a3210e01512d0fd675b9d459504a8c"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/delete/parameters/0/description",
+            "source_sha256": "48a02d75689dfb86337269397a3e335955a0b56de29fcaf14b968867f0098c48",
+            "translation_sha256": "908275e121bd89cecf213bee603c37114318f67227112aeb6605444b024ca42c"
+          },
+          {
+            "pointer": "/paths/~1roles~1{roleSlug}/delete/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      }
+    ]
+  },
+  "connect/n8n-api/folders.md": {
+    "status": "translated",
+    "source_sha256": "ce319715ec8888a6c55ef66cfbb378c3e343eaeed007644ea2ff7603d83b5905",
+    "translation_sha256": "7f5b1dcb118688b104215b21a13d152fa372ed45fd91f2372c773f19f39d95dd",
+    "checks": [
+      "code-examples-identical-except-reviewed-openapi-reader-fields",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "openapi_fences": [
+      {
+        "index": 0,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "833828223db1ee93ef5b63f485cb1260cbd2ce5da7b89eda48aa3d822d7981c2",
+        "translation_sha256": "1583c97150ee5661ed04ffb12c373bcaf408b91b067eeb2c61555a2282a4e2fc",
+        "structure_sha256": "e61e84402dbc158276387cb7e42a95f9be6b25a0d70617e1c0d0613d2561e07b",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "bddba03a1b65eb696b7a87088e06a72528a2e6b92757b96a9127575cf8e2f7b6",
+            "translation_sha256": "d64641c68723b735d8add07b938582dee40459e5cf50031ce92ef3d233f9fef3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/summary",
+            "source_sha256": "49c126334b3c520d4d9eb9b7d9e04099922daf11efbfca8f6b8b4dce0e3db715",
+            "translation_sha256": "cb1d50f57ab31cecfd91f4e39ebd948c9eb52e99ba5f6e73550ede1a1b7676c3"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/description",
+            "source_sha256": "ab58bb1af84a60a5aaa81aa1b37d825859691f6ebd1cbdd2c8e64178797e3fbd",
+            "translation_sha256": "d3721633e9c61954c214fa4b01c84b3e57a7731ed533431a56877fd99aa882d9"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/parameters/0/description",
+            "source_sha256": "a2944701b01673104bf1dc87dd4365d9c6a627eca890fa51fca37716a3dca4de",
+            "translation_sha256": "06037dac0710fda13935b3f1a1da279767ba16dbb107bca515f97dc8964888d0"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/parameters/1/schema/description",
+            "source_sha256": "08363b6107bb797286a2e03c3d905df56d80806689d7452a2b41e87216ad8ccb",
+            "translation_sha256": "142ac1cfbafa6ddd0d6a28e0277574bc76b7b9d2ff5ecda4ff628423c53861db"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/parameters/2/schema/description",
+            "source_sha256": "4d40f747ad0ca7315a9ab00cebbd5ef0d7c8d883e03aee01622af687311129a7",
+            "translation_sha256": "dccd7dce23673e868c4f306ce46c4ac277495c06165e50f7dde1366c1029c96f"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/parameters/3/schema/description",
+            "source_sha256": "b63dc1838146c4e564d546f75b2acf787b28d069de75c75bd11dfb35692bfdbb",
+            "translation_sha256": "0bdbeaf64ea0d1f6e276e69f6e26abb27fdc4b90a7a1e0e58bacc56a096a425c"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/parameters/4/schema/description",
+            "source_sha256": "20d809e2e54e75c359fa3490100556e4d650e021b352b0287a538c473d3b4af3",
+            "translation_sha256": "605a90fd4d3889c712123418e24164bd7336c620cba8376cb74bc00f8479c25d"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/parameters/5/schema/description",
+            "source_sha256": "fd1652da4e550718944f65bcd895e3abe9f6c3fd23440cee92d3ca044e9f5051",
+            "translation_sha256": "95b4618535f69d8a545eab75622e45e827d98573bb2d1bdc5e6f7038d806015b"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/responses/200/content/application~1json/schema/properties/count/description",
+            "source_sha256": "5e3481943fb42c51f90c7174fc03aa92aa4cbe71ac9efa1453e9dd28acecc243",
+            "translation_sha256": "ad7c57f357135d1059f163b158057816c6cd518a7ebc645980ec0ab0fcb67da2"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/responses/200/content/application~1json/schema/properties/data/items/properties/homeProject/properties/icon/description",
+            "source_sha256": "7ec73011db5c2eabb46241909ba4065068032988067e1f246008e704a5b7fc83",
+            "translation_sha256": "e92bb841a4d33f85aff967e09e853cb2b023116d21999e16b4f97edde921fdcd"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/responses/200/content/application~1json/schema/properties/data/items/properties/workflowCount/description",
+            "source_sha256": "9412705f95177f7b08fd8fe1ee9a7e16512551ad5bb2013047073c70d8eacae2",
+            "translation_sha256": "caf6654b87770ce40ceb0f1145776f50a166f43fc534b314aa0eef0c42d5b143"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/responses/200/content/application~1json/schema/properties/data/items/properties/subFolderCount/description",
+            "source_sha256": "57f5bd70052e3fe3143b7fed3f24c100d4172432a8ad704bcd317c2a62853526",
+            "translation_sha256": "b6606b62e8753cc439d26aa8d6ab59675dab34b2fecb82c897e9cf6f567cdf35"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/get/responses/200/content/application~1json/schema/properties/data/items/properties/path/description",
+            "source_sha256": "08520180300f5aca9584084a6dff22599701d86fdd6af9cb71d3add4e93738e7",
+            "translation_sha256": "8a4de1f77f3a970da71f5409851305bb522480c70ba99ccfc4b90149d908f562"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "3426df3398ad14a64d7c2eea8fad4f1e1c032521d8b6ff68b6a4fd68ffad8abf",
+        "translation_sha256": "3e1190f2d80d6d97e0da389927a1a35ea9b2327e900c08445b9be50288ada7ac",
+        "structure_sha256": "b4994cb4a583488c244822d9594c6506617e372a6802951f679d8ad86f126cca",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "bddba03a1b65eb696b7a87088e06a72528a2e6b92757b96a9127575cf8e2f7b6",
+            "translation_sha256": "d64641c68723b735d8add07b938582dee40459e5cf50031ce92ef3d233f9fef3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/parameters/idempotencyKey/description",
+            "source_sha256": "724411562d13af5b08f04e691a01eecf3ceaaec414169db193500654b0743112",
+            "translation_sha256": "e328b0225fa6e6713371d1c6bdfe075a7adfd331f8fe4cf0fb407336c77a6c89"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/components/responses/conflict/description",
+            "source_sha256": "014659ab9d98c8fea5fed2a5a3bc3c41d6478904a9184c65a57769c439940d14",
+            "translation_sha256": "45fb956103636ea6d68e4ce2355e9aca1178355363c50655481e2943ee211673"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/components/responses/unprocessableEntity/description",
+            "source_sha256": "9dc5d1e9eed0ca55f8d7a819fd374fa8287fd7081bf5d688e68b81e45bace396",
+            "translation_sha256": "1972f3aaadbf943ebe2fae45a939614ad9dac1bf630958eebe8381463ee56bc8"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/post/summary",
+            "source_sha256": "1eb7094d7b317f81746ec987a7812fd138f4c23870b6228ebea66f9fc9bc517f",
+            "translation_sha256": "4e2d461a6b458d01f8edf1c026058234279d1cf74db8eb8dfe73b078b8cb0789"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/post/description",
+            "source_sha256": "d155fa6440a6732995890a65828212f052a8b390612b73789cc76ebfb3fb7e88",
+            "translation_sha256": "a48b8e2bf6f2a761bb3b3515d795f6464716325a35057845f05e5442bda596bf"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/post/parameters/1/description",
+            "source_sha256": "92405c3c524b0a84cb847395dd0d774394793bcba8fd92da61c472dccb0b2326",
+            "translation_sha256": "b4534698fa3480bb7543788579ce0605ec9193e2bfbefdcb3b81e2e658db71d4"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders/post/responses/201/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "010a8493de1cb4c96137d2df56283b7639c4f95ba78519f81fea78913a49d363",
+        "translation_sha256": "0bb3cc80c39ee2f32eeece7e316eb4137325ed3920a326e5a31a078eb4a7d0a7",
+        "structure_sha256": "a554860e098ba47a8179caba8de32f8a3bf018f2c988a80ca3a6672f95de0514",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "bddba03a1b65eb696b7a87088e06a72528a2e6b92757b96a9127575cf8e2f7b6",
+            "translation_sha256": "d64641c68723b735d8add07b938582dee40459e5cf50031ce92ef3d233f9fef3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/get/summary",
+            "source_sha256": "a222d90cf9dc76598884663f68be841592b556ec2c7ebfb98fa3ea776737d103",
+            "translation_sha256": "a06552fff70e20b097b17e3faa02944e42f8b7a2818a65ef0b63d75eb3798353"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/get/description",
+            "source_sha256": "9009811b877146680f06cf31c93259da1665322baae2c49ae8cee25620591b0c",
+            "translation_sha256": "d820e2983a3d9ee19771b66d5a27b3ca69d1a3d4e482c44d50e707a677fb10b6"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/get/parameters/0/description",
+            "source_sha256": "a2944701b01673104bf1dc87dd4365d9c6a627eca890fa51fca37716a3dca4de",
+            "translation_sha256": "06037dac0710fda13935b3f1a1da279767ba16dbb107bca515f97dc8964888d0"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/get/parameters/1/description",
+            "source_sha256": "77a86940bf344ce7ce1aaed4637df2b80c975e333f0ea08cb8c726c0d4614ca3",
+            "translation_sha256": "63b07a79c69cc1d5563d59d5bb032ef0de072ea0ec2e7689d5b2eb7b76e7868b"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/get/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/get/responses/200/content/application~1json/schema/properties/totalSubFolders/description",
+            "source_sha256": "4a2eea2e6165f7babd0fc8569fe72d738cef9e3be81329beb5ad24134b41411e",
+            "translation_sha256": "605fe40b6a77d4a99c8a0758c562203caf52d7d153f74580d7aba23e364d15ff"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/get/responses/200/content/application~1json/schema/properties/totalWorkflows/description",
+            "source_sha256": "b9557d0103e5593231d18a31b7b9e4f8255e5e6e7d4be6f956d9a14a1374077c",
+            "translation_sha256": "2f485883b7b684b8b2ca916fcb9f6f7d4fd4c585b17c3d5d3c0b2a16c7c81116"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "30a2e06d18c645dd62c84594f8fc5ef0a073df4ac1e62d24a514a038b5333a68",
+        "translation_sha256": "b7449c433e29a6d964ac1756db75bf046e24d6f0ca4b50d83648e28d6cee0d60",
+        "structure_sha256": "9941133da57aed1ca5ed1814f8758280e715ad0cdd8422a2c93896ffbc0c7e73",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "bddba03a1b65eb696b7a87088e06a72528a2e6b92757b96a9127575cf8e2f7b6",
+            "translation_sha256": "d64641c68723b735d8add07b938582dee40459e5cf50031ce92ef3d233f9fef3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/delete/summary",
+            "source_sha256": "23ea98e3d44914656646f60a454766cf6cede9766b48cadf00abee05b19a6982",
+            "translation_sha256": "780dfc4c114297d3eb77fdbab2ddf2463e6c24d3a396043b6fdb57cb07a95a45"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/delete/description",
+            "source_sha256": "72a0073b256828f8128c8727c48fe2bef1e912b9baec96276143df2786d8737c",
+            "translation_sha256": "382692209f5521fd796e0db212d91f81eb34290f3ada943677b2aa990a5f649f"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/delete/parameters/0/description",
+            "source_sha256": "a2944701b01673104bf1dc87dd4365d9c6a627eca890fa51fca37716a3dca4de",
+            "translation_sha256": "06037dac0710fda13935b3f1a1da279767ba16dbb107bca515f97dc8964888d0"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/delete/parameters/1/description",
+            "source_sha256": "77a86940bf344ce7ce1aaed4637df2b80c975e333f0ea08cb8c726c0d4614ca3",
+            "translation_sha256": "63b07a79c69cc1d5563d59d5bb032ef0de072ea0ec2e7689d5b2eb7b76e7868b"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/delete/parameters/2/schema/description",
+            "source_sha256": "75aa300f3199855aae30b5c573d894b4ee8652910409cb72f339459c4e60e40c",
+            "translation_sha256": "123e6f55c13384163b8b7a693a7ef35e43e42d6a2734a9e9dee0a020be293ede"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/delete/responses/204/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "kind": "openapi-reader-fields",
+        "source_sha256": "55bb002061ba1ed57abd2a346fff55574dfab8daf79051b47d51b407680e498a",
+        "translation_sha256": "4241aaf9a056227de5720760d3bfe14a7ff13907d14d21b3881f951477559c3f",
+        "structure_sha256": "01583de67302a4075a66ce3f690b05b9d0b29fb8de2ebebbf9d161efaf3ba87e",
+        "fields": [
+          {
+            "pointer": "/info/title",
+            "source_sha256": "176dcc32ad1fdb03e97422aae9e2788230932078c11dce349979087b61c34ec9",
+            "translation_sha256": "cd9e5751f203d31068eb69b512d55bfc8c66d1d0c63244bc230e7ddff3e66a54"
+          },
+          {
+            "pointer": "/tags/0/description",
+            "source_sha256": "bddba03a1b65eb696b7a87088e06a72528a2e6b92757b96a9127575cf8e2f7b6",
+            "translation_sha256": "d64641c68723b735d8add07b938582dee40459e5cf50031ce92ef3d233f9fef3"
+          },
+          {
+            "pointer": "/servers/0/description",
+            "source_sha256": "bba90924919b01455781a01631b969e44f15bc56a114f18ba55b1ce3c8809b56",
+            "translation_sha256": "f035737fac34dfeab312a29a7c835ca0e20199fc1ec5200603235951b8e9a742"
+          },
+          {
+            "pointer": "/servers/1/description",
+            "source_sha256": "e00991d121b281764bcde129e2d6e535e64714a95c1d7b302eb125b6416e9b11",
+            "translation_sha256": "c86d860fe3c27e0e716d93af6f551b42e4035a15bcdb1f56531a709549394de5"
+          },
+          {
+            "pointer": "/components/responses/badRequest/description",
+            "source_sha256": "e5b7c29dda63186233a5db9336b287769049b4b368d41756139d9beaae68375b",
+            "translation_sha256": "93be49b72b1b5f233d6644b29e1e2890d2f31bea0fb75b984d757f83e06dc947"
+          },
+          {
+            "pointer": "/components/responses/unauthorized/description",
+            "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+            "translation_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+          },
+          {
+            "pointer": "/components/responses/forbidden/description",
+            "source_sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+            "translation_sha256": "4c35dd6e8a282a342cbc9a61f1ae15852185cbdcb5d0e4831daa0c681ab4707d"
+          },
+          {
+            "pointer": "/components/responses/notFound/description",
+            "source_sha256": "b022e603ee25d9e233b73e455bdb9d07af6de7563556ee07ec0b7e4174ae571a",
+            "translation_sha256": "72df1bd5ec8eff28b29dd048832ec4ac7a54a64adc295bb1b008a732c7a201f7"
+          },
+          {
+            "pointer": "/components/responses/unsupportedMediaType/description",
+            "source_sha256": "b28794a043889f78167d1cf82a0d29662b87fca9578be2119324308c09a28f05",
+            "translation_sha256": "a0b41323099279b1d3b7d5b1594c0b5bcaad5b53aaa286c8be0db8f0abe0c126"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/patch/summary",
+            "source_sha256": "45e3c757571c79ee7d3c5a866a98c9789d77a63025823dd5cceb45666f7340e3",
+            "translation_sha256": "f96da3d9c86c47989a8899553a35f1e7133389fdf9c2a54c0aabcb42fb610c01"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/patch/description",
+            "source_sha256": "03a47868f4ab594f87d75e22480c72aafdffb7b41472b980ebdd4543cc81cd89",
+            "translation_sha256": "3de68a35bb0c4777569d859f28b2b479188e5fdbfc5f9fa55e7f1e8d57faee0a"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/patch/parameters/0/description",
+            "source_sha256": "a2944701b01673104bf1dc87dd4365d9c6a627eca890fa51fca37716a3dca4de",
+            "translation_sha256": "06037dac0710fda13935b3f1a1da279767ba16dbb107bca515f97dc8964888d0"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/patch/parameters/1/description",
+            "source_sha256": "77a86940bf344ce7ce1aaed4637df2b80c975e333f0ea08cb8c726c0d4614ca3",
+            "translation_sha256": "63b07a79c69cc1d5563d59d5bb032ef0de072ea0ec2e7689d5b2eb7b76e7868b"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/patch/requestBody/content/application~1json/schema/properties/parentFolderId/description",
+            "source_sha256": "59719670cb27d465c2c83954c0ebb11799f6f69a205db434203a254db0472c63",
+            "translation_sha256": "bde14f210a0ea92f5f2b1f96bedb1c1b79f7e199b595f7cc1fa9efde57d174e0"
+          },
+          {
+            "pointer": "/paths/~1projects~1{projectId}~1folders~1{folderId}/patch/responses/200/description",
+            "source_sha256": "accb3db476cb80495955c0f67f34ee1a0aef72193b75eb4bbfc2ca8d109b517a",
+            "translation_sha256": "c001c96a1d035dcf91d34bf174a6ae66c6a4797a092598151ac87f0b52a4393f"
+          }
+        ]
+      }
+    ]
   }
 }
