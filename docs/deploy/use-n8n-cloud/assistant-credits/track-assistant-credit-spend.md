@@ -1,62 +1,62 @@
 ---
-description: >-
-  Monitor your Assistant credit balance, spend, top users, and top-up history
-  in the n8n Cloud console and the n8n Assistant panel.
+description: 在 n8n Cloud 控制台和 n8n Assistant 面板中，监控 Assistant 额度余额、支出、高用量用户和充值记录。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Track Assistant credit spend
 
-The **Assistant credits** page in the n8n Cloud console shows your [Assistant credit](README.md) balance, spend over time, top users, and top-up history. To open it, go to the [Cloud console](../use-the-cloud-console.md) and select **Assistant credits** in the sidebar. You can also select **Manage** next to your Assistant balance on the **Overview** page.
+# 跟踪 Assistant 额度支出 <a id="track-assistant-credit-spend"></a>
 
-You can also check your balance in the editor, from the n8n Assistant panel.
+n8n Cloud 控制台的 **Assistant credits（Assistant 额度）** 页面显示 [Assistant 额度](README.md)余额、各时段的支出、高用量用户和充值记录。打开 [Cloud 控制台](../use-the-cloud-console.md)，在侧边栏选择 **Assistant credits** 即可进入。你也可以在 **Overview（概览）** 页面选择 Assistant 余额旁的 **Manage（管理）**。
 
-## Balance
+你也可以在编辑器的 n8n Assistant 面板中查看余额。
 
-The balance card shows how many credits you have available, split into two parts:
+## 余额 <a id="balance"></a>
 
-- **Included**: how many of this month's included credits remain, and the date they reset.
-- **Extra credits**: how many purchased extra credits remain. Extra credits carry over from month to month until they expire.
+余额卡片显示可用额度，分为两部分：
 
-During a free trial, the card shows how much of your trial allowance remains.
+- **Included（内含额度）**：本月套餐内含额度的剩余数量，以及重置日期。
+- **Extra credits（额外额度）**：已购买额外额度的剩余数量。额外额度可以跨月结转，直到到期。
 
-A status label shows which credits n8n Assistant is using right now:
+免费试用期间，卡片会显示试用额度的剩余数量。
 
-- **Within included**: n8n Assistant is using your included credits.
-- **Using extra credits**: your included credits have run out, and n8n Assistant is using extra credits.
-- **Paused — no extra credits**: you've used up both, and n8n Assistant stays paused until you top up or your included credits reset.
+状态标签会显示 n8n Assistant 当前正在使用哪种额度：
 
-If you're the instance owner on a paid plan, you can top up from here. Refer to [Top up Assistant credits](top-up-assistant-credits.md) for details.
+- **Within included（使用内含额度）**：n8n Assistant 正在使用套餐内含额度。
+- **Using extra credits（使用额外额度）**：套餐内含额度已用完，n8n Assistant 正在使用额外额度。
+- **Paused — no extra credits（已暂停，无额外额度）**：两种额度均已用完；在充值或套餐内含额度重置之前，n8n Assistant 会保持暂停。
 
-## Spend
+如果你是付费套餐的实例所有者，可以在这里充值。详情请参阅[充值 Assistant 额度](top-up-assistant-credits.md)。
 
-The spend chart shows how many credits your instance used over the last 24 hours, 7 days, or 30 days. It splits usage into included credits and extra credits, so you can see how often you go past your monthly allowance.
+## 支出 <a id="spend"></a>
 
-If you use extra credits every month, compare the cost of topping up with the allowance on a higher plan. Refer to [n8n plans and pricing](https://n8n.io/pricing/).
+支出图表显示实例在过去 24 小时、7 天或 30 天内使用的额度，并区分套餐内含额度和额外额度，便于查看超出每月额度的频率。
 
-## Top users
+如果每个月都需要使用额外额度，可以比较充值费用与升级套餐所提供的额度。请参阅 [n8n 套餐与价格](https://n8n.io/pricing/)。
 
-Everyone on your instance shares one Assistant credit balance. The top users card shows which users use the most credits, as a percentage of total usage, and groups everyone else under **Other users**.
+## 高用量用户 <a id="top-users"></a>
 
-## Top-up history
+实例上的所有用户共享同一个 Assistant 额度余额。高用量用户卡片显示使用额度最多的用户，以及其用量占总用量的百分比；其余用户统一归入 **Other users（其他用户）**。
 
-The top-up history lists the extra credits added to your balance, from both manual top-ups and auto top-ups. Each entry shows the amount, the date, and when those credits expire.
+## 充值记录 <a id="top-up-history"></a>
 
-## Check your balance in the editor
+充值记录列出通过手动和自动充值添加到余额的额外额度。每条记录显示数量、日期和额度到期时间。
 
-In the editor, open the credits menu in the n8n Assistant panel to see:
+## 在编辑器中查看余额 <a id="check-your-balance-in-the-editor"></a>
 
-- How many credits your instance has left. This number includes both included and extra credits.
-- How many credits the current conversation has used so far.
+在编辑器中，打开 n8n Assistant 面板的额度菜单，可以查看：
 
-When your balance drops to 10% or less, a banner above the chat input warns you that you're running low. You can dismiss the banner. It appears again the next time your balance crosses the threshold.
+- 实例的剩余额度总量，包括套餐内含额度和额外额度。
+- 当前对话至今已消耗的额度。
 
-When your balance runs out, n8n Assistant shows **You've run out of AI credits**, and you can't send new messages. Refer to [When your Assistant credits run out](README.md#when-your-assistant-credits-run-out) for how to get more.
+余额降到 10% 或以下时，聊天输入框上方会出现余额不足提示横幅。你可以关闭横幅；下次余额再次跨过该阈值时，它会重新出现。
 
-## Related resources
+余额耗尽后，n8n Assistant 会显示 **You've run out of AI credits（AI 额度已用完）**，无法再发送新消息。如何获得更多额度，请参阅 [Assistant 额度耗尽后](README.md#when-your-assistant-credits-run-out)。
 
-- [Assistant credits](README.md)
-- [Top up Assistant credits](top-up-assistant-credits.md)
-- [Track Gateway credit spend](../gateway-credits/track-gateway-credit-spend.md)
+## 相关资源 <a id="related-resources"></a>
+
+- [Assistant 额度](README.md)
+- [充值 Assistant 额度](top-up-assistant-credits.md)
+- [跟踪 Gateway 额度支出](../gateway-credits/track-gateway-credit-spend.md)

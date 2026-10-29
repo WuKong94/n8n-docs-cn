@@ -1,15 +1,17 @@
 ---
-title: warning
+title: 自托管所需知识
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 {% hint style="info" %}
-**Self-hosting knowledge prerequisites**
+**自托管的知识要求**
 
-Self-hosting n8n requires technical knowledge, including:
+自行托管 n8n 需要具备以下技术知识：
 
-* Setting up and configuring servers and containers
-* Managing application resources and scaling
-* Securing servers and applications
-* Configuring n8n
+* 设置和配置服务器与容器
+* 管理应用资源和扩展容量
+* 保护服务器和应用的安全
+* 配置 n8n
 
-n8n recommends self-hosting for expert users. Mistakes can lead to data loss, security issues, and downtime. If you aren't experienced at managing servers, n8n recommends [n8n Cloud](https://n8n.io/cloud/).
+n8n 建议有经验的用户选择自托管。操作失误可能导致数据丢失、安全问题和停机。如果不熟悉服务器管理，n8n 建议使用 [n8n Cloud](https://n8n.io/cloud/)。
 {% endhint %}

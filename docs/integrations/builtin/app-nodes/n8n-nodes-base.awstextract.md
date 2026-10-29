@@ -1,42 +1,42 @@
 ---
-title: AWS Textract node documentation
-description: >-
-  Learn how to use the AWS Textract node in n8n. Follow technical documentation
-  to integrate AWS Textract node into your workflows.
+title: AWS Textract 节点文档
+description: 了解如何在 n8n 中使用 AWS Textract 节点，并按照技术文档将 AWS Textract 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: AWS Textract node documentation
+- integration
+- reference
+nodeTitle: AWS Textract 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.awstextract.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awstextract'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awstextract'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awstextract
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awstextract
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AWS Textract node <a href="#aws-textract-node" id="aws-textract-node"></a>
 
-Use the AWS Textract node to automate work in AWS Textract, and integrate AWS Textract with other applications. n8n has built-in support for a wide range of AWS Textract features, including analyzing invoices.
+# AWS Textract 节点 <a href="#aws-textract-node" id="aws-textract-node"></a>
 
-On this page, you'll find a list of operations the AWS Textract node supports and links to more resources.
+使用 AWS Textract 节点自动处理 AWS Textract 中的工作，并将其与其他应用集成。n8n 内置支持多种 AWS Textract 功能，包括分析发票。
+
+本页列出了 AWS Textract 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [AWS Textract credentials](../credentials/aws.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [AWS Textract 凭据](../credentials/aws.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-- Analyze Receipt or Invoice
+- Analyze Receipt or Invoice（分析收据或发票）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse AWS Textract node documentation integration templates](https://n8n.io/integrations/aws-textract) or [search all templates](https://n8n.io/workflows/)
+[浏览 AWS Textract 集成模板](https://n8n.io/integrations/aws-textract)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 

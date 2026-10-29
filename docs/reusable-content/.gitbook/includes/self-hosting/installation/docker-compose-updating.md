@@ -1,7 +1,9 @@
 ---
-title: docker-compose-updating
+title: 更新 Docker Compose 安装
 ---
-If you run n8n using a Docker Compose file, follow these steps to update n8n:
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+如果通过 Docker Compose 文件运行 n8n，请按照以下步骤更新：
 
 ```sh
 # Navigate to the directory containing your docker compose file <a href="#navigate-to-the-directory-containing-your-docker-compose-file" id="navigate-to-the-directory-containing-your-docker-compose-file"></a>

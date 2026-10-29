@@ -1,54 +1,54 @@
 ---
-title: Salesmate node documentation
-description: >-
-  Learn how to use the Salesmate node in n8n. Follow technical documentation to
-  integrate Salesmate node into your workflows.
+title: Salesmate 节点文档
+description: 了解如何在 n8n 中使用 Salesmate 节点，并按照技术文档将 Salesmate 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Salesmate node documentation
+- integration
+- reference
+nodeTitle: Salesmate 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.salesmate.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.salesmate'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.salesmate'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.salesmate
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.salesmate
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Salesmate node <a href="#salesmate-node" id="salesmate-node"></a>
 
-Use the Salesmate node to automate work in Salesmate, and integrate Salesmate with other applications. n8n has built-in support for a wide range of Salesmate features, including creating, updating, deleting, and getting activities, companies, and deals. 
+# Salesmate 节点 <a href="#salesmate-node" id="salesmate-node"></a>
 
-On this page, you'll find a list of operations the Salesmate node supports and links to more resources.
+使用 Salesmate 节点自动处理 Salesmate 中的工作，并将其与其他应用集成。n8n 内置支持多种 Salesmate 功能，包括创建、更新、删除和获取活动、公司和商机。
+
+本页列出了 Salesmate 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Salesmate credentials](../credentials/salesmate.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Salesmate 凭据](../credentials/salesmate.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Activity
-    * Create an activity
-    * Delete an activity
-    * Get an activity
-    * Get all companies
-    * Update an activity
-* Company
-    * Create a company
-    * Delete a company
-    * Get a company
-    * Get all companies
-    * Update a company
-* Deal
-    * Create a deal
-    * Delete a deal
-    * Get a deal
-    * Get all deals
-    * Update a deal
+* Activity（活动）
+    * Create an activity（创建活动）
+    * Delete an activity（删除活动）
+    * Get an activity（获取活动）
+    * Get all companies（获取全部公司）
+    * Update an activity（更新活动）
+* Company（公司）
+    * Create a company（创建公司）
+    * Delete a company（删除公司）
+    * Get a company（获取公司）
+    * Get all companies（获取全部公司）
+    * Update a company（更新公司）
+* Deal（商机）
+    * Create a deal（创建商机）
+    * Delete a deal（删除商机）
+    * Get a deal（获取商机）
+    * Get all deals（获取全部商机）
+    * Update a deal（更新商机）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Salesmate node documentation integration templates](https://n8n.io/integrations/salesmate) or [search all templates](https://n8n.io/workflows/)
+[浏览 Salesmate 集成模板](https://n8n.io/integrations/salesmate)，或[搜索所有模板](https://n8n.io/workflows/)

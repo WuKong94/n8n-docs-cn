@@ -1,56 +1,56 @@
 ---
-title: Agile CRM node documentation
-description: >-
-  Learn how to use the Agile CRM node in n8n. Follow technical documentation to
-  integrate Agile CRM node into your workflows.
+title: Agile CRM 节点文档
+description: 了解如何在 n8n 中使用 Agile CRM 节点，并按照技术文档将 Agile CRM 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Agile CRM node documentation
+- integration
+- reference
+nodeTitle: Agile CRM 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.agilecrm.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.agilecrm'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.agilecrm'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.agilecrm
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.agilecrm
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Agile CRM node <a href="#agile-crm-node" id="agile-crm-node"></a>
 
-Use the Agile CRM node to automate work in Agile CRM, and integrate Agile CRM with other applications. n8n has built-in support for a wide range of Agile CRM features, including creating, getting, updating and deleting companies, contracts, and deals.
+# Agile CRM 节点 <a href="#agile-crm-node" id="agile-crm-node"></a>
 
-On this page, you'll find a list of operations the Agile CRM node supports and links to more resources.
+使用 Agile CRM 节点自动处理 Agile CRM 中的工作，并将其与其他应用集成。n8n 内置支持多种 Agile CRM 功能，包括创建、获取、更新和删除公司、合同和商机。
+
+本页列出了 Agile CRM 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Agile CRM credentials](../credentials/agilecrm.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Agile CRM 凭据](../credentials/agilecrm.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Company
-    * Create a new company
-    * Delete a company
-    * Get a company
-    * Get all companies
-    * Update company properties
-* Contact
-    * Create a new contact
-    * Delete a contact
-    * Get a contact
-    * Get all contacts
-    * Update contact properties
-* Deal
-    * Create a new deal
-    * Delete a deal
-    * Get a deal
-    * Get all deals
-    * Update deal properties
+* Company（公司）
+    * Create a new company（创建新公司）
+    * Delete a company（删除公司）
+    * Get a company（获取公司）
+    * Get all companies（获取全部公司）
+    * Update company properties（更新公司属性）
+* Contact（联系人）
+    * Create a new contact（创建新联系人）
+    * Delete a contact（删除联系人）
+    * Get a contact（获取联系人）
+    * Get all contacts（获取全部联系人）
+    * Update contact properties（更新联系人属性）
+* Deal（商机）
+    * Create a new deal（创建新商机）
+    * Delete a deal（删除商机）
+    * Get a deal（获取商机）
+    * Get all deals（获取全部商机）
+    * Update deal properties（更新商机属性）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Agile CRM node documentation integration templates](https://n8n.io/integrations/agile-crm) or [search all templates](https://n8n.io/workflows/)
+[浏览 Agile CRM 集成模板](https://n8n.io/integrations/agile-crm)，或[搜索所有模板](https://n8n.io/workflows/)

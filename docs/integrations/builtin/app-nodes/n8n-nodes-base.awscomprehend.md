@@ -1,45 +1,43 @@
 ---
-title: AWS Comprehend node documentation
-description: >-
-  Learn how to use the AWS Comprehend node in n8n. Follow technical
-  documentation to integrate AWS Comprehend node into your workflows.
+title: AWS Comprehend 节点文档
+description: 了解如何在 n8n 中使用 AWS Comprehend 节点，并按照技术文档将 AWS Comprehend 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: AWS Comprehend node documentation
+- integration
+- reference
+nodeTitle: AWS Comprehend 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.awscomprehend.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscomprehend
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscomprehend
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscomprehend
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscomprehend
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AWS Comprehend node <a href="#aws-comprehend-node" id="aws-comprehend-node"></a>
 
-Use the AWS Comprehend node to automate work in AWS Comprehend, and integrate AWS Comprehend with other applications. n8n has built-in support for a wide range of AWS Comprehend features, including identifying and analyzing texts.
+# AWS Comprehend 节点 <a href="#aws-comprehend-node" id="aws-comprehend-node"></a>
 
-On this page, you'll find a list of operations the AWS Comprehend node supports and links to more resources.
+使用 AWS Comprehend 节点自动处理 AWS Comprehend 中的工作，并将其与其他应用集成。n8n 内置支持多种 AWS Comprehend 功能，包括识别和分析文本。
+
+本页列出了 AWS Comprehend 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [AWS Comprehend credentials](../credentials/aws.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [AWS Comprehend 凭据](../credentials/aws.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-**Text**
+**Text（文本）**
 
-- Identify the dominant language
-- Analyse the sentiment of the text
+- Identify the dominant language（识别主要语言）
+- Analyse the sentiment of the text（分析文本的情感倾向）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse AWS Comprehend node documentation integration templates](https://n8n.io/integrations/aws-comprehend) or [search all templates](https://n8n.io/workflows/)
+[浏览 AWS Comprehend 集成模板](https://n8n.io/integrations/aws-comprehend)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 

@@ -1,41 +1,39 @@
 ---
-title: Google Perspective node documentation
-description: >-
-  Learn how to use the Google Perspective node in n8n. Follow technical
-  documentation to integrate Google Perspective node into your workflows.
+title: Google Perspective 节点文档
+description: 了解如何在 n8n 中使用 Google Perspective 节点，并按照技术文档将 Google Perspective 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Google Perspective node documentation
+- integration
+- reference
+nodeTitle: Google Perspective 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googleperspective.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleperspective
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleperspective
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleperspective
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleperspective
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Perspective node <a href="#google-perspective-node" id="google-perspective-node"></a>
 
-Use the Google Perspective node to automate work in Google Perspective, and integrate Google Perspective with other applications. n8n has built-in support for a wide range of Google Perspective features, including analyzing comments.
+# Google Perspective 节点 <a href="#google-perspective-node" id="google-perspective-node"></a>
 
-On this page, you'll find a list of operations the Google Perspective node supports and links to more resources.
+使用 Google Perspective 节点自动处理 Google Perspective 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Perspective 功能，包括分析评论。
+
+本页列出了 Google Perspective 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Google Perspective credentials](../credentials/google/README.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Google Perspective 凭据](../credentials/google/README.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Analyze Comment
+* Analyze Comment（分析评论）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Google Perspective node documentation integration templates](https://n8n.io/integrations/google-perspective) or [search all templates](https://n8n.io/workflows/)
+[浏览 Google Perspective 集成模板](https://n8n.io/integrations/google-perspective)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

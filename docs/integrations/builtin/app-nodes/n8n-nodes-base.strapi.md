@@ -1,48 +1,48 @@
 ---
-title: Strapi node documentation
-description: >-
-  Learn how to use the Strapi node in n8n. Follow technical documentation to
-  integrate Strapi node into your workflows.
+title: Strapi 节点文档
+description: 了解如何在 n8n 中使用 Strapi 节点，并按照技术文档将 Strapi 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Strapi node documentation
+- integration
+- reference
+nodeTitle: Strapi 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.strapi.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.strapi'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.strapi'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.strapi
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.strapi
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Strapi node <a href="#strapi-node" id="strapi-node"></a>
 
-Use the Strapi node to automate work in Strapi, and integrate Strapi with other applications. n8n has built-in support for a wide range of Strapi features, including creating and deleting entries. 
+# Strapi 节点 <a href="#strapi-node" id="strapi-node"></a>
 
-On this page, you'll find a list of operations the Strapi node supports and links to more resources.
+使用 Strapi 节点自动处理 Strapi 中的工作，并将其与其他应用集成。n8n 内置支持多种 Strapi 功能，包括创建和删除条目。
+
+本页列出了 Strapi 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Strapi credentials](../credentials/strapi.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Strapi 凭据](../credentials/strapi.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Entry
-    * Create
-    * Delete
-    * Get
-    * Get Many
-    * Update
+* Entry（条目）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get Many（获取多条）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Strapi node documentation integration templates](https://n8n.io/integrations/strapi) or [search all templates](https://n8n.io/workflows/)
+[浏览 Strapi 集成模板](https://n8n.io/integrations/strapi)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Strapi's documentation](https://docs.strapi.io/dev-docs/api/rest) for more information about the service.
+有关该服务的更多信息，请参阅 [Strapi 文档](https://docs.strapi.io/dev-docs/api/rest)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

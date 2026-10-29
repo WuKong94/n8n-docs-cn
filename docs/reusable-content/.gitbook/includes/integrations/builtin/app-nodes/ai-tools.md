@@ -1,8 +1,10 @@
 ---
-title: ai-tools
+title: 将节点用作 AI 工具
 ---
-{% hint style="info" %}
-**This node can be used as an AI tool**
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-This node can be used to enhance the capabilities of an AI agent. When used in this way, many parameters can be set automatically, or with information directed by AI - find out more in the [AI tool parameters documentation](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/ai-examples/use-ai-for-parameters).
+{% hint style="info" %}
+**此节点可以用作 AI 工具**
+
+此节点可以增强 AI 智能体的能力。以这种方式使用时，许多参数可以自动设置，或根据 AI 提供的信息设置。更多信息请参阅 [AI 工具参数文档](../../../../../../build/integrate-ai/ai-examples/use-ai-for-parameters.md)。
 {% endhint %}

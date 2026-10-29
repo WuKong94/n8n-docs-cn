@@ -1,52 +1,50 @@
 ---
-title: Google Analytics node documentation
-description: >-
-  Learn how to use the Google Analytics node in n8n. Follow technical
-  documentation to integrate Google Analytics node into your workflows.
+title: Google Analytics 节点文档
+description: 了解如何在 n8n 中使用 Google Analytics 节点，并按照技术文档将 Google Analytics 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Google Analytics node documentation
+nodeTitle: Google Analytics 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googleanalytics.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleanalytics
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleanalytics
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleanalytics
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleanalytics
 layout:
   description:
     visible: false
 ---
-
-# Google Analytics node <a href="#google-analytics-node" id="google-analytics-node"></a>
-
-Use the Google Analytics node to automate work in Google Analytics, and integrate Google Analytics with other applications. n8n has built-in support for a wide range of Google Analytics features, including returning reports and user activities.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-On this page, you'll find a list of operations the Google Analytics node supports and links to more resources.
+# Google Analytics 节点 <a href="#google-analytics-node" id="google-analytics-node"></a>
+
+使用 Google Analytics 节点自动处理 Google Analytics 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Analytics 功能，包括返回报告和用户活动。
+
+
+本页列出了 Google Analytics 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Google Analytics credentials](../credentials/google/README.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Google Analytics 凭据](../credentials/google/README.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Report
-    * Get
-* User Activity
-    * Search
+* Report（报告）
+    * Get（获取）
+* User Activity（用户活动）
+    * Search（搜索）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Google Analytics node documentation integration templates](https://n8n.io/integrations/google-analytics) or [search all templates](https://n8n.io/workflows/)
+[浏览 Google Analytics 集成模板](https://n8n.io/integrations/google-analytics)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Google Analytics' documentation](https://developers.google.com/analytics) for more information about the service.
+有关该服务的更多信息，请参阅 [Google Analytics 文档](https://developers.google.com/analytics)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

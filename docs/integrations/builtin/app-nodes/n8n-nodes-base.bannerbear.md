@@ -1,42 +1,42 @@
 ---
-title: Bannerbear node documentation
-description: >-
-  Learn how to use the Bannerbear node in n8n. Follow technical documentation to
-  integrate Bannerbear node into your workflows.
+title: Bannerbear 节点文档
+description: 了解如何在 n8n 中使用 Bannerbear 节点，并按照技术文档将 Bannerbear 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Bannerbear node documentation
+- integration
+- reference
+nodeTitle: Bannerbear 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.bannerbear.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.bannerbear'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.bannerbear'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.bannerbear
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.bannerbear
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Bannerbear node <a href="#bannerbear-node" id="bannerbear-node"></a>
 
-Use the Bannerbear node to automate work in Bannerbear, and integrate Bannerbear with other applications. n8n has built-in support for a wide range of Bannerbear features, including creating and getting images and templates.
+# Bannerbear 节点 <a href="#bannerbear-node" id="bannerbear-node"></a>
 
-On this page, you'll find a list of operations the Bannerbear node supports and links to more resources.
+使用 Bannerbear 节点自动处理 Bannerbear 中的工作，并将其与其他应用集成。n8n 内置支持多种 Bannerbear 功能，包括创建和获取图像与模板。
+
+本页列出了 Bannerbear 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Bannerbear credentials](../credentials/bannerbear.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Bannerbear 凭据](../credentials/bannerbear.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Image
-    * Create an image
-    * Get an image
-* Template
-    * Get a template
-    * Get all templates
+* Image（图像）
+    * Create an image（创建图像）
+    * Get an image（获取图像）
+* Template（模板）
+    * Get a template（获取模板）
+    * Get all templates（获取全部模板）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Bannerbear node documentation integration templates](https://n8n.io/integrations/bannerbear) or [search all templates](https://n8n.io/workflows/)
+[浏览 Bannerbear 集成模板](https://n8n.io/integrations/bannerbear)，或[搜索所有模板](https://n8n.io/workflows/)

@@ -1,46 +1,46 @@
 ---
-title: Webflow node documentation
-description: >-
-  Learn how to use the Webflow node in n8n. Follow technical documentation to
-  integrate Webflow node into your workflows.
+title: Webflow 节点文档
+description: 了解如何在 n8n 中使用 Webflow 节点，并按照技术文档将 Webflow 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Webflow node documentation
+- integration
+- reference
+nodeTitle: Webflow 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.webflow.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.webflow'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.webflow'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.webflow
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.webflow
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Webflow node <a href="#webflow-node" id="webflow-node"></a>
 
-Use the Webflow node to automate work in Webflow, and integrate Webflow with other applications. n8n has built-in support for a wide range of Webflow features, including creating, updating, deleting, and getting items. 
+# Webflow 节点 <a href="#webflow-node" id="webflow-node"></a>
 
-On this page, you'll find a list of operations the Webflow node supports and links to more resources.
+使用 Webflow 节点自动处理 Webflow 中的工作，并将其与其他应用集成。n8n 内置支持多种 Webflow 功能，包括创建、更新、删除和获取数据项。
+
+本页列出了 Webflow 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Webflow credentials](../credentials/webflow.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Webflow 凭据](../credentials/webflow.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Item
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Update
+* Item（数据项）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Webflow node documentation integration templates](https://n8n.io/integrations/webflow) or [search all templates](https://n8n.io/workflows/)
+[浏览 Webflow 集成模板](https://n8n.io/integrations/webflow)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

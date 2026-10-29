@@ -1,47 +1,47 @@
 ---
-title: Linear node documentation
-description: >-
-  Learn how to use the Linear node in n8n. Follow technical documentation to
-  integrate Linear node into your workflows.
+title: Linear 节点文档
+description: 了解如何在 n8n 中使用 Linear 节点，并按照技术文档将 Linear 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Linear node documentation
+- integration
+- reference
+nodeTitle: Linear 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.linear.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linear'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linear'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linear
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linear
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Linear node <a href="#linear-node" id="linear-node"></a>
 
-Use the Linear node to automate work in Linear, and integrate Linear with other applications. n8n has built-in support for a wide range of Linear features, including creating, updating, deleting, and getting issues. 
+# Linear 节点 <a href="#linear-node" id="linear-node"></a>
 
-On this page, you'll find a list of operations the Linear node supports and links to more resources.
+使用 Linear 节点自动处理 Linear 中的工作，并将其与其他应用集成。n8n 内置支持多种 Linear 功能，包括创建、更新、删除和获取议题。
+
+本页列出了 Linear 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Linear credentials](../credentials/linear.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Linear 凭据](../credentials/linear.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Comment
-	* Add Comment
-* Issue
-	* Add Link
-    * Create
-    * Delete
-    * Get
-    * Get Many
-    * Update
+* Comment（评论）
+	* Add Comment（添加评论）
+* Issue（议题）
+	* Add Link（添加链接）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get Many（获取多条）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Linear node documentation integration templates](https://n8n.io/integrations/linear) or [search all templates](https://n8n.io/workflows/)
+[浏览 Linear 集成模板](https://n8n.io/integrations/linear)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

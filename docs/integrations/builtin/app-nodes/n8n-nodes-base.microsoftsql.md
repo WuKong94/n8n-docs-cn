@@ -1,43 +1,43 @@
 ---
-title: Microsoft SQL node documentation
-description: >-
-  Learn how to use the Microsoft SQL node in n8n. Follow technical documentation
-  to integrate Microsoft SQL node into your workflows.
+title: Microsoft SQL 节点文档
+description: 了解如何在 n8n 中使用 Microsoft SQL 节点，并按照技术文档将 Microsoft SQL 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Microsoft SQL node documentation
+nodeTitle: Microsoft SQL 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.microsoftsql.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftsql'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftsql'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftsql
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftsql
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft SQL node <a href="#microsoft-sql-node" id="microsoft-sql-node"></a>
 
-Use the Microsoft SQL node to automate work in Microsoft SQL, and integrate Microsoft SQL with other applications. n8n has built-in support for a wide range of Microsoft SQL features, including executing SQL queries, and inserting rows into the database. 
+# Microsoft SQL 节点 <a href="#microsoft-sql-node" id="microsoft-sql-node"></a>
 
-On this page, you'll find a list of operations the Microsoft SQL node supports and links to more resources.
+使用 Microsoft SQL 节点自动处理 Microsoft SQL 中的工作，并将其与其他应用集成。n8n 内置支持多种 Microsoft SQL 功能，包括执行 SQL 查询和向数据库插入行。
+
+本页列出了 Microsoft SQL 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Microsoft SQL credentials](../credentials/microsoftsql.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Microsoft SQL 凭据](../credentials/microsoftsql.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Execute an SQL query
-* Insert rows in database
-* Update rows in database
-* Delete rows in database
+* Execute an SQL query（执行 SQL 查询）
+* Insert rows in database（向数据库插入行）
+* Update rows in database（更新数据库中的行）
+* Delete rows in database（删除数据库中的行）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Microsoft SQL node documentation integration templates](https://n8n.io/integrations/microsoft-sql) or [search all templates](https://n8n.io/workflows/)
+[浏览 Microsoft SQL 集成模板](https://n8n.io/integrations/microsoft-sql)，或[搜索所有模板](https://n8n.io/workflows/)

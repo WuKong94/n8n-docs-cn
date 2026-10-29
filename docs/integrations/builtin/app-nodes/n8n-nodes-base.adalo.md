@@ -1,51 +1,51 @@
 ---
-title: Adalo node documentation
-description: >-
-  Learn how to use the Adalo node in n8n. Follow technical documentation to
-  integrate Adalo node into your workflows.
+title: Adalo 节点文档
+description: 了解如何在 n8n 中使用 Adalo 节点，并按照技术文档将 Adalo 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Adalo node documentation
+nodeTitle: Adalo 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.adalo.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.adalo'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.adalo'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.adalo
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.adalo
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Adalo node <a href="#adalo-node" id="adalo-node"></a>
 
-Use the Adalo node to automate work in Adalo, and integrate Adalo with other applications. n8n has built-in support for a wide range of Adalo features, including like creating, getting, updating and deleting databases, records, and collections.
+# Adalo 节点 <a href="#adalo-node" id="adalo-node"></a>
 
-On this page, you'll find a list of operations the Adalo node supports and links to more resources.
+使用 Adalo 节点自动处理 Adalo 中的工作，并将其与其他应用集成。n8n 内置支持多种 Adalo 功能，包括创建、获取、更新和删除数据库、记录和集合。
+
+本页列出了 Adalo 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Adalo credentials](../credentials/adalo.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Adalo 凭据](../credentials/adalo.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Collection
-	* Create
-	* Delete
-	* Get
-	* Get Many
-	* Update
+* Collection（集合）
+	* Create（创建）
+	* Delete（删除）
+	* Get（获取）
+	* Get Many（获取多条）
+	* Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Adalo node documentation integration templates](https://n8n.io/integrations/adalo) or [search all templates](https://n8n.io/workflows/)
+[浏览 Adalo 集成模板](https://n8n.io/integrations/adalo)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Adalo's documentation](https://help.adalo.com/) for more information on using Adalo. Their [External Collections with APIs](https://help.adalo.com/integrations/external-collections-with-apis) page gives more detail about what you can do with Adalo collections.
+有关 Adalo 的使用方法，请参阅 [Adalo 文档](https://help.adalo.com/)。其中的[通过 API 使用外部集合](https://help.adalo.com/integrations/external-collections-with-apis)页面详细介绍了 Adalo 集合支持的功能。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
 

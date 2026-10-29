@@ -1,48 +1,48 @@
 ---
-title: Contentful node documentation
-description: >-
-  Learn how to use the Contentful node in n8n. Follow technical documentation to
-  integrate Contentful node into your workflows.
+title: Contentful 节点文档
+description: 了解如何在 n8n 中使用 Contentful 节点，并按照技术文档将 Contentful 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Contentful node documentation
+- integration
+- reference
+nodeTitle: Contentful 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.contentful.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.contentful'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.contentful'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.contentful
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.contentful
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Contentful node <a href="#contentful-node" id="contentful-node"></a>
 
-Use the Contentful node to automate work in Contentful, and integrate Contentful with other applications. n8n has built-in support for a wide range of Contentful features, including getting assets, content types, entries, locales, and space.
+# Contentful 节点 <a href="#contentful-node" id="contentful-node"></a>
 
-On this page, you'll find a list of operations the Contentful node supports and links to more resources.
+使用 Contentful 节点自动处理 Contentful 中的工作，并将其与其他应用集成。n8n 内置支持多种 Contentful 功能，包括获取资源、内容类型、条目、区域设置和空间。
+
+本页列出了 Contentful 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Contentful credentials](../credentials/contentful.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Contentful 凭据](../credentials/contentful.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Asset
-    * Get
-    * Get All
-* Content Type
-    * Get
-* Entry
-    * Get
-    * Get All
-* Locale
-    * Get All
-* Space
-    * Get
+* Asset（资源）
+    * Get（获取）
+    * Get All（获取全部）
+* Content Type（内容类型）
+    * Get（获取）
+* Entry（条目）
+    * Get（获取）
+    * Get All（获取全部）
+* Locale（区域设置）
+    * Get All（获取全部）
+* Space（空间）
+    * Get（获取）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Contentful node documentation integration templates](https://n8n.io/integrations/contentful) or [search all templates](https://n8n.io/workflows/)
+[浏览 Contentful 集成模板](https://n8n.io/integrations/contentful)，或[搜索所有模板](https://n8n.io/workflows/)

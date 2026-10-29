@@ -1,22 +1,24 @@
 ---
-title: tunnel
+title: 隧道
 ---
-## n8n with tunnel <a href="#n8n-with-tunnel" id="n8n-with-tunnel"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+## 通过隧道运行 n8n <a href="#n8n-with-tunnel" id="n8n-with-tunnel"></a>
 
 {% hint style="danger" %}
-Use this for local development and testing. It isn't safe to use it in production.
+此功能用于本地开发和测试，不适合安全地用于生产环境。
 {% endhint %}
 
 {% hint style="warning" %}
-**Development tooling**
+**开发工具**
 
-The tunnel feature is a convenience tool for local development. The underlying implementation may change between n8n versions.
+隧道功能是方便本地开发的工具，其底层实现可能随 n8n 版本变化。
 {% endhint %}
 
-Watch a video guide to setting up the tunnel using Cloudflare or ngrok:
+观看视频指南，了解如何通过 Cloudflare 或 ngrok 配置隧道：
 
 {% embed url="https://www.youtube.com/embed/O9dpO81dEQ0" %}
 
-To use webhooks for trigger nodes of external services like GitHub, n8n has to be reachable from the web. n8n provides a tunnel service using [cloudflared](https://github.com/cloudflare/cloudflared) that redirects requests from the web to your local n8n instance. Docker must be installed for the tunnel to work.
+要使用 GitHub 等外部服务触发器节点的 Webhook，n8n 必须能从互联网访问。n8n 提供基于 [cloudflared](https://github.com/cloudflare/cloudflared) 的隧道服务，将互联网请求转发到本地 n8n 实例。隧道运行需要安装 Docker。
 
-There are two ways to use the tunnel, depending on how you run n8n:
+根据 n8n 的运行方式，可以通过两种方式使用隧道：

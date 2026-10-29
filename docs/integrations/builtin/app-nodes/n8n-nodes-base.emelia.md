@@ -1,47 +1,47 @@
 ---
-title: Emelia node documentation
-description: >-
-  Learn how to use the Emelia node in n8n. Follow technical documentation to
-  integrate Emelia node into your workflows.
+title: Emelia 节点文档
+description: 了解如何在 n8n 中使用 Emelia 节点，并按照技术文档将 Emelia 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Emelia node documentation
+- integration
+- reference
+nodeTitle: Emelia 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.emelia.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.emelia'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.emelia'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.emelia
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.emelia
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Emelia node <a href="#emelia-node" id="emelia-node"></a>
 
-Use the Emelia node to automate work in Emelia, and integrate Emelia with other applications. n8n has built-in support for a wide range of Emelia features, including creating campaigns, and adding contacts to a list. 
+# Emelia 节点 <a href="#emelia-node" id="emelia-node"></a>
 
-On this page, you'll find a list of operations the Emelia node supports and links to more resources.
+使用 Emelia 节点自动处理 Emelia 中的工作，并将其与其他应用集成。n8n 内置支持多种 Emelia 功能，包括创建营销活动和将联系人添加到列表。
+
+本页列出了 Emelia 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Emelia credentials](../credentials/emelia.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Emelia 凭据](../credentials/emelia.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Campaign
-    * Add Contact
-    * Create
-    * Get
-    * Get All
-    * Pause
-    * Start
-* Contact List
-    * Add
-    * Get All
+* Campaign（营销活动）
+    * Add Contact（添加联系人）
+    * Create（创建）
+    * Get（获取）
+    * Get All（获取全部）
+    * Pause（暂停）
+    * Start（启动）
+* Contact List（联系人列表）
+    * Add（添加）
+    * Get All（获取全部）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Emelia node documentation integration templates](https://n8n.io/integrations/emelia) or [search all templates](https://n8n.io/workflows/)
+[浏览 Emelia 集成模板](https://n8n.io/integrations/emelia)，或[搜索所有模板](https://n8n.io/workflows/)
 

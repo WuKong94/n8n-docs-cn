@@ -1,43 +1,41 @@
 ---
-title: Google Cloud Natural Language node documentation
-description: >-
-  Learn how to use the Google Cloud Natural Language node in n8n. Follow
-  technical documentation to integrate Google Cloud Natural Language node into
-  your workflows.
+title: Google Cloud Natural Language 节点文档
+description: 了解如何在 n8n 中使用 Google Cloud Natural Language 节点，并按照技术文档将 Google Cloud
+  Natural Language 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Google Cloud Natural Language node documentation
+- integration
+- reference
+nodeTitle: Google Cloud Natural Language 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googlecloudnaturallanguage.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecloudnaturallanguage
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecloudnaturallanguage
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecloudnaturallanguage
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlecloudnaturallanguage
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Cloud Natural Language node <a href="#google-cloud-natural-language-node" id="google-cloud-natural-language-node"></a>
 
-Use the Google Cloud Natural Language node to automate work in Google Cloud Natural Language, and integrate Google Cloud Natural Language with other applications. n8n has built-in support for a wide range of Google Cloud Natural Language features, including analyzing documents.
+# Google Cloud Natural Language 节点 <a href="#google-cloud-natural-language-node" id="google-cloud-natural-language-node"></a>
 
-On this page, you'll find a list of operations the Google Cloud Natural Language node supports and links to more resources.
+使用 Google Cloud Natural Language 节点自动处理 Google Cloud Natural Language 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Cloud Natural Language 功能，包括分析文档。
+
+本页列出了 Google Cloud Natural Language 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Google Cloud Natural Language credentials](../credentials/google/README.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Google Cloud Natural Language 凭据](../credentials/google/README.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Document
-    * Analyze Sentiment
+* Document（文档）
+    * Analyze Sentiment（分析情感倾向）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Google Cloud Natural Language node documentation integration templates](https://n8n.io/integrations/google-cloud-natural-language) or [search all templates](https://n8n.io/workflows/)
+[浏览 Google Cloud Natural Language 集成模板](https://n8n.io/integrations/google-cloud-natural-language)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

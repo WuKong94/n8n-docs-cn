@@ -1,0 +1,29 @@
+[
+  {
+    "id": "aws-sqs-service-name",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.awssqs.md",
+    "source_sha256": "3003b2078422eb1057d12452e338cdfbae36ce05cd8198e729b5f02650333302",
+    "original_sentence": "Use the AWS SQS node to automate work in AWS SNS, and integrate AWS SQS with other applications. n8n has built-in support for a wide range of AWS SQS features, including sending messages.",
+    "translated_sentence": "使用 AWS SQS 节点自动处理 AWS SQS 中的工作，并将其与其他应用集成。n8n 内置支持多种 AWS SQS 功能，包括发送消息。",
+    "evidence": "本页标题、节点名称和操作列表均为 AWS SQS，且操作是向队列发送消息；简介中的 AWS SNS 是复制笔误。",
+    "scope": "根据同页明确的节点名称和操作列表纠正复制笔误；未推断或测试接口行为。"
+  },
+  {
+    "id": "google-tasks-resource-name",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googletasks.md",
+    "source_sha256": "0ce3d5aa003bfe00f4ec23d40418dfb73b4b59ef225ff3c5935f9c8e6a85183a",
+    "original_sentence": "Use the Google Tasks node to automate work in Google Tasks, and integrate Google Tasks with other applications. n8n has built-in support for a wide range of Google Tasks features, including adding, updating, and retrieving contacts.",
+    "translated_sentence": "使用 Google Tasks 节点自动处理 Google Tasks 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Tasks 功能，包括添加、更新和获取任务。",
+    "evidence": "同页操作列表仅列出 Task 的添加、删除、获取和更新，简介中的 contacts 是复制笔误。",
+    "scope": "根据同页明确的节点名称和操作列表纠正复制笔误；未推断或测试接口行为。"
+  },
+  {
+    "id": "magento-product-resource",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.magento2.md",
+    "source_sha256": "9f406300ab640eea2be3bbea5f3ef4a426c183f9f2cad0d0083c4000c6369595",
+    "original_sentence": "Use the Magento 2 node to automate work in Magento 2, and integrate Magento 2 with other applications. n8n has built-in support for a wide range of Magento 2 features, including creating, updating, deleting, and getting customers, invoices, orders, and projects.",
+    "translated_sentence": "使用 Magento 2 节点自动处理 Magento 2 中的工作，并将其与其他应用集成。n8n 内置支持多种 Magento 2 功能，包括创建、更新、删除和获取客户、发票、订单和产品。",
+    "evidence": "同页资源列表为 Customer、Invoice、Order、Product，简介中的 projects 应为 products。",
+    "scope": "根据同页明确的节点名称和操作列表纠正复制笔误；未推断或测试接口行为。"
+  }
+]

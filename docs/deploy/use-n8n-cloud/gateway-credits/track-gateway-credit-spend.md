@@ -1,56 +1,56 @@
 ---
-description: >-
-  Monitor your Gateway credits balance, spend by model or workflow, and top-up
-  history in the n8n Cloud console.
+description: 在 n8n Cloud 控制台中，监控 Gateway 额度余额、按模型或工作流分类的支出，以及充值记录。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Track Gateway credit spend
 
-The **Gateway credits** page in the n8n Cloud console shows your balance, your spend over time, and your top-up history. To open it, go to the [Cloud console](../use-the-cloud-console.md) and select **Gateway credits** in the sidebar. You can also select **Manage** next to your Gateway balance on the **Overview** page.
+# 跟踪 Gateway 额度支出 <a id="track-gateway-credit-spend"></a>
 
-You can also see your current balance in the editor, next to the Gateway credits option on supported nodes.
+n8n Cloud 控制台的 **Gateway credits（Gateway 额度）** 页面显示余额、各时段的支出和充值记录。打开 [Cloud 控制台](../use-the-cloud-console.md)，在侧边栏选择 **Gateway credits** 即可进入。你也可以在 **Overview（概览）** 页面选择 Gateway 余额旁的 **Manage（管理）**。
 
-## Balance
+你也可以在编辑器中支持此功能的节点上，在 Gateway 额度选项旁查看当前余额。
 
-The balance card shows your remaining credit, including how much of your free sign-up credit is left. If you're on a paid plan, you can top up from here. Refer to [Top up Gateway credits](top-up-gateway-credits.md) for details.
+## 余额 <a id="balance"></a>
 
-## Spend
+余额卡片会显示剩余额度，包括注册时赠送的免费额度还剩多少。付费套餐用户可以在这里充值。详情请参阅[充值 Gateway 额度](top-up-gateway-credits.md)。
 
-The spend chart shows how your credit usage breaks down over time. You can:
+## 支出 <a id="spend"></a>
 
-- Change the time range to see recent or longer-term usage.
-- Group spend by model or service, to see which providers cost the most.
-- Group spend by workflow, to see which of your workflows consume the most credit.
+支出图表显示不同时间段的额度使用明细。你可以：
 
-Grouping by workflow helps you find a workflow that's spending more than you expect, for example one that calls a model on a frequent schedule.
+- 调整时间范围，查看近期或较长时间的使用情况。
+- 按模型或服务分组，查看哪些服务商的费用最高。
+- 按工作流分组，查看哪些工作流消耗的额度最多。
 
-## Top-up history
+按工作流分组有助于找到超出预期支出的工作流，例如按高频时间计划调用模型的工作流。
 
-The top-up history lists every credit added to your balance: your free sign-up credit, manual top-ups, and auto top-ups. Each entry shows the amount, the date, and when those credits expire. Refunded top-ups stay in the list, marked as refunded.
+## 充值记录 <a id="top-up-history"></a>
 
-If your balance dipped below zero because n8n let in-flight requests finish, the overspent amount is deducted from your next top-up and shown here. Refer to [Overspend](top-up-gateway-credits.md#overspend) for details.
+充值记录列出添加到余额的每一笔额度，包括注册赠送额度、手动充值和自动充值。每条记录都显示金额、日期和额度到期时间。已经退款的充值仍会保留在列表中，并标记为已退款。
 
-## Notifications
+如果 n8n 为了让已发出的请求完成而使余额低于零，超额部分会在下次充值中扣除，并在这里显示。详情请参阅[超额使用](top-up-gateway-credits.md#overspend)。
 
-n8n emails the instance owner about balance changes:
+## 通知 <a id="notifications"></a>
 
-- When your balance runs low, so you can top up before workflows stop.
-- When your balance is empty.
-- When an auto top-up adds credit, fails to charge your payment method, or pauses because it reached your monthly limit.
+余额发生以下变化时，n8n 会通过邮件通知实例所有者：
 
-## When your balance runs out
+- 余额不足时，提醒你在工作流停止之前充值。
+- 余额耗尽时。
+- 自动充值成功添加额度、无法从付款方式扣款，或达到每月限额而暂停时。
 
-When your balance reaches zero, nodes using Gateway credits fail until you add credit. Executions that don't use Gateway credits keep running as normal.
+## 余额耗尽后 <a id="when-your-balance-runs-out"></a>
 
-- On a paid plan, [top up your balance](top-up-gateway-credits.md) or set up auto top-up to avoid interruptions.
-- On a free trial, top-ups aren't available: upgrade to a paid plan to add more credit.
-- On any plan, you can switch the affected nodes to your own credentials. Refer to [Use Gateway credits](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/use-gateway-credits) for how to switch.
+余额归零后，使用 Gateway 额度的节点会失败，直到你添加额度。不使用 Gateway 额度的执行任务会照常运行。
 
-## Related resources
+- 付费套餐用户可以[充值余额](top-up-gateway-credits.md)，或设置自动充值以避免中断。
+- 免费试用不支持充值，需要升级为付费套餐才能添加更多额度。
+- 无论使用哪种套餐，都可以将受影响的节点切换为自有凭据。切换方法请参阅[使用 Gateway 额度](../../../build/understand-workflows/use-gateway-credits.md)。
 
-- [Gateway credits](README.md): how Gateway credits work.
-- [Top up Gateway credits](top-up-gateway-credits.md): add credit manually or automatically.
-- [Service pricing page](https://app.n8n.cloud/service-pricing): current rates for all supported services and models.
+## 相关资源 <a id="related-resources"></a>
+
+- [Gateway 额度](README.md)：了解 Gateway 额度的工作方式。
+- [充值 Gateway 额度](top-up-gateway-credits.md)：手动或自动添加额度。
+- [服务价格页面](https://app.n8n.cloud/service-pricing)：所有受支持服务和模型的当前费率。

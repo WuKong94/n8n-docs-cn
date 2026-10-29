@@ -1,62 +1,64 @@
 ---
 contentType: tutorial
-nodeTitle: Install with npm
+nodeTitle: 使用 npm 安装
 originalFilePath: hosting/installation/npm.md
-originalUrl: 'https://docs.n8n.io/hosting/installation/npm'
-url: 'https://docs.n8n.io/deploy/host-n8n/install-options/install-with-npm'
+originalUrl: https://docs.n8n.io/hosting/installation/npm
+url: https://docs.n8n.io/deploy/host-n8n/install-options/install-with-npm
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-npm-based installs are deprecated from n8n 3.0.
+从 n8n 3.0 开始，基于 npm 的安装方式已弃用。
 {% endhint %}
 
 {% hint style="info" %}
-**n8n Assistant not available**
+**不支持 n8n Assistant**
 
-n8n Assistant isn't available when using the npm installation method.
+通过 npm 安装时，无法使用 n8n Assistant。
 {% endhint %}
 
-npm is a quick way to get started with n8n on your local machine. You must have [Node.js](https://nodejs.org/en/) installed. n8n requires a Node.js version between 20.19 and 24.x, inclusive.
+npm 是在本地计算机上快速开始使用 n8n 的一种方式。你必须先安装 [Node.js](https://nodejs.org/en/)。n8n 要求 Node.js 版本介于 20.19 和 24.x 之间，包含这两个版本。
 
-## Try n8n with npx <a href="#try-n8n-with-npx" id="try-n8n-with-npx"></a>
+## 使用 npx 试用 n8n <a href="#try-n8n-with-npx" id="try-n8n-with-npx"></a>
 
-You can try n8n without installing it using npx.
+使用 npx 可以免安装试用 n8n。
 
 
-From the terminal, run:
+在终端中运行：
 
 ```bash
 npx n8n
 ```
 
-This command will download everything that's needed to start n8n. You can then access n8n and start building workflows by opening [http://localhost:5678](http://localhost:5678).
+该命令会下载启动 n8n 所需的全部内容。然后打开 [http://localhost:5678](http://localhost:5678)，即可访问 n8n 并开始构建工作流。
 
-## Install globally with npm <a href="#install-globally-with-npm" id="install-globally-with-npm"></a>
+## 使用 npm 全局安装 <a href="#install-globally-with-npm" id="install-globally-with-npm"></a>
 
-To install n8n globally, use npm:
+要全局安装 n8n，请使用 npm：
 
 ```bash
 npm install n8n -g
 ```
 
-To install or update to a specific version of n8n use the `@` syntax to specify the version. For example:
+要安装或更新到特定 n8n 版本，请使用 `@` 语法指定版本。例如：
 
 ```bash
 npm install -g n8n@0.126.1
 ```
 
-To install `next`:
+安装 `next`：
 
 ```bash
 npm install -g n8n@next
 ```
 
-After the installation, start n8n by running:
+安装后，运行以下命令启动 n8n：
 
 ```bash
 n8n
@@ -65,33 +67,33 @@ n8n start
 ```
 
 
-### Next steps <a href="#next-steps" id="next-steps"></a>
+### 后续步骤 <a href="#next-steps" id="next-steps"></a>
 
-Try out n8n using the [Quickstarts](https://app.gitbook.com/s/CxSeOtVxqqhfxMSac0AV/build-your-first-workflow).
+按照[快速入门](../../../get-started/build-your-first-workflow.md)试用 n8n。
 
-## Updating <a href="#updating" id="updating"></a>
+## 更新 <a href="#updating" id="updating"></a>
 
-To update your n8n instance to the `latest` version, run:
+要将 n8n 实例更新为 `latest` 版本，请运行：
 
 ```bash
 npm update -g n8n
 ```
 
-To install the `next` version:
+安装 `next` 版本：
 
 ```bash
 npm install -g n8n@next
 ```
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/WSJc9HCsn26Um2uT6zAQ/" %}
+{% include "../../../reusable-content/.gitbook/includes/self-hosting/installation/tunnel.md" %}
 
 {% hint style="info" %}
-**Docker required**
+**需要 Docker**
 
-The tunnel uses cloudflared, which runs as a Docker container. Make sure [Docker](https://docs.docker.com/get-docker/) is installed on your machine, even when running n8n via npm.
+隧道使用 cloudflared，并将其作为 Docker 容器运行。即使通过 npm 运行 n8n，也请确保计算机上已安装 [Docker](https://docs.docker.com/get-docker/)。
 {% endhint %}
 
-For npm installations, use the **services only** approach. Start cloudflared as a standalone service, then run n8n locally:
+对于 npm 安装，请使用**仅服务**方式。先将 cloudflared 作为独立服务启动，再在本地运行 n8n：
 
 ```bash
 # Terminal 1: Start the cloudflared tunnel service <a href="#terminal-1-start-the-cloudflared-tunnel-service" id="terminal-1-start-the-cloudflared-tunnel-service"></a>
@@ -101,33 +103,33 @@ pnpm --filter n8n-containers services --services cloudflared
 pnpm dev
 ```
 
-The `services` command starts cloudflared, fetches the public tunnel URL, and writes a `.env` file to `packages/cli/bin/.env` with `WEBHOOK_URL` and `N8N_PROXY_HOPS=1`. n8n picks up this `.env` automatically on startup.
+`services` 命令会启动 cloudflared、获取公共隧道 URL，并将 `.env` 文件写入 `packages/cli/bin/.env`，其中包含 `WEBHOOK_URL` 和 `N8N_PROXY_HOPS=1`。n8n 会在启动时自动读取此 `.env`。
 
-Clean up when done:
+完成后清理：
 
 ```bash
 pnpm --filter n8n-containers services:clean
 ```
 
-For the full stack approach (n8n and cloudflared both in containers), refer to the [Docker tunnel setup](install-with-docker.md#n8n-with-tunnel).
+如果希望使用完整堆栈方式（n8n 和 cloudflared 均在容器中运行），请参阅 [Docker 隧道配置](install-with-docker.md#n8n-with-tunnel)。
 
-## Reverting an upgrade <a href="#reverting-an-upgrade" id="reverting-an-upgrade"></a>
+## 回退升级 <a href="#reverting-an-upgrade" id="reverting-an-upgrade"></a>
 
-Install the older version that you want to go back to.
+安装希望回退到的旧版本。
 
-If the upgrade involved a database migration:
+如果升级涉及数据库迁移：
 
-1. Check the feature documentation and release notes to see if there are any manual changes you need to make.
-1. Run `n8n db:revert` on your current version to roll back the database. If you want to revert more than one database migration, you need to repeat this process.
+1. 检查功能文档和更新记录，确认是否需要手动修改。
+1. 在当前版本上运行 `n8n db:revert`，回滚数据库。如果需要撤销多次数据库迁移，必须重复此过程。
 
-## Windows troubleshooting <a href="#windows-troubleshooting" id="windows-troubleshooting"></a>
+## Windows 故障排查 <a href="#windows-troubleshooting" id="windows-troubleshooting"></a>
 
-If you're experiencing issues running n8n on Windows, verify your Node.js environment setup. Follow Microsoft's guide to [Install NodeJS on Windows](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
+如果在 Windows 上运行 n8n 时遇到问题，请检查 Node.js 环境设置。按照 Microsoft 的[在 Windows 上安装 NodeJS](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)指南操作。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Install options](./)
-* [One-line setup](one-line-setup.md)
-* [Install using Docker Compose](install-using-docker-compose.md)
-* [Install with Docker](install-with-docker.md)
-* [Use a cloud provider](use-a-cloud-provider/README.md)
+* [安装方式](./)
+* [一行命令安装](one-line-setup.md)
+* [使用 Docker Compose 安装](install-using-docker-compose.md)
+* [使用 Docker 安装](install-with-docker.md)
+* [使用云服务商](use-a-cloud-provider/README.md)

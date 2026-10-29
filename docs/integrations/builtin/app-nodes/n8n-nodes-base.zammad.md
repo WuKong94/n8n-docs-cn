@@ -1,61 +1,61 @@
 ---
-title: Zammad node documentation
-description: >-
-  Learn how to use the Zammad node in n8n. Follow technical documentation to
-  integrate Zammad node into your workflows.
+title: Zammad 节点文档
+description: 了解如何在 n8n 中使用 Zammad 节点，并按照技术文档将 Zammad 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Zammad node documentation
+- integration
+- reference
+nodeTitle: Zammad 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.zammad.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zammad'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zammad'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zammad
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zammad
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Zammad node <a href="#zammad-node" id="zammad-node"></a>
 
-Use the Zammad node to automate work in Zammad, and integrate Zammad with other applications. n8n has built-in support for a wide range of Zammad features, including creating, retrieving, and deleting groups and organizations.
+# Zammad 节点 <a href="#zammad-node" id="zammad-node"></a>
 
-On this page, you'll find a list of operations the Zammad node supports and links to more resources.
+使用 Zammad 节点自动处理 Zammad 中的工作，并将其与其他应用集成。n8n 内置支持多种 Zammad 功能，包括创建、检索和删除群组与组织。
+
+本页列出了 Zammad 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Zammad credentials](../credentials/zammad.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Zammad 凭据](../credentials/zammad.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Group
-    * Create
-    * Delete
-    * Get
-    * Get many
-    * Update
-* Organization
-    * Create
-    * Delete
-    * Get
-    * Get many
-    * Update
-* Ticket
-    * Create
-    * Delete
-    * Get
-    * Get many
-    * Update
-* User
-    * Create
-    * Delete
-    * Get
-    * Get many
-	* Get self
-    * Update
+* Group（群组）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get many（获取多条）
+    * Update（更新）
+* Organization（组织）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get many（获取多条）
+    * Update（更新）
+* Ticket（工单）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get many（获取多条）
+    * Update（更新）
+* User（用户）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get many（获取多条）
+	* Get self（获取当前用户）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Zammad node documentation integration templates](https://n8n.io/integrations/zammad) or [search all templates](https://n8n.io/workflows/)
+[浏览 Zammad 集成模板](https://n8n.io/integrations/zammad)，或[搜索所有模板](https://n8n.io/workflows/)

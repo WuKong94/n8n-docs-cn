@@ -1,51 +1,51 @@
 ---
-title: NocoDB node documentation
-description: >-
-  Learn how to use the NocoDB node in n8n. Follow technical documentation to
-  integrate NocoDB node into your workflows.
+title: NocoDB 节点文档
+description: 了解如何在 n8n 中使用 NocoDB 节点，并按照技术文档将 NocoDB 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: NocoDB node documentation
+nodeTitle: NocoDB 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.nocodb.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nocodb'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nocodb'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nocodb
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nocodb
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# NocoDB node <a href="#nocodb-node" id="nocodb-node"></a>
 
-Use the NocoDB node to automate work in NocoDB, and integrate NocoDB with other applications. n8n has built-in support for a wide range of NocoDB features, including creating, updating, deleting, and retrieving rows. 
+# NocoDB 节点 <a href="#nocodb-node" id="nocodb-node"></a>
 
-On this page, you'll find a list of operations the NocoDB node supports and links to more resources.
+使用 NocoDB 节点自动处理 NocoDB 中的工作，并将其与其他应用集成。n8n 内置支持多种 NocoDB 功能，包括创建、更新、删除和检索行。
+
+本页列出了 NocoDB 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [NocoDB credentials](../credentials/nocodb.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [NocoDB 凭据](../credentials/nocodb.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Row
-    * Create
-    * Delete
-    * Get
-    * Get Many
-    * Update a row
+* Row（行）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get Many（获取多条）
+    * Update a row（更新行）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse NocoDB node documentation integration templates](https://n8n.io/integrations/nocodb) or [search all templates](https://n8n.io/workflows/)
+[浏览 NocoDB 集成模板](https://n8n.io/integrations/nocodb)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Relates resources <a href="#relates-resources" id="relates-resources"></a>
+## 相关资源 <a href="#relates-resources" id="relates-resources"></a>
 
-Refer to [NocoDB's documentation](https://docs.nocodb.com/) for more information about the service.
+有关该服务的更多信息，请参阅 [NocoDB 文档](https://docs.nocodb.com/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

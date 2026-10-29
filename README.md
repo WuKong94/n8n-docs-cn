@@ -9,6 +9,7 @@
 - 原始图片、动图、附件和代码示例保留。
 - 跨章节内链使用对应文件的相对路径；原英文章节锚点保留。
 - 更新记录 `docs/changelog/**` 按要求保留英文。
+- 原文中有明确同页证据的复制笔误修正，记录在 `source-corrections.json`；上游英文快照保持原样。
 - URL 映射、检查脚本及检查报告放在现有 `n8n-content` 网站工程的 `content-mapping/` 与 `scripts/docs/` 中。
 
 `translated` 仅代表该文件的译文已写入并记录来源版本；完整发布还需要复用片段翻译完成、格式转换、链接检查和 Docusaurus 页面验收。

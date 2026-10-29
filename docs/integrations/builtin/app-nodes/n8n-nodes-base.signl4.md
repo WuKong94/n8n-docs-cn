@@ -1,39 +1,39 @@
 ---
-title: SIGNL4 node documentation
-description: >-
-  Learn how to use the SIGNL4 node in n8n. Follow technical documentation to
-  integrate SIGNL4 node into your workflows.
+title: SIGNL4 节点文档
+description: 了解如何在 n8n 中使用 SIGNL4 节点，并按照技术文档将 SIGNL4 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: SIGNL4 node documentation
+- integration
+- reference
+nodeTitle: SIGNL4 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.signl4.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.signl4'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.signl4'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.signl4
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.signl4
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SIGNL4 node <a href="#signl4-node" id="signl4-node"></a>
 
-Use the SIGNL4 node to automate work in SIGNL4, and integrate SIGNL4 with other applications. n8n supports sending and resolving alerts with SIGNL4.
+# SIGNL4 节点 <a href="#signl4-node" id="signl4-node"></a>
 
-On this page, you'll find a list of operations the SIGNL4 node supports and links to more resources.
+使用 SIGNL4 节点自动处理 SIGNL4 中的工作，并将其与其他应用集成。n8n 支持通过 SIGNL4 发送和解除告警。
+
+本页列出了 SIGNL4 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [SIGNL4 credentials](../credentials/signl4.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [SIGNL4 凭据](../credentials/signl4.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Alert
-    * Send an alert
-    * Resolve an alert
+* Alert（告警）
+    * Send an alert（发送告警）
+    * Resolve an alert（解除告警）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse SIGNL4 node documentation integration templates](https://n8n.io/integrations/signl4) or [search all templates](https://n8n.io/workflows/)
+[浏览 SIGNL4 集成模板](https://n8n.io/integrations/signl4)，或[搜索所有模板](https://n8n.io/workflows/)

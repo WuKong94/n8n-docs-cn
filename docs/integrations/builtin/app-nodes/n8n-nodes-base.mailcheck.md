@@ -1,40 +1,40 @@
 ---
-title: Mailcheck node documentation
-description: >-
-  Learn how to use the Mailcheck node in n8n. Follow technical documentation to
-  integrate Mailcheck node into your workflows.
+title: Mailcheck 节点文档
+description: 了解如何在 n8n 中使用 Mailcheck 节点，并按照技术文档将 Mailcheck 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Mailcheck node documentation
+- integration
+- reference
+nodeTitle: Mailcheck 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.mailcheck.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mailcheck'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mailcheck'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mailcheck
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mailcheck
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Mailcheck node <a href="#mailcheck-node" id="mailcheck-node"></a>
 
-Use the Mailcheck node to automate work in Mailcheck, and integrate Mailcheck with other applications. n8n has built-in support for a wide range of Mailcheck features, including checking emails. 
+# Mailcheck 节点 <a href="#mailcheck-node" id="mailcheck-node"></a>
 
-On this page, you'll find a list of operations the Mailcheck node supports and links to more resources.
+使用 Mailcheck 节点自动处理 Mailcheck 中的工作，并将其与其他应用集成。n8n 内置支持多种 Mailcheck 功能，包括检查电子邮件。
+
+本页列出了 Mailcheck 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Mailcheck credentials](../credentials/mailcheck.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Mailcheck 凭据](../credentials/mailcheck.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Email
-    * Check
+* Email（电子邮件）
+    * Check（检查）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Mailcheck node documentation integration templates](https://n8n.io/integrations/mailcheck) or [search all templates](https://n8n.io/workflows/)
+[浏览 Mailcheck 集成模板](https://n8n.io/integrations/mailcheck)，或[搜索所有模板](https://n8n.io/workflows/)

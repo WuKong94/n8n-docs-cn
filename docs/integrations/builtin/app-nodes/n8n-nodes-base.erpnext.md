@@ -1,47 +1,47 @@
 ---
-title: ERPNext node documentation
-description: >-
-  Learn how to use the ERPNext node in n8n. Follow technical documentation to
-  integrate ERPNext node into your workflows.
+title: ERPNext 节点文档
+description: 了解如何在 n8n 中使用 ERPNext 节点，并按照技术文档将 ERPNext 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: ERPNext node documentation
+- integration
+- reference
+nodeTitle: ERPNext 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.erpnext.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.erpnext'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.erpnext'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.erpnext
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.erpnext
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# ERPNext node <a href="#erpnext-node" id="erpnext-node"></a>
 
-Use the ERPNext node to automate work in ERPNext, and integrate ERPNext with other applications. n8n has built-in support for a wide range of ERPNext features, including creating, updating, retrieving, and deleting documents. 
+# ERPNext 节点 <a href="#erpnext-node" id="erpnext-node"></a>
 
-On this page, you'll find a list of operations the ERPNext node supports and links to more resources.
+使用 ERPNext 节点自动处理 ERPNext 中的工作，并将其与其他应用集成。n8n 内置支持多种 ERPNext 功能，包括创建、更新、检索和删除文档。
+
+本页列出了 ERPNext 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [ERPNext credentials](../credentials/erpnext.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [ERPNext 凭据](../credentials/erpnext.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-**Document**
-- Create a document
-- Delete a document
-- Retrieve a document
-- Retrieve all documents
-- Update a document
+**Document（文档）**
+- Create a document（创建文档）
+- Delete a document（删除文档）
+- Retrieve a document（获取文档）
+- Retrieve all documents（获取全部文档）
+- Update a document（更新文档）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse ERPNext node documentation integration templates](https://n8n.io/integrations/erpnext) or [search all templates](https://n8n.io/workflows/)
+[浏览 ERPNext 集成模板](https://n8n.io/integrations/erpnext)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 

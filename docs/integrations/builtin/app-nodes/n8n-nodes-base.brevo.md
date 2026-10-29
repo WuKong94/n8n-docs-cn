@@ -1,58 +1,58 @@
 ---
-title: Brevo node documentation
-description: >-
-  Learn how to use the Brevo node in n8n. Follow technical documentation to
-  integrate Brevo node into your workflows.
+title: Brevo 节点文档
+description: 了解如何在 n8n 中使用 Brevo 节点，并按照技术文档将 Brevo 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Brevo node documentation
+- integration
+- reference
+nodeTitle: Brevo 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.brevo.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brevo'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brevo'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brevo
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brevo
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Brevo node <a href="#brevo-node" id="brevo-node"></a>
 
-Use the Brevo node to automate work in Brevo, and integrate Brevo with other applications. n8n has built-in support for a wide range of Brevo features, including creating, updating, deleting, and getting contacts, attributes, as well as sending emails. 
+# Brevo 节点 <a href="#brevo-node" id="brevo-node"></a>
 
-On this page, you'll find a list of operations the Brevo node supports and links to more resources.
+使用 Brevo 节点自动处理 Brevo 中的工作，并将其与其他应用集成。n8n 内置支持多种 Brevo 功能，包括创建、更新、删除和获取联系人及属性，以及发送电子邮件。
+
+本页列出了 Brevo 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Brevo credentials](../credentials/brevo.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Brevo 凭据](../credentials/brevo.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Contact
-    * Create
-    * Create or Update
-    * Delete
-    * Get
-    * Get All
-    * Update
-* Contact Attribute
-    * Create
-    * Delete
-    * Get All
-    * Update
-* Email
-    * Send
-    * Send Template
-* Sender
-    * Create
-    * Delete
-    * Get All
+* Contact（联系人）
+    * Create（创建）
+    * Create or Update（创建或更新）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
+* Contact Attribute（联系人属性）
+    * Create（创建）
+    * Delete（删除）
+    * Get All（获取全部）
+    * Update（更新）
+* Email（电子邮件）
+    * Send（发送）
+    * Send Template（发送模板）
+* Sender（发件人）
+    * Create（创建）
+    * Delete（删除）
+    * Get All（获取全部）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Brevo node documentation integration templates](https://n8n.io/integrations/brevo) or [search all templates](https://n8n.io/workflows/)
+[浏览 Brevo 集成模板](https://n8n.io/integrations/brevo)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
