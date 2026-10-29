@@ -1,154 +1,156 @@
 ---
-description: Configure Microsoft Dataverse credentials in n8n for delegated user access or app-only access with Microsoft Entra ID.
+description: 在 n8n 中配置 Microsoft Dataverse 凭据，通过 Microsoft Entra ID 实现委派用户访问或仅应用访问。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Dataverse credentials
 
-You can use the **Microsoft Dataverse OAuth2 API** credential to authenticate the [Microsoft Dataverse node](../app-nodes/n8n-nodes-base.microsoftdataverse.md).
+# Microsoft Dataverse 凭据 <a id="microsoft-dataverse-credentials"></a>
 
-## Prerequisites
+可使用 **Microsoft Dataverse OAuth2 API** 凭据，为 [Microsoft Dataverse 节点](../app-nodes/n8n-nodes-base.microsoftdataverse.md)进行身份验证。
 
-* A Microsoft Dataverse environment and its environment URL.
-* A Microsoft Entra ID app registration, or permission to create one.
-* Permission to configure API consent for delegated access, or an administrator who can grant consent.
-* A Dataverse user with suitable security roles for delegated access, or an administrator who can create an application user for app-only access.
+## 前置条件 <a id="prerequisites"></a>
 
-Use a security role with only the table privileges your workflows need. Authentication doesn't grant permission to read or change every table.
+* Microsoft Dataverse 环境及其环境 URL。
+* Microsoft Entra ID 应用注册，或创建应用注册的权限。
+* 配置委派访问的 API 同意权限，或能够授予同意的管理员。
+* 委派访问需要具有适当安全角色的 Dataverse 用户；仅应用访问则需要能够创建应用程序用户的管理员。
 
-## Supported authentication methods
+请使用仅具有工作流所需表权限的安全角色。身份验证并不会授予读取或修改所有表的权限。
 
-The credential supports OAuth2 with two **Grant Type** options:
+## 支持的身份验证方式 <a id="supported-authentication-methods"></a>
 
-| Grant type | Access | Requirements |
+此凭据支持 OAuth2，提供两种 **Grant Type**（授权类型）选项：
+
+| 授权类型 | 访问方式 | 要求 |
 | --- | --- | --- |
-| **Authorization Code** (default) | Act as a signed-in user. n8n uses refresh tokens to renew access. | A web redirect URI, delegated Dataverse permission, and a user with access to the environment. |
-| **Client Credentials** | Act as the application without a signed-in user. n8n acquires new access tokens when needed. | A specific tenant ID and a Dataverse application user with a security role. No interactive sign-in or redirect URI is required. |
+| **Authorization Code**（授权码，默认） | 以已登录用户的身份操作。n8n 使用刷新令牌续期访问。 | Web 重定向 URI、Dataverse 委派权限，以及有权访问环境的用户。 |
+| **Client Credentials**（客户端凭据） | 无需用户登录，以应用身份操作。n8n 在需要时获取新的访问令牌。 | 指定租户 ID，以及具有安全角色的 Dataverse 应用程序用户。无需交互式登录或重定向 URI。 |
 
-The setup below uses **Client Secret** authentication. The credential also inherits **Certificate** authentication from the Microsoft OAuth2 credential. Refer to [Authenticate with a certificate](microsoft.md#authenticate-with-a-certificate) to configure a private key and certificate instead of a client secret.
+以下设置使用 **Client Secret**（客户端密钥）身份验证。此凭据还继承了 Microsoft OAuth2 凭据的 **Certificate**（证书）身份验证方式。要以私钥和证书代替客户端密钥，请参阅[使用证书进行身份验证](microsoft.md#authenticate-with-a-certificate)。
 
-## Configure the credential
+## 配置凭据 <a id="configure-the-credential"></a>
 
-Create a **Microsoft Dataverse OAuth2 API** credential in n8n. Register an app and configure the grant type you plan to use before connecting or saving the completed credential.
+在 n8n 中创建 **Microsoft Dataverse OAuth2 API** 凭据。在连接或保存完整凭据前，先注册应用并配置计划使用的授权类型。
 
-### Register an application
+### 注册应用 <a id="register-an-application"></a>
 
-1. Open the [Microsoft Entra admin center](https://entra.microsoft.com/) and go to **App registrations** > **New registration**.
-2. Enter a name, such as `n8n Dataverse`.
-3. Select the supported account type for your organization. For access within one tenant, select **Accounts in this organizational directory only**.
-4. If you plan to use **Authorization Code**, copy the **OAuth Redirect URL** from the n8n credential editor. Under **Redirect URI**, choose **Web** and paste the URL exactly as shown. For **Client Credentials**, leave the redirect URI empty.
-5. Select **Register**.
-6. From the app's **Overview**, copy **Application (client) ID** into n8n's **Client ID**, and **Directory (tenant) ID** into n8n's **Tenant ID**.
+1. 打开 [Microsoft Entra 管理中心](https://entra.microsoft.com/)，进入 **App registrations**（应用注册）> **New registration**（新注册）。
+2. 输入名称，例如 `n8n Dataverse`。
+3. 选择组织支持的账户类型。仅在一个租户内访问时，选择 **Accounts in this organizational directory only**（仅此组织目录中的账户）。
+4. 如果计划使用 **Authorization Code**（授权码），从 n8n 凭据编辑器复制 **OAuth Redirect URL**（OAuth 重定向 URL）。在 **Redirect URI**（重定向 URI）下选择 **Web**，完整粘贴所显示的 URL。使用 **Client Credentials**（客户端凭据）时，重定向 URI 留空。
+5. 选择 **Register**（注册）。
+6. 在应用的 **Overview**（概览）中，将 **Application (client) ID**（应用程序，客户端 ID）复制到 n8n 的 **Client ID**（客户端 ID），将 **Directory (tenant) ID**（目录，租户 ID）复制到 n8n 的 **Tenant ID**（租户 ID）。
 
-For an existing app, add the n8n redirect URL under the app registration's **Authentication** settings as a **Web** redirect URI.
+对于已有应用，请在应用注册的 **Authentication**（身份验证）设置中，将 n8n 重定向 URL 添加为 **Web** 重定向 URI。
 
-### Generate a client secret
+### 生成客户端密钥 <a id="generate-a-client-secret"></a>
 
-1. In the app registration, open **Certificates & secrets** > **Client secrets**.
-2. Select **New client secret**, enter a description, and choose an expiry that meets your organization's policy.
-3. Select **Add** and copy the secret's **Value**, not its **Secret ID**. Microsoft displays the value only once.
-4. In n8n, set **Authentication** to **Client Secret** and paste the value into **Client Secret**.
+1. 在应用注册中打开 **Certificates & secrets**（证书和密钥）> **Client secrets**（客户端密钥）。
+2. 选择 **New client secret**（新建客户端密钥），输入描述，选择符合组织策略的有效期。
+3. 选择 **Add**（添加），复制密钥的 **Value**（值），不要复制 **Secret ID**（密钥 ID）。Microsoft 仅显示一次该值。
+4. 在 n8n 中将 **Authentication**（身份验证）设为 **Client Secret**（客户端密钥），把该值粘贴到 **Client Secret**。
 
-Store the secret in the n8n credential, not in workflow fields. When you rotate the secret, update the credential before the old secret expires.
+将密钥保存在 n8n 凭据中，不要放在工作流字段中。轮换密钥时，请在旧密钥过期前更新凭据。
 
-### Set the environment and tenant
+### 设置环境和租户 <a id="set-the-environment-and-tenant"></a>
 
-Complete these fields in the n8n credential:
+在 n8n 凭据中填写以下字段：
 
-| n8n field | Value |
+| n8n 字段 | 值 |
 | --- | --- |
-| **Grant Type** | **Authorization Code** for user access, or **Client Credentials** for app-only access. |
-| **Client ID** | **Application (client) ID** from the Entra app registration. |
-| **Client Secret** | The secret's **Value**, when using **Client Secret** authentication. |
-| **Tenant ID** | **Directory (tenant) ID** from the app registration. Use the tenant GUID for **Client Credentials**. |
-| **Environment URL** | The environment's HTTPS base URL, such as `https://contoso.crm.dynamics.com`. Don't append `/api/data/v9.2`, a table name, or an application path. |
-| **National Cloud** | The Microsoft cloud hosting your Dataverse environment. The default is **Global (Public Cloud)**. |
+| **Grant Type**（授权类型） | 用户访问使用 **Authorization Code**（授权码）；仅应用访问使用 **Client Credentials**（客户端凭据）。 |
+| **Client ID**（客户端 ID） | Entra 应用注册中的 **Application (client) ID**（应用程序，客户端 ID）。 |
+| **Client Secret**（客户端密钥） | 密钥的 **Value**（值），适用于 **Client Secret** 身份验证。 |
+| **Tenant ID**（租户 ID） | 应用注册中的 **Directory (tenant) ID**（目录，租户 ID）。使用 **Client Credentials** 时，请填写租户 GUID。 |
+| **Environment URL**（环境 URL） | 环境的 HTTPS 基础 URL，例如 `https://contoso.crm.dynamics.com`。不要追加 `/api/data/v9.2`、表名或应用路径。 |
+| **National Cloud**（国家云） | 托管 Dataverse 环境的 Microsoft 云。默认值为 **Global (Public Cloud)**（全球，公有云）。 |
 
-Find the environment URL in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/) under your environment's details. The credential accepts a trailing slash and removes it when building scopes and requests.
+在 [Power Platform 管理中心](https://admin.powerplatform.microsoft.com/)的环境详情中查找环境 URL。凭据接受末尾带斜杠的 URL，并在构建作用域和请求时移除该斜杠。
 
-For **Authorization Code**, **Tenant ID** also accepts a verified tenant domain. The default value, `common`, is for multi-tenant Authorization Code apps. Replace it with a specific tenant GUID or domain for a single-tenant app. Don't use `common` for **Client Credentials**.
+使用 **Authorization Code**（授权码）时，**Tenant ID**（租户 ID）也接受已验证的租户域名。默认值 `common` 用于多租户授权码应用。单租户应用应将其替换为指定租户 GUID 或域名。**Client Credentials**（客户端凭据）不能使用 `common`。
 
-### Configure delegated user access
+### 配置委派用户访问 <a id="configure-delegated-user-access"></a>
 
-To use **Authorization Code**:
+使用 **Authorization Code**（授权码）的步骤如下：
 
-1. In the Entra app registration, go to **API permissions** > **Add a permission**.
-2. Select **Dynamics CRM** > **Delegated permissions** and select **user_impersonation**. This is the **Access Dynamics 365 as organization users** permission.
-3. Select **Add permissions**. Ask an administrator to grant consent if your tenant requires it.
-4. Make sure the user who signs in has access to the Dataverse environment and a security role with the required table privileges.
-5. In n8n, set **Grant Type** to **Authorization Code** and confirm that the app's **Web** redirect URI matches the credential editor's **OAuth Redirect URL**.
-6. Select **Connect my account**, sign in, and accept the requested access or complete your organization's approval process.
-7. Save the credential.
+1. 在 Entra 应用注册中进入 **API permissions**（API 权限）> **Add a permission**（添加权限）。
+2. 选择 **Dynamics CRM** > **Delegated permissions**（委派权限），再选择 **user_impersonation**。此权限的名称为 **Access Dynamics 365 as organization users**（以组织用户身份访问 Dynamics 365）。
+3. 选择 **Add permissions**（添加权限）。如果租户要求，请让管理员授予同意。
+4. 确认登录用户有权访问 Dataverse 环境，并拥有包含所需表权限的安全角色。
+5. 在 n8n 中将 **Grant Type**（授权类型）设为 **Authorization Code**（授权码），确认应用的 **Web** 重定向 URI 与凭据编辑器中的 **OAuth Redirect URL**（OAuth 重定向 URL）一致。
+6. 选择 **Connect my account**（连接我的账户），登录并接受请求的访问权限，或完成组织的批准流程。
+7. 保存凭据。
 
-Refer to Microsoft's [Dataverse OAuth documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth) for delegated permission requirements.
+委派权限的要求，请参阅 Microsoft 的 [Dataverse OAuth 文档](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth)。
 
-### Configure app-only access
+### 配置仅应用访问 <a id="configure-app-only-access"></a>
 
-To use **Client Credentials**, create an application user in the target Dataverse environment:
+使用 **Client Credentials**（客户端凭据）时，请在目标 Dataverse 环境中创建应用程序用户：
 
-1. In the [Power Platform admin center](https://admin.powerplatform.microsoft.com/), go to **Manage** > **Environments** and select your environment.
-2. Open **Settings** > **Users + permissions** > **Application users**.
-3. Select **New app user**, then **Add an app**. Find the Entra app registration using its application ID and select **Add**.
-4. Select the appropriate **Business Unit**, enter an email address if requested, and assign security roles with the privileges the workflow needs.
-5. Select **Create** to create the application user.
-6. In n8n, set **Grant Type** to **Client Credentials**. Enter the tenant GUID in **Tenant ID**, and confirm the app credentials, **Environment URL**, and **National Cloud**.
-7. Save the credential. This flow doesn't have an interactive account connection step.
+1. 在 [Power Platform 管理中心](https://admin.powerplatform.microsoft.com/)中进入 **Manage**（管理）> **Environments**（环境），选择所需环境。
+2. 打开 **Settings**（设置）> **Users + permissions**（用户和权限）> **Application users**（应用程序用户）。
+3. 选择 **New app user**（新建应用程序用户），再选择 **Add an app**（添加应用）。通过应用程序 ID 找到 Entra 应用注册，选择 **Add**（添加）。
+4. 选择合适的 **Business Unit**（业务部门），按要求输入电子邮件地址，并分配具有工作流所需权限的安全角色。
+5. 选择 **Create**（创建），创建应用程序用户。
+6. 在 n8n 中将 **Grant Type**（授权类型）设为 **Client Credentials**（客户端凭据）。在 **Tenant ID**（租户 ID）中填写租户 GUID，确认应用凭据、**Environment URL**（环境 URL）和 **National Cloud**（国家云）。
+7. 保存凭据。此流程没有交互式账户连接步骤。
 
-App-only Dataverse access uses the application user's security roles. It doesn't require the delegated `user_impersonation` permission or Microsoft Graph permissions. Refer to Microsoft's [application user setup](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users#create-an-application-user) for details.
+Dataverse 的仅应用访问使用应用程序用户的安全角色，不要求委派的 `user_impersonation` 权限或 Microsoft Graph 权限。详情请参阅 Microsoft 的[应用程序用户设置](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users#create-an-application-user)。
 
 {% hint style="info" %}
-**Credential test**
+**凭据测试**
 
-When you save the credential, n8n tests it with `GET /api/data/v9.2/WhoAmI` against the configured environment. Getting an access token alone doesn't prove that an application user exists or has access to Dataverse. A successful credential test also doesn't guarantee permission for every table operation.
+保存凭据时，n8n 会对已配置的环境调用 `GET /api/data/v9.2/WhoAmI` 进行测试。仅获取到访问令牌，并不能证明应用程序用户存在或有权访问 Dataverse。凭据测试成功也不能保证拥有每项表操作的权限。
 {% endhint %}
 
-## National clouds and scopes
+## 国家云和作用域 <a id="national-clouds-and-scopes"></a>
 
-**National Cloud** controls the Microsoft Entra login host. Select the cloud that matches your environment:
+**National Cloud**（国家云）控制 Microsoft Entra 登录主机。请选择与环境相匹配的云：
 
-| National cloud | Login host |
+| 国家云 | 登录主机 |
 | --- | --- |
-| **Global (Public Cloud)** | `https://login.microsoftonline.com` |
-| **US Government (GCC High)** | `https://login.microsoftonline.us` |
-| **US Government (DoD)** | `https://login.microsoftonline.us` |
-| **China (21Vianet)** | `https://login.partner.microsoftonline.cn` |
+| **Global (Public Cloud)**（全球，公有云） | `https://login.microsoftonline.com` |
+| **US Government (GCC High)**（美国政府，GCC High） | `https://login.microsoftonline.us` |
+| **US Government (DoD)**（美国政府，国防部） | `https://login.microsoftonline.us` |
+| **China (21Vianet)**（中国，世纪互联） | `https://login.partner.microsoftonline.cn` |
 
-The credential builds the authorization and token URLs from **National Cloud** and **Tenant ID**. It builds the scope from **Environment URL**:
+凭据根据 **National Cloud**（国家云）和 **Tenant ID**（租户 ID）构建授权 URL 和令牌 URL，根据 **Environment URL**（环境 URL）构建作用域：
 
-* **Authorization Code**: `<environment-url>/.default offline_access`
-* **Client Credentials**: `<environment-url>/.default`
+* **Authorization Code**（授权码）：`<environment-url>/.default offline_access`
+* **Client Credentials**（客户端凭据）：`<environment-url>/.default`
 
-For example, the Authorization Code scope for `https://contoso.crm.dynamics.com` is `https://contoso.crm.dynamics.com/.default offline_access`.
+例如，`https://contoso.crm.dynamics.com` 对应的 Authorization Code（授权码）作用域为 `https://contoso.crm.dynamics.com/.default offline_access`。
 
-You don't need to enter these URLs or scopes manually. The node calls the Dataverse environment, not Microsoft Graph, so the credential hides the Microsoft Graph base URL field.
+无需手动输入这些 URL 或作用域。节点调用 Dataverse 环境，而非 Microsoft Graph，因此凭据会隐藏 Microsoft Graph 基础 URL 字段。
 
-## Common issues
+## 常见问题 <a id="common-issues"></a>
 
-### Redirect URI mismatch
+### 重定向 URI 不匹配 <a id="redirect-uri-mismatch"></a>
 
-Copy the **OAuth Redirect URL** from n8n and register that exact URL as a **Web** redirect URI in Entra. Check the scheme, host, port, and path. Don't substitute the Dataverse environment URL. Redirect URIs apply to **Authorization Code**, not **Client Credentials**.
+从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL），将完全相同的 URL 注册为 Entra 中的 **Web** 重定向 URI。检查协议、主机、端口和路径，不要替换成 Dataverse 环境 URL。重定向 URI 适用于 **Authorization Code**（授权码），不适用于 **Client Credentials**（客户端凭据）。
 
-### Admin approval required
+### 需要管理员批准 <a id="admin-approval-required"></a>
 
-Ask an Entra administrator to review and grant the requested delegated Dataverse permission. Then reconnect the credential. Entra consent and Dataverse security roles are separate requirements: consent alone doesn't give the user access to the environment's rows.
+请 Entra 管理员审核并授予请求的 Dataverse 委派权限，然后重新连接凭据。Entra 授权同意与 Dataverse 安全角色是分别需要满足的要求：仅有授权同意，并不会让用户有权访问环境中的行。
 
-### Token request fails
+### 令牌请求失败 <a id="token-request-fails"></a>
 
-Check that **Client ID** belongs to the app registration and that **Client Secret** contains the current secret value, not its ID. For **Client Credentials**, replace `common` with the tenant GUID. Make sure **National Cloud** matches the environment and **Environment URL** is its HTTPS base URL.
+检查 **Client ID**（客户端 ID）是否属于该应用注册，**Client Secret**（客户端密钥）是否填写当前密钥值，而非密钥 ID。使用 **Client Credentials**（客户端凭据）时，将 `common` 替换为租户 GUID。确认 **National Cloud**（国家云）与环境匹配，**Environment URL**（环境 URL）为该环境的 HTTPS 基础 URL。
 
-### Credential test or node requests return an access error
+### 凭据测试或节点请求返回访问错误 <a id="credential-test-or-node-requests-return-an-access-error"></a>
 
-For delegated access, verify that the signed-in user can access the environment and has the required Dataverse security roles.
+委派访问时，请验证已登录用户能够访问环境，并具有所需的 Dataverse 安全角色。
 
-For app-only access, verify that an active application user exists in the same environment as **Environment URL**, uses the same application ID as **Client ID**, and has the required roles. Add only the missing privileges, rather than assigning broad administrator access.
+仅应用访问时，请验证 **Environment URL**（环境 URL）对应的环境中存在活动的应用程序用户，其应用程序 ID 与 **Client ID**（客户端 ID）相同，且拥有所需角色。仅添加缺失权限，不要授予宽泛的管理员访问权限。
 
-If the credential test succeeds but a table or column picker fails, check the metadata access required by the picker. If a write fails, check privileges for the target table and any related rows.
+如果凭据测试成功，但表或列选择器失败，请检查选择器需要的元数据访问权限。如果写入失败，请检查目标表及相关行的权限。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Microsoft Dataverse node](../app-nodes/n8n-nodes-base.microsoftdataverse.md)
-* [Register an app for Dataverse](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory)
-* [Use OAuth with Dataverse](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth)
-* [Manage Dataverse application users](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users)
+* [Microsoft Dataverse 节点](../app-nodes/n8n-nodes-base.microsoftdataverse.md)
+* [为 Dataverse 注册应用](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory)
+* [在 Dataverse 中使用 OAuth](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth)
+* [管理 Dataverse 应用程序用户](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users)

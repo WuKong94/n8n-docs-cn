@@ -542,5 +542,17 @@
       "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/credentials/OAuth1Api.credentials.ts"
     ],
     "scope": "保留原字段列表、示例路径、签名方法及全部代码，只添加译注说明两种端点用途和应以服务商文档为准；不改写示例 URL，不声称已执行 OAuth 握手或验证服务商行为。"
+  },
+  {
+    "id": "monica-crm-introduction-contacts-not-contracts",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.monicacrm.md",
+    "source_sha256": "3fe1ee1872034b28b696fce0a453478b1c4725efd1aa43fb637fb6771b1c31c8",
+    "original_sentence": "Use the Monica CRM node to automate work in Monica CRM, and integrate Monica CRM with other applications. n8n has built-in support for a wide range of Monica CRM features, including creating, updating, deleting, and getting activities, calls, contracts, messages, tasks, and notes.",
+    "translated_sentence": "使用 Monica CRM 节点自动处理 Monica CRM 中的工作，并将其与其他应用集成。n8n 内置支持多种 Monica CRM 功能，包括创建、更新、删除和获取活动、通话、联系人、消息、任务及备注。",
+    "evidence": "同页操作列表明确列出 Contact 资源及 Create a contact、Delete a contact、Retrieve a contact、Retrieve all contacts、Update a contact，并无 Contract 资源。根据同页具体操作，简介中的 contracts 为 contacts 的拼写误差，译为联系人。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.monicacrm.md"
+    ],
+    "scope": "仅依据同页操作列表修正简介中的资源名称，不新增合同或其他操作，不修改凭据、链接、代码及操作结构，不声称已运行节点或验证服务端功能。"
   }
 ]

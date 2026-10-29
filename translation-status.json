@@ -14586,5 +14586,162 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/credentials/microsoftdataverse.md": {
+    "status": "translated",
+    "source_sha256": "a74773a0a8249330462534a8c71bbbbee182903bf20d64a46d69a82eedaf4386",
+    "translation_sha256": "06fb7a598e0c5565bd37bbe3d3fcbb5d442ecb7fa3559a8919809f5caf186b8e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/microsoftentraserviceprincipal-sharepoint.md": {
+    "status": "translated",
+    "source_sha256": "4b87547871a29b8260d1dbd357d30767216e48af98945bbdb055d6e97c1b8c62",
+    "translation_sha256": "b17cbcd27f49dba564a51ae5e613ec0d26478dc740e677234234de3a5e92cdb4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/microsoftentraserviceprincipal.md": {
+    "status": "translated",
+    "source_sha256": "ef251baba30dfb63fa1a9251d2d8c7a808e789971f33fe574d535d2a45d6f6b2",
+    "translation_sha256": "58a6355f7e69976bf41706b600cbc383cd586504050bd63326e72c81a3847c93",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.invoiceninja.md": {
+    "status": "translated",
+    "source_sha256": "f49ed00cb44e7fc61876706ba93ae0df229d3ef2e7e5e1ceee19f011d995f4ff",
+    "translation_sha256": "09f0e9d284ae14e56a04eea7379805e8c4566add064643590fe192ca957e796b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.securityscorecard.md": {
+    "status": "translated",
+    "source_sha256": "2105c16bb11d581681029a19a2a154206f641b76be05ae0c555bd39cc7dc1fab",
+    "translation_sha256": "f565000cd20e9f80a684800f48f9b98aa7dda7f8e542a41753b3452cd40e155f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.twist.md": {
+    "status": "translated",
+    "source_sha256": "441a1ed1c7b2fdf6ddc32cb108e5ae9e95d78b10b65e0b399905257d9120e360",
+    "translation_sha256": "56ef290f733b96199304ec9de72b6175b6ef116b0f6e924042eafe584cbcbff6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.zohocrm.md": {
+    "status": "translated",
+    "source_sha256": "863d44bddfdb590999d518b7647e2dc1fa940b7b2adff134e68cc74c03b57555",
+    "translation_sha256": "3acf384358fa947c61df412cd131ac1305288e81c69dbba72e70c50a48fa29a1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.jira.md": {
+    "status": "translated",
+    "source_sha256": "9cdd798dee0501a63761d9e7a3530d0bc676525399b684b9e2f6835d5f4b35a5",
+    "translation_sha256": "514c9cf368d4fa8d6193d8c420b6c2bb44909c85e17be7b0508290d9a607cc1e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.wekan.md": {
+    "status": "translated",
+    "source_sha256": "2775c2f70f1a3e2d970f96560e84aad4a9a48dc814a0d3a96d5029900e326498",
+    "translation_sha256": "a64be5650e55fad4866285e791544d756bf542c50e754ebb2d6981ff50fbbe47",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.googlegemini.md": {
+    "status": "translated",
+    "source_sha256": "7664303ad0984ab2fb2a0bce611a4cbb24c5b0c90f27dff84b8e780cff22f1d0",
+    "translation_sha256": "713acef2ca9d5d2ff99a1d01b9be2d394f1d1c6fd06bac98999735eeea4bb338",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.github.md": {
+    "status": "translated",
+    "source_sha256": "57f682229d31c2397b79a0c7e8492813d8461288e82fffdc30812d9d84036a0f",
+    "translation_sha256": "1926e41aa37e9e046b4c22fe3a2333907fb37cfe0e96ee3acbdb015e38748e72",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.mattermost.md": {
+    "status": "translated",
+    "source_sha256": "ff33bee84100d9adc47794fb22fc7424c8ffb8acc6f67839a1f51c019ba85763",
+    "translation_sha256": "64905027eb0fd5565a76726c60a18e0c4a87dde0d09d9cc86bb73884968bdfb6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.monicacrm.md": {
+    "status": "translated",
+    "source_sha256": "3fe1ee1872034b28b696fce0a453478b1c4725efd1aa43fb637fb6771b1c31c8",
+    "translation_sha256": "9adef951725230a25b3927c93f2dba30a5b1918a3731ac463c3602fcb2730e05",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "monica-crm-introduction-contacts-not-contracts"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.uptimerobot.md": {
+    "status": "translated",
+    "source_sha256": "7158d3cc9de8674c3dd8a6019ddb7574ea27b6b3c320e8229afba2c95f2a8a21",
+    "translation_sha256": "e8cf8100d5aeff1484d300ba76833aba4db9ff915f75e5d8dc1acc6b8accc947",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

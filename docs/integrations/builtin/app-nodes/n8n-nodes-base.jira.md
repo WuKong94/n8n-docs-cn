@@ -1,82 +1,82 @@
 ---
-title: Jira Software node documentation
-description: >-
-  Learn how to use the Jira Software node in n8n. Follow technical documentation
-  to integrate Jira Software node into your workflows.
+title: Jira Software 节点文档
+description: 了解如何在 n8n 中使用 Jira Software 节点，并按照技术文档将 Jira Software 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Jira Software node documentation
+nodeTitle: Jira Software 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.jira.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Jira Software node <a href="#jira-software-node" id="jira-software-node"></a>
 
-Use the Jira Software node to automate work in Jira, and integrate Jira with other applications. n8n has built-in support for a wide range of Jira features, including creating, updating, deleting, and getting issues, and users. 
+# Jira Software 节点 <a href="#jira-software-node" id="jira-software-node"></a>
 
-On this page, you'll find a list of operations the Jira Software node supports and links to more resources.
+使用 Jira Software 节点自动处理 Jira 中的工作，并将 Jira 与其他应用集成。n8n 内置支持多种 Jira 功能，包括创建、更新、删除和获取议题及用户。
+
+本页列出了 Jira Software 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Jira credentials](../credentials/jira.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Jira 凭据](../credentials/jira.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Issue
-    * Get issue changelog
-    * Create a new issue
-    * Delete an issue
-    * Get an issue
-    * Get all issues
-    * Create an email notification for an issue and add it to the mail queue
-    * Return either all transitions or a transition that can be performed by the user on an issue, based on the issue's status
-    * Update an issue
-* Issue Attachment
-    * Add attachment to issue
-    * Get an attachment
-    * Get all attachments
-    * Remove an attachment
-* Issue Comment
-    * Add comment to issue
-    * Get a comment
-    * Get all comments
-    * Remove a comment
-    * Update a comment
-* User
-    * Create a new user.
-    * Delete a user.
-    * Retrieve a user.
+* Issue（议题）
+    * Get issue changelog（获取议题变更记录）
+    * Create a new issue（创建新议题）
+    * Delete an issue（删除议题）
+    * Get an issue（获取议题）
+    * Get all issues（获取全部议题）
+    * Create an email notification for an issue and add it to the mail queue（为议题创建电子邮件通知，并加入邮件队列）
+    * Return either all transitions or a transition that can be performed by the user on an issue, based on the issue's status（根据议题状态，返回用户可对议题执行的所有状态转换或某个状态转换）
+    * Update an issue（更新议题）
+* Issue Attachment（议题附件）
+    * Add attachment to issue（向议题添加附件）
+    * Get an attachment（获取附件）
+    * Get all attachments（获取所有附件）
+    * Remove an attachment（移除附件）
+* Issue Comment（议题评论）
+    * Add comment to issue（向议题添加评论）
+    * Get a comment（获取评论）
+    * Get all comments（获取全部评论）
+    * Remove a comment（移除评论）
+    * Update a comment（更新评论）
+* User（用户）
+    * Create a new user.（创建新用户）
+    * Delete a user.（删除用户）
+    * Retrieve a user.（获取用户）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Jira Software node documentation integration templates](https://n8n.io/integrations/jira-software) or [search all templates](https://n8n.io/workflows/)
+[浏览 Jira Software 集成模板](https://n8n.io/integrations/jira-software)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to the [official JQL documentation](https://www.atlassian.com/software/jira/guides/expand-jira/jql) about Jira Query Language (JQL) to learn more about it.
+要进一步了解 Jira Query Language（JQL，Jira 查询语言），请参阅 [JQL 官方文档](https://www.atlassian.com/software/jira/guides/expand-jira/jql)。
 
-## Fetch issues for a specific project <a href="#fetch-issues-for-a-specific-project" id="fetch-issues-for-a-specific-project"></a>
+## 获取指定项目的议题 <a href="#fetch-issues-for-a-specific-project" id="fetch-issues-for-a-specific-project"></a>
 
-The **Get All** operation returns all the issues from Jira. To fetch issues for a particular project, you need to use Jira Query Language (JQL).
+**Get All**（获取全部）操作会返回 Jira 中的所有议题。要获取某个项目的议题，需要使用 Jira Query Language（JQL）。
 
-For example, if you want to receive all the issues of a project named `n8n`, you'd do something like this:
+例如，要获取名为 `n8n` 的项目中的所有议题，可按以下步骤操作：
 
-- Select **Get All** from the **Operation** dropdown list.
-- Toggle **Return All** to true.
-- Select **Add Option** and select **JQL**.
-- Enter `project=n8n` in the **JQL** field.
+- 在 **Operation**（操作）下拉列表中选择 **Get All**（获取全部）。
+- 将 **Return All**（返回全部）切换为 true。
+- 选择 **Add Option**（添加选项），再选择 **JQL**。
+- 在 **JQL** 字段中输入 `project=n8n`。
 
-This query will fetch all the issues in the project named `n8n`. Enter the name of your project instead of `n8n` to fetch all the issues for your project.
+此查询会获取名为 `n8n` 的项目中的所有议题。将 `n8n` 替换为你的项目名称，即可获取该项目的所有议题。
