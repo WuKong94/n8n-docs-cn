@@ -1,40 +1,40 @@
 ---
-title: HTTP Request node documentation
-description: >-
-  Learn how to use the HTTP Request node in n8n. Follow technical documentation
-  to integrate the HTTP Request node into your workflows.
+title: HTTP Request 节点
+description: 了解如何在 n8n 中使用 HTTP Request 节点，并将其集成到工作流。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 nodeTitle: n8n-nodes-base.httprequest
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.httprequest/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# HTTP Request node <a href="#http-request-node" id="http-request-node"></a>
 
-The HTTP Request node is one of the most versatile nodes in n8n. It allows you to make HTTP requests to query data from any app or service with a REST API. You can use the HTTP Request node as a regular node or attached to an [AI agent](../../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md) to use as a [tool](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/understand-ai-components/how-tools-work){ data-preview }.
+# HTTP Request 节点 <a href="#http-request-node" id="http-request-node"></a>
 
-When using this node, you're creating a REST API call. You need some understanding of basic API terminology and concepts.
+HTTP Request 是 n8n 中用途最广泛的节点之一，可通过 HTTP 请求查询任何提供 REST API 的应用或服务中的数据。可以将其用作普通节点，也可以连接到 [AI 智能体](../../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md)，作为[工具](../../../../build/integrate-ai/understand-ai-components/how-tools-work.md){ data-preview }使用。
 
-You can create an HTTP request two ways: configure the [node parameters](#node-parameters) or [import a curl command](#import-curl-command).
+使用此节点相当于创建 REST API 调用，需要了解基本的 API 术语和概念。
+
+有两种方式创建 HTTP 请求：配置[节点参数](#node-parameters)，或[导入 curl 命令](#import-curl-command)。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [HTTP Request credentials](../../credentials/httprequest.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [HTTP Request 凭据](../../credentials/httprequest.md)。
 {% endhint %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Method <a href="#method" id="method"></a>
+### Method（请求方法） <a href="#method" id="method"></a>
 
-Select the method to use for the request:
+选择请求使用的方法：
 
 - DELETE
 - GET
@@ -46,292 +46,292 @@ Select the method to use for the request:
 
 ### URL <a href="#url" id="url"></a>
 
-Enter the endpoint you want to use.
+输入要使用的端点。
 
-### Authentication <a href="#authentication" id="authentication"></a>
+### Authentication（身份验证） <a href="#authentication" id="authentication"></a>
 
-n8n recommends using the **Predefined Credential Type** option when it's available. It offers an easier way to set up and manage credentials, compared to configuring generic credentials.
+可用时，n8n 建议选择 **Predefined Credential Type**（预定义凭据类型）。与手动配置通用凭据相比，它更便于设置和管理凭据。
 
-#### Predefined credentials <a href="#predefined-credentials" id="predefined-credentials"></a>
+#### 预定义凭据 <a href="#predefined-credentials" id="predefined-credentials"></a>
 
-Credentials for integrations supported by n8n, including both built-in and community nodes. Use **Predefined Credential Type** for custom operations without extra setup. Refer to [Custom API operations](../../custom-api-actions-for-existing-nodes.md) for more information.
+用于 n8n 支持的集成，包括内置节点和社区节点。使用 **Predefined Credential Type**（预定义凭据类型）执行自定义操作，无需额外设置。更多信息，请参阅[自定义 API 操作](../../custom-api-actions-for-existing-nodes.md)。
 
-#### Generic credentials <a href="#generic-credentials" id="generic-credentials"></a>
+#### 通用凭据 <a href="#generic-credentials" id="generic-credentials"></a>
 
-Credentials for integrations not supported by n8n. You'll need to manually configure the authentication process, including specifying the required API endpoints, necessary parameters, and the authentication method. 
+用于 n8n 尚未支持的集成。需要手动配置身份验证流程，包括 API 端点、必要参数及认证方法。
 
-You can select one of the following methods:
+可以选择以下方法之一：
 
-* Basic auth
-* Custom auth
-* Digest auth
-* Header auth
+* Basic auth（Basic 认证）
+* Custom auth（自定义认证）
+* Digest auth（摘要认证）
+* Header auth（请求头认证）
 * OAuth1 API
 * OAuth2 API
-* Query auth
-* Simplified Custom Auth
+* Query auth（查询参数认证）
+* Simplified Custom Auth（简化的自定义认证）
 
-Refer to [HTTP request credentials](../../credentials/httprequest.md) for more information on setting up each credential type.
+有关各凭据类型的设置，请参阅 [HTTP Request 凭据](../../credentials/httprequest.md)。
 
-### Send Query Parameters <a href="#send-query-parameters" id="send-query-parameters"></a>
+### Send Query Parameters（发送查询参数） <a href="#send-query-parameters" id="send-query-parameters"></a>
 
-Query parameters act as filters on HTTP requests. If the API you're interacting with supports them and the request you're making needs a filter, turn this option on.
+查询参数可用于筛选 HTTP 请求的数据。如果所用 API 支持查询参数，且请求需要筛选条件，开启此选项。
 
-**Specify your query parameters** using one of the available options:
+通过以下方式之一**指定查询参数**：
 
-* **Using Fields Below**: Enter **Name**/**Value** pairs of **Query Parameters**. To enter more query parameter name/value pairs, select **Add Parameter**. The name is the name of the field you're filtering on, and the value is the filter value.
-* **Using JSON**: Enter **JSON** to define your query parameters.
+* **Using Fields Below**（使用下方字段）：在 **Query Parameters**（查询参数）中输入 **Name**（名称）/**Value**（值）对。选择 **Add Parameter**（添加参数）可添加更多参数。名称是要筛选的字段名，值是筛选值。
+* **Using JSON**（使用 JSON）：输入 **JSON** 来定义查询参数。
 
-Refer to your service's API documentation for detailed guidance.
+有关详细用法，请参阅所用服务的 API 文档。
 
-### Send Headers <a href="#send-headers" id="send-headers"></a>
+### Send Headers（发送请求头） <a href="#send-headers" id="send-headers"></a>
 
-Use this parameter to send headers with your request. Headers contain metadata or context about your request.
+使用此参数在请求中发送请求头。请求头包含请求的元数据或上下文信息。
 
-**Specify Headers** using one of the available options:
+通过以下方式之一设置 **Specify Headers**（指定请求头）：
 
-* **Using Fields Below**: Enter **Name**/**Value** pairs of **Header Parameters**. To enter more header parameter name/value pairs, select **Add Parameter**. The name is the header you wish to set, and the value is the value you want to pass for that header.
-* **Using JSON**: Enter **JSON** to define your header parameters.
+* **Using Fields Below**（使用下方字段）：在 **Header Parameters**（请求头参数）中输入 **Name**（名称）/**Value**（值）对。选择 **Add Parameter**（添加参数）可添加更多请求头。名称是要设置的请求头，值是要传递的请求头值。
+* **Using JSON**（使用 JSON）：输入 **JSON** 来定义请求头参数。
 
-Refer to your service's API documentation for detailed guidance.
+有关详细用法，请参阅所用服务的 API 文档。
 
-### Send Body <a href="#send-body" id="send-body"></a>
+### Send Body（发送请求体） <a href="#send-body" id="send-body"></a>
 
-If you need to send a body with your API request, turn this option on.
+如果 API 请求需要发送请求体，开启此选项。
 
-Then select the **Body Content Type** that best matches the format for the body content you wish to send.
-
-
-#### Form URLencoded <a href="#form-urlencoded" id="form-urlencoded"></a>
+然后选择最符合待发送内容格式的 **Body Content Type**（请求体内容类型）。
 
 
-Use this option to send your body as `application/x-www-form-urlencoded`.
+#### Form URLencoded（URL 编码表单） <a href="#form-urlencoded" id="form-urlencoded"></a>
 
-**Specify Body** using one of the available options:
 
-* **Using Fields Below**: Enter **Name**/**Value** pairs of **Body Parameters**. To enter more body parameter name/value pairs, select **Add Parameter**. The name should be the form field name, and the value is what you wish to set that field to.
-* **Using Single Field**: Enter your name/value pairs in a single **Body** parameter with format `fieldname1=value1&fieldname2=value2`.
+使用此选项，将请求体按 `application/x-www-form-urlencoded` 格式发送。
 
-Refer to your service's API documentation for detailed guidance.
+通过以下方式之一设置 **Specify Body**（指定请求体）：
 
-#### Form-Data <a href="#form-data" id="form-data"></a>
+* **Using Fields Below**（使用下方字段）：在 **Body Parameters**（请求体参数）中输入 **Name**（名称）/**Value**（值）对。选择 **Add Parameter**（添加参数）可添加更多参数。名称应为表单字段名，值为要为该字段设置的内容。
+* **Using Single Field**（使用单个字段）：在一个 **Body**（请求体）参数中，按 `fieldname1=value1&fieldname2=value2` 格式输入名称／值对。
 
-Use this option to send your body as `multipart/form-data`.
+有关详细用法，请参阅所用服务的 API 文档。
 
-Configure your **Body Parameters** by selecting the **Parameter Type**:
+#### Form-Data（表单数据） <a href="#form-data" id="form-data"></a>
 
-* Choose **Form Data** to enter **Name**/**Value** pairs.
-* Choose **n8n Binary File** to pull the body from a file the node has access to.
-    * **Name**: Enter the ID of the field to set.
-    * **Input Data Field Name**: Enter the name of the incoming field containing the binary file data you want to process.
+使用此选项，将请求体按 `multipart/form-data` 格式发送。
 
-Select **Add Parameter** to enter more parameters.
+配置 **Body Parameters**（请求体参数）时，选择 **Parameter Type**（参数类型）：
 
-Refer to your service's API documentation for detailed guidance.
+* 选择 **Form Data**（表单数据），输入 **Name**（名称）/**Value**（值）对。
+* 选择 **n8n Binary File**（n8n 二进制文件），从节点可访问的文件中读取请求体数据。
+    * **Name**（名称）：输入要设置的字段 ID。
+    * **Input Data Field Name**（输入数据字段名称）：输入包含待处理二进制文件数据的输入字段名称。
+
+选择 **Add Parameter**（添加参数）可输入更多参数。
+
+有关详细用法，请参阅所用服务的 API 文档。
 
 #### JSON <a href="#json" id="json"></a>
 
-Use this option to send your body as JSON.
+使用此选项，将请求体按 JSON 格式发送。
 
-**Specify Body** using one of the available options:
+通过以下方式之一设置 **Specify Body**（指定请求体）：
 
-* **Using Fields Below**: Enter **Name**/**Value** pairs of **Body Parameters**. To enter more body parameter name/value pairs, select **Add Parameter**.
-* **Using JSON**: Enter **JSON** to define your body.
+* **Using Fields Below**（使用下方字段）：在 **Body Parameters**（请求体参数）中输入 **Name**（名称）/**Value**（值）对。选择 **Add Parameter**（添加参数）可添加更多参数。
+* **Using JSON**（使用 JSON）：输入 **JSON** 来定义请求体。
 
-Refer to your service's API documentation for detailed guidance.
+有关详细用法，请参阅所用服务的 API 文档。
 
-#### n8n Binary File <a href="#n8n-binary-file" id="n8n-binary-file"></a>
+#### n8n Binary File（n8n 二进制文件） <a href="#n8n-binary-file" id="n8n-binary-file"></a>
 
-Use this option to send the contents of a file stored in n8n as the body.
+使用此选项，将 n8n 中保存的文件内容作为整个请求体发送。
 
-Enter the name of the incoming field that contains the file as the **Input Data Field Name**.
+在 **Input Data Field Name**（输入数据字段名称）中，填写包含该文件的输入字段名称。
 
-Refer to your service's API documentation for detailed guidance on how to format the file.
+有关文件格式要求，请参阅所用服务的 API 文档。
 
-#### Raw <a href="#raw" id="raw"></a>
+#### Raw（原始数据） <a href="#raw" id="raw"></a>
 
-Use this option to send raw data in the body.
+使用此选项，在请求体中发送原始数据。
 
-* **Content Type**: Enter the `Content-Type` header to use for the raw body content. Refer to the IANA [Media types](https://www.iana.org/assignments/media-types/media-types.xhtml) documentation for a full list of MIME content types.
-* **Body**: Enter the raw body content to send.
+* **Content Type**（内容类型）：输入用于原始请求体的 `Content-Type` 请求头值。完整的 MIME 内容类型列表，请参阅 IANA [媒体类型](https://www.iana.org/assignments/media-types/media-types.xhtml)文档。
+* **Body**（请求体）：输入要发送的原始请求体内容。
 
-Refer to your service's API documentation for detailed guidance.
+有关详细用法，请参阅所用服务的 API 文档。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Select **Add Option** to view and select these options. Options are available to all parameters unless otherwise noted.
+选择 **Add Option**（添加选项）查看并选择下列选项。除非另有说明，所有参数配置均可使用这些选项。
 
-### Array Format in Query Parameters <a href="#array-format-in-query-parameters" id="array-format-in-query-parameters"></a>
+### Array Format in Query Parameters（查询参数中的数组格式） <a href="#array-format-in-query-parameters" id="array-format-in-query-parameters"></a>
 
 {% hint style="info" %}
-**Option availability**
+**选项可用性**
 
-This option is only available when you turn on **Send Query Parameters**.
+仅在开启 **Send Query Parameters**（发送查询参数）时可用。
 {% endhint %}
 
-Use this option to control the format for arrays included in query parameters. Choose from these options:
+使用此选项控制查询参数中数组的格式，可选：
 
-* **No Brackets**: Arrays will format as the name=value for each item in the array, for example: `foo=bar&foo=qux`.
-* **Brackets Only**: The node adds square brackets after each array name, for example: `foo[]=bar&foo[]=qux`.
-* **Brackets with Indices**: The node adds square brackets with an index value after each array name, for example: `foo[0]=bar&foo[1]=qux`.
+* **No Brackets**（无括号）：为数组中每个数据项生成名称=值形式，例如 `foo=bar&foo=qux`。
+* **Brackets Only**（仅括号）：在每个数组名称后添加方括号，例如 `foo[]=bar&foo[]=qux`。
+* **Brackets with Indices**（带索引括号）：在每个数组名称后添加包含索引值的方括号，例如 `foo[0]=bar&foo[1]=qux`。
 
-Refer to your service's API documentation for guidance on which option to use.
+选择哪种格式，请参阅所用服务的 API 文档。
 
-### Batching <a href="#batching" id="batching"></a>
+### Batching（批量处理） <a href="#batching" id="batching"></a>
 
-Control how to batch large numbers of input items:
+控制如何分批处理大量输入数据项：
 
-* **Items per Batch**: Enter the number of input items to include in each batch.
-* **Batch Interval**: Enter the time to wait between each batch of requests in milliseconds. Enter 0 for no batch interval.
+* **Items per Batch**（每批数据项数量）：输入每批包含的输入数据项数量。
+* **Batch Interval**（批次间隔）：输入每批请求之间的等待时间，单位为毫秒。设为 0 表示不等待。
 
-### Ignore SSL Issues <a href="#ignore-ssl-issues" id="ignore-ssl-issues"></a>
+### Ignore SSL Issues（忽略 SSL 问题） <a href="#ignore-ssl-issues" id="ignore-ssl-issues"></a>
 
-By default, n8n only downloads the response if SSL certificate validation succeeds. If you'd like to download the response even if SSL certificate validation fails, turn this option on.
+默认情况下，只有 SSL 证书验证成功，n8n 才会下载响应。如果希望证书验证失败时仍下载响应，开启此选项。
 
-### Lowercase Headers <a href="#lowercase-headers" id="lowercase-headers"></a>
+### Lowercase Headers（请求头名称转为小写） <a href="#lowercase-headers" id="lowercase-headers"></a>
 
-Choose whether to lowercase header names (turned on, default) or not (turned off).
+开启时将请求头名称转为小写（默认），关闭时保留原样。
 
-### Redirects <a href="#redirects" id="redirects"></a>
+### Redirects（重定向） <a href="#redirects" id="redirects"></a>
 
-Choose whether to follow redirects (turned on by default) or not (turned off). If turned on, enter the maximum number of redirects the request should follow in **Max Redirects**.
+选择是否跟随重定向：默认开启，关闭时不跟随。开启后，在 **Max Redirects**（最大重定向次数）中输入允许跟随的次数上限。
 
-### Response <a href="#response" id="response"></a>
+### Response（响应） <a href="#response" id="response"></a>
 
-Use this option to set some details about the expected API response, including:
+使用此选项配置预期 API 响应的细节，包括：
 
-* **Include Response Headers and Status**: By default, the node returns only the body. Turn this option on to return the full response (headers and response status code) as well as the body.
-* **Never Error**: By default, the node returns success only when the response returns with a 2xx code. Turn this option on to return success regardless of the code returned.
-* **Response Format**: Select the format in which the data gets returned. Choose from:
-    * **Autodetect** (default): The node detects and formats the response based on the data returned.
-    * **File**: Select this option to put the response into a file. Enter the field name where you want the file returned in **Put Output in Field**.
-    * **JSON**: Select this option to format the response as JSON.
-    * **Text**: Select this option to format the response as plain text. Enter the field name where you want the file returned in **Put Output in Field**.
+* **Include Response Headers and Status**（包含响应头和状态）：默认仅返回响应体。开启后，除响应体外，还返回完整响应，包括响应头和响应状态码。
+* **Never Error**（不因状态码报错）：默认仅当响应状态码为 2xx 时，节点才将请求视为成功。开启后，无论返回何种状态码，都将其视为成功。
+* **Response Format**（响应格式）：选择返回数据的格式，可选：
+    * **Autodetect**（自动检测，默认）：根据返回数据自动检测并设置响应格式。
+    * **File**（文件）：将响应存入文件，并在 **Put Output in Field**（输出字段）中填写用于返回该文件的字段名称。
+    * **JSON**：将响应按 JSON 格式返回。
+    * **Text**（文本）：将响应按纯文本格式返回，并在 **Put Output in Field**（输出字段）中填写用于返回该文本的字段名称。
 
-### Pagination <a href="#pagination" id="pagination"></a>
+### Pagination（分页） <a href="#pagination" id="pagination"></a>
 
-Use this option to paginate results, useful for handling query results that are too big for the API to return in a single call.
+使用此选项分页获取结果，适用于 API 无法在一次调用中返回全部数据的较大查询结果。
 
 {% hint style="info" %}
-**Inspect the API data first**
+**先查看 API 数据**
 
-Some options for pagination require knowledge of the data returned by the API you're using. Before setting up pagination, either check the API documentation, or do an API call without pagination, to see the data it returns.
+部分分页选项需要了解 API 返回的数据。配置分页前，请先查看 API 文档，或执行不分页的 API 调用，了解响应结构。
 {% endhint %}
 <details>
 
-<summary>Understand pagination</summary>
+<summary>了解分页</summary>
 
-Pagination means splitting a large set of data into multiple pages. The amount of data on each page depends on the limit you set.
+分页是将大量数据拆分为多页，每页数据量取决于所设置的数量限制。
 
-For example, you make an API call to an endpoint called `/users`. The API wants to send back information on 300 users, but this is too much data for the API to send in one response. 
+例如，调用名为 `/users` 的端点，API 需要返回 300 个用户的信息，但数据过多，无法一次响应全部返回。
 
-If the API supports pagination, you can incrementally fetch the data. To do this, you call `/users` with a pagination limit, and a page number or URL to tell the API which page to send. In this example, say you use a limit of 10, and start from page 0. The API sends the first 10 users in its response. You then call the API again, increasing the page number by 1, to get the next 10 results.
+如果 API 支持分页，可以逐批获取数据：调用 `/users`，同时设置每页数量，以及页码或页面 URL。例如，每页限制 10 个用户，从第 0 页开始。API 首先返回前 10 个用户。然后再次调用 API，将页码增加 1，即可获取后续 10 个结果。
 
 </details>
 
-Configure the pagination settings:
+配置分页设置：
 
-* **Pagination Mode**:
-    * **Off**: Turn off pagination.
-    * **Update a Parameter in Each Request**: Use this when you need to dynamically set parameters for each request.
-    * **Response Contains Next URL**: Use this when the API response includes the URL of the next page. Use an expression to set **Next URL**.
+* **Pagination Mode**（分页模式）：
+    * **Off**（关闭）：关闭分页。
+    * **Update a Parameter in Each Request**（每次请求更新参数）：需要为每次请求动态设置参数时使用。
+    * **Response Contains Next URL**（响应包含下一页 URL）：API 响应中包含下一页 URL 时使用。通过表达式设置 **Next URL**（下一页 URL）。
 
-For example setups, refer to [HTTP Request node cookbook | Pagination](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/cookbook/http-request-node/pagination).
+配置示例请参阅 [HTTP Request 节点使用指南 | 分页](../../../../build/code-in-n8n/cookbook/http-request-node/pagination.md)。
 
-n8n provides built-in variables for working with HTTP node requests and responses when using pagination:
+使用分页时，n8n 提供了用于处理 HTTP 节点请求和响应的内置变量：
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/I3wrw8MpZtbjn2khruiw/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/http/pagination-variables.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/91KTZVqkKv8rY72iELNl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/http/pagination-api-differences.md" %}
 
-### Proxy <a href="#proxy" id="proxy"></a>
+### Proxy（代理） <a href="#proxy" id="proxy"></a>
 
-Use this option if you need to specify an HTTP proxy.
+需要指定 HTTP 代理时，使用此选项。
 
-Enter the **Proxy** the request should use. This takes precedence over global settings defined with the [`HTTP_PROXY`, `HTTPS_PROXY`, or `ALL_PROXY` environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/deployment).
+输入请求要使用的 **Proxy**（代理）。此设置优先于通过 [`HTTP_PROXY`、`HTTPS_PROXY` 或 `ALL_PROXY` 环境变量](../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/deployment.md)定义的全局配置。
 
-### Timeout <a href="#timeout" id="timeout"></a>
+### Timeout（超时） <a href="#timeout" id="timeout"></a>
 
-Use this option to set how long the node should wait for the server to send response headers (and start the response body). The node aborts requests that exceed this value for the initial response.
+设置节点等待服务器发送响应头并开始返回响应体的最长时间。初始响应等待超过此值时，节点会中止请求。
 
-Enter the **Timeout** time to wait in milliseconds.
+输入 **Timeout**（超时）的等待时间，单位为毫秒。
 
-## Tool-only options <a href="#tool-only-options" id="tool-only-options"></a>
+## 仅工具模式可用的选项 <a href="#tool-only-options" id="tool-only-options"></a>
 
-The following options are only available when attached to an [AI agent](../../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md) as a [tool](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/understand-ai-components/how-tools-work){ data-preview }.
+以下选项仅在连接到 [AI 智能体](../../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md)并作为[工具](../../../../build/integrate-ai/understand-ai-components/how-tools-work.md){ data-preview }使用时可用。
 
-### Optimize Response <a href="#optimize-response" id="optimize-response"></a>
+### Optimize Response（优化响应） <a href="#optimize-response" id="optimize-response"></a>
 
-Whether to optimize the tool response to reduce the amount of data passed to the LLM. Optimizing the response can reduce costs and can help the LLM ignore unimportant details, often leading to better results.
+选择是否优化工具响应，以减少传给大语言模型的数据量。优化可能降低成本，也有助于模型忽略不重要的细节，从而改善结果。
 
-When optimizing responses, you select an expected response type, which determines other options you can configure. The supported response types are:
+优化响应时，需要选择预期的响应类型，它决定后续可配置的选项。支持的响应类型包括：
 
 #### JSON <a href="#json" id="json"></a>
 
-When expecting a **JSON** response, you can configure which parts of the JSON data to use as a response with the following choices:
+预期为 **JSON** 响应时，可通过以下选项选择响应中使用哪些 JSON 数据：
 
-* **Field Containing Data**: This field identifies a specific part of the JSON object that contains your relevant data. You can leave this blank to use the entire response.
-* **Include Fields**: This is how you choose which fields you want in your response object. There are three choices:
-	* **All**: Include all fields in the response object.
-	* **Selected**: Include only the fields specified below.
-		* **Fields**: A comma-separated list of fields to include in the response. You can use dot notation to specify nested fields. You can drag fields from the Input panel to add them to the field list.
-	* **Exclude**: Include all fields *except* the fields specified below.
-		* **Fields**: A comma-separated list of fields to exclude from the response. You can use dot notation to specify nested fields. You can drag fields from the Input panel to add them to the field list.
+* **Field Containing Data**（数据所在字段）：指定包含所需数据的 JSON 对象部分。留空时使用完整响应。
+* **Include Fields**（包含字段）：选择响应对象中包含哪些字段，共有三种方式：
+    * **All**（全部）：包含响应对象中的所有字段。
+    * **Selected**（指定字段）：仅包含下方指定的字段。
+        * **Fields**（字段）：以逗号分隔的待包含字段列表。可用点表示法指定嵌套字段，也可从 Input（输入）面板拖入字段。
+    * **Exclude**（排除）：包含所有字段，*但排除*下方指定字段。
+        * **Fields**（字段）：以逗号分隔的待排除字段列表。可用点表示法指定嵌套字段，也可从 Input（输入）面板拖入字段。
 
 #### HTML <a href="#html" id="html"></a>
 
-When expecting **HTML**, you can identify the part of an HTML document relevant to the LLM and optimize the response with the following options:
+预期为 **HTML** 时，可指定文档中与模型有关的部分，并使用以下选项优化响应：
 
-* **Selector (CSS)**: A specific element or element type to include in the response HTML. Uses the `body` element by default.
-* **Return Only Content**: Whether to strip HTML tags and attributes from the response, leaving only the actual content. This uses fewer tokens and may be easier for the model to understand.
-	* **Elements To Omit**: A comma-separated list of CSS selectors to exclude when extracting content.
-* **Truncate Response**: Whether to limit the response size to save tokens.
-	* **Max Response Characters**: The maximum number of characters to include in the HTML response. The default value is 1000.
+* **Selector (CSS)**（CSS 选择器）：指定响应 HTML 中要包含的元素或元素类型，默认使用 `body` 元素。
+* **Return Only Content**（仅返回内容）：选择是否移除响应中的 HTML 标签和属性，仅保留实际内容。这可减少 token 用量，也可能便于模型理解。
+    * **Elements To Omit**（忽略元素）：提取内容时需要排除的 CSS 选择器列表，以逗号分隔。
+* **Truncate Response**（截断响应）：选择是否限制响应大小，以节省 token。
+    * **Max Response Characters**（最大响应字符数）：HTML 响应中最多包含的字符数，默认值为 1000。
 
-#### Text <a href="#text" id="text"></a>
+#### Text（文本） <a href="#text" id="text"></a>
 
-When expecting a generic **Text** response, you can optimize the results with the following options:
+预期为一般的 **Text**（文本）响应时，可使用以下选项优化结果：
 
-* **Truncate Response**: Whether to limit the response size to save tokens.
-	* **Max Response Characters**: The maximum number of characters to include in the HTML response. The default value is 1000.
+* **Truncate Response**（截断响应）：选择是否限制响应大小，以节省 token。
+    * **Max Response Characters**（最大响应字符数）：文本响应中最多包含的字符数，默认值为 1000。
 
-## Import curl command <a href="#import-curl-command" id="import-curl-command"></a>
+## 导入 curl 命令 <a href="#import-curl-command" id="import-curl-command"></a>
 
-[curl](https://curl.se/) is a command line tool and library for transferring data with URLs.
+[curl](https://curl.se/) 是一个通过 URL 传输数据的命令行工具和库。
 
-You can use curl to call REST APIs. If the API documentation of the service you want to use provides curl examples, you can copy them out of the documentation and into n8n to configure the HTTP Request node.
+可以使用 curl 调用 REST API。如果所用服务的 API 文档提供 curl 示例，可将其复制到 n8n，用于配置 HTTP Request 节点。
 
-Import a curl command:
+导入 curl 命令：
 
 {% hint style="info" %}
-**Import format**
+**导入格式**
 
-This option always imports any parameter values as strings. To keep numbers and booleans in their original types, switch **Using Fields Below** to **Using JSON** and paste your JSON object containing the parameters.
+导入时，所有参数值都会成为字符串。要保留数字和布尔值原有的数据类型，请将 **Using Fields Below**（使用下方字段）切换为 **Using JSON**（使用 JSON），并粘贴包含参数的 JSON 对象。
 {% endhint %}
 
-1. From the HTTP Request node's **Parameters** tab, select **Import cURL**. The **Import cURL command** modal opens.
-2. Paste your curl command into the text box.
-3. Select **Import**. n8n loads the request configuration into the node fields. This overwrites any existing configuration.
+1. 在 HTTP Request 节点的 **Parameters**（参数）标签页中，选择 **Import cURL**（导入 cURL）。此时打开 **Import cURL command**（导入 cURL 命令）对话框。
+2. 将 curl 命令粘贴到文本框中。
+3. 选择 **Import**（导入）。n8n 会将请求配置载入节点字段，并覆盖现有配置。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse HTTP Request integration templates](https://n8n.io/integrations/http-request) or [search all templates](https://n8n.io/workflows/)
+[浏览 HTTP Request 集成模板](https://n8n.io/integrations/http-request)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## FAQ
+## 常见问答 <a id="faq"></a>
 
-### How do I call an API without writing code?
+### 如何在不编写代码的情况下调用 API？ <a id="how-do-i-call-an-api-without-writing-code"></a>
 
-Use the HTTP Request node to query data from any app or service with a REST API. Set the [node parameters](#node-parameters) (method, URL, query parameters, headers, and body), or [import a curl command](#import-curl-command) from the service's API documentation and n8n fills the fields for you.
+使用 HTTP Request 节点，查询任意提供 REST API 的应用或服务中的数据。可以设置[节点参数](#node-parameters)，包括方法、URL、查询参数、请求头和请求体；也可以从服务 API 文档中[导入 curl 命令](#import-curl-command)，由 n8n 填充字段。
 
-### How do I authenticate an API request?
+### 如何对 API 请求进行身份验证？ <a id="how-do-i-authenticate-an-api-request"></a>
 
-Set this up in the [Authentication](#authentication) section. Use a **Predefined Credential Type** when n8n supports the service, since it's the easiest to set up. For other APIs, use generic credentials, which support Basic auth, Header auth, OAuth1, OAuth2, and more. Refer to [HTTP Request credentials](../../credentials/httprequest.md).
+在 [Authentication](#authentication)（身份验证）部分设置。n8n 支持该服务时，优先使用更易配置的 **Predefined Credential Type**（预定义凭据类型）。其他 API 可使用通用凭据，支持 Basic auth、Header auth、OAuth1、OAuth2 等。请参阅 [HTTP Request 凭据](../../credentials/httprequest.md)。
 
-### How do I handle an API that returns results across many pages?
+### 如何处理分多页返回结果的 API？ <a id="how-do-i-handle-an-api-that-returns-results-across-many-pages"></a>
 
-Turn on the [Pagination](#pagination) option. Set a **Pagination Mode** to update a parameter on each request, or to follow the next-page URL in the response, so n8n fetches every page instead of just the first.
+开启 [Pagination](#pagination)（分页）选项，并设置 **Pagination Mode**（分页模式）：每次请求更新参数，或跟随响应中的下一页 URL，让 n8n 获取所有页面，而不只是第一页。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common Issues](common-issues.md).
+常见疑问或问题及建议的解决方法，请参阅[常见问题](common-issues.md)。

@@ -1288,5 +1288,103 @@
     ],
     "scope": "仅修正可见名称笔误、坐标语境或有明确依据的旋转说明；原始快照、代码、图片、链接及锚点保持原样，不运行文档命令、不处理真实文件，也不声称已验证编辑器实际快捷键。",
     "source_sha256": "650b04cded9a146161265e25c786584227dc3c3466d564869a4c3853c0166fab"
+  },
+  {
+    "id": "http-request-text-response-output-field",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md",
+    "original_sentence": "    * **Text**: Select this option to format the response as plain text. Enter the field name where you want the file returned in **Put Output in Field**.",
+    "translated_sentence": "    * **Text**（文本）：将响应按纯文本格式返回，并在 **Put Output in Field**（输出字段）中填写用于返回该文本的字段名称。",
+    "evidence": "Response Format 的 Text 选项将 Put Output in Field 描述为返回 file 的字段，与同项纯文本输出及前项 File 混淆。译文明确该字段用于返回文本，不改变字段名称和操作。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "6bf34c984320eb6ddda53f876ee697e5b675a2c8ef9eed5760f8370f373b8444"
+  },
+  {
+    "id": "http-request-text-optimization-response-kind",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md",
+    "original_sentence": "\t* **Max Response Characters**: The maximum number of characters to include in the HTML response. The default value is 1000.",
+    "translated_sentence": "    * **Max Response Characters**（最大响应字符数）：文本响应中最多包含的字符数，默认值为 1000。",
+    "evidence": "Text 优化段中的 Max Response Characters 误称字符限制作用于 HTML response；同段上级选择为 Text，HTML 有独立配置段。译文明确限制文本响应字符数，默认 1000 不变。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "6bf34c984320eb6ddda53f876ee697e5b675a2c8ef9eed5760f8370f373b8444"
+  },
+  {
+    "id": "http-request-wget-success-does-not-prove-node-success",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.httprequest/common-issues.md",
+    "original_sentence": "If `wget` from inside the container succeeds, the HTTP Request node succeeds too. If `wget` also returns \"connection refused,\" the cause is the network or the target service, not n8n.",
+    "translated_sentence": "如果容器内的 `wget` 请求成功，说明该测试请求可连通；还需核对 HTTP Request 节点的请求配置，不能直接保证节点也会成功。若 `wget` 也返回“connection refused”，则原因在网络或目标服务，而不在 n8n。",
+    "evidence": "容器内 wget 请求成功仅证明该测试请求能完成，不能保证另一个配置的 HTTP Request 节点成功。同节点总览有独立方法、认证、请求头和请求体等配置。译文保留 wget 命令，补充需核对节点配置；连接被拒绝时仍检查网络或目标服务。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/common-issues.md"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "1205d9b7ce1f3b552a926d41253d71e0570561ab440b7bdc3f350c5ff1563dc8"
+  },
+  {
+    "id": "http-request-403-refusal-not-necessarily-authentication-failure",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.httprequest/common-issues.md",
+    "original_sentence": "This error displays when the node receives a 403 error indicating authentication failed.",
+    "translated_sentence": "节点收到表示服务器拒绝执行请求的 403 错误时，会显示此错误。译注：403 并不一定表示身份验证失败，也可能是权限或其他拒绝访问的原因。",
+    "evidence": "原文将 403 一概解释为 authentication failed。RFC 9110 第 15.5.4 节说明服务器理解请求但拒绝处理，原因可为凭据权限不足，也可与凭据无关。译文澄清这一范围，并保留后续凭据和作用域排查步骤。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/common-issues.md",
+      "https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.4"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "1205d9b7ce1f3b552a926d41253d71e0570561ab440b7bdc3f350c5ff1563dc8"
+  },
+  {
+    "id": "http-request-items-per-batch-counts-batch-not-request",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.httprequest/common-issues.md",
+    "original_sentence": "1. Set **Items per Batch** to the number of input items to include in each request.",
+    "translated_sentence": "1. 将 **Items per Batch**（每批数据项数量）设为每批包含的输入数据项数量。",
+    "evidence": "Items per Batch 的排查步骤误写每个 request 中包含的输入项数；同节点总览 Batching 明确为每个 batch。译文统一为每批输入项数，保留批次间隔及重试示例。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/common-issues.md"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "1205d9b7ce1f3b552a926d41253d71e0570561ab440b7bdc3f350c5ff1563dc8"
+  },
+  {
+    "id": "webhook-curl-examples-mixed-get-post",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md",
+    "original_sentence": "The examples make GET requests. You can use whichever HTTP method you set in **HTTP Method**.",
+    "translated_sentence": "以下示例分别使用 GET 或 POST 请求，请确保所用方法与 **HTTP Method**（HTTP 方法）的设置一致。",
+    "evidence": "原文声称下方示例全为 GET，实际四条 curl 命令包含两个 GET 和两个 POST。译文明确两种方法，并保留所用方法必须与节点 HTTP Method 一致的要求；命令字节不变。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "1b5f1975823d42b604efa3774ba1029df12fcb71ceb08f35308bb819ec63498f"
+  },
+  {
+    "id": "webhook-curl-header-example-separator-note",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md",
+    "original_sentence": "Make an HTTP request with header parameter:",
+    "translated_sentence": "发送带请求头参数的 HTTP 请求。原文下方示例的请求头写作 key=value；实际传递请求头时，应使用 key: value 格式。此处保留原始命令，供对照：",
+    "evidence": "原始请求头命令使用 --header 后的 key=value。curl 官方手册要求完整请求头字符串使用冒号分隔名称与值，并按原样发送用户输入。译文在命令前指出应使用 key: value，同时逐字保留原始命令供对照。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md",
+      "https://curl.se/docs/manpage.html"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "1b5f1975823d42b604efa3774ba1029df12fcb71ceb08f35308bb819ec63498f"
+  },
+  {
+    "id": "wait-database-offload-introduction-short-wait-exception",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.wait.md",
+    "original_sentence": "Use the Wait node pause your workflow's execution. When the workflow pauses it offloads the execution data to the database. When the resume condition is met, the workflow reloads the data and the execution continues.",
+    "translated_sentence": "使用 Wait 节点暂停工作流执行。暂停时，执行数据通常会卸载到数据库，满足恢复条件后重新加载数据并继续执行。短于 65 秒的等待有例外，详见本页关于时间操作的说明。",
+    "evidence": "Wait 简介概括为暂停时将数据卸载到数据库，而同页 Time-based operations 明确短于 65 秒时不卸载，进程继续运行。译文在简介限定通常情况，并指向同页例外；时间阈值、服务器时区规则和变量名均保持原样。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.wait.md"
+    ],
+    "scope": "仅澄清有同页或标准文档依据的原文说明；原始快照、代码、图片、链接和锚点保持原样。未执行文档命令，未对真实服务发送请求，也不代表已完成编辑器或部署验证。",
+    "source_sha256": "ec546dd0171a38afff255bd6358f32d708c1ba51bb92f5ffd1fc341e4229d80a"
   }
 ]

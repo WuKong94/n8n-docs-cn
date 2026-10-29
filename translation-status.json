@@ -15827,5 +15827,109 @@
     "source_correction_ids": [
       "xml-merge-ignore-attributes-option-name"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md": {
+    "status": "translated",
+    "source_sha256": "6bf34c984320eb6ddda53f876ee697e5b675a2c8ef9eed5760f8370f373b8444",
+    "translation_sha256": "782ee5b68c595c9315b0a1d89127c9e8d36dae867b59e028e6ac1af903521d3f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "http-request-text-response-output-field",
+      "http-request-text-optimization-response-kind"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.httprequest/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "1205d9b7ce1f3b552a926d41253d71e0570561ab440b7bdc3f350c5ff1563dc8",
+    "translation_sha256": "fbd1eced13189f12de2c41659bc502051c556c5be5ecb9b59f26aa2b30905d01",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "http-request-wget-success-does-not-prove-node-success",
+      "http-request-403-refusal-not-necessarily-authentication-failure",
+      "http-request-items-per-batch-counts-batch-not-request"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.webhook/README.md": {
+    "status": "translated",
+    "source_sha256": "e2754f8debf15a088b894b1dd7cafcbae17fa4738497bb36e41dd6288b0b5bad",
+    "translation_sha256": "36691306ea64c3750ef5e41eba4bc4e7a2b5263cc4fcfbccf7ca870e56a43920",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "1b5f1975823d42b604efa3774ba1029df12fcb71ceb08f35308bb819ec63498f",
+    "translation_sha256": "fcb3099186f75187e62aee3b83c92392c01c5c3d50868fef958b59b0d94e0480",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "webhook-curl-examples-mixed-get-post",
+      "webhook-curl-header-example-separator-note"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.webhook/workflow-development.md": {
+    "status": "translated",
+    "source_sha256": "77536de6f595885d61f32c89134dd81c5b3ef522e9680d9e8360574a20bc1f9e",
+    "translation_sha256": "0b6c4b8e09ef116b6642447ce69162d2f9150ab58026593709796fe5d5b0a4fe",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.respondtowebhook.md": {
+    "status": "translated",
+    "source_sha256": "6dbc1c49aca140363d1429901ef300e2a2e279f8842dab5f482ad247edbed6ac",
+    "translation_sha256": "0cf50c1cb4de8b5532f501b5fce82cfd1ec6af2826986a9bb5ce03f4478c5223",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.wait.md": {
+    "status": "translated",
+    "source_sha256": "ec546dd0171a38afff255bd6358f32d708c1ba51bb92f5ffd1fc341e4229d80a",
+    "translation_sha256": "a306f622a19f72b516ac1b234fc9961447018e3ce5f7a2ec111e575a681e2303",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "wait-database-offload-introduction-short-wait-exception"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.graphql.md": {
+    "status": "translated",
+    "source_sha256": "33ad4246d5ef7975bba0d016e4a87e65eb4d2d666b17ae395378679d8ff4d1ab",
+    "translation_sha256": "d7f76126f833538674c5e707a33f761ee1e35609697d9790709fd50d599dd803",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

@@ -1,18 +1,14 @@
 ---
-title: Respond to Webhook
+title: Respond to Webhook 节点
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Respond to Webhook
+nodeTitle: Respond to Webhook 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.respondtowebhook.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.respondtowebhook
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.respondtowebhook
-description: >-
-  Documentation for the Respond to Webhook node in n8n, a workflow automation
-  platform. Includes guidance on usage, and links to examples.
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.respondtowebhook
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.respondtowebhook
+description: 了解 n8n 中 Respond to Webhook 节点的用法，并查看相关示例。
 layout:
   width: default
   title:
@@ -32,103 +28,105 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Respond to Webhook
 
-Use the Respond to Webhook node to control the response to incoming webhooks. This node works with the [Webhook](n8n-nodes-base.webhook/README.md) node.
+# Respond to Webhook 节点 <a id="respond-to-webhook"></a>
 
-{% hint style="info" %}
-**Runs once for the first data item**
-
-The Respond to Webhook node runs once, using the first incoming data item. Refer to [Return more than one data item](n8n-nodes-base.respondtowebhook.md#return-more-than-one-data-item-deprecated) for more information.
-{% endhint %}
-
-## How to use Respond to Webhook <a href="#how-to-use-respond-to-webhook" id="how-to-use-respond-to-webhook"></a>
-
-To use the Respond to Webhook node:
-
-1. Add a [Webhook](n8n-nodes-base.webhook/README.md) node as the trigger node for the workflow.
-2. In the Webhook node, set **Respond** to **Using 'Respond to Webhook' node**.
-3. Add the Respond to Webhook node anywhere in your workflow. If you want it to return data from other nodes, place it after those nodes.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-Configure the node behavior using these parameters.
-
-### Respond With <a href="#respond-with" id="respond-with"></a>
-
-Choose what data to send in the webhook response.
-
-* **All Incoming Items**: Respond with all the JSON items from the input.
-* **Binary File**: Respond with a binary file defined in **Response Data Source**.
-* **First Incoming Item**: Respond with the first incoming item's JSON.
-* **JSON**: Respond with a JSON object defined in **Response Body**.
-* **JWT Token**: Respond with a JSON Web Token (JWT).
-* **No Data**: No response payload.
-* **Redirect**: Redirect to a URL set in **Redirect URL**.
-* **Text**: Respond with text set in **Response Body**. This sends HTML by default (`Content-Type: text/html`).
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-Select **Add Option** to view and set the options.
-
-* **Response Code**: Set the [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) to use.
-* **Response Headers**: Define the response headers to send.
-* **Put Response in Field**: Available when you respond with **All Incoming Items** or **First Incoming Item**. Set the field name for the field containing the response data.
-* **Enable Streaming**: When enabled, sends the data back to the user using streaming. Requires a trigger configured with the **Response mode** **Streaming**.
-
-## How n8n secures HTML responses <a href="#how-n8n-secures-html-responses" id="how-n8n-secures-html-responses"></a>
+使用 Respond to Webhook 节点控制传入 webhook 的响应。此节点与 [Webhook](n8n-nodes-base.webhook/README.md) 节点配合使用。
 
 {% hint style="info" %}
-**Feature availability**
+**使用首个数据项运行一次**
 
-Automatic wrapping of HTML responses to webhooks in `<iframe>` tags was introduced in n8n 1.103.0.
+Respond to Webhook 节点使用传入的首个数据项运行一次。更多信息，请参阅[返回多个数据项](n8n-nodes-base.respondtowebhook.md#return-more-than-one-data-item-deprecated)。
 {% endhint %}
 
-Starting with n8n 1.103.0, n8n automatically wraps HTML responses to webhooks in `<iframe>` tags. This is a security mechanism to protect the instance users.
+## 如何使用 Respond to Webhook <a href="#how-to-use-respond-to-webhook" id="how-to-use-respond-to-webhook"></a>
 
-This has the following implications:
+使用 Respond to Webhook 节点的步骤：
 
-* HTML renders in a sandboxed iframe instead of directly in the parent document.
-* JavaScript code that attempts to access the top-level window or local storage will fail.
-* Authentication headers aren't available in the sandboxed iframe (for example, basic auth). You need to use an alternative approach, like embedding a short-lived access token within the HTML.
-* Relative URLs (for example, `<form action="/">`) won't work. Use absolute URLs instead.
+1. 将 [Webhook](n8n-nodes-base.webhook/README.md) 节点添加为工作流的触发器节点。
+2. 在 Webhook 节点中，将 **Respond**（响应方式）设为 **Using 'Respond to Webhook' node**（使用 Respond to Webhook 节点）。
+3. 将 Respond to Webhook 节点添加到工作流中的任意位置。如果要返回其他节点的数据，请将其放在这些节点之后。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-[Browse Respond to Webhook integration templates](https://n8n.io/integrations/respond-to-webhook) or [search all templates](https://n8n.io/workflows/)
+使用这些参数配置节点行为。
 
-## Workflow behavior <a href="#workflow-behavior" id="workflow-behavior"></a>
+### Respond With（响应内容） <a href="#respond-with" id="respond-with"></a>
 
-When using the Respond to Webhook node, workflows behave as follows:
+选择 webhook 响应中要发送的数据。
 
-* The workflow finishes without executing the Respond to Webhook node: it returns a standard message with a 200 status.
-* The workflow errors before the first Respond to Webhook node executes: the workflow returns an error message with a 500 status.
-* A second Respond to Webhook node executes after the first one: the workflow ignores it.
-* A Respond to Webhook node executes but there was no webhook: the workflow ignores the Respond to Webhook node.
+* **All Incoming Items**（所有输入数据项）：返回输入中的所有 JSON 数据项。
+* **Binary File**（二进制文件）：返回 **Response Data Source**（响应数据来源）中指定的二进制文件。
+* **First Incoming Item**（首个输入数据项）：返回首个输入数据项的 JSON 数据。
+* **JSON**：返回 **Response Body**（响应体）中定义的 JSON 对象。
+* **JWT Token**（JWT 令牌）：返回 JSON Web Token（JWT）。
+* **No Data**（无数据）：不返回响应载荷。
+* **Redirect**（重定向）：重定向到 **Redirect URL**（重定向 URL）中设置的地址。
+* **Text**（文本）：返回 **Response Body**（响应体）中设置的文本。默认以 HTML 格式发送（`Content-Type: text/html`）。
 
-## Output the response sent to the webhook <a href="#output-the-response-sent-to-the-webhook" id="output-the-response-sent-to-the-webhook"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-By default, the Respond to Webhook node has a single output branch that contains the node's input data.
+选择 **Add Option**（添加选项）查看并设置选项。
 
-You can optionally enable a second output branch containing the response sent to the webhook. To enable this secondary output, open the Respond to Webhook node on the canvas and select the **Settings** tab. Activate the **Enable Response Output Branch** option.
+* **Response Code**（响应码）：设置要使用的[响应码](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)。
+* **Response Headers**（响应头）：定义要发送的响应头。
+* **Put Response in Field**（将响应放入字段）：仅当响应内容为 **All Incoming Items**（所有输入数据项）或 **First Incoming Item**（首个输入数据项）时可用。设置用于存放响应数据的字段名称。
+* **Enable Streaming**（启用流式传输）：开启时，以流式方式向用户返回数据。要求触发器的 **Response mode**（响应模式）配置为 **Streaming**（流式传输）。
 
-The node will now have two outputs:
+## n8n 如何保护 HTML 响应 <a href="#how-n8n-secures-html-responses" id="how-n8n-secures-html-responses"></a>
 
-* **Input Data**: The original output, passing on the node's input.
-* **Response**: The response object sent to the webhook.
+{% hint style="info" %}
+**功能可用性**
 
-## Return more than one data item (deprecated) <a href="#return-more-than-one-data-item-deprecated" id="return-more-than-one-data-item-deprecated"></a>
+将 webhook 的 HTML 响应自动包装在 `<iframe>` 标签中的功能，自 n8n 1.103.0 起提供。
+{% endhint %}
+
+从 n8n 1.103.0 起，n8n 会自动将 webhook 的 HTML 响应包装在 `<iframe>` 标签中，以保护实例用户。
+
+这会产生以下影响：
+
+* HTML 在沙盒 iframe 中呈现，而不是直接在父文档中呈现。
+* 尝试访问顶层窗口或本地存储的 JavaScript 代码会失败。
+* 沙盒 iframe 中无法使用身份验证请求头，例如 Basic 认证。需要采用其他方式，例如在 HTML 中嵌入短期有效的访问令牌。
+* 相对 URL（例如 `<form action="/">`）无法使用，请改用绝对 URL。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+[浏览 Respond to Webhook 集成模板](https://n8n.io/integrations/respond-to-webhook)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 工作流行为 <a href="#workflow-behavior" id="workflow-behavior"></a>
+
+使用 Respond to Webhook 节点时，工作流遵循以下规则：
+
+* 工作流结束时未执行 Respond to Webhook 节点：返回标准消息，状态码为 200。
+* 在首个 Respond to Webhook 节点执行前，工作流发生错误：返回错误消息，状态码为 500。
+* 首个 Respond to Webhook 节点执行后，又执行第二个同类节点：工作流会忽略第二个节点。
+* 执行 Respond to Webhook 节点时，没有对应的 webhook：工作流会忽略此节点。
+
+## 输出发送给 webhook 的响应 <a href="#output-the-response-sent-to-the-webhook" id="output-the-response-sent-to-the-webhook"></a>
+
+默认情况下，Respond to Webhook 节点只有一个输出分支，其中包含节点的输入数据。
+
+可以按需启用第二个输出分支，其中包含发送给 webhook 的响应。在画布上打开 Respond to Webhook 节点，选择 **Settings**（设置）标签页，然后开启 **Enable Response Output Branch**（启用响应输出分支）。
+
+此时节点有两个输出：
+
+* **Input Data**（输入数据）：原有输出，继续传递节点的输入数据。
+* **Response**（响应）：发送给 webhook 的响应对象。
+
+## 返回多个数据项（已弃用） <a href="#return-more-than-one-data-item-deprecated" id="return-more-than-one-data-item-deprecated"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用性**
 
-Returning more than one data item via the workarounds in this section is deprecated from n8n 1.22.0. In later versions, n8n added support for returning all data items using the **All Incoming Items** option.
+从 n8n 1.22.0 起，本节中用于返回多个数据项的变通方法已弃用。后续版本增加了 **All Incoming Items**（所有输入数据项）选项，可直接返回所有数据项。
 {% endhint %}
 
-The Respond to Webhook node runs once, using the first incoming data item. This includes when using [expressions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes). You can't force looping using the Loop node: the workflow will run, but the webhook response will still only contain the results of the first execution.
+Respond to Webhook 节点使用传入的首个数据项运行一次，使用[表达式](../../../build/work-with-data/expressions-versus-data-nodes.md)时也如此。无法通过 Loop 节点强制循环响应：工作流会运行，但 webhook 响应仍只包含第一次执行的结果。
 
-If you need to return more than one data item, choose one of these options:
+如果需要返回多个数据项，可以选择以下方式之一：
 
-* Instead of using the Respond to Webhook node, use the **When Last Node Finishes** option in **Respond** in the Webhook node. Use this when you want to return the final data that the workflow outputs.
-* Use the [Aggregate](n8n-nodes-base.aggregate.md) node to turn multiple items into a single item before passing the data to the Respond to Webhook node. Set **Aggregate** to **All Item Data (Into a Single List)**.
+* 使用 Webhook 节点的 **When Last Node Finishes**（最后一个节点完成时）选项来设置 **Respond**（响应方式），替代 Respond to Webhook 节点。需要返回工作流最终输出的数据时，可采用此方式。
+* 使用 [Aggregate](n8n-nodes-base.aggregate.md) 节点将多个数据项合并为一个，再传给 Respond to Webhook 节点。将 **Aggregate**（聚合方式）设为 **All Item Data (Into a Single List)**（所有数据项数据，放入单个列表）。
