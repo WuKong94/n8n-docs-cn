@@ -1,10 +1,10 @@
 ---
 contentType: howto
-nodeTitle: Save and publish workflows
+nodeTitle: 保存和发布工作流
 originalFilePath: workflows/publish.md
 originalUrl: https://docs.n8n.io/workflows/publish
 url: https://docs.n8n.io/build/understand-workflows/save-and-publish-workflows
-description: Save, publish, unpublish, and name workflow versions.
+description: 保存、发布、取消发布以及为工作流版本命名。
 layout:
   width: default
   title:
@@ -24,141 +24,143 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Save and publish workflows
 
-n8n auto saves your workflow while you're editing. When you're ready to put the workflow into production, publish your workflow. This approach prevents accidental production changes while enabling safe iteration and review.
+# 保存和发布工作流 <a id="save-and-publish-workflows"></a>
 
-## How saving works <a href="#how-saving-works" id="how-saving-works"></a>
+编辑工作流时，n8n 会自动保存。准备将工作流投入生产时，再发布工作流。这种方式既可以避免意外修改生产环境，又便于安全地迭代和审核。
 
-Changes save automatically as you edit, typically within 1 to 5 seconds. No manual save button is required. All edits remain in draft until you publish.
+## 保存机制 <a href="#how-saving-works" id="how-saving-works"></a>
 
-## How publishing works <a href="#how-publishing-works" id="how-publishing-works"></a>
+编辑时，更改会自动保存，通常需要 1 至 5 秒。无需手动点击保存按钮。所有编辑内容在发布前都保留为草稿。
 
-Publishing makes your workflow live and locks it to a specific version. Production executions will use this published version, not your latest edits. When you publish, your workflow will enable the following:
+## 发布机制 <a href="#how-publishing-works" id="how-publishing-works"></a>
 
-* Webhook and form triggers will use their production URLs
-* Schedules will run at the times you've defined
-* Events from connected apps will trigger this workflow
+发布会使工作流上线，并将其固定在特定版本。生产执行会使用已发布版本，而不是最新的编辑内容。发布工作流后，将启用以下功能：
 
-Publishing is asynchronous. When you publish, n8n works out which triggers changed between your last published version and the new one, then applies only those changes in the background. Triggers that haven't changed keep running without interruption. The new version goes live as part of this process. The **Publish** button shows **Publishing** until n8n confirms the result. n8n stores this state on the server, so if you reload the page during a publish, the button still shows **Publishing** and updates when the result arrives.
+* Webhook 和表单触发器使用生产 URL
+* 计划任务按照定义的时间运行
+* 已连接应用的事件触发此工作流
 
-**Initial state** When you open a workflow with no publishable changes, the Publish button is disabled.
+发布以异步方式进行。发布时，n8n 会判断上一个已发布版本与新版本之间哪些触发器发生了变化，然后在后台仅应用这些变化。未变化的触发器会持续运行，不受中断。新版本会在此过程中上线。**Publish（发布）** 按钮在 n8n 确认结果之前显示为 **Publishing（发布中）**。n8n 会将此状态保存在服务器上，因此即使在发布过程中刷新页面，按钮仍会显示 **Publishing**，并在结果返回时更新。
 
-![Disabled, greyed-out Publish button because there are no unpublished changes](../.gitbook/assets/publish-initial.png)
+**初始状态**：打开没有可发布更改的工作流时，Publish 按钮处于禁用状态。
 
-**Ready to publish** When the workflow is not yet published but has changes, the button becomes active.
+![没有未发布更改时，Publish 按钮呈灰色禁用状态](../.gitbook/assets/publish-initial.png)
 
-![Active Publish button for a workflow that has unpublished changes](../.gitbook/assets/publish-ready.png)
+**可发布**：工作流尚未发布且存在更改时，按钮变为可用状态。
 
-**Published, up to date** The workflow is currently published and there are no new changes since the last publish.
+![存在未发布更改时，工作流的 Publish 按钮处于可用状态](../.gitbook/assets/publish-ready.png)
 
-![Publish button showing the workflow is published and up to date, with no pending changes](../.gitbook/assets/published.png)
+**已发布且为最新版本**：工作流当前已发布，自上次发布以来没有新更改。
 
-**Published, has changes** The workflow is published, but you've made changes since the last publish that haven't gone live yet.
+![Publish 按钮显示工作流已发布且为最新版本，没有待发布更改](../.gitbook/assets/published.png)
 
-![Publish button showing the workflow is published but has changes not yet live](../.gitbook/assets/published-changes.png)
+**已发布但存在更改**：工作流已发布，但自上次发布以来所做的更改尚未上线。
 
-**Published, invalid changes** The workflow is published, but it's not in a state to be republished (no trigger requires publishing).
+![Publish 按钮显示工作流已发布，但存在尚未上线的更改](../.gitbook/assets/published-changes.png)
 
-![Publish button showing the workflow can't be republished because no trigger requires publishing](../.gitbook/assets/published-invalid.png)
+**已发布但更改无效**：工作流已发布，但当前状态不满足重新发布的条件（没有需要发布的触发器）。
 
-**Published, error** The workflow is published, but there are errors in your recent changes that need to be fixed before you can publish again.
+![没有需要发布的触发器时，Publish 按钮显示工作流无法重新发布](../.gitbook/assets/published-invalid.png)
 
-![Publish button showing an error state because recent changes contain errors to fix](../.gitbook/assets/published-error.png)
+**已发布但存在错误**：工作流已发布，但最近的更改中存在错误，需要修复后才能再次发布。
 
-**Publishing** After you publish, n8n registers your triggers in the background. The button shows this state until n8n confirms the result.
+![最近的更改中有待修复错误时，Publish 按钮显示错误状态](../.gitbook/assets/published-error.png)
 
-**Published, partial** n8n published the new version, but at least one trigger failed to activate, for example because a connected app was unavailable. The workflow keeps running the triggers that did activate, and n8n doesn't unpublish it. Hover over the button to see which triggers failed, then publish again to retry them.
+**发布中**：提交发布后，n8n 会在后台注册触发器。在 n8n 确认结果之前，按钮会一直显示此状态。
 
-**Failed to publish** None of the workflow's triggers activated, so the workflow isn't running. The published version stays set, so you can publish again to retry.
+**已发布但部分生效**：n8n 已发布新版本，但至少一个触发器未能激活，例如连接的应用暂时不可用。工作流会继续运行已成功激活的触发器，n8n 不会取消发布。将鼠标悬停在按钮上，可以查看哪些触发器失败；再次发布即可重试。
 
-## How collaboration works <a href="#how-collaboration-works" id="how-collaboration-works"></a>
+**发布失败**：工作流的所有触发器都未能激活，因此工作流没有运行。已发布版本的设置会保留，可以再次发布以重试。
 
-Only one person can edit a workflow at a time. If someone else is currently editing:
+## 协作机制 <a href="#how-collaboration-works" id="how-collaboration-works"></a>
 
-* You see the workflow in read-only mode
-* The edit lock releases when they stop editing or become inactive
-* You can then take over editing with the latest changes
+同一时间只能有一个人编辑工作流。如果其他人正在编辑：
 
-## Checking publishing status <a href="#checking-publishing-status" id="checking-publishing-status"></a>
+* 你会以只读模式查看工作流
+* 对方停止编辑或处于非活跃状态时，编辑锁会释放
+* 此后，你可以基于最新更改接手编辑
 
-On the **Workflows** page, if a workflow is published an indicator will be displayed on the card.
+## 检查发布状态 <a href="#checking-publishing-status" id="checking-publishing-status"></a>
 
-![Published indicator badge on a workflow card in the Workflows list](../.gitbook/assets/published-indicator-wf-list.png)
+在 **Workflows（工作流）** 页面中，如果工作流已发布，其卡片上会显示相应标记。
 
-## Publishing a workflow <a href="#publishing-a-workflow" id="publishing-a-workflow"></a>
+![Workflows 列表中，工作流卡片上的已发布标记](../.gitbook/assets/published-indicator-wf-list.png)
 
-The **Publish** button in the canvas header is enabled whenever there are unpublished changes.
+## 发布工作流 <a href="#publishing-a-workflow" id="publishing-a-workflow"></a>
 
-Each time you make a change to a workflow, n8n autosaves those changes to a new version of the workflow. These saved versions go live in production only when you publish the workflow after the changes.
+只要存在未发布的更改，画布顶部的 **Publish（发布）** 按钮就会启用。
 
-1. Click the **Publish** button (or use hotkey `Shift` + `p`) to open the publishing modal
-2. The version name defaults to a UUID. Customize the name if you'd like and add a description of the version.
-3.  Click **Publish** to make your changes live in production. Production executions always point to the currently published version.
+每次更改工作流时，n8n 都会自动将更改保存为一个新版本。只有在更改后发布工作流，这些保存的版本才会在生产环境中生效。
 
-    If you only update workflow settings, n8n will re-publish the version without requiring you to take any action.
+1. 点击 **Publish（发布）** 按钮（或使用快捷键 `Shift` + `p`），打开发布弹窗。
+2. 版本名称默认为 UUID。可以按需自定义名称，并添加版本说明。
+3. 点击 **Publish（发布）**，使更改在生产环境中生效。生产执行始终使用当前已发布的版本。
 
-![Publish modal with an editable version name (defaulting to a UUID) and description field](../.gitbook/assets/publish-modal.png)
+    如果只更新工作流设置，n8n 会自动重新发布该版本，无需额外操作。
 
-{% hint style="info" %}
-**Workflow reviews**
-
-If workflow reviews are enabled for your instance, you can submit a version for review instead of publishing immediately. While a review is open, n8n blocks publishing that workflow. Refer to [Workflow reviews](../manage-workflows/workflow-reviews.md) for plan availability and how reviews work.
-{% endhint %}
-
-## Naming versions <a href="#naming-versions" id="naming-versions"></a>
+![发布弹窗中可编辑的版本名称（默认为 UUID）和说明字段](../.gitbook/assets/publish-modal.png)
 
 {% hint style="info" %}
-**Feature availability**
+**工作流审核**
 
-Named versions are available on:
-
-- **n8n Cloud:** Pro, Enterprise
-- **Self-hosted:** Business, Enterprise
+如果实例启用了工作流审核，可以提交某个版本供审核，而不是立即发布。审核尚未结束时，n8n 会禁止发布该工作流。支持的套餐及审核机制，请参阅[工作流审核](../manage-workflows/workflow-reviews.md)。
 {% endhint %}
 
-Named versions let you give a meaningful name and description to any workflow version. This helps you identify important milestones in your workflow's development. Named versions are also protected from automatic [version history pruning](../manage-workflows/view-change-history.md), so they persist indefinitely.
+## 为版本命名 <a href="#naming-versions" id="naming-versions"></a>
 
-To name a version from the canvas header:
+{% hint style="info" %}
+**功能可用范围**
 
-1. Select the dropdown arrow next to the **Publish** button (or use hotkey `Cmd/Ctrl` + `s`).
-2. Select **Name version**.
-3. Enter a name and optional description.
-4. Select **Save**.
+以下套餐支持命名版本：
 
-![Publish button's dropdown menu with the Name version option](../.gitbook/assets/publish-dropdown.png)
+- **n8n Cloud：** Pro、Enterprise
+- **自托管：** Business、Enterprise
+{% endhint %}
 
-To name a version from the version history page:
+命名版本可以为任意工作流版本设置有意义的名称和说明，便于识别工作流开发过程中的重要里程碑。命名版本还会受到保护，不会被自动[清理版本历史](../manage-workflows/view-change-history.md)，因此可以永久保留。
 
-1. Open the version history by selecting the history icon in the header.
-2. On the version you want to name, select **Options** <img src="../.gitbook/assets/three-dot-options-menu (1).png" alt="Options icon" data-size="line">.
-3. Select **Name version**.
-4. Enter a name and optional description.
-5. Select **Save**.
+从画布顶部为版本命名：
 
-## Managing version history <a href="#managing-version-history" id="managing-version-history"></a>
+1. 选择 **Publish（发布）** 按钮旁的下拉箭头（或使用快捷键 `Cmd/Ctrl` + `s`）。
+2. 选择 **Name version（为版本命名）**。
+3. 输入名称，并按需填写说明。
+4. 选择 **Save（保存）**。
 
-View and manage version history by clicking the history icon in the header. In the version history view, you can perform these actions:
+![Publish 按钮的下拉菜单，其中包含 Name version 选项](../.gitbook/assets/publish-dropdown.png)
 
-* Unpublish the workflow to remove it from production
-* Restore a previous version. Restoring lets you work on a version without affecting the production execution.
-* Publish another version of the workflow
-* Name a version to protect it from pruning
+从版本历史页面为版本命名：
 
-## How to unpublish a workflow <a href="#how-to-unpublish-a-workflow" id="how-to-unpublish-a-workflow"></a>
+1. 选择页面顶部的历史图标，打开版本历史。
+2. 在要命名的版本上，选择 **Options（选项）** <img src="../.gitbook/assets/three-dot-options-menu (1).png" alt="选项图标" data-size="line">。
+3. 选择 **Name version（为版本命名）**。
+4. 输入名称，并按需填写说明。
+5. 选择 **Save（保存）**。
 
-Unpublish a workflow from either:
+## 管理版本历史 <a href="#managing-version-history" id="managing-version-history"></a>
 
-* The dropdown arrow next to the **Publish** button in the canvas header (or use hotkey `Cmd/Ctrl` + `u`).
-* In the workflow list
-* The version history page (unpublish action on published versions)
+点击页面顶部的历史图标，可以查看和管理版本历史。在版本历史视图中，可以进行以下操作：
 
-## Related resources
+* 取消发布工作流，使其退出生产运行
+* 恢复以前的版本。恢复后可以编辑该版本，而不影响生产执行。
+* 发布工作流的另一个版本
+* 为版本命名，防止其被清理
 
-* [Understand workflows](./)
-* [Create and run workflows](create-and-run-workflows.md)
-* [Create and edit credentials](create-and-edit-credentials.md)
-* [Use Gateway credits](use-gateway-credits.md)
-* [Workflow components](workflow-components/README.md)
-* [Understand executions](understand-executions/README.md)
+## 如何取消发布工作流 <a href="#how-to-unpublish-a-workflow" id="how-to-unpublish-a-workflow"></a>
+
+可以通过以下任意位置取消发布工作流：
+
+* 画布顶部 **Publish（发布）** 按钮旁的下拉箭头（或使用快捷键 `Cmd/Ctrl` + `u`）。
+* 工作流列表
+* 版本历史页面（已发布版本上的取消发布操作）
+
+## 相关资源 <a id="related-resources"></a>
+
+* [理解工作流](./)
+* [创建和运行工作流](create-and-run-workflows.md)
+* [创建和编辑凭据](create-and-edit-credentials.md)
+* [使用 Gateway 额度](use-gateway-credits.md)
+* [工作流组件](workflow-components/README.md)
+* [理解执行](understand-executions/README.md)

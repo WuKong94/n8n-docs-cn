@@ -1,79 +1,80 @@
 ---
-title: 'Manual, partial, and production executions'
-description: 'How manual, partial, and automatic workflow executions differ.'
+title: 手动执行、部分执行与生产执行
+description: 了解手动执行、部分执行和自动执行工作流的区别。
 contentType: explanation
-nodeTitle: Types of executions
+nodeTitle: 执行类型
 originalFilePath: workflows/executions/manual-partial-and-production-executions.md
-originalUrl: >-
-  https://docs.n8n.io/workflows/executions/manual-partial-and-production-executions
-url: >-
-  https://docs.n8n.io/build/understand-workflows/understand-executions/types-of-executions
+originalUrl: https://docs.n8n.io/workflows/executions/manual-partial-and-production-executions
+url: https://docs.n8n.io/build/understand-workflows/understand-executions/types-of-executions
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Manual, partial, and production executions <a href="#manual-partial-and-production-executions" id="manual-partial-and-production-executions"></a>
 
-There are some important differences in how n8n executes workflows manually (by clicking the **Execute Workflow** button) and automatically (when the workflow is **published** and triggered by an event or schedule).
+# 手动执行、部分执行与生产执行 <a href="#manual-partial-and-production-executions" id="manual-partial-and-production-executions"></a>
 
-## Manual executions <a href="#manual-executions" id="manual-executions"></a>
+n8n 手动执行工作流（点击 **Execute Workflow（执行工作流）** 按钮）与自动执行工作流（工作流已**发布**并由事件或计划任务触发）的方式存在一些重要区别。
 
-Manual executions allow you to run workflows directly from the canvas[^1] to test your workflow logic. These executions are "ad-hoc": they run only when you manually select the **Execute workflow** button.
+## 手动执行 <a href="#manual-executions" id="manual-executions"></a>
 
-Manual executions make building workflows easier by allowing you to iteratively test as you go, following the flow logic and seeing data transformations. You can test conditional branching, data formatting changes, and loop behavior by providing different input items and modifying node options.
+手动执行可以让你直接从画布[^1]运行工作流，测试工作流逻辑。这类执行是“临时运行”：只有手动选择 **Execute workflow（执行工作流）** 按钮时才会运行。
+
+手动执行便于在构建过程中反复测试，跟踪流程逻辑并观察数据转换，从而降低构建难度。可以提供不同的输入数据项并修改节点选项，测试条件分支、数据格式变化和循环行为。
 
 {% hint style="info" %}
-**Pinning execution data**
+**固定执行数据**
 
-When performing manual executions, you can use [data pinning](../../work-with-data/pin-and-mock-data.md) to "pin" or "freeze" the output data of a node. You can optionally edit the pinned data as well.
+手动执行时，可以使用[数据固定](../../work-with-data/pin-and-mock-data.md)来“固定”或“冻结”节点的输出数据，也可以按需编辑固定的数据。
 
-On future runs, instead of executing the pinned node, n8n will substitute the pinned data and continue following the flow logic. This allows you to iterate without operating on variable data or repeating queries to external services. Production executions ignore all pinned data.
+后续运行时，n8n 会使用固定数据代替实际执行该节点，再继续沿流程逻辑执行。这样可以在迭代时避免使用不断变化的数据，或反复向外部服务发起查询。生产执行会忽略所有固定数据。
 {% endhint %}
 
-## Partial executions <a href="#partial-executions" id="partial-executions"></a>
+## 部分执行 <a href="#partial-executions" id="partial-executions"></a>
 
-Clicking the **Execute workflow** button at the bottom of the workflow in the **Editor** tab manually runs the entire workflow. You can also perform partial executions to run specific steps in your workflow. Partial executions are manual executions that only run a subset of your workflow nodes.
+在 **Editor（编辑器）** 标签页中点击工作流底部的 **Execute workflow（执行工作流）** 按钮，会手动运行整个工作流。也可以使用部分执行，只运行工作流中的特定步骤。部分执行属于手动执行，仅运行工作流中的部分节点。
 
-To perform a partial execution, select a node, open its detail view, and select **Execute step**. This executes the specific node and any preceding nodes required to fill in its input data. You can also temporarily disable specific nodes in the workflow chain to avoid interacting with those services while building.
+要进行部分执行，选择节点，打开其详情视图，再选择 **Execute step（执行步骤）**。这会执行该节点，以及为其提供输入数据所需的前置节点。构建过程中，也可以临时停用工作流链中的特定节点，避免与对应服务交互。
 
-In particular, partial executions are useful when updating the logic of a specific node since they allow you to re-execute the node with the same input data.
+更新特定节点的逻辑时，部分执行尤其有用，因为可以使用相同输入数据重新执行该节点。
 
-### Troubleshooting partial executions <a href="#troubleshooting-partial-executions" id="troubleshooting-partial-executions"></a>
+### 排查部分执行问题 <a href="#troubleshooting-partial-executions" id="troubleshooting-partial-executions"></a>
 
-Some common issues you might come across when running partial executions include the following:
-
-
-> The destination node is not connected to any trigger. Partial executions need a trigger.
+运行部分执行时，可能遇到以下常见问题：
 
 
-This error message appears when you try to perform a partial execution without connecting the workflow to a trigger. Manual executions, including partial executions, attempt to mimic production executions when possible. Part of this includes requiring a trigger node to describe when the workflow logic should execute.
+> The destination node is not connected to any trigger. Partial executions need a trigger.（目标节点未连接到任何触发器。部分执行需要触发器。）
 
-To work around this, connect a trigger node to the workflow with the node you're trying to execute. Most often, a [manual trigger](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.manualworkflowtrigger) is the simplest option.
 
-> Please execute the whole workflow, rather than just the node. (Existing execution data is too large.)
+在工作流未连接触发器的情况下尝试部分执行时，会出现此错误。手动执行（包括部分执行）会尽可能模拟生产执行，其中一项要求就是通过触发器节点说明何时应执行工作流逻辑。
 
-This error can appear when performing partial executions on workflows with large numbers of branches. Partial executions involve sending data and workflow logic to the n8n backend in a way that isn't required for full executions. This error occurs when your workflow exceeds the maximum size allowed for these messages.
+解决方法是为包含待执行节点的工作流连接一个触发器节点。通常，[手动触发器](../../../integrations/builtin/core-nodes/n8n-nodes-base.manualworkflowtrigger.md)是最简单的选择。
 
-To work around this, consider using the [limit node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.limit) to limit node output while running partial executions. Once the workflow is running as intended, you can disable or delete the limit node before enabling production execution.
+> Please execute the whole workflow, rather than just the node. (Existing execution data is too large.)（请执行整个工作流，而不是仅执行该节点。现有执行数据过大。）
 
-## Production executions <a href="#production-executions" id="production-executions"></a>
+对包含大量分支的工作流进行部分执行时，可能出现此错误。部分执行需要向 n8n 后端发送数据和工作流逻辑，而完整执行不需要以这种方式发送。当工作流超过这类消息允许的最大大小时，就会出现此错误。
 
-Production executions occur when a triggering event or schedule automatically runs a workflow. On [paid plans](https://n8n.io/pricing/), production executions count towards your execution quota. For details on what does and doesn't count, refer to [How executions count towards quotas](README.md#how-executions-count-towards-quotas).
+解决方法是在部分执行期间使用 [Limit 节点](../../../integrations/builtin/core-nodes/n8n-nodes-base.limit.md)限制节点输出。工作流按预期运行后，可以先停用或删除 Limit 节点，再启用生产执行。
 
-To configure production executions, you must attach a [trigger node](#user-content-fn-2)[^2] (any trigger other than the [manual trigger](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.manualworkflowtrigger) works) and [publish the workflow](../save-and-publish-workflows.md) using the **Publish** button. Once published, the workflow automatically executes whenever the trigger condition occurs.
+## 生产执行 <a href="#production-executions" id="production-executions"></a>
 
-The execution flow for production executions doesn't display in the Editor tab of the workflow as with manual executions. Instead, you can see executions in the workflow's **Executions** tab according to your [workflow settings](../../manage-workflows/configure-workflow-settings.md). From there, you can explore and troubleshoot problems using the [debug in editor feature](debug-executions.md).
+触发事件或计划任务自动运行工作流时，就会发生生产执行。在[付费套餐](https://n8n.io/pricing/)中，生产执行计入执行配额。哪些情况计入或不计入的详细说明，请参阅[执行如何计入配额](README.md#how-executions-count-towards-quotas)。
 
-[^1]: The canvas is the main interface for building workflows in n8n's editor UI. You use the canvas to add and connect nodes to compose workflows.
-[^2]: A trigger node is a special node responsible for executing the workflow in response to certain conditions. All production workflows need at least one trigger to determine when the workflow should run.
+要配置生产执行，必须添加一个[触发器节点](#user-content-fn-2)[^2]（除[手动触发器](../../../integrations/builtin/core-nodes/n8n-nodes-base.manualworkflowtrigger.md)之外的任意触发器均可），并使用 **Publish（发布）** 按钮[发布工作流](../save-and-publish-workflows.md)。发布后，每当触发条件满足，工作流就会自动执行。
 
-## Related resources
+与手动执行不同，生产执行的流程不会显示在工作流的 Editor 标签页中。根据[工作流设置](../../manage-workflows/configure-workflow-settings.md)，可以在 **Executions（执行）** 标签页查看执行记录，再通过[在编辑器中调试](debug-executions.md)功能排查问题。
 
-* [Understand executions](./)
-* [View all executions](view-all-executions.md)
-* [View executions for a single workflow](view-executions-for-a-single-workflow.md)
-* [Debug and re-run past executions](debug-executions.md)
-* [Customize executions data](customize-executions-data.md)
-* [Stream real-time responses](stream-real-time-responses.md)
-* [Dirty nodes](understand-dirty-nodes.md)
+[^1]: 画布是 n8n 编辑器中构建工作流的主要界面。你可以在画布上添加并连接节点，组成工作流。
+<a id="user-content-fn-2"></a>
+[^2]: 触发器节点是一种特殊节点，负责在特定条件满足时启动工作流。所有生产工作流都至少需要一个触发器，以确定何时运行。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [理解执行](./)
+* [查看所有执行](view-all-executions.md)
+* [查看单个工作流的执行](view-executions-for-a-single-workflow.md)
+* [调试并重新运行以往执行](debug-executions.md)
+* [自定义执行数据](customize-executions-data.md)
+* [流式传输实时响应](stream-real-time-responses.md)
+* [脏节点](understand-dirty-nodes.md)

@@ -1,31 +1,30 @@
 ---
-description: >-
-  Add custom data to your workflow executions using the Code node. You can then
-  filter executions by this data.
+description: 使用 Code 节点为工作流执行添加自定义数据，之后可以按这些数据筛选执行。
 contentType: howto
-nodeTitle: Customize executions data
+nodeTitle: 自定义执行数据
 originalFilePath: workflows/executions/custom-executions-data.md
-originalUrl: 'https://docs.n8n.io/workflows/executions/custom-executions-data'
-url: >-
-  https://docs.n8n.io/build/understand-workflows/understand-executions/customize-executions-data
+originalUrl: https://docs.n8n.io/workflows/executions/custom-executions-data
+url: https://docs.n8n.io/build/understand-workflows/understand-executions/customize-executions-data
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Custom executions data <a href="#custom-executions-data" id="custom-executions-data"></a>
 
-You can set custom data on your workflow using the Code node or the [Execution Data node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executiondata). n8n records this with each execution. You can then use this data when filtering the executions list, or fetch it in your workflows using the Code node.
+# 自定义执行数据 <a href="#custom-executions-data" id="custom-executions-data"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/hEbJHXcEBce6m2wEE65f/" %}
+可以通过 Code 节点或 [Execution Data 节点](../../../integrations/builtin/core-nodes/n8n-nodes-base.executiondata.md)为工作流设置自定义数据，n8n 会随每次执行记录这些数据。之后，可以在筛选执行列表时使用这些数据，也可以在工作流中通过 Code 节点获取。
 
-## Set and access custom data using the Code node <a href="#set-and-access-custom-data-using-the-code-node" id="set-and-access-custom-data-using-the-code-node"></a>
+{% include "../../../reusable-content/.gitbook/includes/workflows/executions/custom-execution-data-availability.md" %}
 
-This section describes how to set and access data using the Code node. Refer to [Execution Data node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executiondata) for information on using the Execution Data node to set data. You can't retrieve custom data using the Execution Data node.
+## 使用 Code 节点设置和访问自定义数据 <a href="#set-and-access-custom-data-using-the-code-node" id="set-and-access-custom-data-using-the-code-node"></a>
 
-### Set custom executions data <a href="#set-custom-executions-data" id="set-custom-executions-data"></a>
+本节介绍如何通过 Code 节点设置和访问数据。通过 Execution Data 节点设置数据的方法，请参阅 [Execution Data 节点](../../../integrations/builtin/core-nodes/n8n-nodes-base.executiondata.md)。Execution Data 节点不能用于读取自定义数据。
 
-Set a single piece of extra data:
+### 设置自定义执行数据 <a href="#set-custom-executions-data" id="set-custom-executions-data"></a>
+
+设置单条附加数据：
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -41,7 +40,7 @@ _execution.customData.set("key", "value");
 {% endtab %}
 {% endtabs %}
 
-Set all extra data. This overwrites the whole custom data object for this execution:
+设置全部附加数据。这会覆盖本次执行的整个自定义数据对象：
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -57,16 +56,16 @@ _execution.customData.setAll({"key1": "value1", "key2": "value2"})
 {% endtab %}
 {% endtabs %}
 
-There are limitations:
+存在以下限制：
 
-* They must be strings
-* `key` has a maximum length of 50 characters
-* `value` has a maximum length of 255 characters
-* n8n supports a maximum of 10 items of custom data
+* 必须是字符串
+* `key` 最长为 50 个字符
+* `value` 最长为 255 个字符
+* n8n 最多支持 10 条自定义数据
 
-### Access the custom data object during execution <a href="#access-the-custom-data-object-during-execution" id="access-the-custom-data-object-during-execution"></a>
+### 在执行过程中访问自定义数据对象 <a href="#access-the-custom-data-object-during-execution" id="access-the-custom-data-object-during-execution"></a>
 
-You can retrieve the custom data object, or a specific value in it, during an execution:
+执行过程中，可以读取自定义数据对象，或其中某个特定值：
 
 
 {% tabs %}
@@ -91,12 +90,12 @@ customData = _execution.customData.get("key");
 {% endtab %}
 {% endtabs %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Understand executions](./)
-* [Manual, partial, and production executions](types-of-executions.md)
-* [View all executions](view-all-executions.md)
-* [View executions for a single workflow](view-executions-for-a-single-workflow.md)
-* [Debug and re-run past executions](debug-executions.md)
-* [Stream real-time responses](stream-real-time-responses.md)
-* [Dirty nodes](understand-dirty-nodes.md)
+* [理解执行](./)
+* [手动执行、部分执行与生产执行](types-of-executions.md)
+* [查看所有执行](view-all-executions.md)
+* [查看单个工作流的执行](view-executions-for-a-single-workflow.md)
+* [调试并重新运行以往执行](debug-executions.md)
+* [流式传输实时响应](stream-real-time-responses.md)
+* [脏节点](understand-dirty-nodes.md)

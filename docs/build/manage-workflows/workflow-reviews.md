@@ -1,151 +1,151 @@
 ---
-description: >-
-  Submit a workflow version for review before publishing, compare changes with a
-  visual diff, discuss in activity comments, and approve or request changes.
+description: 发布前提交工作流版本供审核，使用可视化差异比较更改，在活动评论中讨论，并批准或要求修改。
 contentType: howto
-nodeTitle: Workflow reviews
+nodeTitle: 工作流审核
 url: https://docs.n8n.io/build/manage-workflows/workflow-reviews
 status: preview
 layout:
   description:
     visible: false
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Workflow reviews
+
+# 工作流审核 <a id="workflow-reviews"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Workflow reviews are available on:
+以下套餐支持工作流审核：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：** Enterprise
+- **自托管：** Enterprise
 
-Workflow reviews are available from n8n 2.37.0. An instance admin must enable the feature in **Settings** > **Security & policies**.
+工作流审核从 n8n 2.37.0 起可用。实例管理员必须在 **Settings（设置）** > **Security & policies（安全与策略）** 中启用此功能。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-Workflow reviews are in Preview and may change before general availability. Avoid relying on them in production workflows.
+工作流审核处于预览阶段，正式推出前可能发生变化。请避免在生产工作流中依赖此功能。
 {% endhint %}
 
-Workflow reviews let your team approve a specific [workflow version](view-change-history.md) before it's published. From the **Publish** menu, choose **Submit for review** instead of publishing directly, and assign a reviewer. On approval, n8n publishes that version automatically.
+工作流审核让团队在发布前批准某个特定[工作流版本](view-change-history.md)。在 **Publish（发布）** 菜单中选择 **Submit for review（提交审核）**，而不是直接发布，再指定审核人。批准后，n8n 会自动发布该版本。
 
-Reviews are optional after you enable the feature. You can still publish directly unless that workflow already has an open review.
+启用此功能后，审核仍是可选流程。只要工作流当前没有尚未结束的审核，就仍可直接发布。
 
-n8n doesn't send email or other external notifications when you assign a reviewer or when a reviewer requests changes. Check **Reviews** in the left menu for requests that need your attention.
+指定审核人或审核人要求修改时，n8n 不会发送电子邮件或其他外部通知。请在左侧菜单的 **Reviews（审核）** 中查看需要处理的请求。
 
-## How reviews work
+## 审核机制 <a id="how-reviews-work"></a>
 
-A review is tied to one saved version of a workflow, the *pinned version*. You can keep editing while a review is open. New saves create newer versions and don't change the pinned version until someone submits those changes to the review.
+审核与某个已保存的工作流版本关联，该版本称为*固定版本*。审核进行期间可以继续编辑。新保存会创建更新的版本，但只有将这些更改提交到审核后，才会改变固定版本。
 
-### What a review covers
+### 审核涵盖的内容 <a id="what-a-review-covers"></a>
 
-A review covers the contents of one workflow: its nodes and connections, as captured in the pinned saved version. The visual diff and the approval only apply to those contents.
+审核涵盖单个工作流中固定保存版本所包含的内容，即节点和连接。可视化差异和批准仅适用于这些内容。
 
-A review doesn't cover the resources the workflow depends on. These aren't part of the diff, aren't gated by approval, and apply to the published workflow as soon as you change them, even while a review is open:
+审核不涵盖工作流依赖的资源。以下资源不属于差异比较内容，不受批准流程约束；即使审核仍在进行，修改后也会立即影响已发布的工作流：
 
-* **Workflow settings**, such as the timezone, error workflow, and execution order.
-* **Credentials** the workflow uses.
-* **Variables**.
-* **Data tables**.
-* **Sub-workflows** the workflow calls. Each sub-workflow is its own workflow with its own review, if any.
+* **工作流设置**，例如时区、错误工作流和执行顺序。
+* 工作流使用的**凭据**。
+* **变量**。
+* **数据表**。
+* 工作流调用的**子工作流**。每个子工作流都是独立工作流，可以有自己的审核。
 
-### Review statuses
+### 审核状态 <a id="review-statuses"></a>
 
-* **Waiting for review**: the pinned version is waiting for a decision. n8n blocks publishing.
-* **Changes requested**: the reviewer asked for updates. n8n keeps publishing blocked until someone submits a newer version (the review returns to **Waiting for review**) and someone approves that version.
-* **Approved**: the reviewer or an admin approved. The review closes, publishing is unblocked. n8n publishes the pinned version as the **requester** (the user who submitted the workflow for review), so publish history and audit trails attribute the publish to them, not to the approving reviewer. In rare cases, n8n can't publish the version automatically: the review stays approved and closed. In these cases, publish the version yourself using the **Publish** button in the editor.
-* **Closed** (no approval): n8n can also close a review without approving it when there's nothing left to review, for example if the workflow is deleted, archived, or moved out of the project. Those reviews appear under **Reviews** > **Closed**, and **Activity** shows why the review closed.
+* **Waiting for review（等待审核）**：固定版本等待审核决定。n8n 会禁止发布。
+* **Changes requested（要求修改）**：审核人要求更新。n8n 会继续禁止发布，直到有人提交更新版本（审核返回 **Waiting for review（等待审核）** 状态），并有人批准该版本。
+* **Approved（已批准）**：审核人或管理员已批准。审核关闭，发布限制解除。n8n 会以**请求者**（提交工作流供审核的用户）的身份发布固定版本，因此发布历史和审计记录会将此次发布归属于请求者，而不是批准的审核人。少数情况下，n8n 无法自动发布该版本，但审核仍保持已批准且已关闭状态。此时，请自行使用编辑器中的 **Publish（发布）** 按钮发布该版本。
+* **Closed（已关闭，未批准）**：当没有内容需要继续审核时，例如工作流被删除、归档或移出项目，n8n 也可以不经批准关闭审核。此类审核显示在 **Reviews（审核）** > **Closed（已关闭）** 中，**Activity（活动）** 会说明关闭原因。
 
-### Publishing while a review is open
+### 审核进行期间的发布 <a id="publishing-while-a-review-is-open"></a>
 
-While a review is open (`Waiting for review` or `Changes requested`), n8n blocks publishing that workflow from the editor, the public API, and the n8n MCP server. You can still unpublish a workflow. That doesn't close the review or unblock publishing a new version.
+审核尚未结束时（`Waiting for review` 或 `Changes requested`），n8n 会禁止从编辑器、公共 API 和 n8n MCP 服务器发布该工作流。仍然可以取消发布，但这不会关闭审核，也不会解除发布新版本的限制。
 
-A workflow can have only one open review at a time. While that review is open, choosing **Publish** or **Submit for review** again doesn't start a new review. Submit your newer saved version to the existing review instead (see [Submit later changes to an open review](#submit-later-changes-to-an-open-review)).
+一个工作流同一时间只能有一个尚未结束的审核。此期间再次选择 **Publish（发布）** 或 **Submit for review（提交审核）**，不会启动新的审核。应将更新的已保存版本提交到现有审核中（请参阅[向进行中的审核提交后续更改](#submit-later-changes-to-an-open-review)）。
 
-## Enable workflow reviews
+## 启用工作流审核 <a id="enable-workflow-reviews"></a>
 
-Instance admins enable workflow reviews for the whole instance in **Settings** > **Security & policies**, under **Workflow reviews**.
+实例管理员可以在 **Settings（设置）** > **Security & policies（安全与策略）** 的 **Workflow reviews（工作流审核）** 下，为整个实例启用此功能。
 
-For more about instance security policies, refer to [Manage security policies](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/manage-security-policies).
+实例安全策略的更多信息，请参阅[管理安全策略](../../deploy/host-n8n/configure-n8n/security/manage-security-policies.md)。
 
-## Submit or update a review
+## 提交或更新审核 <a id="submit-or-update-a-review"></a>
 
-A *version* is the snapshot of the workflow being reviewed and published. The *review* is the request and discussion around that version. You name each one separately, so the submit flow asks for both.
+*版本*是待审核和发布的工作流快照；*审核*则是围绕该版本的请求与讨论。两者分别命名，因此提交流程会要求填写两个名称。
 
-1. Open the workflow and select **Publish** (or press `Shift`+`P`).
-2. Choose **Submit for review** instead of publishing directly.
-3. On the first step, enter a **Version name** for the snapshot (required). Optionally describe the version changes.
-4. On the next step, enter a **Review title** and assign a **Reviewer** (both required). Optionally add a **Review description**.
-5. Select **Submit**.
+1. 打开工作流，选择 **Publish（发布）**（或按 `Shift`+`P`）。
+2. 选择 **Submit for review（提交审核）**，而不是直接发布。
+3. 第一步，输入快照的 **Version name（版本名称）**（必填）。也可以按需描述版本更改。
+4. 下一步，输入 **Review title（审核标题）**，并指定 **Reviewer（审核人）**（两者均必填）。也可以按需添加 **Review description（审核说明）**。
+5. 选择 **Submit（提交）**。
 
-The reviewer needs `workflow:read` on that workflow. They don't need `workflow:publish`.
+审核人需要对此工作流具有 `workflow:read` 权限，无需 `workflow:publish` 权限。
 
-n8n creates a review for the current saved version. Open it from **Reviews** in the left menu.
+n8n 会针对当前已保存版本创建审核。可以从左侧菜单的 **Reviews（审核）** 中打开。
 
-### Submit later changes to an open review
+### 向进行中的审核提交后续更改 <a id="submit-later-changes-to-an-open-review"></a>
 
-1. Open the workflow.
-2. Select **Submit changes** from the review status in the editor header.
-3. Enter a **Version name** for the newer version (required). Optionally describe the version changes.
-4. Optionally update the **Review description**, then select **Submit**.
+1. 打开工作流。
+2. 在编辑器顶部的审核状态处，选择 **Submit changes（提交更改）**。
+3. 为更新版本输入 **Version name（版本名称）**（必填）。也可以按需描述版本更改。
+4. 按需更新 **Review description（审核说明）**，再选择 **Submit（提交）**。
 
-n8n updates the open review to that newer version. If the review was in **Changes requested**, it returns to **Waiting for review**.
+n8n 会将进行中的审核更新为较新的版本。如果之前处于 **Changes requested（要求修改）** 状态，会返回 **Waiting for review（等待审核）**。
 
-### Review required preference
+### 必须审核的偏好设置 <a id="review-required-preference"></a>
 
-In the **Publish** menu, you can turn on **Review required** for the current workflow. When it's on, choosing **Publish** opens the submit-for-review modal for you instead of publishing directly.
+在 **Publish（发布）** 菜单中，可以为当前工作流开启 **Review required（需要审核）**。开启后，选择 **Publish** 会打开提交审核弹窗，而不是直接发布。
 
-Your browser stores this preference for that workflow. It isn't saved on the workflow itself, so it has no effect on other users. An open review still blocks publishing for everyone until that review closes.
+此工作流的偏好设置保存在浏览器中，不保存在工作流本身，因此不会影响其他用户。只要仍有进行中的审核，所有用户的发布操作都会被禁止，直到审核关闭。
 
-## Review a submission
+## 审核提交内容 <a id="review-a-submission"></a>
 
-A review detail has two tabs:
+审核详情包含两个标签页：
 
-* **Activity**: description, activity feed, and comments. Comments stay visible after the review closes. Comments aren't anchored to a specific node in this release.
-* **Changes**: a visual workflow diff between the currently **Published** version and the version **In review**. The diff works like [workflow diffs for source control](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/use-source-control-and-environments/compare-versions).
+* **Activity（活动）**：说明、活动记录和评论。审核关闭后，评论仍然可见。当前版本不支持将评论关联到特定节点。
+* **Changes（更改）**：当前 **Published（已发布）** 版本与 **In review（审核中）** 版本之间的可视化工作流差异。其工作方式与[源代码管理中的工作流差异](../../administer/use-source-control-and-environments/compare-versions.md)相同。
 
-People who can open the review can comment on **Activity** without deciding. To decide, the assigned reviewer, or a project admin or instance admin, can choose:
+有权打开审核的人，可以在 **Activity（活动）** 中发表评论，而不作出决定。要作出决定，指定的审核人、项目管理员或实例管理员可以选择：
 
-* **Approve**: closes the review and publishes the pinned version as the requester.
-* **Request changes**: keeps the review open so editors can update the workflow and resubmit.
+* **Approve（批准）**：关闭审核，并以请求者身份发布固定版本。
+* **Request changes（要求修改）**：保持审核进行中，供编辑者更新工作流并重新提交。
 
-## Permissions
+## 权限 <a id="permissions"></a>
 
-| Action | Who can do it |
+| 操作 | 有权执行的用户 |
 | --- | --- |
-| Enable or disable workflow reviews for the instance | Instance admins with access to **Settings** > **Security & policies** |
-| Submit a workflow for review | Users with `workflow:publish` on that workflow |
-| Update an open review with a newer version | Users with `workflow:publish` on that workflow |
-| See that a review is in progress | Users who can open the workflow, including viewers and editors. They can't open review details unless they're listed below. |
-| Open review details and appear in **Reviews** | The requester, authors on the review, the assigned reviewer, and project or instance admins. Admins see all reviews. |
-| Appear as a reviewer | Users with at least `workflow:read` on that workflow |
-| Approve or request changes | The assigned reviewer, or a project admin or instance admin. Authors can't decide unless they also have one of those roles. |
+| 为实例启用或禁用工作流审核 | 有权访问 **Settings（设置）** > **Security & policies（安全与策略）** 的实例管理员 |
+| 提交工作流供审核 | 对该工作流具有 `workflow:publish` 权限的用户 |
+| 使用更新版本更新进行中的审核 | 对该工作流具有 `workflow:publish` 权限的用户 |
+| 查看是否有正在进行的审核 | 可以打开工作流的用户，包括查看者和编辑者。只有属于下方所列人员时，才能打开审核详情。 |
+| 打开审核详情，并在 **Reviews（审核）** 中显示 | 请求者、审核中的作者、指定的审核人，以及项目或实例管理员。管理员可以看到所有审核。 |
+| 成为可选审核人 | 对该工作流至少具有 `workflow:read` 权限的用户 |
+| 批准或要求修改 | 指定的审核人、项目管理员或实例管理员。作者只有同时具备这些角色之一时，才能作出决定。 |
 
-The **requester** is the user who submitted the workflow for review. **Authors** are the requester and anyone who later submitted a newer version to the same open review.
+**请求者**是提交工作流供审核的用户。**作者**包括请求者，以及之后向同一进行中审核提交过更新版本的任何人。
 
 {% hint style="info" %}
-**Cancelling reviews**
+**取消审核**
 
-You can't currently cancel or withdraw an open review. n8n plans to add this functionality in a future release.
+目前无法取消或撤回进行中的审核。n8n 计划在未来版本中添加此功能。
 {% endhint %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Manage workflows](./)
-* [Configure workflow settings](configure-workflow-settings.md)
-* [Tag workflows](tag-workflows.md)
-* [Favorite items](favorite-items.md)
-* [View change history](view-change-history.md)
-* [Export and import](export-and-import.md)
-* [n8n packages](n8n-packages/README.md)
-* [Share with others](share-with-others.md)
-* [Save and publish workflows](../understand-workflows/save-and-publish-workflows.md)
-* [Compare changes with workflow diffs](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/use-source-control-and-environments/compare-versions)
-* [Manage security policies](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/manage-security-policies)
-* [See available roles](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles)
+* [管理工作流](./)
+* [配置工作流设置](configure-workflow-settings.md)
+* [为工作流添加标签](tag-workflows.md)
+* [收藏项目](favorite-items.md)
+* [查看更改历史](view-change-history.md)
+* [导出和导入](export-and-import.md)
+* [n8n 软件包](n8n-packages/README.md)
+* [与他人共享](share-with-others.md)
+* [保存和发布工作流](../understand-workflows/save-and-publish-workflows.md)
+* [通过工作流差异比较更改](../../administer/use-source-control-and-environments/compare-versions.md)
+* [管理安全策略](../../deploy/host-n8n/configure-n8n/security/manage-security-policies.md)
+* [查看可用角色](../../administer/manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md)

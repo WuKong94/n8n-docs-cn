@@ -1,75 +1,76 @@
 ---
-description: View and filter all executions for the workflow currently open on the canvas.
+description: 查看和筛选当前画布中工作流的全部执行。
 contentType: howto
-nodeTitle: View executions for a single workflow
+nodeTitle: 查看单个工作流的执行
 originalFilePath: workflows/executions/single-workflow-executions.md
-originalUrl: 'https://docs.n8n.io/workflows/executions/single-workflow-executions'
-url: >-
-  https://docs.n8n.io/build/understand-workflows/understand-executions/view-executions-for-a-single-workflow
+originalUrl: https://docs.n8n.io/workflows/executions/single-workflow-executions
+url: https://docs.n8n.io/build/understand-workflows/understand-executions/view-executions-for-a-single-workflow
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Workflow-level executions list <a href="#workflow-level-executions-list" id="workflow-level-executions-list"></a>
 
-The **Executions** list in a workflow shows all executions for that workflow.
+# 工作流级别的执行列表 <a href="#workflow-level-executions-list" id="workflow-level-executions-list"></a>
+
+工作流中的 **Executions（执行）** 列表显示该工作流的全部执行。
 
 {% hint style="info" %}
-**Deleted workflows**
+**已删除的工作流**
 
-When you delete a workflow, n8n deletes its execution history as well. This means you can't view executions for deleted workflows.
+删除工作流时，n8n 也会删除其执行历史，因此无法查看已删除工作流的执行。
 {% endhint %}
 
 {% hint style="info" %}
-**Execution history and workflow history**
+**执行历史与工作流历史**
 
-Don't confuse the execution list with [Workflow history](../../manage-workflows/view-change-history.md).
+不要将执行列表与[工作流历史](../../manage-workflows/view-change-history.md)混淆。
 
-Executions are workflow runs. With the executions list, you can see previous runs of the current version of the workflow. You can copy previous executions into the editor to [Debug and re-run past executions](debug-executions.md) in your current workflow.
+执行是指工作流的运行。通过执行列表，可以查看当前版本工作流之前的运行记录。可以将以往执行复制到编辑器，在当前工作流中[调试并重新运行](debug-executions.md)。
 
-Workflow history is previous versions of the workflow: for example, a version with a different node, or different parameters set.
+工作流历史保存的是工作流的旧版本，例如使用不同节点或不同参数设置的版本。
 {% endhint %}
 
 
-## View executions for a single workflow <a href="#view-executions-for-a-single-workflow" id="view-executions-for-a-single-workflow"></a>
+## 查看单个工作流的执行 <a href="#view-executions-for-a-single-workflow" id="view-executions-for-a-single-workflow"></a>
 
-In the workflow, select the **Executions** tab in the top menu. You can preview all executions of that workflow.
+在工作流中，选择顶部菜单中的 **Executions（执行）** 标签页，即可预览该工作流的全部执行。
 
 {% hint style="info" %}
-**Executions using end-user credentials**
+**使用最终用户凭据的执行**
 
-When an execution uses an [end-user credential](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-credentials/end-user-credentials), only the user whose connected account ran the node can see that node's data. For everyone else, including admins, the output is redacted.
+执行使用[最终用户凭据](../../../administer/manage-credentials/end-user-credentials.md)时，只有通过自己已连接账号运行该节点的用户，才能查看节点数据。其他所有人（包括管理员）看到的输出都会被隐藏。
 {% endhint %}
 
-## Filter executions <a href="#filter-executions" id="filter-executions"></a>
+## 筛选执行 <a href="#filter-executions" id="filter-executions"></a>
 
-You can filter the executions list.
+可以筛选执行列表。
 
-1. In your workflow, select **Executions**.	
-2. Select **Filters**.
-3. Enter your filters. You can filter by:
-	* **Status**: choose from **Failed**, **Running**, **Success**, or **Waiting**.
-	* **Execution start**: see executions that started in the given time.
-	* **Saved custom data**: this is data you create within the workflow using the Code node. Enter the key and value to filter. Refer to [Custom executions data](customize-executions-data.md) for information on adding custom data.
+1. 在工作流中选择 **Executions（执行）**。
+2. 选择 **Filters（筛选）**。
+3. 输入筛选条件。可以按以下字段筛选：
+	* **Status（状态）**：选择 **Failed（失败）**、**Running（运行中）**、**Success（成功）** 或 **Waiting（等待中）**。
+	* **Execution start（执行开始时间）**：查看在指定时间范围内开始的执行。
+	* **Saved custom data（已保存的自定义数据）**：在工作流中通过 Code 节点创建的数据。输入键和值进行筛选。添加此类数据的方法，请参阅[自定义执行数据](customize-executions-data.md)。
 
-		{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/hEbJHXcEBce6m2wEE65f/" %}
+		{% include "../../../reusable-content/.gitbook/includes/workflows/executions/custom-execution-data-availability.md" %}
 
 
-## Retry failed workflows <a href="#retry-failed-workflows" id="retry-failed-workflows"></a>
+## 重试失败的工作流 <a href="#retry-failed-workflows" id="retry-failed-workflows"></a>
 
-If your workflow execution fails, you can retry the execution. To retry a failed workflow:
+工作流执行失败时，可以重试。重试失败工作流的步骤如下：
 
-1. Open the **Executions** list.
-2. For the workflow execution you want to retry, select **Refresh** <img src="../../.gitbook/assets/refresh.png" alt="Refresh icon" data-size="line">.
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/yD2T5eTeZvZaPRV8P7MJ/" %}
+1. 打开 **Executions（执行）** 列表。
+2. 在要重试的工作流执行上，选择 **Refresh（刷新）** <img src="../../.gitbook/assets/refresh.png" alt="刷新图标" data-size="line">。
+{% include "../../../reusable-content/.gitbook/includes/workflows/executions/retry-options.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Understand executions](./)
-* [Manual, partial, and production executions](types-of-executions.md)
-* [View all executions](view-all-executions.md)
-* [Debug and re-run past executions](debug-executions.md)
-* [Customize executions data](customize-executions-data.md)
-* [Stream real-time responses](stream-real-time-responses.md)
-* [Dirty nodes](understand-dirty-nodes.md)
+* [理解执行](./)
+* [手动执行、部分执行与生产执行](types-of-executions.md)
+* [查看所有执行](view-all-executions.md)
+* [调试并重新运行以往执行](debug-executions.md)
+* [自定义执行数据](customize-executions-data.md)
+* [流式传输实时响应](stream-real-time-responses.md)
+* [脏节点](understand-dirty-nodes.md)

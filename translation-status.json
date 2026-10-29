@@ -3186,5 +3186,357 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "build/understand-workflows/README.md": {
+    "status": "translated",
+    "source_sha256": "8ff3ca57fa483deeaddefa77c6eaaa93b236c7e2207dd90efe6476c912291e0d",
+    "translation_sha256": "ddafe3f1ee87ecab12024c087a36f28508c6a8c42b22f9fb5947ed15ece77ab4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/create-and-run-workflows.md": {
+    "status": "translated",
+    "source_sha256": "f581260bac83759aaa495411b52f0aaeb0fd87a767a7af353fbc4ff0a0031e8c",
+    "translation_sha256": "1b6f2c27b4880fcbb30c918c72ae81f04a72dbe3d54d3838d62fd0200bf2e002",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/create-and-edit-credentials.md": {
+    "status": "translated",
+    "source_sha256": "95d113b0aac4db953dacc05abaa7ffeee0c8bf22c46b49db9d65a9659ef06527",
+    "translation_sha256": "ddacc7b36c633ee8e05bc453b33b5c107239dfa7e9a1a2e6d71174e52338ef26",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/workflow-components/README.md": {
+    "status": "translated",
+    "source_sha256": "1eaeb0a07884581309507b7af5d2f04938952bcd29b6952478dc3aedefd8167a",
+    "translation_sha256": "d5a96284aa5b0a76aff962bcb75362c4935553d4efa67b6bd8f67c2957c0c53a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/workflow-components/find-your-workflow-id.md": {
+    "status": "translated",
+    "source_sha256": "2618cf239aac8aa1b5987666f076f6ed5675112cd7d88c7441d3d480bc2934a0",
+    "translation_sha256": "4322b9cd6c72795c62774e3addc7a22afde5687a9d6c4f4dccde829bb3e15136",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/workflow-components/connect-nodes-together.md": {
+    "status": "translated",
+    "source_sha256": "c304f7e68e6b81bff6693fee92bb57fe5b3eeddff08f0feb11c0153244c4a34c",
+    "translation_sha256": "fa68caee622eeaa407f1e1b7dca88a7c4ddd5fd413548d3b0efdf27d92801895",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/save-and-publish-workflows.md": {
+    "status": "translated",
+    "source_sha256": "3d68847ad615cdc793eaa8c4e7d30d15f672cd3093b6872cddc886b7aba85d34",
+    "translation_sha256": "f8b52e88d9fead62452c7c7431f0fdfb206d31e22429d63505cc1dfa2643828e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/workflow-components/work-with-nodes.md": {
+    "status": "translated",
+    "source_sha256": "07185e47395f411461242ac5752980af8ecbea4adf95a96aec1fd0859672d884",
+    "translation_sha256": "1357bb10ce0dfa2e08db38e6c6e81523f740c11036695f955b24fb688fe06779",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/workflow-components/canvas-groups.md": {
+    "status": "translated",
+    "source_sha256": "51c9da6d21fd5daae2fedde08db57f9bfa194fc8fa958e7e17e61de5cc35aecb",
+    "translation_sha256": "dfc631d935c0255001a0a8486a52a14d4f8a59c35885f903874173f47d70e485",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/workflow-components/add-notes-and-documentation.md": {
+    "status": "translated",
+    "source_sha256": "cb76d11eaa92f0b4e08a9bde6c9ef2d20039de9da2dd00e3c11a1cdd14d262b6",
+    "translation_sha256": "9a6c2068e7331c50d838dbea77c052fac19218641777c59b047f8290c3da0bf6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/use-gateway-credits.md": {
+    "status": "translated",
+    "source_sha256": "8bc9a3045c138821819cad7a0df28c475b3671dad6b2f2c099c2730dbe577948",
+    "translation_sha256": "9c413acd8ccf4a3381ca9dead7908ba79987b8532f1c41bcfd80f0f127bd66ec",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/examples-color-key.md": {
+    "status": "translated",
+    "source_sha256": "4f7c9d94936496e2a142302e663247e007027292af520650f333e2ea21ea4c31",
+    "translation_sha256": "2bc12eec33fd7bdaf4a311681b0384cd7c40c19e7be0e3665dbdaf0dc8e30cf8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/README.md": {
+    "status": "translated",
+    "source_sha256": "6dfdca98c5d1ffc63169e81e71eb7acd1109b2df5d72f2e1bd22d87d2c6921e7",
+    "translation_sha256": "e47d989dd32e24faa985e7724666c812734e283e9fe76e079a02ab7aeaf42956",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/types-of-executions.md": {
+    "status": "translated",
+    "source_sha256": "693764c5dafdffb5ed45d65cd5205f7de5c6c81131ee7278eacbdda2d1d9d343",
+    "translation_sha256": "698b17f0599c25b6c6128895062ead283f92c8994aa2335a92ac9f5aeb5eb647",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/debug-executions.md": {
+    "status": "translated",
+    "source_sha256": "fbfe1026c61e066190f0dafb9f78e64c19141c6863220e6b76cc5d0c6884024e",
+    "translation_sha256": "fae51caec9caa81c2dff7f1f3f44e3b0ef389d39472a38a1d1c07589c9d0ff9e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/understand-dirty-nodes.md": {
+    "status": "translated",
+    "source_sha256": "a91b52c8e5655d4521f441b3ecf82f8c694ac7edeec77e37d70a5c125dd9d556",
+    "translation_sha256": "d483c9ba79c188a294441307249798ad297f352fd9216c061330029629a980c6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/view-all-executions.md": {
+    "status": "translated",
+    "source_sha256": "abcbe77f10f50d30211ee74fe5339d3bf1ca61ca341f577e1a770b04ab12f6d8",
+    "translation_sha256": "d077468663904452e91b6bc73ead7390ad50ee46cae268a986b788de853f2279",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/view-executions-for-a-single-workflow.md": {
+    "status": "translated",
+    "source_sha256": "7671d7be1810fb321a98b33953728e285cac41e1c2c10f064dc71e4004c5b50a",
+    "translation_sha256": "9e1a4cb064be319b29942b7144fe1fa4f5fd56eaafb30457ff173e01900d36bb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/customize-executions-data.md": {
+    "status": "translated",
+    "source_sha256": "1a318c657d37ad75d3353bc71a1261201c06d5368754771c412d3bd9f8b63630",
+    "translation_sha256": "589fa0cbc208138921d41438e4ce4d129c8370901d00da9ba5201df9dd81c72d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/understand-workflows/understand-executions/stream-real-time-responses.md": {
+    "status": "translated",
+    "source_sha256": "0b53607dd83d2ecb4ab715ac3a37195bf2fb5703cac2fea668b12b64b18ba067",
+    "translation_sha256": "05054398a0640c322be37407ae98a80ebc499c2c1a9ba95a7d9fd9296f03ed00",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/node-operations.md": {
+    "status": "translated",
+    "source_sha256": "e852bb512ee21a82706a6f3248941816524e9a1bfee65c0e3d12c14128e49036",
+    "translation_sha256": "7f3103a95b90f010a2eaecaaad94a62efa0c02776e3138ac9fdfcb8d8275838d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/workflows/executions/custom-execution-data-availability.md": {
+    "status": "translated",
+    "source_sha256": "23b441bbac835d2171c1a4b06a85daf7ad0ddf26357a101905ba0e3ed46f3516",
+    "translation_sha256": "4a77ed34fa7a980378042ca95794ad7e4a2e1a3a382ee84b0f3ca6e3c8ec09e4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/workflows/executions/retry-options.md": {
+    "status": "translated",
+    "source_sha256": "922fab39f9fe6b42ae9a5ef2c451015f27ebc2a5c80ca77d1de9b3d983c49f59",
+    "translation_sha256": "13c42d6d9dc07004eceaffebd201d22d210c977143aa9ad7ea2d82d059e8aa5e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/README.md": {
+    "status": "translated",
+    "source_sha256": "b959c93e752d600572cf4c95e68e92dea8d77645ceb4887b2bbe428097057afa",
+    "translation_sha256": "db52897556559a95691598d8634edd85d0e3203f1ef10be62fb4fc98bc97b219",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/tag-workflows.md": {
+    "status": "translated",
+    "source_sha256": "356e866ab443ab8eb1f232a658d111ae520ba2ad6a268fa4a800ed6002b5bf9f",
+    "translation_sha256": "9830cb4bb39ace9c19ea50fd5828476cf959c6c6c7678ba50cd3169a22862d42",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/favorite-items.md": {
+    "status": "translated",
+    "source_sha256": "5e1c996ee15589cc98e294982acb28e151dc1d4d3a28edc9d395b005122249ab",
+    "translation_sha256": "25abc246b0760b6cca31504b7cdf1ebbbfc959eb6d96e2c612938dc40c1fdbb7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/export-and-import.md": {
+    "status": "translated",
+    "source_sha256": "44de867c425575808cd0018b0b0c3ba9d0575e35fb2fbb06fb2ab2255ea900f2",
+    "translation_sha256": "6f48198239e796b24b39ef9a1a2499dfdd47119626663e84ead9e438bb57d93e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/configure-workflow-settings.md": {
+    "status": "translated",
+    "source_sha256": "f8abb879e4ab5b736c918ee5f48b1a11de46caef3c175cc44b37a347f2c255c2",
+    "translation_sha256": "583051b103afd40756f076efcefe77c22f77bb925e6ee33eea1b6a4b0cd65c4a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/share-with-others.md": {
+    "status": "translated",
+    "source_sha256": "4fbc034440c57d72304627633a1ea0dc77b6fade1311cd314871e5189c77b0b6",
+    "translation_sha256": "50cec818f3827cf35f787e28dd9798ecfbfbb9dc7476e9fdd6f0429f642ded56",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/view-change-history.md": {
+    "status": "translated",
+    "source_sha256": "f7a8c0927291a36ae1b8b3b07ea6092b02b8342b6a4f00e8391050496a66e172",
+    "translation_sha256": "9f6015afe34dd8c1da8de247202eda80dd8a098b204fe0c4c42478ee513faac5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/workflows/sharing-credentials.md": {
+    "status": "translated",
+    "source_sha256": "e121c474bfab08bc9a23f681e276b692c3a7cad3b122d3c87a9389815a71666d",
+    "translation_sha256": "d893088159b6506c4c1f680f68b61a3383378a866cb70d305982f405e65a50ae",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/workflow-reviews.md": {
+    "status": "translated",
+    "source_sha256": "21d1e31f6c5f839624d1d12ea62bdd80ca159f8d7c38033462ad5e92e79a18c6",
+    "translation_sha256": "7f6f386c1fff9ab91957592032d6986f630ef77f7e764d8879600a79044372d1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

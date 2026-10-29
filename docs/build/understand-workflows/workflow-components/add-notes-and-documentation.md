@@ -1,11 +1,10 @@
 ---
 contentType: howto
-nodeTitle: Add notes and documentation
+nodeTitle: 添加笔记和说明
 originalFilePath: workflows/components/sticky-notes.md
 originalUrl: https://docs.n8n.io/workflows/components/sticky-notes
-url: >-
-  https://docs.n8n.io/build/understand-workflows/workflow-components/add-notes-and-documentation
-description: Annotate your workflows using sticky notes.
+url: https://docs.n8n.io/build/understand-workflows/workflow-components/add-notes-and-documentation
+description: 使用便笺为工作流添加注释。
 layout:
   width: default
   title:
@@ -25,63 +24,65 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Add notes and documentation
 
-Sticky notes let you annotate and comment on your workflows.
+# 添加笔记和说明 <a id="add-notes-and-documentation"></a>
 
-n8n recommends using sticky notes on template workflows[^1] to help other users understand your workflow.
+便笺可以为工作流添加注释和说明。
 
-![A basic workflow with a sticky note attached](../../.gitbook/assets/example-sticky-note.png)
+n8n 建议在模板工作流[^1]中使用便笺，帮助其他用户理解工作流。
 
-## Create a sticky note <a href="#create-a-sticky-note" id="create-a-sticky-note"></a>
+![附有便笺的基础工作流](../../.gitbook/assets/example-sticky-note.png)
 
-Sticky notes are a core node. To add a new sticky note:
+## 创建便笺 <a href="#create-a-sticky-note" id="create-a-sticky-note"></a>
 
-1. Open the nodes panel.
-2. Search for `note`.
-3. Click the **Sticky Note** node. n8n adds a new sticky note to the canvas.
+便笺属于核心节点。添加新便笺的步骤如下：
 
-## Edit a sticky note <a href="#edit-a-sticky-note" id="edit-a-sticky-note"></a>
+1. 打开节点面板。
+2. 搜索 `note`。
+3. 点击 **Sticky Note（便笺）** 节点。n8n 会向画布添加一张新便笺。
 
-1. Double-click the sticky note you want to edit.
-2. Write your note. [This guide](https://commonmark.org/help/) explains how to format your text with Markdown. n8n uses [markdown-it](https://github.com/markdown-it/markdown-it), which implements the CommonMark specification.
-3. Click away from the note, or press `Esc`, to stop editing.
+## 编辑便笺 <a href="#edit-a-sticky-note" id="edit-a-sticky-note"></a>
 
-## Change the color <a href="#change-the-color" id="change-the-color"></a>
+1. 双击要编辑的便笺。
+2. 编写笔记。[本指南](https://commonmark.org/help/)介绍如何使用 Markdown 设置文本格式。n8n 使用实现了 CommonMark 规范的 [markdown-it](https://github.com/markdown-it/markdown-it)。
+3. 点击便笺外部，或按 `Esc`，结束编辑。
 
-To change the sticky note color:
+## 更改颜色 <a href="#change-the-color" id="change-the-color"></a>
 
-1. Hover over the sticky note.
-2. Select **Change color** <img src="../../.gitbook/assets/change-color.png" alt="Change Sticky Note color icon" data-size="line">.
-3. Choose from seven preset colors, or click the rainbow gradient button to select a custom color.
+更改便笺颜色的步骤如下：
 
-![Color selector showing preset colors and custom color button](../../.gitbook/assets/color-picker-popover.png)
+1. 将鼠标悬停在便笺上。
+2. 选择 **Change color（更改颜色）** <img src="../../.gitbook/assets/change-color.png" alt="更改便笺颜色图标" data-size="line">。
+3. 从七种预设颜色中选择，或点击彩虹渐变按钮选择自定义颜色。
 
-### Custom colors <a href="#custom-colors" id="custom-colors"></a>
+![颜色选择器，显示预设颜色和自定义颜色按钮](../../.gitbook/assets/color-picker-popover.png)
 
-Besides the seven preset colors, you can select any custom color for your sticky notes:
+### 自定义颜色 <a href="#custom-colors" id="custom-colors"></a>
 
-1. Click the button with the rainbow gradient and plus icon.
-2. Use the color picker to select your desired color, or enter a hex color code (for example, `#FF5733`).
-3. Click **Apply** to set the color.
+除七种预设颜色外，还可以为便笺选择任意自定义颜色：
 
-n8n automatically saves your last-used custom colors (up to eight) and displays them in the color picker for quick access.
+1. 点击带有彩虹渐变和加号图标的按钮。
+2. 使用颜色选择器选择所需颜色，或输入十六进制颜色代码，例如 `#FF5733`。
+3. 点击 **Apply（应用）** 设置颜色。
 
-Custom colors feature theme-aware borders that automatically adjust for optimal visibility in both light and dark modes.
+n8n 会自动保存最近使用的自定义颜色（最多八种），并将其显示在颜色选择器中，方便快速选用。
 
-## Sticky note positioning <a href="#sticky-note-positioning" id="sticky-note-positioning"></a>
+自定义颜色配有随主题调整的边框，在浅色和深色模式下都会自动调整，以保持清晰可见。
 
-You can:
+## 调整便笺位置 <a href="#sticky-note-positioning" id="sticky-note-positioning"></a>
 
-* Drag a sticky note anywhere on the canvas.
-* Drag sticky notes behind nodes. You can use this to visually group nodes.
-* Resize sticky notes by hovering over the edge of the note and dragging to resize.
-* Change the color: select the **Options** menu <img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="Options icon" data-size="line"> to open the color selector.
+你可以：
 
-## Writing in Markdown <a href="#writing-in-markdown" id="writing-in-markdown"></a>
+* 将便笺拖动到画布上的任意位置。
+* 将便笺拖动到节点后方，以此在视觉上将节点分组。
+* 将鼠标悬停在便笺边缘，再拖动以调整大小。
+* 更改颜色：选择 **Options（选项）** 菜单 <img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="选项图标" data-size="line">，打开颜色选择器。
 
-Sticky Notes support Markdown formatting. This section describes some common options.
+## 使用 Markdown 编写内容 <a href="#writing-in-markdown" id="writing-in-markdown"></a>
+
+便笺支持 Markdown 格式。本节介绍一些常用写法。
 
 ```
 The text in double asterisks will be **bold**
@@ -107,36 +108,36 @@ Or created ordered lists with numbers:
 2. Item two
 ```
 
-For a more detailed guide, refer to [CommonMark's help](https://commonmark.org/help/). n8n uses [markdown-it](https://github.com/markdown-it/markdown-it), which implements the CommonMark specification.
+详细指南请参阅 [CommonMark 帮助](https://commonmark.org/help/)。n8n 使用实现了 CommonMark 规范的 [markdown-it](https://github.com/markdown-it/markdown-it)。
 
-## Make images full width <a href="#make-images-full-width" id="make-images-full-width"></a>
+## 让图片占满宽度 <a href="#make-images-full-width" id="make-images-full-width"></a>
 
-You can force images to be 100% width of the sticky note by appending `#full-width` to the filename:
+在文件名后添加 `#full-width`，可以强制图片宽度为便笺宽度的 100%：
 
 ```markdown
 ![Source example](https://<IMAGE-URL>/<IMAGE-NAME>.png#full-width)
 ```
 
-## Embed a YouTube video <a href="#embed-a-youtube-video" id="embed-a-youtube-video"></a>
+## 嵌入 YouTube 视频 <a href="#embed-a-youtube-video" id="embed-a-youtube-video"></a>
 
-To display a YouTube video in a note, use the `@[youtube](<video-id>)` directive with the video's ID. For this to work, the video's creator must allow embedding.
+要在便笺中显示 YouTube 视频，使用 `@[youtube](<video-id>)` 指令并提供视频 ID。视频创建者必须允许嵌入，此功能才能生效。
 
-For example:
+例如：
 
 ```markdown
 @[youtube](ZCuL2e4zC_4)
 ```
 
-To embed your own video, copy the above syntax, replacing `ZCuL2e4zC_4` with your video ID. The YouTube video ID is the string that follows `v=` in the YouTube URL.
+要嵌入自己的视频，复制上面的语法，并将 `ZCuL2e4zC_4` 替换为你的视频 ID。YouTube 视频 ID 是 YouTube URL 中 `v=` 后面的字符串。
 
-See [Workflow components](README.md) for other elements you can add to a workflow.
+有关可以添加到工作流的其他元素，请参阅[工作流组件](README.md)。
 
-[^1]: n8n templates are pre-built workflows designed by n8n and community members that you can import into your n8n instance. When using templates, you may need to fill in credentials and adjust the configuration to suit your needs.
+[^1]: n8n 模板是由 n8n 和社区成员设计的预构建工作流，可以导入自己的 n8n 实例。使用模板时，可能需要填写凭据并按需求调整配置。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Workflow components](./)
-* [Work with nodes](work-with-nodes.md)
-* [Connect nodes together](connect-nodes-together.md)
-* [Canvas Groups](canvas-groups.md)
-* [Find your workflow ID](find-your-workflow-id.md)
+* [工作流组件](./)
+* [使用节点](work-with-nodes.md)
+* [连接节点](connect-nodes-together.md)
+* [画布分组](canvas-groups.md)
+* [查找工作流 ID](find-your-workflow-id.md)

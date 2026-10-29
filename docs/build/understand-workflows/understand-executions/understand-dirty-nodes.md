@@ -1,84 +1,85 @@
 ---
-title: Dirty nodes
-description: What dirty nodes are and how they affect workflow execution.
+title: 脏节点
+description: 了解什么是脏节点，以及它们如何影响工作流执行。
 contentType: explanation
-nodeTitle: Understand dirty nodes
+nodeTitle: 理解脏节点
 originalFilePath: workflows/executions/dirty-nodes.md
-originalUrl: 'https://docs.n8n.io/workflows/executions/dirty-nodes'
-url: >-
-  https://docs.n8n.io/build/understand-workflows/understand-executions/understand-dirty-nodes
+originalUrl: https://docs.n8n.io/workflows/executions/dirty-nodes
+url: https://docs.n8n.io/build/understand-workflows/understand-executions/understand-dirty-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Dirty nodes <a href="#dirty-nodes" id="dirty-nodes"></a>
 
-A **dirty node** is a node that executed successfully in the past, but whose output n8n now considers stale or unreliable. They're labeled like this to indicate that if the node executes again, the output may be different. It may also be the point where a [partial execution](types-of-executions.md#partial-executions) starts from.
+# 脏节点 <a href="#dirty-nodes" id="dirty-nodes"></a>
 
-## How to recognize dirty node data <a href="#how-to-recognize-dirty-node-data" id="how-to-recognize-dirty-node-data"></a>
+**脏节点（dirty node）** 是指过去曾成功执行，但当前输出被 n8n 视为过期或不可靠的节点。此标记表示如果再次执行节点，输出可能不同。它也可能成为[部分执行](types-of-executions.md#partial-executions)的起点。
 
-In the canvas of the workflow editor, you can identify dirty notes by their different-colored border and a yellow triangle in place of the previous green tick symbol. For example:
+## 如何识别脏节点数据 <a href="#how-to-recognize-dirty-node-data" id="how-to-recognize-dirty-node-data"></a>
 
-![A node on the canvas with a yellow border and a yellow triangle icon instead of the usual green success tick](../../.gitbook/assets/dirty-node-canvas.png)
+在工作流编辑器的画布中，脏节点的边框颜色与其他节点不同，原先的绿色勾号会被黄色三角形替代。例如：
 
-In the node editor view, the output panel also displays a yellow triangle on the output panel. If you hover over the triangle, a tooltip appears with more information about why n8n considers the data stale:
+![画布上的节点带有黄色边框和黄色三角图标，替代通常表示成功的绿色勾号](../../.gitbook/assets/dirty-node-canvas.png)
 
-![Node editor's output panel showing a yellow triangle icon with a tooltip explaining why the data is stale](../../.gitbook/assets/dirty-node-editor.png)
+在节点编辑器视图中，输出面板也会显示黄色三角形。将鼠标悬停在三角形上，会出现提示，进一步说明 n8n 为何认为数据已过期：
 
-## Why n8n marks nodes dirty <a href="#why-n8n-marks-nodes-dirty" id="why-n8n-marks-nodes-dirty"></a>
+![节点编辑器输出面板中的黄色三角图标及说明数据过期原因的提示](../../.gitbook/assets/dirty-node-editor.png)
 
-There are several reasons why n8n might flag execution data as stale. For example:
+## n8n 为什么将节点标记为脏节点 <a href="#why-n8n-marks-nodes-dirty" id="why-n8n-marks-nodes-dirty"></a>
 
-- Inserting or deleting a node: labels the first node that follows the inserted node dirty.
-- Modifying node parameters: labels the modified node dirty.
-- Adding a connector: labels the destination node of the new connector dirty.
-- Deactivating a node: labels the first node that follows the deactivated node dirty.
+n8n 可能因多种原因将执行数据标记为过期，例如：
+
+- 插入或删除节点：将该位置之后的第一个节点标记为脏节点。
+- 修改节点参数：将修改的节点标记为脏节点。
+- 添加连接：将新连接的目标节点标记为脏节点。
+- 停用节点：将停用节点之后的第一个节点标记为脏节点。
 
 <details>
 
-<summary>Other reasons n8n marks nodes dirty</summary>
+<summary>n8n 将节点标记为脏节点的其他原因</summary>
 
-- Unpinning a node: labels the unpinned node dirty.
-- Modifying pinned data: labels the node that comes after the pinned data dirty.
-- If any of the above actions occur inside a loop, also labels the first node of the loop dirty.
+- 取消固定节点：将该节点标记为脏节点。
+- 修改固定数据：将固定数据之后的节点标记为脏节点。
+- 如果上述任意操作发生在循环内部，也会将循环的第一个节点标记为脏节点。
 
-For sub-nodes, also labels any executed parent nodes (up to and including the root) when:
+对于子节点，发生以下情况时，还会将已执行的所有父节点（一直到根节点，含根节点）标记为脏节点：
 
-- Editing an executed sub-node
-- Adding a new sub-node
-- Disconnecting or deleting a sub-node
-- Deactivating a sub-node
-- Activating a sub-node
+- 编辑已执行的子节点
+- 添加新子节点
+- 断开或删除子节点
+- 停用子节点
+- 激活子节点
 
 </details>
 
 <div class="grid cards" markdown>
 
--   When deleting a connected node in a workflow:
+-   删除工作流中已连接的节点时：
 
-    ![Workflow canvas before you delete a connected node, with all nodes showing green success ticks](../../.gitbook/assets/dirty-before.png)
+    ![删除已连接节点前的工作流画布，所有节点均显示绿色成功勾号](../../.gitbook/assets/dirty-before.png)
 
--   The next node in the sequence becomes dirty:
+-   序列中的下一个节点变为脏节点：
 
-    ![Workflow canvas after you delete the node, with the next node in the sequence now marked dirty with a yellow border](../../.gitbook/assets/dirty-after.png)
+    ![删除节点后的工作流画布，序列中的下一个节点带有黄色边框，被标记为脏节点](../../.gitbook/assets/dirty-after.png)
 
 </div>
 
-When using loops (with the [Loop over Items](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.splitinbatches) node), when any node within the loop is dirty, the initial node of the loop is also considered dirty:
+使用循环（通过 [Loop over Items](../../../integrations/builtin/core-nodes/n8n-nodes-base.splitinbatches.md) 节点）时，只要循环内任意节点为脏节点，循环的起始节点也会被视为脏节点：
 
-![Loop Over Items node marked dirty because a node inside its loop is dirty](../../.gitbook/assets/dirty-loop.png)
+![Loop Over Items 节点因循环内某个节点为脏节点而被标记为脏节点](../../.gitbook/assets/dirty-loop.png)
 
-## Resolving dirty nodes <a href="#resolving-dirty-nodes" id="resolving-dirty-nodes"></a>
+## 清除脏节点状态 <a href="#resolving-dirty-nodes" id="resolving-dirty-nodes"></a>
 
-Executing a node again clears its dirty status. You can do this manually by triggering the whole workflow, or by running a [partial execution](types-of-executions.md#partial-executions) with **Execute step** on the individual node or any node which follows it.
+重新执行节点即可清除其脏节点状态。可以手动触发整个工作流，也可以在该节点或后续任意节点上选择 **Execute step（执行步骤）**，进行[部分执行](types-of-executions.md#partial-executions)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Understand executions](./)
-* [Manual, partial, and production executions](types-of-executions.md)
-* [View all executions](view-all-executions.md)
-* [View executions for a single workflow](view-executions-for-a-single-workflow.md)
-* [Debug and re-run past executions](debug-executions.md)
-* [Customize executions data](customize-executions-data.md)
-* [Stream real-time responses](stream-real-time-responses.md)
+* [理解执行](./)
+* [手动执行、部分执行与生产执行](types-of-executions.md)
+* [查看所有执行](view-all-executions.md)
+* [查看单个工作流的执行](view-executions-for-a-single-workflow.md)
+* [调试并重新运行以往执行](debug-executions.md)
+* [自定义执行数据](customize-executions-data.md)
+* [流式传输实时响应](stream-real-time-responses.md)

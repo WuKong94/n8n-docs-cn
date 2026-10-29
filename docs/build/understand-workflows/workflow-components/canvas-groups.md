@@ -1,104 +1,105 @@
 ---
-description: Group related nodes together on the canvas to keep large workflows readable.
+description: 在画布上将相关节点编为一组，使大型工作流保持清晰易读。
 contentType: howto
-nodeTitle: Canvas Groups
+nodeTitle: 画布分组
 originalFilePath: workflows/components/canvas-groups.md
-originalUrl: 'https://docs.n8n.io/workflows/components/canvas-groups'
-url: >-
-  https://docs.n8n.io/build/understand-workflows/workflow-components/canvas-groups
+originalUrl: https://docs.n8n.io/workflows/components/canvas-groups
+url: https://docs.n8n.io/build/understand-workflows/workflow-components/canvas-groups
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Canvas Groups <a href="#canvas-groups" id="canvas-groups"></a>
+
+# 画布分组 <a href="#canvas-groups" id="canvas-groups"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Canvas Groups rolled out gradually from n8n 2.28.0 and are available on all instances from n8n 2.31.0.
+画布分组从 n8n 2.28.0 开始逐步推出，自 n8n 2.31.0 起在所有实例中可用。
 {% endhint %}
 
-Canvas Groups let you organize related nodes into a single named group on the canvas. Group the nodes that handle one part of a workflow, name it, and collapse it when you want a cleaner view. A Canvas Group saves with the workflow, so anyone who opens it sees the same structure. You can collapse a Canvas Group for a cleaner view, which is a personal preference saved in your browser. And you can also give a Canvas Group a description, so anyone reading the workflow can see what that part does at a glance.
+画布分组（Canvas Groups）可以将相关节点组织成画布上的一个命名组。把负责工作流某一部分的节点编组并命名，需要更简洁的视图时即可折叠。分组结构随工作流保存，因此任何打开工作流的人都能看到相同结构。是否折叠分组属于个人偏好，保存在浏览器中。还可以为分组添加说明，让阅读工作流的人一眼就能了解这一部分的作用。
 
-![A workflow with expanded and collapsed Canvas Groups, some with descriptions](../../.gitbook/assets/canvas-groups-overview.png)
+![包含展开和折叠画布分组的工作流，部分分组带有说明](../../.gitbook/assets/canvas-groups-overview.png)
 
-## Create a Canvas Group <a href="#create-a-canvas-group" id="create-a-canvas-group"></a>
+## 创建画布分组 <a href="#create-a-canvas-group" id="create-a-canvas-group"></a>
 
-1. Select the nodes you want to group. Drag a selection box around them, or hold `Ctrl/Cmd` and click each node.
-2. Select the **Group nodes** icon <img src="../../.gitbook/assets/group.svg" alt="Group nodes icon" data-size="line"> in the toolbar above the selection, select **Group nodes** in the selection's right-click menu, or press `Ctrl/Cmd` + `G`.
-3. n8n creates the Canvas Group and highlights the name field so you can type a name straight away.
+1. 选择要编组的节点。可以拖动选择框框选，也可以按住 `Ctrl/Cmd` 并逐个点击节点。
+2. 选择选区上方工具栏中的 **Group nodes（节点编组）** 图标 <img src="../../.gitbook/assets/group.svg" alt="节点编组图标" data-size="line">，或在选区右键菜单中选择 **Group nodes**，也可以按 `Ctrl/Cmd` + `G`。
+3. n8n 会创建画布分组，并高亮名称字段，方便立即输入名称。
 
-You can only group a selection when it forms a valid Canvas Group. See [What you can group](#what-you-can-group) for the rules.
+只有所选内容符合有效画布分组的要求时，才能编组。规则请参阅[可编组的内容](#what-you-can-group)。
 
-## Name a Canvas Group <a href="#name-a-canvas-group" id="name-a-canvas-group"></a>
+## 为画布分组命名 <a href="#name-a-canvas-group" id="name-a-canvas-group"></a>
 
-When you create a Canvas Group, n8n automatically assigns a default name (for example, "Group 1") and highlights it so you can immediately replace it with something more descriptive or keep the suggested name.
+创建画布分组时，n8n 会自动分配默认名称（例如“Group 1”）并高亮显示。可以立即将其替换为更具描述性的名称，也可以保留建议名称。
 
-To rename a Canvas Group later, select it and press `Space`, or select **Rename group** in its right-click menu. On an expanded group, this highlights the name so you can edit it inline; on a collapsed group, it opens a dialog where you can edit the name. You can also click an expanded group's name directly to edit it. Click anywhere outside the group to save. Group names can't be blank.
+之后如需重命名，选择分组并按 `Space`，或在右键菜单中选择 **Rename group（重命名分组）**。对于展开的分组，名称会高亮显示，可以直接编辑；对于折叠的分组，会打开名称编辑对话框。也可以直接点击展开分组的名称进行编辑。点击分组外任意位置即可保存。分组名称不能为空。
 
-## Add a description to a Canvas Group <a href="#add-a-description-to-a-canvas-group" id="add-a-description-to-a-canvas-group"></a>
+## 为画布分组添加说明 <a href="#add-a-description-to-a-canvas-group" id="add-a-description-to-a-canvas-group"></a>
 
-You can give a Canvas Group an optional description of up to 145 characters, so readers can see what that part of the workflow does without expanding it. Descriptions save with the workflow, and stay with the Canvas Group when you duplicate or copy and paste it.
+可以为画布分组添加最多 145 个字符的说明，让阅读者无需展开就能了解这一部分工作流的作用。说明随工作流保存，创建分组副本或复制粘贴分组时也会保留。
 
-On an expanded Canvas Group, the description appears under its name. Click **Add description** to write one, type your description and then press `Enter` to save.
+展开的画布分组会在名称下方显示说明。点击 **Add description（添加说明）**，输入内容后按 `Enter` 保存。
 
-On a collapsed Canvas Group, an info icon appears next to its name. Hover over it to read the description.
+折叠的画布分组会在名称旁显示信息图标。将鼠标悬停在图标上即可阅读说明。
 
-To keep a description visible without hovering, select the eye icon on the description card to lock it open, or right-click the Canvas Group and select **Show group description**. To show or hide every description at once, use **Show group descriptions** / **Hide group descriptions** in the canvas right-click menu. Description visibility is a personal preference saved in your browser, like collapse state.
+要让说明保持显示而无需悬停，可以选择说明卡片上的眼睛图标，将其固定打开；也可以右键点击分组，选择 **Show group description（显示分组说明）**。要同时显示或隐藏所有说明，使用画布右键菜单中的 **Show group descriptions（显示分组说明）** / **Hide group descriptions（隐藏分组说明）**。与折叠状态一样，说明的可见性属于保存在浏览器中的个人偏好。
 
-Descriptions hide when you zoom out far enough (below roughly two-thirds zoom). If you import a workflow with descriptions longer than 145 characters, n8n shortens them and shows a warning.
+当缩放比例足够小时（大约低于三分之二），说明会隐藏。如果导入的工作流包含超过 145 个字符的说明，n8n 会截短说明并显示警告。
 
-## Collapse and expand a Canvas Group <a href="#collapse-and-expand-a-canvas-group" id="collapse-and-expand-a-canvas-group"></a>
+## 折叠和展开画布分组 <a href="#collapse-and-expand-a-canvas-group" id="collapse-and-expand-a-canvas-group"></a>
 
-Collapse a Canvas Group to hide its nodes and show only the name, and the description if you have one (see [Add a description to a Canvas Group](#add-a-description-to-a-canvas-group)). This shrinks a large workflow down to a more readable view.
+折叠画布分组可以隐藏内部节点，只显示名称，以及已有的说明（请参阅[为画布分组添加说明](#add-a-description-to-a-canvas-group)）。这样可以将大型工作流简化为更易读的视图。
 
-Click a Canvas Group's header to collapse or expand it. To act on more than one at a time, use **Expand all groups** / **Collapse all groups** from the canvas right-click menu, or press `Alt` + `G` to expand and `Shift` + `Alt` + `G` to collapse. With groups selected, or nodes inside groups, the shortcuts act on those groups; with nothing selected, they act on every Canvas Group.
+点击画布分组的标题即可折叠或展开。要同时操作多个分组，可以使用画布右键菜单中的 **Expand all groups（展开所有分组）** / **Collapse all groups（折叠所有分组）**；也可以按 `Alt` + `G` 展开，按 `Shift` + `Alt` + `G` 折叠。选中分组或组内节点时，快捷键只作用于对应分组；未选中任何内容时，作用于所有画布分组。
 
-n8n remembers which Canvas Groups you've expanded and keeps your view the same when you reopen the workflow. This preference lives in your browser, so it's specific to you and your device. It isn't saved with the workflow, and it doesn't sync to other browsers or other people.
+n8n 会记住已展开的画布分组，重新打开工作流时保留相同视图。此偏好保存在浏览器中，仅属于当前用户和设备，不随工作流保存，也不会同步到其他浏览器或其他用户。
 
-## Ungroup <a href="#ungroup" id="ungroup"></a>
+## 取消编组 <a href="#ungroup" id="ungroup"></a>
 
-To break a Canvas Group back into separate nodes, select the **Ungroup** icon <img src="../../.gitbook/assets/ungroup.svg" alt="Ungroup icon" data-size="line"> above it, select **Ungroup nodes** in its right-click menu, or press `Ctrl/Cmd` + `Shift` + `G`. The nodes stay on the canvas.
+要将画布分组还原为独立节点，选择分组上方的 **Ungroup（取消编组）** 图标 <img src="../../.gitbook/assets/ungroup.svg" alt="取消编组图标" data-size="line">，或在右键菜单中选择 **Ungroup nodes（取消节点编组）**，也可以按 `Ctrl/Cmd` + `Shift` + `G`。节点会保留在画布上。
 
-## Group actions from the context menu <a href="#group-actions-from-the-context-menu" id="group-actions-from-the-context-menu"></a>
+## 上下文菜单中的分组操作 <a href="#group-actions-from-the-context-menu" id="group-actions-from-the-context-menu"></a>
 
-Right-click a Canvas Group to open its context menu. **Rename group** and **Ungroup nodes** sit at the top, followed by the same actions you get for a multi-node selection, worded for the group (**Copy group**, **Delete group**, and so on). The menu also works on collapsed groups, where actions apply to the hidden nodes inside.
+右键点击画布分组，打开其上下文菜单。顶部是 **Rename group（重命名分组）** 和 **Ungroup nodes（取消节点编组）**，之后是与多节点选区相同的操作，但名称针对分组调整，例如 **Copy group（复制分组）**、**Delete group（删除分组）** 等。折叠的分组也支持此菜单，操作会作用于组内隐藏的节点。
 
-Right-click an empty part of the canvas to use **Expand all groups** and **Collapse all groups**. When your selection includes groups, the context menu offers **Expand selected** and **Collapse selected** instead.
+右键点击画布空白处，可以使用 **Expand all groups（展开所有分组）** 和 **Collapse all groups（折叠所有分组）**。如果选区包含分组，上下文菜单会改为提供 **Expand selected（展开选中分组）** 和 **Collapse selected（折叠选中分组）**。
 
-## What you can group <a href="#what-you-can-group" id="what-you-can-group"></a>
+## 可编组的内容 <a href="#what-you-can-group" id="what-you-can-group"></a>
 
-Not every selection can become a Canvas Group. When you select nodes, n8n checks a few rules and only displays the **Group nodes** icon <img src="../../.gitbook/assets/group.svg" alt="Group nodes icon" data-size="line"> when they all pass. If the icon doesn't appear, check your selection against these rules:
+并非所有选区都能成为画布分组。选择节点后，n8n 会检查若干规则，仅在全部满足时显示 **Group nodes（节点编组）** 图标 <img src="../../.gitbook/assets/group.svg" alt="节点编组图标" data-size="line">。如果图标未出现，请检查选区是否满足以下规则：
 
-- The nodes aren't already part of another Canvas Group.
-- The selection doesn't include a trigger node. Triggers anchor the start of a workflow and stay outside Canvas Groups.
-- The nodes form one connected chain. You can't add nodes to a Canvas Group that aren't next to each other.
-- Nodes outside a Canvas Group can only connect to its first or last node. They can't connect directly to a node in the middle.
-- An AI node and its sub-nodes (its chat model, memory, and tools) must be in a Canvas Group together. A sub-node connection can't cross a Canvas Group's boundary.
-- The selection includes at least two items. You can't create a single-node Canvas Group.
-- Sticky notes can be part of a Canvas Group alongside nodes.
+- 节点尚未属于其他画布分组。
+- 选区不包含触发器节点。触发器确定工作流的起点，必须保留在画布分组之外。
+- 节点形成一条相连的链。不能把彼此不相邻的节点添加到同一个画布分组。
+- 画布分组外的节点只能连接其第一个或最后一个节点，不能直接连接中间节点。
+- AI 节点及其子节点（聊天模型、记忆和工具）必须位于同一个画布分组中。子节点连接不能跨越分组边界。
+- 选区至少包含两个项目。不能创建只包含单个节点的画布分组。
+- 便笺可以与节点一起加入画布分组。
 
-If a saved workflow contains Canvas Groups that break these rules (for example, after importing a workflow edited elsewhere), n8n automatically ungroups them when the workflow saves and shows a warning. The nodes stay on the canvas.
+如果保存的工作流包含不符合这些规则的画布分组（例如导入在其他地方编辑过的工作流后），n8n 会在保存工作流时自动取消这些分组，并显示警告。节点会保留在画布上。
 
-## Canvas Groups in read-only workflows <a href="#canvas-groups-in-read-only-workflows" id="canvas-groups-in-read-only-workflows"></a>
+## 只读工作流中的画布分组 <a href="#canvas-groups-in-read-only-workflows" id="canvas-groups-in-read-only-workflows"></a>
 
-When a workflow is shown read-only, such as in workflow history or a shared view, Canvas Groups appear expanded by default so you can see the whole workflow.
+工作流以只读方式显示时，例如在工作流历史或共享视图中，画布分组默认展开，方便查看整个工作流。
 
-## Keyboard shortcuts <a href="#keyboard-shortcuts" id="keyboard-shortcuts"></a>
+## 键盘快捷键 <a href="#keyboard-shortcuts" id="keyboard-shortcuts"></a>
 
-| Action | Shortcut |
+| 操作 | 快捷键 |
 | ------ | -------- |
-| Group selected nodes | `Ctrl/Cmd` + `G` |
-| Ungroup selected nodes | `Ctrl/Cmd` + `Shift` + `G` |
-| Expand Canvas Groups (selection, or all) | `Alt` + `G` |
-| Collapse Canvas Groups (selection, or all) | `Shift` + `Alt` + `G` |
-| Rename selected Canvas Group | `Space` |
+| 将选中节点编组 | `Ctrl/Cmd` + `G` |
+| 取消选中节点的编组 | `Ctrl/Cmd` + `Shift` + `G` |
+| 展开画布分组（选中的分组或全部分组） | `Alt` + `G` |
+| 折叠画布分组（选中的分组或全部分组） | `Shift` + `Alt` + `G` |
+| 重命名选中的画布分组 | `Space` |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Workflow components](./)
-* [Work with nodes](work-with-nodes.md)
-* [Connect nodes together](connect-nodes-together.md)
-* [Add notes and documentation](add-notes-and-documentation.md)
-* [Find your workflow ID](find-your-workflow-id.md)
+* [工作流组件](./)
+* [使用节点](work-with-nodes.md)
+* [连接节点](connect-nodes-together.md)
+* [添加笔记和说明](add-notes-and-documentation.md)
+* [查找工作流 ID](find-your-workflow-id.md)

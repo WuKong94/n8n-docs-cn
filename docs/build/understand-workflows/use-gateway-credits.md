@@ -1,87 +1,87 @@
 ---
-description: >-
-  Run AI models and third-party services in your n8n workflows with Gateway
-  credits instead of setting up your own credentials.
+description: 在 n8n 工作流中使用 Gateway 额度运行 AI 模型和第三方服务，无需设置自己的凭据。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Use Gateway credits
 
-Gateway credits let you run supported AI models and third-party services in your workflows without creating provider accounts or setting up [credentials](create-and-edit-credentials.md). n8n routes the requests through its own gateway and bills the usage from your instance's prepaid credit balance. For how billing works, refer to [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits).
+# 使用 Gateway 额度 <a id="use-gateway-credits"></a>
 
-Gateway credits don't pay for [n8n Assistant](../ways-of-building-workflows/n8n-assistant.md), which uses separate [Assistant credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/assistant-credits).
+Gateway 额度可以让你在工作流中运行支持的 AI 模型和第三方服务，无需创建服务提供商账号或设置[凭据](create-and-edit-credentials.md)。n8n 通过自己的网关转发请求，并从实例的预付额度余额中扣除使用费用。计费方式请参阅 [Gateway 额度](../../deploy/use-n8n-cloud/gateway-credits/README.md)。
+
+Gateway 额度不能用于 [n8n Assistant](../ways-of-building-workflows/n8n-assistant.md)，后者使用独立的 [Assistant 额度](../../deploy/use-n8n-cloud/assistant-credits/README.md)。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Gateway credits are available on:
+以下套餐提供 Gateway 额度：
 
-- **n8n Cloud:** Starter, Pro
+- **n8n Cloud：** Starter、Pro
 
-They aren't available on n8n Cloud Enterprise or self-hosted n8n. Gateway credits are available from n8n 2.36.0. Free trials include Gateway credits, but you can't top up until you upgrade to a paid plan.
+n8n Cloud Enterprise 和自托管 n8n 不提供 Gateway 额度。此功能从 n8n 2.36.0 起可用。免费试用包含 Gateway 额度，但升级到付费套餐后才能充值。
 {% endhint %}
 
-## Use Gateway credits on a node
+## 在节点上使用 Gateway 额度 <a id="use-gateway-credits-on-a-node"></a>
 
-On a supported node, the credential field offers Gateway credits alongside your own credentials:
+在支持此功能的节点中，凭据字段会同时提供 Gateway 额度和你自己的凭据选项：
 
-1. Open the node's settings.
-1. In the credential field, select **Use Gateway credits**. The option shows your remaining balance.
-1. Configure the rest of the node as usual, then run it.
+1. 打开节点设置。
+1. 在凭据字段中选择 **Use Gateway credits（使用 Gateway 额度）**。该选项会显示剩余余额。
+1. 照常配置节点的其余部分，然后运行。
 
-That's the whole setup: no provider sign-up, no API key. n8n deducts the cost of each request from your balance at the rates on the [service pricing page](https://app.n8n.cloud/service-pricing).
+设置到此完成，无需注册服务提供商账号，也无需 API 密钥。n8n 会按照[服务价格页面](https://app.n8n.cloud/service-pricing)上的费率，从余额中扣除每次请求的费用。
 
-To use your own account instead, select **Use my own credential** and pick or create a credential. You choose per node, so one workflow can mix Gateway credits on one node with your own credentials on another.
+如果要改用自己的账号，选择 **Use my own credential（使用我自己的凭据）**，再选择或创建凭据。每个节点都可以单独选择，因此同一个工作流可以在某个节点使用 Gateway 额度，在其他节点使用自己的凭据。
 
-## Find supported nodes
+## 查找支持的节点 <a id="find-supported-nodes"></a>
 
-The nodes panel highlights what you can run with Gateway credits:
+节点面板会突出显示可使用 Gateway 额度运行的节点：
 
-- The **Included in n8n** section at the top of the AI model and tool lists shows supported nodes, with your remaining balance in the section header.
-- Supported nodes show a credits tag in search results.
+- AI 模型和工具列表顶部的 **Included in n8n（n8n 已包含）** 部分显示支持的节点，该部分标题中会显示剩余余额。
+- 搜索结果中，支持的节点会带有额度标签。
 
-The tag and section header read either **Gateway credits** or **Free credits**, depending on whether you've already topped up.
+根据你是否已经充值，标签和分区标题会显示 **Gateway credits（Gateway 额度）** 或 **Free credits（免费额度）**。
 
-The catalogue of supported services and models grows over time. For the current list, check the [service pricing page](https://app.n8n.cloud/service-pricing).
+支持的服务和模型会逐渐增加。最新列表请查看[服务价格页面](https://app.n8n.cloud/service-pricing)。
 
-## Unsupported operations
+## 不支持的操作 <a id="unsupported-operations"></a>
 
-Some nodes support Gateway credits for part of what they do. When you use Gateway credits on such a node, n8n hides the unsupported operations. If a node already has an unsupported operation selected when you switch it to Gateway credits, n8n keeps the operation and shows a warning instead. If you need an operation that isn't supported, switch that node to **Use my own credential**.
+部分节点仅有一部分操作支持 Gateway 额度。在这类节点上使用 Gateway 额度时，n8n 会隐藏不支持的操作。如果切换到 Gateway 额度时，节点已选中不支持的操作，n8n 会保留该操作并显示警告。如果需要使用不支持的操作，请将该节点切换为 **Use my own credential（使用我自己的凭据）**。
 
-## When your balance runs out
+## 余额用尽时 <a id="when-your-balance-runs-out"></a>
 
-Nodes using Gateway credits fail when your instance's balance reaches zero. The instance owner can [top up the balance](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits/top-up-gateway-credits) or set up auto top-up, and can [track spend by model or workflow](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits/track-gateway-credit-spend) in the n8n Cloud console. You can also switch the affected nodes to your own credentials at any time.
+当实例余额降至零时，使用 Gateway 额度的节点会失败。实例所有者可以[充值余额](../../deploy/use-n8n-cloud/gateway-credits/top-up-gateway-credits.md)或设置自动充值，也可以在 n8n Cloud 控制台中[按模型或工作流跟踪支出](../../deploy/use-n8n-cloud/gateway-credits/track-gateway-credit-spend.md)。你也可以随时将受影响节点切换为自己的凭据。
 
-## Gateway credits versus your own API keys
+## Gateway 额度与自己的 API 密钥 <a id="gateway-credits-versus-your-own-api-keys"></a>
 
-Both approaches run the same nodes. The differences are in setup, billing, and coverage:
+两种方式运行的节点相同，区别在于设置、计费和覆盖范围：
 
-| | Gateway credits | Your own API keys |
+| | Gateway 额度 | 自己的 API 密钥 |
 |---|---|---|
-| Setup | None: select and run | Create a provider account, generate a key, add a credential |
-| Billing | One prepaid balance across all supported services, billed by n8n | Separate billing per provider, at your own rates and terms |
-| Coverage | Supported services and models only | Any service or model n8n integrates with, including your own plan's rate limits and features |
-| Spend visibility | One [spend view](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits/track-gateway-credit-spend) by model and workflow in n8n | Each provider's own dashboard |
+| 设置 | 无需额外设置，选择后即可运行 | 创建服务提供商账号、生成密钥并添加凭据 |
+| 计费 | 所有支持的服务共用一个预付余额，由 n8n 计费 | 各服务提供商单独计费，适用各自账号的费率和条款 |
+| 覆盖范围 | 仅支持列表中的服务和模型 | n8n 集成的任意服务或模型，适用你所订阅套餐的速率限制和功能 |
+| 支出可见性 | 在 n8n 中通过一个[支出视图](../../deploy/use-n8n-cloud/gateway-credits/track-gateway-credit-spend.md)，按模型和工作流查看 | 各服务提供商自己的控制台 |
 
-You can switch a node between the two at any time without rebuilding the workflow.
+可以随时在两种方式之间切换节点，无需重新构建工作流。
 
-## Control Gateway credits on your instance
+## 控制实例上的 Gateway 额度功能 <a id="control-gateway-credits-on-your-instance"></a>
 
-Instance owners can turn Gateway credits off for everyone on the instance:
+实例所有者可以为实例上的所有人关闭 Gateway 额度功能：
 
-1. Open the [Cloud console](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/use-the-cloud-console) and select **Instance settings**.
-1. In the **Runtime** section, turn off **Gateway credits**.
-1. Select **Save and restart** in the bar at the bottom of the page. Your instance restarts to apply the change, and is offline until the restart completes.
+1. 打开 [Cloud 控制台](../../deploy/use-n8n-cloud/use-the-cloud-console.md)，选择 **Instance settings（实例设置）**。
+1. 在 **Runtime（运行时）** 部分，关闭 **Gateway credits（Gateway 额度）**。
+1. 在页面底部栏中选择 **Save and restart（保存并重启）**。实例会重启以应用更改，重启完成前处于离线状态。
 
-When it's off, the Gateway credits option doesn't appear on nodes for anyone on the instance.
+关闭后，实例上的所有人都不会在节点中看到 Gateway 额度选项。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Understand workflows](./)
-* [Create and run workflows](create-and-run-workflows.md)
-* [Save and publish workflows](save-and-publish-workflows.md)
-* [Create and edit credentials](create-and-edit-credentials.md)
-* [Workflow components](workflow-components/README.md)
-* [Understand executions](understand-executions/README.md)
+* [理解工作流](./)
+* [创建和运行工作流](create-and-run-workflows.md)
+* [保存和发布工作流](save-and-publish-workflows.md)
+* [创建和编辑凭据](create-and-edit-credentials.md)
+* [工作流组件](workflow-components/README.md)
+* [理解执行](understand-executions/README.md)

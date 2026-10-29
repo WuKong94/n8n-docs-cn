@@ -1,10 +1,10 @@
 ---
 contentType: howto
-nodeTitle: Create and run workflows
+nodeTitle: 创建和运行工作流
 originalFilePath: workflows/create.md
 originalUrl: https://docs.n8n.io/workflows/create
 url: https://docs.n8n.io/build/understand-workflows/create-and-run-workflows
-description: Create, run, and publish workflows.
+description: 创建、运行和发布工作流。
 layout:
   width: default
   title:
@@ -24,49 +24,52 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Create and run workflows
 
-A workflow[^1] is a collection of nodes connected together to automate a process. You build workflows on the [workflow canvas](#user-content-fn-2)[^2].
+# 创建和运行工作流 <a id="create-and-run-workflows"></a>
 
-## Create a workflow <a href="#create-a-workflow" id="create-a-workflow"></a>
+工作流[^1]由一组相互连接的节点组成，用于自动化处理流程。你可以在[工作流画布](#user-content-fn-2)[^2]上构建工作流。
 
-1. Select the <img src="../.gitbook/assets/universal-resource-button (1).png" alt="universal create resource icon" data-size="line"> **button** in the upper-left corner of the side menu. Select workflow.
-2. If your n8n instance supports projects, you'll also need to choose whether to create the workflow inside your **personal space** or a specific **project** you have access to. If you're using the community version, you'll always create workflows inside your personal space.
-3. Get started by adding a trigger node: select **Add first step...**
+## 创建工作流 <a href="#create-a-workflow" id="create-a-workflow"></a>
 
-Or:
+1. 选择侧边菜单左上角的 <img src="../.gitbook/assets/universal-resource-button (1).png" alt="通用资源创建图标" data-size="line"> **按钮**，再选择工作流。
+2. 如果 n8n 实例支持项目，还需要选择是在**个人空间**中创建工作流，还是在你有权访问的某个**项目**中创建。使用社区版时，工作流始终在个人空间中创建。
+3. 首先添加触发器节点：选择 **Add first step...（添加第一步……）**。
 
-1. Select the <img src="../.gitbook/assets/universal-resource-button (1).png" alt="universal create resource icon" data-size="line"> **create** button in the upper-right corner from either the **Overview** page or a specific **project**. Select workflow.
-2. If you're doing this from the **Overview** page, you'll create the workflow inside your personal space. If you're doing this from inside a project, you'll create the workflow inside that specific project.
-3. Get started by adding a trigger node: select **Add first step...**
+或者：
 
-If it's your first time building a workflow, you may want to use the [quickstart guides](https://app.gitbook.com/s/CxSeOtVxqqhfxMSac0AV/build-your-first-workflow) to quickly try out n8n features.
+1. 在 **Overview（概览）** 页面或某个**项目**中，选择右上角的 <img src="../.gitbook/assets/universal-resource-button (1).png" alt="通用资源创建图标" data-size="line"> **create（创建）** 按钮，再选择工作流。
+2. 如果从 **Overview（概览）** 页面操作，工作流会创建在个人空间中；如果从项目中操作，则会创建在该项目中。
+3. 首先添加触发器节点：选择 **Add first step...（添加第一步……）**。
 
-## Run workflows manually <a href="#run-workflows-manually" id="run-workflows-manually"></a>
+如果是第一次构建工作流，可以使用[快速入门指南](../../get-started/build-your-first-workflow.md)，迅速体验 n8n 的功能。
 
-You may need to run your workflow manually when building and testing, or if your workflow doesn't have a trigger node.
+## 手动运行工作流 <a href="#run-workflows-manually" id="run-workflows-manually"></a>
 
-To run manually, select **Execute Workflow**.
+在构建和测试过程中，或工作流没有触发器节点时，可能需要手动运行工作流。
 
-## Run workflows automatically <a href="#run-workflows-automatically" id="run-workflows-automatically"></a>
+要手动运行，选择 **Execute Workflow（执行工作流）**。
 
-All new workflows are unpublished by default. See [Publishing and saving workflows](save-and-publish-workflows.md).
+## 自动运行工作流 <a href="#run-workflows-automatically" id="run-workflows-automatically"></a>
 
-You need to publish workflows that start with a trigger node or Webhook node so that they can run automatically. When a workflow isn't published, you must run it manually.
+所有新工作流默认都处于未发布状态。请参阅[发布和保存工作流](save-and-publish-workflows.md)。
 
-To publish your workflow, open your workflow and click **Publish**. The option to unpublish is in the workflow settings menu.
+以触发器节点或 Webhook 节点开始的工作流，需要发布后才能自动运行。工作流未发布时，必须手动运行。
 
-Published workflows run whenever its trigger conditions are met.
+要发布工作流，打开工作流并点击 **Publish（发布）**。取消发布的选项位于工作流设置菜单中。
 
-[^1]: An n8n workflow is a collection of nodes that automate a process. Workflows begin execution when a trigger condition occurs and execute sequentially to achieve complex tasks.
-[^2]: The canvas is the main interface for building workflows in n8n's editor UI. You use the canvas to add and connect nodes to compose workflows.
+已发布的工作流会在满足触发条件时运行。
 
-## Related resources
+[^1]: n8n 工作流由一组节点组成，用于自动化处理流程。触发条件满足时，工作流开始执行，并按顺序运行节点以完成复杂任务。
+<a id="user-content-fn-2"></a>
+[^2]: 画布是 n8n 编辑器中构建工作流的主要界面。你可以在画布上添加并连接节点，组成工作流。
 
-* [Understand workflows](./)
-* [Save and publish workflows](save-and-publish-workflows.md)
-* [Create and edit credentials](create-and-edit-credentials.md)
-* [Use Gateway credits](use-gateway-credits.md)
-* [Workflow components](workflow-components/README.md)
-* [Understand executions](understand-executions/README.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [理解工作流](./)
+* [保存和发布工作流](save-and-publish-workflows.md)
+* [创建和编辑凭据](create-and-edit-credentials.md)
+* [使用 Gateway 额度](use-gateway-credits.md)
+* [工作流组件](workflow-components/README.md)
+* [理解执行](understand-executions/README.md)

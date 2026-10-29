@@ -1,11 +1,13 @@
 ---
-title: custom-execution-data-availability
+title: 自定义执行数据的可用范围
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Custom executions data is available on:
+以下套餐支持自定义执行数据：
 
-- **n8n Cloud:** Pro, Enterprise
-- **Self-hosted:** Registered Community, Enterprise
+- **n8n Cloud：** Pro、Enterprise
+- **自托管：** 已注册的 Community、Enterprise
 {% endhint %}
