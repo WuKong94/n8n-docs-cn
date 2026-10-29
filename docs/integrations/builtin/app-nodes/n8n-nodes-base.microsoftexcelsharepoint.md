@@ -1,81 +1,81 @@
 ---
-title: Microsoft Excel (SharePoint) node documentation
-description: >-
-  Learn how to use the Microsoft Excel (SharePoint) node in n8n. Follow
-  technical documentation to integrate Microsoft Excel (SharePoint) node into
-  your workflows.
+title: Microsoft Excel (SharePoint) 节点文档
+description: 了解如何在 n8n 中使用 Microsoft Excel (SharePoint) 节点，并按照技术文档将 Microsoft Excel
+  (SharePoint) 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Excel (SharePoint) node
 
-Use the Microsoft Excel (SharePoint) node to read and write Excel workbooks stored in SharePoint document libraries, including workbooks shared through Microsoft Teams sites.
+# Microsoft Excel (SharePoint) 节点 <a id="microsoft-excel-sharepoint-node"></a>
 
-On this page, you'll find a list of operations the Microsoft Excel (SharePoint) node supports, guidance on choosing a workbook, and links to more resources.
+使用 Microsoft Excel (SharePoint) 节点读写存储在 SharePoint 文档库中的 Excel 工作簿，包括通过 Microsoft Teams 站点共享的工作簿。
+
+本页列出了 Microsoft Excel (SharePoint) 节点支持的操作、选择工作簿的指引，以及更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-The node offers two ways to sign in, chosen with the **Authentication** dropdown:
+节点提供两种登录方式，通过 **Authentication**（身份验证）下拉菜单选择：
 
-* **Microsoft OAuth2 (Graph)**: sign in as a person with the generic [Microsoft OAuth2 credential](../credentials/microsoft.md). Enter the scopes the node needs in the credential's **Scope** field: `Sites.Read.All` to browse and read, `Sites.ReadWrite.All` to write. Include `openid offline_access` so the credential can refresh its tokens. For example, to perform all of the node's operations: `openid offline_access Sites.ReadWrite.All`.
-* **Microsoft Entra Service Principal (App-Only)**: sign in as an app, for unattended workflows where no user is present, with the [Microsoft Entra Service Principal credential](../credentials/microsoftentraserviceprincipal.md). Grant the app registration `Sites.Read.All` to read and `Sites.ReadWrite.All` to write, with admin consent. To limit the app to specific sites, grant `Sites.Selected` for each site instead.
+* **Microsoft OAuth2 (Graph)**：使用通用 [Microsoft OAuth2 凭据](../credentials/microsoft.md)以个人身份登录。在凭据的 **Scope**（作用域）字段填写节点所需作用域：`Sites.Read.All` 用于浏览和读取，`Sites.ReadWrite.All` 用于写入，还需包含 `openid offline_access`，让凭据能够刷新令牌。例如，要执行节点的全部操作，请填写 `openid offline_access Sites.ReadWrite.All`。
+* **Microsoft Entra Service Principal (App-Only)**（Microsoft Entra 服务主体，仅应用）：使用 [Microsoft Entra 服务主体凭据](../credentials/microsoftentraserviceprincipal.md)以应用身份登录，适用于没有用户参与的无人值守工作流。为应用注册授予读取所需的 `Sites.Read.All` 和写入所需的 `Sites.ReadWrite.All`，并授予管理员同意。若要将应用限定于指定站点，请改为逐站点授予 `Sites.Selected`。
 
-These are the only credentials the node accepts. The node-specific **Microsoft Excel** and **Microsoft SharePoint** credentials don't work with it: the Excel credential doesn't include the SharePoint (`Sites.*`) scopes, and the SharePoint credential issues tokens for the SharePoint REST API rather than for Microsoft Graph, which this node uses.
+此节点仅接受上述凭据。节点专用的 **Microsoft Excel** 和 **Microsoft SharePoint** 凭据无法用于它：Excel 凭据不包含 SharePoint（`Sites.*`）作用域，SharePoint 凭据则为 SharePoint REST API 签发令牌，而此节点使用 Microsoft Graph。
 {% endhint %}
 
-## Which Excel node should I use?
+## 应该使用哪个 Excel 节点？ <a id="which-excel-node-should-i-use"></a>
 
-n8n has two Excel nodes:
+n8n 提供两个 Excel 节点：
 
-* **Microsoft Excel (OneDrive)**: for workbooks stored in a personal or business OneDrive.
-* **Microsoft Excel (SharePoint)** (this node): for workbooks stored in SharePoint document libraries, including files that live behind a Teams site. This node also supports app-only sign in, so it suits unattended workflows.
+* **Microsoft Excel (OneDrive)**：用于存储在个人或企业 OneDrive 中的工作簿。
+* **Microsoft Excel (SharePoint)**（本节点）：用于存储在 SharePoint 文档库中的工作簿，包括 Teams 站点背后的文件。此节点也支持仅应用登录，适用于无人值守工作流。
 
-If someone shared a workbook link with you and the link points at a SharePoint site, this is the node to use.
+如果有人向你共享工作簿链接，且链接指向 SharePoint 站点，就应使用此节点。
 
-## Choosing a workbook
+## 选择工作簿 <a id="choosing-a-workbook"></a>
 
-There are three ways to point the node at a workbook:
+指定工作簿有三种方式：
 
-* **Paste the workbook's address** (the default): copy the link from SharePoint or Excel (**Share** > **Copy link**) and paste it into the **Workbook** field. The link straight from the copy button works as-is, and you don't need to choose a site or library first.
-* **Pick from a list**: choose the **Site** and **Document Library**, then search for the workbook by name.
-* **By ID**: paste the workbook's ID directly.
+* **Paste the workbook's address**（粘贴工作簿地址，默认）：通过 SharePoint 或 Excel 的 **Share**（共享）> **Copy link**（复制链接）复制地址，粘贴到 **Workbook**（工作簿）字段。复制按钮提供的链接可直接使用，无需先选择站点或文档库。
+* **Pick from a list**（从列表中选择）：选择 **Site**（站点）和 **Document Library**（文档库），再按名称搜索工作簿。
+* **By ID**（按 ID）：直接粘贴工作簿 ID。
 
-## Operations
+## 操作 <a id="operations"></a>
 
-* **Sheet**:
-  * Append: append rows to the end of a sheet.
-  * Append or Update: append a new row or update the current one if it already exists.
-  * Clear: clear a sheet or a range.
-  * Delete: delete a sheet.
-  * Get Many: retrieve a list of the workbook's sheets.
-  * Get Rows: read rows from a range or the used range of a sheet.
-  * Update: update rows matched by a column value.
-* **Table**:
-  * Append: append rows to the end of a table.
-  * Convert to Range: convert a table to a plain range of cells.
-  * Create: create a table from a range of cells.
-  * Delete: delete a table.
-  * Get Columns: retrieve a list of the table's columns.
-  * Get Many: retrieve a list of the workbook's tables.
-  * Get Rows: retrieve a list of the table's rows.
-  * Lookup: look for a specific column value and then return the matching row.
-* **Workbook**:
-  * Add Sheet: add a new sheet to the workbook.
-  * Delete: delete a workbook.
-  * Get Many: retrieve a list of the document library's workbooks.
+* **Sheet**（工作表）：
+  * Append: append rows to the end of a sheet.（追加：在工作表末尾追加行）
+  * Append or Update: append a new row or update the current one if it already exists.（追加或更新：追加新行；如果行已存在，则更新当前行）
+  * Clear: clear a sheet or a range.（清空：清空工作表或区域）
+  * Delete: delete a sheet.（删除：删除工作表）
+  * Get Many: retrieve a list of the workbook's sheets.（获取多项：获取工作簿的工作表列表）
+  * Get Rows: read rows from a range or the used range of a sheet.（获取行：从指定区域或工作表已用区域读取行）
+  * Update: update rows matched by a column value.（更新：更新与某列值匹配的行）
+* **Table**（表）：
+  * Append: append rows to the end of a table.（追加：在表末尾追加行）
+  * Convert to Range: convert a table to a plain range of cells.（转换为区域：将表转换为普通单元格区域）
+  * Create: create a table from a range of cells.（创建：通过单元格区域创建表）
+  * Delete: delete a table.（删除：删除表）
+  * Get Columns: retrieve a list of the table's columns.（获取列：获取表的列列表）
+  * Get Many: retrieve a list of the workbook's tables.（获取多项：获取工作簿的表列表）
+  * Get Rows: retrieve a list of the table's rows.（获取行：获取表中的行列表）
+  * Lookup: look for a specific column value and then return the matching row.（查找：搜索指定列值，并返回匹配行）
+* **Workbook**（工作簿）：
+  * Add Sheet: add a new sheet to the workbook.（添加工作表：向工作簿添加新工作表）
+  * Delete: delete a workbook.（删除：删除工作簿）
+  * Get Many: retrieve a list of the document library's workbooks.（获取多项：获取文档库中的工作簿列表）
 
-More operations are on the way. This page is updated as they ship.
+后续还会增加更多操作，本文将随功能发布更新。
 
-## Templates and examples
+## 模板与示例 <a id="templates-and-examples"></a>
 
-[Search all templates](https://n8n.io/workflows/) for examples using this node.
+[搜索所有模板](https://n8n.io/workflows/)，查看使用此节点的示例。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-Refer to [Microsoft's Excel Graph API documentation](https://learn.microsoft.com/en-us/graph/api/resources/excel) for more information about the service.
+有关该服务的更多信息，请参阅 [Microsoft Excel Graph API 文档](https://learn.microsoft.com/en-us/graph/api/resources/excel)。

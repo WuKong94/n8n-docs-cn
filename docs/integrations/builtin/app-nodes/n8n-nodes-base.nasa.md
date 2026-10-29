@@ -1,69 +1,69 @@
 ---
-title: NASA node documentation
-description: >-
-  Learn how to use the NASA node in n8n. Follow technical documentation to
-  integrate NASA node into your workflows.
+title: NASA 节点文档
+description: 了解如何在 n8n 中使用 NASA 节点，并按照技术文档将 NASA 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: NASA node documentation
+nodeTitle: NASA 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.nasa.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nasa'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nasa'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nasa
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nasa
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# NASA node <a href="#nasa-node" id="nasa-node"></a>
 
-Use the NASA node to automate work in NASA, and integrate NASA with other applications. n8n has built-in support for a wide range of NASA features, including retrieving imagery and data. 
+# NASA 节点 <a href="#nasa-node" id="nasa-node"></a>
 
-On this page, you'll find a list of operations the NASA node supports and links to more resources.
+使用 NASA 节点自动处理 NASA 中的工作，并将其与其他应用集成。n8n 内置支持多种 NASA 功能，包括获取影像和数据。
+
+本页列出了 NASA 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [NASA credentials](../credentials/nasa.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [NASA 凭据](../credentials/nasa.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Astronomy Picture of the Day
-    * Get the Astronomy Picture of the Day
-* Asteroid Neo-Feed
-    * Retrieve a list of asteroids based on their closest approach date to Earth
-* Asteroid Neo-Lookup
-    * Look up an asteroid based on its NASA SPK-ID
-* Asteroid Neo-Browse
-    * Browse the overall asteroid dataset
-* DONKI Coronal Mass Ejection
-    * Retrieve DONKI coronal mass ejection data
-* DONKI Interplanetary Shock
-    * Retrieve DONKI interplanetary shock data
-* DONKI Solar Flare
-    * Retrieve DONKI solar flare data
-* DONKI Solar Energetic Particle
-    * Retrieve DONKI solar energetic particle data
-* DONKI Magnetopause Crossing
-    * Retrieve data on DONKI magnetopause crossings
-* DONKI Radiation Belt Enhancement
-    * Retrieve DONKI radiation belt enhancement data
-* DONKI High Speed Stream
-    * Retrieve DONKI high speed stream data
-* DONKI WSA+EnlilSimulation
-    * Retrieve DONKI WSA+EnlilSimulation data
-* DONKI Notifications
-    * Retrieve DONKI notifications data
-* Earth Imagery
-    * Retrieve Earth imagery
-* Earth Assets
-    * Retrieve Earth assets
+* Astronomy Picture of the Day（每日天文图片）
+    * Get the Astronomy Picture of the Day（获取每日天文图片）
+* Asteroid Neo-Feed（小行星 Neo-Feed）
+    * Retrieve a list of asteroids based on their closest approach date to Earth（根据小行星最接近地球的日期获取小行星列表）
+* Asteroid Neo-Lookup（小行星 Neo-Lookup）
+    * Look up an asteroid based on its NASA SPK-ID（根据 NASA SPK-ID 查询小行星）
+* Asteroid Neo-Browse（小行星 Neo-Browse）
+    * Browse the overall asteroid dataset（浏览整个小行星数据集）
+* DONKI Coronal Mass Ejection（DONKI 日冕物质抛射）
+    * Retrieve DONKI coronal mass ejection data（获取 DONKI 日冕物质抛射数据）
+* DONKI Interplanetary Shock（DONKI 行星际激波）
+    * Retrieve DONKI interplanetary shock data（获取 DONKI 行星际激波数据）
+* DONKI Solar Flare（DONKI 太阳耀斑）
+    * Retrieve DONKI solar flare data（获取 DONKI 太阳耀斑数据）
+* DONKI Solar Energetic Particle（DONKI 太阳高能粒子）
+    * Retrieve DONKI solar energetic particle data（获取 DONKI 太阳高能粒子数据）
+* DONKI Magnetopause Crossing（DONKI 磁层顶穿越）
+    * Retrieve data on DONKI magnetopause crossings（获取 DONKI 磁层顶穿越数据）
+* DONKI Radiation Belt Enhancement（DONKI 辐射带增强）
+    * Retrieve DONKI radiation belt enhancement data（获取 DONKI 辐射带增强数据）
+* DONKI High Speed Stream（DONKI 高速太阳风流）
+    * Retrieve DONKI high speed stream data（获取 DONKI 高速太阳风流数据）
+* DONKI WSA+EnlilSimulation（DONKI WSA+Enlil 模拟）
+    * Retrieve DONKI WSA+EnlilSimulation data（获取 DONKI WSA+Enlil 模拟数据）
+* DONKI Notifications（DONKI 通知）
+    * Retrieve DONKI notifications data（获取 DONKI 通知数据）
+* Earth Imagery（地球影像）
+    * Retrieve Earth imagery（获取地球影像）
+* Earth Assets（地球影像资源）
+    * Retrieve Earth assets（获取地球影像资源）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse NASA node documentation integration templates](https://n8n.io/integrations/nasa) or [search all templates](https://n8n.io/workflows/)
+[浏览 NASA 集成模板](https://n8n.io/integrations/nasa)，或[搜索所有模板](https://n8n.io/workflows/)

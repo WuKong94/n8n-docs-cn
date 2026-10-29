@@ -1,99 +1,99 @@
 ---
-title: Harvest node documentation
-description: >-
-  Learn how to use the Harvest node in n8n. Follow technical documentation to
-  integrate Harvest node into your workflows.
+title: Harvest 节点文档
+description: 了解如何在 n8n 中使用 Harvest 节点，并按照技术文档将 Harvest 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Harvest node documentation
+- integration
+- reference
+nodeTitle: Harvest 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.harvest.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.harvest'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.harvest'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.harvest
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.harvest
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Harvest node <a href="#harvest-node" id="harvest-node"></a>
 
-Use the Harvest node to automate work in Harvest, and integrate Harvest with other applications. n8n has built-in support for a wide range of Harvest features, including creating, updating, deleting, and getting clients, contacts, invoices, tasks, expenses, users, and projects. 
+# Harvest 节点 <a href="#harvest-node" id="harvest-node"></a>
 
-On this page, you'll find a list of operations the Harvest node supports and links to more resources.
+使用 Harvest 节点自动处理 Harvest 中的工作，并将其与其他应用集成。n8n 内置支持多种 Harvest 功能，包括创建、更新、删除和获取客户、联系人、发票、任务、费用、用户及项目。
+
+本页列出了 Harvest 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Harvest credentials](../credentials/harvest.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Harvest 凭据](../credentials/harvest.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Client
-    * Create a client
-    * Delete a client
-    * Get data of a client
-    * Get data of all clients
-    * Update a client
-* Company
-    * Retrieves the company for the currently authenticated user
-* Contact
-    * Create a contact
-    * Delete a contact
-    * Get data of a contact
-    * Get data of all contacts
-    * Update a contact
-* Estimate
-    * Create an estimate
-    * Delete an estimate
-    * Get data of an estimate
-    * Get data of all estimates
-    * Update an estimate
-* Expense
-    * Get data of an expense
-    * Get data of all expenses
-    * Create an expense
-    * Update an expense
-    * Delete an expense
-* Invoice
-    * Get data of an invoice
-    * Get data of all invoices
-    * Create an invoice
-    * Update an invoice
-    * Delete an invoice
-* Project
-    * Create a project
-    * Delete a project
-    * Get data of a project
-    * Get data of all projects
-    * Update a project
-* Task
-    * Create a task
-    * Delete a task
-    * Get data of a task
-    * Get data of all tasks
-    * Update a task
-* Time Entries
-    * Create a time entry using duration
-    * Create a time entry using start and end time
-    * Delete a time entry
-    * Delete a time entry's external reference.
-    * Get data of a time entry
-    * Get data of all time entries
-    * Restart a time entry
-    * Stop a time entry
-    * Update a time entry
-* User
-    * Create a user
-    * Delete a user
-    * Get data of a user
-    * Get data of all users
-    * Get data of authenticated user
-    * Update a user
+* Client（客户）
+    * Create a client（创建客户）
+    * Delete a client（删除客户）
+    * Get data of a client（获取客户数据）
+    * Get data of all clients（获取所有客户数据）
+    * Update a client（更新客户）
+* Company（公司）
+    * Retrieves the company for the currently authenticated user（获取当前已通过身份验证的用户所属公司）
+* Contact（联系人）
+    * Create a contact（创建联系人）
+    * Delete a contact（删除联系人）
+    * Get data of a contact（获取联系人数据）
+    * Get data of all contacts（获取所有联系人数据）
+    * Update a contact（更新联系人）
+* Estimate（估价单）
+    * Create an estimate（创建估价单）
+    * Delete an estimate（删除估价单）
+    * Get data of an estimate（获取估价单数据）
+    * Get data of all estimates（获取所有估价单数据）
+    * Update an estimate（更新估价单）
+* Expense（费用）
+    * Get data of an expense（获取费用数据）
+    * Get data of all expenses（获取所有费用数据）
+    * Create an expense（创建费用）
+    * Update an expense（更新费用）
+    * Delete an expense（删除费用）
+* Invoice（发票）
+    * Get data of an invoice（获取发票数据）
+    * Get data of all invoices（获取所有发票数据）
+    * Create an invoice（创建发票）
+    * Update an invoice（更新发票）
+    * Delete an invoice（删除发票）
+* Project（项目）
+    * Create a project（创建项目）
+    * Delete a project（删除项目）
+    * Get data of a project（获取项目数据）
+    * Get data of all projects（获取所有项目数据）
+    * Update a project（更新项目）
+* Task（任务）
+    * Create a task（创建任务）
+    * Delete a task（删除任务）
+    * Get data of a task（获取任务数据）
+    * Get data of all tasks（获取所有任务数据）
+    * Update a task（更新任务）
+* Time Entries（工时记录）
+    * Create a time entry using duration（按时长创建工时记录）
+    * Create a time entry using start and end time（按开始和结束时间创建工时记录）
+    * Delete a time entry（删除工时条目）
+    * Delete a time entry's external reference.（删除工时记录的外部引用）
+    * Get data of a time entry（获取工时记录数据）
+    * Get data of all time entries（获取所有工时记录数据）
+    * Restart a time entry（重新开始工时记录）
+    * Stop a time entry（停止工时记录）
+    * Update a time entry（更新工时条目）
+* User（用户）
+    * Create a user（创建用户）
+    * Delete a user（删除用户）
+    * Get data of a user（获取用户数据）
+    * Get data of all users（获取所有用户数据）
+    * Get data of authenticated user（获取已通过身份验证的用户数据）
+    * Update a user（更新用户）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Harvest node documentation integration templates](https://n8n.io/integrations/harvest) or [search all templates](https://n8n.io/workflows/)
+[浏览 Harvest 集成模板](https://n8n.io/integrations/harvest)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

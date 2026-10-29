@@ -554,5 +554,38 @@
       "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.monicacrm.md"
     ],
     "scope": "仅依据同页操作列表修正简介中的资源名称，不新增合同或其他操作，不修改凭据、链接、代码及操作结构，不声称已运行节点或验证服务端功能。"
+  },
+  {
+    "id": "trello-list-id-bold-format",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.trello.md",
+    "original_sentence": "5. Copy the contents of the `idList`field and paste it in the ***List ID** field in n8n.",
+    "translated_sentence": "5. 复制 `idList` 字段的内容，粘贴到 n8n 的 **List ID**（列表 ID）字段。",
+    "evidence": "同页 List ID 查找步骤中的 ***List ID** 多写一个星号，导致加粗标记不成对；译文使用成对的 **List ID**，补齐中文说明中的正常间隔。字段标识 idList 保持原样。",
+    "scope": "仅修复读者可见的字段名加粗格式和语句间隔，不修改字段标识、URL、JSON 查看步骤、代码或引用。",
+    "source_sha256": "44756b6d5b8f105245de0b6720706bf83ea7682cc25eaf37c29c1327215111de"
+  },
+  {
+    "id": "spotify-add-tracks-to-playlist-direction",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.spotify.md",
+    "original_sentence": "* Add tracks from a playlist by track and playlist URI or ID.",
+    "translated_sentence": "* Add tracks to a playlist by track and playlist URI or ID.（通过曲目和播放列表的 URI 或 ID，将曲目添加到播放列表）",
+    "evidence": "原句位于同页 Playlist 资源的添加操作，与移除曲目的操作并列。Spotify 官方 Add Items to Playlist 说明该操作是将项目添加到用户的播放列表，而非从播放列表添加；据此将 from 修正为 to。官方该旧端点的文档仅作为操作方向的依据，不用于推断当前 n8n 的运行兼容性。",
+    "evidence_sources": [
+      "https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist"
+    ],
+    "scope": "仅修正操作说明的添加方向，不修改 URI/ID、凭据、接口地址、限制、代码或其他操作，不升级源快照，不声称执行过播放列表操作。",
+    "source_sha256": "8398c6ee92505afa4440a67d3a997dc0fd5cf9333475f1a8aeba6e593b461d26"
+  },
+  {
+    "id": "freshservice-introduction-service-name",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.freshservice.md",
+    "original_sentence": "Use the Freshservice node to automate work in Freshservice and integrate Freshservice with other applications. n8n has built-in support for a wide range of Freshdesk features, including creating, updating, deleting, and getting agent information and departments.",
+    "translated_sentence": "使用 Freshservice 节点自动处理 Freshservice 中的工作，并将其与其他应用集成。n8n 内置支持多种 Freshservice 功能，包括创建、更新、删除和获取服务人员信息及部门。",
+    "evidence": "同页 title、nodeTitle、主标题及凭据引用均明确为 Freshservice，简介却在功能描述中写成 Freshdesk。依据本页所属节点和凭据将该服务名称修正为 Freshservice。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.freshservice.md"
+    ],
+    "scope": "仅修正简介中的服务名称；操作、资源、参数、凭据链接、代码和结构保持原样，不推断 Freshdesk 与 Freshservice 的能力兼容性，不执行节点。",
+    "source_sha256": "b14d6fe6d7740c5e39a350b75a1433d1d03873a36c64ec3c2666f5e0862c1d84"
   }
 ]

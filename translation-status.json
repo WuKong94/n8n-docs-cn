@@ -14743,5 +14743,179 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.harvest.md": {
+    "status": "translated",
+    "source_sha256": "5ab7d9aa8887753c61a9cd9cb3fc98719c48377e4eff20ace73770130d950d52",
+    "translation_sha256": "158dc307de3b8bd27e727ba49b17c7e7342107a835c5875563614e8c154406f6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.trello.md": {
+    "status": "translated",
+    "source_sha256": "44756b6d5b8f105245de0b6720706bf83ea7682cc25eaf37c29c1327215111de",
+    "translation_sha256": "6996bcb4d9d0f5a00e722efa62a235a5b8e83dd510721f1974460648722893ef",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "trello-list-id-bold-format"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.nasa.md": {
+    "status": "translated",
+    "source_sha256": "10dfae6b687ad7d1af970ae83bd7486a4973ce46b246f11c9c516ba097c03e3a",
+    "translation_sha256": "25e5af3cf3ce7dcdafab21318a30e6a2b0875a8eb1479fd5e757efc5a8d362c4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.azurecosmosdb.md": {
+    "status": "translated",
+    "source_sha256": "cd87a581697b39a5b5ec5636c118598357863c1d19ed3f6f8ff92ac366f4fe1f",
+    "translation_sha256": "25d9543ff57b421215f4c7b3653e69f7ec34f33583266cd4781b3e35b07fb6c9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.kobotoolbox.md": {
+    "status": "translated",
+    "source_sha256": "8b352b8158ee518b20b8c42ef81227d25a1781550ed2daf1459c866cca01fa89",
+    "translation_sha256": "c1e701ec9aaae9a8216e2ab992726f8df9801c0dcc2d0ca0cf4c34df976d4dc2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.activecampaign.md": {
+    "status": "translated",
+    "source_sha256": "09925aa3049136b0239714a9ecb71401fbc723a966423aac1e9792265a480013",
+    "translation_sha256": "a8dc50caaa254716d1ad14e5c2c245d41597663a96be334338eb1f252ac246d7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.spotify.md": {
+    "status": "translated",
+    "source_sha256": "8398c6ee92505afa4440a67d3a997dc0fd5cf9333475f1a8aeba6e593b461d26",
+    "translation_sha256": "b1b71eb7fba9dc0485d97967188ae2b68cb76551e337347fb57317791a73e581",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "spotify-add-tracks-to-playlist-direction"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcelsharepoint.md": {
+    "status": "translated",
+    "source_sha256": "0fa94d79742fc1f2d0e433ad790dd463343e17a60bd3ddda9a058d7db231b058",
+    "translation_sha256": "9ba91755e71b8fc232c541fb0f002d457df0c9eb8b230af232fd424d71f43b7c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.onfleet.md": {
+    "status": "translated",
+    "source_sha256": "91e27b792873b9114b8330074010b038cd3a0f8917f82f71fa0ffc219a6c1a2f",
+    "translation_sha256": "c53a9865004837c4fbb0c4b41379c861d18bc1eec294487168ce731c88ae777f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.salesforce.md": {
+    "status": "translated",
+    "source_sha256": "cb41f570ec102e5e35c34e43a897a8b2b03847082f19f6c36aa839e3cbf4fb49",
+    "translation_sha256": "cfc3d64628f9b590d125db7e83ed0ad6d0d0c32034c02816146fe82d04ca314b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.clickup.md": {
+    "status": "translated",
+    "source_sha256": "c77893a0a496433cd31573e8f3c0de3d3481612593e44b71a88b588499bb3745",
+    "translation_sha256": "7b9aaac35a5867c9db9bb44019dc873dfb46920135e1c90cc8b54fc863c3f531",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.confluence.md": {
+    "status": "translated",
+    "source_sha256": "3a91a7402e673b18c34527bc6e38ba4273c6beeb9de26b2bb52dddc3b7fc7bcd",
+    "translation_sha256": "d8a404e06a616a6fdf141fb69c901fa40842a3f1b5a92aa1234706583ead5617",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.microsoftsharepoint.md": {
+    "status": "translated",
+    "source_sha256": "9aed970317f4ca67ce7611984782062d1db71c4cd2ccf1721e10631809c2801f",
+    "translation_sha256": "80ea9b05c77fe2c0a03a9158de23bcef544df0f610587a3f5f1dbe51a775626f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.airtop.md": {
+    "status": "translated",
+    "source_sha256": "cdabd3f50078687e48b393172bf8ddda100236c3190f917f4bd574b1b3945d45",
+    "translation_sha256": "a61e51a96ce2d608d8ee4a58ec9e605f847d68cd36955aa3688c33e9aeb8bdf9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.freshservice.md": {
+    "status": "translated",
+    "source_sha256": "b14d6fe6d7740c5e39a350b75a1433d1d03873a36c64ec3c2666f5e0862c1d84",
+    "translation_sha256": "eb0a655392758ae6ef2b9fba8da8b9719f9bbce204a1b2b5d85182bb219f5cf3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "freshservice-introduction-service-name"
+    ]
   }
 }

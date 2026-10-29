@@ -1,99 +1,99 @@
 ---
-title: KoboToolbox node documentation
-description: >-
-  Learn how to use the KoboToolbox node in n8n. Follow technical documentation
-  to integrate KoboToolbox node into your workflows.
+title: KoboToolbox 节点文档
+description: 了解如何在 n8n 中使用 KoboToolbox 节点，并按照技术文档将 KoboToolbox 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: KoboToolbox node documentation
+- integration
+- reference
+nodeTitle: KoboToolbox 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.kobotoolbox.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kobotoolbox'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kobotoolbox'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kobotoolbox
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kobotoolbox
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# KoboToolbox node <a href="#kobotoolbox-node" id="kobotoolbox-node"></a>
 
-Use the KoboToolbox node to automate work in KoboToolbox, and integrate KoboToolbox with other applications. n8n has built-in support for a wide range of KoboToolbox features, including creating, updating, deleting, and getting files, forms, hooks, and submissions. 
+# KoboToolbox 节点 <a href="#kobotoolbox-node" id="kobotoolbox-node"></a>
 
-On this page, you'll find a list of operations the KoboToolbox node supports and links to more resources.
+使用 KoboToolbox 节点自动处理 KoboToolbox 中的工作，并将其与其他应用集成。n8n 内置支持多种 KoboToolbox 功能，包括创建、更新、删除和获取文件、表单、钩子及提交记录。
+
+本页列出了 KoboToolbox 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [KoboToolbox credentials](../credentials/kobotoolbox.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [KoboToolbox 凭据](../credentials/kobotoolbox.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* File
-	* Create
-	* Delete
-	* Get
-	* Get Many
-* Form
-    * Get
-    * Get Many
-		* Redeploy
-* Hook
-    * Get
-    * Get Many
-    * Logs
-    * Retry All
-    * Retry One
-* Submission
-    * Delete
-    * Get
-    * Get Many
-    * Get Validation Status
-    * Update Validation Status
+* File（文件）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get Many（获取多条）
+* Form（表单）
+    * Get（获取）
+    * Get Many（获取多条）
+        * Redeploy（重新部署）
+* Hook（钩子）
+    * Get（获取）
+    * Get Many（获取多条）
+    * Logs（日志）
+    * Retry All（重试全部）
+    * Retry One（重试单条）
+* Submission（提交记录）
+    * Delete（删除）
+    * Get（获取）
+    * Get Many（获取多条）
+    * Get Validation Status（获取验证状态）
+    * Update Validation Status（更新验证状态）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse KoboToolbox node documentation integration templates](https://n8n.io/integrations/kobotoolbox) or [search all templates](https://n8n.io/workflows/)
+[浏览 KoboToolbox 集成模板](https://n8n.io/integrations/kobotoolbox)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Options <a href="#options" id="options"></a>
+## 选项 <a href="#options" id="options"></a>
 
-### Query Options <a href="#query-options" id="query-options"></a>
+### 查询选项 <a href="#query-options" id="query-options"></a>
 
-The Query Submission operation supports query options:
+Query Submission（查询提交记录）操作支持查询选项：
 
-* In the main section of the **Parameters** panel:
-    * **Start** controls the index offset to start the query from (to use the API pagination logic).
-    * **Limit** sets the maximum number of records to return. Note that the API always has a limit of 30,000 returned records, whatever value you provide.
-* In the **Query Options** section, you can activate the following parameters:
-    * **Query** lets you specify filter predicates in MongoDB's JSON query format. For example: `{"status": "success", "_submission_time": {"$lt": "2021-11-01T01:02:03"}}` queries for all submissions with the value `success` for the field `status`, and submitted before November 1st, 2021, 01:02:03.
-    * **Fields** lets you specify the list of fields you want to fetch, to make the response lighter.
-    * **Sort** lets you provide a list of sorting criteria in MongoDB JSON format. For example, `{"status": 1, "_submission_time": -1}` specifies a sort order by ascending status, and then descending submission time.
+* 在 **Parameters**（参数）面板的主要部分：
+    * **Start**（起始位置）控制查询开始的索引偏移量，用于 API 分页逻辑。
+    * **Limit**（数量限制）设置最多返回的记录数。请注意，无论填写什么值，API 始终最多返回 30,000 条记录。
+* 在 **Query Options**（查询选项）部分，可启用以下参数：
+    * **Query**（查询）允许使用 MongoDB 的 JSON 查询格式指定筛选条件。例如，`{"status": "success", "_submission_time": {"$lt": "2021-11-01T01:02:03"}}` 会查询所有将 `success` 作为 `status` 字段值，且在 2021 年 11 月 1 日 01:02:03 之前提交的记录。
+    * **Fields**（字段）允许指定要获取的字段列表，减小响应体积。
+    * **Sort**（排序）允许提供 MongoDB JSON 格式的排序条件列表。例如，`{"status": 1, "_submission_time": -1}` 指定先按状态升序排列，再按提交时间降序排列。
 
-More details about these options can be found in the [Formhub API docs](https://github.com/SEL-Columbia/formhub/wiki/Formhub-Access-Points-(API)#api-parameters)
+这些选项的更多详情，请参阅 [Formhub API 文档](https://github.com/SEL-Columbia/formhub/wiki/Formhub-Access-Points-(API)#api-parameters)。
 
-### Submission options <a href="#submission-options" id="submission-options"></a>
+### 提交记录选项 <a href="#submission-options" id="submission-options"></a>
 
-All operations that return form submission data offer options to tweak the response. These include:
+所有返回表单提交数据的操作都提供调整响应的选项，包括：
 
-- Download options lets you download any attachment linked to each particular form submissions, such as pictures and videos. It also lets you select the naming pattern, and the file size to download (if available - typically for images). 
-- Formatting options perform some reformatting as described in [About reformatting](#about-reformatting).
+- 下载选项允许下载每条表单提交记录关联的附件，例如图片和视频，还可选择命名模式和下载文件大小（如果可用，通常用于图片）。
+- 格式化选项按[关于重新格式化](#about-reformatting)中的说明重新格式化数据。
 
-#### About reformatting <a href="#about-reformatting" id="about-reformatting"></a>
+#### 关于重新格式化 <a href="#about-reformatting" id="about-reformatting"></a>
 
-The default JSON format for KoboToolbox submission data is sometimes hard to deal with, because it's not schema-aware, and all fields are therefore returned as strings.
+KoboToolbox 提交数据的默认 JSON 格式有时难以处理，因为它不了解架构，所有字段都会以字符串返回。
 
-This node provides a lightweight opinionated reformatting logic, enabled with the **Reformat?** parameter, available on all operations that return form submissions: the submission query, get, and the attachment download operations.
+此节点提供轻量、按预设规则重新格式化的逻辑，通过 **Reformat?**（重新格式化？）参数启用。所有返回表单提交记录的操作均提供此参数，包括提交记录查询、获取和附件下载操作。
 
-When enabled, the reformatting:
+启用后，重新格式化会执行以下处理：
 
-- Reorganizes the JSON into a multi-level hierarchy following the form's groups. By default, question grouping hierarchy is materialized by a `/` character in the field names, for example `Group1/Question1`. With reformatting enabled, n8n reorganizes these into `Group1.Question1`, as nested JSON objects.
-- Renames fields to trim `_` (not supported by many downstream systems).
-- Parses all geospatial fields (Point, Line, and Area question types) into their standard GeoJSON equivalent.
-- Splits all fields matching any of the **Multiselect Mask** wildcard masks into an array. Since the multi-select fields appear as space-separated strings, they can't be guessed algorithmically, so you must provide a field naming mask. Format the masks as a comma-separated list. Lists support the `*` wildcard.
-- Converts all fields matching any of the **Number Mask** wildcard masks into a JSON float.
+- 按表单分组，将 JSON 重组为多层结构。默认情况下，问题的分组层级通过字段名中的 `/` 字符表示，例如 `Group1/Question1`。启用重新格式化后，n8n 会将其重组为 `Group1.Question1`，即嵌套 JSON 对象。
+- 重命名字段，去掉许多下游系统不支持的 `_`。
+- 将所有地理空间字段，即 Point（点）、Line（线）和 Area（区域）题型，解析为对应的标准 GeoJSON 格式。
+- 将匹配任一 **Multiselect Mask**（多选掩码）通配模式的字段拆分为数组。多选字段以空格分隔的字符串形式出现，无法通过算法猜测，因此必须提供字段命名掩码。多个掩码以逗号分隔，列表支持 `*` 通配符。
+- 将匹配任一 **Number Mask**（数字掩码）通配模式的字段转换为 JSON 浮点数。
 
-Here's a detailed example in JSON:
+以下为详细的 JSON 示例：
 
 ```json
 {
@@ -124,7 +124,7 @@ Here's a detailed example in JSON:
 }
 ```
 
-With reformatting enabled, and the appropriate masks for multi-select and number formatting (for example, `Crops_*` and `*_sqm` respectively), n8n parses it into:
+启用重新格式化，并为多选和数字格式设置适当的掩码，例如分别使用 `Crops_*` 和 `*_sqm` 后，n8n 将其解析为：
 
 ```json
 {
@@ -197,4 +197,4 @@ With reformatting enabled, and the appropriate masks for multi-select and number
 ```
 
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
