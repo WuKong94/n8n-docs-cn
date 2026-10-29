@@ -1,11 +1,13 @@
 ---
-title: field-value-clash
+title: 字段值冲突
 ---
-If multiple items at an index have a field with the same name, this is a clash. For example, if all items in both Input 1 and Input 2 have a field named `language`, these fields clash. By default, n8n prioritizes Input 2, meaning if `language` has a value in Input 2, n8n uses that value when merging the items. 
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-You can change this behavior by selecting **Options** > **Clash Handling**: 
+同一索引位置的多个数据项具有同名字段时，就会发生冲突。例如，Input 1 和 Input 2 中的所有数据项都具有名为 `language` 的字段，这些字段便会冲突。默认情况下，n8n 优先使用 Input 2，即 Input 2 的 `language` 有值时，合并数据项会使用该值。
 
-- **When Field Values Clash**: Choose which input to prioritize, or choose **Always Add Input Number to Field Names** to keep all fields and values, with the input number appended to the field name to show which input it came from.
-- **Merging Nested Fields**
-    - **Deep Merge**: Merge properties at all levels of the items, including nested objects. This is useful when dealing with complex, nested data structures where you need to ensure the merging of all levels of nested properties.
-    - **Shallow Merge**: Merge properties at the top level of the items only, without merging nested objects. This is useful when you have flat data structures or when you only need to merge top-level properties without worrying about nested properties.
+可通过 **Options**（选项）> **Clash Handling**（冲突处理）更改此行为：
+
+- **When Field Values Clash**（字段值冲突时）：选择优先使用哪个输入，或选择 **Always Add Input Number to Field Names**（始终在字段名称后添加输入编号），保留全部字段和值，并在字段名称后附加输入编号，标明来源。
+- **Merging Nested Fields**（合并嵌套字段）
+    - **Deep Merge**（深度合并）：合并数据项各层级的属性，包括嵌套对象。适合处理复杂的嵌套数据结构，需要确保各层嵌套属性都被合并的情况。
+    - **Shallow Merge**（浅合并）：仅合并数据项顶层的属性，不合并嵌套对象。适合扁平数据结构，或仅需合并顶层属性、不关注嵌套属性的情况。

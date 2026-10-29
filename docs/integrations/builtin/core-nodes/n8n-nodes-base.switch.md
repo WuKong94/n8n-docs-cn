@@ -1,72 +1,72 @@
 ---
-title: Switch
-description: >-
-  Documentation for the Switch node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: Switch（多路分支）
+description: 工作流自动化平台 n8n 中的 Switch（多路分支） 节点文档，包括使用说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Switch
+nodeTitle: Switch（多路分支）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.switch.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch
 layout:
   description:
     visible: false
 ---
-
-# Switch <a href="#switch" id="switch"></a>
-
-Use the Switch node to route a workflow conditionally based on comparison operations. It's similar to the [IF](n8n-nodes-base.if.md) node, but supports multiple output routes.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-Select the **Mode** the node should use:
-
-* **Rules**: Select this mode to build a matching rule for each output.
-* **Expression**: Select this mode to write an expression to return the output index programmatically.
-
-Node configuration depends on the **Mode** you select.
-
-### Rules <a href="#rules" id="rules"></a>
-
-To configure the node with this operation, use these parameters:
-
-* Create **Routing Rules** to define comparison conditions.
-    * Use the data type dropdown to select the data type and comparison operation type for your condition. For example, to create a rules for dates after a particular date, select **Date & Time > is after**.
-    * The fields and values to enter into the condition change based on the data type and comparison you select. Refer to [Available data type comparisons](#available-data-type-comparisons) for a full list of all comparisons by data type.
-* **Rename Output**: Turn this control on to rename the output field to put matching data into. Enter your desired **Output Name**.
-
-Select **Add Routing Rule** to add more rules.
-
-#### Rule options <a href="#rule-options" id="rule-options"></a>
-
-You can further configure the node with this operation using these **Options**:
-
-- **Fallback Output**: Choose how to route the workflow when an item doesn't match any of the rules or conditions.
-    - **None**: Ignore the item. This is the default behavior.
-    - **Extra Output**: Send items to an extra, separate output.
-    - **Output 0**: Send items to the same output as those matching the first rule.
-- **Ignore Case**: Set whether to ignore letter case when evaluating conditions (turned on) or enforce letter case (turned off).
-- **Less Strict Type Validation**: Set whether you want n8n to attempt to convert value types based on the operator you choose (turned on) or not (turned off).
-- **Send data to all matching outputs**: Set whether to send data to all outputs meeting conditions (turned on) or whether to send the data to the first output matching the conditions (turned off).
-
-### Expression <a href="#expression" id="expression"></a>
-
-To configure the node with this operation, use these parameters:
-
-- **Number of Outputs**: Set how many outputs the node should have.
-- **Output Index**: Create an expression to calculate which input item should be routed to which output. The expression must return a number.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Switch integration templates](https://n8n.io/integrations/switch) or [search all templates](https://n8n.io/workflows/)
+# Switch（多路分支） <a href="#switch" id="switch"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+使用 Switch 节点，根据比较操作按条件路由工作流。它类似于 [IF](n8n-nodes-base.if.md) 节点，但支持多个输出分支。
 
-Refer to [Splitting with conditionals](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/flow-logic/split-with-conditionals) for more information on using conditionals to create complex logic in n8n.
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/bMMOCQFbQ4YpKDnWQQOg/" %}
+选择节点使用的 **Mode**（模式）：
+
+* **Rules**（规则）：为每个输出构建匹配规则。
+* **Expression**（表达式）：编写表达式，以编程方式返回输出索引。
+
+节点配置取决于所选 **Mode**（模式）。
+
+### Rules（规则） <a href="#rules" id="rules"></a>
+
+使用以下参数配置此操作：
+
+* 创建 **Routing Rules**（路由规则）来定义比较条件。
+    * 使用数据类型下拉菜单，选择条件的数据类型和比较操作类型。例如，要创建针对某个日期之后的日期的规则，请选择 **Date & Time > is after**（日期和时间 > 晚于）。
+    * 条件中需要输入的字段和值，取决于所选的数据类型和比较方式。按数据类型列出的完整比较列表，请参阅[可用的数据类型比较](#available-data-type-comparisons)。
+* **Rename Output**（重命名输出）：开启此项，重命名用于存放匹配数据的输出字段，并输入所需的 **Output Name**（输出名称）。
+
+选择 **Add Routing Rule**（添加路由规则）添加更多规则。
+
+#### 规则选项 <a href="#rule-options" id="rule-options"></a>
+
+执行此操作时，可使用以下 **Options**（选项）进一步配置节点：
+
+- **Fallback Output**（后备输出）：选择数据项不匹配任何规则或条件时如何路由工作流。
+    - **None**（无）：忽略该数据项，这是默认行为。
+    - **Extra Output**（额外输出）：将数据项发送到额外的独立输出。
+    - **Output 0**（输出 0）：将数据项发送到与匹配第一条规则的数据项相同的输出。
+- **Ignore Case**（忽略大小写）：开启时，判断条件忽略字母大小写；关闭时区分大小写。
+- **Less Strict Type Validation**（较宽松的类型验证）：选择是否让 n8n 根据所选操作符尝试转换值类型，开启时尝试，关闭时不尝试。
+- **Send data to all matching outputs**（将数据发送到所有匹配输出）：开启时，将数据发送到所有满足条件的输出；关闭时，仅发送到第一个匹配条件的输出。
+
+### Expression（表达式） <a href="#expression" id="expression"></a>
+
+使用以下参数配置此操作：
+
+- **Number of Outputs**（输出数量）：设置节点应有多少个输出。
+- **Output Index**（输出索引）：创建表达式，计算每个输入数据项应路由到哪个输出。表达式必须返回数字。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Switch（多路分支） 集成模板](https://n8n.io/integrations/switch)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+使用条件在 n8n 中创建复杂逻辑的更多信息，请参阅[使用条件分支](../../../build/flow-logic/split-with-conditionals.md)。
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/data-types.md" %}
 

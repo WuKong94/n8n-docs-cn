@@ -1,64 +1,64 @@
 ---
-title: Compression
-description: >-
-  Documentation for the Compression node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: Compression（压缩）
+description: 工作流自动化平台 n8n 中的 Compression（压缩） 节点文档，包括使用说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
 nodeTitle: n8n-nodes-base.compression
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.compression.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.compression'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.compression'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.compression
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.compression
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Compression <a href="#compression" id="compression"></a>
 
-Use the Compression node to compress and decompress files. Supports Zip, Gzip, Tar, and Tar.gz formats.
+# Compression（压缩） <a href="#compression" id="compression"></a>
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+使用 Compression 节点压缩和解压缩文件。支持 Zip、Gzip、Tar 和 Tar.gz 格式。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-The node parameters depend on which **Operation** you select. Choose to:
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-* **Compress**: Create a compressed file from your input data.
-* **Decompress**: Decompress an existing compressed file.
+节点参数取决于所选 **Operation**（操作）。可选择：
 
-Refer to the sections below for parameters specific to each **Operation**.
+* **Compress**（压缩）：使用输入数据创建压缩文件。
+* **Decompress**（解压缩）：解压缩已有压缩文件。
 
-### Compress <a href="#compress" id="compress"></a>
+各 **Operation**（操作）的专用参数，请参阅下方各节。
 
-- **Input Binary Field(s)**: Enter the name of the fields in the input data that contain the binary files you want to compress. To compress more than one file, use a comma-separated list.
-- **Output Format**: Choose whether to format the compressed output as **Zip**, **Gzip**, **Tar**, or **Tar (Gzip)**.
-- **File Name**: Enter the name of the compressed file the node creates.
-- **Put Output File in Field**: Enter the name of the field in the output data to contain the file.
+### Compress（压缩） <a href="#compress" id="compress"></a>
 
-### Decompress <a href="#decompress" id="decompress"></a>
+- **Input Binary Field(s)**（输入二进制字段）：输入包含待压缩二进制文件的输入数据字段名称。要压缩多个文件，请以逗号分隔字段名称。
+- **Output Format**（输出格式）：选择将压缩输出保存为 **Zip**、**Gzip**、**Tar** 或 **Tar (Gzip)** 格式。
+- **File Name**（文件名称）：输入节点创建的压缩文件名称。
+- **Put Output File in Field**（输出文件存入字段）：输入用于存放文件的输出数据字段名称。
 
-The Decompress operation detects the archive format from the file extension and supports the following formats:
+### Decompress（解压缩） <a href="#decompress" id="decompress"></a>
+
+Decompress 操作根据文件扩展名识别归档格式，支持以下格式：
 
 - `.zip`
-- `.gz` and `.gzip`
+- `.gz` 和 `.gzip`
 - `.tar`
-- `.tar.gz` and `.tgz`
+- `.tar.gz` 和 `.tgz`
 
-When you decompress a `.tar.gz` or `.tgz` archive, the node extracts all member files in a single step. You don't need to decompress the gzip layer separately.
+解压缩 `.tar.gz` 或 `.tgz` 归档时，节点会一次提取其中的所有文件，无需单独解压 gzip 层。
 
-- **Input Binary Field(s)**: Enter the name of the fields in the input data that contain the binary files you want to decompress. To decompress more than one file, use a comma-separated list.
-- **Output Prefix**: Enter a prefix to add to the output file name. The node uses this prefix, followed by an incrementing index, to name each extracted file.
+- **Input Binary Field(s)**（输入二进制字段）：输入包含待解压二进制文件的输入数据字段名称。要解压多个文件，请以逗号分隔字段名称。
+- **Output Prefix**（输出前缀）：输入要添加到输出文件名称的前缀。节点以该前缀加上递增索引，为每个提取的文件命名。
 
 {% hint style="warning" %}
-#### Unsupported formats
+#### 不支持的格式 <a id="unsupported-formats"></a>
 
-If you pass a file with an unsupported extension, the node throws an error instead of silently producing empty output. Supported formats are `zip`, `gzip`, `tar`, `tar.gz`, and `tgz`.
+如果传入文件的扩展名不受支持，节点会抛出错误，而不会无提示地产生空输出。支持的格式为 `zip`、`gzip`、`tar`、`tar.gz` 和 `tgz`。
 {% endhint %}
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse n8n-nodes-base.compression integration templates](https://n8n.io/integrations/compression) or [search all templates](https://n8n.io/workflows/)
+[浏览 Compression（压缩）集成模板](https://n8n.io/integrations/compression)，或[搜索所有模板](https://n8n.io/workflows/)

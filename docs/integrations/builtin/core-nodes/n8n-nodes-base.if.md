@@ -1,62 +1,62 @@
 ---
-title: If
-description: >-
-  Documentation for the If node in n8n, a workflow automation platform. Includes
-  guidance on usage, and links to examples.
+title: If（条件判断）
+description: 工作流自动化平台 n8n 中的 If（条件判断） 节点文档，包括使用说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 tags:
-  - if
-  - if node
-  - If
-  - If node
+- if
+- if node
+- If
+- If node
 hide:
-  - tags
-nodeTitle: If
+- tags
+nodeTitle: If（条件判断）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.if.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if
 layout:
   description:
     visible: false
 ---
-
-# If <a href="#if" id="if"></a>
-
-Use the If node to split a workflow conditionally based on comparison operations.
-
-## Add conditions <a href="#add-conditions" id="add-conditions"></a>
-
-Create comparison **Conditions** for your If node.
-
-- Use the data type dropdown to select the data type and comparison operation type for your condition. For example, to filter for dates after a particular date, select **Date & Time > is after**.
-- The fields and values to enter into the condition change based on the data type and comparison you select. Refer to [Available data type comparisons](#available-data-type-comparisons) for a full list of all comparisons by data type.
-
-Select **Add condition** to create more conditions.
-
-### Combining conditions <a href="#combining-conditions" id="combining-conditions"></a>
-
-You can choose to keep data:
-
-* When it meets all conditions: Create two or more conditions and select **AND** in the dropdown between them.
-* When it meets any of the conditions: Create two or more conditions and select **OR** in the dropdown between them.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse If integration templates](https://n8n.io/integrations/if) or [search all templates](https://n8n.io/workflows/)
+# If（条件判断） <a href="#if" id="if"></a>
 
-## Branch execution with If and Merge nodes <a href="#branch-execution-with-if-and-merge-nodes" id="branch-execution-with-if-and-merge-nodes"></a>
+使用 If 节点，根据比较操作按条件对工作流进行分支。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/o5sVhTw0cyO5aAAkAVDj/" %}
+## 添加条件 <a href="#add-conditions" id="add-conditions"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+为 If 节点创建比较 **Conditions**（条件）。
 
-Refer to [Splitting with conditionals](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/flow-logic/split-with-conditionals) for more information on using conditionals to create complex logic in n8n.
+- 使用数据类型下拉菜单，选择条件的数据类型和比较操作类型。例如，要筛选某个日期之后的日期，请选择 **Date & Time > is after**（日期和时间 > 晚于）。
+- 条件中需要输入的字段和值，取决于所选的数据类型和比较方式。按数据类型列出的完整比较列表，请参阅[可用的数据类型比较](#available-data-type-comparisons)。
 
-If you need more than two conditional outputs, use the [Switch node](n8n-nodes-base.switch.md).
+选择 **Add condition**（添加条件）创建更多条件。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/bMMOCQFbQ4YpKDnWQQOg/" %}
+### 组合条件 <a href="#combining-conditions" id="combining-conditions"></a>
+
+可选择在以下情况下保留数据：
+
+* 满足全部条件：创建两个或更多条件，在条件之间的下拉菜单中选择 **AND**（且）。
+* 满足任意条件：创建两个或更多条件，在条件之间的下拉菜单中选择 **OR**（或）。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 If（条件判断） 集成模板](https://n8n.io/integrations/if)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## If 和 Merge 节点的分支执行 <a href="#branch-execution-with-if-and-merge-nodes" id="branch-execution-with-if-and-merge-nodes"></a>
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/merge/if-merge-branch-execution.md" %}
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+使用条件在 n8n 中创建复杂逻辑的更多信息，请参阅[使用条件分支](../../../build/flow-logic/split-with-conditionals.md)。
+
+如果需要两个以上的条件输出，请使用 [Switch 节点](n8n-nodes-base.switch.md)。
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/data-types.md" %}
 

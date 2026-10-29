@@ -1,16 +1,18 @@
 ---
 contentType: overview
-nodeTitle: Core nodes
+nodeTitle: 核心节点
 originalFilePath: integrations/builtin/core-nodes/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes
+url: https://docs.n8n.io/integrations/builtin/core-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Core nodes library <a href="#core-nodes-library" id="core-nodes-library"></a>
 
-This section provides information about n8n's core nodes[^1].
+# 核心节点库 <a href="#core-nodes-library" id="core-nodes-library"></a>
 
-[^1]: In n8n, nodes are individual components that you compose to create workflows. Nodes define when the workflow should run, allow you to fetch, send, and process data, can define flow control logic, and connect with external services.
+本节介绍 n8n 的核心节点[^1]。
+
+[^1]: 在 n8n 中，节点是构建工作流的独立组件。节点定义工作流何时运行，支持获取、发送和处理数据，也可定义流程控制逻辑，并连接外部服务。

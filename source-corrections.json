@@ -349,5 +349,14 @@
     "translated_sentence": "* **Delete**（删除）：删除群组。",
     "evidence": "同页 Group 操作列表已单独列出 Create: Create a new group，紧接的 Delete 操作却重复了相同的创建说明；User 列表中 Create 与 Delete 分别描述创建和删除用户。此处依据同页资源和操作标签修正复制错误。",
     "scope": "仅将 Group 的 Delete 操作中复制的创建说明改为删除群组；保留 Delete 标签、其余操作、凭据、链接和代码，不声称已执行 IAM 操作。"
+  },
+  {
+    "id": "compare-datasets-b-only-input",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.comparedatasets.md",
+    "source_sha256": "a10a5ce188c28ff708f70bc46a1801db74284f205eba8843ebf4864e5bb28d67",
+    "original_sentence": "* **In B only Branch**: Contains data that occurs only in the second output.",
+    "translated_sentence": "* **In B only Branch**（仅 B 分支）：包含仅出现在第二个输入中的数据。",
+    "evidence": "同页开头明确说明比较两个输入流；输出说明依次列出仅 A、相同、不同、仅 B 四个分支，且仅 A 分支明确指第一输入。仅 B 分支中的 second output 与本节所描述的输入集合及对称分支不符。",
+    "scope": "仅将仅 B 分支说明中误写的“第二个输出”改为“第二个输入”；保留分支标签、数据集示例、字段、代码和链接，不声称已执行节点。"
   }
 ]

@@ -1,51 +1,49 @@
 ---
-title: Activation Trigger node documentation
-description: >-
-  Learn how to use the Activation Trigger node in n8n. Follow technical
-  documentation to integrate Activation Trigger node into your workflows.
+title: Activation Trigger（激活触发器） 节点文档
+description: 了解如何在 n8n 中使用 Activation Trigger（激活触发器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Activation Trigger node documentation
+- integration
+- reference
+nodeTitle: Activation Trigger（激活触发器） 节点文档
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.activationtrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.activationtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.activationtrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.activationtrigger
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.activationtrigger
 layout:
   description:
     visible: false
 tags:
-  - tag: deprecated
-    primary: true
+- tag: deprecated
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Activation Trigger node <a href="#activation-trigger-node" id="activation-trigger-node"></a>
 
-The Activation Trigger node gets triggered when an event gets fired by n8n or a workflow.
+# Activation Trigger（激活触发器） 节点 <a href="#activation-trigger-node" id="activation-trigger-node"></a>
+
+n8n 或工作流发出事件时，Activation Trigger 节点会触发。
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用性**
 
-The Activation Trigger node is deprecated from n8n 0.117.0. It was replaced with two new nodes: the [n8n Trigger node](n8n-nodes-base.n8ntrigger.md) and the [Workflow Trigger node](n8n-nodes-base.workflowtrigger.md). For more details, check out the entry in the [breaking changes](https://github.com/n8n-io/n8n/blob/master/packages/cli/BREAKING-CHANGES.md#01170) page, and see [Deprecated and versioned nodes](../deprecated-nodes.md).
+Activation Trigger 节点从 n8n 0.117.0 起弃用，由两个新节点替代：[n8n Trigger 节点](n8n-nodes-base.n8ntrigger.md)和 [Workflow Trigger 节点](n8n-nodes-base.workflowtrigger.md)。更多详情请查看[破坏性变更](https://github.com/n8n-io/n8n/blob/master/packages/cli/BREAKING-CHANGES.md#01170)页面中的对应条目，以及[已弃用和具有版本的节点](../deprecated-nodes.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Keep in mind**
+**请注意**
 
-If you want to use the Activation Trigger node for a workflow, add the node to the workflow. You don't have to create a separate workflow.
+要为工作流使用 Activation Trigger 节点，将它添加到该工作流即可，无需另建工作流。
 {% endhint %}
 
-The Activation Trigger node gets triggered for the workflow that it gets added to. You can use the Activation Trigger node to trigger a workflow to notify the state of the workflow.
+Activation Trigger 节点会针对其所在的工作流触发。可用它启动工作流，以通知该工作流的状态。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-- Events
-    - **Activation**: Run when the workflow gets published
-    - **Start**: Run when n8n starts or restarts
-    - **Update**: Run when the workflow gets saved while it's active
+- Events（事件）
+    - **Activation**（激活）：工作流发布时运行。
+    - **Start**（启动）：n8n 启动或重启时运行。
+    - **Update**（更新）：处于活跃状态的工作流被保存时运行。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Activation Trigger node documentation integration templates](https://n8n.io/integrations/activation-trigger) or [search all templates](https://n8n.io/workflows/)
+[浏览 Activation Trigger（激活触发器） 集成模板](https://n8n.io/integrations/activation-trigger)，或[搜索所有模板](https://n8n.io/workflows/)

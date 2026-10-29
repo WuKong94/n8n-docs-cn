@@ -1,16 +1,14 @@
 ---
-title: Edit Fields (Set)
+title: Edit Fields (Set)（编辑字段）
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Edit Fields (Set)
+nodeTitle: Edit Fields (Set)（编辑字段）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.set.md
 originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.set
 url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.set
-description: >-
-  Documentation for the Edit Fields node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+description: 工作流自动化平台 n8n 中的 Edit Fields (Set)（编辑字段） 节点文档，包括使用说明和示例链接。
 layout:
   width: default
   title:
@@ -30,84 +28,86 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Edit Fields (Set)
 
-Use the Edit Fields node to set workflow data. This node can set new data as well as overwrite data that already exists. This node is crucial in workflows which expect incoming data from previous nodes, such as when inserting values to Google Sheets or databases.
+# Edit Fields (Set)（编辑字段） <a id="edit-fields-set"></a>
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+使用 Edit Fields 节点设置工作流数据，可设置新数据，也可覆盖已有数据。对于需要接收上游节点数据的工作流，例如向 Google Sheets 或数据库插入值，此节点十分关键。
 
-These are the settings and options available in the Edit Fields node.
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Mode <a href="#mode" id="mode"></a>
+以下是 Edit Fields 节点可用的设置和选项。
 
-You can either use **Manual Mapping** to edit fields using the GUI or **JSON Output** to write JSON that n8n adds to the input data.
+### Mode（模式） <a href="#mode" id="mode"></a>
 
-### Fields to Set <a href="#fields-to-set" id="fields-to-set"></a>
+可使用 **Manual Mapping**（手动映射）在图形界面中编辑字段，或使用 **JSON Output**（JSON 输出）编写要添加到输入数据中的 JSON。
 
-If you select **Mode** > **Manual Mapping**, you can configure the fields by dragging and dropping values from **INPUT**.
+### Fields to Set（要设置的字段） <a href="#fields-to-set" id="fields-to-set"></a>
 
-The default behavior when you drag a value is:
+选择 **Mode**（模式）> **Manual Mapping**（手动映射）后，可从 **INPUT**（输入）拖放值来配置字段。
 
-* n8n sets the value's name as the field name.
-* The field value contains an expression which accesses the value.
+拖入值时的默认行为：
 
-If you don't want to use expressions:
+* n8n 将该值的名称设为字段名称。
+* 字段值包含一个用于访问该值的表达式。
 
-1. Hover over a field. n8n displays the **Fixed | Expressions** toggle.
-2. Select **Fixed**.
+如果不想使用表达式：
 
-You can do this for both the name and value of the field.
+1. 将鼠标悬停在字段上，n8n 会显示 **Fixed | Expressions**（固定值 | 表达式）切换控件。
+2. 选择 **Fixed**（固定值）。
 
-![A field being dragged from INPUT into Fields to Set, then its Value toggled from Expression to Fixed](<../../.gitbook/assets/drag-drop-fixed-toggle (1).gif>)
+字段名称和值都可这样设置。
 
-### Keep Only Set Fields <a href="#keep-only-set-fields" id="keep-only-set-fields"></a>
+![将字段从 INPUT 拖到 Fields to Set，再将其 Value 从 Expression 切换为 Fixed](<../../.gitbook/assets/drag-drop-fixed-toggle (1).gif>)
 
-Enable this to discard any input data that you don't use in **Fields to Set**.
+### Keep Only Set Fields（仅保留设置的字段） <a href="#keep-only-set-fields" id="keep-only-set-fields"></a>
 
-### Include in Output <a href="#include-in-output" id="include-in-output"></a>
+启用后，丢弃未在 **Fields to Set**（要设置的字段）中使用的所有输入数据。
 
-Choose which input data to include in the node's output data.
+### Include in Output（包含在输出中） <a href="#include-in-output" id="include-in-output"></a>
 
-## Node options <a href="#node-options" id="node-options"></a>
+选择节点输出中应包含哪些输入数据。
 
-Use these options to customize the behavior of the node.
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-### Include Binary Data <a href="#include-binary-data" id="include-binary-data"></a>
+使用以下选项自定义节点行为。
 
-If the input data includes binary data, choose whether to include it in the Edit Fields node's output data.
+### Include Binary Data（包含二进制数据） <a href="#include-binary-data" id="include-binary-data"></a>
 
-### Ignore Type Conversion Errors <a href="#ignore-type-conversion-errors" id="ignore-type-conversion-errors"></a>
+如果输入数据包含二进制数据，选择是否在 Edit Fields 节点的输出中包含它们。
 
-Manual Mapping only.
+### Ignore Type Conversion Errors（忽略类型转换错误） <a href="#ignore-type-conversion-errors" id="ignore-type-conversion-errors"></a>
 
-Enabling this allows n8n to ignore some data type errors when mapping fields.
+仅适用于 Manual Mapping（手动映射）。
 
-### Support Dot Notation <a href="#support-dot-notation" id="support-dot-notation"></a>
+启用后，n8n 在映射字段时会忽略部分数据类型错误。
 
-By default, n8n supports dot notation.
+### Support Dot Notation（支持点表示法） <a href="#support-dot-notation" id="support-dot-notation"></a>
 
-For example, when using manual mapping, the node follows the dot notation for the **Name** field. That means if you set the name in the **Name** field as `number.one` and the value in the **Value** field as `20`, the resulting JSON is:
+默认情况下，n8n 支持点表示法。
+
+例如，使用手动映射时，节点会按点表示法解析 **Name**（名称）字段。如果将 **Name** 字段设为 `number.one`，**Value**（值）字段设为 `20`，生成的 JSON 为：
 
 ```json
 { "number": { "one": 20} }
 ```
 
-You can prevent this behavior by selecting **Add Option** > **Support Dot Notation**, and setting the **Dot Notion** field to off. Now the resulting JSON is:
+可选择 **Add Option**（添加选项）> **Support Dot Notation**（支持点表示法），将 **Dot Notion** 字段关闭，以禁用此行为。此时生成的 JSON 为：
 
 ```json
 { "number.one": 20 }
 ```
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Edit Fields (Set) integration templates](https://n8n.io/integrations/set) or [search all templates](https://n8n.io/workflows/)
+[浏览 Edit Fields (Set)（编辑字段） 集成模板](https://n8n.io/integrations/set)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Arrays and expressions in JSON Output mode <a href="#arrays-and-expressions-in-json-output-mode" id="arrays-and-expressions-in-json-output-mode"></a>
+## JSON Output 模式中的数组和表达式 <a href="#arrays-and-expressions-in-json-output-mode" id="arrays-and-expressions-in-json-output-mode"></a>
 
-You can use arrays and expressions when creating your JSON Output.
+创建 JSON Output（JSON 输出）时，可使用数组和表达式。
 
-For example, given this input data generated by the Customer Datastore node:
+例如，给定 Customer Datastore 节点生成的以下输入数据：
 
 ```json
 [
@@ -154,7 +154,7 @@ For example, given this input data generated by the Customer Datastore node:
 ]
 ```
 
-Add the following JSON in the **JSON Output** field, with **Include in Output** set to **All Input Fields**:
+在 **JSON Output**（JSON 输出）字段中添加以下 JSON，并将 **Include in Output**（包含在输出中）设为 **All Input Fields**（所有输入字段）：
 
 ```json
 {
@@ -168,7 +168,7 @@ Add the following JSON in the **JSON Output** field, with **Include in Output** 
 }
 ```
 
-You get this output:
+将得到以下输出：
 
 ```json
 [

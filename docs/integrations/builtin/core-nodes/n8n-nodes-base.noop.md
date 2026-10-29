@@ -1,26 +1,26 @@
 ---
-title: 'No Operation, do nothing'
-description: >-
-  Documentation for the No Operation, do nothing node in n8n, a workflow
-  automation platform. Includes guidance on usage, and links to examples.
+title: No Operation, do nothing（不执行操作）
+description: 工作流自动化平台 n8n 中的 No Operation, do nothing（不执行操作） 节点文档，包括使用说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: 'No Operation, do nothing'
+nodeTitle: No Operation, do nothing（不执行操作）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.noop.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.noop'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.noop'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.noop
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.noop
 layout:
   description:
     visible: false
 ---
-
-# No Operation, do nothing <a href="#no-operation-do-nothing" id="no-operation-do-nothing"></a>
-
-Use the No Operation, do nothing node when you don't want to perform any operations. The purpose of this node is to make the workflow easier to read and understand where the flow of data stops. This can help others visually get a better understanding of the workflow.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse No Operation, do nothing integration templates](https://n8n.io/integrations/no-operation-do-nothing) or [search all templates](https://n8n.io/workflows/)
+# No Operation, do nothing（不执行操作） <a href="#no-operation-do-nothing" id="no-operation-do-nothing"></a>
+
+不希望执行任何操作时，可以使用 No Operation, do nothing 节点。此节点用于提高工作流的可读性，并明确数据流在何处停止，帮助其他人从视觉上更好地理解工作流。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 No Operation, do nothing（不执行操作） 集成模板](https://n8n.io/integrations/no-operation-do-nothing)，或[搜索所有模板](https://n8n.io/workflows/)

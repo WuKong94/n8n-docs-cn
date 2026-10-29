@@ -1,64 +1,64 @@
 ---
-title: Aggregate
-description: >-
-  Documentation for the Aggregate node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: Aggregate（聚合）
+description: 工作流自动化平台 n8n 中的 Aggregate（聚合） 节点文档，包括使用说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Aggregate
+nodeTitle: Aggregate（聚合）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.aggregate.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.aggregate'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.aggregate'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.aggregate
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.aggregate
 layout:
   description:
     visible: false
 ---
-
-# Aggregate <a href="#aggregate" id="aggregate"></a>
-
-Use the Aggregate node to take separate items, or portions of them, and group them together into individual items.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-To begin using the node, select the **Aggregate** you'd like to use:
-
-* [**Individual Fields**](#individual-fields): Aggregate individual fields separately.
-* [**All Item Data**](#all-item-data): Aggregate all item data into a single list.
-
-### Individual Fields <a href="#individual-fields" id="individual-fields"></a>
-
-* **Input Field Name**: Enter the name of the field in the input data to aggregate together.
-* **Rename Field**: This toggle controls whether to give the field a different name in the aggregated output data. Turn this on to add a different field name. If you're aggregating multiple fields, you must provide new output field names. You can't leave multiple fields undefined.
-	* **Output Field Name**: This field is displayed when you turn on **Rename Field**. Enter the field name for the aggregated output data.
-
-Refer to [Node options](#node-options) for more configuration options.
-
-### All Item Data <a href="#all-item-data" id="all-item-data"></a>
-
-* **Put Output in Field**: Enter the name of the field to output the data in.
-* **Include**: Select which fields to include in the output. Choose from:
-	* **All fields**: The output includes data from all fields with no further parameters.
-	* **Specified Fields**: If you select this option, enter a comma-separated list of fields the output should include data from in the **Fields To Include** parameter. The output will include only the fields in this list.
-	* **All Fields Except**: If you select this option, enter a comma-separated list of fields the output should exclude data from in the **Fields To Exclude** parameter. The output will include all fields not in this list.
-
-Refer to [Node options](#node-options) for more configuration options.
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-You can further configure this node using these **Options**:
-
-* **Disable Dot Notation**: The node displays this toggle when you select the **Individual Fields** Aggregate. It controls whether to disallow referencing child fields using `parent.child` in the field name (turned on), or allow it (turned off, default).
-* **Merge Lists**: The node displays this toggle when you select the **Individual Fields** Aggregate. Turn it on if the field to aggregate is a list and you want to output a single flat list rather than a list of lists.
-* **Include Binaries**: The node displays this toggle for both Aggregate types. Turn it on if you want to include binary data from the input in the new output.
-* **Keep Missing And Null Values**: The node displays this toggle when you select the **Individual Fields** Aggregate. Turn it on to add a null (empty) entry in the output list when there is a null or missing value in the input. If turned off, the output ignores null or empty values.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Aggregate integration templates](https://n8n.io/integrations/aggregate) or [search all templates](https://n8n.io/workflows/)
+# Aggregate（聚合） <a href="#aggregate" id="aggregate"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+使用 Aggregate 节点，将分散的数据项或其部分内容分组，聚合成单个数据项。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/0nvcx1EqJQgGVzUXOOMN/" %}
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+首先选择要使用的 **Aggregate**（聚合）方式：
+
+* [**Individual Fields（单独字段）**](#individual-fields)：分别聚合各个字段。
+* [**All Item Data（所有数据项数据）**](#all-item-data)：将所有数据项的数据聚合成一个列表。
+
+### Individual Fields（单独字段） <a href="#individual-fields" id="individual-fields"></a>
+
+* **Input Field Name**（输入字段名称）：输入要聚合的输入数据字段名称。
+* **Rename Field**（重命名字段）：此开关控制是否为聚合后的输出字段设置不同名称。开启后可指定不同的字段名称。聚合多个字段时，必须提供新的输出字段名称，不能将多个字段都留为未定义。
+    * **Output Field Name**（输出字段名称）：开启 **Rename Field**（重命名字段）后显示，用于输入聚合输出数据的字段名称。
+
+更多配置选项请参阅[节点选项](#node-options)。
+
+### All Item Data（所有数据项数据） <a href="#all-item-data" id="all-item-data"></a>
+
+* **Put Output in Field**（输出存入字段）：输入用于输出数据的字段名称。
+* **Include**（包含）：选择输出中包含哪些字段，可选：
+    * **All fields**（全部字段）：输出包含所有字段的数据，无需其他参数。
+    * **Specified Fields**（指定字段）：选择后，在 **Fields To Include**（要包含的字段）参数中输入以逗号分隔的字段列表，输出仅包含列表中的字段。
+    * **All Fields Except**（排除指定字段）：选择后，在 **Fields To Exclude**（要排除的字段）参数中输入以逗号分隔的字段列表，输出包含所有不在该列表中的字段。
+
+更多配置选项请参阅[节点选项](#node-options)。
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+可使用以下 **Options**（选项）进一步配置节点：
+
+* **Disable Dot Notation**（禁用点表示法）：**Aggregate**（聚合）方式为 **Individual Fields**（单独字段）时显示。开启后，不允许在字段名称中使用 `parent.child` 引用子字段；关闭时允许，默认为关闭。
+* **Merge Lists**（合并列表）：**Aggregate**（聚合）方式为 **Individual Fields**（单独字段）时显示。如果要聚合的字段是列表，并希望输出单个扁平列表而不是列表的列表，请开启此项。
+* **Include Binaries**（包含二进制数据）：两种聚合方式均显示此项。要在新输出中包含输入的二进制数据，请开启。
+* **Keep Missing And Null Values**（保留缺失值和空值）：**Aggregate**（聚合）方式为 **Individual Fields**（单独字段）时显示。开启后，输入值为 null 或缺失时，会在输出列表中添加一个 null（空）条目；关闭时，输出会忽略 null 或空值。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Aggregate（聚合） 集成模板](https://n8n.io/integrations/aggregate)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/data-transformation-actions/data-section-link.md" %}

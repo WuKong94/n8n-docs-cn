@@ -1,61 +1,61 @@
 ---
-title: TOTP
-description: >-
-  Documentation for the TOTP node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: TOTP（基于时间的一次性密码）
+description: 工作流自动化平台 n8n 中的 TOTP（基于时间的一次性密码） 节点文档，包括使用说明和示例链接。
 contentType:
-  - integration
-  - reference
-nodeTitle: TOTP
+- integration
+- reference
+nodeTitle: TOTP（基于时间的一次性密码）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.totp.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.totp'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.totp'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.totp
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.totp
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# TOTP <a href="#totp" id="totp"></a>
 
-The TOTP node provides a way to generate a TOTP (time-based one-time password).
+# TOTP（基于时间的一次性密码） <a href="#totp" id="totp"></a>
+
+TOTP 节点用于生成 TOTP（基于时间的一次性密码）。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [TOTP credentials](../credentials/totp.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [TOTP 凭据](../credentials/totp.md)。
 {% endhint %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-Configure this node with these parameters.
+使用以下参数配置节点。
 
-### Credential to connect with <a href="#credential-to-connect-with" id="credential-to-connect-with"></a>
+### Credential to connect with（连接凭据） <a href="#credential-to-connect-with" id="credential-to-connect-with"></a>
 
-Select or create a [TOTP credential](../credentials/totp.md) for the node to use.
+选择或创建供节点使用的 [TOTP 凭据](../credentials/totp.md)。
 
-### Operation <a href="#operation" id="operation"></a>
+### Operation（操作） <a href="#operation" id="operation"></a>
 
-**Generate Secret** is the only operation currently supported.
+目前仅支持 **Generate Secret**（生成密钥）操作。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Use these **Options** to further configure the node.
+使用以下 **Options**（选项）进一步配置节点。
 
-### Algorithm <a href="#algorithm" id="algorithm"></a>
+### Algorithm（算法） <a href="#algorithm" id="algorithm"></a>
 
-Select the HMAC hashing algorithm to use. Default is SHA1.
+选择要使用的 HMAC 哈希算法，默认为 SHA1。
 
-### Digits <a href="#digits" id="digits"></a>
+### Digits（位数） <a href="#digits" id="digits"></a>
 
-Enter the number of digits in the generated code. Default is `6`.
+输入生成的验证码位数，默认为 `6`。
 
-### Period <a href="#period" id="period"></a>
+### Period（有效期） <a href="#period" id="period"></a>
 
-Enter how many seconds the TOTP is valid for. Default is `30`.
+输入 TOTP 的有效秒数，默认为 `30`。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse TOTP integration templates](https://n8n.io/integrations/totp) or [search all templates](https://n8n.io/workflows/)
+[浏览 TOTP（基于时间的一次性密码） 集成模板](https://n8n.io/integrations/totp)，或[搜索所有模板](https://n8n.io/workflows/)

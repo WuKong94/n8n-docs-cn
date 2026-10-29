@@ -1,79 +1,79 @@
 ---
-title: Summarize
-description: >-
-  Documentation for the Summarize node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: Summarize（汇总）
+description: 工作流自动化平台 n8n 中的 Summarize（汇总） 节点文档，包括使用说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Summarize
+nodeTitle: Summarize（汇总）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.summarize.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.summarize'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.summarize'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.summarize
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.summarize
 layout:
   description:
     visible: false
 ---
-
-# Summarize <a href="#summarize" id="summarize"></a>
-
-Use the Summarize node to aggregate items together, in a manner similar to Excel pivot tables.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-### Fields to Summarize <a href="#fields-to-summarize" id="fields-to-summarize"></a>
-
-Use these fields to define how you want to summarize your input data.
-
-* **Aggregation**: Select the aggregation method to use on a given field. Options include:
-	* **Append**: Append 
-		* If you select this option, decide whether you want to **Include Empty Values** or not.
-	* **Average**: Calculate the numeric average of your input data.
-	* **Concatenate**: Combine together values in your input data.
-		* If you select this option, decide whether you want to **Include Empty Values** or not.
-		* **Separator**: Select the separator you want to insert between concatenated values.
-	* **Count**: Count the total number of values in your input data.
-	* **Count Unique**: Count the number of unique values in your input data.
-	* **Max**: Find the highest numeric value in your input data.
-	* **Min**: Find the lowest numeric value in your input data.
-	* **Sum**: Add together the numeric values in your input data.
-* **Field**: Enter the name of the field you want to perform the aggregation on.
-
-### Fields to Split By <a href="#fields-to-split-by" id="fields-to-split-by"></a>
-
-Enter the name of the input fields that you want to split the summary by (similar to a group by statement). This allows you to get separate summaries based on values in other fields.
-
-For example, if our input data contains columns for `Sales Rep` and `Deal Amount` and we're performing a **Sum** on the `Deal Amount` field, we could split by `Sales Rep` to get a **Sum** total for each Sales Rep.
-
-To enter multiple fields to split by, enter a comma-separated list.
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-### Continue if Field Not Found <a href="#continue-if-field-not-found" id="continue-if-field-not-found"></a>
-
-By default, if a **Field to Summarize** isn't in any items, the node throws an error. Use this option to continue and return a single empty item (turned on) instead or keep the default error behavior (turned off).
-
-### Disable Dot Notation <a href="#disable-dot-notation" id="disable-dot-notation"></a>
-
-By default, n8n enables dot notation to reference child fields in the format `parent.child`. Use this option to disable dot notation (turned on) or to continue using dot (turned off).
-
-### Output Format <a href="#output-format" id="output-format"></a>
-
-Select the format for your output format. This option is recommended if you're using **Fields to Split By**
-
-* **Each Split in a Separate Item**: Use this option to generate a separate output item for each split out field.
-* **All Splits in a Single Item**: Use this option to generate a single item that lists the split out fields.
-
-## Ignore items without valid fields to group by <a href="#ignore-items-without-valid-fields-to-group-by" id="ignore-items-without-valid-fields-to-group-by"></a>
-
-Set whether to ignore input items that don't contain the **Fields to Split By** (turned on) or not (turned off).
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Summarize integration templates](https://n8n.io/integrations/summarize) or [search all templates](https://n8n.io/workflows/)
+# Summarize（汇总） <a href="#summarize" id="summarize"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+使用 Summarize 节点聚合数据项，方式类似于 Excel 数据透视表。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/0nvcx1EqJQgGVzUXOOMN/" %}
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+### Fields to Summarize（要汇总的字段） <a href="#fields-to-summarize" id="fields-to-summarize"></a>
+
+使用以下字段，定义如何汇总输入数据。
+
+* **Aggregation**（聚合方式）：选择对指定字段使用的聚合方法，可选：
+    * **Append**（追加）：追加。
+        * 选择此项后，还需决定是否 **Include Empty Values**（包含空值）。
+    * **Average**（平均值）：计算输入数据的数值平均值。
+    * **Concatenate**（串联）：将输入数据中的值串联起来。
+        * 选择此项后，还需决定是否 **Include Empty Values**（包含空值）。
+        * **Separator**（分隔符）：选择串联值之间插入的分隔符。
+    * **Count**（计数）：统计输入数据中的值的总数。
+    * **Count Unique**（唯一值计数）：统计输入数据中的唯一值数量。
+    * **Max**（最大值）：查找输入数据中的最大数值。
+    * **Min**（最小值）：查找输入数据中的最小数值。
+    * **Sum**（求和）：将输入数据中的数值相加。
+* **Field**（字段）：输入要执行聚合的字段名称。
+
+### Fields to Split By（分组字段） <a href="#fields-to-split-by" id="fields-to-split-by"></a>
+
+输入用于拆分汇总结果的输入字段名称，类似于 group by 语句，从而按其他字段的值分别生成汇总。
+
+例如，输入数据包含 `Sales Rep` 和 `Deal Amount` 列，并且要对 `Deal Amount` 字段执行 **Sum**（求和），就可以按 `Sales Rep` 分组，得到每位销售代表的 **Sum** 总计。
+
+输入多个分组字段时，请以逗号分隔。
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+### Continue if Field Not Found（未找到字段时继续） <a href="#continue-if-field-not-found" id="continue-if-field-not-found"></a>
+
+默认情况下，如果所有数据项都没有某个 **Field to Summarize**（要汇总的字段），节点会抛出错误。开启此选项则继续执行并返回一个空数据项；关闭则保留默认报错行为。
+
+### Disable Dot Notation（禁用点表示法） <a href="#disable-dot-notation" id="disable-dot-notation"></a>
+
+默认情况下，n8n 启用点表示法，以 `parent.child` 格式引用子字段。开启此选项可禁用点表示法，关闭则继续使用。
+
+### Output Format（输出格式） <a href="#output-format" id="output-format"></a>
+
+选择输出格式。使用 **Fields to Split By**（分组字段）时，建议配置此选项。
+
+* **Each Split in a Separate Item**（每组一个独立数据项）：为每个拆分结果生成独立的输出数据项。
+* **All Splits in a Single Item**（所有分组放入一个数据项）：生成单个数据项，列出各拆分字段。
+
+## 忽略缺少有效分组字段的数据项 <a href="#ignore-items-without-valid-fields-to-group-by" id="ignore-items-without-valid-fields-to-group-by"></a>
+
+设置是否忽略不包含 **Fields to Split By**（分组字段）的输入数据项，开启时忽略，关闭时不忽略。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Summarize（汇总） 集成模板](https://n8n.io/integrations/summarize)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/data-transformation-actions/data-section-link.md" %}

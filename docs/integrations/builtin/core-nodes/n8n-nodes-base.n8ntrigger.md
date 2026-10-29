@@ -1,37 +1,37 @@
 ---
-title: n8n Trigger node documentation
-description: >-
-  Learn how to use the n8n Trigger node in n8n. Follow technical documentation
-  to integrate n8n Trigger node into your workflows.
+title: n8n Trigger（n8n 触发器） 节点文档
+description: 了解如何在 n8n 中使用 n8n Trigger（n8n 触发器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: n8n Trigger node documentation
+nodeTitle: n8n Trigger（n8n 触发器） 节点文档
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.n8ntrigger.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8ntrigger'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8ntrigger'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8ntrigger
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8ntrigger
 layout:
   description:
     visible: false
 ---
-
-# n8n Trigger node <a href="#n8n-trigger-node" id="n8n-trigger-node"></a>
-
-The n8n Trigger node triggers when the workflow containing this node updates or gets published, or when the n8n instance starts or restarts. This node only responds to events in its own workflow; changes to other workflows won't trigger it. 
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-The node includes a single parameter to identify the **Events** that should trigger it. Choose from these events:
-
-- **Published Workflow Updated**: If you select this event, the node triggers when the workflow containing this node is updated. Changes to other workflows won't trigger this node.
-- **Instance started**: If you select this event, the node triggers when the n8n instance starts or restarts.
-- **Workflow Published**: If you select this event, the node triggers when the workflow containing this node is published. Publishing other workflows won't trigger this node.
-
-You can select one or more of these events.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse n8n Trigger node documentation integration templates](https://n8n.io/integrations/n8n-trigger) or [search all templates](https://n8n.io/workflows/)
+# n8n Trigger（n8n 触发器） 节点 <a href="#n8n-trigger-node" id="n8n-trigger-node"></a>
+
+包含 n8n Trigger 节点的工作流更新或发布时，或 n8n 实例启动或重启时，此节点会触发。它仅响应所在工作流中的事件，其他工作流的变更不会触发它。
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+节点只有一个参数，用于指定触发它的 **Events**（事件）。可选择：
+
+- **Published Workflow Updated**（已发布工作流更新）：包含此节点的工作流更新时触发。其他工作流的变更不会触发此节点。
+- **Instance started**（实例已启动）：n8n 实例启动或重启时触发。
+- **Workflow Published**（工作流已发布）：包含此节点的工作流发布时触发。发布其他工作流不会触发此节点。
+
+可选择一个或多个事件。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 n8n Trigger（n8n 触发器） 集成模板](https://n8n.io/integrations/n8n-trigger)，或[搜索所有模板](https://n8n.io/workflows/)
 

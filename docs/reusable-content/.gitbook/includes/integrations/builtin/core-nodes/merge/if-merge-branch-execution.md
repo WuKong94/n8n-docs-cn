@@ -1,17 +1,19 @@
 ---
-title: if-merge-branch-execution
+title: If 和 Merge 的分支执行
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 {% hint style="info" %}
-**0.236.0 and below**
+**0.236.0 及更早版本**
 
-n8n removed this execution behavior in n8n 1.0. This section applies to workflows using the **v0 (legacy)** workflow execution order. By default, this is all workflows built before n8n 1.0. You can change the execution order in your [workflow settings](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/configure-workflow-settings).
+n8n 在 1.0 版本移除了此执行行为。本节适用于采用 **v0 (legacy)**（v0，旧版）工作流执行顺序的工作流。默认情况下，n8n 1.0 之前构建的所有工作流均采用此顺序。可在[工作流设置](../../../../../../../build/manage-workflows/configure-workflow-settings.md)中更改执行顺序。
 {% endhint %}
-If you add a Merge node to a workflow containing an If node, it can result in both output data streams of the If node executing.
+向包含 If 节点的工作流添加 Merge 节点，可能导致 If 节点的两个输出数据流都执行。
 
-One data stream triggers the Merge node, which then goes and executes the other data stream.
+其中一个数据流触发 Merge 节点，随后 Merge 节点会执行另一个数据流。
 
-For example, in the screenshot below there's a workflow containing an Edit Fields node, If node, and Merge node. The standard If node behavior is to execute one data stream (in the screenshot, this is the **true** output). However, due to the Merge node, both data streams execute, despite the If node not sending any data down the **false** data stream.
+例如，下图中的工作流包含 Edit Fields、If 和 Merge 节点。If 节点通常只执行一个数据流，图中为 **true**（真）输出。但由于 Merge 节点的存在，即使 If 节点没有向 **false**（假）数据流发送任何数据，两个数据流仍都会执行。
 
-![A workflow with an Edit Fields node, an If node, and a Merge node connected in sequence](../../../../../assets/if-merge-node.png)
+![Edit Fields、If 和 Merge 节点按顺序连接的工作流](../../../../../assets/if-merge-node.png)
 
 
