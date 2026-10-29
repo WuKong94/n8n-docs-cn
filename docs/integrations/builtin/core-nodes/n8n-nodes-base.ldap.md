@@ -1,110 +1,110 @@
 ---
-title: LDAP
-description: >-
-  Documentation for the LDAP node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: LDAP 节点
+description: 了解 n8n 中 LDAP 节点的用法，并查看相关示例。
 contentType:
-  - integration
-  - reference
-nodeTitle: LDAP
+- integration
+- reference
+nodeTitle: LDAP 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.ldap.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ldap'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ldap'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ldap
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ldap
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # LDAP <a href="#ldap" id="ldap"></a>
 
-This node allows you to interact with your LDAP servers to create, find, and update objects.
+此节点用于与 LDAP 服务器交互，创建、查找和更新对象。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [LDAP credentials documentation](../credentials/ldap.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [LDAP 凭据文档](../credentials/ldap.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* [**Compare**](#compare) an attribute
-* [**Create**](#create) a new entry
-* [**Delete**](#delete) an entry
-* [**Rename**](#rename) the DN of an existing entry
-* [**Search**](#search) LDAP
-* [**Update**](#update) attributes
+* [**Compare**](#compare)（比较）属性
+* [**Create**](#create)（创建）新条目
+* [**Delete**](#delete)（删除）条目
+* [**Rename**](#rename)（重命名）现有条目的 DN
+* [**Search**](#search)（搜索）LDAP
+* [**Update**](#update)（更新）属性
 
-Refer to the sections below for details on configuring the node for each operation.
+各操作的节点配置说明见下文。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Compare <a href="#compare" id="compare"></a>
+## Compare（比较） <a href="#compare" id="compare"></a>
 
-Configure this operation using these parameters:
+使用以下参数配置此操作：
 
-* **Credential to connect with**: Select or create an [LDAP credential](../credentials/ldap.md) to connect with.
-* **DN**: Enter the Distinguished Name (DN) of the entry to compare.
-* **Attribute ID**: Enter the ID of the attribute to compare.
-* **Value**: Enter the value to compare.
+* **Credential to connect with**（连接凭据）：选择或创建用于连接的 [LDAP 凭据](../credentials/ldap.md)。
+* **DN**：输入待比较条目的 Distinguished Name（专有名称，DN）。
+* **Attribute ID**（属性 ID）：输入要比较的属性 ID。
+* **Value**（值）：输入要比较的值。
 
-## Create <a href="#create" id="create"></a>
+## Create（创建） <a href="#create" id="create"></a>
 
-Configure this operation using these parameters:
+使用以下参数配置此操作：
 
-* **Credential to connect with**: Select or create an [LDAP credential](../credentials/ldap.md) to connect with.
-* **DN**: Enter the Distinguished Name (DN) of the entry to create.
-* **Attributes**: Add the **Attribute ID**/**Value** pairs you'd like to create.
+* **Credential to connect with**（连接凭据）：选择或创建用于连接的 [LDAP 凭据](../credentials/ldap.md)。
+* **DN**：输入要创建条目的 Distinguished Name（专有名称，DN）。
+* **Attributes**（属性）：添加要创建的 **Attribute ID**（属性 ID）/**Value**（值）对。
 
-## Delete <a href="#delete" id="delete"></a>
+## Delete（删除） <a href="#delete" id="delete"></a>
 
-Configure this operation using these parameters:
+使用以下参数配置此操作：
 
-* **Credential to connect with**: Select or create an [LDAP credential](../credentials/ldap.md) to connect with.
-* **DN**: Enter the Distinguished Name (DN) of the entry to be deleted.
+* **Credential to connect with**（连接凭据）：选择或创建用于连接的 [LDAP 凭据](../credentials/ldap.md)。
+* **DN**：输入待删除条目的 Distinguished Name（专有名称，DN）。
 
-## Rename <a href="#rename" id="rename"></a>
+## Rename（重命名） <a href="#rename" id="rename"></a>
 
-Configure this operation using these parameters:
+使用以下参数配置此操作：
 
-* **Credential to connect with**: Select or create an [LDAP credential](../credentials/ldap.md) to connect with.
-* **DN**: Enter the current Distinguished Name (DN) of the entry to rename.
-* **New DN**: Enter the new Distinguished Name (DN) for the entry in this field.
+* **Credential to connect with**（连接凭据）：选择或创建用于连接的 [LDAP 凭据](../credentials/ldap.md)。
+* **DN**：输入待重命名条目当前的 Distinguished Name（专有名称，DN）。
+* **New DN**（新 DN）：输入此条目新的 Distinguished Name（专有名称，DN）。
 
-## Search <a href="#search" id="search"></a>
+## Search（搜索） <a href="#search" id="search"></a>
 
-Configure this operation using these parameters:
+使用以下参数配置此操作：
 
-* **Credential to connect with**: Select or create an [LDAP credential](../credentials/ldap.md) to connect with.
-* **Base DN**: Enter the Distinguished Name (DN) of the subtree to search in.
-* **Search For**: Select the directory object class to search for.
-* **Attribute**: Select the attribute to search for.
-* **Search Text**: Enter the text to search for. Use `*` for a wildcard.
-* **Return All**: When turned on, the node will return all results. When turned off, the node will return results up to the set **Limit**.
-* **Limit**: Only available when you turn off **Return All**. Enter the maximum number of results to return.
+* **Credential to connect with**（连接凭据）：选择或创建用于连接的 [LDAP 凭据](../credentials/ldap.md)。
+* **Base DN**（基准 DN）：输入要搜索子树的 Distinguished Name（专有名称，DN）。
+* **Search For**（搜索对象）：选择要搜索的目录对象类。
+* **Attribute**（属性）：选择要搜索的属性。
+* **Search Text**（搜索文本）：输入要搜索的文本，使用 `*` 作为通配符。
+* **Return All**（返回全部）：开启时返回所有结果，关闭时返回不超过 **Limit**（数量上限）的结果。
+* **Limit**（数量上限）：仅在关闭 **Return All**（返回全部）时可用，输入最多返回的结果数。
 
-### Search options <a href="#search-options" id="search-options"></a>
+### Search（搜索）选项 <a href="#search-options" id="search-options"></a>
 
-You can also configure this operation using these options:
+还可通过以下选项配置此操作：
 
-* **Attribute Names or IDs**: Enter a comma-separated list of attributes to return. Choose from the list or specify IDs using an expression.
-* **Page Size**: Enter the maximum number of results to request at one time. Set to 0 to disable paging.
-* **Scopes**: The set of entries at or below the **Base DN** to search for potential matches. Select from:
-    * **Base Tree**: Often referred to as subordinateSubtree or just "subordinates," selecting this option will search the subordinates of the **Base DN** entry but not the **Base DN** entry itself.
-    * **Single Level**: Often referred to as "one," selecting this option will search only the immediate children of the **Base DN** entry.
-    * **Whole Subtree**: Often referred to as "sub," selecting this option will search the **Base DN** entry and all its subordinates to any depth.
+* **Attribute Names or IDs**（属性名称或 ID）：输入以逗号分隔的待返回属性列表，可从列表中选择，也可使用表达式指定 ID。
+* **Page Size**（分页大小）：输入每次请求的最多结果数，设为 0 时禁用分页。
+* **Scopes**（范围）：在 **Base DN**（基准 DN）处或其下搜索潜在匹配条目的范围，可选：
+    * **Base Tree**（下级子树）：常称为 subordinateSubtree 或 subordinates，搜索 **Base DN**（基准 DN）条目的下级，但不包含 **Base DN** 条目自身。
+    * **Single Level**（单层）：常称为 one，仅搜索 **Base DN**（基准 DN）条目的直接子项。
+    * **Whole Subtree**（整个子树）：常称为 sub，搜索 **Base DN**（基准 DN）条目自身及任意深度的所有下级。
 
-Refer to [The LDAP Search Operation](https://ldap.com/the-ldap-search-operation/) for more information on search scopes.
+搜索范围的更多信息，请参阅 [LDAP 搜索操作](https://ldap.com/the-ldap-search-operation/)。
 
-## Update <a href="#update" id="update"></a>
+## Update（更新） <a href="#update" id="update"></a>
 
-Configure this operation using these parameters:
+使用以下参数配置此操作：
 
-* **Credential to connect with**: Select or create an [LDAP credential](../credentials/ldap.md) to connect with.
-* **DN**: Enter the Distinguished Name (DN) of the entry to update.
-* ***Update Attributes**: Select whether to **Add** new, **Remove** existing, or **Replace** existing attribute.
-* Then enter the **Attribute ID**/**Value** pair you'd like to update.
+* **Credential to connect with**（连接凭据）：选择或创建用于连接的 [LDAP 凭据](../credentials/ldap.md)。
+* **DN**：输入待更新条目的 Distinguished Name（专有名称，DN）。
+* **Update Attributes**（更新属性）：选择 **Add**（添加）新属性、**Remove**（移除）现有属性，或 **Replace**（替换）现有属性。
+* 然后输入要更新的 **Attribute ID**（属性 ID）/**Value**（值）对。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse LDAP integration templates](https://n8n.io/integrations/ldap) or [search all templates](https://n8n.io/workflows/)
+[浏览 LDAP 集成模板](https://n8n.io/integrations/ldap)，或[搜索所有模板](https://n8n.io/workflows/)

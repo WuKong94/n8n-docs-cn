@@ -1,16 +1,14 @@
 ---
-title: FTP
+title: FTP 节点
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: FTP
+nodeTitle: FTP 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.ftp.md
 originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ftp
 url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ftp
-description: >-
-  Documentation for the FTP node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+description: 了解 n8n 中 FTP 节点的用法，并查看相关示例。
 layout:
   width: default
   title:
@@ -30,89 +28,91 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# FTP
 
-The FTP node is useful to access and upload files to an FTP or SFTP server.
+# FTP <a id="ftp"></a>
 
-{% hint style="info" %}
-**Credentials**
-
-Refer to the [FTP credentials documentation](../credentials/ftp.md) for authentication information for this node.
-{% endhint %}
-
-To connect to an SFTP server, use an SFTP credential. Refer to [FTP credentials](../credentials/ftp.md) for more information.
-
-## Operations <a href="#operations" id="operations"></a>
-
-* [**Delete**](n8n-nodes-base.ftp.md#delete) a file or folder
-* [**Download**](n8n-nodes-base.ftp.md#download) a file
-* [**List**](n8n-nodes-base.ftp.md#list) folder content
-* [**Rename**](n8n-nodes-base.ftp.md#rename) or move a file or folder
-* [**Upload**](n8n-nodes-base.ftp.md#upload) a file
+FTP 节点用于访问 FTP 或 SFTP 服务器中的文件，以及向服务器上传文件。
 
 {% hint style="info" %}
-**Uploading files**
+**凭据**
 
-To attach a file for upload, you'll need to use an extra node such as the [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md) node or the [HTTP Request](n8n-nodes-base.httprequest/README.md) node to pass the file as a data property.
+此节点的身份验证信息，请参阅 [FTP 凭据文档](../credentials/ftp.md)。
 {% endhint %}
 
-## Delete <a href="#delete" id="delete"></a>
+连接 SFTP 服务器时，请使用 SFTP 凭据。更多信息，请参阅 [FTP 凭据](../credentials/ftp.md)。
 
-This operation includes one parameter: **Path**. Enter the remote path that you would like to connect to.
+## 操作 <a href="#operations" id="operations"></a>
 
-### Delete options <a href="#delete-options" id="delete-options"></a>
-
-The delete operation adds one new option: **Folder**. If you turn this option on, the node can delete both folders and files. This configuration also displays one more option:
-
-* **Recursive**: If you turn this option on and you delete a folder or directory, the node will delete all files and directories within the target directory.
-
-## Download <a href="#download" id="download"></a>
-
-Configure this operation with these parameters:
-
-* **Path**: Enter the remote path that you would like to connect to.
-* **Put Output File in Field**: Enter the name of the output binary field to put the file in.
+* [**Delete**](n8n-nodes-base.ftp.md#delete)（删除）文件或文件夹
+* [**Download**](n8n-nodes-base.ftp.md#download)（下载）文件
+* [**List**](n8n-nodes-base.ftp.md#list)（列出）文件夹内容
+* [**Rename**](n8n-nodes-base.ftp.md#rename)（重命名）或移动文件及文件夹
+* [**Upload**](n8n-nodes-base.ftp.md#upload)（上传）文件
 
 {% hint style="info" %}
-**Concurrent Reads with SFTP**
+**上传文件**
 
-When using SFTP, you can enable concurrent reads. This improves download speeds but may not be supported by all SFTP servers.
+要提供待上传的文件，需要使用 [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md) 或 [HTTP Request](n8n-nodes-base.httprequest/README.md) 等额外节点，将文件作为数据属性传入。
 {% endhint %}
 
-## List <a href="#list" id="list"></a>
+## Delete（删除） <a href="#delete" id="delete"></a>
 
-Configure this operation with these parameters:
+此操作只有一个 **Path**（路径）参数，输入要连接的远程路径。
 
-* **Path**: Enter the remote path that you would like to connect to.
-* **Recursive**: Select whether to return an object representing all directories / objects recursively found within the FTP/SFTP server (turned on) or not (turned off).
+### Delete（删除）选项 <a href="#delete-options" id="delete-options"></a>
 
-## Rename <a href="#rename" id="rename"></a>
+删除操作增加 **Folder**（文件夹）选项。开启时，节点可以删除文件夹和文件，并显示另一个选项：
 
-Configure this operation with these parameters:
+* **Recursive**（递归）：开启时，删除文件夹或目录会同时删除目标目录内的所有文件和目录。
 
-* **Old Path**: Enter the existing path of the file you'd like to rename in this field.
-* **New Path**: Enter the new path for the renamed file in this field.
+## Download（下载） <a href="#download" id="download"></a>
 
-### Rename options <a href="#rename-options" id="rename-options"></a>
+使用以下参数配置此操作：
 
-This operation adds one new option: **Create Directories**. If you turn this option on, the node will recursively create the destination directory when renaming an existing file or folder.
-
-## Upload <a href="#upload" id="upload"></a>
-
-Configure this operation with these parameters:
-
-* **Path**: Enter the remote path that you would like to connect to.
-* **Binary File**: Select whether you'll upload a binary file (turned on) or enter text content to be uploaded (turned off). Other parameters depend on your selection in this field.
-  * **Input Binary Field**: Displayed if you turn on **Binary File**. Enter the name of the input binary field that contains the file you'll upload in this field.
-  * **File Content**: Displayed if you turn off **Binary File** Enter the text content of the file you'll upload in this field.
+* **Path**（路径）：输入要连接的远程路径。
+* **Put Output File in Field**（输出文件字段）：输入用于存放文件的输出二进制字段名称。
 
 {% hint style="info" %}
-**Uploading files**
+**SFTP 并发读取**
 
-To attach a file for upload, you'll need to use an extra node such as the [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md) node or the [HTTP Request](n8n-nodes-base.httprequest/README.md) node to pass the file as a data property.
+使用 SFTP 时，可以启用并发读取以提高下载速度，但并非所有 SFTP 服务器都支持。
 {% endhint %}
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## List（列出） <a href="#list" id="list"></a>
 
-[Browse FTP integration templates](https://n8n.io/integrations/ftp) or [search all templates](https://n8n.io/workflows/)
+使用以下参数配置此操作：
+
+* **Path**（路径）：输入要连接的远程路径。
+* **Recursive**（递归）：开启时，递归返回表示 FTP/SFTP 服务器中所有目录或对象的对象；关闭时，不递归返回。
+
+## Rename（重命名） <a href="#rename" id="rename"></a>
+
+使用以下参数配置此操作：
+
+* **Old Path**（原路径）：输入待重命名文件的现有路径。
+* **New Path**（新路径）：输入重命名后文件的新路径。
+
+### Rename（重命名）选项 <a href="#rename-options" id="rename-options"></a>
+
+此操作增加 **Create Directories**（创建目录）选项。开启时，重命名现有文件或文件夹会递归创建目标目录。
+
+## Upload（上传） <a href="#upload" id="upload"></a>
+
+使用以下参数配置此操作：
+
+* **Path**（路径）：输入要连接的远程路径。
+* **Binary File**（二进制文件）：开启时上传二进制文件，关闭时输入要上传的文本内容。其他参数取决于此选项。
+  * **Input Binary Field**（输入二进制字段）：开启 **Binary File**（二进制文件）时显示，输入包含待上传文件的输入二进制字段名称。
+  * **File Content**（文件内容）：关闭 **Binary File**（二进制文件）时显示，输入要上传的文件文本内容。
+
+{% hint style="info" %}
+**上传文件**
+
+要提供待上传的文件，需要使用 [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md) 或 [HTTP Request](n8n-nodes-base.httprequest/README.md) 等额外节点，将文件作为数据属性传入。
+{% endhint %}
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+[浏览 FTP 集成模板](https://n8n.io/integrations/ftp)，或[搜索所有模板](https://n8n.io/workflows/)

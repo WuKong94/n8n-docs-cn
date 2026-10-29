@@ -16074,5 +16074,113 @@
     "source_correction_ids": [
       "schedule-timezone-new-york-identifier-source-note"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.executecommand/README.md": {
+    "status": "translated",
+    "source_sha256": "8f6b6158bbc1112a4bf4bf4e2919043e97af5e67e0372f48558f25b9e2032e48",
+    "translation_sha256": "8ee640cce6459ec4f9bd9ed4b366ffaaa60ea653591852f0912a4a009c13aea4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.executecommand/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "146c454b406e78165d32fa50fa54f0f6f1492cd07b1e5fb6a3a7bcb645e9bd94",
+    "translation_sha256": "1a0f0e90ec5b31a5251eb197059a39dbcec515cf26bff4663d5a29ebf4ff1f9b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.readwritefile.md": {
+    "status": "translated",
+    "source_sha256": "9e8ec76f08bea3b462c22f249677599c2373a16bac5221fb4f60b9b1ee301f86",
+    "translation_sha256": "6c4a650e504c6848efa8888d28f878ad06f340af61a78e4f7e999b0be548c059",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "read-write-files-self-hosted-default-access-version-context"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.localfiletrigger.md": {
+    "status": "translated",
+    "source_sha256": "a627fd521d6a9d56928c09bacc9b543cef4dbb21b56b9575dcbbd9c82fc2ae00",
+    "translation_sha256": "d44b14362ac31924ed5aa4c46b46a2a0b71bd8c7f7f3d481501376cc423745a5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.ftp.md": {
+    "status": "translated",
+    "source_sha256": "e082814baedbeb0e7c09b899390922771b75004f0f488aca6bdf57366948ca88",
+    "translation_sha256": "524a9f028a6a94cd8cd22ad7fb5fb3a0502e15ab82535eb8c80f8bb1f7f35180",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.git.md": {
+    "status": "translated",
+    "source_sha256": "b8427b4e930c9130fad09b2f87e2015198f6a8fa186fdb92dc1aff8a1f1e45c7",
+    "translation_sha256": "7adcbc3e10ad5989333cb460d119bd803b5d341f7f480636b9097412bcd1ca56",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.ssh.md": {
+    "status": "translated",
+    "source_sha256": "99917a4303e68aeff209de33ee964ff1218bc9b192e4ea3cdabba1fb0cb95067",
+    "translation_sha256": "14a970796f1eb1c3f0d67ed194875ef52aeac86725ec22e27e122ec7bd033995",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.ldap.md": {
+    "status": "translated",
+    "source_sha256": "abe53f931311b2c919225a66c975b1723b15248f5eca6af75c28175affc4040c",
+    "translation_sha256": "60ecf0353bc92391b1df999d03f6039261a72755980dc26777a88f7124150141",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "ldap-update-attributes-markdown-extra-asterisk"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.jwt.md": {
+    "status": "translated",
+    "source_sha256": "b3aea60cb43d6d0a4c9807a80f4490274223ae574d1105e8aedb6c3c183a84f0",
+    "translation_sha256": "abd3db1dcbc4236b31741385a0121b10d4f19ab0c920c0644702b750e93bb538",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "jwt-sign-override-algorithm-operation-context"
+    ]
   }
 }

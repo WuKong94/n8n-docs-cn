@@ -1,18 +1,14 @@
 ---
-title: Read/Write Files from Disk
+title: Read/Write Files from Disk 节点
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Read/Write Files from Disk
+nodeTitle: Read/Write Files from Disk 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.readwritefile.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.readwritefile
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.readwritefile
-description: >-
-  Documentation for the Read/Write Files from Disk node in n8n, a workflow
-  automation platform. Includes guidance on usage, and links to examples.
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.readwritefile
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.readwritefile
+description: 了解 n8n 中 Read/Write Files from Disk 节点的用法，并查看相关示例。
 layout:
   width: default
   title:
@@ -32,93 +28,95 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Read/Write Files from Disk
 
-Use the Read/Write Files from Disk node to read and write files from/to the machine where n8n is running.
+# Read/Write Files from Disk（读写磁盘文件） <a id="readwrite-files-from-disk"></a>
 
-The paths this node can access depend on your n8n deployment. Refer to [File locations](n8n-nodes-base.readwritefile.md#file-locations) for details.
+使用 Read/Write Files from Disk 节点，在运行 n8n 的机器上读取和写入文件。
 
-## Operations <a href="#operations" id="operations"></a>
+节点可访问的路径取决于 n8n 的部署方式，详见[文件位置](n8n-nodes-base.readwritefile.md#file-locations)。
 
-* [**Read File(s) From Disk**](n8n-nodes-base.readwritefile.md#read-files-from-disk): Use this operation to retrieve one or more files from the computer that runs n8n.
-* [**Write File to Disk**](n8n-nodes-base.readwritefile.md#write-file-to-disk): Use this operation to create a binary file on the computer that runs n8n.
+## 操作 <a href="#operations" id="operations"></a>
 
-Refer to the sections below for more information on configuring the node for each operation.
+* [**Read File(s) From Disk**](n8n-nodes-base.readwritefile.md#read-files-from-disk)（从磁盘读取文件）：从运行 n8n 的计算机检索一个或多个文件。
+* [**Write File to Disk**](n8n-nodes-base.readwritefile.md#write-file-to-disk)（向磁盘写入文件）：在运行 n8n 的计算机上创建二进制文件。
 
-## Read File(s) From Disk <a href="#read-files-from-disk" id="read-files-from-disk"></a>
+各操作的节点配置说明见下文。
 
-Configure this operation with these parameters:
+## Read File(s) From Disk（从磁盘读取文件） <a href="#read-files-from-disk" id="read-files-from-disk"></a>
 
-* **File(s) Selector**: Enter the path of the file you want to read.
-  * To enter multiple files, enter a page path pattern. You can use these characters to define a path pattern:
-    * `*`: Matches any character zero or more times, excluding path separators.
-    * `**`: Matches any character zero or more times, include path separators.
-    * `?`: Matches any character except for path separators one time.
-    * `[]`: Matches any characters inside the brackets. For example, `[abc]` would match the characters `a`, `b`, or `c`, and nothing else.
+使用以下参数配置此操作：
 
-Refer to [Picomatch's Basic globbing](https://github.com/micromatch/picomatch#basic-globbing) documentation for more information on these characters and their expected behavior.
+* **File(s) Selector**（文件选择器）：输入要读取的文件路径。
+  * 要读取多个文件，输入路径匹配模式，可使用以下字符：
+    * `*`：匹配零个或多个任意字符，不包含路径分隔符。
+    * `**`：匹配零个或多个任意字符，包含路径分隔符。
+    * `?`：匹配一个任意字符，不包含路径分隔符。
+    * `[]`：匹配方括号中的任一字符。例如，`[abc]` 仅匹配 `a`、`b` 或 `c`。
 
-### Read File(s) From Disk options <a href="#read-files-from-disk-options" id="read-files-from-disk-options"></a>
+有关这些字符及其预期行为的更多信息，请参阅 [Picomatch 的基本 glob 匹配](https://github.com/micromatch/picomatch#basic-globbing)文档。
 
-You can also configure this operation with these **Options**:
+### Read File(s) From Disk（从磁盘读取文件）选项 <a href="#read-files-from-disk-options" id="read-files-from-disk-options"></a>
 
-* **File Extension**: Enter the extension for the file in the node output.
-* **File Name**: Enter the name for the file in the node output.
-* **MIME Type**: Enter the file's MIME type in the node output. Refer to [Common MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) for a list of file extensions and their MIME types.
-* **Put Output File in Field**: Enter the name of the field in the output data to contain the file.
+还可通过以下 **Options**（选项）配置此操作：
 
-## Write File to Disk <a href="#write-file-to-disk" id="write-file-to-disk"></a>
+* **File Extension**（文件扩展名）：输入节点输出中的文件扩展名。
+* **File Name**（文件名称）：输入节点输出中的文件名称。
+* **MIME Type**（MIME 类型）：输入节点输出中的文件 MIME 类型。扩展名及其 MIME 类型列表，请参阅[常见 MIME 类型](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)。
+* **Put Output File in Field**（输出文件字段）：输入用于存放文件的输出数据字段名称。
 
-Configure this operation with these parameters:
+## Write File to Disk（向磁盘写入文件） <a href="#write-file-to-disk" id="write-file-to-disk"></a>
 
-* **File Path and Name**: Enter the destination for the file, the file's name, and the file's extension.
-* **Input Binary Field**: Enter the name of the field in the node input data that will contain the binary file.
+使用以下参数配置此操作：
 
-### Write File to Disk options <a href="#write-file-to-disk-options" id="write-file-to-disk-options"></a>
+* **File Path and Name**（文件路径与名称）：输入文件的目标位置、名称和扩展名。
+* **Input Binary Field**（输入二进制字段）：输入节点输入数据中包含二进制文件的字段名称。
 
-You can also configure this operation with these **Options**:
+### Write File to Disk（向磁盘写入文件）选项 <a href="#write-file-to-disk-options" id="write-file-to-disk-options"></a>
 
-This operation includes a single option, whether to **Append** data to an existing file instead of creating a new one (turned on) or to create a new file instead of appending to existing (turned off).
+还可通过以下 **Options**（选项）配置此操作：
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+此操作只有一个 **Append**（追加）选项：开启时，将数据追加到现有文件，而不是创建新文件；关闭时，创建新文件，而不向现有文件追加。
 
-[Browse Read/Write Files from Disk integration templates](https://n8n.io/integrations/readwrite-files-from-disk) or [search all templates](https://n8n.io/workflows/)
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-## File locations <a href="#file-locations" id="file-locations"></a>
+[浏览 Read/Write Files from Disk 集成模板](https://n8n.io/integrations/readwrite-files-from-disk)，或[搜索所有模板](https://n8n.io/workflows/)
 
-The paths this node can read from and write to depend on your n8n deployment.
+## 文件位置 <a href="#file-locations" id="file-locations"></a>
+
+节点可读写的路径取决于 n8n 的部署方式。
 
 ### n8n Cloud <a href="#n8n-cloud" id="n8n-cloud"></a>
 
-On n8n Cloud, the node can only access paths under `/home/node/`. Paths outside this directory (for example, `/tmp/` or `/data/`) fail with an access error.
+在 n8n Cloud 上，节点只能访问 `/home/node/` 下的路径。访问此目录之外的路径，例如 `/tmp/` 或 `/data/`，会出现访问错误。
 
 {% hint style="info" %}
-**Field placeholders on Cloud**
+**Cloud 上的字段占位符**
 
-The default placeholders in the node's **File(s) Selector** and **File Path and Name** fields (such as `/home/user/Pictures/**/*.png` and `/data/example.jpg`) are examples. On Cloud, replace them with a path under `/home/node/`.
+节点 **File(s) Selector**（文件选择器）和 **File Path and Name**（文件路径与名称）中的默认占位符，例如 `/home/user/Pictures/**/*.png` 和 `/data/example.jpg`，只是示例。在 Cloud 上，应将其替换为 `/home/node/` 下的路径。
 {% endhint %}
 
 {% hint style="warning" %}
-**Cloud filesystem is ephemeral**
+**Cloud 文件系统是临时的**
 
-Files this node writes on Cloud aren't guaranteed to persist across workflow executions, worker restarts, or instance redeploys. Don't use this node to store files you need to keep.
+此节点在 Cloud 上写入的文件，不保证能在工作流多次执行、工作进程重启或实例重新部署后保留。不要用此节点保存需要长期保留的文件。
 
-n8n reserves the `/home/node/.n8n/` directory for its internal state. Don't write your own files there.
+n8n 将 `/home/node/.n8n/` 目录保留给内部状态使用，不要在该目录写入自己的文件。
 
-For persistent file handling on Cloud, use a cloud storage node such as [AWS S3](../app-nodes/n8n-nodes-base.awss3.md), [Google Drive](../app-nodes/n8n-nodes-base.googledrive/README.md), or [FTP](n8n-nodes-base.ftp.md).
+要在 Cloud 上持久保存文件，请使用 [AWS S3](../app-nodes/n8n-nodes-base.awss3.md)、[Google Drive](../app-nodes/n8n-nodes-base.googledrive/README.md) 或 [FTP](n8n-nodes-base.ftp.md) 等云存储节点。
 {% endhint %}
 
-### Self-hosted n8n <a href="#self-hosted-n8n" id="self-hosted-n8n"></a>
+### 自托管 n8n <a href="#self-hosted-n8n" id="self-hosted-n8n"></a>
 
-On self-hosted n8n, by default the node can access any path the n8n process can reach. To restrict access, set the [`N8N_RESTRICT_FILE_ACCESS_TO`](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/security) environment variable to one or more allowed directories (semicolon-separated).
+在自托管 n8n 中，可访问路径同时受 n8n 进程权限及文件访问限制约束。可将 [`N8N_RESTRICT_FILE_ACCESS_TO`](../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/security.md) 环境变量设为一个或多个允许访问的目录，以分号分隔；n8n 2.0 起的默认限制见下文。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用性**
 
-Starting in n8n 2.0, `N8N_RESTRICT_FILE_ACCESS_TO` defaults to `~/.n8n-files`. To allow file operations elsewhere, set the variable explicitly. Refer to [n8n 2.0 breaking changes](https://app.gitbook.com/s/hhM8Cox90Piiv0u0EgHM/v20-breaking-changes#set-default-value-for-n8n_restrict_file_access_to) for details.
+从 n8n 2.0 起，`N8N_RESTRICT_FILE_ACCESS_TO` 默认为 `~/.n8n-files`。要在其他位置操作文件，请显式设置此变量。详见 [n8n 2.0 破坏性变更](../../../changelog/v20-breaking-changes.md#set-default-value-for-n8n_restrict_file_access_to)。
 {% endhint %}
 
-If you run n8n in Docker, paths refer to the n8n container's filesystem, not the Docker host. To make host directories available to this node, mount them as volumes into the container.
+如果使用 Docker 运行 n8n，路径指向 n8n 容器的文件系统，而不是 Docker 宿主机。要让节点访问宿主机目录，请将其作为卷挂载到容器中。
 
-n8n recommends using absolute file paths to prevent errors.
+n8n 建议使用绝对文件路径，以避免错误。

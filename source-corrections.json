@@ -1510,5 +1510,41 @@
     ],
     "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
     "source_sha256": "04117d141b1fd43b33a58917605d516dfdd15b0c60a025ba3a49e1961dc64608"
+  },
+  {
+    "id": "read-write-files-self-hosted-default-access-version-context",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.readwritefile.md",
+    "original_sentence": "On self-hosted n8n, by default the node can access any path the n8n process can reach. To restrict access, set the [`N8N_RESTRICT_FILE_ACCESS_TO`](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/security) environment variable to one or more allowed directories (semicolon-separated).",
+    "translated_sentence": "在自托管 n8n 中，可访问路径同时受 n8n 进程权限及文件访问限制约束。可将 [`N8N_RESTRICT_FILE_ACCESS_TO`](../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/security.md) 环境变量设为一个或多个允许访问的目录，以分号分隔；n8n 2.0 起的默认限制见下文。",
+    "evidence": "自托管段开头称默认可访问进程可达的所有路径，但同段功能提示明确 n8n 2.0 起 N8N_RESTRICT_FILE_ACCESS_TO 默认设为 ~/.n8n-files。译文避免无版本限定的全路径访问断言，明确进程权限和文件访问限制共同约束，并指向下文的 2.0 默认值；目录列表以分号分隔的说明保留。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.readwritefile.md"
+    ],
+    "scope": "仅修正同页可证明的版本语境、格式笔误及签名／验证操作角色；原文快照、代码、命令、路径、图片、链接和锚点保持原样。未执行文档命令、连接远程服务或读写真实业务文件。",
+    "source_sha256": "9e8ec76f08bea3b462c22f249677599c2373a16bac5221fb4f60b9b1ee301f86"
+  },
+  {
+    "id": "ldap-update-attributes-markdown-extra-asterisk",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.ldap.md",
+    "original_sentence": "* ***Update Attributes**: Select whether to **Add** new, **Remove** existing, or **Replace** existing attribute.",
+    "translated_sentence": "* **Update Attributes**（更新属性）：选择 **Add**（添加）新属性、**Remove**（移除）现有属性，或 **Replace**（替换）现有属性。",
+    "evidence": "Update Attributes 标签前多出一个星号，造成 Markdown 强调格式不闭合。译文仅移除多余星号，保留字段名称及 Add、Remove、Replace 三种属性更新操作与其顺序。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.ldap.md"
+    ],
+    "scope": "仅修正同页可证明的版本语境、格式笔误及签名／验证操作角色；原文快照、代码、命令、路径、图片、链接和锚点保持原样。未执行文档命令、连接远程服务或读写真实业务文件。",
+    "source_sha256": "abe53f931311b2c919225a66c975b1723b15248f5eca6af75c28175affc4040c"
+  },
+  {
+    "id": "jwt-sign-override-algorithm-operation-context",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.jwt.md",
+    "original_sentence": "Use the **Override Algorithm** control to select the algorithm to use for verifying the token. This algorithm will override the algorithm selected in the credentials.",
+    "translated_sentence": "使用 **Override Algorithm**（覆盖算法）选择签名令牌所用的算法，此设置覆盖凭据中选择的算法。",
+    "evidence": "Sign node options 的 Override Algorithm 描述误写 verifying token，与下一个 Verify 段混淆。同页操作与载荷声明说明明确 Sign 用于签名。译文将此段明确为签名算法，Verify 段仍为验证算法，两处均覆盖凭据中的算法。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.jwt.md"
+    ],
+    "scope": "仅修正同页可证明的版本语境、格式笔误及签名／验证操作角色；原文快照、代码、命令、路径、图片、链接和锚点保持原样。未执行文档命令、连接远程服务或读写真实业务文件。",
+    "source_sha256": "b3aea60cb43d6d0a4c9807a80f4490274223ae574d1105e8aedb6c3c183a84f0"
   }
 ]

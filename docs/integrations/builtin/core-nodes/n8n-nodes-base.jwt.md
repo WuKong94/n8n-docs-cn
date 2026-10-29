@@ -1,114 +1,114 @@
 ---
-title: JWT
-description: >-
-  Documentation for the JWT node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: JWT 节点
+description: 了解 n8n 中 JWT 节点的用法，并查看相关示例。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: JWT
+nodeTitle: JWT 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.jwt.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.jwt'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.jwt'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.jwt
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.jwt
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # JWT <a href="#jwt" id="jwt"></a>
 
-Work with JSON web tokens in your n8n workflows.
+在 n8n 工作流中处理 JSON Web Token（JWT）。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [JWT credentials documentation](../credentials/jwt.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [JWT 凭据文档](../credentials/jwt.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Decode
-* Sign
-* Verify
+* Decode（解码）
+* Sign（签名）
+* Verify（验证）
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-* **Credential to connect with**: Select or create a [JWT credential](../credentials/jwt.md) to connect with.
-* **Token**: Enter the token to **Verify** or **Decode**.
-* If you select the **Sign** operation, you'll also have this parameter:
-    * **Use JSON to Build Payload**: When turned on, the node uses JSON to build the claims. The selection here influences what appears in the Payload Claims section.
+* **Credential to connect with**（连接凭据）：选择或创建用于连接的 [JWT 凭据](../credentials/jwt.md)。
+* **Token**（令牌）：输入要 **Verify**（验证）或 **Decode**（解码）的令牌。
+* 选择 **Sign**（签名）操作后，还会有以下参数：
+    * **Use JSON to Build Payload**（使用 JSON 构建载荷）：开启时，节点使用 JSON 构建声明。此选项决定 Payload Claims（载荷声明）部分显示的内容。
 
-## Payload Claims <a href="#payload-claims" id="payload-claims"></a>
+## Payload Claims（载荷声明） <a href="#payload-claims" id="payload-claims"></a>
 
-The node only displays payload claims if you select the **Sign** operation. What you see depends on what you select for **Use JSON to Build Payload**:
+只有选择 **Sign**（签名）操作时，节点才显示载荷声明。具体内容取决于 **Use JSON to Build Payload**（使用 JSON 构建载荷）的设置：
 
-* If you select **Use JSON to Build Payload**, this section displays a JSON editor where you can construct the claims.
-* If you don't select **Use JSON to Build Payload**, this section prompts you to **Add Claim**.
+* 开启 **Use JSON to Build Payload**（使用 JSON 构建载荷）时，此处显示 JSON 编辑器，可在其中构建声明。
+* 未开启 **Use JSON to Build Payload**（使用 JSON 构建载荷）时，此处提示 **Add Claim**（添加声明）。
 
-You can add the following claims.
+可以添加以下声明。
 
-### Audience <a href="#audience" id="audience"></a>
+### Audience（受众） <a href="#audience" id="audience"></a>
 
-The **Audience** or `aud` claim identifies the intended recipients of the JWT.
+**Audience**（受众）或 `aud` 声明用于标识 JWT 的预期接收方。
 
-Refer to ["aud" (Audience) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3) for more information.
+更多信息，请参阅 [aud（受众）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3)。
 
-### Expires In <a href="#expires-in" id="expires-in"></a>
+### Expires In（过期时间） <a href="#expires-in" id="expires-in"></a>
 
-The **Expires In** or `exp` claim identifies the time after which the JWT expires and must not be accepted for processing.
+**Expires In**（过期时间）或 `exp` 声明标识 JWT 过期的时间，在此时间之后不得再接受该 JWT 进行处理。
 
-Refer to ["exp" (Expiration Time) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4) for more information.
+更多信息，请参阅 [exp（过期时间）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4)。
 
-### Issuer <a href="#issuer" id="issuer"></a>
+### Issuer（签发者） <a href="#issuer" id="issuer"></a>
 
-The **Issuer** or `iss` claim identifies the principal that issued the JWT.
+**Issuer**（签发者）或 `iss` 声明用于标识签发 JWT 的主体。
 
-Refer to ["iss" (Issuer) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.1) for more information.
+更多信息，请参阅 [iss（签发者）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.1)。
 
 ### JWT ID <a href="#jwt-id" id="jwt-id"></a>
 
-The **JWT ID** or `jti` claim provides a unique identifier for the JWT.
+**JWT ID** 或 `jti` 声明为 JWT 提供唯一标识。
 
-Refer to ["jti" (JWT ID) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.7) for more information.
+更多信息，请参阅 [jti（JWT ID）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.7)。
 
-### Not Before <a href="#not-before" id="not-before"></a>
+### Not Before（生效时间） <a href="#not-before" id="not-before"></a>
 
-The **Not Before** or `nbf` claim identifies the time before which the JWT must not be accepted for processing.
+**Not Before**（生效时间）或 `nbf` 声明标识 JWT 的生效时间，在此时间之前不得接受该 JWT 进行处理。
 
-Refer to ["nbf" (Not Before) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.5) for more information.
+更多信息，请参阅 [nbf（生效时间）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.5)。
 
-### Subject <a href="#subject" id="subject"></a>
+### Subject（主题） <a href="#subject" id="subject"></a>
 
-The **Subject** or `sub` claim identifies the principal that's the subject of the JWT.
+**Subject**（主题）或 `sub` 声明标识 JWT 所涉及的主体。
 
-Refer to ["sub" (Subject) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.2) for more information.
+更多信息，请参阅 [sub（主题）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.2)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-### Decode node options <a href="#decode-node-options" id="decode-node-options"></a>
+### Decode（解码）节点选项 <a href="#decode-node-options" id="decode-node-options"></a>
 
-The **Return Additional Info** toggle controls how much information the node returns.
+**Return Additional Info**（返回额外信息）开关控制节点返回的信息量。
 
-When turned on, the node returns the complete decoded token with information about the header and signature. When turned off, the node only returns the payload.
+开启时，节点返回完整的解码后令牌，包含头部和签名信息；关闭时，仅返回载荷。
 
-### Sign node options <a href="#sign-node-options" id="sign-node-options"></a>
+### Sign（签名）节点选项 <a href="#sign-node-options" id="sign-node-options"></a>
 
-Use the **Override Algorithm** control to select the algorithm to use for verifying the token. This algorithm will override the algorithm selected in the credentials.
+使用 **Override Algorithm**（覆盖算法）选择签名令牌所用的算法，此设置覆盖凭据中选择的算法。
 
-### Verify node options <a href="#verify-node-options" id="verify-node-options"></a>
+### Verify（验证）节点选项 <a href="#verify-node-options" id="verify-node-options"></a>
 
-This operation includes several node options:
+此操作包含以下节点选项：
 
-* **Return Additional Info**: This toggle controls how much information the node returns. When turned on, the node returns the complete decoded token with information about the header and signature. When turned off, the node only returns the payload.
-* **Ignore Expiration**: This toggle controls whether the node should ignore the token's expiration time claim (`exp`). Refer to ["exp" (Expiration Time) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4) for more information.
-* **Ignore Not Before Claim**: This toggle controls whether to ignore the token's not before claim (`nbf`). Refer to ["nbf" (Not Before) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.5) for more information.
-* **Clock Tolerance**: Enter the number of seconds to tolerate when checking the `nbf` and `exp` claims. This allows you to deal with small clock differences among different servers. Refer to ["exp" (Expiration Time) Claim](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4) for more information.
-* **Override Algorithm**: The algorithm to use for verifying the token. This algorithm will override the algorithm selected in the credentials.
+* **Return Additional Info**（返回额外信息）：控制节点返回的信息量。开启时返回完整的解码后令牌，包含头部和签名信息；关闭时，仅返回载荷。
+* **Ignore Expiration**（忽略过期时间）：控制是否忽略令牌的过期时间声明（`exp`）。更多信息，请参阅 [exp（过期时间）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4)。
+* **Ignore Not Before Claim**（忽略生效时间声明）：控制是否忽略令牌的生效时间声明（`nbf`）。更多信息，请参阅 [nbf（生效时间）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.5)。
+* **Clock Tolerance**（时钟容差）：输入检查 `nbf` 和 `exp` 声明时可容忍的秒数，用于应对不同服务器间的微小时钟差异。更多信息，请参阅 [exp（过期时间）声明](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4)。
+* **Override Algorithm**（覆盖算法）：验证令牌所用的算法，此设置覆盖凭据中选择的算法。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse JWT integration templates](https://n8n.io/integrations/jwt) or [search all templates](https://n8n.io/workflows/)
+[浏览 JWT 集成模板](https://n8n.io/integrations/jwt)，或[搜索所有模板](https://n8n.io/workflows/)
