@@ -1,43 +1,43 @@
 ---
 title: Outlook.com
-description: >-
-  Documentation for Outlook.com IMAP credentials. Use these credentials to
-  authenticate Outlook.com IMAP in n8n, a workflow automation platform.
+description: Outlook.com IMAP 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Outlook.com IMAP 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: Outlook.com
 originalFilePath: integrations/builtin/credentials/imap/outlook.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/imap/outlook'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/imap/outlook'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/imap/outlook
+url: https://docs.n8n.io/integrations/builtin/credentials/imap/outlook
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-Microsoft deprecated Basic Authentication for IMAP in Exchange Online and
-Outlook.com from October 1, 2022. As a result, the IMAP node **can't connect to Outlook.com or
-Microsoft 365 accounts**. App passwords are not a workaround for this
-restriction.
+Microsoft 已弃用 Exchange Online 和
+Outlook.com 的 IMAP 基本身份验证，自 2022 年 10 月 1 日起生效。因此，IMAP 节点**无法连接到 Outlook.com 或
+Microsoft 365 账户**。应用密码无法绕过这一
+限制。
 
-**Use the [Microsoft Outlook node](../../app-nodes/n8n-nodes-base.microsoftoutlook.md)
-instead.** It uses OAuth 2.0, which Microsoft now requires for mail access.
+**请改用 [Microsoft Outlook 节点](../../app-nodes/n8n-nodes-base.microsoftoutlook.md)，
+它使用 OAuth 2.0**，这是 Microsoft 目前对邮件访问要求的身份验证方式。
 
-Refer to [Microsoft's deprecation notice](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#what-we-are-changing)
-for more information.
+更多信息，请参阅 [Microsoft 的弃用公告](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#what-we-are-changing)
+。
 {% endhint %}
 
 
-# Outlook.com IMAP credentials <a href="#outlookcom-imap-credentials" id="outlookcom-imap-credentials"></a>
+# Outlook.com IMAP 凭据 <a href="#outlookcom-imap-credentials" id="outlookcom-imap-credentials"></a>
 
-IMAP access for Outlook.com and Microsoft 365 accounts is no longer supported in n8n due to Microsoft's deprecation of Basic Authentication for Exchange Online and Outlook.com from October 1, 2022. You can't use IMAP (with a regular password or app password) to connect to Outlook.com or Microsoft 365 accounts.
+Microsoft 自 2022 年 10 月 1 日起弃用了 Exchange Online 和 Outlook.com 的基本身份验证，因此 n8n 不再支持通过 IMAP 访问 Outlook.com 和 Microsoft 365 账户。无法使用 IMAP 配合普通密码或应用密码连接 Outlook.com 或 Microsoft 365 账户。
 
-To replace IMAP triggers for incoming email, use the [Microsoft Outlook Trigger node](../../trigger-nodes/n8n-nodes-base.microsoftoutlooktrigger.md), which supports the Message Received event.
+如需替代接收邮件的 IMAP 触发器，请使用 [Microsoft Outlook Trigger 节点](../../trigger-nodes/n8n-nodes-base.microsoftoutlooktrigger.md)，它支持 Message Received（收到邮件）事件。
 
-For general Microsoft Outlook automation, use the [Microsoft Outlook node](../../app-nodes/n8n-nodes-base.microsoftoutlook.md), which uses OAuth 2.0 as required by Microsoft.
+对于常规 Microsoft Outlook 自动化，请使用 [Microsoft Outlook 节点](../../app-nodes/n8n-nodes-base.microsoftoutlook.md)，它采用 Microsoft 要求的 OAuth 2.0。
 
-For more information, refer to [Microsoft's deprecation notice](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#what-we-are-changing).
+更多信息，请参阅 [Microsoft 的弃用公告](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#what-we-are-changing)。

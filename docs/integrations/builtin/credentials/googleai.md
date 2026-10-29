@@ -1,66 +1,66 @@
 ---
-title: Google Gemini(PaLM) credentials
-description: >-
-  Documentation for the Google Gemini(PaLM) credentials. Use these credentials
-  to authenticate Google Gemini and Google PaLM AI nodes in n8n, a workflow
-  automation platform.
+title: Google Gemini(PaLM) 凭据
+description: Google Gemini(PaLM) 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Google Gemini 和 Google
+  PaLM AI 节点的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Google Gemini(PaLM) credentials
+nodeTitle: Google Gemini(PaLM) 凭据
 originalFilePath: integrations/builtin/credentials/googleai.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/googleai'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/googleai'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/googleai
+url: https://docs.n8n.io/integrations/builtin/credentials/googleai
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Gemini(PaLM) credentials <a href="#google-geminipalm-credentials" id="google-geminipalm-credentials"></a>
+
+# Google Gemini(PaLM) 凭据 <a href="#google-geminipalm-credentials" id="google-geminipalm-credentials"></a>
 
 {% hint style="info" %}
-On n8n Cloud, you can skip setting up Google Gemini credentials by selecting **Use Gateway credits** in the credential field of nodes that support it. Refer to [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) for details.
+在 n8n Cloud 上，对于支持此功能的节点，可在凭据字段中选择 **Use Gateway credits**（使用 Gateway 额度），跳过 Google Gemini 凭据设置。详情请参阅 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)。
 {% endhint %}
 
-You can use these credentials to authenticate the following nodes:
+这些凭据可用于以下节点的身份验证：
 
-* [Embeddings Google Gemini](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini.md)
+* [Embeddings Google Gemini（向量嵌入）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglegemini.md)
 * [Google Gemini](../app-nodes/n8n-nodes-langchain.googlegemini.md)
-* [Google Gemini Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini.md)
-* [Embeddings Google PaLM](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglepalm.md)
+* [Google Gemini Chat Model（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini.md)
+* [Embeddings Google PaLM（向量嵌入）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsgooglepalm.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-* Create a [Google Cloud](https://cloud.google.com/) account.
-* Create a [Google Cloud Platform project](https://developers.google.com/workspace/marketplace/create-gcp-project).
+* 创建 [Google Cloud](https://cloud.google.com/) 账户。
+* 创建 [Google Cloud Platform 项目](https://developers.google.com/workspace/marketplace/create-gcp-project)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Gemini(PaLM) API key
+- Gemini(PaLM) API 密钥
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Google's Gemini API documentation](https://ai.google.dev/gemini-api/docs) for more information about the service.
+有关该服务的更多信息，请参阅 [Google Gemini API 文档](https://ai.google.dev/gemini-api/docs)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Using Gemini(PaLM) API key <a href="#using-geminipalm-api-key" id="using-geminipalm-api-key"></a>
+## 使用 Gemini(PaLM) API 密钥 <a href="#using-geminipalm-api-key" id="using-geminipalm-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- The API **Host** URL: Both PaLM and Gemini use the default `https://generativelanguage.googleapis.com`.
-- An **API Key**: Create a key in [Google AI Studio](https://aistudio.google.com/apikey).
+- API **Host**（主机）URL：PaLM 和 Gemini 均使用默认值 `https://generativelanguage.googleapis.com`。
+- **API Key**（API 密钥）：在 [Google AI Studio](https://aistudio.google.com/apikey) 中创建密钥。
 
 {% hint style="warning" %}
-**Custom hosts not supported**
+**不支持自定义主机**
 
-The related nodes don't yet support custom hosts or proxies for the API host and must use `https://generativelanguage.googleapis.com`.
+相关节点尚不支持为 API 主机设置自定义主机或代理，必须使用 `https://generativelanguage.googleapis.com`。
 {% endhint %}
 
-To create an API key:
+创建 API 密钥：
 
-1. Go to the API Key page in Google AI Studio: [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey).
-2. Select **Create API Key**.
-3. You can choose whether to **Create API key in new project** or search for an existing Google Cloud project to **Create API key in existing project**.
-4. Copy the generated API key and add it to your n8n credential.
+1. 进入 Google AI Studio 的 API Key 页面：[https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)。
+2. 选择 **Create API Key**（创建 API 密钥）。
+3. 可选择 **Create API key in new project**（在新项目中创建 API 密钥），也可搜索现有 Google Cloud 项目并选择 **Create API key in existing project**（在现有项目中创建 API 密钥）。
+4. 复制生成的 API 密钥，添加到 n8n 凭据。

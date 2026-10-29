@@ -1,16 +1,14 @@
 ---
-title: OpenAI credentials
+title: OpenAI 凭据
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: OpenAI credentials
+nodeTitle: OpenAI 凭据
 originalFilePath: integrations/builtin/credentials/openai.md
 originalUrl: https://docs.n8n.io/integrations/builtin/credentials/openai
 url: https://docs.n8n.io/integrations/builtin/credentials/openai
-description: >-
-  Documentation for OpenAI credentials. Use these credentials to authenticate
-  with OpenAI in n8n.
+description: OpenAI 凭据文档。使用这些凭据在 n8n 中完成 OpenAI 的身份验证。
 layout:
   width: default
   title:
@@ -30,51 +28,53 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenAI credentials
+
+# OpenAI 凭据 <a id="openai-credentials"></a>
 
 {% hint style="info" %}
-On n8n Cloud, you can skip setting up OpenAI credentials by selecting **Use Gateway credits** in the credential field of nodes that support it. Refer to [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) for details.
+在 n8n Cloud 上，可以在支持此功能的节点凭据字段中选择 **Use Gateway credits（使用 Gateway 额度）**，无需另行设置 OpenAI 凭据。详情请参阅 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)。
 {% endhint %}
 
-You can use these credentials to authenticate the following nodes:
+这些凭据可用于以下节点的身份验证：
 
 * [OpenAI](../app-nodes/n8n-nodes-langchain.openai/README.md)
-* [Chat OpenAI](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/README.md)
-* [Embeddings OpenAI](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai.md)
+* [Chat OpenAI（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/README.md)
+* [Embeddings OpenAI（嵌入模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsopenai.md)
 * [LM OpenAI](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/README.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [OpenAI](https://platform.openai.com/signup/) account.
+创建一个 [OpenAI](https://platform.openai.com/signup/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-* API key
+* API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [OpenAI's API documentation](https://platform.openai.com/docs/introduction) for more information about the service.
+有关该服务的更多信息，请参阅 [OpenAI API 文档](https://platform.openai.com/docs/introduction)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-* An **API Key**
-* An **Organization ID**: Required if you belong to multiple organizations; otherwise, leave this blank.
+* 一个 **API Key**（API 密钥）
+* **Organization ID**（组织 ID）：属于多个组织时必填，否则留空。
 
-To generate your API Key:
+生成 API 密钥：
 
-1. Log in to your OpenAI account or [create](https://platform.openai.com/signup/) an account.
-2. Open your [API keys](https://platform.openai.com/api-keys) page.
-3. Select **Create new secret key** to create an API key, optionally naming the key.
-4. Copy your key and add it as the **API Key** in n8n.
+1. 登录 OpenAI 账户，或[创建](https://platform.openai.com/signup/)账户。
+2. 打开 [API 密钥](https://platform.openai.com/api-keys)页面。
+3. 选择 **Create new secret key**（创建新密钥），创建 API 密钥，也可以为密钥命名。
+4. 复制密钥，填入 n8n 的 **API Key** 字段。
 
-Refer to the [API Quickstart Account Setup documentation](https://platform.openai.com/docs/quickstart/account-setup) for more information.
+更多信息，请参阅 [API 快速入门的账户设置文档](https://platform.openai.com/docs/quickstart/account-setup)。
 
-To find your Organization ID:
+查找 Organization ID 的步骤如下：
 
-1. Go to your [Organization Settings](https://platform.openai.com/account/organization) page.
-2. Copy your Organization ID and add it as the **Organization ID** in n8n.
+1. 进入 [Organization Settings（组织设置）](https://platform.openai.com/account/organization)页面。
+2. 复制组织 ID，填入 n8n 的 **Organization ID**（组织 ID）。
 
-Refer to [Setting up your organization](https://platform.openai.com/docs/guides/production-best-practices/setting-up-your-organization) for more information. Note that API requests made using an Organization ID will count toward the organization's subscription quota.
+更多信息，请参阅[设置组织](https://platform.openai.com/docs/guides/production-best-practices/setting-up-your-organization)。请注意，使用组织 ID 发起的 API 请求会计入该组织的订阅配额。

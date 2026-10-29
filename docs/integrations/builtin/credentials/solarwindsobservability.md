@@ -1,39 +1,39 @@
 ---
-title: SolarWinds Observability SaaS credentials
-description: >-
-  Documentation for the SolarWinds Observability SaaS credential, Use these
-  credentials to authenticate SolarWinds Observability SaaS in n8n, a workflow
-  automation platform
+title: SolarWinds Observability SaaS 凭据
+description: SolarWinds Observability SaaS 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 SolarWinds
+  Observability SaaS 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: SolarWinds Observability SaaS credentials
+- integration
+- reference
+nodeTitle: SolarWinds Observability SaaS 凭据
 originalFilePath: integrations/builtin/credentials/solarwindsobservability.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/solarwindsobservability'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/solarwindsobservability'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/solarwindsobservability
+url: https://docs.n8n.io/integrations/builtin/credentials/solarwindsobservability
 layout:
   description:
     visible: false
 ---
-
-# SolarWinds Observability SaaS credentials <a href="#solarwinds-observability-saas-credentials" id="solarwinds-observability-saas-credentials"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
-
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
-
-* API Token
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-Refer to [SolarWinds Observability SaaS's API documentation](https://documentation.solarwinds.com/en/success_center/observability/content/api/api-swagger.htm) for more information about the service.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## Using API Token <a href="#using-api-token" id="using-api-token"></a>
+# SolarWinds Observability SaaS 凭据 <a href="#solarwinds-observability-saas-credentials" id="solarwinds-observability-saas-credentials"></a>
 
-To configure this credential, you'll need a SolarWinds Observability SaaS account and:
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-- **URL**: The URL you use to access the SolarWinds Observability SaaS platform
-- **API Token**: An API token found in the SolarWinds Observability SaaS platform under **Settings > Api Tokens**
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-Refer to [SolarWinds Observability SaaS's API documentation](https://documentation.solarwinds.com/en/success_center/observability/content/settings/api-tokens.htm) for more information about authenticating to the service.
+* API Token（API 令牌）
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+有关该服务的更多信息，请参阅 [SolarWinds Observability SaaS API 文档](https://documentation.solarwinds.com/en/success_center/observability/content/api/api-swagger.htm)。
+
+
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
+
+配置此凭据需要一个 SolarWinds Observability SaaS 账户，以及：
+
+- **URL**：访问 SolarWinds Observability SaaS 平台时使用的 URL
+- **API Token**（API 令牌）：在 SolarWinds Observability SaaS 平台的 **Settings > Api Tokens**（设置 > API 令牌）中找到的 API 令牌
+
+有关该服务身份验证的更多信息，请参阅 [SolarWinds Observability SaaS API 文档](https://documentation.solarwinds.com/en/success_center/observability/content/settings/api-tokens.htm)。

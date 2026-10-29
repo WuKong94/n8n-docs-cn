@@ -493,5 +493,39 @@
       "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/credentials/s3.md"
     ],
     "scope": "仅修正 DigitalOcean 小节 Force Path Style 开关的寻址条件；端点、区域、密钥、SSL 设置、其他服务商说明及代码保持原样，不声称验证了服务商连接或运行时行为。"
+  },
+  {
+    "id": "smtp-protocol-expanded-name",
+    "path": "integrations/builtin/credentials/send-email/README.md",
+    "source_sha256": "fd0162685c1d491c6ab2de836502f94e1c4320e62e92b1012e43b069fb919beb",
+    "original_sentence": "Simple Message Transfer Protocol (SMTP) is a standard protocol for sending and receiving email. Most email providers offer instructions on setting up their service with SMTP. Refer to your provider's SMTP instructions.",
+    "translated_sentence": "Simple Mail Transfer Protocol（SMTP，简单邮件传输协议）是用于发送和接收电子邮件的标准协议。大多数邮件提供商都提供通过 SMTP 设置其服务的说明，请参阅提供商的 SMTP 说明。",
+    "evidence": "原文将 SMTP 展开为 Simple Message Transfer Protocol；RFC 5321 标题明确为 Simple Mail Transfer Protocol。2026-10-29 核对 RFC 原始规范，仅校正协议全称。",
+    "evidence_sources": [
+      "https://www.rfc-editor.org/rfc/rfc5321.html"
+    ],
+    "scope": "仅修正 SMTP 全称中的 Message 为 Mail；不改动主机、端口、加密开关、密码或连接说明，不推断运行行为。"
+  },
+  {
+    "id": "gmail-smtp-ssl-starttls-source-note",
+    "path": "integrations/builtin/credentials/send-email/gmail.md",
+    "source_sha256": "60f5e5f3f962c150477095815a77cee1ac8561e18eb569f1e98ee787c3a6a056",
+    "original_sentence": "5. Turn on the **SSL/TLS** toggle.",
+    "translated_sentence": "> 译注：此步原文统一要求开启 SSL/TLS，但同版本 Send Email 凭据总览将端口 465 对应为开启 SSL/TLS，将端口 587 对应为关闭 SSL/TLS、使用 STARTTLS。若上一步选择 587，请按总览中的加密方式配置。",
+    "evidence": "Gmail 原文同时给出端口 465 和 587，却在下一步统一要求开启 SSL/TLS。同版本总览明确列出 465 开启 SSL/TLS、587 关闭 SSL/TLS 使用 STARTTLS。保留原步骤，以译注提示同版本冲突与对应配置。",
+    "related_source": "integrations/builtin/credentials/send-email/README.md",
+    "related_source_sha256": "fd0162685c1d491c6ab2de836502f94e1c4320e62e92b1012e43b069fb919beb",
+    "scope": "保留 Gmail 的全部原端口、设置步骤、密码说明和引用，仅添加同版本总览对照译注；不新增连接示例或声称经过实际邮箱连接测试。"
+  },
+  {
+    "id": "yahoo-smtp-ssl-starttls-source-note",
+    "path": "integrations/builtin/credentials/send-email/yahoo.md",
+    "source_sha256": "85502b1939e5e82c96ee52418951ae2c8ae8e56bb75bcdb9c116e074ce4f4377",
+    "original_sentence": "5. Turn on the **SSL/TLS** toggle.",
+    "translated_sentence": "> 译注：此步原文统一要求开启 SSL/TLS，但同版本 Send Email 凭据总览将端口 465 对应为开启 SSL/TLS，将端口 587 对应为关闭 SSL/TLS、使用 STARTTLS。若上一步选择 587，请按总览中的加密方式配置。",
+    "evidence": "Yahoo 原文同时给出端口 465 和 587，却在下一步统一要求开启 SSL/TLS。同版本总览明确列出 465 开启 SSL/TLS、587 关闭 SSL/TLS 使用 STARTTLS。保留原步骤，以译注提示同版本冲突与对应配置。",
+    "related_source": "integrations/builtin/credentials/send-email/README.md",
+    "related_source_sha256": "fd0162685c1d491c6ab2de836502f94e1c4320e62e92b1012e43b069fb919beb",
+    "scope": "保留 Yahoo 的全部原端口、设置步骤、密码说明和引用，仅添加同版本总览对照译注；不新增连接示例或声称经过实际邮箱连接测试。"
   }
 ]

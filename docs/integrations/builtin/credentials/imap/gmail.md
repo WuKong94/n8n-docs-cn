@@ -1,49 +1,49 @@
 ---
 title: Gmail
-description: >-
-  Documentation for Gmail IMAP credentials. Use these credentials to
-  authenticate Gmail IMAP in n8n, a workflow automation platform.
+description: Gmail IMAP 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Gmail IMAP 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: Gmail
 originalFilePath: integrations/builtin/credentials/imap/gmail.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/imap/gmail'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/imap/gmail'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/imap/gmail
+url: https://docs.n8n.io/integrations/builtin/credentials/imap/gmail
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Gmail IMAP credentials <a href="#gmail-imap-credentials" id="gmail-imap-credentials"></a>
 
-Follow these steps to configure the IMAP credentials with a Gmail account.
+# Gmail IMAP 凭据 <a href="#gmail-imap-credentials" id="gmail-imap-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+按照以下步骤，使用 Gmail 账户配置 IMAP 凭据。
 
-To follow these instructions, you must first:
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-1. [Enable 2-step Verification](#enable-2-step-verification) on your Gmail account.
-2. [Generate an app password](#generate-an-app-password).
+执行以下说明前，必须先完成：
 
-### Enable 2-step Verification <a href="#enable-2-step-verification" id="enable-2-step-verification"></a>
+1. 为 Gmail 账户[启用两步验证](#enable-2-step-verification)。
+2. [生成应用密码](#generate-an-app-password)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ysY7mHC9pN3kCUPncSi8/" %}
+### 启用两步验证 <a href="#enable-2-step-verification" id="enable-2-step-verification"></a>
 
-### Generate an app password <a href="#generate-an-app-password" id="generate-an-app-password"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/email/gmail-two-step-verification.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/rJn9WooD0IwP7abKawNZ/" %}
+### 生成应用密码 <a href="#generate-an-app-password" id="generate-an-app-password"></a>
 
-## Set up the credential <a href="#set-up-the-credential" id="set-up-the-credential"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/email/gmail-app-password.md" %}
 
-To set up the IMAP credential with a Gmail account, use these settings:
+## 设置凭据 <a href="#set-up-the-credential" id="set-up-the-credential"></a>
 
-1. Enter your Gmail email address as the **User**.
-2. Enter the app password you generated above as the **Password**.
-3. Enter `imap.gmail.com` as the **Host**.
-4. For the **Port**, keep the default port number of `993`. Check with your email administrator if this port doesn't work.
-5. Turn on the **SSL/TLS** toggle.
-6. Check with your email administrator about whether to **Allow Self-Signed Certificates**.
+使用 Gmail 账户设置 IMAP 凭据时，请采用以下设置：
 
-Refer to [Add Gmail to another client](https://support.google.com/mail/answer/7126229?hl=en) for more information. For personal Google accounts, IMAP access is always enabled. Google removed the **Enable IMAP** / **Disable IMAP** toggle in January 2025. If you're using a Google Workspace account and IMAP doesn't work, check with your email administrator whether they allow IMAP access for your account.
+1. 将 Gmail 邮箱地址填入 **User**（用户）。
+2. 将上面生成的应用密码填入 **Password**（密码）。
+3. 将 `imap.gmail.com` 填入 **Host**（主机）。
+4. **Port**（端口）保留默认端口号 `993`。如果此端口无法使用，请联系邮件管理员。
+5. 开启 **SSL/TLS**。
+6. 请向邮件管理员确认是否 **Allow Self-Signed Certificates**（允许自签名证书）。
+
+更多信息，请参阅[将 Gmail 添加到其他客户端](https://support.google.com/mail/answer/7126229?hl=en)。个人 Google 账户始终启用 IMAP 访问，Google 已于 2025 年 1 月移除 **Enable IMAP**（启用 IMAP）/ **Disable IMAP**（禁用 IMAP）开关。如果使用 Google Workspace 账户且 IMAP 无法工作，请向邮件管理员确认是否允许你的账户访问 IMAP。

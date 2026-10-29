@@ -1,50 +1,50 @@
 ---
-title: DeepSeek credentials
-description: >-
-  Documentation for DeepSeek credentials. Use these credentials to authenticate
-  Deepseek in n8n, a workflow automation platform.
+title: DeepSeek 凭据
+description: DeepSeek 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 DeepSeek 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: DeepSeek credentials
+nodeTitle: DeepSeek 凭据
 originalFilePath: integrations/builtin/credentials/deepseek.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/deepseek'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/deepseek'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/deepseek
+url: https://docs.n8n.io/integrations/builtin/credentials/deepseek
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# DeepSeek credentials <a href="#deepseek-credentials" id="deepseek-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# DeepSeek 凭据 <a href="#deepseek-credentials" id="deepseek-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Chat DeepSeek](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatdeepseek.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [DeepSeek](https://platform.deepseek.com/sign_up) account.
+创建一个 [DeepSeek](https://platform.deepseek.com/sign_up) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [DeepSeek's API documentation](https://api-docs.deepseek.com/api/deepseek-api) for more information about the service.
+有关该服务的更多信息，请参阅 [DeepSeek API 文档](https://api-docs.deepseek.com/api/deepseek-api)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**
+- 一个 **API Key（API 密钥）**
 
-To generate your API Key:
+生成 API 密钥：
 
-1. Login to your DeepSeek account or [create](https://platform.deepseek.com/sign_up) an account.
-2. Open your [API keys](https://platform.deepseek.com/api_keys) page.
-3. Select **Create new secret key** to create an API key, optionally naming the key.
-4. Copy your key and add it as the **API Key** in n8n.
+1. 登录 DeepSeek 账户，或[创建](https://platform.deepseek.com/sign_up)账户。
+2. 打开 [API 密钥](https://platform.deepseek.com/api_keys)页面。
+3. 选择 **Create new secret key**（创建新密钥），创建 API 密钥，也可以为密钥命名。
+4. 复制密钥，填入 n8n 的 **API Key** 字段。
 
-Refer to the [Your First API Call](https://api-docs.deepseek.com/) page for more information.
+更多信息，请参阅[首次 API 调用](https://api-docs.deepseek.com/)页面。

@@ -1,66 +1,66 @@
 ---
-title: IMAP credentials
-description: >-
-  Documentation for IMAP credentials. Use these credentials to authenticate IMAP
-  in n8n, a workflow automation platform.
+title: IMAP 凭据
+description: IMAP 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 IMAP 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: IMAP
 originalFilePath: integrations/builtin/credentials/imap/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/imap'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/imap'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/imap
+url: https://docs.n8n.io/integrations/builtin/credentials/imap
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# IMAP credentials <a href="#imap-credentials" id="imap-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# IMAP 凭据 <a href="#imap-credentials" id="imap-credentials"></a>
 
-- [IMAP Email](../../core-nodes/n8n-nodes-base.emailimap.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [IMAP Email（邮件）](../../core-nodes/n8n-nodes-base.emailimap.md)
 
-Create an email account on a service with IMAP support.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+在支持 IMAP 的服务上创建邮箱账户。
 
-- User account
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- 用户账户
 
-Internet Message Access Protocol (IMAP) is a standard protocol for receiving email. Most email providers offer instructions on setting up their service with IMAP; refer to your provider's IMAP instructions.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using user account <a href="#using-user-account" id="using-user-account"></a>
+Internet Message Access Protocol（IMAP，互联网消息访问协议）是接收电子邮件的标准协议。大多数邮件提供商都提供通过 IMAP 设置其服务的说明，请参阅提供商的 IMAP 说明。
 
-To configure this credential, you'll need:
+## 使用用户账户 <a href="#using-user-account" id="using-user-account"></a>
 
-- A **User** name: The email address you're retrieving email for.
-- A **Password**: Either the password you use to check email or an app password. Your provider will tell you whether to use your own password or to generate an app password.
-- A **Host**: The IMAP host address for your email provider, often formatted as `imap.<provider>.com`. Check with your provider.
-- A **Port** number: The default is port `993`. Use this port unless your provider or email administrator tells you to use something different.
+配置此凭据需要：
 
-Choose whether to use **SSL/TLS** and whether to **Allow Self-Signed Certificates**.
+- **User**（用户）名：要从中获取邮件的邮箱地址。
+- **Password**（密码）：登录邮箱所用的密码或应用密码。邮件提供商会说明应使用账户密码还是生成应用密码。
+- **Host**（主机）：邮件提供商的 IMAP 主机地址，通常采用 `imap.<provider>.com` 格式。请向提供商确认。
+- **Port**（端口）号：默认为 `993`。除非提供商或邮件管理员要求使用其他端口，否则请使用此端口。
 
-### Provider instructions <a href="#provider-instructions" id="provider-instructions"></a>
+选择是否使用 **SSL/TLS**，以及是否 **Allow Self-Signed Certificates**（允许自签名证书）。
 
-Refer to the quickstart guides for these common email providers.
+### 提供商说明 <a href="#provider-instructions" id="provider-instructions"></a>
+
+请参阅以下常见邮件提供商的快速入门指南。
 
 #### Gmail <a href="#gmail" id="gmail"></a>
 
-Refer to [Gmail](gmail.md).
+请参阅 [Gmail](gmail.md)。
 
 #### Outlook.com <a href="#outlookcom" id="outlookcom"></a>
 
-Refer to [Outlook.com](outlook.md).
+请参阅 [Outlook.com](outlook.md)。
 
 #### Yahoo <a href="#yahoo" id="yahoo"></a>
 
-Refer to [Yahoo](yahoo.md).
+请参阅 [Yahoo](yahoo.md)。
 
-### My provider isn't listed <a href="#my-provider-isnt-listed" id="my-provider-isnt-listed"></a>
+### 未列出我使用的提供商 <a href="#my-provider-isnt-listed" id="my-provider-isnt-listed"></a>
 
-If your email provider isn't listed here, search for their `IMAP settings` or `IMAP instructions`.
+如果此处未列出你的邮件提供商，请搜索其 `IMAP settings` 或 `IMAP instructions`。
