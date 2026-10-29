@@ -1,84 +1,82 @@
 ---
-title: TheHive 5 Trigger node documentation
-description: >-
-  Learn how to use the TheHive 5 Trigger node in n8n. Follow technical
-  documentation to integrate TheHive 5 Trigger node into your workflows.
+title: TheHive 5 触发器节点文档
+description: 了解如何在 n8n 中使用 TheHive 5 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: TheHive 5 Trigger node documentation
+- integration
+- reference
+nodeTitle: TheHive 5 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.thehive5trigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.thehive5trigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.thehive5trigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.thehive5trigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.thehive5trigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# TheHive 5 Trigger node <a href="#thehive-5-trigger-node" id="thehive-5-trigger-node"></a>
 
-Use the TheHive 5 Trigger node to respond to events in [TheHive](https://strangebee.com/thehive/) and integrate TheHive with other applications. n8n has built-in support for a wide range of TheHive events, including alerts, cases, comments, pages, and tasks.
+# TheHive 5 触发器节点 <a href="#thehive-5-trigger-node" id="thehive-5-trigger-node"></a>
 
-On this page, you'll find a list of events the TheHive5 Trigger node can respond to and links to more resources.
+使用 TheHive 5 Trigger 节点响应 [TheHive](https://strangebee.com/thehive/) 中的事件，并将 TheHive 与其他应用集成。n8n 内置支持多种 TheHive 事件，包括警报、案件、评论、页面和任务。
+
+本页列出了 TheHive5 Trigger 节点可响应的事件，并提供更多资源的链接。
 
 {% hint style="info" %}
-**TheHive and TheHive 5**
+**TheHive 与 TheHive 5**
 
-n8n provides two nodes for TheHive. Use this node (TheHive 5 Trigger) if you want to use TheHive's version 5 API. If you want to use version 3 or 4, use [TheHive Trigger](n8n-nodes-base.thehivetrigger.md).
+n8n 为 TheHive 提供两个节点。要使用 TheHive 的版本 5 API，请使用此节点（TheHive 5 Trigger）；要使用版本 3 或 4，请使用 [TheHive Trigger](n8n-nodes-base.thehivetrigger.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [TheHive 5 Trigger integrations](https://n8n.io/integrations/thehive-5-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [TheHive 5 Trigger 集成](https://n8n.io/integrations/thehive-5-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Alert 
-	* Created
-	* Deleted
-	* Updated
-* Case
-	* Created
-	* Deleted
-	* Updated
-* Comment
-	* Created
-	* Deleted
-	* Updated
-* Observable
-	* Created
-	* Deleted
-	* Updated
-* Page
-	* Created
-	* Deleted
-	* Updated
-* Task
-	* Created
-	* Deleted
-	* Updated
-* Task log
-	* Created
-	* Deleted
-	* Updated
+* Alert（警报）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Updated（已更新）
+* Case（案件）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Updated（已更新）
+* Comment（评论）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Updated（已更新）
+* Observable（可观测项）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Updated（已更新）
+* Page（页面）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Updated（已更新）
+* Task（任务）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Updated（已更新）
+* Task log（任务日志）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Updated（已更新）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for TheHive 5. Refer to the [TheHive 5 node documentation](../app-nodes/n8n-nodes-base.thehive5.md) for more information.
+n8n 为 TheHive 5 提供应用节点。更多信息请参阅 [TheHive 5 节点文档](../app-nodes/n8n-nodes-base.thehive5.md)。
 
-Refer to TheHive's [documentation](https://docs.strangebee.com/) for more information about the service.
+该服务的更多信息，请参阅 TheHive 的[文档](https://docs.strangebee.com/)。
 
 
-## Configure a webhook in TheHive <a href="#configure-a-webhook-in-thehive" id="configure-a-webhook-in-thehive"></a>
+## 在 TheHive 中配置 Webhook <a href="#configure-a-webhook-in-thehive" id="configure-a-webhook-in-thehive"></a>
 
-To configure the webhook for your TheHive instance:
+为 TheHive 实例配置 Webhook：
 
-1. Copy the testing and production webhook URLs from TheHive Trigger node.
-2. Add the following lines to the `application.conf` file. This is TheHive configuration file:
+1. 从 TheHive Trigger 节点复制测试和生产 Webhook URL。
+2. 将以下内容添加到 `application.conf` 文件中。这是 TheHive 的配置文件：
 
 	```
 	notification.webhook.endpoints = [
@@ -101,10 +99,10 @@ To configure the webhook for your TheHive instance:
 	]
 	```
 
-3. Replace `TESTING_WEBHOOK_URL` and `PRODUCTION_WEBHOOK_URL` with the URLs you copied in the previous step.
-4. Replace `TESTING_WEBHOOK_NAME` and `PRODUCTION_WEBHOOK_NAME` with your preferred endpoint names.
-5. Replace `ORGANIZATION_NAME` with your organization name.
-6. Execute the following cURL command to enable notifications:
+3. 将 `TESTING_WEBHOOK_URL` 和 `PRODUCTION_WEBHOOK_URL` 替换为上一步复制的 URL。
+4. 将 `TESTING_WEBHOOK_NAME` 和 `PRODUCTION_WEBHOOK_NAME` 替换为你希望使用的端点名称。
+5. 将 `ORGANIZATION_NAME` 替换为你的组织名称。
+6. 执行以下 cURL 命令以启用通知：
 	```sh
 	curl -XPUT -uTHEHIVE_USERNAME:THEHIVE_PASSWORD -H 'Content-type: application/json' THEHIVE_URL/api/config/organisation/notification -d '
 	{

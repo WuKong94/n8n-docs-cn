@@ -1,59 +1,55 @@
 ---
-title: Facebook Trigger Application object documentation
-description: >-
-  Learn how to use the Application object of the Facebook Trigger node in n8n.
-  Follow technical documentation to integrate the Facebook Trigger node's
-  Application object into your workflows.
+title: Facebook 触发器 应用对象文档
+description: 了解如何在 n8n 中使用 Facebook 触发器节点的应用对象，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Facebook Trigger Application object documentation
-originalFilePath: >-
-  integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/application.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/application
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/application
+nodeTitle: Facebook 触发器 应用对象文档
+originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/application.md
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/application
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/application
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Facebook Trigger Application object <a href="#facebook-trigger-application-object" id="facebook-trigger-application-object"></a>
 
-Use this object to receive updates sent to a specific app. Refer to [Facebook Trigger](README.md) for more information on the trigger itself.
+# Facebook 触发器 Application（应用）对象 <a href="#facebook-trigger-application-object" id="facebook-trigger-application-object"></a>
+
+使用此对象接收发送给特定应用的更新。触发器本身的更多信息，请参阅 [Facebook Trigger](README.md)。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Facebook App credentials documentation](../../credentials/facebookapp.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Facebook App 凭据文档](../../credentials/facebookapp.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Facebook Trigger integrations](https://n8n.io/integrations/facebook-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Facebook Trigger 集成](https://n8n.io/integrations/facebook-trigger/)页面。
 {% endhint %}
 
-## Trigger configuration <a href="#trigger-configuration" id="trigger-configuration"></a>
+## 触发器配置 <a href="#trigger-configuration" id="trigger-configuration"></a>
 
-To configure the trigger with this Object:
+使用此对象配置触发器：
 
-1. Select the **Credential to connect with**. Select an existing or create a new [Facebook App credential](../../credentials/facebookapp.md).
-1. Enter the **APP ID** of the app connected to your credential. Refer to the [Facebook App credential](../../credentials/facebookapp.md) documentation for more information.
-1. Select **Application** as the **Object**.
-1. **Field Names or IDs**: By default, the node will trigger on all the available events using the `*` wildcard filter. If you'd like to limit the events, use the `X` to remove the star and use the dropdown or an expression to select the updates you're interested in. Options include:
-    * **Add Account**
-    * **Ads Rules Engine**
-    * **Async Requests**
-    * **Async Sessions**    
-    * **Group Install**
-    * **Oe Reseller Onboarding Request Created**
-    * **Plugin Comment**
-    * **Plugin Comment Reply**
-1. In **Options**, turn on the toggle to **Include Values**. This Object type fails without the option enabled.
+1. 选择 **Credential to connect with**（连接凭据），可选择现有的 [Facebook App 凭据](../../credentials/facebookapp.md)，也可创建新凭据。
+1. 输入与你的凭据关联的应用的 **APP ID**（应用 ID）。更多信息请参阅 [Facebook App 凭据](../../credentials/facebookapp.md)文档。
+1. 将 **Object**（对象）设为 **Application**（应用）。
+1. **Field Names or IDs**（字段名称或 ID）：默认情况下，节点使用 `*` 通配符筛选，对所有可用事件触发。要限定事件，请使用 `X` 移除星号，再通过下拉菜单或表达式选择所需的更新。可选项包括：
+    * **Add Account**（添加账户）
+    * **Ads Rules Engine**（广告规则引擎）
+    * **Async Requests**（异步请求）
+    * **Async Sessions**（异步会话）
+    * **Group Install**（群组安装）
+    * **Oe Reseller Onboarding Request Created**（Oe 经销商入驻请求已创建）
+    * **Plugin Comment**（插件评论）
+    * **Plugin Comment Reply**（插件评论回复）
+1. 在 **Options**（选项）中开启 **Include Values**（包含值）开关。未启用此选项时，此对象类型会失败。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to Meta's [Application](https://developers.facebook.com/docs/graph-api/webhooks/reference/application/) Graph API reference for more information.
+更多信息请参阅 Meta 的 [Application](https://developers.facebook.com/docs/graph-api/webhooks/reference/application/) Graph API 参考。

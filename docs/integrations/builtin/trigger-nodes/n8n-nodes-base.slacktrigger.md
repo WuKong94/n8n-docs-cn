@@ -1,125 +1,123 @@
 ---
-title: Slack Trigger node documentation
-description: >-
-  Learn how to use the Slack Trigger node in n8n. Follow technical documentation
-  to integrate Slack Trigger node into your workflows.
+title: Slack 触发器节点文档
+description: 了解如何在 n8n 中使用 Slack 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Slack Trigger node documentation
+nodeTitle: Slack 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.slacktrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.slacktrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.slacktrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.slacktrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.slacktrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Slack Trigger node <a href="#slack-trigger-node" id="slack-trigger-node"></a>
 
-Use the Slack Trigger node to respond to events in [Slack](https://slack.com/) and integrate Slack with other applications. n8n has built-in support for a wide range of Slack events, including new messages, reactions, and new channels.
+# Slack 触发器节点 <a href="#slack-trigger-node" id="slack-trigger-node"></a>
 
-On this page, you'll find a list of events the Slack Trigger node can respond to and links to more resources.
+使用 Slack Trigger 节点响应 [Slack](https://slack.com/) 中的事件，并将其与其他应用集成。n8n 内置支持多种 Slack 事件，包括新消息、表情回应和新频道。
 
-{% hint style="info" %}
-**Credentials**
-
-Refer to the [Slack credentials documentation](../credentials/slack.md) for authentication information for this node.
-{% endhint %}
-{% hint style="info" %}
-**Examples and templates**
-
-For usage examples and templates to help you get started, refer to n8n's [Slack integrations](https://n8n.io/integrations/slack-trigger/) page.
-{% endhint %}
-
-## Events <a href="#events" id="events"></a>
-
-* **Any Event**: The node triggers on any event in Slack.
-* **App Home Opened**: The node triggers when a user opens the [App Home](https://api.slack.com/surfaces/app-home) tab of your Slack app.
-* **Bot / App Mention**: The node triggers when your bot or app is [mentioned](https://slack.com/help/articles/205240127-Use-mentions-in-Slack) in a channel the app is in.
-* **File Made Public**: The node triggers when a file is [made public](https://slack.com/help/articles/4412651915539-Manage-public-file-sharing).
-* **File Shared**: The node triggers when a file is [shared](https://slack.com/help/articles/201330736-Add-files-to-Slack) in a channel the app is in.
-* **New Message Posted to Channel**: The node triggers when a new message is posted to a channel the app is in.
-* **New Public Channel Created**: The node triggers when a new [public channel](https://slack.com/help/articles/360017938993-What-is-a-channel) is created.
-* **New User**: The node triggers when a new user is added to Slack.
-* **Reaction Added**: The node triggers when a [reaction](https://slack.com/help/articles/202931348-Use-emoji-and-reactions) is added to a message the app is added to.
-
-## Parameters <a href="#parameters" id="parameters"></a>
-
-Once you've set the events to trigger on, use the remaining parameters to further define the node's behavior:
-
-* **Watch Whole Workspace**: Whether the node should watch for the selected **Events** in all channels in the workspace (turned on) or not (turned off, default).<br>
-
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><strong>Caution</strong></p><p>This will use one execution for every event in any channel your bot or app is in. Use with caution!</p></div>
-
-* **Channel to Watch**: Select the channel your node should watch for the selected **Events**. This parameter only appears if you don't turn on **Watch Whole Workspace**. You can select a channel:
-    * **From list**: The node uses your credential to look up a list of channels in the workspace so you can select the channel you want.
-    * **By ID**: Enter the ID of a channel you want to watch. Slack displays the channel ID at the bottom of the channel details with a one-click copy button.
-    * **By URL**: Enter the URL of the channel you want to watch, formatted as `https://app.slack.com/client/<channel-address>`.
-* **Download Files**: Whether to download files and use them in the node's output (turned on) or not (turned off, default). Use this parameter with the **File Made Public** and **File Shared** events.
-
-## Options <a href="#options" id="options"></a>
-
-You can further refine the node's behavior when you **Add Option**s:
-
-* **Resolve IDs**: Whether to resolve the IDs to their respective names and return them (turned on) or not (turned off, default).
-* **Usernames or IDs to ignore**: Select usernames or enter a comma-separated string of encoded user IDs to ignore events from. Choose from the list, or specify IDs using an [expression](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes).
-* **Emoji Names to Filter**: Enter a comma-separated, **not** colon-separated, list of emoji names (for example `thumbsup, eyes, white_check_mark`) to limit **Reaction Added** events to only those specific reactions. Leave empty to trigger on any reaction.
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-n8n provides an app node for Slack. Refer to the [Slack node documentation](../app-nodes/n8n-nodes-base.slack/README.md) for more information.
-
-View [example workflows and related content](https://n8n.io/integrations/slack-trigger/) on n8n's website.
-
-Refer to [Slack's documentation](https://api.slack.com/apis/connections/events-api) for details about their API.
-
-## Required scopes <a href="#required-scopes" id="required-scopes"></a>
-
-To use this node, you need to create an application in Slack and enable event subscriptions. Refer to [Slack credentials | Slack Trigger configuration](../credentials/slack.md#slack-trigger-configuration) for more information.
-
-You must add the appropriate scopes to your Slack app for this trigger node to work.
-
-The node requires scopes for the [conversations.list](https://api.slack.com/methods/conversations.list) and [users.list](https://api.slack.com/methods/users.list) methods at minimum. Check out the [Scopes | Slack credentials](../credentials/slack.md#scopes) list for a more complete list of scopes.
-
-## Verify the webhook <a href="#verify-the-webhook" id="verify-the-webhook"></a>
+本页列出了 Slack Trigger 节点可响应的事件，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Feature availability**
+**凭据**
 
-Verifying that incoming webhook requests come from Slack, using a Slack Signing Secret, is available from n8n 1.106.0.
+此节点的身份验证信息，请参阅 [Slack 凭据文档](../credentials/slack.md)。
+{% endhint %}
+{% hint style="info" %}
+**示例与模板**
+
+入门用法示例和模板，请参阅 n8n 的 [Slack 集成](https://n8n.io/integrations/slack-trigger/)页面。
 {% endhint %}
 
-You can set a [Slack Signing Secret](https://api.slack.com/authentication/verifying-requests-from-slack#signing_secrets_admin_page) when configuring your [Slack credentials](../credentials/slack.md#slack-trigger-configuration). When set, the Slack trigger node automatically verifies that requests are from Slack and include a trusted signature. n8n recommends setting this to ensure you only process requests sent from Slack.
+## 事件 <a href="#events" id="events"></a>
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+* **Any Event**（任意事件）：Slack 中的任意事件都会触发节点。
+* **App Home Opened**（应用主页已打开）：用户打开你的 Slack 应用的 [App Home（应用主页）](https://api.slack.com/surfaces/app-home)标签页时触发节点。
+* **Bot / App Mention**（提及机器人或应用）：在应用已加入的频道中[提及](https://slack.com/help/articles/205240127-Use-mentions-in-Slack)你的机器人或应用时触发节点。
+* **File Made Public**（文件设为公开）：文件[设为公开](https://slack.com/help/articles/4412651915539-Manage-public-file-sharing)时触发节点。
+* **File Shared**（文件已共享）：在应用已加入的频道中[共享](https://slack.com/help/articles/201330736-Add-files-to-Slack)文件时触发节点。
+* **New Message Posted to Channel**（频道中发布了新消息）：在应用已加入的频道中发布新消息时触发节点。
+* **New Public Channel Created**（创建了新的公开频道）：创建新的[公开频道](https://slack.com/help/articles/360017938993-What-is-a-channel)时触发节点。
+* **New User**（新用户）：向 Slack 添加新用户时触发节点。
+* **Reaction Added**（添加了表情回应）：在应用所加入的消息中添加[表情回应](https://slack.com/help/articles/202931348-Use-emoji-and-reactions)时触发节点。
 
-Here are some common errors and issues with the Slack Trigger node and steps to resolve or troubleshoot them.
+## 参数 <a href="#parameters" id="parameters"></a>
 
-### Workflow only works in testing or production <a href="#workflow-only-works-in-testing-or-production" id="workflow-only-works-in-testing-or-production"></a>
+设置触发事件后，可使用其余参数进一步定义节点行为：
 
-Slack only allows you to register a single webhook per app. This means that you can't switch from using the testing URL to the production URL (and vice versa) without reconfiguring the registered webhook URL. 
+* **Watch Whole Workspace**（监控整个工作区）：是否在工作区的所有频道中监控所选 **Events**（事件）；开启则监控，关闭则不监控，默认为关闭。<br>
 
-You may have trouble with this if you try to test a workflow that's also published. Slack will only send events to one of the two webhook URLs, so the other will never receive event notifications.
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><strong>注意</strong></p><p>机器人或应用所在的任何频道中，每发生一个事件都会消耗一次执行。请谨慎使用！</p></div>
 
-To work around this, you can disable your workflow when testing:
+* **Channel to Watch**（要监控的频道）：选择节点监控所选 **Events**（事件）的频道。此参数仅在未开启 **Watch Whole Workspace**（监控整个工作区）时显示。可以通过以下方式选择频道：
+    * **From list**（从列表选择）：节点使用你的凭据查询工作区中的频道列表，供你选择所需频道。
+    * **By ID**（按 ID）：输入要监控的频道 ID。Slack 在频道详情底部显示频道 ID，并提供一键复制按钮。
+    * **By URL**（按 URL）：输入要监控的频道 URL，格式为 `https://app.slack.com/client/<channel-address>`。
+* **Download Files**（下载文件）：是否下载文件并用于节点输出；开启则下载，关闭则不下载，默认为关闭。此参数适用于 **File Made Public**（文件设为公开）和 **File Shared**（文件已共享）事件。
+
+## 选项 <a href="#options" id="options"></a>
+
+使用 **Add Option**（添加选项）可进一步调整节点行为：
+
+* **Resolve IDs**（解析 ID）：是否将 ID 解析为对应名称并返回；开启则解析，关闭则不解析，默认为关闭。
+* **Usernames or IDs to ignore**（要忽略的用户名或 ID）：选择用户名，或输入以逗号分隔的编码用户 ID 字符串，以忽略这些用户的事件。可从列表选择，也可使用[表达式](../../../build/work-with-data/expressions-versus-data-nodes.md)指定 ID。
+* **Emoji Names to Filter**（要筛选的表情名称）：输入以逗号分隔、**不是**冒号分隔的表情名称列表（例如 `thumbsup, eyes, white_check_mark`），将 **Reaction Added**（添加了表情回应）事件限定为这些指定的表情回应。留空则任何表情回应都会触发。
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+n8n 为 Slack 提供应用节点。更多信息请参阅 [Slack 节点文档](../app-nodes/n8n-nodes-base.slack/README.md)。
+
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/slack-trigger/)。
+
+API 的详细信息，请参阅 [Slack 文档](https://api.slack.com/apis/connections/events-api)。
+
+## 所需作用域 <a href="#required-scopes" id="required-scopes"></a>
+
+使用此节点前，需要在 Slack 中创建应用并启用事件订阅。更多信息请参阅 [Slack 凭据 | Slack Trigger 配置](../credentials/slack.md#slack-trigger-configuration)。
+
+必须为 Slack 应用添加适当的作用域，此触发器节点才能正常工作。
+
+节点至少需要 [conversations.list](https://api.slack.com/methods/conversations.list) 和 [users.list](https://api.slack.com/methods/users.list) 方法所需的作用域。更完整的作用域列表，请参阅[作用域 | Slack 凭据](../credentials/slack.md#scopes)。
+
+## 验证 Webhook <a href="#verify-the-webhook" id="verify-the-webhook"></a>
+
+{% hint style="info" %}
+**功能可用性**
+
+从 n8n 1.106.0 起，支持使用 Slack Signing Secret（签名密钥）验证传入的 Webhook 请求是否来自 Slack。
+{% endhint %}
+
+配置 [Slack 凭据](../credentials/slack.md#slack-trigger-configuration)时，可设置 [Slack Signing Secret（签名密钥）](https://api.slack.com/authentication/verifying-requests-from-slack#signing_secrets_admin_page)。设置后，Slack 触发器节点会自动验证请求是否来自 Slack 且包含可信签名。n8n 建议设置此项，确保只处理来自 Slack 的请求。
+
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+以下列出 Slack Trigger 节点的常见错误和问题，以及解决或排查步骤。
+
+### 工作流只能在测试或生产环境之一正常运行 <a href="#workflow-only-works-in-testing-or-production" id="workflow-only-works-in-testing-or-production"></a>
+
+Slack 每个应用只允许注册一个 Webhook。这意味着，在测试 URL 和生产 URL 之间切换时，必须重新配置已注册的 Webhook URL。
+
+测试已发布的工作流时，可能因此遇到问题。Slack 只会将事件发送到两个 Webhook URL 中的一个，另一个始终收不到事件通知。
+
+一种解决办法是在测试时停用工作流：
 
 {% hint style="warning" %}
-**Halts production traffic**
+**会中断生产流量**
 
-This temporarily disables your production workflow for testing. Your workflow will no longer receive production traffic while it's unpublished.
+这会为了测试暂时停用生产工作流。取消发布期间，工作流将不再接收生产流量。
 {% endhint %}
 
-1. Go to your workflow page.
-2. From the workflow settings dropdown, click **Unpublish** to disable the workflow temporarily.
-3. Edit the **Request URL** in your the [Slack Trigger configuration](../credentials/slack.md#slack-trigger-configuration) to use the testing webhook URL instead of the production webhook URL.
-4. Test your workflow using the test webhook URL.
-5. When you finish testing, edit the **Request URL** in your the [Slack Trigger configuration](../credentials/slack.md#slack-trigger-configuration) to use the production webhook URL instead of the testing webhook URL.
-6. Click **Publish** to enable the workflow again. The production webhook URL should resume working.
+1. 进入工作流页面。
+2. 从工作流设置下拉菜单中点击 **Unpublish**（取消发布），暂时停用工作流。
+3. 在 [Slack Trigger 配置](../credentials/slack.md#slack-trigger-configuration)中编辑 **Request URL**（请求 URL），将生产 Webhook URL 改为测试 Webhook URL。
+4. 使用测试 Webhook URL 测试工作流。
+5. 测试完成后，在 [Slack Trigger 配置](../credentials/slack.md#slack-trigger-configuration)中编辑 **Request URL**（请求 URL），将测试 Webhook URL 改回生产 Webhook URL。
+6. 点击 **Publish**（发布）重新启用工作流。生产 Webhook URL 应恢复工作。
 
-### Token expired <a href="#token-expired" id="token-expired"></a>
+### 令牌过期 <a href="#token-expired" id="token-expired"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/aLQxqepKmNn7Oz3PDTB7/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/slack/token-rotation.md" %}

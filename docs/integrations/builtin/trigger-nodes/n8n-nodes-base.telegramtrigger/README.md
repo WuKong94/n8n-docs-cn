@@ -1,83 +1,81 @@
 ---
-title: Telegram Trigger node documentation
-description: >-
-  Learn how to use the Telegram Trigger node in n8n. Follow technical
-  documentation to integrate Telegram Trigger node into your workflows.
+title: Telegram 触发器节点文档
+description: 了解如何在 n8n 中使用 Telegram 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 nodeTitle: n8n-nodes-base.telegramtrigger
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Telegram Trigger node <a href="#telegram-trigger-node" id="telegram-trigger-node"></a>
 
-[Telegram](https://telegram.org/) is a cloud-based instant messaging and voice over IP service. Users can send messages and exchange photos, videos, stickers, audio, and files of any type. On this page, you'll find a list of events the Telegram Trigger node can respond to and links to more resources.
+# Telegram 触发器节点 <a href="#telegram-trigger-node" id="telegram-trigger-node"></a>
+
+[Telegram](https://telegram.org/) 是基于云的即时通信和网络语音服务。用户可以发送消息，交换照片、视频、贴纸、音频及任意类型的文件。本页列出了 Telegram Trigger 节点可响应的事件，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Telegram credentials documentation](../../credentials/telegram.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Telegram 凭据文档](../../credentials/telegram.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Telegram Trigger integrations](https://n8n.io/integrations/telegram-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Telegram Trigger 集成](https://n8n.io/integrations/telegram-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-- **`*`**: All updates except "Chat Member", "Message Reaction", and "Message Reaction Count" (default behavior of Telegram API as they produces a lot of calls of updates).
-- **Business Connection**: Trigger when the bot is connected to or disconnected from a business account, or a user edited an existing connection with the bot.
-- **Business Message**: Trigger on a new message from a connected business account.
-- **Callback Query**: Trigger on new incoming callback query.
-- **Channel Post**: Trigger on new incoming channel post of any kind — including text, photo, sticker, and so on.
-- **Chat Boost**: Trigger when a chat boost is added or changed. The bot must be an administrator in the chat to receive these updates.
-- **Chat Join Request**: Trigger when a request to join the chat is sent. The bot must have the `can_invite_users` administrator right in the chat to receive these updates.
-- **Chat Member**: Trigger when a chat member's status is updated. The bot must be an administrator in the chat.
-- **Chosen Inline Result**: Trigger when the result of an inline query chosen by a user is sent. Please see Telegram's API documentation on [feedback collection](https://core.telegram.org/bots/inline#collecting-feedback) for details on how to enable these updates for your bot.
-- **Deleted Business Messages**: Trigger when messages are deleted from a connected business account.
-- **Edited Business Message**: Trigger on new version of a message from a connected business account.
-- **Edited Channel Post**: Trigger on new version of a channel post that is known to the bot is edited.
-- **Edited Message**: Trigger on new version of a message that is known to the bot and was edited.
-- **Inline Query**: Trigger on new incoming inline query.
-- **Message**: Trigger on new incoming message of any kind — text, photo, sticker, and so on.
-- **Message Reaction**: Trigger when a reaction to a message is changed by a user. The bot must be an administrator in the chat. The update isn't received for reactions set by bots.
-- **Message Reaction Count**: Trigger when reactions to a message with anonymous reactions are changed. The bot must be an administrator in the chat. The updates are grouped and can be sent with delay up to a few minutes.
-- **My Chat Member**: Trigger when the bot's chat member status is updated in a chat. For private chats, this update is received only when the bot is blocked or unblocked by the user.
-- **Poll**: Trigger on new poll state. Bots only receive updates about stopped polls and polls which are sent by the bot.
-- **Poll Answer**: Trigger when user changes their answer in a non-anonymous poll. Bots only receive new votes in polls that were sent by the bot itself.
-- **Pre-Checkout Query**: Trigger on new incoming pre-checkout query. Contains full information about checkout.
-- **Purchased Paid Media**: Trigger when a user purchases paid media with a non-empty payload sent by the bot in a non-channel chat.
-- **Removed Chat Boost**: Trigger when a boost is removed from a chat. The bot must be an administrator in the chat to receive these updates.
-- **Shipping Query**: Trigger on new incoming shipping query. Only for invoices with flexible price.
+- **`*`**：除“Chat Member”“Message Reaction”和“Message Reaction Count”之外的所有更新。这是 Telegram API 的默认行为，因为这些事件会产生大量更新调用。
+- **Business Connection**（商业账户连接）：机器人连接到商业账户、断开与商业账户的连接，或用户编辑现有机器人连接时触发。
+- **Business Message**（商业消息）：收到来自已连接商业账户的新消息时触发。
+- **Callback Query**（回调查询）：收到新的回调查询时触发。
+- **Channel Post**（频道帖子）：收到任意类型的新频道帖子时触发，包括文字、照片、贴纸等。
+- **Chat Boost**（聊天助力）：聊天助力被添加或变更时触发。机器人必须是聊天管理员，才能接收这些更新。
+- **Chat Join Request**（加入聊天请求）：有人发送加入聊天的请求时触发。机器人必须在聊天中具有 `can_invite_users` 管理员权限，才能接收这些更新。
+- **Chat Member**（聊天成员）：聊天成员的状态更新时触发。机器人必须是聊天管理员。
+- **Chosen Inline Result**（已选择的内联结果）：用户选中的内联查询结果被发送时触发。为机器人启用这些更新的方法，请参阅 Telegram API 文档中的[反馈收集](https://core.telegram.org/bots/inline#collecting-feedback)。
+- **Deleted Business Messages**（商业消息已删除）：已连接的商业账户中的消息被删除时触发。
+- **Edited Business Message**（商业消息已编辑）：已连接的商业账户中的消息出现新版本时触发。
+- **Edited Channel Post**（频道帖子已编辑）：机器人已知的频道帖子被编辑并产生新版本时触发。
+- **Edited Message**（消息已编辑）：机器人已知的消息被编辑并产生新版本时触发。
+- **Inline Query**（内联查询）：收到新的内联查询时触发。
+- **Message**（消息）：收到任意类型的新消息时触发，包括文字、照片、贴纸等。
+- **Message Reaction**（消息表情回应）：用户更改消息的表情回应时触发。机器人必须是聊天管理员。不会收到机器人设置的表情回应对应的更新。
+- **Message Reaction Count**（消息表情回应计数）：带有匿名表情回应的消息，其表情回应发生变更时触发。机器人必须是聊天管理员。这些更新会分组发送，可能延迟几分钟。
+- **My Chat Member**（机器人自身的聊天成员状态）：机器人在聊天中的成员状态更新时触发。在私聊中，仅当用户屏蔽或取消屏蔽机器人时，才会收到此更新。
+- **Poll**（投票）：出现新的投票状态时触发。机器人只会收到已停止的投票，以及由机器人发送的投票的更新。
+- **Poll Answer**（投票回答）：用户更改非匿名投票的回答时触发。机器人只会收到由该机器人自身发起的投票中的新选票。
+- **Pre-Checkout Query**（结账前查询）：收到新的结账前查询时触发，包含完整的结账信息。
+- **Purchased Paid Media**（已购买付费媒体）：用户购买机器人在非频道聊天中发送的、载荷非空的付费媒体时触发。
+- **Removed Chat Boost**（聊天助力已移除）：聊天助力被移除时触发。机器人必须是聊天管理员，才能接收这些更新。
+- **Shipping Query**（配送查询）：收到新的配送查询时触发，仅适用于价格可变的发票。
 
-Some **events may require additional permissions**, see [Telegram's API documentation](https://core.telegram.org/bots/api#getting-updates) for more information.
+某些**事件可能需要额外权限**，更多信息请参阅 [Telegram API 文档](https://core.telegram.org/bots/api#getting-updates)。
 
-## Options <a href="#options" id="options"></a>
+## 选项 <a href="#options" id="options"></a>
 
-- **Download Images/Files**: Whether to download attached images or files to include in the output data.
-	- **Image Size**: When you enable **Download Images/Files**, this configures the size of image to download. Downloads large images by default.
-- **Restrict to Chat IDs**: Only trigger for events with the listed chat IDs. You can include multiple chat IDs separated by commas.
-- **Restrict to User IDs**: Only trigger for events with the listed user IDs. You can include multiple user IDs separated by commas.
+- **Download Images/Files**（下载图片或文件）：是否下载附加的图片或文件，将其包含在输出数据中。
+    - **Image Size**（图片大小）：启用 **Download Images/Files**（下载图片或文件）后，此项配置要下载的图片大小，默认下载大图。
+- **Restrict to Chat IDs**（限定聊天 ID）：仅对所列聊天 ID 的事件触发，多个聊天 ID 以逗号分隔。
+- **Restrict to User IDs**（限定用户 ID）：仅对所列用户 ID 的事件触发，多个用户 ID 以逗号分隔。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Telegram. Refer to the [Telegram node documentation](../../app-nodes/n8n-nodes-base.telegram/README.md) for more information.
+n8n 为 Telegram 提供应用节点。更多信息请参阅 [Telegram 节点文档](../../app-nodes/n8n-nodes-base.telegram/README.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/telegram-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/telegram-trigger/)。
 
-Refer to [Telegram's API documentation](https://core.telegram.org/bots/api) for details about their API.
+API 的详细信息，请参阅 [Telegram API 文档](https://core.telegram.org/bots/api)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。

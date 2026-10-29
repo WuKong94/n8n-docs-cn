@@ -1,72 +1,69 @@
 ---
-title: Facebook Trigger Page object documentation
-description: >-
-  Learn how to use the Page object of the Facebook Trigger node in n8n. Follow
-  technical documentation to integrate the Facebook Trigger node's Page object
-  into your workflows.
+title: Facebook 触发器 主页对象文档
+description: 了解如何在 n8n 中使用 Facebook 触发器节点的主页对象，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Facebook Trigger Page object documentation
+nodeTitle: Facebook 触发器 主页对象文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/page.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/page
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/page
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/page
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/page
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Facebook Trigger Page object <a href="#facebook-trigger-page-object" id="facebook-trigger-page-object"></a>
 
-Use this object to receive updates when updates to your page profile fields or profile settings occur or someone mentions your page. Refer to [Facebook Trigger](README.md) for more information on the trigger itself.
+# Facebook 触发器 Page（主页）对象 <a href="#facebook-trigger-page-object" id="facebook-trigger-page-object"></a>
+
+主页的资料字段或资料设置更新，或有人提及你的主页时，使用此对象接收更新。触发器本身的更多信息，请参阅 [Facebook Trigger](README.md)。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Facebook App credentials documentation](../../credentials/facebookapp.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Facebook App 凭据文档](../../credentials/facebookapp.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Facebook Trigger integrations](https://n8n.io/integrations/facebook-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Facebook Trigger 集成](https://n8n.io/integrations/facebook-trigger/)页面。
 {% endhint %}
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前提条件 <a href="#prerequisites" id="prerequisites"></a>
 
-This Object requires some configuration in your app and page before you can use the trigger:
+使用此对象的触发器前，需要先在应用和主页中进行一些配置：
 
-1. At least one page admin needs to grant the `manage_pages` permission to your app.
-1. The page admin needs to have at least moderator privileges. If they don't, they won't receive all content.
-1. You'll also need to add the app to your page, and you may need to go to the [Graph API explorer](https://developers.facebook.com/tools/explorer/) and execute this call with your app token:
+1. 至少一位主页管理员需要向应用授予 `manage_pages` 权限。
+1. 主页管理员至少需要具有版主权限，否则无法接收全部内容。
+1. 还需要将应用添加到主页，可能需要前往 [Graph API Explorer](https://developers.facebook.com/tools/explorer/)，使用应用令牌执行以下调用：
 
     ```
     {page-id}/subscribed_apps?subscribed_fields=feed
     ```
 
-## Trigger configuration <a href="#trigger-configuration" id="trigger-configuration"></a>
+## 触发器配置 <a href="#trigger-configuration" id="trigger-configuration"></a>
 
-To configure the trigger with this Object:
+使用此对象配置触发器：
 
-1. Select the **Credential to connect with**. Select an existing or create a new [Facebook App credential](../../credentials/facebookapp.md).
-1. Enter the **APP ID** of the app connected to your credential. Refer to the [Facebook App credential](../../credentials/facebookapp.md) documentation for more information.
-1. Select **Page** as the **Object**.
-1. **Field Names or IDs**: By default, the node will trigger on all the available events using the `*` wildcard filter. If you'd like to limit the events, use the `X` to remove the star and use the dropdown or an expression to select the updates you're interested in. Options include individual profile fields, as well as:
-    * **Feed**: Describes most changes to a page's feed, including posts, likes, shares, and so on.
-    * **Leadgen**: Notifies you when a page's lead generation settings change.
-    * **Live Videos**: Notifies you when a page's live video status changes.
-    * **Mention**: Notifies you when new mentions in pages, comments, and so on occur.
-    * **Merchant Review**: Notifies you when a page's merchant review settings change.
-    * **Page Change Proposal**: Notifies you when Facebook suggests proposed changes for your Facebook Page.
-    * **Page Upcoming Change**: Notifies you about upcoming changes that will occur on your Facebook Page. Facebook has suggested these changes and they may have a deadline to accept or reject before automatically taking effect.
-    * **Product Review**: Notifies you when a page's product review settings change.
-    * **Ratings**: Notifies you when a page's ratings change, including new ratings or when a user comments on or reacts to a rating.
-    * **Videos**: Notifies you when the encoding status of a video on a page changes.
-1. In **Options**, turn on the toggle to **Include Values**. This Object type fails without the option enabled.
+1. 选择 **Credential to connect with**（连接凭据），可选择现有的 [Facebook App 凭据](../../credentials/facebookapp.md)，也可创建新凭据。
+1. 输入与你的凭据关联的应用的 **APP ID**（应用 ID）。更多信息请参阅 [Facebook App 凭据](../../credentials/facebookapp.md)文档。
+1. 将 **Object**（对象）设为 **Page**（主页）。
+1. **Field Names or IDs**（字段名称或 ID）：默认情况下，节点使用 `*` 通配符筛选，对所有可用事件触发。要限定事件，请使用 `X` 移除星号，再通过下拉菜单或表达式选择所需的更新。可选项包括各个个人资料字段，以及：
+    * **Feed**（动态）：描述主页动态的大多数变更，包括帖子、点赞、分享等。
+    * **Leadgen**（线索生成）：主页的线索生成设置发生变更时通知你。
+    * **Live Videos**（直播视频）：主页的直播视频状态变更时通知你。
+    * **Mention**（提及）：主页、评论等位置出现新的提及时通知你。
+    * **Merchant Review**（商家评价）：主页的商家评价设置变更时通知你。
+    * **Page Change Proposal**（主页变更提案）：Facebook 对你的 Facebook 主页提出变更建议时通知你。
+    * **Page Upcoming Change**（主页即将发生的变更）：通知你 Facebook 主页即将发生的变更。这些变更由 Facebook 提出，可能设有接受或拒绝的截止时间，逾期后自动生效。
+    * **Product Review**（产品评价）：主页的产品评价设置变更时通知你。
+    * **Ratings**（评分）：主页的评分发生变更时通知你，包括新增评分，以及用户对评分发表评论或表情回应。
+    * **Videos**（视频）：主页上视频的编码状态变更时通知你。
+1. 在 **Options**（选项）中开启 **Include Values**（包含值）开关。未启用此选项时，此对象类型会失败。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Webhooks for Pages](https://developers.facebook.com/docs/graph-api/webhooks/getting-started/webhooks-for-pages) and Meta's [Page](https://developers.facebook.com/docs/graph-api/webhooks/reference/page/) Graph API reference for more information.
+更多信息请参阅[主页 Webhook](https://developers.facebook.com/docs/graph-api/webhooks/getting-started/webhooks-for-pages) 和 Meta 的 [Page](https://developers.facebook.com/docs/graph-api/webhooks/reference/page/) Graph API 参考。

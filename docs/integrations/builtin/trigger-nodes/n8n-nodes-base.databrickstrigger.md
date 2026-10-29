@@ -1,91 +1,91 @@
 ---
-description: >-
-  Start n8n workflows when a Databricks job run or pipeline update starts,
-  succeeds, or fails. Set up the polling trigger or a webhook alternative.
+description: 在 Databricks 作业运行或管道更新开始、成功或失败时启动 n8n 工作流。配置轮询触发器，或使用 Webhook 替代方案。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Databricks Trigger node
 
-Use the Databricks Trigger node to respond to events in [Databricks](https://www.databricks.com/) and integrate Databricks with other applications. The node starts a workflow when a run of a Databricks job or an update of a Databricks pipeline starts, succeeds, or fails.
+# Databricks 触发器节点 <a id="databricks-trigger-node"></a>
 
-{% hint style="info" %}
-**Credentials**
-
-Refer to [Databricks credentials](../credentials/databricks.md) for guidance on setting up authentication. The node accepts the **Databricks** (access token) and **Databricks OAuth2 API** credentials.
-{% endhint %}
-
-## Set up the trigger
-
-1. Add a **Databricks Trigger** node to a workflow. In the node picker, search for `Databricks` and open the **Databricks** entry. It lists the job events as triggers; pick any of them, then set **Resource** and **Events** in the node.
-2. Set **Authentication** to **Access Token** or **OAuth2** and select the credential. For an **OAuth2** credential, set its **Grant Type** to **Client Credentials (Service Principal)** for a service principal, or to **Authorization Code (User)** for a signed-in user. Refer to [Use a service principal](#use-a-service-principal).
-3. Set **Resource** to **Job** to watch the runs of a job, or to **Pipeline** to watch the updates of a Databricks pipeline.
-4. Select the job in **Job**, or the pipeline in **Pipeline**. Each field offers three modes:
-	* **From List**: select from the workspace. Type to filter by name. The pipeline list also matches the ID. Databricks lists only the jobs the credential's identity has **CAN VIEW** on.
-	* **By ID**: enter the ID. A job ID is a whole number, for example `281874479417551`. A pipeline ID is a UUID, for example `8199cd89-e2f5-4169-a6aa-656a24c8886d`.
-	* **By URL**: paste the page URL from Databricks, for example `https://<your-workspace>/jobs/<job-id>` or `https://<your-workspace>/pipelines/<pipeline-id>`. The node also accepts the hash form of both pages, such as `https://<your-workspace>/?o=<workspace-id>#job/<job-id>` and `https://<your-workspace>/?o=<workspace-id>#joblist/pipelines/<pipeline-id>`.
-5. Select the **Events** that start the workflow. Refer to [Events](#events).
-6. Keep **Simplify** on to get the output described in [Output](#output). Turn it off to get the raw Databricks object.
-7. Under **Poll Times**, select a poll **Mode** to set how often the trigger checks Databricks. The default is **Every Minute**. Refer to [How the trigger polls](#how-the-trigger-polls).
-8. Select **Fetch Test Event** to check the setup. Refer to [Test the trigger](#test-the-trigger).
-9. Publish the workflow.
-
-## Events
-
-The trigger starts the workflow once for each event of each run or update. It doesn't report a run or update again after it has reported it as finished, for example after a repair of a job run.
-
-### Job events
-
-Available when **Resource** is **Job**. The default selection is **Run Failed** and **Run Succeeded**.
-
-* **Run Failed**: a run ended with any result other than a full success. This includes canceled, skipped, and partly failed runs (`SUCCESS_WITH_FAILURES`).
-* **Run Started**: the trigger saw a new run of the job.
-* **Run Succeeded**: a run ended with every task successful. The termination code is `SUCCESS`.
-
-A run that starts and ends between two polls produces two items in the same execution when you select both **Run Started** and its final event. Both items then carry the same finished timing.
-
-### Pipeline events
-
-Available when **Resource** is **Pipeline**. The default selection is **Update Completed** and **Update Failed**.
-
-* **Update Completed**: an update ran to completion.
-* **Update Failed**: an update failed, or Databricks canceled it. Stopping a pipeline cancels the running update, so a stop produces this event.
-* **Update Started**: the trigger saw a new update of the pipeline.
+使用 Databricks Trigger 节点响应 [Databricks](https://www.databricks.com/) 中的事件，并将 Databricks 与其他应用集成。Databricks 作业的一次运行或管道的一次更新开始、成功或失败时，节点会启动工作流。
 
 {% hint style="info" %}
-**Continuous pipelines**
+**凭据**
 
-A continuous pipeline runs one update until you stop it, so **Update Completed** never happens for it. **Update Started** happens when the pipeline starts or restarts. **Update Failed** happens when the update fails or when you stop the pipeline. Refer to [Watch a pipeline through a job](#watch-a-pipeline-through-a-job) for a way to get a completion signal.
+身份验证设置方法，请参阅 [Databricks 凭据](../credentials/databricks.md)。此节点接受 **Databricks**（访问令牌）和 **Databricks OAuth2 API** 凭据。
 {% endhint %}
 
-## Output
+## 配置触发器 <a id="set-up-the-trigger"></a>
 
-With **Simplify** on, each item has the same top-level keys for both resources: `event`, the watched object (`job` or `pipeline`), the run or update, `result`, and `timing`. `result` is absent on **Run Started** and **Update Started**. The node drops keys that have no value.
+1. 向工作流添加 **Databricks Trigger** 节点。在节点选择器中搜索 `Databricks`，打开 **Databricks** 条目。它会将作业事件列为触发器；选择其中任意一个，然后在节点中设置 **Resource**（资源）和 **Events**（事件）。
+2. 将 **Authentication**（身份验证）设为 **Access Token**（访问令牌）或 **OAuth2**，并选择凭据。对于 **OAuth2** 凭据，如果使用服务主体，将 **Grant Type**（授权类型）设为 **Client Credentials (Service Principal)**；如果使用登录用户，则设为 **Authorization Code (User)**。请参阅[使用服务主体](#use-a-service-principal)。
+3. 将 **Resource**（资源）设为 **Job**（作业）以监控作业运行，或设为 **Pipeline**（管道）以监控 Databricks 管道更新。
+4. 在 **Job**（作业）中选择作业，或在 **Pipeline**（管道）中选择管道。每个字段都提供三种模式：
+    * **From List**（从列表选择）：从工作区中选择，输入文字可按名称筛选。管道列表也支持匹配 ID。Databricks 仅列出凭据所用身份具有 **CAN VIEW**（可查看）权限的作业。
+    * **By ID**（按 ID）：输入 ID。作业 ID 是整数，例如 `281874479417551`；管道 ID 是 UUID，例如 `8199cd89-e2f5-4169-a6aa-656a24c8886d`。
+    * **By URL**（按 URL）：粘贴 Databricks 中的页面 URL，例如 `https://<your-workspace>/jobs/<job-id>` 或 `https://<your-workspace>/pipelines/<pipeline-id>`。节点也接受两种页面的哈希形式，例如 `https://<your-workspace>/?o=<workspace-id>#job/<job-id>` 和 `https://<your-workspace>/?o=<workspace-id>#joblist/pipelines/<pipeline-id>`。
+5. 选择用于启动工作流的 **Events**（事件）。请参阅[事件](#events)。
+6. 保持 **Simplify**（简化）开启，以获得[输出](#output)中描述的结果。关闭此项则获取 Databricks 原始对象。
+7. 在 **Poll Times**（轮询时间）下，选择轮询 **Mode**（模式），设置触发器检查 Databricks 的频率。默认为 **Every Minute**（每分钟）。请参阅[触发器如何轮询](#how-the-trigger-polls)。
+8. 选择 **Fetch Test Event**（获取测试事件）检查配置。请参阅[测试触发器](#test-the-trigger)。
+9. 发布工作流。
 
-### Job output
+## 事件 <a id="events"></a>
 
-| Field | Value |
+对于每次运行或更新的每个事件，触发器都会启动一次工作流。一旦已将某次运行或更新报告为结束，就不会再次报告它，例如修复作业运行后也不会再次报告。
+
+### 作业事件 <a id="job-events"></a>
+
+**Resource**（资源）为 **Job**（作业）时可用，默认选择 **Run Failed**（运行失败）和 **Run Succeeded**（运行成功）。
+
+* **Run Failed**（运行失败）：运行结束，且结果不是完全成功。包括已取消、已跳过和部分失败的运行（`SUCCESS_WITH_FAILURES`）。
+* **Run Started**（运行已开始）：触发器发现作业的新运行。
+* **Run Succeeded**（运行成功）：运行结束，且所有任务均成功。终止代码为 `SUCCESS`。
+
+如果一次运行在两次轮询之间开始并结束，且你同时选择了 **Run Started**（运行已开始）及对应的最终事件，同一次执行中会产生两个数据项。此时两个数据项都携带相同的结束时间信息。
+
+### 管道事件 <a id="pipeline-events"></a>
+
+**Resource**（资源）为 **Pipeline**（管道）时可用，默认选择 **Update Completed**（更新已完成）和 **Update Failed**（更新失败）。
+
+* **Update Completed**（更新已完成）：一次更新运行至完成。
+* **Update Failed**（更新失败）：更新失败，或被 Databricks 取消。停止管道会取消正在运行的更新，因此停止操作会产生此事件。
+* **Update Started**（更新已开始）：触发器发现管道的新更新。
+
+{% hint style="info" %}
+**连续管道**
+
+连续管道会持续运行一次更新，直到你将其停止，因此不会发生 **Update Completed**（更新已完成）事件。管道启动或重启时发生 **Update Started**（更新已开始）；更新失败或你停止管道时发生 **Update Failed**（更新失败）。获取完成信号的方法，请参阅[通过作业监控管道](#watch-a-pipeline-through-a-job)。
+{% endhint %}
+
+## 输出 <a id="output"></a>
+
+开启 **Simplify**（简化）后，两种资源的每个数据项都有相同的顶层键：`event`、被监控的对象（`job` 或 `pipeline`）、运行或更新、`result` 和 `timing`。**Run Started**（运行已开始）和 **Update Started**（更新已开始）中不包含 `result`。节点会移除没有值的键。
+
+### 作业输出 <a id="job-output"></a>
+
+| 字段 | 值 |
 |-------|-------|
-| `event` | `runStarted`, `runSucceeded`, or `runFailed`. |
-| `job.id` | The job ID. |
-| `run.id` | The run ID. Pass it to the **Get Run** or **Get Run Output** operation of the Databricks node, as in [Example: Notify when a job run fails](../app-nodes/n8n-nodes-base.databricks.md#example-notify-when-a-job-run-fails). |
-| `run.name` | The run name. |
-| `run.url` | The run page URL in Databricks. |
-| `run.trigger` | What started the run, for example `ONE_TIME`. |
-| `run.creator` | The user or service principal that created the run. |
-| `run.parameters` | The job parameters of the run, as name and value pairs. A parameter without a value shows its default. |
-| `result.state` | The life cycle state. `TERMINATED` for a finished run. |
-| `result.code` | The termination code, for example `SUCCESS`, `SUCCESS_WITH_FAILURES`, `USER_CANCELED`, or `RUN_EXECUTION_ERROR`. A run canceled by a user has `USER_CANCELED`. `CANCELED` means Databricks canceled the run, for example when it exceeded its maximum duration. Refer to `termination_details.code` in the [Databricks API reference](https://docs.databricks.com/api/workspace/jobs/getrun) for the full list. |
-| `result.type` | The termination type, for example `SUCCESS` or `CLIENT_ERROR`. |
-| `result.message` | The termination message. Absent when Databricks gives none. |
-| `timing.startedAt` | The start time in UTC. |
-| `timing.endedAt` | The end time in UTC. Absent while the run is still going. |
-| `timing.durationMs` | The run duration in milliseconds. On a **Run Started** item, the time the run had been going when the trigger polled. |
-| `timing.queuedMs` | The time the run waited in the queue, in milliseconds. |
+| `event` | `runStarted`、`runSucceeded` 或 `runFailed`。 |
+| `job.id` | 作业 ID。 |
+| `run.id` | 运行 ID。可将其传给 Databricks 节点的 **Get Run**（获取运行）或 **Get Run Output**（获取运行输出）操作，具体见[示例：作业运行失败时发送通知](../app-nodes/n8n-nodes-base.databricks.md#example-notify-when-a-job-run-fails)。 |
+| `run.name` | 运行名称。 |
+| `run.url` | Databricks 中的运行页面 URL。 |
+| `run.trigger` | 启动运行的来源，例如 `ONE_TIME`。 |
+| `run.creator` | 创建运行的用户或服务主体。 |
+| `run.parameters` | 运行的作业参数，以名称和值的键值对表示。未设置值的参数显示其默认值。 |
+| `result.state` | 生命周期状态。已结束的运行对应 `TERMINATED`。 |
+| `result.code` | 终止代码，例如 `SUCCESS`、`SUCCESS_WITH_FAILURES`、`USER_CANCELED` 或 `RUN_EXECUTION_ERROR`。用户取消的运行对应 `USER_CANCELED`。`CANCELED` 表示 Databricks 取消了运行，例如运行超过最长持续时间。完整列表请参阅 [Databricks API 参考](https://docs.databricks.com/api/workspace/jobs/getrun)中的 `termination_details.code`。 |
+| `result.type` | 终止类型，例如 `SUCCESS` 或 `CLIENT_ERROR`。 |
+| `result.message` | 终止消息。Databricks 未提供时不存在此字段。 |
+| `timing.startedAt` | UTC 开始时间。 |
+| `timing.endedAt` | UTC 结束时间。运行尚未结束时不存在此字段。 |
+| `timing.durationMs` | 运行时长，单位为毫秒。对于 **Run Started**（运行已开始）数据项，此值表示触发器轮询时该运行已持续的时间。 |
+| `timing.queuedMs` | 运行在队列中等待的时间，单位为毫秒。 |
 
-A **Run Failed** item looks like this:
+**Run Failed**（运行失败）数据项示例如下：
 
 ```json
 {
@@ -114,25 +114,25 @@ A **Run Failed** item looks like this:
 }
 ```
 
-### Pipeline output
+### 管道输出 <a id="pipeline-output"></a>
 
-| Field | Value |
+| 字段 | 值 |
 |-------|-------|
-| `event` | `updateStarted`, `updateCompleted`, or `updateFailed`. |
-| `pipeline.id` | The pipeline ID. |
-| `pipeline.name` | The pipeline name. Absent when the Databricks event carries none. |
-| `pipeline.url` | The pipeline page URL in Databricks. |
-| `update.id` | The update ID. |
-| `update.url` | The update page URL in Databricks. |
-| `result.state` | `COMPLETED`, `FAILED`, or `CANCELED`. |
-| `result.message` | The message of the Databricks event, for example `Update 01ee1d is COMPLETED.`. |
-| `result.errors` | The exceptions of a failed update. Each entry has `type`, `code`, `sqlState`, `message`, and `stack`, where `stack` lists `class`, `method`, `file`, and `line` for each frame. Absent when the event has no exceptions. |
-| `timing.startedAt` | The time of the first in-flight event the trigger saw for the update. Absent when the trigger saw only the final event, for example when the update was already running when you published the workflow. |
-| `timing.runningAt` | The time the update reached the `RUNNING` state. Absent when the trigger didn't see that event. |
-| `timing.endedAt` | The time of the final event. Absent on **Update Started**. |
-| `timing.durationMs` | `endedAt` minus `runningAt`, in milliseconds. Absent when `runningAt` is absent. |
+| `event` | `updateStarted`、`updateCompleted` 或 `updateFailed`。 |
+| `pipeline.id` | 管道 ID。 |
+| `pipeline.name` | 管道名称。Databricks 事件未携带名称时不存在此字段。 |
+| `pipeline.url` | Databricks 中的管道页面 URL。 |
+| `update.id` | 更新 ID。 |
+| `update.url` | Databricks 中的更新页面 URL。 |
+| `result.state` | `COMPLETED`、`FAILED` 或 `CANCELED`。 |
+| `result.message` | Databricks 事件的消息，例如 `Update 01ee1d is COMPLETED.`。 |
+| `result.errors` | 失败更新的异常。每个条目包含 `type`、`code`、`sqlState`、`message` 和 `stack`，其中 `stack` 为每个栈帧列出 `class`、`method`、`file` 和 `line`。事件没有异常时不存在此字段。 |
+| `timing.startedAt` | 触发器为此更新观察到的首个进行中事件的时间。如果触发器只观察到最终事件，例如发布工作流时更新已经在运行，则不存在此字段。 |
+| `timing.runningAt` | 更新进入 `RUNNING` 状态的时间。如果触发器未观察到该事件，则不存在此字段。 |
+| `timing.endedAt` | 最终事件的时间。**Update Started**（更新已开始）中不存在此字段。 |
+| `timing.durationMs` | `endedAt` 减去 `runningAt`，单位为毫秒。如果没有 `runningAt`，则不存在此字段。 |
 
-An **Update Completed** item looks like this:
+**Update Completed**（更新已完成）数据项示例如下：
 
 ```json
 {
@@ -159,53 +159,53 @@ An **Update Completed** item looks like this:
 }
 ```
 
-### Raw output
+### 原始输出 <a id="raw-output"></a>
 
-With **Simplify** off, each item is the object Databricks returns, plus the `event` key. For a job, this is a run as the Jobs API lists it. For a pipeline, this is an `update_progress` event as the Pipelines API lists it. Refer to [list runs](https://docs.databricks.com/api/jobs/v2/list-runs) and [list pipeline events](https://docs.databricks.com/api/pipelines/v2/events) in the Databricks API reference.
+关闭 **Simplify**（简化）后，每个数据项都是 Databricks 返回的对象，额外添加 `event` 键。对于作业，这是 Jobs API 列出的运行；对于管道，这是 Pipelines API 列出的 `update_progress` 事件。请参阅 Databricks API 参考中的[列出运行](https://docs.databricks.com/api/jobs/v2/list-runs)和[列出管道事件](https://docs.databricks.com/api/pipelines/v2/events)。
 
-## How the trigger polls
+## 触发器如何轮询 <a id="how-the-trigger-polls"></a>
 
-The node checks Databricks on the schedule in **Poll Times**. An event reaches the workflow up to one poll interval after it happens. Refer to [Get events in seconds with a webhook](#get-events-in-seconds-with-a-webhook) if that's too slow.
+节点按 **Poll Times**（轮询时间）中的计划检查 Databricks。事件发生后，最多延迟一个轮询间隔到达工作流。如果这太慢，请参阅[通过 Webhook 在数秒内获取事件](#get-events-in-seconds-with-a-webhook)。
 
-* The first time you publish the workflow, the trigger starts from that moment. For a job, it doesn't report runs that started earlier. For a pipeline, it still reports the end of an update that was already running when you published, without `timing.startedAt`, `timing.runningAt`, or `timing.durationMs`.
-* When you unpublish and publish again, the trigger continues from where it stopped and reports what happened while the workflow stayed unpublished. When you change the job or pipeline, or switch **Resource**, it starts fresh from that moment.
-* The trigger still reports a run or update that Databricks lists late, and reports it once. It reports a long run when the run ends, no matter how long the run takes.
-* If a job starts more than 1,000 runs between two polls, the trigger reports the most recent 1,000 and writes a warning to the n8n log.
-* Every poll makes at least one request to Databricks, so **Every Minute** is at least 1,440 requests a day for each trigger node. A poll that finds nothing doesn't create an execution. For a job that runs a few times a day, **Every X** with 10 or 15 minutes is enough. A pipeline poll reads every event in its window, not only update events, so a busy pipeline costs more for each poll than a job.
+* 首次发布工作流时，触发器从该时刻开始监控。对于作业，不会报告此前已开始的运行。对于管道，仍会报告发布时已经在进行的更新的结束事件，但不会包含 `timing.startedAt`、`timing.runningAt` 或 `timing.durationMs`。
+* 取消发布后再重新发布，触发器会从停止的位置继续，并报告未发布期间发生的事件。更改作业或管道，或切换 **Resource**（资源）时，会从当前时刻重新开始。
+* Databricks 延迟列出的运行或更新仍会被触发器报告，且只报告一次。无论一次运行持续多久，触发器都会在其结束时报告。
+* 如果作业在两次轮询之间启动超过 1,000 次运行，触发器会报告最近的 1,000 次，并向 n8n 日志写入警告。
+* 每次轮询至少向 Databricks 发出一个请求，因此 **Every Minute**（每分钟）意味着每个触发器节点每天至少 1,440 个请求。未发现事件的轮询不会创建执行。对于每天只运行几次的作业，选择 **Every X**（每隔指定时间）并设置 10 或 15 分钟即可。管道轮询会读取其时间窗口内的所有事件，而不仅是更新事件，因此繁忙管道每次轮询的开销高于作业。
 
-## Test the trigger
+## 测试触发器 <a id="test-the-trigger"></a>
 
-Select **Fetch Test Event** to run the trigger once by hand. For a job, the node reads the latest 25 runs. Each run gives one item: **Run Started** while it runs, or its final event once it has finished. For a pipeline, the node reads the latest 100 events and returns the update events among them. An update can give both its start and its end. The node lists items oldest first and keeps only the events in your **Events** selection. The test returns nothing when no run or update matches, for example when you select only **Run Started** and no run is going. A test doesn't change what the published workflow reports later.
+选择 **Fetch Test Event**（获取测试事件），手动运行触发器一次。对于作业，节点读取最近 25 次运行，每次运行产生一个数据项：运行进行中时为 **Run Started**（运行已开始），结束后为对应的最终事件。对于管道，节点读取最近 100 个事件，并返回其中的更新事件，一次更新可能同时返回开始和结束事件。节点按从旧到新的顺序列出数据项，仅保留 **Events**（事件）中所选的事件。如果没有匹配的运行或更新，测试不返回任何内容；例如仅选择 **Run Started** 且当前没有运行进行中时。测试不会改变已发布工作流此后报告的内容。
 
-## Use a service principal
+## 使用服务主体 <a id="use-a-service-principal"></a>
 
-The trigger runs unattended for as long as the workflow stays published, so use a credential that belongs to a service principal. That's an **OAuth2** credential with **Grant Type** set to **Client Credentials (Service Principal)**. A credential tied to a person stops working when that person leaves or revokes consent. Refer to [Using OAuth2 (service principal)](../credentials/databricks.md#using-oauth2-service-principal) for the setup steps. Track the expiry date of the secret. The trigger stops when the secret lapses.
+只要工作流保持发布状态，触发器就会无人值守运行，因此应使用属于服务主体的凭据，即 **Grant Type**（授权类型）设为 **Client Credentials (Service Principal)** 的 **OAuth2** 凭据。关联个人的凭据会在该人员离职或撤销同意后失效。设置步骤请参阅[使用 OAuth2（服务主体）](../credentials/databricks.md#using-oauth2-service-principal)。请跟踪密钥的到期日期，密钥过期时触发器会停止工作。
 
-### Grant CAN VIEW
+### 授予 CAN VIEW 权限 <a id="grant-can-view"></a>
 
-The credential's identity needs **CAN VIEW** on each job or pipeline you watch. It's the lowest permission level for both. To grant it on a job, open the job in Databricks and select **Edit permissions** in the **Job details** pane. Pick the user or service principal, set the permission to **Can View**, then select **Add** and **Save**. For a pipeline, grant it in the pipeline's permissions settings. Refer to the Databricks documentation on [job permissions](https://docs.databricks.com/aws/en/jobs/privileges) and the [pipeline access control list](https://docs.databricks.com/aws/en/security/auth/access-control/#lakeflow-pipelines-acls). The [Required Databricks privileges](../credentials/databricks.md#required-databricks-privileges) table lists the other privileges the credential needs.
+凭据所用身份需要对每个被监控的作业或管道具有 **CAN VIEW**（可查看）权限，这是两种资源的最低权限级别。为作业授权时，在 Databricks 中打开作业，在 **Job details**（作业详情）面板中选择 **Edit permissions**（编辑权限）。选择用户或服务主体，将权限设为 **Can View**，再选择 **Add**（添加）和 **Save**（保存）。管道权限在管道的权限设置中授予。请参阅 Databricks 文档中的[作业权限](https://docs.databricks.com/aws/en/jobs/privileges)和[管道访问控制列表](https://docs.databricks.com/aws/en/security/auth/access-control/#lakeflow-pipelines-acls)。[所需 Databricks 权限](../credentials/databricks.md#required-databricks-privileges)表列出了凭据需要的其他权限。
 
-## Get events in seconds with a webhook
+## 通过 Webhook 在数秒内获取事件 <a id="get-events-in-seconds-with-a-webhook"></a>
 
-The trigger polls, so an event reaches the workflow up to one poll interval after it happens. If you need a job event within seconds, let Databricks push it to a [Webhook](../core-nodes/n8n-nodes-base.webhook/README.md) node instead. Databricks job notifications can call a webhook when a run starts, succeeds, or fails. Pipelines can't send webhooks. Refer to [Watch a pipeline through a job](#watch-a-pipeline-through-a-job).
+此触发器采用轮询，因此事件发生后，最多延迟一个轮询间隔到达工作流。如果需要在数秒内收到作业事件，请让 Databricks 将事件推送到 [Webhook](../core-nodes/n8n-nodes-base.webhook/README.md) 节点。Databricks 作业通知可在运行开始、成功或失败时调用 Webhook。管道无法发送 Webhook，请参阅[通过作业监控管道](#watch-a-pipeline-through-a-job)。
 
-Before you start:
+开始之前：
 
-* A Databricks workspace admin must create the notification destination. Databricks doesn't sign the payload, so the Basic Auth username and password on the Webhook node are the only check.
-* The payload holds only IDs, so the workflow reads the run with the Databricks node.
-* Databricks documents no retry, so keep a Databricks Trigger node as the fallback for missed events.
-* Databricks doesn't guarantee the order of the calls. A `jobs.on_success` call can arrive before the `jobs.on_start` call of the same run, and the first run after you add a destination can skip `jobs.on_start`. Branch on `$json.body.event_type`, not on the order the calls arrive in.
-* Databricks must reach your n8n instance over HTTPS. For a self-hosted instance behind a firewall, allow the Databricks outbound IP ranges listed under **Networking requirements** on the [notification destinations](https://docs.databricks.com/aws/en/admin/workspace-settings/notification-destinations) page.
+* 必须由 Databricks 工作区管理员创建通知目标。Databricks 不对载荷签名，因此 Webhook 节点上的 Basic Auth 用户名和密码是唯一的校验方式。
+* 载荷仅包含 ID，因此工作流需要使用 Databricks 节点读取运行。
+* Databricks 文档未说明会重试，因此请保留 Databricks Trigger 节点，作为漏收事件的后备方案。
+* Databricks 不保证调用顺序。同一次运行的 `jobs.on_success` 调用可能早于 `jobs.on_start` 调用到达，添加目标后的首次运行也可能跳过 `jobs.on_start`。请根据 `$json.body.event_type` 分支处理，而非依据调用到达顺序。
+* Databricks 必须能够通过 HTTPS 访问你的 n8n 实例。如果实例为自行托管且位于防火墙后，请允许[通知目标](https://docs.databricks.com/aws/en/admin/workspace-settings/notification-destinations)页面 **Networking requirements**（网络要求）中列出的 Databricks 出站 IP 范围。
 
-To set it up:
+配置步骤：
 
-1. In n8n, add a **Webhook** node. Set **HTTP Method** to **POST**. Set **Authentication** to **Basic Auth** and create a **Basic Auth** credential with a **User** and a **Password**. Keep **Respond** at **Immediately**. Copy the **Production URL**.
-2. Add a **Databricks** node after the Webhook node. Set **Resource** to **Job** and **Operation** to **Get Run**. Set **Run** to **By ID** and enter the expression `{{ $json.body.run.run_id }}`. The node returns the full run, with `run_state`, `run_result`, and `run_error_message`. Refer to [Get Run](../app-nodes/n8n-nodes-base.databricks.md#get-run).
-3. Publish the workflow.
-4. In Databricks, a workspace admin creates the destination. Select your username in the top bar, then **Settings**. In the **Workspace admin** section, open the **Notifications** tab and select **Manage**. Select **Add destination**, choose **Webhook**, enter the production URL, and enter the **User** and **Password** from step 1. Select **Create**. Refer to [Manage notification destinations](https://docs.databricks.com/aws/en/admin/workspace-settings/notification-destinations).
-5. In the job, open the **Job details** pane and select **Edit notifications** under **Job notifications**. Select **Add notification**, choose the destination in **Destination**, and check **Start**, **Success**, or **Failure**. Select **Save**. Refer to [Add notifications on a job](https://docs.databricks.com/aws/en/jobs/notifications).
+1. 在 n8n 中添加 **Webhook** 节点。将 **HTTP Method**（HTTP 方法）设为 **POST**，将 **Authentication**（身份验证）设为 **Basic Auth**（基本身份验证），并创建包含 **User**（用户名）和 **Password**（密码）的 **Basic Auth** 凭据。保持 **Respond**（响应）为 **Immediately**（立即）。复制 **Production URL**（生产 URL）。
+2. 在 Webhook 节点后添加 **Databricks** 节点。将 **Resource**（资源）设为 **Job**（作业），**Operation**（操作）设为 **Get Run**（获取运行）。将 **Run**（运行）设为 **By ID**（按 ID），输入表达式 `{{ $json.body.run.run_id }}`。节点会返回完整运行，包含 `run_state`、`run_result` 和 `run_error_message`。请参阅 [Get Run](../app-nodes/n8n-nodes-base.databricks.md#get-run)。
+3. 发布工作流。
+4. 在 Databricks 中，由工作区管理员创建目标。在顶栏中选择用户名，再选择 **Settings**（设置）。在 **Workspace admin**（工作区管理员）部分打开 **Notifications**（通知）标签页，选择 **Manage**（管理）。选择 **Add destination**（添加目标），选择 **Webhook**，输入生产 URL，以及步骤 1 中的 **User**（用户名）和 **Password**（密码），再选择 **Create**（创建）。请参阅[管理通知目标](https://docs.databricks.com/aws/en/admin/workspace-settings/notification-destinations)。
+5. 在作业中打开 **Job details**（作业详情）面板，在 **Job notifications**（作业通知）下选择 **Edit notifications**（编辑通知）。选择 **Add notification**（添加通知），在 **Destination**（目标）中选择目标，勾选 **Start**（开始）、**Success**（成功）或 **Failure**（失败），再选择 **Save**（保存）。请参阅[为作业添加通知](https://docs.databricks.com/aws/en/jobs/notifications)。
 
-Databricks then sends one POST request for each event. The body arrives in `$json.body`:
+随后 Databricks 会为每个事件发送一次 POST 请求，请求体位于 `$json.body`：
 
 ```json
 {
@@ -216,45 +216,45 @@ Databricks then sends one POST request for each event. The body arrives in `$jso
 }
 ```
 
-`event_type` is `jobs.on_start`, `jobs.on_success`, `jobs.on_failure`, or `jobs.on_duration_warning_threshold_exceeded`. Check only the boxes you need in Databricks, or branch on `$json.body.event_type` with an [If](../core-nodes/n8n-nodes-base.if.md) node. A job can notify up to three destinations for each event type.
+`event_type` 为 `jobs.on_start`、`jobs.on_success`、`jobs.on_failure` 或 `jobs.on_duration_warning_threshold_exceeded`。仅勾选 Databricks 中所需的选项，或使用 [If](../core-nodes/n8n-nodes-base.if.md) 节点根据 `$json.body.event_type` 分支处理。每种事件类型最多可向三个目标发送作业通知。
 
-## Watch a pipeline through a job
+## 通过作业监控管道 <a id="watch-a-pipeline-through-a-job"></a>
 
-The **Pipeline** resource watches every update of a Databricks pipeline, whatever started it. In three cases, watch a job instead.
+**Pipeline**（管道）资源会监控 Databricks 管道的每次更新，无论它由什么启动。在以下三种情况下，应改为监控作业。
 
-### The pipeline runs as a task in a job
+### 管道作为作业中的任务运行 <a id="the-pipeline-runs-as-a-task-in-a-job"></a>
 
-Watch the job when you care about the job as a whole, for example when other tasks follow the pipeline task. The job sees only the updates it started. Watch the pipeline when you need the exceptions and stack of a failed update in `result.errors`.
+当你关心整个作业时，例如管道任务后还有其他任务，请监控作业。作业只能看到由其启动的更新。若需要在 `result.errors` 中获取失败更新的异常和堆栈，请监控管道。
 
-### The pipeline is continuous
+### 管道是连续管道 <a id="the-pipeline-is-continuous"></a>
 
-A continuous pipeline never produces **Update Completed**. To get a completion signal, run it from a triggered job with a pipeline task. The job runs the pipeline as a single update that completes, so **Run Succeeded** on the job and **Update Completed** on the pipeline both happen. The pipeline then processes data when the job runs, not continuously.
+连续管道不会产生 **Update Completed**（更新已完成）。要获取完成信号，请通过含有管道任务的触发式作业运行它。作业会将管道作为一次可完成的更新运行，因此作业的 **Run Succeeded**（运行成功）和管道的 **Update Completed**（更新已完成）事件都会发生。此时，管道会在作业运行时处理数据，而不再连续处理。
 
-### You need the event within seconds
+### 需要在数秒内收到事件 <a id="you-need-the-event-within-seconds"></a>
 
-Jobs can send webhooks, but pipelines can't. A job with a pipeline task gives the pipeline the webhook path in [Get events in seconds with a webhook](#get-events-in-seconds-with-a-webhook).
+作业可发送 Webhook，管道则不行。含有管道任务的作业可让管道使用[通过 Webhook 在数秒内获取事件](#get-events-in-seconds-with-a-webhook)中的 Webhook 方式。
 
-Refer to [Pipeline task for jobs](https://docs.databricks.com/aws/en/jobs/tasks/pipeline) and [Triggered vs. continuous pipeline mode](https://docs.databricks.com/aws/en/ldp/concepts/pipeline-mode) for more information.
+更多信息请参阅[作业的管道任务](https://docs.databricks.com/aws/en/jobs/tasks/pipeline)和[触发式与连续管道模式](https://docs.databricks.com/aws/en/ldp/concepts/pipeline-mode)。
 
-## Common issues
+## 常见问题 <a id="common-issues"></a>
 
-### The trigger doesn't start the workflow
+### 触发器不启动工作流 <a id="the-trigger-doesnt-start-the-workflow"></a>
 
-* The first time you publish the workflow, the trigger starts from that moment and doesn't replay older runs. Start a new run or update to test it.
-* Open the **Executions** list. A failed poll shows there with the Databricks error.
-* For a job, a missing **CAN VIEW** permission doesn't produce an error. The trigger polls without failing and never fires. Refer to [Permission errors](#permission-errors).
-* Check the **Events** selection. **Run Started** and **Update Started** aren't selected by default.
-* A continuous pipeline never produces **Update Completed**. Refer to [Watch a pipeline through a job](#watch-a-pipeline-through-a-job).
-* A run that's still going produces only **Run Started**. Its final event follows once Databricks reports it as finished.
-* The credential expired. A service principal secret lasts at most 730 days, and a user-login connection ends when its refresh token expires. Refer to [OAuth secrets expire](../credentials/databricks.md#create-a-service-principal-and-oauth-secret) and [Configure token lifetimes](../credentials/databricks.md#configure-token-lifetimes).
+* 首次发布工作流时，触发器从该时刻开始监控，不会重放旧运行。请启动新的运行或更新进行测试。
+* 打开 **Executions**（执行记录）列表，失败的轮询会显示在其中，并附有 Databricks 错误。
+* 对于作业，缺少 **CAN VIEW**（可查看）权限不会产生错误。触发器会持续轮询且不报错，但始终不触发。请参阅[权限错误](#permission-errors)。
+* 检查 **Events**（事件）的选择，默认未选择 **Run Started**（运行已开始）和 **Update Started**（更新已开始）。
+* 连续管道不会产生 **Update Completed**（更新已完成），请参阅[通过作业监控管道](#watch-a-pipeline-through-a-job)。
+* 尚在进行的运行只会产生 **Run Started**（运行已开始）。Databricks 报告运行结束后，才会产生对应的最终事件。
+* 凭据已过期。服务主体密钥的有效期最多为 730 天，用户登录连接会在刷新令牌过期时结束。请参阅 [OAuth 密钥会过期](../credentials/databricks.md#create-a-service-principal-and-oauth-secret)和[配置令牌有效期](../credentials/databricks.md#configure-token-lifetimes)。
 
-### The job or pipeline isn't in the list
+### 作业或管道未出现在列表中 <a id="the-job-or-pipeline-isnt-in-the-list"></a>
 
-Databricks lists only the jobs the credential's identity has **CAN VIEW** on. The search scans at most the first 1,000 jobs or pipelines of the workspace. Use **By ID** or **By URL** instead, or grant **CAN VIEW** first.
+Databricks 仅列出凭据所用身份具有 **CAN VIEW**（可查看）权限的作业。搜索最多扫描工作区中的前 1,000 个作业或管道。可改用 **By ID**（按 ID）或 **By URL**（按 URL），或先授予 **CAN VIEW** 权限。
 
-### Permission errors
+### 权限错误 <a id="permission-errors"></a>
 
-When the credential's identity lacks **CAN VIEW**, Databricks rejects the request with `PERMISSION_DENIED`. n8n shows the Databricks message as the error and adds one of these hints as the description:
+凭据所用身份缺少 **CAN VIEW**（可查看）权限时，Databricks 会以 `PERMISSION_DENIED` 拒绝请求。n8n 将 Databricks 消息作为错误显示，并在描述中添加以下某条提示：
 
 ```text
 Grant Can View on the job to the user or service principal of the credential, then retry.
@@ -264,26 +264,26 @@ Grant Can View on the job to the user or service principal of the credential, th
 Grant Can View on the pipeline to the user or service principal of the credential, then retry.
 ```
 
-You see the error in the node when you select **Fetch Test Event**. In a published workflow, each failed poll appears as a failed execution in the **Executions** list. Refer to [Grant CAN VIEW](#grant-can-view).
+选择 **Fetch Test Event**（获取测试事件）时，会在节点中看到此错误。在已发布的工作流中，每次失败轮询都作为失败执行出现在 **Executions**（执行记录）列表中。请参阅[授予 CAN VIEW 权限](#grant-can-view)。
 
-For a job, Databricks answers the run list with an empty result instead of `PERMISSION_DENIED` when the identity lacks **CAN VIEW**. **Fetch Test Event** then returns nothing, and a published trigger polls without errors and never fires. The only visible sign is that the job is missing from the **From List** picker. Grant **CAN VIEW** on the job, then select **Fetch Test Event** again. The trigger reports runs that happened in the five minutes before the grant on its next poll.
+对于作业，身份缺少 **CAN VIEW**（可查看）权限时，Databricks 对运行列表返回空结果，而非 `PERMISSION_DENIED`。此时 **Fetch Test Event**（获取测试事件）不返回任何内容，已发布的触发器会持续轮询且不报错，但始终不触发。唯一可见的迹象是作业不出现在 **From List**（从列表选择）选择器中。请为该作业授予 **CAN VIEW** 权限，再次选择 **Fetch Test Event**。触发器将在下次轮询中报告授权前五分钟内发生的运行。
 
-### Invalid job or pipeline ID
+### 作业或管道 ID 无效 <a id="invalid-job-or-pipeline-id"></a>
 
-The node checks the ID before it calls Databricks:
+节点会在调用 Databricks 前检查 ID：
 
-* `Job ID must be a whole number`: use the numeric ID shown in the job URL in Databricks.
-* `Job ID is too large to send exactly`: IDs above `9007199254740991` lose precision in JavaScript, so the node can't watch this job.
-* `Pipeline ID must be a UUID`: use the ID shown in the pipeline URL in Databricks, for example `8199cd89-e2f5-4169-a6aa-656a24c8886d`.
+* `Job ID must be a whole number`：使用 Databricks 作业 URL 中显示的数字 ID。
+* `Job ID is too large to send exactly`：大于 `9007199254740991` 的 ID 在 JavaScript 中会丢失精度，因此节点无法监控此作业。
+* `Pipeline ID must be a UUID`：使用 Databricks 管道 URL 中显示的 ID，例如 `8199cd89-e2f5-4169-a6aa-656a24c8886d`。
 
-### Unexpected response
+### 非预期响应 <a id="unexpected-response"></a>
 
-n8n shows `Databricks did not return a JSON list of job runs` or `Databricks did not return a JSON list of pipeline events` when the **Host** in the credential isn't a Databricks workspace URL. Check the **Host** and retry.
+凭据中的 **Host**（主机）不是 Databricks 工作区 URL 时，n8n 会显示 `Databricks did not return a JSON list of job runs` 或 `Databricks did not return a JSON list of pipeline events`。请检查 **Host** 并重试。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Databricks node](../app-nodes/n8n-nodes-base.databricks.md)
-* [Databricks credentials](../credentials/databricks.md)
-* [Jobs API: list runs](https://docs.databricks.com/api/jobs/v2/list-runs)
-* [Pipelines API: list pipeline events](https://docs.databricks.com/api/pipelines/v2/events)
-* [Databricks access control lists](https://docs.databricks.com/aws/en/security/auth/access-control/)
+* [Databricks 节点](../app-nodes/n8n-nodes-base.databricks.md)
+* [Databricks 凭据](../credentials/databricks.md)
+* [Jobs API：列出运行](https://docs.databricks.com/api/jobs/v2/list-runs)
+* [Pipelines API：列出管道事件](https://docs.databricks.com/api/pipelines/v2/events)
+* [Databricks 访问控制列表](https://docs.databricks.com/aws/en/security/auth/access-control/)

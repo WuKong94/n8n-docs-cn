@@ -10475,5 +10475,335 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.affinitytrigger.md": {
+    "status": "translated",
+    "source_sha256": "4c79d6c0bf6cd2443a87eaee3c9838c3f01b66295bcbfe029bca7881b8b1af90",
+    "translation_sha256": "3b89a8a0d1d79a3c584f991b2e140ed49e1bd97196acf7a4f3018ac941a47a94",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.airtabletrigger.md": {
+    "status": "translated",
+    "source_sha256": "4c2216cf79aa736d1030db513ef59f055a3979da6bf86b9c08a9c573dcf68745",
+    "translation_sha256": "26628b8dd6d42bc31150cfde43c0fc89fa75c80726adf7ad926a30a3173f03af",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.clickuptrigger.md": {
+    "status": "translated",
+    "source_sha256": "6be676955cce063792b21c4a0d9afb25fc21e5c24fdadd80bed939375b169172",
+    "translation_sha256": "9748571803379f44105e7958249e16f7fe580463cf876c12e27d00df1901deef",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.customeriotrigger.md": {
+    "status": "translated",
+    "source_sha256": "f344a0e973d2d827f022b1b515920679b6d4bd095b69145f3418fdec06bdcf51",
+    "translation_sha256": "289f78b4be3d1eea96590bdfa6074ef5312a4037657bfbe92f0ed8c5ac23ed80",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.githubtrigger.md": {
+    "status": "translated",
+    "source_sha256": "ac4e17d091e2e091833cc83e5aa13bc66b3b8be176d3c0858757707f6428c5ec",
+    "translation_sha256": "880fe2d8da69f503ebc5c6640561a0bf119072fd7e9b332c4227c5d7776c7a2c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.hubspottrigger.md": {
+    "status": "translated",
+    "source_sha256": "eb6c8fca12ce2b781f9a7739708a14ca99522560d8228bc3c0b7726d19307fa5",
+    "translation_sha256": "ab51837a44d1dda22958b6b27e583e8532d1e5f3b625d1349ca98cc4f94a8c82",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.kafkatrigger.md": {
+    "status": "translated",
+    "source_sha256": "39431df3a0edcf31cccf55d26db075a3cdaf88d6ca5a731eef38cced39e78501",
+    "translation_sha256": "edf8dea6ea0c786980c9b11f6b859dcbd2afb26573244ba4ec18acf0a36deba9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.lemlisttrigger.md": {
+    "status": "translated",
+    "source_sha256": "d5ab1e97d07b4160e4efd1a3cd84e979217ca775e83dc8a50fab30d7915c4b44",
+    "translation_sha256": "db674e6565bf736742825a27e0128a2511b4dc3e370a0149395b6abb90df2b0f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftteamstrigger.md": {
+    "status": "translated",
+    "source_sha256": "744da24365ffc3217deb12c8723c6017221a75cbb83cf9c03745a55a1b394036",
+    "translation_sha256": "cdc8d305ea89baa73fd49ded9741125bd1fb9cc415d4b015aaa6fdecad2a1835",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.slacktrigger.md": {
+    "status": "translated",
+    "source_sha256": "326c387680344859a134da6fe3ef3463f74cf0a26aa12e2cc7e3b22d2aa30fce",
+    "translation_sha256": "118e3d7ec765df57e5786e28b73f26d6a1213f3c8333c23998e76b441c0f53f3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.thehive5trigger.md": {
+    "status": "translated",
+    "source_sha256": "085ec7dbc1802adbb292cf35a80b72146b01be4ccce06ca3ade46b43f7731981",
+    "translation_sha256": "207050d7d6b6b964e4b8036192f99eb074718f9960ac344892a3eac886ff92b4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.thehivetrigger.md": {
+    "status": "translated",
+    "source_sha256": "872859a7dbdb36b786a6e0a7899cea772303446b7b5862d9326c226780aceeca",
+    "translation_sha256": "672bb575bccf2ec8261dc8c4cf0a68cc0e22ab5f88393a4c6ba6f3ff0df952fc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.whatsapptrigger.md": {
+    "status": "translated",
+    "source_sha256": "e17a474110d07ca9a1f2045a65f1b2a4a663f6f881d91a501d49302dd9a1c9fd",
+    "translation_sha256": "b9c85620fef1a94cc72664c7d65ff4d30ddc5b10b02bfd4ad073e8e917150d45",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger/README.md": {
+    "status": "translated",
+    "source_sha256": "450aeb0473903cfb359ec187a76d516a144db3245cef4365b5835fb8d036d91a",
+    "translation_sha256": "3c6ed7022220c79a1e29441390682be1b62729ca32985a89851079c355a14f2e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.telegramtrigger/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "8ec0e6b2683fbd5c938c07a6e44425f617678c82e9a15d344ce970001a55b7dd",
+    "translation_sha256": "a6e2235852b80e8b6294218d0881f7f26f47a5e6d5790022b40cd31d2bb5468d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.figmatrigger.md": {
+    "status": "translated",
+    "source_sha256": "5eb0a6992a1d62d44ea58f62a78c01a1bb892beee0f0ab665b6d5d5f9a9ef590",
+    "translation_sha256": "32ae21a7b60b0ca75476f410ab46881f5c23f588087f9d559831bbcc89b698ec",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftsharepointtrigger.md": {
+    "status": "translated",
+    "source_sha256": "1165d2369a5f172dfffabf1d91c7d93d979ed4d7bf92d4e305b74a907abeb183",
+    "translation_sha256": "b7f7c05ed45e373a5f08ef22355a70fa9ce7f3e9f717ebc973cd4a9fd30f9d87",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/README.md": {
+    "status": "translated",
+    "source_sha256": "cd42f8f5b63bc33f20baf9fad65f9a5f5f9e5a215d72e92fe5eb7de802886220",
+    "translation_sha256": "5366b47a08b9c60e3b393f9b3d7b5481b64b601790344548b1edb209bbed7db8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/ad-account.md": {
+    "status": "translated",
+    "source_sha256": "b8180d38dfabb73b05c75bfe5b7a81e83de48737d6f5c837df9563723bee1029",
+    "translation_sha256": "7626b22cbf1416e054c795ad8df3bdce0844b34ecd14846ebf9e6d0887cf8d1f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/application.md": {
+    "status": "translated",
+    "source_sha256": "70603665c195cb4d3b805afb03e22d16fbeec3e6b34f14849bada68b63a98def",
+    "translation_sha256": "d8d25c1b897b35a5ae41ca7105387c7ebc1a84cb4d3ebdaa8af85d7e4d0dd456",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/certificate-transparency.md": {
+    "status": "translated",
+    "source_sha256": "567735d22ef400e40413223d382e614547f481f9b8c141c12d0d4755ee9045ac",
+    "translation_sha256": "72f6146f4df7c9416b03ce5aa0f93265cb9f0a13e283cfd41f423525cf15f698",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/group.md": {
+    "status": "translated",
+    "source_sha256": "1af0ed3476b65e7e9faeeefd0a4cafd99e35fab226da6a5fc6adb1bc6c6a5dd8",
+    "translation_sha256": "8343ed464d7bbeabfa9af450bc85a5e6d91685f46571f9cee81bef539314b85c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/instagram.md": {
+    "status": "translated",
+    "source_sha256": "1b859eb198811180bd70953e4ce6afa86e32c5098d7310e96a3f34915288af80",
+    "translation_sha256": "7e78088ceff1b119e7deed4f3b65a217bfb54b87d94f83d86bab02f541160344",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/link.md": {
+    "status": "translated",
+    "source_sha256": "7eee7aed3f8eb6fe86a1161e89cdca7c6968ef48e93d73e4edd6d4afa7d3cc66",
+    "translation_sha256": "4d15fd7e40892ec26d38eca1f694cbb35e369bd30352b1a6990436d02bf5af2c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/page.md": {
+    "status": "translated",
+    "source_sha256": "4bfef4729cb52e66cc818fe119f438fd1874df9c91535aa11512190577aeb8f1",
+    "translation_sha256": "3e2016851a3ffd269c96b6e5932a816b77e9d2569e012d5502af6dee5a3c32cc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/permissions.md": {
+    "status": "translated",
+    "source_sha256": "fc4c3ec51bd4693b7711afa86989ac835a2029ee7fa811892aac81d640526d01",
+    "translation_sha256": "8a9969348a722ca1730f54435ba37e4c5f046b452174fc714662671ef1cb35d6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/user.md": {
+    "status": "translated",
+    "source_sha256": "43207184e423a6ebc240121f40205e7d5e5947f6ffc3e02b46f99111b642d586",
+    "translation_sha256": "413c0e1436894544ab0cbd826a71aa8b15462506106ee89b9a47eb93bb733082",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/whatsapp.md": {
+    "status": "translated",
+    "source_sha256": "11a440b4b48837bb7fcc6cb9bf846349c352ef5daef0e96eb97d3d9f1e1941b8",
+    "translation_sha256": "5ebaa20f2b75873d43432ed21ca003239ee4211bf6d8de6f717bbe4d64be5685",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/workplace-security.md": {
+    "status": "translated",
+    "source_sha256": "58098a764632094c0885141c6cba82a105124de43e7712ecc7468059713490dd",
+    "translation_sha256": "0a7c96fed0a852b53314b72641d4f26f01e52fa1dee96616e2b683d78f48cd5c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.databrickstrigger.md": {
+    "status": "translated",
+    "source_sha256": "959e7ad1e5acb1b324e5a190afe49e97421bf2be3712fb841a7df6a7f86ebaca",
+    "translation_sha256": "a9c4f2324d123dd83f4f1477dfe1facea0aa48b55f9431f3c1e922ca79246aeb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

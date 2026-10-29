@@ -1,112 +1,110 @@
 ---
-title: Kafka Trigger node documentation
-description: >-
-  Learn how to use the Kafka Trigger node in n8n. Follow technical documentation
-  to integrate Kafka Trigger node into your workflows.
+title: Kafka 触发器节点文档
+description: 了解如何在 n8n 中使用 Kafka 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Kafka Trigger node documentation
+nodeTitle: Kafka 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.kafkatrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kafkatrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kafkatrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kafkatrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kafkatrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Kafka Trigger node <a href="#kafka-trigger-node" id="kafka-trigger-node"></a>
 
-[Kafka](https://kafka.apache.org/) is an open-source distributed event streaming platform that one can use for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+# Kafka 触发器节点 <a href="#kafka-trigger-node" id="kafka-trigger-node"></a>
+
+[Kafka](https://kafka.apache.org/) 是开源的分布式事件流平台，可用于高性能数据管道、流式分析、数据集成和关键业务应用。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Kafka credentials documentation](../credentials/kafka.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Kafka 凭据文档](../credentials/kafka.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Schema Registry**
+**Schema Registry（架构注册表）**
 
-To decode messages with an authenticated Confluent Schema Registry (for example, Confluent Cloud), enable **Use Schema Registry** in the node and add a [Schema Registry credential](../credentials/schemaregistry.md).
+要通过需要身份验证的 Confluent Schema Registry（例如 Confluent Cloud）解码消息，请在节点中启用 **Use Schema Registry**（使用架构注册表），并添加 [Schema Registry 凭据](../credentials/schemaregistry.md)。
 {% endhint %}
 
 {% hint style="warning" %}
-**Message compression on version 1**
+**版本 1 的消息压缩支持**
 
-Version 1 of the Kafka Trigger consumes uncompressed messages and messages compressed with **GZIP**. It can't decode messages compressed with **LZ4**, **Snappy**, or **Zstd** (a common default for Confluent and JVM producers): consuming such a topic fails with an unsupported-compression-format error. To consume the topic, configure the producer to use GZIP or no compression, or switch to [Kafka Trigger version 2](#kafka-trigger-version-2), which decodes all four formats.
+Kafka Trigger 版本 1 可消费未压缩的消息和使用 **GZIP** 压缩的消息，但无法解码使用 **LZ4**、**Snappy** 或 **Zstd** 压缩的消息（这些格式是 Confluent 和 JVM 生产者的常见默认格式）。消费此类主题时，会报不支持压缩格式的错误。要消费该主题，请将生产者配置为使用 GZIP 或不压缩，或切换至可解码全部四种格式的 [Kafka Trigger 版本 2](#kafka-trigger-version-2)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Kafka Trigger integrations](https://n8n.io/integrations/kafka-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Kafka Trigger 集成](https://n8n.io/integrations/kafka-trigger/)页面。
 {% endhint %}
 
-## Kafka Trigger version 2
+## Kafka Trigger 版本 2 <a id="kafka-trigger-version-2"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用性**
 
-Version 2 of the Kafka Trigger is the default from n8n 2.45.0: triggers you add from the Nodes panel use version 2. Version 2 is available from n8n 2.36.0 for workflows that opt in. Existing workflows keep the version they were built with until you switch them.
+从 n8n 2.45.0 起，Kafka Trigger 的默认版本为 2：通过节点面板添加的触发器使用版本 2。从 n8n 2.36.0 起，工作流便可选择使用版本 2。现有工作流在主动切换前，仍保持创建时使用的版本。
 {% endhint %}
 
-Version 2 runs on a new, actively maintained Kafka engine. The trigger keeps the same fields and credential as version 1, with these differences:
+版本 2 使用全新的、持续维护的 Kafka 引擎。触发器保留了版本 1 的字段和凭据，但有以下差异：
 
-- It decodes messages compressed with **GZIP**, **LZ4**, **Snappy**, or **Zstd**. Version 1 handles uncompressed and GZIP messages only.
-- It checks the topic and the consumer group when you publish the workflow. If a topic given by its exact name doesn't exist, or the broker refuses the consumer group, publishing fails with an error instead of the trigger consuming nothing.
-- Manual executions (when you select **Listen for test event**) join a temporary consumer group named `<group-id>-n8n-manual-<uuid>` and never replay the topic, even with **Read Messages From Beginning** on. They no longer take messages from the published workflow. On clusters with access control lists (ACLs), grant a prefixed group ACL for `<group-id>-n8n-manual-`, or skip the test: publish the workflow and check its executions instead.
-- If the Schema Registry can't decode a message, version 2 leaves it unread and retries after **Retry Delay on Error**, so you lose no messages while the registry is unavailable. Version 1 passes the raw message to the workflow and commits the offset.
+- 可解码使用 **GZIP**、**LZ4**、**Snappy** 或 **Zstd** 压缩的消息。版本 1 仅支持未压缩和 GZIP 消息。
+- 发布工作流时会检查主题和消费组。如果以确切名称指定的主题不存在，或代理拒绝该消费组，发布会失败并报错，而不会出现触发器不消费任何消息却没有提示的情况。
+- 手动执行（选择 **Listen for test event**，即监听测试事件时）会加入名为 `<group-id>-n8n-manual-<uuid>` 的临时消费组，即使启用了 **Read Messages From Beginning**（从头读取消息），也不会重放主题。手动执行不再取走已发布工作流的消息。如果集群配置了访问控制列表（ACL），请为 `<group-id>-n8n-manual-` 授予前缀匹配的消费组 ACL；或者跳过测试，直接发布工作流并查看执行记录。
+- 如果 Schema Registry 无法解码消息，版本 2 会将其保留为未读，并在 **Retry Delay on Error**（出错后重试延迟）指定的时间后重试，因此注册表不可用时也不会丢失消息。版本 1 会将原始消息传给工作流并提交偏移量。
 
-### Options removed or changed in Kafka Trigger version 2
+### Kafka Trigger 版本 2 中移除或变更的选项 <a id="options-removed-or-changed-in-kafka-trigger-version-2"></a>
 
-Version 2 doesn't offer three version 1 options:
+版本 2 不再提供版本 1 中的以下三个选项：
 
-- **Auto Commit Threshold**: the new engine has no matching setting.
-- **Each Batch Auto Resolve**: it would mark messages as read that no execution processed.
-- **Allow Topic Creation**: it had no effect in version 1.
+- **Auto Commit Threshold**（自动提交阈值）：新引擎没有对应设置。
+- **Each Batch Auto Resolve**（每批自动解析）：该选项会将未经任何执行处理的消息标记为已读。
+- **Allow Topic Creation**（允许创建主题）：该选项在版本 1 中未生效。
 
-Every other option keeps its name and default. Three behave differently:
+其他所有选项保留原名称和默认值，其中三个选项的行为有所变化：
 
-- **Rebalance Timeout** now sets how long one batch may take to process before the group drops the consumer. n8n uses it only when the workflow has no execution timeout of its own; the workflow timeout takes precedence.
-- n8n lowers **Heartbeat Interval** automatically when it's more than a third of **Session Timeout**, so the broker doesn't drop the consumer.
-- **Retry Delay on Error** also paces the retry of a message the Schema Registry can't decode. Version 1 used it only after a failed offset resolution.
+- **Rebalance Timeout**（再均衡超时）现在规定单批消息可处理多长时间，超过后消费组将移除此消费者。n8n 仅在工作流未设置自身执行超时时使用该值；工作流的超时设置优先。
+- 如果 **Heartbeat Interval**（心跳间隔）超过 **Session Timeout**（会话超时）的三分之一，n8n 会自动降低心跳间隔，以免代理移除该消费者。
+- **Retry Delay on Error**（出错后重试延迟）也用于控制 Schema Registry 无法解码的消息的重试间隔。版本 1 仅在偏移量解析失败后使用该选项。
 
-### Switch a workflow to Kafka Trigger version 2
+### 将工作流切换至 Kafka Trigger 版本 2 <a id="switch-a-workflow-to-kafka-trigger-version-2"></a>
 
-Triggers you add from the Nodes panel are already version 2. The editor has no version picker, so to move an existing version 1 workflow:
+通过节点面板添加的触发器已经使用版本 2。编辑器没有版本选择器，因此迁移现有版本 1 工作流时，请按以下步骤操作：
 
-1. Download the workflow (**Workflow menu** > **Download**) and keep that file unchanged: it's your rollback point.
-2. In a copy of the file, set `"typeVersion": 2` on the Kafka Trigger node, and set the consumer group ID as described in [Choose the consumer group ID](#choose-the-consumer-group-id).
-3. Import the copy into a new, empty workflow (**Workflow menu** > **Import from File**). Importing adds nodes next to any already on the canvas, so don't import into the workflow that still holds the version 1 trigger.
-4. Re-select the Kafka credential on the node if the import cleared it. If you migrate on the same group ID, unpublish the version 1 workflow first. Then publish the version 2 workflow.
+1. 下载工作流（**Workflow menu** > **Download**，即工作流菜单 > 下载），保留该文件不作修改，作为回滚时的恢复点。
+2. 在该文件的副本中，将 Kafka Trigger 节点设置为 `"typeVersion": 2`，并按[选择消费组 ID](#choose-the-consumer-group-id)中的说明设置消费组 ID。
+3. 将副本导入一个新的空工作流（**Workflow menu** > **Import from File**，即工作流菜单 > 从文件导入）。导入会将节点添加到画布现有节点旁边，因此不要导入仍包含版本 1 触发器的工作流。
+4. 如果导入后节点的 Kafka 凭据被清空，请重新选择。如果使用相同的消费组 ID 迁移，请先取消发布版本 1 工作流，再发布版本 2 工作流。
 
-Refer to [Export and import workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/export-and-import) for details on the menu.
+有关菜单的详细信息，请参阅[导出和导入工作流](../../../build/manage-workflows/export-and-import.md)。
 
-n8n checks with every build that version 2's native component loads in the official n8n Docker images, on both amd64 and arm64. Other install methods, such as npm or custom images, aren't checked.
+n8n 在每次构建时，都会检查版本 2 的原生组件能否在 amd64 和 arm64 架构的官方 n8n Docker 镜像中加载。npm 或自定义镜像等其他安装方式不在此检查范围内。
 
-### Choose the consumer group ID
+### 选择消费组 ID <a id="choose-the-consumer-group-id"></a>
 
-Version 1 and version 2 use different client libraries that can't form a consumer group together, so set the consumer group ID to match your goal:
+版本 1 和版本 2 使用不同的客户端库，无法共同组成消费组，因此请根据目标设置消费组 ID：
 
-- **To run both triggers at the same time**, give the version 2 trigger a consumer group ID of its own. Use this to compare them, or to try version 2 while version 1 keeps working. The two are then fully independent: each receives every message on the topic, each keeps its own read position, and starting the new trigger doesn't disturb the running one.
-- **To migrate from version 1 to version 2**, keep the same group ID but run only one trigger at a time: unpublish the version 1 workflow first, then publish the version 2 workflow. It resumes at the position where the old one stopped, so it skips nothing, including messages that arrived while neither trigger was running. Only messages whose executions were still running when you unpublished version 1 can run again. Don't give it a new group ID for this: a fresh group has no saved position, so it either skips the backlog or replays the whole topic, depending on **Read Messages From Beginning**.
-- **Don't publish both triggers on the same group ID.** They can't form a group at all. Your existing trigger keeps working either way: the cost of getting this wrong is a new trigger that never fires, not a broken production workflow. A version 2 trigger published second fails to publish with a visible error. The broker refuses a version 1 trigger published second, and it receives nothing until you unpublish one of the two. Set the group ID before you publish, rather than relying on that error.
+- **同时运行两个触发器时**，为版本 2 触发器指定独立的消费组 ID。这适合对比两个版本，或在版本 1 继续工作的同时试用版本 2。此时两者完全独立：分别接收主题中的每条消息，各自保存读取位置，启动新触发器不会干扰已运行的触发器。
+- **从版本 1 迁移至版本 2 时**，保留相同的消费组 ID，但每次仅运行一个触发器：先取消发布版本 1 工作流，再发布版本 2 工作流。新触发器会从旧触发器停止的位置继续，不会跳过任何消息，包括两个触发器都未运行期间到达的消息。只有在取消发布版本 1 时执行仍未完成的消息，才可能再次执行。此时不要使用新的消费组 ID：新消费组没有已保存的位置，会根据 **Read Messages From Beginning**（从头读取消息）的设置，跳过积压消息或重放整个主题。
+- **不要使用相同的消费组 ID 同时发布两个触发器。** 两者无法组成消费组。无论哪种情况，现有触发器都会继续工作；配置错误的后果是新触发器始终不触发，而不是破坏生产工作流。如果后发布的是版本 2 触发器，会发布失败并显示错误；如果后发布的是版本 1 触发器，代理会拒绝它，直到你取消发布其中一个触发器，它才会收到消息。请在发布前设置好消费组 ID，不要依赖报错来发现问题。
 
-### Roll back to Kafka Trigger version 1.3
+### 回滚至 Kafka Trigger 版本 1.3 <a id="roll-back-to-kafka-trigger-version-13"></a>
 
-Rolling back loses no read position: when you unpublish a version 2 workflow, its consumer leaves the group and nothing keeps running in the background. Committed read positions stay on the broker, attached to the group ID, for as long as the broker keeps offsets for an empty group (seven days by default).
+回滚不会丢失读取位置：取消发布版本 2 工作流时，其消费者会退出消费组，后台也不再运行任何相关任务。已提交的读取位置仍保存在代理上，并关联消费组 ID，保留时间取决于代理对空消费组偏移量的保留期限（默认为七天）。
 
-The editor has no control to change an existing node's version. If the original version 1 workflow still exists, unpublish the version 2 workflow, then publish the original again. Otherwise, use one of these paths. Prefer the first if you still have the export from step 1 of the switch. Use the second for a workflow that started on version 2 and has no version 1 export.
+编辑器没有修改现有节点版本的控件。如果原来的版本 1 工作流仍然存在，先取消发布版本 2 工作流，再重新发布原工作流。否则，请选择以下一种方式。如果仍保留切换步骤 1 中的导出文件，优先选择第一种；如果工作流最初就使用版本 2，没有版本 1 的导出文件，则使用第二种。
 
-- **Restore the export:** unpublish the version 2 workflow. Then import the file from step 1 of the switch into a new, empty workflow (**Workflow menu** > **Import from File**), or restore the previous version from [workflow history](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/view-change-history), if your plan keeps it. Re-select the Kafka credential if the import cleared it, then publish the restored workflow.
-- **Edit the workflow JSON:** unpublish the version 2 workflow and download it (**Workflow menu** > **Download**). In a copy of the file, set `"typeVersion": 1.3` on the Kafka Trigger node and keep the same consumer group ID, then import the copy into a new, empty workflow. Re-select the Kafka credential if the import cleared it, then publish the restored workflow. A trigger you add from the Nodes panel is version 2, so adding a new trigger doesn't roll you back.
+- **恢复导出文件：**取消发布版本 2 工作流。然后将切换步骤 1 中的文件导入一个新的空工作流（**Workflow menu** > **Import from File**，即工作流菜单 > 从文件导入），或者在你的套餐保留相应记录的情况下，通过[工作流历史记录](../../../build/manage-workflows/view-change-history.md)恢复先前版本。如果导入后 Kafka 凭据被清空，请重新选择，再发布恢复后的工作流。
+- **编辑工作流 JSON：**取消发布版本 2 工作流并下载（**Workflow menu** > **Download**，即工作流菜单 > 下载）。在文件副本中，将 Kafka Trigger 节点设置为 `"typeVersion": 1.3`，保留相同的消费组 ID，再将副本导入一个新的空工作流。如果导入后 Kafka 凭据被清空，请重新选择，再发布恢复后的工作流。通过节点面板添加的触发器为版本 2，因此添加新触发器无法完成回滚。
 
-What the consumer group does afterward depends on how you ran version 2:
+之后消费组的行为取决于你之前如何运行版本 2：
 
-- If you ran both triggers side by side on separate group IDs, you don't need either path: unpublish or delete the version 2 workflow. Your original trigger was never affected.
-- If you migrated on a shared group ID, the rolled-back trigger rejoins the group and resumes at the committed position, including messages that arrived during the switch.
-- If you switched over on a new group ID, the rolled-back trigger delivers again the messages that version 2 already processed. The old group's read position didn't move while version 2 ran.
+- 如果两个触发器使用不同的消费组 ID 并行运行，无需使用上述任一种恢复方式：取消发布或删除版本 2 工作流即可，原触发器从未受到影响。
+- 如果迁移时共用消费组 ID，回滚后的触发器会重新加入消费组，从已提交的位置继续读取，包括切换期间到达的消息。
+- 如果切换时使用了新的消费组 ID，回滚后的触发器会再次投递版本 2 已处理的消息，因为版本 2 运行期间，旧消费组的读取位置并未前移。

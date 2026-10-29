@@ -1,76 +1,74 @@
 ---
-title: HubSpot Trigger node documentation
-description: >-
-  Learn how to use the HubSpot Trigger node in n8n. Follow technical
-  documentation to integrate HubSpot Trigger node into your workflows.
+title: HubSpot 触发器节点文档
+description: 了解如何在 n8n 中使用 HubSpot 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: HubSpot Trigger node documentation
+nodeTitle: HubSpot 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.hubspottrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.hubspottrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.hubspottrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.hubspottrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.hubspottrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# HubSpot Trigger node <a href="#hubspot-trigger-node" id="hubspot-trigger-node"></a>
 
-[HubSpot](https://www.hubspot.com/) provides tools for social media marketing, content management, web analytics, landing pages, customer support, and search engine optimization.
+# HubSpot 触发器节点 <a href="#hubspot-trigger-node" id="hubspot-trigger-node"></a>
+
+[HubSpot](https://www.hubspot.com/) 提供社交媒体营销、内容管理、网站分析、落地页、客户支持和搜索引擎优化工具。
 
 {% hint style="warning" %}
-**Webhooks**
+**Webhook**
 
-If you activate a second trigger, the previous trigger stops working. This is because the trigger registers a new webhook with HubSpot when activated. HubSpot only allows one webhook at a time.
+启用第二个触发器后，之前的触发器会停止工作，因为触发器启用时会向 HubSpot 注册新的 Webhook，而 HubSpot 同时只允许一个 Webhook。
 {% endhint %}
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [HubSpot credentials documentation](../credentials/hubspot.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [HubSpot 凭据文档](../credentials/hubspot.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [HubSpot Trigger integrations](https://n8n.io/integrations/hubspot-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [HubSpot Trigger 集成](https://n8n.io/integrations/hubspot-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Company
-	* Created
-	* Deleted
-	* Property changed
-* Contact
-	* Created
-	* Deleted
-	* Privacy deleted
-	* Property changed
-* Conversation
-	* Created
-	* Deleted
-	* New message
-	* Privacy deletion
-	* Property changed
-* Deal
-	* Created
-	* Deleted
-	* Property changed
-* Ticket
-	* Created
-	* Deleted
-	* Property changed 
+* Company（公司）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Property changed（属性已变更）
+* Contact（联系人）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Privacy deleted（隐私删除）
+    * Property changed（属性已变更）
+* Conversation（会话）
+    * Created（已创建）
+    * Deleted（已删除）
+    * New message（新消息）
+    * Privacy deletion（隐私删除）
+    * Property changed（属性已变更）
+* Deal（交易）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Property changed（属性已变更）
+* Ticket（工单）
+    * Created（已创建）
+    * Deleted（已删除）
+    * Property changed（属性已变更）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for HubSpot. Refer to the [HubSpot node documentation](../app-nodes/n8n-nodes-base.hubspot.md) for more information.
+n8n 为 HubSpot 提供应用节点。更多信息请参阅 [HubSpot 节点文档](../app-nodes/n8n-nodes-base.hubspot.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/hubspot-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/hubspot-trigger/)。
 
-Refer to [HubSpot's documentation](https://developers.hubspot.com/docs/api/overview) for details about their API.
+API 的详细信息，请参阅 [HubSpot 文档](https://developers.hubspot.com/docs/api/overview)。
 

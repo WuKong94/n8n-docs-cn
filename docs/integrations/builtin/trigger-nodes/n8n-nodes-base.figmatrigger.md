@@ -1,49 +1,47 @@
 ---
-title: Figma Trigger (Beta) node documentation
-description: >-
-  Learn how to use the Figma Trigger node in n8n. Follow technical documentation
-  to integrate Figma Trigger node into your workflows.
+title: Figma 触发器（Beta）节点文档
+description: 了解如何在 n8n 中使用 Figma 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Figma Trigger (Beta) node documentation
+- integration
+- reference
+nodeTitle: Figma 触发器（Beta）节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.figmatrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.figmatrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.figmatrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.figmatrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.figmatrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Figma Trigger (Beta) node <a href="#figma-trigger-beta-node" id="figma-trigger-beta-node"></a>
 
-[Figma](https://www.figma.com/) is a prototyping tool which is primarily web-based, with more offline features enabled by desktop applications for macOS and Windows.
+# Figma 触发器（Beta）节点 <a href="#figma-trigger-beta-node" id="figma-trigger-beta-node"></a>
+
+[Figma](https://www.figma.com/) 是以网页端为主的原型设计工具，其 macOS 和 Windows 桌面应用还提供更多离线功能。
 
 {% hint style="warning" %}
-**Supported Figma Plans**
+**支持的 Figma 套餐**
 
-Figma doesn't support webhooks on the free "Starter" plan. Your team needs to be on the "Professional" plan to use this node.
+Figma 的免费“Starter”套餐不支持 Webhook。你的团队需要使用“Professional”套餐，才能使用此节点。
 {% endhint %}
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Figma credentials documentation](../credentials/figma.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Figma 凭据文档](../credentials/figma.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Figma Trigger integrations](https://n8n.io/integrations/figma-trigger-beta/) page.
+入门用法示例和模板，请参阅 n8n 的 [Figma Trigger 集成](https://n8n.io/integrations/figma-trigger-beta/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-- **File Commented**: Triggers when someone comments on a file.
-- **File Deleted**: Triggers when someone deletes an individual file, but not when someone deletes an entire folder with all files.
-- **File Updated**: Triggers when someone saves or deletes a file. A save occurs when someone closes a file within 30 seconds after making changes.
-- **File Version Updated**: Triggers when someone creates a named version in the version history of a file.
-- **Library Publish**: Triggers when someone publishes a library file.
+- **File Commented**（文件已被评论）：有人评论文件时触发。
+- **File Deleted**（文件已删除）：有人删除单个文件时触发，删除包含所有文件的整个文件夹时不会触发。
+- **File Updated**（文件已更新）：有人保存或删除文件时触发。修改后 30 秒内关闭文件时会发生保存。
+- **File Version Updated**（文件版本已更新）：有人在文件的版本历史记录中创建命名版本时触发。
+- **Library Publish**（组件库发布）：有人发布组件库文件时触发。
 

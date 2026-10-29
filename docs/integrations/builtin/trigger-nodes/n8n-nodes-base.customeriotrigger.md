@@ -1,81 +1,79 @@
 ---
-title: Customer.io Trigger node documentation
-description: >-
-  Learn how to use the Customer.io Trigger node in n8n. Follow technical
-  documentation to integrate Customer.io Trigger node into your workflows.
+title: Customer.io 触发器节点文档
+description: 了解如何在 n8n 中使用 Customer.io 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Customer.io Trigger node documentation
+- integration
+- reference
+nodeTitle: Customer.io 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.customeriotrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.customeriotrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.customeriotrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.customeriotrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.customeriotrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Customer.io Trigger node <a href="#customerio-trigger-node" id="customerio-trigger-node"></a>
 
-[Customer.io](https://customer.io/) enables users to send newsletters to selected segments of customers using their website data. You can send targeted emails, push notifications, and SMS to lower churn, create stronger relationships, and drive subscriptions.
+# Customer.io 触发器节点 <a href="#customerio-trigger-node" id="customerio-trigger-node"></a>
+
+[Customer.io](https://customer.io/) 支持用户利用网站数据，向选定的客户细分群组发送新闻通讯。你可以发送定向邮件、推送通知和短信，以降低客户流失、加强客户关系并促进订阅。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Customer.io credentials documentation](../credentials/customerio.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Customer.io 凭据文档](../credentials/customerio.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Customer.io Trigger integrations](https://n8n.io/integrations/customerio-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Customer.io Trigger 集成](https://n8n.io/integrations/customerio-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Customer
-    * Subscribed
-    * Unsubscribe
-* Email
-    * Bounced
-    * Clicked
-    * Converted
-    * Delivered
-    * Drafted
-    * Failed
-    * Opened
-    * Sent
-    * Spammed
-* Push
-    * Attempted
-    * Bounced
-    * Clicked
-    * Delivered
-    * Drafted
-    * Failed
-    * Opened
-    * Sent
-* Slack
-    * Attempted
-    * Clicked
-    * Drafted
-    * Failed
-    * Sent
-* Sms
-    * Attempted
-    * Bounced
-    * Clicked
-    * Delivered
-    * Drafted
-    * Failed
-    * Sent
+* Customer（客户）
+    * Subscribed（已订阅）
+    * Unsubscribe（退订）
+* Email（电子邮件）
+    * Bounced（已退回）
+    * Clicked（已点击）
+    * Converted（已转化）
+    * Delivered（已送达）
+    * Drafted（已起草）
+    * Failed（失败）
+    * Opened（已打开）
+    * Sent（已发送）
+    * Spammed（已标记为垃圾邮件）
+* Push（推送）
+    * Attempted（已尝试发送）
+    * Bounced（已退回）
+    * Clicked（已点击）
+    * Delivered（已送达）
+    * Drafted（已起草）
+    * Failed（失败）
+    * Opened（已打开）
+    * Sent（已发送）
+* Slack（Slack 消息）
+    * Attempted（已尝试发送）
+    * Clicked（已点击）
+    * Drafted（已起草）
+    * Failed（失败）
+    * Sent（已发送）
+* Sms（短信）
+    * Attempted（已尝试发送）
+    * Bounced（已退回）
+    * Clicked（已点击）
+    * Delivered（已送达）
+    * Drafted（已起草）
+    * Failed（失败）
+    * Sent（已发送）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Customer.io. Refer to the [Customer.io node documentation](../app-nodes/n8n-nodes-base.customerio.md) for more information.
+n8n 为 Customer.io 提供应用节点。更多信息请参阅 [Customer.io 节点文档](../app-nodes/n8n-nodes-base.customerio.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/customerio-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/customerio-trigger/)。
 
-Refer to [Customer.io's documentation](https://docs.customer.io/api/) for details about their API.
+API 的详细信息，请参阅 [Customer.io 文档](https://docs.customer.io/api/)。

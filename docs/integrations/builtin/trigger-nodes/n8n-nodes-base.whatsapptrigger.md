@@ -1,18 +1,14 @@
 ---
-title: WhatsApp Trigger node documentation
+title: WhatsApp 触发器节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: WhatsApp Trigger node documentation
+nodeTitle: WhatsApp 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.whatsapptrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.whatsapptrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.whatsapptrigger
-description: >-
-  Learn how to use the WhatsApp Trigger node in n8n. Follow technical
-  documentation to integrate WhatsApp Trigger node into your workflows.
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.whatsapptrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.whatsapptrigger
+description: 了解如何在 n8n 中使用 WhatsApp 触发器节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -32,104 +28,106 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# WhatsApp Trigger
 
-Use the WhatsApp Trigger node to respond to events in WhatsApp and integrate WhatsApp with other applications. n8n has built-in support for a wide range of WhatsApp events, including account, message, and phone number events.
+# WhatsApp 触发器 <a id="whatsapp-trigger"></a>
 
-On this page, you'll find a list of events the WhatsApp Trigger node can respond to, and links to more resources.
+使用 WhatsApp Trigger 节点响应 WhatsApp 中的事件，并将其与其他应用集成。n8n 内置支持多种 WhatsApp 事件，包括账户、消息和电话号码事件。
+
+本页列出了 WhatsApp Trigger 节点可响应的事件，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [WhatsApp Business Cloud credentials documentation](../credentials/whatsapp.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [WhatsApp Business Cloud 凭据文档](../credentials/whatsapp.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [WhatsApp integrations](https://n8n.io/integrations/whatsapp-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [WhatsApp 集成](https://n8n.io/integrations/whatsapp-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Account Review Update
-* Account Update
-* Business Capability Update
-* Message Template Quality Update
-* Message Template Status Update
-* Messages
-* Phone Number Name Update
-* Phone Number Quality Update
-* Security
-* Template Category Update
+* Account Review Update（账户审核更新）
+* Account Update（账户更新）
+* Business Capability Update（业务能力更新）
+* Message Template Quality Update（消息模板质量更新）
+* Message Template Status Update（消息模板状态更新）
+* Messages（消息）
+* Phone Number Name Update（电话号码名称更新）
+* Phone Number Quality Update（电话号码质量更新）
+* Security（安全）
+* Template Category Update（模板类别更新）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for WhatsApp. Refer to the [WhatsApp Business Cloud node documentation](../app-nodes/n8n-nodes-base.whatsapp/README.md) for more information.
+n8n 为 WhatsApp 提供应用节点。更多信息请参阅 [WhatsApp Business Cloud 节点文档](../app-nodes/n8n-nodes-base.whatsapp/README.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/whatsapp-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/whatsapp-trigger/)。
 
-Refer to [WhatsApp's documentation](https://developers.facebook.com/docs/whatsapp/cloud-api) for details about their API.
+API 的详细信息，请参阅 [WhatsApp 文档](https://developers.facebook.com/docs/whatsapp/cloud-api)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-Here are some common errors and issues with the WhatsApp Trigger node and steps to resolve or troubleshoot them.
+以下列出 WhatsApp Trigger 节点的常见错误和问题，以及解决或排查步骤。
 
-### Workflow only works in testing or production <a href="#workflow-only-works-in-testing-or-production" id="workflow-only-works-in-testing-or-production"></a>
+### 工作流只能在测试或生产环境之一正常运行 <a href="#workflow-only-works-in-testing-or-production" id="workflow-only-works-in-testing-or-production"></a>
 
-WhatsApp only allows you to register a single webhook per app. This means that every time you switch from using the testing URL to the production URL (and vice versa), WhatsApp overwrites the registered webhook URL.
+WhatsApp 每个应用只允许注册一个 Webhook。因此，每次在测试 URL 和生产 URL 之间切换，WhatsApp 都会覆盖已注册的 Webhook URL。
 
-You may have trouble with this if you try to test a workflow that's also published. WhatsApp will only send events to one of the two webhook URLs, so the other will never receive event notifications.
+测试已发布的工作流时，可能因此遇到问题。WhatsApp 只会将事件发送到两个 Webhook URL 中的一个，另一个始终收不到事件通知。
 
-To work around this, you can disable your workflow when testing:
+一种解决办法是在测试时停用工作流：
 
 {% hint style="warning" %}
-**Halts production traffic**
+**会中断生产流量**
 
-This workaround temporarily disables your production workflow for testing. Your workflow will no longer receive production traffic while it's unpublished.
+此方法会为了测试暂时停用生产工作流。取消发布期间，工作流将不再接收生产流量。
 {% endhint %}
 
-1. Go to your workflow page.
-2. From the workflow settings dropdown, click **Unpublish** to disable the workflow temporarily.
-3. Test your workflow using the test webhook URL.
-4. When you finish testing, click **Publish**. The production webhook URL should resume working.
+1. 进入工作流页面。
+2. 从工作流设置下拉菜单中点击 **Unpublish**（取消发布），暂时停用工作流。
+3. 使用测试 Webhook URL 测试工作流。
+4. 测试完成后，点击 **Publish**（发布）。生产 Webhook URL 应恢复工作。
 
-### Workflow doesn't run when WhatsApp messages arrive
+### 收到 WhatsApp 消息时工作流不运行 <a id="workflow-doesnt-run-when-whatsapp-messages-arrive"></a>
 
-Meta sends WhatsApp webhooks for a WhatsApp Business Account (WABA) only to apps subscribed to that account. When you publish a workflow with a WhatsApp Trigger node, n8n registers your webhook URL on your Meta app. It doesn't subscribe your app to your WABA.
+Meta 只会向已订阅相应 WhatsApp Business Account（WABA，商业账户）的应用发送该账户的 WhatsApp Webhook。发布包含 WhatsApp Trigger 节点的工作流时，n8n 会将 Webhook URL 注册到你的 Meta 应用，但不会为该应用订阅 WABA。
 
-If your app isn't subscribed to your WABA, messages sent to your WhatsApp number never reach n8n. The workflow doesn't start, and n8n shows no failed execution. A test event sent from the Meta App Dashboard can still reach n8n, so a passing test doesn't rule this out.
+如果应用未订阅你的 WABA，发送到 WhatsApp 号码的消息就无法到达 n8n。工作流不会启动，n8n 也不会显示失败执行。Meta 应用控制台发送的测试事件仍可能到达 n8n，因此测试通过并不能排除这一问题。
 
-To check the subscription and fix it:
+检查订阅并修复问题：
 
-1. In the [Meta for Developers Apps dashboard](https://developers.facebook.com/apps/), select your app, then go to **WhatsApp** > **API Setup**. Copy the **WhatsApp Business Account ID**. Don't use the **Phone number ID**.
-2. Get an access token for the same Meta app as your n8n WhatsApp Trigger credential. The request in step 4 subscribes the app that the token belongs to. The token needs the `whatsapp_business_management` permission. For example, in Meta's [Graph API Explorer](https://developers.facebook.com/tools/explorer/), select your app under **Meta App**, add the permission, and generate a token.
-3. List the apps subscribed to your WABA:
+1. 在 [Meta for Developers 应用控制台](https://developers.facebook.com/apps/)中选择你的应用，然后进入 **WhatsApp** > **API Setup**（API 设置）。复制 **WhatsApp Business Account ID**（商业账户 ID），不要使用 **Phone number ID**（电话号码 ID）。
+2. 获取与你的 n8n WhatsApp Trigger 凭据对应同一个 Meta 应用的访问令牌。步骤 4 的请求会为令牌所属的应用建立订阅。令牌需要 `whatsapp_business_management` 权限。例如，在 Meta 的 [Graph API Explorer](https://developers.facebook.com/tools/explorer/) 中，在 **Meta App** 下选择你的应用，添加此权限并生成令牌。
+3. 列出已订阅你的 WABA 的应用：
 
     ```bash
     curl -X GET 'https://graph.facebook.com/<api-version>/<business-account-id>/subscribed_apps' \
     	-H 'Authorization: Bearer <access-token>'
     ```
 
-    Each subscribed app appears in the `data` array with its ID in `whatsapp_business_api_data.id`. Your app's ID is the **Client ID** in your n8n credential. If the response is `{"data": []}`, or none of the IDs match yours, your app isn't subscribed.
+    每个已订阅的应用都列在 `data` 数组中，其 ID 位于 `whatsapp_business_api_data.id`。你的应用 ID 就是 n8n 凭据中的 **Client ID**（客户端 ID）。如果响应为 `{"data": []}`，或者没有任何 ID 与你的应用匹配，则应用尚未订阅。
 
-    If your app's entry also has an `override_callback_uri`, Meta sends message webhooks for this WABA to that URL instead of to your app's webhook URL. An override set on the business phone number takes precedence over both. Check that the URL is the one you expect.
-4. Send this request only if your app isn't subscribed, or if its entry has an `override_callback_uri` you want to remove. A `POST` without a body subscribes your app and removes any `override_callback_uri` from its subscription. If your app is already subscribed and you want to keep its override, skip this step. This request doesn't need a body:
+    如果应用条目还包含 `override_callback_uri`，Meta 会将此 WABA 的消息 Webhook 发送到该 URL，而不是应用的 Webhook URL。在企业电话号码上设置的覆盖地址优先于这两个地址。请检查 URL 是否符合预期。
+4. 仅当应用尚未订阅，或其条目中有你希望移除的 `override_callback_uri` 时，才发送此请求。不带请求体的 `POST` 会为应用建立订阅，并移除订阅中的任何 `override_callback_uri`。如果应用已订阅，且你希望保留其覆盖地址，请跳过此步骤。此请求不需要请求体：
 
     ```bash
     curl -X POST 'https://graph.facebook.com/<api-version>/<business-account-id>/subscribed_apps' \
     	-H 'Authorization: Bearer <access-token>'
     ```
 
-    A successful request returns `{"success": true}`.
-5. If you sent the request in step 4, run the request from step 3 again. Check that your app's ID is in the list and that its entry has no `override_callback_uri`. If messages still go to the wrong URL, check for an override on the business phone number.
-6. Send a message to your WhatsApp number to test the published workflow.
+    请求成功时返回 `{"success": true}`。
+5. 如果发送了步骤 4 的请求，请再次运行步骤 3 的请求。确认应用 ID 已列出，且其条目中没有 `override_callback_uri`。如果消息仍发送到错误的 URL，请检查企业电话号码上是否设置了覆盖地址。
+6. 向你的 WhatsApp 号码发送消息，以测试已发布的工作流。
 
 {% hint style="warning" %}
-**Don't delete the subscription to fix a webhook conflict**
+**不要通过删除订阅来解决 Webhook 冲突**
 
-The `already has a webhook subscription` error refers to your app's webhook URL, not to your WABA subscription. Don't send a `DELETE` request to `subscribed_apps` to clear it. That request unsubscribes your app from your WABA, and Meta stops sending webhooks for that account.
+`already has a webhook subscription` 错误涉及应用的 Webhook URL，而不是 WABA 订阅。不要通过 `DELETE` 请求访问 `subscribed_apps` 来清除此错误。该请求会取消应用对 WABA 的订阅，Meta 也会停止发送该账户的 Webhook。
 {% endhint %}
 
-Refer to Meta's [Subscribed Apps API](https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-account/subscribed-apps-api/) reference and [Webhook overrides](https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/override/) for more information.
+更多信息请参阅 Meta 的 [Subscribed Apps API](https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-account/subscribed-apps-api/) 参考文档和 [Webhook 覆盖地址](https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks/override/)。

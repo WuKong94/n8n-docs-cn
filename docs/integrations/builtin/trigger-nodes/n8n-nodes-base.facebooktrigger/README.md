@@ -1,62 +1,60 @@
 ---
-title: Facebook Trigger
-description: >-
-  Learn how to use the Facebook Trigger node in n8n. Follow technical
-  documentation to integrate Facebook Trigger node into your workflows.
+title: Facebook 触发器
+description: 了解如何在 n8n 中使用 Facebook 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
 nodeTitle: n8n-nodes-base.facebooktrigger
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.facebooktrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Facebook Trigger node <a href="#facebook-trigger-node" id="facebook-trigger-node"></a>
 
-[Facebook](https://www.facebook.com/) is a social networking site to connect and share with family and friends online.
+# Facebook 触发器节点 <a href="#facebook-trigger-node" id="facebook-trigger-node"></a>
 
-Use the Facebook Trigger node to trigger a workflow when events occur in Facebook.
+[Facebook](https://www.facebook.com/) 是社交网络网站，可在线联系家人朋友并分享内容。
+
+使用 Facebook Trigger 节点，在 Facebook 事件发生时触发工作流。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Facebook App credentials documentation](../../credentials/facebookapp.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Facebook App 凭据文档](../../credentials/facebookapp.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Facebook Trigger integrations](https://n8n.io/integrations/facebook-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Facebook Trigger 集成](https://n8n.io/integrations/facebook-trigger/)页面。
 {% endhint %}
 
-## Objects <a href="#objects" id="objects"></a>
+## 对象 <a href="#objects" id="objects"></a>
 
-- [**Ad Account**](ad-account.md): Get updates for certain ads changes.
-- [**Application**](application.md): Get updates sent to the application.
-- [**Certificate Transparency**](certificate-transparency.md): Get updates when new security certificates are generated for your subscribed domains, including new certificates and potential phishing attempts.
-- Activity and events in a [**Group**](group.md)
-- [**Instagram**](instagram.md): Get updates when someone comments on the Media objects of your app users; @mentions your app users; or when Stories of your app users expire.
-- [**Link**](link.md): Get updates about the links for rich previews by an external provider
-- [**Page**](page.md) updates
-- [**Permissions**](permissions.md): Updates when granting or revoking permissions
-- [**User**](user.md) profile updates
-- [**WhatsApp Business Account**](whatsapp.md)<br>
+- [**Ad Account（广告账户）**](ad-account.md)：获取某些广告变更的更新。
+- [**Application（应用）**](application.md)：获取发送给应用的更新。
+- [**Certificate Transparency（证书透明度）**](certificate-transparency.md)：订阅的域名生成新安全证书时获取更新，包括新证书及潜在钓鱼攻击。
+- [**Group（群组）**](group.md)中的活动和事件。
+- [**Instagram**](instagram.md)：有人评论你的应用用户的 Media（媒体）对象、@提及你的应用用户，或这些用户的 Stories（快拍）过期时获取更新。
+- [**Link（链接）**](link.md)：获取由外部提供方生成丰富预览的链接的更新。
+- [**Page（主页）**](page.md)更新。
+- [**Permissions（权限）**](permissions.md)：授予或撤销权限时的更新。
+- [**User（用户）**](user.md)个人资料更新。
+- [**WhatsApp Business Account（WhatsApp 商业账户）**](whatsapp.md)<br>
     
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Use WhatsApp Trigger</strong></p><p>n8n recommends using the <a href="../n8n-nodes-base.whatsapptrigger.md">WhatsApp Trigger node</a> with the <a href="../../credentials/whatsapp.md">WhatsApp credentials</a> instead of the Facebook Trigger node for these events. The WhatsApp Trigger node has more events to listen to.</p></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>使用 WhatsApp 触发器</strong></p><p>对于这些事件，n8n 建议使用配有 <a href="../../credentials/whatsapp.md">WhatsApp 凭据</a>的 <a href="../n8n-nodes-base.whatsapptrigger.md">WhatsApp Trigger 节点</a>来替代 Facebook Trigger 节点。WhatsApp Trigger 节点可监听的事件更多。</p></div>
 
-- [**Workplace Security**](workplace-security.md)
+- [**Workplace Security（Workplace 安全）**](workplace-security.md)
 
-For each **Object**, use the **Field Names or IDs** dropdown to select more details on what data to receive. Refer to the linked pages for more details.
+对于每个 **Object**（对象），可使用 **Field Names or IDs**（字段名称或 ID）下拉菜单进一步选择要接收的数据。详细信息请参阅相应链接页面。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-View [example workflows and related content](https://n8n.io/integrations/facebook-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/facebook-trigger/)。
 
-Refer to Meta's [Graph API documentation](https://developers.facebook.com/docs/graph-api/webhooks/reference) for details about their API.
+API 的详细信息，请参阅 Meta 的 [Graph API 文档](https://developers.facebook.com/docs/graph-api/webhooks/reference)。
