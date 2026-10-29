@@ -1398,5 +1398,117 @@
     ],
     "scope": "仅修正同页两个相同可见标签的拼写；不修改原文快照、字段 ID、示例、图片、链接或锚点，不对数据表执行实际读写。",
     "source_sha256": "f526b13cc2817c565460e298c68eccc4b6cdbcddf38abe400fc6c8b901cea9f1"
+  },
+  {
+    "id": "date-time-subtraction-output-not-rounded-date",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.datetime.md",
+    "original_sentence": "* **Output Field Name**: Enter the name of the field to output the rounded date to.",
+    "translated_sentence": "* **Output Field Name**（输出字段名称）：输入用于输出减去时长后日期的字段名称。",
+    "evidence": "Subtract From a Date 的 Output Field Name 描述误写为输出 rounded date，与上一个 Round a Date 操作混淆。同段 Duration 和操作列表明确为减去时长。译文明确输出减去时长后的日期。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.datetime.md"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "0f4d1c7d682a4cced826c24e0dcdfa7a1ea2f6defaa9fbc0b01449610e6a54aa"
+  },
+  {
+    "id": "schedule-cron-day-step-calendar-boundaries",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/README.md",
+    "original_sentence": "|Every X Days|`0 0 */3 * *`|At midnight every 3rd day.|",
+    "translated_sentence": "| 日期按步长触发 | `0 0 */3 * *` | 每月从首日开始，以 3 日为步长，在对应日期的午夜触发；跨月时重新按日历日期匹配。 |",
+    "evidence": "日期字段 */3 在日历的每月日期范围内按步长匹配，而非跨月连续的三天时长间隔。Cron 库说明步长与 day of month 的 1–31 取值范围，原表达式保留。译文明确每月从首日开始匹配，并说明跨月重新按日历日期匹配。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/README.md",
+      "https://github.com/kelektiv/node-cron#cron-patterns"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "627faca9afb606e5a67ce091eaab6820fd7a7296e2ef336bbb8aa683ab249377"
+  },
+  {
+    "id": "schedule-optional-seconds-field-is-leftmost",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/README.md",
+    "original_sentence": "The sixth asterisk in the Cron expression represents seconds. Setting this is optional. The node will execute even if you don't set the value for seconds.",
+    "translated_sentence": "相较五字段 Cron 表达式，额外的秒字段位于最左侧。此字段可选，即使不设置秒，节点仍会执行。",
+    "evidence": "原文称第六个星号表示秒，容易被理解为最右字段；同页表格明确可选 second 在最左。Cron 库的字段顺序也以 second 开始。译文明确相较五字段增加的秒字段在最左侧，仍保留可选及不填秒也执行的说明。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/README.md",
+      "https://github.com/kelektiv/node-cron#supported-ranges"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "627faca9afb606e5a67ce091eaab6820fd7a7296e2ef336bbb8aa683ab249377"
+  },
+  {
+    "id": "evaluation-result-destinations-include-data-tables",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.evaluation.md",
+    "original_sentence": "* To write evaluation outcomes back to a Google Sheet datasetor",
+    "translated_sentence": "* 将评估结果写回数据表或 Google Sheets 数据集。",
+    "evidence": "使用场景中残留 Google Sheet datasetor 的拼写和旧范围；同页 Set Outputs 操作明确支持 Data table 或 Google Sheets。译文按本页完整操作说明写明两种结果位置。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.evaluation.md"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "250aac5c2fcbec59cea2bf30e7452deacbdbe6cdc9936bc79919cbfe81dbe9d5"
+  },
+  {
+    "id": "evaluation-output-name-applies-to-selected-source",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.evaluation.md",
+    "original_sentence": "* **Name**: The Google Sheet column name to write the evaluation results to.",
+    "translated_sentence": "* **Name**（名称）：用于写入评估结果的数据表或 Google Sheets 列名。",
+    "evidence": "Outputs 说明明确向 Data table 或 Google Sheet 写入，但 Name 描述只写 Google Sheet 列名。译文统一为所选数据表或 Google Sheets 的列名，不改变 Name 字段或 Set Metrics 同名字段的含义。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.evaluation.md"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "250aac5c2fcbec59cea2bf30e7452deacbdbe6cdc9936bc79919cbfe81dbe9d5"
+  },
+  {
+    "id": "evaluation-output-value-applies-to-selected-source",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.evaluation.md",
+    "original_sentence": "* **Value**: The value to write to the Google Sheet.",
+    "translated_sentence": "* **Value**（值）：要写入数据表或 Google Sheets 的值。",
+    "evidence": "Outputs 说明明确向 Data table 或 Google Sheet 写入，但 Value 描述只写 Google Sheet。译文明确两种所选目标，不改变指标 Value 必须为数字的独立要求。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.evaluation.md"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "250aac5c2fcbec59cea2bf30e7452deacbdbe6cdc9936bc79919cbfe81dbe9d5"
+  },
+  {
+    "id": "evaluation-trigger-reads-both-supported-dataset-sources",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.evaluationtrigger.md",
+    "original_sentence": "Use the Evaluation Trigger node when setting up [evaluations](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/test-and-improve-ai-workflows/understand-why-to-test) to validate your AI workflow reliability. During evaluation, the Evaluation Trigger node reads your evaluation dataset from Google Sheets, sending the items through the workflow one at a time, in sequence.",
+    "translated_sentence": "配置[评估](../../../build/integrate-ai/test-and-improve-ai-workflows/understand-why-to-test.md)时，使用 Evaluation Trigger 节点验证 AI 工作流的可靠性。评估期间，节点从所选的数据表或 Google Sheets 读取评估数据集，按顺序将数据项逐个送入工作流。",
+    "evidence": "触发器简介只提从 Google Sheets 读取，但同页凭据提示及 Source 参数包含 Data table，后者还是默认来源。译文写明两种输入来源，并保留逐条、顺序送入工作流的执行方式。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.evaluationtrigger.md"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "4f03941021e9b6b5ffcad0e1c74e02e33962d735b1196b6da3b65880e78a1929"
+  },
+  {
+    "id": "evaluation-trigger-source-is-input-not-result-destination",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.evaluationtrigger.md",
+    "original_sentence": "- **Source:** Select the location to which you want to output the evaluation results. Default value is **Data table**.",
+    "translated_sentence": "- **Source:**（来源）选择要读取的评估数据集位置，默认为 **Data table**（数据表）。",
+    "evidence": "Evaluation Trigger 的 Source 误用 Evaluation 节点的输出位置描述。触发器在本页定义为读取数据集而非写入评估结果；译文明确选择要读取的评估数据集位置，默认 Data table 不变。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.evaluationtrigger.md"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "4f03941021e9b6b5ffcad0e1c74e02e33962d735b1196b6da3b65880e78a1929"
+  },
+  {
+    "id": "schedule-timezone-new-york-identifier-source-note",
+    "path": "reusable-content/.gitbook/includes/integrations/builtin/core-nodes/schedule/timezone-settings.md",
+    "original_sentence": "2. The n8n instance timezone, if the workflow timezone isn't set. The default is `America/New York` for self-hosted instances. n8n Cloud tries to detect the instance owner's timezone when they sign up, falling back to GMT as the default. Self-hosted users can change the instance setting using [Environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization). n8n Cloud instance owners can [change the instance timezone](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/configure-cloud/set-your-timezone) in the n8n Cloud console.",
+    "translated_sentence": "2. 未设置工作流时区时，使用 n8n 实例时区。自托管实例的默认值在原文中写作 `America/New York`；译注：该写法含空格，实际配置应使用 America/New_York。n8n Cloud 会在实例所有者注册时尝试检测其时区，检测失败则默认使用 GMT。自托管用户可通过[环境变量](../../../../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization.md)更改实例时区；n8n Cloud 实例所有者可在 Cloud 控制台[更改实例时区](../../../../../../../deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)。",
+    "evidence": "复用片段将纽约默认时区写成 America/New York，含空格。锁定版本的时区环境变量表及 Set the timezone 示例均明确为 America/New_York。译文保留原始行内代码用于对照，并在正文提示实际配置应使用带下划线的标识；工作流优先及 Cloud 检测失败回退 GMT 的规则不变。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/reusable-content/.gitbook/includes/integrations/builtin/core-nodes/schedule/timezone-settings.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/set-the-timezone.md"
+    ],
+    "scope": "仅澄清同页操作语境、字段角色、日期匹配或已记录的标识笔误；原始快照、代码示例、图片、链接及锚点保持原样。未运行调度器、评估工作流或内存生成操作，也不代表部署和编辑器验证。",
+    "source_sha256": "04117d141b1fd43b33a58917605d516dfdd15b0c60a025ba3a49e1961dc64608"
   }
 ]

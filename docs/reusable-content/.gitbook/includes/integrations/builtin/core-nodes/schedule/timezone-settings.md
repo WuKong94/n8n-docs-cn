@@ -1,11 +1,13 @@
 ---
-title: timezone-settings
+title: 时区设置
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 {% hint style="info" %}
-**Timezone settings**
+**时区设置**
 
-The node relies on the timezone setting. n8n uses either:
+此节点依赖时区设置，n8n 按以下顺序选择：
 
-1. The workflow timezone, if set. Refer to [Workflow settings](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/configure-workflow-settings) for more information.
-2. The n8n instance timezone, if the workflow timezone isn't set. The default is `America/New York` for self-hosted instances. n8n Cloud tries to detect the instance owner's timezone when they sign up, falling back to GMT as the default. Self-hosted users can change the instance setting using [Environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization). n8n Cloud instance owners can [change the instance timezone](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/configure-cloud/set-your-timezone) in the n8n Cloud console.
+1. 已设置工作流时区时，使用工作流时区。更多信息，请参阅[工作流设置](../../../../../../../build/manage-workflows/configure-workflow-settings.md)。
+2. 未设置工作流时区时，使用 n8n 实例时区。自托管实例的默认值在原文中写作 `America/New York`；译注：该写法含空格，实际配置应使用 America/New_York。n8n Cloud 会在实例所有者注册时尝试检测其时区，检测失败则默认使用 GMT。自托管用户可通过[环境变量](../../../../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization.md)更改实例时区；n8n Cloud 实例所有者可在 Cloud 控制台[更改实例时区](../../../../../../../deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)。
 {% endhint %}

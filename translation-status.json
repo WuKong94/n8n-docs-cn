@@ -15967,5 +15967,112 @@
     "source_correction_ids": [
       "data-table-row-automatic-mapping-label-spelling"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.datetime.md": {
+    "status": "translated",
+    "source_sha256": "0f4d1c7d682a4cced826c24e0dcdfa7a1ea2f6defaa9fbc0b01449610e6a54aa",
+    "translation_sha256": "4ae0c5993d27d0b756a6e727c55cb71281dec7f0c697573d5761b74f5c700000",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "date-time-subtraction-output-not-rounded-date"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.debughelper.md": {
+    "status": "translated",
+    "source_sha256": "9a176847ba21c1d2d65c8eeff6684bab5a28ca8d434d8158798b87f354388f1e",
+    "translation_sha256": "5e8c8adcc6f6657aa86cc8553561ac679a80b2eb984aa8be9ced8fed3f2d1a94",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/README.md": {
+    "status": "translated",
+    "source_sha256": "627faca9afb606e5a67ce091eaab6820fd7a7296e2ef336bbb8aa683ab249377",
+    "translation_sha256": "236a6b6dab860684612b82aedc4f399fe2b6cd1df250bc05aa4c76559ca8e358",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "schedule-cron-day-step-calendar-boundaries",
+      "schedule-optional-seconds-field-is-leftmost"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "693127b72d937356ba14a96170f594b1aed20bd9dfc8ccccd751d45db88f5f72",
+    "translation_sha256": "4bdeb429cd85f993a3f3f5af37b9a0cfa7ae31b79744def64c929bf39654a05a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.timesaved.md": {
+    "status": "translated",
+    "source_sha256": "b1ff95868feaefe9a14c8addedf5e9dbb2189877dad5a201c1bbc6377e868b96",
+    "translation_sha256": "fdc90b051bd57dc093095098967bc660f6a9138559db0cc2ed4c79d457e1a525",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.evaluation.md": {
+    "status": "translated",
+    "source_sha256": "250aac5c2fcbec59cea2bf30e7452deacbdbe6cdc9936bc79919cbfe81dbe9d5",
+    "translation_sha256": "231c6b566dcf36e105687e19a5682a0765146da85ce35a8fce9229dd5222495d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "evaluation-result-destinations-include-data-tables",
+      "evaluation-output-name-applies-to-selected-source",
+      "evaluation-output-value-applies-to-selected-source"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.evaluationtrigger.md": {
+    "status": "translated",
+    "source_sha256": "4f03941021e9b6b5ffcad0e1c74e02e33962d735b1196b6da3b65880e78a1929",
+    "translation_sha256": "7d069de2d7ce1110db90c0a3c3714d6a4ad1ecabbaef4ba396e72ae4fa97b3c1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "evaluation-trigger-reads-both-supported-dataset-sources",
+      "evaluation-trigger-source-is-input-not-result-destination"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/core-nodes/schedule/timezone-settings.md": {
+    "status": "translated",
+    "source_sha256": "04117d141b1fd43b33a58917605d516dfdd15b0c60a025ba3a49e1961dc64608",
+    "translation_sha256": "ca14c444823f2880fc31ce457742bf7cfac6835fce797b3418068692796e8278",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "schedule-timezone-new-york-identifier-source-note"
+    ]
   }
 }

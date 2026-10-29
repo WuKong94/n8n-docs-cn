@@ -1,160 +1,158 @@
 ---
-title: Schedule Trigger node documentation
-description: >-
-  Learn how to use the Schedule Trigger node in n8n. Follow technical
-  documentation to integrate Schedule Trigger node into your workflows.
+title: Schedule Trigger 节点
+description: 了解如何在 n8n 工作流中配置和使用 Schedule Trigger 节点。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 nodeTitle: n8n-nodes-base.scheduletrigger
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Schedule Trigger node <a href="#schedule-trigger-node" id="schedule-trigger-node"></a>
 
-Use the Schedule Trigger node to run workflows at fixed intervals and times. This works in a similar way to the Cron software utility in Unix-like systems.
+# Schedule Trigger（定时触发）节点 <a href="#schedule-trigger-node" id="schedule-trigger-node"></a>
 
-{% hint style="info" %}
-**You must publish the workflow**
-
-If a workflow uses the Schedule node as a trigger, make sure that you save and publish the workflow.
-{% endhint %}
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ttmJg4aaEfjB4LyKpCzt/" %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-Add **Trigger Rules** to determine when the trigger should run.
-
-Use the **Trigger Interval** to select the time interval unit of measure to schedule the trigger for. All other parameters depend on the interval you select. Choose from:
-
-- [Seconds trigger interval](#seconds-trigger-interval)
-- [Minutes trigger interval](#minutes-trigger-interval)
-- [Hours trigger interval](#hours-trigger-interval)
-- [Days trigger interval](#days-trigger-interval)
-- [Weeks trigger interval](#weeks-trigger-interval)
-- [Months trigger interval](#months-trigger-interval)
-- [Custom (Cron) interval](#custom-cron-interval)
-
-You can add multiple **Trigger Rules** to run the node on different schedules.
-
-Refer to the sections below for more detail on configuring each **Trigger Interval**. Refer to [Templates and examples](#templates-and-examples) for further examples.
+使用 Schedule Trigger 节点，按固定间隔和时间运行工作流。它的工作方式类似 Unix 类系统中的 Cron 工具。
 
 {% hint style="info" %}
-**Default timing from n8n 2.45.0**
+**必须发布工作流**
 
-Schedule Trigger nodes use the durable scheduler by default, as long as `N8N_USE_WORKFLOW_PUBLICATION_SERVICE` stays on (its default). The Seconds and Minutes trigger intervals run at uniform intervals measured from workflow publication, rather than on clock boundaries. Custom (Cron) intervals keep their timing. See [Schedule Trigger timing](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/durable-scheduler#trigger-node-mode) for clock-aligned timing, or [Use the in-memory scheduler](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/durable-scheduler#use-the-in-memory-scheduler) to switch schedulers.
+如果工作流使用 Schedule 节点作为触发器，请确保已保存并发布工作流。
 {% endhint %}
 
-### Seconds trigger interval <a href="#seconds-trigger-interval" id="seconds-trigger-interval"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/schedule/timezone-settings.md" %}
 
-* **Seconds Between Triggers**: Enter the number of seconds between each workflow trigger. For example, if you enter `30` here, the trigger will run every 30 seconds.
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Minutes trigger interval <a href="#minutes-trigger-interval" id="minutes-trigger-interval"></a>
+添加 **Trigger Rules**（触发规则），确定触发器运行的时间。
 
-* **Minutes Between Triggers**: Enter the number of minutes between each workflow trigger. For example, if you enter `5` here, the trigger will run every 5 minutes.
+使用 **Trigger Interval**（触发间隔）选择定时触发所用的时间单位。其他参数均取决于所选间隔，可选：
 
-### Hours trigger interval <a href="#hours-trigger-interval" id="hours-trigger-interval"></a>
+- [以秒为单位的触发间隔](#seconds-trigger-interval)
+- [以分钟为单位的触发间隔](#minutes-trigger-interval)
+- [以小时为单位的触发间隔](#hours-trigger-interval)
+- [以天为单位的触发间隔](#days-trigger-interval)
+- [以周为单位的触发间隔](#weeks-trigger-interval)
+- [以月为单位的触发间隔](#months-trigger-interval)
+- [自定义 Cron 间隔](#custom-cron-interval)
 
-* **Hours Between Triggers**: Enter the number of hours between each workflow trigger.
-* **Trigger at Minute**: Enter the minute past the hour to trigger the node when it runs, from `0` to `59`.
+可以添加多个 **Trigger Rules**（触发规则），让节点按不同时间安排运行。
 
-For example, if you enter `6` **Hours Between Triggers** and `30` **Trigger at Minute**, the node will run every six hours at 30 minutes past the hour.
+各类 **Trigger Interval**（触发间隔）的配置见下文。更多示例，请参阅[模板与示例](#templates-and-examples)。
 
-### Days trigger interval <a href="#days-trigger-interval" id="days-trigger-interval"></a>
+{% hint style="info" %}
+**n8n 2.45.0 起的默认计时方式**
 
-* **Days Between Triggers**: Enter the number of days between each workflow trigger.
-* **Trigger at Hour**: Select the hour of the day to trigger the node.
-* **Trigger at Minute**: Enter the minute past the hour to trigger the node when it runs, from `0` to `59`.
+只要 `N8N_USE_WORKFLOW_PUBLICATION_SERVICE` 保持开启（默认状态），Schedule Trigger 节点就默认使用持久化调度器。Seconds（秒）和 Minutes（分钟）间隔从工作流发布时刻起均匀计时，而不是对齐时钟边界。Custom (Cron)（自定义 Cron）间隔保留原有计时方式。关于对齐时钟的计时方式，请参阅 [Schedule Trigger 计时](../../../../deploy/host-n8n/configure-n8n/durable-scheduler.md#trigger-node-mode)；要切换调度器，请参阅[使用内存调度器](../../../../deploy/host-n8n/configure-n8n/durable-scheduler.md#use-the-in-memory-scheduler)。
+{% endhint %}
 
+### 以秒为单位的触发间隔 <a href="#seconds-trigger-interval" id="seconds-trigger-interval"></a>
 
-For example, if you enter `2` **Days Between Triggers**, **9am** for **Trigger at Hour**, and `15` **Trigger at Minute**, the node will run every two days at 9:15am.
+* **Seconds Between Triggers**（触发间隔秒数）：输入两次触发之间的秒数。例如，输入 `30`，触发器就会每 30 秒运行一次。
 
+### 以分钟为单位的触发间隔 <a href="#minutes-trigger-interval" id="minutes-trigger-interval"></a>
 
-### Weeks trigger interval <a href="#weeks-trigger-interval" id="weeks-trigger-interval"></a>
+* **Minutes Between Triggers**（触发间隔分钟数）：输入两次触发之间的分钟数。例如，输入 `5`，触发器就会每 5 分钟运行一次。
 
-* **Weeks Between Triggers**: Enter the number of weeks between each workflow trigger.
-* **Trigger on Weekdays**: Select the day(s) of the week you want to trigger the node.
-* **Trigger at Hour**: Select the hour of the day to trigger the node.
-* **Trigger at Minute**: Enter the minute past the hour to trigger the node when it runs, from `0` to `59`.
+### 以小时为单位的触发间隔 <a href="#hours-trigger-interval" id="hours-trigger-interval"></a>
 
-For example, if you enter `2` **Weeks Between Triggers**, **Monday** for **Trigger on Weekdays**, **3pm** for **Trigger at Hour**, and `30` **Trigger at Minute**, the node will run every two weeks on Monday at 3:30 PM.
+* **Hours Between Triggers**（触发间隔小时数）：输入两次触发之间的小时数。
+* **Trigger at Minute**（触发分钟）：输入每个触发小时内的分钟数，范围为 `0` 到 `59`。
 
-### Months trigger interval <a href="#months-trigger-interval" id="months-trigger-interval"></a>
+例如，将 **Hours Between Triggers**（触发间隔小时数）设为 `6`，**Trigger at Minute**（触发分钟）设为 `30`，节点会每六小时在该小时的第 30 分钟运行。
 
-* **Months Between Triggers**: Enter the number of months between each workflow trigger.
-* **Trigger at Day of Month**: Enter the day of the month the day should trigger at, from `1` to `31`. If a month doesn't have this day, the node won't trigger. For example, if you enter `30` here, the node won't trigger in February.
-* **Trigger at Hour**: Select the hour of the day to trigger the node.
-* **Trigger at Minute**: Enter the minute past the hour to trigger the node when it runs, from `0` to `59`.
+### 以天为单位的触发间隔 <a href="#days-trigger-interval" id="days-trigger-interval"></a>
 
-For example, if you enter `3` **Months Between Triggers**, `28` **Trigger at Day of Month**, **9am** for **Trigger at Hour**, and `0` **Trigger at Minute**, the node will run each quarter on the 28th day of the month at 9:00 AM.
-
-### Custom (Cron) interval <a href="#custom-cron-interval" id="custom-cron-interval"></a>
-
-Enter a custom cron **Expression** to set the schedule for the trigger.
-
-To generate a Cron expression, you can use [crontab guru](https://crontab.guru). Paste the Cron expression that you generated using crontab guru in the **Expression** field in n8n.
-
-#### Examples <a href="#examples" id="examples"></a>
+* **Days Between Triggers**（触发间隔天数）：输入两次触发之间的天数。
+* **Trigger at Hour**（触发小时）：选择一天中触发节点的小时。
+* **Trigger at Minute**（触发分钟）：输入每个触发小时内的分钟数，范围为 `0` 到 `59`。
 
 
-|Type|Cron Expression|Description|
+例如，将 **Days Between Triggers**（触发间隔天数）设为 `2`，将 **Trigger at Hour**（触发小时）设为 **9am**（上午九点），将 **Trigger at Minute**（触发分钟）设为 `15`，节点会每两天在上午 9:15 运行。
+
+
+### 以周为单位的触发间隔 <a href="#weeks-trigger-interval" id="weeks-trigger-interval"></a>
+
+* **Weeks Between Triggers**（触发间隔周数）：输入两次触发之间的周数。
+* **Trigger on Weekdays**（触发星期）：选择在一周中的哪一天或哪几天触发节点。
+* **Trigger at Hour**（触发小时）：选择一天中触发节点的小时。
+* **Trigger at Minute**（触发分钟）：输入每个触发小时内的分钟数，范围为 `0` 到 `59`。
+
+例如，将 **Weeks Between Triggers**（触发间隔周数）设为 `2`，将 **Trigger on Weekdays**（触发星期）设为 **Monday**（星期一），将 **Trigger at Hour**（触发小时）设为 **3pm**（下午三点），将 **Trigger at Minute**（触发分钟）设为 `30`，节点会每两周在星期一下午 3:30 运行。
+
+### 以月为单位的触发间隔 <a href="#months-trigger-interval" id="months-trigger-interval"></a>
+
+* **Months Between Triggers**（触发间隔月数）：输入两次触发之间的月数。
+* **Trigger at Day of Month**（触发日期）：输入在每月哪一天触发，范围为 `1` 到 `31`。如果某个月没有该日期，节点就不会触发。例如，输入 `30` 时，节点不会在二月触发。
+* **Trigger at Hour**（触发小时）：选择一天中触发节点的小时。
+* **Trigger at Minute**（触发分钟）：输入每个触发小时内的分钟数，范围为 `0` 到 `59`。
+
+例如，将 **Months Between Triggers**（触发间隔月数）设为 `3`，将 **Trigger at Day of Month**（触发日期）设为 `28`，将 **Trigger at Hour**（触发小时）设为 **9am**（上午九点），将 **Trigger at Minute**（触发分钟）设为 `0`，节点就会每季度在当月 28 日上午 9:00 运行。
+
+### 自定义 Cron 间隔 <a href="#custom-cron-interval" id="custom-cron-interval"></a>
+
+输入自定义 cron **Expression**（表达式），设置触发时间。
+
+可以使用 [crontab guru](https://crontab.guru) 生成 Cron 表达式，再将其粘贴到 n8n 的 **Expression**（表达式）字段中。
+
+#### 示例 <a href="#examples" id="examples"></a>
+
+
+| 类型 | Cron 表达式 | 说明 |
 |---|---|---|
-|Every X Seconds|`*/10 * * * * *`|Every 10 seconds.|
-|Every X Minutes|`*/5 * * * *`|Every 5 minutes.|
-|Hourly|`0 * * * *`|Every hour on the hour.|
-|Daily|`0 6 * * *`|At 6:00 AM every day.|
-|Weekly|`0 12 * * 1`|At noon every Monday.|
-|Monthly|`0 0 1 * *`|At midnight on the 1st of every month.|
-|Every X Days|`0 0 */3 * *`|At midnight every 3rd day.|
-|Only Weekdays|`0 9 * * 1-5`|At 9:00 AM Monday through Friday.|
-|Custom Hourly Range|`0 9-17 * * *`|Every hour from 9:00 AM to 5:00 PM every day.|
-|Quarterly|`0 0 1 1,4,7,10 *`|At midnight on the 1st of January, April, July, and October.|
+| 每隔若干秒 | `*/10 * * * * *` | 每 10 秒。 |
+| 每隔若干分钟 | `*/5 * * * *` | 每 5 分钟。 |
+| 每小时 | `0 * * * *` | 每小时整点。 |
+| 每天 | `0 6 * * *` | 每天上午 6:00。 |
+| 每周 | `0 12 * * 1` | 每周一中午。 |
+| 每月 | `0 0 1 * *` | 每月 1 日午夜。 |
+| 日期按步长触发 | `0 0 */3 * *` | 每月从首日开始，以 3 日为步长，在对应日期的午夜触发；跨月时重新按日历日期匹配。 |
+| 仅工作日 | `0 9 * * 1-5` | 周一至周五上午 9:00。 |
+| 自定义小时范围 | `0 9-17 * * *` | 每天上午 9:00 至下午 5:00，每小时触发。 |
+| 每季度 | `0 0 1 1,4,7,10 *` | 一月、四月、七月和十月的 1 日午夜。 |
 
 
 {% hint style="warning" %}
-**Using variables in the Cron expression**
+**在 Cron 表达式中使用变量**
 
-While variables can be used in the scheduled trigger, their values only get evaluated when the workflow is published. If you alter a variable's value in the settings after a workflow is published, the changes won't alter the cron schedule. To re-evaluate the variable, unpublish the workflow and then re-publish it.
+定时触发器可以使用变量，但只会在工作流发布时求出变量值。工作流发布后，即使在设置中更改变量值，也不会改变 cron 定时规则。要重新求值，请先取消发布，再重新发布工作流。
 {% endhint %}
 
-#### Why there are six asterisks in the Cron expression <a href="#why-there-are-six-asterisks-in-the-cron-expression" id="why-there-are-six-asterisks-in-the-cron-expression"></a>
+#### 为什么 Cron 表达式有六个星号 <a href="#why-there-are-six-asterisks-in-the-cron-expression" id="why-there-are-six-asterisks-in-the-cron-expression"></a>
 
-The sixth asterisk in the Cron expression represents seconds. Setting this is optional. The node will execute even if you don't set the value for seconds.
+相较五字段 Cron 表达式，额外的秒字段位于最左侧。此字段可选，即使不设置秒，节点仍会执行。
 
 |  (*)  |  *  |  *  |  *  |  *  |  *  |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|(second)|minute|hour|day of month|month|day of week(Sun-Sat)|
+| （秒，可选） | 分钟 | 小时 | 每月日期 | 月份 | 星期（日至六） |
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-The node's **Settings** tab offers options controlling what happens when an execution misses its scheduled time, for example because the instance was down:
+节点的 **Settings**（设置）标签页提供以下选项，用于控制错过定时执行时的行为，例如实例停机导致的错过执行：
 
-* **If Execution Is Missed**: What to do with missed executions. Choose from:
-    * **Don't Run Missed Executions** (default): Discard missed executions and resume on schedule.
-    * **Run the Most Recent Missed Execution**: Run a single catch-up execution at the most recent missed time, then resume on schedule.
-    * **Run the Most Recent Missed Execution Per Rule**: Like the previous option, but each trigger rule runs its own catch-up execution.
-* **Missed Execution Grace Period (Seconds)**: How late an execution may start before it counts as missed. Set to `0` to use the instance setting (`N8N_SCHEDULER_MISFIRE_GRACE`, 60 seconds by default). n8n raises values below the instance minimum (60 seconds with the defaults) to it, and caps values above 30 days.
+* **If Execution Is Missed**（错过执行时）：选择如何处理错过的执行：
+    * **Don't Run Missed Executions**（不补跑，默认）：丢弃错过的执行，恢复按计划运行。
+    * **Run the Most Recent Missed Execution**（补跑最近一次错过的执行）：按最近一次错过的时间补跑一次，然后恢复按计划运行。
+    * **Run the Most Recent Missed Execution Per Rule**（每条规则补跑最近一次错过的执行）：类似上一选项，但每条触发规则各自补跑一次。
+* **Missed Execution Grace Period (Seconds)**（错过执行的宽限期，秒）：执行允许延迟启动多久，超过后才算错过。设为 `0` 时使用实例设置（`N8N_SCHEDULER_MISFIRE_GRACE`，默认为 60 秒）。低于实例最小值的配置会被上调至该最小值，默认配置下为 60 秒；超过 30 天的值会被限制为该时长。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用性**
 
-These options are available from n8n 2.36, on Schedule Trigger nodes added from that version on. They take effect only when the instance runs the [durable scheduler](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/durable-scheduler), which is on by default from n8n 2.45.0. If you set `N8N_SCHEDULER_ENABLED=false`, Schedule Trigger nodes use the in-memory scheduler, which never runs missed executions.
+这些选项自 n8n 2.36 起提供，适用于从该版本起添加的 Schedule Trigger 节点。仅在实例运行[持久化调度器](../../../../deploy/host-n8n/configure-n8n/durable-scheduler.md)时生效，该调度器从 n8n 2.45.0 起默认开启。如果设置 `N8N_SCHEDULER_ENABLED=false`，Schedule Trigger 节点将使用内存调度器，不会补跑错过的执行。
 {% endhint %}
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse n8n-nodes-base.scheduletrigger integration templates](https://n8n.io/integrations/schedule-trigger) or [search all templates](https://n8n.io/workflows/)
+[浏览 n8n-nodes-base.scheduletrigger 集成模板](https://n8n.io/integrations/schedule-trigger)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common Issues](common-issues.md).
+常见疑问或问题及建议的解决方法，请参阅[常见问题](common-issues.md)。

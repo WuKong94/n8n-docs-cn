@@ -1,72 +1,72 @@
 ---
-title: Debug Helper
-description: >-
-  Documentation for the Debug Helper node in n8n, a workflow automation
-  platform. Includes guidance on usage, and links to examples.
+title: Debug Helper 节点
+description: 了解 n8n 中 Debug Helper 节点的用法，并查看相关示例。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Debug Helper
+nodeTitle: Debug Helper 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.debughelper.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.debughelper'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.debughelper'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.debughelper
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.debughelper
 layout:
   description:
     visible: false
 ---
-
-# Debug Helper <a href="#debug-helper" id="debug-helper"></a>
-
-Use the Debug Helper node to trigger different error types or generate random datasets to help test n8n workflows.
-
-## Operations <a href="#operations" id="operations"></a>
-
-Define the operation by selecting the **Category**:
-
-* **Do Nothing**: Don't do anything.
-* [**Throw Error**](#throw-error): Throw an error with the specified type and message.
-* [**Out Of Memory**](#out-of-memory): Generate a specific memory size to simulate being out of memory.
-* [**Generate Random Data**](#generate-random-data): Generate some random data in a selected format.
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-The node parameters depend on the **Category** selected. The **Do Nothing** Category has no other parameters.
-
-### Throw Error <a href="#throw-error" id="throw-error"></a>
-
-* **Error Type**: Select the type of error to throw. Choose from:
-	* **NodeApiError**
-	* **NodeOperationError**
-	* **Error**
-* **Error Message**: Enter the error message to throw.
-
-### Out Of Memory <a href="#out-of-memory" id="out-of-memory"></a>
-
-The Out of Memory Category adds one parameter, the **Memory Size to Generate**. Enter the approximate amount of memory to generate.
-
-### Generate Random Data <a href="#generate-random-data" id="generate-random-data"></a>
-
-* **Data Type**: Choose the type of random data you'd like to generate. Options include:
-	* **Address**
-	* **Coordinates**
-	* **Credit Card**
-	* **Email**
-	* **IPv4**
-	* **IPv6**
-	* **MAC**
-	* **Nanoids**: If you select this data type, you'll also need to enter:
-		* **Nanoid Alphabet**: The alphabet the generator will use to generate the nanoids.
-		* **Nanoid Length**: The length of each nanoid.
-	* **URL**
-	* **User Data**
-	* **UUID**
-	* **Version**
-* **Seed**: If you'd like to generate the data using a specific seed, enter it here. This ensures the data gets generated consistently. If you'd rather use random data generation, leave this field empty.
-* **Number of Items to Generate**: Enter the number of random items you'd like to generate.
-* **Output as Single Array**: Whether to generate the data as a single array (turned on) or multiple items (turned off).
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Debug Helper integration templates](https://n8n.io/integrations/debughelper) or [search all templates](https://n8n.io/workflows/)
+# Debug Helper（调试辅助） <a href="#debug-helper" id="debug-helper"></a>
+
+使用 Debug Helper 节点触发不同类型的错误，或生成随机数据集，帮助测试 n8n 工作流。
+
+## 操作 <a href="#operations" id="operations"></a>
+
+通过选择 **Category**（类别）定义操作：
+
+* **Do Nothing**（不执行操作）：不做任何处理。
+* [**Throw Error**](#throw-error)（抛出错误）：抛出指定类型及消息的错误。
+* [**Out Of Memory**](#out-of-memory)（内存不足）：生成指定内存量，以模拟内存不足。
+* [**Generate Random Data**](#generate-random-data)（生成随机数据）：按选定格式生成随机数据。
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+节点参数取决于所选的 **Category**（类别）。**Do Nothing**（不执行操作）类别没有其他参数。
+
+### Throw Error（抛出错误） <a href="#throw-error" id="throw-error"></a>
+
+* **Error Type**（错误类型）：选择要抛出的错误类型，可选：
+    * **NodeApiError**
+    * **NodeOperationError**
+    * **Error**
+* **Error Message**（错误消息）：输入要抛出的错误消息。
+
+### Out Of Memory（内存不足） <a href="#out-of-memory" id="out-of-memory"></a>
+
+Out Of Memory 类别增加一个 **Memory Size to Generate**（生成的内存量）参数，输入大致要生成的内存量。
+
+### Generate Random Data（生成随机数据） <a href="#generate-random-data" id="generate-random-data"></a>
+
+* **Data Type**（数据类型）：选择要生成的随机数据类型，可选：
+    * **Address**（地址）
+    * **Coordinates**（坐标）
+    * **Credit Card**（信用卡）
+    * **Email**（电子邮箱）
+    * **IPv4**
+    * **IPv6**
+    * **MAC**
+    * **Nanoids**：选择此类型后，还需输入：
+        * **Nanoid Alphabet**（Nanoid 字符集）：生成器创建 nanoid 时使用的字符集。
+        * **Nanoid Length**（Nanoid 长度）：每个 nanoid 的长度。
+    * **URL**
+    * **User Data**（用户数据）
+    * **UUID**
+    * **Version**（版本）
+* **Seed**（种子）：如需使用特定种子生成数据，在此输入，以确保生成结果可重复。希望随机生成时，留空此字段。
+* **Number of Items to Generate**（生成数据项数量）：输入要生成的随机数据项数量。
+* **Output as Single Array**（输出为单个数组）：开启时生成单个数组，关闭时生成多个数据项。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Debug Helper 集成模板](https://n8n.io/integrations/debughelper)，或[搜索所有模板](https://n8n.io/workflows/)

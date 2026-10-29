@@ -1,20 +1,14 @@
 ---
-title: Schedule Trigger node common issues
+title: Schedule Trigger 节点常见问题
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Schedule Trigger node common issues
-originalFilePath: >-
-  integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/common-issues.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/common-issues
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/common-issues
-description: >-
-  Documentation for common issues and questions in the Schedule Trigger node in
-  n8n, a workflow automation platform. Includes details of the issue and
-  suggested solutions.
+nodeTitle: Schedule Trigger 节点常见问题
+originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/common-issues.md
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/common-issues
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/common-issues
+description: 了解 n8n 中 Schedule Trigger 节点的常见问题、排查步骤及建议的解决方法。
 layout:
   width: default
   title:
@@ -34,46 +28,48 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Common issues
 
-Here are some common errors and issues with the [Schedule Trigger node](./README.md) and steps to resolve or troubleshoot them.
+# 常见问题 <a id="common-issues"></a>
 
-## Invalid cron expression <a href="#invalid-cron-expression" id="invalid-cron-expression"></a>
+本页介绍 [Schedule Trigger 节点](./README.md)的常见错误和问题，以及解决或排查步骤。
 
-This error occurs when you set **Trigger Interval** to **Custom (Cron)** and n8n doesn't understand your cron expression. This may mean that there is a mistake in your cron expression or that you're using an incompatible syntax.
+## 无效的 cron 表达式 <a href="#invalid-cron-expression" id="invalid-cron-expression"></a>
 
-To debug, check that the following:
+将 **Trigger Interval**（触发间隔）设为 **Custom (Cron)**（自定义 Cron），但 n8n 无法理解 cron 表达式时，会出现此错误。可能是表达式有误，或使用了不兼容的语法。
 
-* That your cron expression follows the syntax used in the [cron examples](./README.md#custom-cron-interval)
-* That your cron expression (after removing the [seconds column](./README.md#why-there-are-six-asterisks-in-the-cron-expression)) validates on [crontab guru](https://crontab.guru/)
+排查时，请检查：
 
-## Scheduled workflows run at the wrong time <a href="#scheduled-workflows-run-at-the-wrong-time" id="scheduled-workflows-run-at-the-wrong-time"></a>
+* cron 表达式是否符合 [cron 示例](./README.md#custom-cron-interval)中的语法。
+* 去掉[秒字段](./README.md#why-there-are-six-asterisks-in-the-cron-expression)后，cron 表达式是否能通过 [crontab guru](https://crontab.guru/) 的校验。
 
-If the Schedule Trigger node runs at the wrong time, it may mean that you need to adjust the time zone n8n uses.
+## 定时工作流运行时间不正确 <a href="#scheduled-workflows-run-at-the-wrong-time" id="scheduled-workflows-run-at-the-wrong-time"></a>
 
-### Adjust the timezone globally <a href="#adjust-the-timezone-globally" id="adjust-the-timezone-globally"></a>
+如果 Schedule Trigger 节点的运行时间不正确，可能需要调整 n8n 使用的时区。
 
-If you're using [n8n Cloud](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud), follow the instructions on the [set the Cloud instance timezone](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/configure-cloud/set-your-timezone) page to ensure that n8n executes in sync with your local time.
+### 调整全局时区 <a href="#adjust-the-timezone-globally" id="adjust-the-timezone-globally"></a>
 
-If you're [self hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n), set your global timezone using the [`GENERIC_TIMEZONE` environment variable](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization).
+使用 [n8n Cloud](../../../../deploy/use-n8n-cloud/README.md) 时，请按[设置 Cloud 实例时区](../../../../deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md)中的说明配置，确保 n8n 按本地时间执行。
 
-### Adjust the timezone for an individual workflow <a href="#adjust-the-timezone-for-an-individual-workflow" id="adjust-the-timezone-for-an-individual-workflow"></a>
+使用[自托管](../../../../deploy/host-n8n/README.md)部署时，通过 [`GENERIC_TIMEZONE` 环境变量](../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization.md)设置全局时区。
 
-To set the timezone for an individual workflow:
+### 调整单个工作流的时区 <a href="#adjust-the-timezone-for-an-individual-workflow" id="adjust-the-timezone-for-an-individual-workflow"></a>
 
-1. Open the workflow on the canvas.
-2. Select the <img src="../../../.gitbook/assets/three-dots-horizontal (2).png" alt="Workflow menu icon" data-size="line"> **Workflow menu** in the upper-right corner.
-3. Select **Settings**.
-4. Change the **Timezone** setting.
-5. Select **Save**.
+设置单个工作流时区的步骤：
 
-### Variables not working as expected <a href="#variables-not-working-as-expected" id="variables-not-working-as-expected"></a>
+1. 在画布上打开工作流。
+2. 选择右上角的 <img src="../../../.gitbook/assets/three-dots-horizontal (2).png" alt="工作流菜单图标" data-size="line"> **Workflow menu**（工作流菜单）。
+3. 选择 **Settings**（设置）。
+4. 更改 **Timezone**（时区）。
+5. 选择 **Save**（保存）。
 
-While variables can be used in the scheduled trigger, their values only get evaluated when the workflow is published. After publishing the workflow, you can alter a variable's value in the settings but it won't change how often the workflow runs. To work around this, you must stop and then publish a new version of the workflow to apply the updated variable value.
+### 变量未按预期生效 <a href="#variables-not-working-as-expected" id="variables-not-working-as-expected"></a>
 
-### Changing the trigger interval <a href="#changing-the-trigger-interval" id="changing-the-trigger-interval"></a>
+定时触发器可以使用变量，但只会在工作流发布时求出变量值。发布后，在设置中更改变量值不会改变工作流运行频率。需要先停止，再发布工作流的新版本，才能应用更新后的变量值。
 
-You can update the scheduled trigger interval at any time but it only gets updated when the workflow is published. If you change the trigger interval after the workflow is published, the changes won't take effect until you unpublish the workflow and then publish a new version of the workflow.
+### 更改触发间隔 <a href="#changing-the-trigger-interval" id="changing-the-trigger-interval"></a>
 
-Also, the schedule begins from the time when you publish the workflow. For example, if you had originally set a schedule of every 1 hour and it should execute at 12:00, if you changed it to a 2 hour schedule and publish a new version of the workflow at 11:30, the next execution will be at 13:30, 2 hours from when you published it.
+可以随时更改定时触发间隔，但只有发布工作流时才会更新。工作流发布后，更改触发间隔不会立即生效，必须先取消发布，再发布工作流的新版本。
+
+定时安排还会从工作流发布时刻开始。例如，原先每隔 1 小时运行，计划在 12:00 执行；改为每隔 2 小时，并在 11:30 发布新版本后，下次将于 13:30 执行，即发布后 2 小时。
