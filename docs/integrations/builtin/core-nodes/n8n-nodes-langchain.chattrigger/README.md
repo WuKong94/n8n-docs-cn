@@ -1,15 +1,11 @@
 ---
-title: Chat Trigger node documentation
+title: Chat Trigger 节点
 priority: critical
 nodeTitle: n8n-nodes-base.compression
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger
-description: >-
-  Learn how to use the Chat Trigger node in n8n. Follow technical documentation
-  to integrate Chat Trigger node into your workflows.
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger
+description: 了解如何在 n8n 工作流中配置和使用 Chat Trigger 节点。
 layout:
   width: default
   title:
@@ -29,193 +25,195 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Chat Trigger
 
-Use the Chat Trigger node when building AI workflows for chatbots and other chat interfaces. You can configure how users access the chat, using one of n8n's provided interfaces, or your own. You can add authentication.
+# Chat Trigger（聊天触发器） <a id="chat-trigger"></a>
 
-You must connect either an agent or chain [root node](../../cluster-nodes/root-nodes/README.md).
+为聊天机器人及其他聊天界面构建 AI 工作流时，使用 Chat Trigger 节点。可配置用户如何访问聊天，选择 n8n 提供的界面或自己的界面，并可添加身份验证。
+
+必须连接智能体或链的[根节点](../../cluster-nodes/root-nodes/README.md)。
 
 {% hint style="warning" %}
-**Workflow execution usage**
+**工作流执行用量**
 
-Every message to the Chat Trigger executes your workflow. This means that one conversation where a user sends 10 messages uses 10 executions from your execution allowance. Check your payment plan for details of your allowance.
+发送给 Chat Trigger 的每条消息都会执行工作流。因此，一段对话中用户发送 10 条消息，就会消耗执行额度中的 10 次执行。具体额度请查看订阅方案。
 {% endhint %}
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用性**
 
-The Chat Trigger node is available from n8n 1.24.0, replacing the Manual Chat Trigger node.
+Chat Trigger 节点自 n8n 1.24.0 起提供，替代 Manual Chat Trigger 节点。
 {% endhint %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Make Chat Publicly Available <a href="#make-chat-publicly-available" id="make-chat-publicly-available"></a>
+### Make Chat Publicly Available（公开聊天） <a href="#make-chat-publicly-available" id="make-chat-publicly-available"></a>
 
-Set whether the chat should be publicly available (turned on) or only available through the manual chat interface (turned off).
+开启时公开聊天，关闭时只能通过手动聊天界面使用。
 
-Leave this turned off while you're building the workflow. Turn it on when you're ready to publish the workflow and allow users to access the chat.
+构建工作流期间保持关闭。准备好发布工作流并允许用户访问聊天时，再开启。
 
-#### Mode <a href="#mode" id="mode"></a>
+#### Mode（模式） <a href="#mode" id="mode"></a>
 
-Choose how users access the chat. Select from:
+选择用户访问聊天的方式：
 
-* **Hosted Chat**: Use n8n's hosted chat interface. Recommended for most users because you can configure the interface using the [node options](./README.md#node-options) and don't have to do any other setup.
-* **Embedded Chat**: This option requires you to create your own chat interface. You can use n8n's [chat widget](https://www.npmjs.com/package/@n8n/chat) or build your own. Your chat interface must call the webhook URL shown in **Chat URL** in the node.
+* **Hosted Chat**（托管聊天）：使用 n8n 托管的聊天界面。适合大多数用户，可通过[节点选项](./README.md#node-options)配置界面，无需其他设置。
+* **Embedded Chat**（嵌入聊天）：需要创建自己的聊天界面，可使用 n8n 的[聊天组件](https://www.npmjs.com/package/@n8n/chat)或自行构建。界面必须调用节点 **Chat URL**（聊天 URL）中显示的 webhook URL。
 
-#### Authentication <a href="#authentication" id="authentication"></a>
+#### Authentication（身份验证） <a href="#authentication" id="authentication"></a>
 
-Choose whether and how to restrict access to the chat. Select from:
+选择是否以及如何限制聊天访问：
 
-* **None**: The chat doesn't use authentication. Anyone can use the chat.
-* **Basic Auth**: The chat uses basic authentication.
-  * Select or create a **Credential for Basic Auth** with a username and password. All users must use the same username and password.
-* **n8n User Auth**: Only users logged in to an n8n account can use the chat.
+* **None**（无）：不使用身份验证，任何人都可使用聊天。
+* **Basic Auth**（Basic 认证）：聊天使用 Basic 身份验证。
+  * 选择或创建包含用户名和密码的 **Credential for Basic Auth**（Basic 认证凭据）。所有用户必须使用同一组用户名和密码。
+* **n8n User Auth**（n8n 用户认证）：仅已登录 n8n 账户的用户可使用聊天。
 
-When you select **n8n User Auth**, a **Require Workflow Execute Permission** toggle appears. Turn it on to require that the triggering user also has permission to execute the workflow in the project it belongs to. Users who are logged in but lack execute permission on the workflow can't use the chat. This is useful with [end-user credentials](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-credentials/end-user-credentials), where each user runs the workflow with their own connected account.
+选择 **n8n User Auth**（n8n 用户认证）后，会显示 **Require Workflow Execute Permission**（要求工作流执行权限）开关。开启时，触发用户还必须拥有工作流所属项目中的执行权限。已登录但缺少该工作流执行权限的用户仍不能使用聊天。这适用于[最终用户凭据](../../../../administer/manage-credentials/end-user-credentials.md)场景，每位用户通过自己的已连接账户运行工作流。
 
-#### Initial Message(s) <a href="#initial-messages" id="initial-messages"></a>
+#### Initial Message(s)（初始消息） <a href="#initial-messages" id="initial-messages"></a>
 
-This parameter's only available if you're using **Hosted Chat**. Use it to configure the message the n8n chat interface displays when the user arrives on the page.
+此参数仅适用于 **Hosted Chat**（托管聊天），用于设置用户打开页面时界面显示的消息。
 
-### Make Available in n8n Chat <a href="#make-available-in-n8n-chat" id="make-available-in-n8n-chat"></a>
+### Make Available in n8n Chat（在 n8n Chat 中提供） <a href="#make-available-in-n8n-chat" id="make-available-in-n8n-chat"></a>
 
-Choose whether to make the agent available to Chat Hub.
+选择是否将智能体提供给 Chat Hub 使用。
 
-#### Agent Name <a href="#agent-name" id="agent-name"></a>
+#### Agent Name（智能体名称） <a href="#agent-name" id="agent-name"></a>
 
-The name of the agent on Chat Hub.
+智能体在 Chat Hub 中的名称。
 
-#### Agent description <a href="#agent-description" id="agent-description"></a>
+#### Agent description（智能体说明） <a href="#agent-description" id="agent-description"></a>
 
-The description of the agent on Chat Hub.
+智能体在 Chat Hub 中的说明。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Available options depend on the chat mode.
+可用选项取决于聊天模式。
 
-### Hosted chat options <a href="#hosted-chat-options" id="hosted-chat-options"></a>
+### 托管聊天选项 <a href="#hosted-chat-options" id="hosted-chat-options"></a>
 
-#### Allowed Origin (CORS) <a href="#allowed-origin-cors" id="allowed-origin-cors"></a>
+#### Allowed Origin (CORS)（允许的来源） <a href="#allowed-origin-cors" id="allowed-origin-cors"></a>
 
-Set the origins that can access the chat URL. Enter a comma-separated list of URLs allowed for cross-origin non-preflight requests.
+设置可访问聊天 URL 的来源，输入以逗号分隔、允许跨域非预检请求的 URL 列表。
 
-Use `*` (default) to allow all origins.
+使用 `*`（默认）允许所有来源。
 
-#### Input Placeholder, Title, and Subtitle <a href="#input-placeholder-title-and-subtitle" id="input-placeholder-title-and-subtitle"></a>
+#### Input Placeholder、Title 和 Subtitle（输入占位文本、标题和副标题） <a href="#input-placeholder-title-and-subtitle" id="input-placeholder-title-and-subtitle"></a>
 
-Enter the text for these elements in the chat interface.
-
-<details>
-
-<summary>View screenshot</summary>
-
-![Chat widget preview showing the Input Placeholder, Title, and Subtitle text fields](../../../.gitbook/assets/hosted-text-elements.png)
-
-</details>
-
-#### Load Previous Session <a href="#load-previous-session" id="load-previous-session"></a>
-
-Select whether to load chat messages from a previous chat session.
-
-If you select any option other than **Off**, you must connect the Chat trigger and the Agent you're using to a memory sub-node. The memory connector on the Chat trigger appears when you set **Load Previous Session** to **From Memory**. n8n recommends connecting both the Chat trigger and Agent to the same memory sub-node, as this ensures a single source of truth for both nodes.
+输入聊天界面中这些元素显示的文本。
 
 <details>
 
-<summary>View screenshot</summary>
+<summary>查看截图</summary>
 
-![Connect nodes to memory](../../../.gitbook/assets/connect-memory.png)
+![聊天组件预览，显示输入占位文本、标题和副标题字段](../../../.gitbook/assets/hosted-text-elements.png)
 
 </details>
 
-#### Response Mode <a href="#response-mode" id="response-mode"></a>
+#### Load Previous Session（加载先前会话） <a href="#load-previous-session" id="load-previous-session"></a>
 
-Use this option when building a workflow with steps after the agent or chain that's handling the chat. Choose from:
+选择是否加载上一次聊天会话中的消息。
 
-* **When Last Node Finishes**: The Chat Trigger node returns the response code and the data output from the last node executed in the workflow.
-* **Using Response Nodes**: The Chat Trigger node responds as defined in a [Chat](../n8n-nodes-langchain.chat.md) node or [Respond to Webhook](../n8n-nodes-base.respondtowebhook.md) node. In this response mode, the Chat Trigger will solely show messages as defined in these nodes and not output the data from the last node executed in the workflow. This mode replaces the 'Using Respond to Webhook Node' mode from Chat Trigger node version 1.2.
-
-* **Streaming response**: Enables real-time data streaming back to the user as the workflow processes. Requires nodes with streaming support in the workflow (for example, the [AI agent](../../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/README.md) node).
-
-#### Require Button Click to Start Chat <a href="#require-button-click-to-start-chat" id="require-button-click-to-start-chat"></a>
-
-Set whether to display a **New Conversation** button on the chat interface (turned on) or not (turned off).
+选择 **Off**（关闭）以外的选项时，必须将 Chat Trigger 和所用 Agent 连接到记忆子节点。将 **Load Previous Session**（加载先前会话）设为 **From Memory**（从记忆加载）后，会显示 Chat Trigger 的记忆连接口。n8n 建议两者连接同一个记忆子节点，确保使用同一份会话数据。
 
 <details>
 
-<summary>View screenshot</summary>
+<summary>查看截图</summary>
 
-![New Conversation button](../../../.gitbook/assets/new-conversation-button.png)
+![将节点连接到记忆](../../../.gitbook/assets/connect-memory.png)
 
 </details>
 
-### Embedded chat options <a href="#embedded-chat-options" id="embedded-chat-options"></a>
+#### Response Mode（响应模式） <a href="#response-mode" id="response-mode"></a>
 
-#### Allowed Origin (CORS) <a href="#allowed-origin-cors" id="allowed-origin-cors"></a>
+工作流在处理聊天的智能体或链节点之后还有其他步骤时，使用此选项，可选：
 
-Set the origins that can access the chat URL. Enter a comma-separated list of URLs allowed for cross-origin non-preflight requests.
+* **When Last Node Finishes**（最后一个节点完成时）：Chat Trigger 返回响应码及工作流中最后执行节点的输出数据。
+* **Using Response Nodes**（使用响应节点）：按 [Chat](../n8n-nodes-langchain.chat.md) 或 [Respond to Webhook](../n8n-nodes-base.respondtowebhook.md) 节点中的定义响应。此时 Chat Trigger 只显示这些节点定义的消息，不输出工作流中最后执行节点的数据。此模式从 Chat Trigger 节点版本 1.2 起替代原 Using Respond to Webhook Node（使用 Respond to Webhook 节点）模式。
 
-Use `*` (default) to allow all origins.
+* **Streaming response**（流式响应）：工作流处理期间向用户实时流式返回数据，要求工作流中有支持流式输出的节点，例如 [AI Agent](../../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/README.md) 节点。
 
-#### Load Previous Session <a href="#load-previous-session" id="load-previous-session"></a>
+#### Require Button Click to Start Chat（点击按钮后开始聊天） <a href="#require-button-click-to-start-chat" id="require-button-click-to-start-chat"></a>
 
-Select whether to load chat messages from a previous chat session.
-
-If you select any option other than **Off**, you must connect the Chat trigger and the Agent you're using to a memory sub-node. The memory connector on the Chat trigger appears when you set **Load Previous Session** to **From Memory**. n8n recommends connecting both the Chat trigger and Agent to the same memory sub-node, as this ensures a single source of truth for both nodes.
+开启时，在聊天界面显示 **New Conversation**（新对话）按钮；关闭时不显示。
 
 <details>
 
-<summary>View screenshot</summary>
+<summary>查看截图</summary>
 
-![Connect nodes to memory](../../../.gitbook/assets/connect-memory.png)
+![新对话按钮](../../../.gitbook/assets/new-conversation-button.png)
 
 </details>
 
-#### Response Mode <a href="#response-mode" id="response-mode"></a>
+### 嵌入聊天选项 <a href="#embedded-chat-options" id="embedded-chat-options"></a>
 
-Use this option when building a workflow with steps after the agent or chain that's handling the chat. Choose from:
+#### Allowed Origin (CORS)（允许的来源） <a href="#allowed-origin-cors" id="allowed-origin-cors"></a>
 
-* **When Last Node Finishes**: The Chat Trigger node returns the response code and the data output from the last node executed in the workflow.
-* **Using Response Nodes**: The Chat Trigger node responds as defined in a [Chat](../n8n-nodes-langchain.chat.md) node or [Respond to Webhook](../n8n-nodes-base.respondtowebhook.md) node. In this response mode, the Chat Trigger will solely show messages as defined in these nodes and not output the data from the last node executed in the workflow. This mode replaces the 'Using Respond to Webhook Node' mode from Chat Trigger node version 1.2.
+设置可访问聊天 URL 的来源，输入以逗号分隔、允许跨域非预检请求的 URL 列表。
 
-* **Streaming response**: Enables real-time data streaming back to the user as the workflow processes. Requires nodes with streaming support enabled.
+使用 `*`（默认）允许所有来源。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+#### Load Previous Session（加载先前会话） <a href="#load-previous-session" id="load-previous-session"></a>
 
-[Browse n8n-nodes-base.compression integration templates](https://n8n.io/integrations/chat-trigger) or [search all templates](https://n8n.io/workflows/)
+选择是否加载上一次聊天会话中的消息。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+选择 **Off**（关闭）以外的选项时，必须将 Chat Trigger 和所用 Agent 连接到记忆子节点。将 **Load Previous Session**（加载先前会话）设为 **From Memory**（从记忆加载）后，会显示 Chat Trigger 的记忆连接口。n8n 建议两者连接同一个记忆子节点，确保使用同一份会话数据。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+<details>
 
-## Set the chat response manually <a href="#set-the-chat-response-manually" id="set-the-chat-response-manually"></a>
+<summary>查看截图</summary>
 
-You need to manually set the chat response when you don't want to directly send the output of an Agent or Chain node to the user. Instead, you want to take the output of an Agent or Chain node and modify it or do something else with it before sending it back to the user.
+![将节点连接到记忆](../../../.gitbook/assets/connect-memory.png)
 
-In a basic workflow, the Agent and Chain nodes output a parameter named either `output` or `text`, and the Chat trigger sends the value of this parameter to the user as the chat response.
+</details>
 
-If you need to manually create the response sent to the user, you must create a parameter named either `text` or `output`. If you use a different parameter name, the Chat trigger sends the entire object as its response, not just the value.
+#### Response Mode（响应模式） <a href="#response-mode" id="response-mode"></a>
+
+工作流在处理聊天的智能体或链节点之后还有其他步骤时，使用此选项，可选：
+
+* **When Last Node Finishes**（最后一个节点完成时）：Chat Trigger 返回响应码及工作流中最后执行节点的输出数据。
+* **Using Response Nodes**（使用响应节点）：按 [Respond to Webhook](../n8n-nodes-base.respondtowebhook.md) 节点的定义响应。原文还列出了 [Chat](../n8n-nodes-langchain.chat.md) 节点，但该节点文档明确不支持 Embedded（嵌入）模式，因此嵌入聊天应使用 Respond to Webhook。此响应模式只显示响应节点定义的消息，不输出工作流中最后执行节点的数据。从 Chat Trigger 节点版本 1.2 起，此模式替代原 Using Respond to Webhook Node（使用 Respond to Webhook 节点）模式。
+
+* **Streaming response**（流式响应）：工作流处理期间向用户实时流式返回数据，要求启用支持流式输出的节点。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+[浏览 Chat Trigger 集成模板](https://n8n.io/integrations/chat-trigger)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
+
+## 手动设置聊天响应 <a href="#set-the-chat-response-manually" id="set-the-chat-response-manually"></a>
+
+不想将 Agent 或 Chain 节点的输出直接发给用户，而需要先修改或处理输出，再返回给用户时，就需要手动设置聊天响应。
+
+基本工作流中，Agent 和 Chain 节点输出名为 `output` 或 `text` 的参数，Chat Trigger 将其值作为聊天响应发送给用户。
+
+要手动创建响应，必须创建名为 `text` 或 `output` 的参数。使用其他参数名时，Chat Trigger 会将整个对象作为响应，而不只是其中的值。
 
 {% hint style="info" %}
-**Chat node**
+**Chat 节点**
 
-When you are using a [Chat](../n8n-nodes-langchain.chat.md) node to manually create the response sent to the user, you must set the Chat Trigger response mode to 'Using Response Nodes'.
+使用 [Chat](../n8n-nodes-langchain.chat.md) 节点手动创建响应时，必须将 Chat Trigger 响应模式设为 Using Response Nodes（使用响应节点）。
 {% endhint %}
 
-## FAQ
+## 常见问答 <a id="faq"></a>
 
-### How do I connect a chat interface to an n8n workflow?
+### 如何将聊天界面连接到 n8n 工作流？ <a id="how-do-i-connect-a-chat-interface-to-an-n8n-workflow"></a>
 
-Add the Chat Trigger node as the workflow's trigger, then connect an agent or chain root node to it. Every message a user sends runs the workflow, so your backend logic processes each message.
+将 Chat Trigger 添加为工作流触发器，再连接智能体或链的根节点。用户每发送一条消息都会运行工作流，后端逻辑因此能够处理每条消息。
 
-### How do I make the chat public or embed it on my site?
+### 如何公开聊天或嵌入自己的网站？ <a id="how-do-i-make-the-chat-public-or-embed-it-on-my-site"></a>
 
-Turn on [Make Chat Publicly Available](#make-chat-publicly-available), then choose a **Mode**. **Hosted Chat** uses n8n's hosted interface with no extra setup. **Embedded Chat** lets you use n8n's [chat widget](https://www.npmjs.com/package/@n8n/chat) or your own interface, which calls the **Chat URL** webhook shown in the node.
+开启[公开聊天](#make-chat-publicly-available)，然后选择 **Mode**（模式）。**Hosted Chat**（托管聊天）使用 n8n 托管界面，无需额外设置；**Embedded Chat**（嵌入聊天）可使用 n8n 的[聊天组件](https://www.npmjs.com/package/@n8n/chat)或自己的界面，并调用节点显示的 **Chat URL**（聊天 URL）webhook。
 
-### How do I set the chatbot's response from my workflow?
+### 如何通过工作流设置聊天机器人响应？ <a id="how-do-i-set-the-chatbots-response-from-my-workflow"></a>
 
-In a basic workflow, the Chat Trigger sends the Agent or Chain node's `output` or `text` value to the user. To customize the response, create a parameter named `text` or `output`. See [Set the chat response manually](#set-the-chat-response-manually). If you use a Chat node, set **Response Mode** to **Using Response Nodes**.
+基本工作流中，Chat Trigger 将 Agent 或 Chain 节点的 `output` 或 `text` 值发送给用户。要自定义响应，创建名为 `text` 或 `output` 的参数，详见[手动设置聊天响应](#set-the-chat-response-manually)。使用 Chat 节点时，将 **Response Mode**（响应模式）设为 **Using Response Nodes**（使用响应节点）。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common Issues](common-issues.md).
+常见疑问或问题及建议的解决方法，请参阅[常见问题](common-issues.md)。

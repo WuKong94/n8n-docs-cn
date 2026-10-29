@@ -1,139 +1,139 @@
 ---
-title: Chat node documentation
-description: >-
-  Learn how to use the Chat node in n8n. Follow technical documentation to
-  integrate the Chat node into your workflows.
+title: Chat 节点
+description: 了解如何在 n8n 工作流中配置和使用 Chat 节点。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Chat node documentation
+nodeTitle: Chat 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-langchain.chat.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chat'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chat'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chat
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chat
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Chat node <a href="#chat-node" id="chat-node"></a>
 
-Use the Chat node with the [Chat Trigger](n8n-nodes-langchain.chattrigger/README.md) node to send messages into the chat and optionally wait for responses from users. This enables human-in-the-loop (HITL) use cases in chat workflows, allowing you to have multiple chat interactions within a single execution. The Chat node also works as a tool for AI Agents.
+# Chat（聊天）节点 <a href="#chat-node" id="chat-node"></a>
+
+将 Chat 节点与 [Chat Trigger](n8n-nodes-langchain.chattrigger/README.md) 节点配合使用，向聊天发送消息，并按需等待用户响应。它支持聊天工作流中的人工参与（HITL）场景，可在一次执行内完成多轮聊天交互。Chat 节点也可用作 AI Agent 的工具。
 
 {% hint style="info" %}
-**Chat Trigger node**
+**Chat Trigger 节点**
 
-The Chat node requires a [Chat Trigger](n8n-nodes-langchain.chattrigger/README.md) node to be present in the workflow, with the [Response Mode](n8n-nodes-langchain.chattrigger/README.md#response-mode) set to 'Using Response Nodes'.
+Chat 节点要求工作流中存在 [Chat Trigger](n8n-nodes-langchain.chattrigger/README.md) 节点，并将其 [Response Mode](n8n-nodes-langchain.chattrigger/README.md#response-mode)（响应模式）设为 Using Response Nodes（使用响应节点）。
 {% endhint %}
 
 {% hint style="warning" %}
-**Embedded mode not supported**
+**不支持 Embedded（嵌入）模式**
 
-The Chat node isn't supported when the Chat Trigger node is set to **Embedded** mode. In Embedded mode, use the [Respond to Webhook](n8n-nodes-base.respondtowebhook.md) node instead.
+Chat Trigger 节点设为 **Embedded**（嵌入）模式时，不支持 Chat 节点。嵌入模式下，请改用 [Respond to Webhook](n8n-nodes-base.respondtowebhook.md) 节点。
 {% endhint %}
 
 {% hint style="info" %}
-**Previous version**
+**早期版本**
 
-In previous versions, this node was called "Respond to Chat" and used a single "Wait for User Reply" toggle. The functionality has been reorganized into two distinct actions with additional response types.
+早期版本将此节点称为 Respond to Chat（响应聊天），仅使用一个 Wait for User Reply（等待用户回复）开关。现在这些功能已拆分为两种操作，并增加更多响应类型。
 {% endhint %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/sYWM3IB0LEL4RkPx8ndF/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/hitl-tools.md" %}
 
-Configure this node using the following parameters.
+使用以下参数配置节点。
 
-### Operation <a href="#operation" id="operation"></a>
+### Operation（操作） <a href="#operation" id="operation"></a>
 
-The Chat node supports the following operations:
+Chat 节点支持以下操作：
 
-* **Send Message**: Send a message to the chat. The workflow execution continues immediately after sending.
-* **Send and Wait for Response**: Send a message to the chat and wait for a response from the user. This operation pauses the workflow execution until the user submits a response.
+* **Send Message**（发送消息）：向聊天发送消息，发送后工作流立即继续执行。
+* **Send and Wait for Response**（发送并等待响应）：向聊天发送消息并等待用户响应，暂停工作流执行，直到用户提交响应。
 
-Choosing **Send and Wait for Response** activates additional parameters and options as discussed in [waiting for a response](#waiting-for-a-response).
+选择 **Send and Wait for Response**（发送并等待响应）后，会启用[等待响应](#waiting-for-a-response)中介绍的其他参数和选项。
 
-### Message <a href="#message" id="message"></a>
+### Message（消息） <a href="#message" id="message"></a>
 
-The message to send to the chat. This parameter is available for both operations.
+要发送到聊天的消息，两种操作都可使用此参数。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Use these **Options** to further refine the node's behavior.
+使用以下 **Options**（选项）进一步配置节点行为。
 
-### Add Memory Input Connection <a href="#add-memory-input-connection" id="add-memory-input-connection"></a>
+### Add Memory Input Connection（添加记忆输入连接） <a href="#add-memory-input-connection" id="add-memory-input-connection"></a>
 
-Choose whether you want to commit the messages from the Chat node to a connected memory. Using a shared memory between an agent or chain [root node](../cluster-nodes/root-nodes/README.md) and the Chat node attaches the same session key to these messages and lets you capture the full message history.
+选择是否将 Chat 节点的消息写入已连接的记忆。让智能体或链的[根节点](../cluster-nodes/root-nodes/README.md)与 Chat 节点共用记忆，会为这些消息附加相同的会话键，便于记录完整消息历史。
 
-## Waiting for a response <a href="#waiting-for-a-response" id="waiting-for-a-response"></a>
+## 等待响应 <a href="#waiting-for-a-response" id="waiting-for-a-response"></a>
 
-By choosing the **Send and Wait for Response** operation, you can send a message and pause the workflow execution until a person responds. This enables multi-turn conversations and approval workflows within a single execution.
+选择 **Send and Wait for Response**（发送并等待响应），可发送消息并暂停工作流，直到有人响应，从而在一次执行中完成多轮对话和审批流程。
 
-### Response Type <a href="#response-type" id="response-type"></a>
+### Response Type（响应类型） <a href="#response-type" id="response-type"></a>
 
-You can choose between the following types of responses:
+可选择以下响应类型：
 
-* **Free Text**: Users can type any response in the chat. This is the same behavior as the previous "Wait for User Reply" option.
-* **Approval**: Users can approve or disapprove using inline buttons in the message. You can also optionally allow users to type custom responses.
+* **Free Text**（自由文本）：用户可在聊天中输入任意响应，与早期 Wait for User Reply（等待用户回复）选项行为相同。
+* **Approval**（审批）：用户可使用消息内的按钮批准或拒绝，也可按需允许用户输入自定义响应。
 
-Different parameters and options are available depending on which type you choose.
+可用参数和选项取决于所选类型。
 
-### Free Text parameters and options <a href="#free-text-parameters-and-options" id="free-text-parameters-and-options"></a>
+### Free Text（自由文本）参数和选项 <a href="#free-text-parameters-and-options" id="free-text-parameters-and-options"></a>
 
-When using the Free Text response type, the user can type any message as their response.
+使用 Free Text（自由文本）响应类型时，用户可输入任意消息作为响应。
 
-**Use cases:**
-- Open-ended questions
-- Collecting detailed feedback
-- Requesting specific information
+**适用场景：**
+- 开放式问题
+- 收集详细反馈
+- 请求特定信息
 
-**Options:**
-* **Limit Wait Time**: Whether the workflow automatically resumes execution after a specified time limit. This can be an interval or a specific wall time.
+**选项：**
+* **Limit Wait Time**（限制等待时间）：设置工作流是否在指定时间限制后自动恢复执行，可使用时间间隔或具体时间点。
 
-### Approval parameters and options <a href="#approval-parameters-and-options" id="approval-parameters-and-options"></a>
+### Approval（审批）参数和选项 <a href="#approval-parameters-and-options" id="approval-parameters-and-options"></a>
 
-When using the Approval response type, the message displays inline buttons that users can click to approve or disapprove. This response type follows the same pattern as other human-in-the-loop (HITL) nodes in n8n.
+使用 Approval（审批）响应类型时，消息中会显示可点击的批准或拒绝按钮，与 n8n 其他人工参与（HITL）节点的模式一致。
 
-**Use cases:**
-- Simple yes/no decisions
-- Approval workflows
-- Confirmations
+**适用场景：**
+- 简单的是／否决策
+- 审批工作流
+- 确认操作
 
-When using the Approval response type, the following parameters are available:
+使用 Approval（审批）响应类型时，可配置以下参数：
 
-* **Type of Approval**: Whether to present only an approval button or both approval and disapproval buttons.
-    - **Approve Only**: Displays a single approval button
-    - **Approve and Disapprove**: Displays both buttons (default)
+* **Type of Approval**（审批类型）：选择仅显示批准按钮，或同时显示批准和拒绝按钮。
+    - **Approve Only**（仅批准）：显示一个批准按钮。
+    - **Approve and Disapprove**（批准与拒绝）：显示两个按钮，为默认选项。
 
-* **Approve Button Label**: The text to display on the approval button. Default: `Approve`
+* **Approve Button Label**（批准按钮标签）：批准按钮显示的文本，默认为 `Approve`。
 
-* **Disapprove Button Label**: The text to display on the disapproval button (only shown when Type of Approval is "Approve and Disapprove"). Default: `Disapprove`
+* **Disapprove Button Label**（拒绝按钮标签）：拒绝按钮显示的文本，仅在 Type of Approval（审批类型）为 Approve and Disapprove（批准与拒绝）时显示，默认为 `Disapprove`。
 
-* **Block User Input**: Whether to prevent users from typing custom messages (enabled) or allow them to type responses (disabled, default).
-    - When **disabled** (default): Users can click buttons or type a custom message. Typed messages are treated as disapproval with a custom message.
-    - When **enabled**: Users can only interact using the buttons.
+* **Block User Input**（阻止用户输入）：开启时阻止用户输入自定义消息；关闭时允许输入响应，默认为关闭。
+    - **disabled**（关闭，默认）：用户可点击按钮或输入自定义消息；输入的文字消息会被视为附带自定义消息的拒绝。
+    - **enabled**（开启）：用户只能通过按钮交互。
 
-The Approval response type also offers the following option:
+Approval（审批）响应类型还提供以下选项：
 
-* **Limit Wait Time**: Whether the workflow automatically resumes execution after a specified time limit. This can be an interval or a specific wall time.
+* **Limit Wait Time**（限制等待时间）：设置工作流是否在指定时间限制后自动恢复执行，可使用时间间隔或具体时间点。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-Refer to the [Chat Trigger](n8n-nodes-langchain.chattrigger/README.md) node documentation for information about setting up the chat interface.
+聊天界面的设置说明，请参阅 [Chat Trigger](n8n-nodes-langchain.chattrigger/README.md) 节点文档。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse n8n integration templates](https://n8n.io/integrations/) or [search all templates](https://n8n.io/workflows/)
+[浏览 n8n 集成模板](https://n8n.io/integrations/)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-- The Chat node isn't supported when the Chat Trigger node's **Mode** is set to **Embedded**. In Embedded mode, the Chat Trigger node only offers **Respond to Webhook** as a response mode. Use the [Respond to Webhook](n8n-nodes-base.respondtowebhook.md) node instead.
-- The Chat node doesn't work when used as a tool of a sub-agent.
-- The Chat node doesn't work when used in a sub-workflow. This includes usage in a sub-workflow that's being used as a tool for an AI Agent.
-- Make sure the Chat Trigger node's Response Mode is set to "Using Response Nodes" for the Chat node to function properly.
+- Chat Trigger 节点的 **Mode**（模式）设为 **Embedded**（嵌入）时，不支持 Chat 节点。嵌入模式仅提供 **Respond to Webhook**（响应 Webhook）响应模式，请改用 [Respond to Webhook](n8n-nodes-base.respondtowebhook.md) 节点。
+- Chat 节点不能用作子智能体的工具。
+- Chat 节点不能在子工作流中使用，包括用作 AI Agent 工具的子工作流。
+- 确保 Chat Trigger 节点的 Response Mode（响应模式）设为 Using Response Nodes（使用响应节点），Chat 节点才能正常工作。
 
-For common questions or issues with the Chat Trigger node, refer to [Common Chat Trigger Node Issues](n8n-nodes-langchain.chattrigger/common-issues.md).
+Chat Trigger 节点的常见疑问或问题，请参阅 [Chat Trigger 节点常见问题](n8n-nodes-langchain.chattrigger/common-issues.md)。

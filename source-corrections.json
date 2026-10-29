@@ -1546,5 +1546,43 @@
     ],
     "scope": "仅修正同页可证明的版本语境、格式笔误及签名／验证操作角色；原文快照、代码、命令、路径、图片、链接和锚点保持原样。未执行文档命令、连接远程服务或读写真实业务文件。",
     "source_sha256": "b3aea60cb43d6d0a4c9807a80f4490274223ae574d1105e8aedb6c3c183a84f0"
+  },
+  {
+    "id": "chat-trigger-embedded-response-node-compatibility-note",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/README.md",
+    "original_sentence": "* **Using Response Nodes**: The Chat Trigger node responds as defined in a [Chat](../n8n-nodes-langchain.chat.md) node or [Respond to Webhook](../n8n-nodes-base.respondtowebhook.md) node. In this response mode, the Chat Trigger will solely show messages as defined in these nodes and not output the data from the last node executed in the workflow. This mode replaces the 'Using Respond to Webhook Node' mode from Chat Trigger node version 1.2.",
+    "translated_sentence": "* **Using Response Nodes**（使用响应节点）：按 [Respond to Webhook](../n8n-nodes-base.respondtowebhook.md) 节点的定义响应。原文还列出了 [Chat](../n8n-nodes-langchain.chat.md) 节点，但该节点文档明确不支持 Embedded（嵌入）模式，因此嵌入聊天应使用 Respond to Webhook。此响应模式只显示响应节点定义的消息，不输出工作流中最后执行节点的数据。从 Chat Trigger 节点版本 1.2 起，此模式替代原 Using Respond to Webhook Node（使用 Respond to Webhook 节点）模式。",
+    "evidence": "Embedded chat options 中的 Using Response Nodes 段复制了 Hosted Chat 的 Chat 或 Respond to Webhook 描述，而同版本 Chat 节点的警告与常见问题明确 Chat 节点不支持 Embedded，要求使用 Respond to Webhook。译文保留两个原始链接、模式标签、只输出响应节点消息及 1.2 版本说明，明确嵌入聊天使用 Respond to Webhook；不据此声称验证了当前编辑器选项。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/README.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-langchain.chat.md"
+    ],
+    "scope": "仅澄清同版本节点兼容性、可见模板标签及原始示例语法错误；原文快照、程序代码、请求地址、图片和链接目标保持原样。不发送真实邮件或消息，不执行工作流，不验证真实聊天服务。",
+    "source_sha256": "b65d240ca1d1876b168661f4c29f41589ef03ffe4431242d3e05049f85c52172"
+  },
+  {
+    "id": "chat-trigger-template-visible-label-not-compression",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/README.md",
+    "original_sentence": "[Browse n8n-nodes-base.compression integration templates](https://n8n.io/integrations/chat-trigger) or [search all templates](https://n8n.io/workflows/)",
+    "translated_sentence": "[浏览 Chat Trigger 集成模板](https://n8n.io/integrations/chat-trigger)，或[搜索所有模板](https://n8n.io/workflows/)",
+    "evidence": "Chat Trigger 的模板链接可见名称误写 n8n-nodes-base.compression，而同页标题和实际链接均为 Chat Trigger。仅将读者可见链接名称修正为 Chat Trigger 集成模板；原始链接目标及 nodeTitle 原始标识保持不变，不猜测替换内部类型 ID。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/README.md"
+    ],
+    "scope": "仅澄清同版本节点兼容性、可见模板标签及原始示例语法错误；原文快照、程序代码、请求地址、图片和链接目标保持原样。不发送真实邮件或消息，不执行工作流，不验证真实聊天服务。",
+    "source_sha256": "b65d240ca1d1876b168661f4c29f41589ef03ffe4431242d3e05049f85c52172"
+  },
+  {
+    "id": "chat-trigger-metadata-object-semicolon-source-note",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/common-issues.md",
+    "original_sentence": "To do this, use the `metadata` field in the JSON object you pass to the `createChat` function in your embedded chat window:",
+    "translated_sentence": "在嵌入聊天窗口中，通过 `metadata` 字段传递额外信息，将该字段放入传给 `createChat` 函数的 JSON 对象中。译注：原文下方 JavaScript 示例在 metadata 对象后多写了分号，应移除该分号或改为逗号，否则会出现语法错误。此处保留原始代码供对照：",
+    "evidence": "原始 createChat JavaScript 示例在 metadata 对象属性值的右花括号之后使用分号。JavaScript 对象初始化器以逗号分隔属性，允许尾逗号，但该位置不能用分号。译文在示例前说明应移除分号或改为逗号，同时逐字保留原始示例；未执行 createChat。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/common-issues.md",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer"
+    ],
+    "scope": "仅澄清同版本节点兼容性、可见模板标签及原始示例语法错误；原文快照、程序代码、请求地址、图片和链接目标保持原样。不发送真实邮件或消息，不执行工作流，不验证真实聊天服务。",
+    "source_sha256": "850b989a48244cd31ee6b6d6642c34c67ebaa33fbd1a0c976e90a0f31b655568"
   }
 ]

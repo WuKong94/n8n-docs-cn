@@ -16182,5 +16182,97 @@
     "source_correction_ids": [
       "jwt-sign-override-algorithm-operation-context"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.emailimap.md": {
+    "status": "translated",
+    "source_sha256": "24a7fcb0637edfaedc4687c66a309f620fbfee2dc21b5ba57ce7165c5275a378",
+    "translation_sha256": "3f6d213b471682ddbf793aedd6dd089163621ecb1adee3f5f4b018ec525086b3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.executeworkflow.md": {
+    "status": "translated",
+    "source_sha256": "4351d6a305c52a8728fbc4978d3bfbe5910fb5199421d3d5db76f5796fa1ed37",
+    "translation_sha256": "571d932213ed42c51b23728cddc0b0088ea4f4fbd82cf451d8214521518a45d6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.messageanagent.md": {
+    "status": "translated",
+    "source_sha256": "ece7d9c81df3b525f594beb31a1e849133f29d867a5a766a1bae6fd393edc133",
+    "translation_sha256": "3495b6af54de4ad635b51d02e2154c25590b4c3327c5139bf8db8cf1d401ce4c",
+    "checks": [
+      "code-examples-identical-except-reviewed-prompt-translations",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "prose_fences": [
+      {
+        "index": 0,
+        "kind": "prompt",
+        "source_sha256": "ffca7fc25203aac09fe30faf0490977d82f4b2c42ba649575e941141fc5e98f5",
+        "translation_sha256": "ba2ad885902e69e0c39094427e0c70d0a8b8b06845259bc9245a83cd45daf20a"
+      }
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.sendemail.md": {
+    "status": "translated",
+    "source_sha256": "69474eae51529bd82c48bb8f64b684286f3327a580811e4b94a247458e1efac8",
+    "translation_sha256": "b15c144ebbef639039ba2c5f7be52660e6edba62dc3cae046e9e38c1c8942822",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-langchain.chat.md": {
+    "status": "translated",
+    "source_sha256": "2377f881859867c0680c49b09bfaa4f9d2f2a91dd3518cd19937e2f5e5a5d24b",
+    "translation_sha256": "0eef7e7e186b9fa6f7840bb9188b729f301e2da1aefa464f8c9ed7571e8e6447",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/README.md": {
+    "status": "translated",
+    "source_sha256": "b65d240ca1d1876b168661f4c29f41589ef03ffe4431242d3e05049f85c52172",
+    "translation_sha256": "35b26b9d61ef6dfeaae9df3e80e36dd28220211045d951ca8415d27ba93441fc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "chat-trigger-embedded-response-node-compatibility-note",
+      "chat-trigger-template-visible-label-not-compression"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "850b989a48244cd31ee6b6d6642c34c67ebaa33fbd1a0c976e90a0f31b655568",
+    "translation_sha256": "c385b07b9c294448af20f064817772b9c271bef53dc8b6afc5af808aa6518cd9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "chat-trigger-metadata-object-semicolon-source-note"
+    ]
   }
 }

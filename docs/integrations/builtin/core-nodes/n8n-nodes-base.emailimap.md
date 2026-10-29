@@ -1,79 +1,78 @@
 ---
-title: Email Trigger (IMAP) node documentation
-description: >-
-  Learn how to use the Email Trigger (IMAP) Trigger node in n8n. Follow
-  technical documentation to integrate Email Trigger (IMAP) Trigger node into
-  your workflows.
+title: Email Trigger (IMAP) 节点
+description: 了解如何在 n8n 工作流中配置和使用 Email Trigger (IMAP) 节点。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Email Trigger (IMAP) node documentation
+nodeTitle: Email Trigger (IMAP) 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.emailimap.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.emailimap'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.emailimap'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.emailimap
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.emailimap
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Email Trigger (IMAP) node <a href="#email-trigger-imap-node" id="email-trigger-imap-node"></a>
 
-Use the IMAP Email node to receive emails using an IMAP email server. This node is a trigger node.
+# Email Trigger (IMAP)（IMAP 邮件触发器）节点 <a href="#email-trigger-imap-node" id="email-trigger-imap-node"></a>
+
+使用 IMAP Email 节点，通过 IMAP 邮件服务器接收电子邮件。此节点是触发器节点。
 
 {% hint style="info" %}
-**Credential**
+**凭据**
 
-Refer to the [IMAP credentials documentation](../credentials/imap/README.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [IMAP 凭据文档](../credentials/imap/README.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-- Receive an email
+- 接收电子邮件
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Configure the node using the following parameters.
+使用以下参数配置节点。
 
-### Credential to connect with <a href="#credential-to-connect-with" id="credential-to-connect-with"></a>
+### Credential to connect with（连接凭据） <a href="#credential-to-connect-with" id="credential-to-connect-with"></a>
 
-Select or create an [IMAP credential](../credentials/imap/README.md) to connect to the server with.
+选择或创建用于连接服务器的 [IMAP 凭据](../credentials/imap/README.md)。
 
-### Mailbox Name <a href="#mailbox-name" id="mailbox-name"></a>
+### Mailbox Name（邮箱名称） <a href="#mailbox-name" id="mailbox-name"></a>
 
-Enter the mailbox from which you want to receive emails.
+输入要从中接收邮件的邮箱。
 
-### Action <a href="#action" id="action"></a>
+### Action（操作） <a href="#action" id="action"></a>
 
-Choose whether you want an email marked as read when n8n receives it. **None** will leave it marked unread. **Mark as Read** will mark it as read.
+选择 n8n 接收邮件后是否将其标记为已读。**None**（不处理）会保留未读标记，**Mark as Read**（标记为已读）会将其标记为已读。
 
-### Download Attachments <a href="#download-attachments" id="download-attachments"></a>
+### Download Attachments（下载附件） <a href="#download-attachments" id="download-attachments"></a>
 
-This toggle controls whether to download email attachments (turned on) or not (turned off). Only set this if necessary, since it increases processing.
+此开关控制是否下载邮件附件：开启时下载，关闭时不下载。下载会增加处理量，请仅在需要时开启。
 
-### Format <a href="#format" id="format"></a>
+### Format（格式） <a href="#format" id="format"></a>
 
-Choose the format to return the message in from these options:
+选择邮件返回格式：
 
-* **RAW**: This format returns the full email message data with body content in the raw field as a base64url encoded string. It doesn't use the payload field.
-* **Resolved**: This format returns the full email with all data resolved and attachments saved as binary data.
-* **Simple**: This format returns the full email. Don't use it if you want to gather inline attachments.
+* **RAW**（原始）：返回完整邮件数据，正文在 raw 字段中表示为 base64url 编码字符串，不使用 payload 字段。
+* **Resolved**（已解析）：返回解析全部数据后的完整邮件，并将附件保存为二进制数据。
+* **Simple**（简单）：返回完整邮件。如果需要获取内嵌附件，不要使用此格式。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-You can further configure the node using these **Options**.
+还可使用以下 **Options**（选项）进一步配置节点。
 
-### Custom Email Rules <a href="#custom-email-rules" id="custom-email-rules"></a>
+### Custom Email Rules（自定义邮件规则） <a href="#custom-email-rules" id="custom-email-rules"></a>
 
-Enter custom email fetching rules to determine which emails the node fetches.
+输入自定义邮件获取规则，决定节点应获取哪些邮件。
 
-Refer to [node-imap's search function criteria](https://github.com/mscdex/node-imap) for more information.
+更多信息，请参阅 [node-imap 搜索函数的条件说明](https://github.com/mscdex/node-imap)。
 
-### Force Reconnect Every Minutes <a href="#force-reconnect-every-minutes" id="force-reconnect-every-minutes"></a>
+### Force Reconnect Every Minutes（强制重连间隔，分钟） <a href="#force-reconnect-every-minutes" id="force-reconnect-every-minutes"></a>
 
-Set an interval in minutes to force reconnection.
+设置强制重新连接的间隔，单位为分钟。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Email Trigger (IMAP) node documentation integration templates](https://n8n.io/integrations/email-trigger-imap) or [search all templates](https://n8n.io/workflows/)
+[浏览 Email Trigger (IMAP) 节点集成模板](https://n8n.io/integrations/email-trigger-imap)，或[搜索所有模板](https://n8n.io/workflows/)

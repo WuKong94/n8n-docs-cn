@@ -1,16 +1,14 @@
 ---
-title: Send Email
+title: Send Email 节点
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Send Email
+nodeTitle: Send Email 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.sendemail.md
 originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail
 url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail
-description: >-
-  Documentation for the Send Email node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+description: 了解 n8n 中 Send Email 节点的用法，并查看相关示例。
 layout:
   width: default
   title:
@@ -30,153 +28,155 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Send Email
 
-The Send Email node sends emails using an SMTP email server.
+# Send Email（发送邮件） <a id="send-email"></a>
 
-{% hint style="info" %}
-**Credential**
-
-Refer to the [Send Email credentials documentation](../credentials/send-email/README.md) for authentication information for this node.
-{% endhint %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
-
-Configure this node using the following parameters.
-
-### Credential to connect with <a href="#credential-to-connect-with" id="credential-to-connect-with"></a>
-
-Select or create an [SMTP account credential](../credentials/send-email/README.md) for the node to use.
-
-### Operation <a href="#operation" id="operation"></a>
-
-The Send Email node supports the following operations:
-
-* **Send**: Send an email.
-* **Send and Wait for Response**: Send an email and wait for a response from the receiver. This operation pauses the workflow execution until the user submits a response.
-
-Choosing **Send and Wait for Response** will activate parameters and options as discussed in [waiting for a response](n8n-nodes-base.sendemail.md#waiting-for-a-response).
-
-### From Email <a href="#from-email" id="from-email"></a>
-
-Enter the email address you want to send the email from. You can also include a name using this format: `Name Name <email@sample.com>`, for example: `Nathan Doe <nate@n8n.io>`.
-
-### To Email <a href="#to-email" id="to-email"></a>
-
-Enter the email address you want to send the email to. You can also include a name using this format: `Name Name <email@sample.com>`, for example: `Nathan Doe <nate@n8n.io>`. Use a comma to separate multiple email addresses: `first@sample.com, "Name" <second@sample.com>`.
+Send Email 节点通过 SMTP 邮件服务器发送电子邮件。
 
 {% hint style="info" %}
-**Email Format**
+**凭据**
 
-This email format also applies to the CC and BCC fields.
+此节点的身份验证信息，请参阅 [Send Email 凭据文档](../credentials/send-email/README.md)。
 {% endhint %}
 
-### Subject <a href="#subject" id="subject"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Enter the subject line for the email.
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-### Email Format <a href="#email-format" id="email-format"></a>
+使用以下参数配置节点。
 
-Select the format to send the email in. This parameter is available when using the **Send** operation. Choose from:
+### Credential to connect with（连接凭据） <a href="#credential-to-connect-with" id="credential-to-connect-with"></a>
 
-* **Text**: Send the email in plain-text format.
-* **HTML**: Send the email in HTML format.
-* **Both**: Send the email in both formats. If you choose this option, the email recipient's client will set which format to display.
+选择或创建供节点使用的 [SMTP 账户凭据](../credentials/send-email/README.md)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+### Operation（操作） <a href="#operation" id="operation"></a>
 
-Use these **Options** to further refine the node's behavior.
+Send Email 节点支持以下操作：
 
-### Append n8n Attribution <a href="#append-n8n-attribution" id="append-n8n-attribution"></a>
+* **Send**（发送）：发送电子邮件。
+* **Send and Wait for Response**（发送并等待响应）：发送邮件并等待接收方响应。此操作会暂停工作流执行，直到用户提交响应。
 
-Set whether to include the phrase `This email was sent automatically with n8n` at the end of the email (turned on) or not (turned off).
+选择 **Send and Wait for Response**（发送并等待响应）会启用[等待响应](n8n-nodes-base.sendemail.md#waiting-for-a-response)中介绍的参数和选项。
 
-### Attachments <a href="#attachments" id="attachments"></a>
+### From Email（发件人邮箱） <a href="#from-email" id="from-email"></a>
 
-Enter the name of the binary properties that contain data to add as an attachment. Some tips on using this option:
+输入用于发送邮件的邮箱地址，也可按 `Name Name <email@sample.com>` 格式包含名称，例如 `Nathan Doe <nate@n8n.io>`。
 
-* Use the [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md) node or the [HTTP Request](n8n-nodes-base.httprequest/README.md) node to upload the file to your workflow.
-* Add multiple attachments by entering a comma-separated list of binary properties.
-* Reference embedded images or other content within the body of an email message, for example `<img src="cid:image_1">`.
+### To Email（收件人邮箱） <a href="#to-email" id="to-email"></a>
 
-### CC Email <a href="#cc-email" id="cc-email"></a>
+输入接收邮件的邮箱地址，也可按 `Name Name <email@sample.com>` 格式包含名称，例如 `Nathan Doe <nate@n8n.io>`。多个地址以逗号分隔，例如 `first@sample.com, "Name" <second@sample.com>`。
 
-Enter an email address for the `cc:` field.
+{% hint style="info" %}
+**邮箱地址格式**
 
-### BCC Email <a href="#bcc-email" id="bcc-email"></a>
+此邮箱地址格式也适用于 CC 和 BCC 字段。
+{% endhint %}
 
-Enter an email address for the `bcc:` field.
+### Subject（主题） <a href="#subject" id="subject"></a>
 
-### Ignore SSL Issues <a href="#ignore-ssl-issues" id="ignore-ssl-issues"></a>
+输入邮件主题。
 
-Set whether n8n should ignore failures with TLS/SSL certificate validation (turned on) or enforce them (turned off).
+### Email Format（邮件格式） <a href="#email-format" id="email-format"></a>
 
-### Reply To <a href="#reply-to" id="reply-to"></a>
+选择发送邮件的格式。此参数仅在 **Send**（发送）操作中可用，可选：
 
-Enter an email address for the Reply To field.
+* **Text**（文本）：以纯文本格式发送邮件。
+* **HTML**：以 HTML 格式发送邮件。
+* **Both**（两种格式）：同时发送两种格式，由接收方的邮件客户端决定显示哪种格式。
 
-## Waiting for a response <a href="#waiting-for-a-response" id="waiting-for-a-response"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-By choosing the **Send and Wait for a Response** operation, you can send an email message and pause the workflow execution until a person confirms the action or provides more information.
+使用以下 **Options**（选项）进一步配置节点行为。
 
-### Response Type <a href="#response-type" id="response-type"></a>
+### Append n8n Attribution（附加 n8n 署名） <a href="#append-n8n-attribution" id="append-n8n-attribution"></a>
 
-You can choose between the following types of waiting and approval actions:
+开启时，在邮件末尾附加 `This email was sent automatically with n8n`；关闭时，不附加。
 
-* **Approval**: Users can approve or disapprove from within the message.
-* **Free Text**: Users can submit a response with a form.
-* **Custom Form**: Users can submit a response with a custom form.
+### Attachments（附件） <a href="#attachments" id="attachments"></a>
 
-Different options are available depending on which type you choose.
+输入包含附件数据的二进制属性名称。使用此选项时：
 
-### Approval parameters and options <a href="#approval-parameters-and-options" id="approval-parameters-and-options"></a>
+* 使用 [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md) 或 [HTTP Request](n8n-nodes-base.httprequest/README.md) 节点，将文件载入工作流。
+* 输入以逗号分隔的二进制属性列表，可添加多个附件。
+* 可在邮件正文中引用内嵌图片或其他内容，例如 `<img src="cid:image_1">`。
 
-When using the Approval response type, the following options are available:
+### CC Email（抄送邮箱） <a href="#cc-email" id="cc-email"></a>
 
-* **Type of Approval**: Whether to present only an approval button or both an approval and disapproval buttons.
-* **Button Label**: The label for the approval or disapproval button. The default choice is `Approve` and `Decline` for approval and disapproval actions respectively.
-* **Button Style**: The style (primary or secondary) for the button.
+输入 `cc:` 字段的邮箱地址。
 
-This mode also offers the following options:
+### BCC Email（密送邮箱） <a href="#bcc-email" id="bcc-email"></a>
 
-* **Limit Wait Time**: Whether the workflow will automatically resume execution after a specified time limit. This can be an interval or a specific wall time.
-* **Append n8n Attribution**: Set whether to include the phrase `This email was sent automatically with n8n` at the end of the email (turned on) or not (turned off).
+输入 `bcc:` 字段的邮箱地址。
 
-### Free Text parameters and options <a href="#free-text-parameters-and-options" id="free-text-parameters-and-options"></a>
+### Ignore SSL Issues（忽略 SSL 问题） <a href="#ignore-ssl-issues" id="ignore-ssl-issues"></a>
 
-When using the Free Text response type, the following options are available:
+开启时，n8n 忽略 TLS/SSL 证书验证失败；关闭时，强制执行证书验证。
 
-* **Message Button Label**: The label to use for message button. The default choice is `Respond`.
-* **Response Form Title**: The title of the form where users provide their response.
-* **Response Form Description**: A description for the form where users provide their response.
-* **Response Form Button Label**: The label for the button on the form to submit their response. The default choice is `Submit`.
-* **Limit Wait Time**: Whether the workflow will automatically resume execution after a specified time limit. This can be an interval or a specific wall time.
-* **Append n8n Attribution**: Set whether to include the phrase `This email was sent automatically with n8n` at the end of the email (turned on) or not (turned off).
+### Reply To（回复地址） <a href="#reply-to" id="reply-to"></a>
 
-### Custom Form parameters and options <a href="#custom-form-parameters-and-options" id="custom-form-parameters-and-options"></a>
+输入 Reply To（回复地址）字段的邮箱地址。
 
-When using the Custom Form response type, you build a form using the fields and options you want.
+## 等待响应 <a href="#waiting-for-a-response" id="waiting-for-a-response"></a>
 
-You can customize each form element with the settings outlined in the [n8n Form trigger's form elements](n8n-nodes-base.formtrigger.md#form-elements). To add more fields, select the **Add Form Element** button.
+选择 **Send and Wait for a Response**（发送并等待响应），可发送电子邮件并暂停工作流执行，直到有人确认操作或提供更多信息。
 
-The following options are also available:
+### Response Type（响应类型） <a href="#response-type" id="response-type"></a>
 
-* **Message Button Label**: The label to use for message button. The default choice is `Respond`.
-* **Response Form Title**: The title of the form where users provide their response.
-* **Response Form Description**: A description for the form where users provide their response.
-* **Response Form Button Label**: The label for the button on the form to submit their response. The default choice is `Submit`.
-* **Limit Wait Time**: Whether the workflow will automatically resume execution after a specified time limit. This can be an interval or a specific wall time.
-* **Append n8n Attribution**: Set whether to include the phrase `This email was sent automatically with n8n` at the end of the email (turned on) or not (turned off).
+选择以下等待和审批类型之一：
 
-## Limitations <a href="#limitations" id="limitations"></a>
+* **Approval**（审批）：用户可在消息中批准或拒绝。
+* **Free Text**（自由文本）：用户通过表单提交响应。
+* **Custom Form**（自定义表单）：用户通过自定义表单提交响应。
 
-The Send Email (SMTP) node does not support setting headers like `In-Reply-To` and `References`, which are required for email threading. As a result, each email is treated as a new conversation instead of appearing in the same thread.
+可用选项取决于所选类型。
 
-* **Workaround**: Use the Gmail node’s **Reply to a message** operation, or a custom node that supports custom headers.
+### Approval（审批）参数和选项 <a href="#approval-parameters-and-options" id="approval-parameters-and-options"></a>
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+使用 Approval（审批）响应类型时，可用以下选项：
 
-[Browse Send Email integration templates](https://n8n.io/integrations/send-email) or [search all templates](https://n8n.io/workflows/)
+* **Type of Approval**（审批类型）：选择仅显示批准按钮，或同时显示批准和拒绝按钮。
+* **Button Label**（按钮标签）：批准或拒绝按钮的标签，默认分别为 `Approve` 和 `Decline`。
+* **Button Style**（按钮样式）：按钮的 primary（主要）或 secondary（次要）样式。
+
+此模式还提供以下选项：
+
+* **Limit Wait Time**（限制等待时间）：设置工作流是否在指定时间限制后自动恢复执行，可使用时间间隔或具体时间点。
+* **Append n8n Attribution**（附加 n8n 署名）：开启时，在邮件末尾附加 `This email was sent automatically with n8n`；关闭时，不附加。
+
+### Free Text（自由文本）参数和选项 <a href="#free-text-parameters-and-options" id="free-text-parameters-and-options"></a>
+
+使用 Free Text（自由文本）响应类型时，可用以下选项：
+
+* **Message Button Label**（消息按钮标签）：消息中的按钮标签，默认为 `Respond`。
+* **Response Form Title**（响应表单标题）：供用户提供响应的表单标题。
+* **Response Form Description**（响应表单说明）：供用户提供响应的表单说明。
+* **Response Form Button Label**（响应表单按钮标签）：提交表单响应的按钮标签，默认为 `Submit`。
+* **Limit Wait Time**（限制等待时间）：设置工作流是否在指定时间限制后自动恢复执行，可使用时间间隔或具体时间点。
+* **Append n8n Attribution**（附加 n8n 署名）：开启时，在邮件末尾附加 `This email was sent automatically with n8n`；关闭时，不附加。
+
+### Custom Form（自定义表单）参数和选项 <a href="#custom-form-parameters-and-options" id="custom-form-parameters-and-options"></a>
+
+使用 Custom Form（自定义表单）响应类型时，可使用所需字段和选项构建表单。
+
+可按 [n8n Form 触发器的表单元素](n8n-nodes-base.formtrigger.md#form-elements)设置来自定义每个元素。要添加更多字段，选择 **Add Form Element**（添加表单元素）。
+
+还可使用以下选项：
+
+* **Message Button Label**（消息按钮标签）：消息中的按钮标签，默认为 `Respond`。
+* **Response Form Title**（响应表单标题）：供用户提供响应的表单标题。
+* **Response Form Description**（响应表单说明）：供用户提供响应的表单说明。
+* **Response Form Button Label**（响应表单按钮标签）：提交表单响应的按钮标签，默认为 `Submit`。
+* **Limit Wait Time**（限制等待时间）：设置工作流是否在指定时间限制后自动恢复执行，可使用时间间隔或具体时间点。
+* **Append n8n Attribution**（附加 n8n 署名）：开启时，在邮件末尾附加 `This email was sent automatically with n8n`；关闭时，不附加。
+
+## 限制 <a href="#limitations" id="limitations"></a>
+
+Send Email（SMTP）节点不支持设置 `In-Reply-To` 和 `References` 等邮件会话串联所需的邮件头，因此每封邮件都会作为新对话处理，而不会显示在同一邮件会话中。
+
+* **替代方法**：使用 Gmail 节点的 **Reply to a message**（回复消息）操作，或支持自定义邮件头的自定义节点。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+[浏览 Send Email 集成模板](https://n8n.io/integrations/send-email)，或[搜索所有模板](https://n8n.io/workflows/)
