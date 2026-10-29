@@ -331,5 +331,14 @@
     "translated_sentence": "使用 FileMaker 节点自动处理 FileMaker 中的工作，并将其与其他应用集成。n8n 内置支持多种 FileMaker 功能，包括创建、查找、获取、编辑和复制记录。",
     "evidence": "同页 Operations 明确列出 Find Records、Get Records、Get Records by Id、Create Record、Edit Record、Duplicate Record、Delete Record 和 Perform Script；简介中的 files 与实际列举的记录操作不符。",
     "scope": "仅依据同页操作列表将简介误称的文件改为记录；不增删操作，不修改代码、身份验证、链接或附件，不声称已执行节点。"
+  },
+  {
+    "id": "poll-mode-cron-seconds-position",
+    "path": "reusable-content/.gitbook/includes/integrations/builtin/poll-modes.md",
+    "source_sha256": "670ebc51d88a57d50488b550343b49f84b264a69bcb635086862b95a82bec46e",
+    "original_sentence": "The sixth asterisk in the Cron expression represents seconds. Setting this is optional. The node will execute even if you don't set the value for seconds.",
+    "translated_sentence": "六字段 Cron 表达式的第一个字段表示秒。该字段可选，即使不设置秒值，节点也会执行。",
+    "evidence": "同页六列表格从左到右依次为 second、minute、hour、day of month、month、day of week；04:08:30 的示例为 30 8 4 * * *，秒位于第一列。另一个 04:08 示例为 8 4 * * *，说明秒字段可省略。原句将额外的秒字段称为第六个星号，易误解为末列。",
+    "scope": "依据同页字段顺序与两个完整示例，明确秒字段位于六字段表达式的最前面；所有范围、代码、Cron 示例和其他说明保留原样，未执行调度器或验证其他范围的运行兼容性。"
   }
 ]

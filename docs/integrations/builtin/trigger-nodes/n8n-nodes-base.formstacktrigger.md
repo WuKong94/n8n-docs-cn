@@ -1,34 +1,32 @@
 ---
-title: Formstack Trigger node documentation
-description: >-
-  Learn how to use the Formstack Trigger node in n8n. Follow technical
-  documentation to integrate Formstack Trigger node into your workflows.
+title: Formstack 触发器节点文档
+description: 了解如何在 n8n 中使用 Formstack 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Formstack Trigger node documentation
+- integration
+- reference
+nodeTitle: Formstack 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.formstacktrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.formstacktrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.formstacktrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.formstacktrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.formstacktrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Formstack Trigger node <a href="#formstack-trigger-node" id="formstack-trigger-node"></a>
 
-[Formstack](https://www.formstack.com/) is a workplace productivity platform that helps organizations streamline digital work through no-code online forms, documents, and signatures.
+# Formstack 触发器节点 <a href="#formstack-trigger-node" id="formstack-trigger-node"></a>
+
+[Formstack](https://www.formstack.com/) 是办公生产力平台，通过无需编写代码的在线表单、文档和签名，帮助组织简化数字化工作。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Formstack Trigger credentials documentation](../credentials/formstacktrigger.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Formstack Trigger 凭据文档](../credentials/formstacktrigger.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Formstack Trigger integrations](https://n8n.io/integrations/formstack-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Formstack Trigger 集成](https://n8n.io/integrations/formstack-trigger/)页面。
 {% endhint %}

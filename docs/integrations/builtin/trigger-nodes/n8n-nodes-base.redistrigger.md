@@ -1,37 +1,35 @@
 ---
-title: Redis Trigger node documentation
-description: >-
-  Learn how to use the Redis Trigger node in n8n. Follow technical documentation
-  to integrate Redis Trigger node into your workflows.
+title: Redis 触发器节点文档
+description: 了解如何在 n8n 中使用 Redis 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Redis Trigger node documentation
+- integration
+- reference
+nodeTitle: Redis 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.redistrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.redistrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.redistrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.redistrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.redistrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Redis Trigger node <a href="#redis-trigger-node" id="redis-trigger-node"></a>
 
-[Redis](https://redis.io/) is an open-source, in-memory data structure store, used as a database, cache and message broker.
+# Redis 触发器节点 <a href="#redis-trigger-node" id="redis-trigger-node"></a>
 
-Use the Redis Trigger node to subscribe to a Redis channel. The workflow starts whenever the channel receives a new message.
+[Redis](https://redis.io/) 是开源的内存数据结构存储系统，可用作数据库、缓存和消息代理。
+
+使用 Redis Trigger 节点订阅 Redis 频道。频道每次收到新消息时，工作流都会启动。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Redis credentials documentation](../credentials/redis.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Redis 凭据文档](../credentials/redis.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Redis Trigger integrations](https://n8n.io/integrations/redis-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Redis Trigger 集成](https://n8n.io/integrations/redis-trigger/)页面。
 {% endhint %}
 

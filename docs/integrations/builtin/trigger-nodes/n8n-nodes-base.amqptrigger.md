@@ -1,34 +1,32 @@
 ---
-title: AMQP Trigger node documentation
-description: >-
-  Learn how to use the AMQP Trigger node in n8n. Follow technical documentation
-  to integrate AMQP Trigger node into your workflows.
+title: AMQP 触发器节点文档
+description: 了解如何在 n8n 中使用 AMQP 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: AMQP Trigger node documentation
+- integration
+- reference
+nodeTitle: AMQP 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.amqptrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.amqptrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.amqptrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.amqptrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.amqptrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AMQP Trigger node <a href="#amqp-trigger-node" id="amqp-trigger-node"></a>
 
-[AMQP](https://www.amqp.org/) is an open standard application layer protocol for message-oriented middleware. The defining features of AMQP are message orientation, queuing, routing, reliability and security. This node supports AMQP 1.0 compatible message brokers.
+# AMQP 触发器节点 <a href="#amqp-trigger-node" id="amqp-trigger-node"></a>
+
+[AMQP](https://www.amqp.org/) 是面向消息中间件的开放应用层协议标准，主要特性包括面向消息、队列、路由、可靠性和安全性。此节点支持兼容 AMQP 1.0 的消息代理。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [AMQP credentials documentation](../credentials/amqp.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [AMQP 凭据文档](../credentials/amqp.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [AMQP integrations](https://n8n.io/integrations/amqp-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [AMQP 集成](https://n8n.io/integrations/amqp-trigger/)页面。
 {% endhint %}

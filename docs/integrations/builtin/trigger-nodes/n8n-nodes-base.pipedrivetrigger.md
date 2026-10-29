@@ -1,34 +1,32 @@
 ---
-title: Pipedrive Trigger node documentation
-description: >-
-  Learn how to use the Pipedrive Trigger node in n8n. Follow technical
-  documentation to integrate Pipedrive Trigger node into your workflows.
+title: Pipedrive 触发器节点文档
+description: 了解如何在 n8n 中使用 Pipedrive 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Pipedrive Trigger node documentation
+- integration
+- reference
+nodeTitle: Pipedrive 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.pipedrivetrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.pipedrivetrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.pipedrivetrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.pipedrivetrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.pipedrivetrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Pipedrive Trigger node <a href="#pipedrive-trigger-node" id="pipedrive-trigger-node"></a>
 
-[Pipedrive](https://www.pipedrive.com/) is a cloud-based sales software company that aims to improve the productivity of businesses through the use of their software.
+# Pipedrive 触发器节点 <a href="#pipedrive-trigger-node" id="pipedrive-trigger-node"></a>
+
+[Pipedrive](https://www.pipedrive.com/) 是一家云销售软件公司，旨在通过软件提升企业生产力。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Pipedrive credentials documentation](../credentials/pipedrive.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Pipedrive 凭据文档](../credentials/pipedrive.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Pipedrive Trigger integrations](https://n8n.io/integrations/pipedrive-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Pipedrive Trigger 集成](https://n8n.io/integrations/pipedrive-trigger/)页面。
 {% endhint %}

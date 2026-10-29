@@ -1,35 +1,33 @@
 ---
-title: Typeform Trigger node documentation
-description: >-
-  Learn how to use the Typeform Trigger node in n8n. Follow technical
-  documentation to integrate Typeform Trigger node into your workflows.
+title: Typeform 触发器节点文档
+description: 了解如何在 n8n 中使用 Typeform 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Typeform Trigger node documentation
+nodeTitle: Typeform 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.typeformtrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.typeformtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.typeformtrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.typeformtrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.typeformtrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Typeform Trigger node <a href="#typeform-trigger-node" id="typeform-trigger-node"></a>
 
-[Typeform](https://www.typeform.com/) is an online software as a service company that specializes in online form building and online surveys. Its main software creates dynamic forms based on user needs.
+# Typeform 触发器节点 <a href="#typeform-trigger-node" id="typeform-trigger-node"></a>
+
+[Typeform](https://www.typeform.com/) 是专注于在线表单构建和调查的软件即服务公司，主要软件可根据用户需求创建动态表单。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Typeform credentials documentation](../credentials/typeform.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Typeform 凭据文档](../credentials/typeform.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Typeform Trigger integrations](https://n8n.io/integrations/typeform-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Typeform Trigger 集成](https://n8n.io/integrations/typeform-trigger/)页面。
 {% endhint %}

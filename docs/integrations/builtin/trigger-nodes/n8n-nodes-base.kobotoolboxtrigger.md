@@ -1,38 +1,36 @@
 ---
-title: KoboToolbox Trigger node documentation
-description: >-
-  Learn how to use the KoboToolbox Trigger node in n8n. Follow technical
-  documentation to integrate KoboToolbox Trigger node into your workflows.
+title: KoboToolbox 触发器节点文档
+description: 了解如何在 n8n 中使用 KoboToolbox 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: KoboToolbox Trigger node documentation
+- integration
+- reference
+nodeTitle: KoboToolbox 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.kobotoolboxtrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kobotoolboxtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kobotoolboxtrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kobotoolboxtrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kobotoolboxtrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# KoboToolbox Trigger node <a href="#kobotoolbox-trigger-node" id="kobotoolbox-trigger-node"></a>
 
-[KoboToolbox](https://www.kobotoolbox.org/) is a field survey and data collection tool to design interactive forms to be completed offline from mobile devices. It's available both as a free cloud solution or as a self-hosted version.
+# KoboToolbox 触发器节点 <a href="#kobotoolbox-trigger-node" id="kobotoolbox-trigger-node"></a>
+
+[KoboToolbox](https://www.kobotoolbox.org/) 是实地调查和数据收集工具，可设计交互式表单，在移动设备上离线填写。既提供免费的云端方案，也支持自托管。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [KoboToolbox credentials documentation](../credentials/kobotoolbox.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [KoboToolbox 凭据文档](../credentials/kobotoolbox.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [KoboToolbox Trigger integrations](https://n8n.io/integrations/kobotoolbox-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [KoboToolbox Trigger 集成](https://n8n.io/integrations/kobotoolbox-trigger/)页面。
 {% endhint %}
 
-This node starts a workflow upon new submissions of a specified form. The trigger node handles the creation/deletion of the hook, so you don't need to do any setup in KoboToolbox.
+指定表单收到新提交时，此节点会启动工作流。触发器节点负责创建和删除钩子，无需在 KoboToolbox 中进行额外配置。
 
-It works the same way as the Get Submission operation in the [KoboToolbox](../app-nodes/n8n-nodes-base.kobotoolbox.md) node, including supporting the same reformatting options.
+它的行为与 [KoboToolbox](../app-nodes/n8n-nodes-base.kobotoolbox.md) 节点的 Get Submission（获取提交）操作相同，也支持相同的数据重新格式化选项。

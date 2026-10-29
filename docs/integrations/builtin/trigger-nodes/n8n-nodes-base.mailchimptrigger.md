@@ -1,34 +1,32 @@
 ---
-title: Mailchimp Trigger node documentation
-description: >-
-  Learn how to use the Mailchimp Trigger node in n8n. Follow technical
-  documentation to integrate Mailchimp Trigger node into your workflows.
+title: Mailchimp 触发器节点文档
+description: 了解如何在 n8n 中使用 Mailchimp 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Mailchimp Trigger node documentation
+- integration
+- reference
+nodeTitle: Mailchimp 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.mailchimptrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.mailchimptrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.mailchimptrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.mailchimptrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.mailchimptrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Mailchimp Trigger node <a href="#mailchimp-trigger-node" id="mailchimp-trigger-node"></a>
 
-[Mailchimp](https://mailchimp.com/) is an integrated marketing platform that allows business owners to automate their email campaigns and track user engagement.
+# Mailchimp 触发器节点 <a href="#mailchimp-trigger-node" id="mailchimp-trigger-node"></a>
+
+[Mailchimp](https://mailchimp.com/) 是一体化营销平台，帮助企业自动化电子邮件营销活动，并跟踪用户互动。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Mailchimp credentials documentation](../credentials/mailchimp.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Mailchimp 凭据文档](../credentials/mailchimp.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Mailchimp Trigger integrations](https://n8n.io/integrations/mailchimp-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Mailchimp Trigger 集成](https://n8n.io/integrations/mailchimp-trigger/)页面。
 {% endhint %}

@@ -1,34 +1,32 @@
 ---
-title: Toggl Trigger node documentation
-description: >-
-  Learn how to use the Toggl Trigger node in n8n. Follow technical documentation
-  to integrate Toggl Trigger node into your workflows.
+title: Toggl 触发器节点文档
+description: 了解如何在 n8n 中使用 Toggl 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Toggl Trigger node documentation
+- integration
+- reference
+nodeTitle: Toggl 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.toggltrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.toggltrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.toggltrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.toggltrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.toggltrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Toggl Trigger node <a href="#toggl-trigger-node" id="toggl-trigger-node"></a>
 
-[Toggl](https://toggl.com/) is a time tracking app that offers online time tracking and reporting services through their website along with mobile and desktop applications.
+# Toggl 触发器节点 <a href="#toggl-trigger-node" id="toggl-trigger-node"></a>
+
+[Toggl](https://toggl.com/) 是工时跟踪应用，通过网站、移动端和桌面应用提供在线计时与报告服务。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Toggl credentials documentation](../credentials/toggl.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Toggl 凭据文档](../credentials/toggl.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Toggl Trigger integrations](https://n8n.io/integrations/toggl-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Toggl Trigger 集成](https://n8n.io/integrations/toggl-trigger/)页面。
 {% endhint %}

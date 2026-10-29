@@ -1,16 +1,19 @@
 ---
 contentType: overview
-nodeTitle: Trigger nodes
+nodeTitle: 触发器节点
 originalFilePath: integrations/builtin/trigger-nodes/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/trigger-nodes'
-url: 'https://docs.n8n.io/integrations/builtin/trigger-nodes'
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Triggers library <a href="#triggers-library" id="triggers-library"></a>
 
-This section provides information about [n8n's Triggers](#user-content-fn-1)[^1].
+# 触发器库 <a href="#triggers-library" id="triggers-library"></a>
 
-[^1]: A trigger node is a special node responsible for executing the workflow in response to certain conditions. All production workflows need at least one trigger to determine when the workflow should run.
+本节介绍 [n8n 的触发器](#user-content-fn-1)[^1]。
+
+<a id="user-content-fn-1"></a>
+[^1]: 触发器节点是一类特殊节点，在满足特定条件时执行工作流。所有生产工作流都至少需要一个触发器，以决定何时运行。

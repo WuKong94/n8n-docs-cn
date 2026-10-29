@@ -1,47 +1,45 @@
 ---
-title: Workable Trigger node documentation
-description: >-
-  Learn how to use the Workable Trigger node in n8n. Follow technical
-  documentation to integrate Workable Trigger node into your workflows.
+title: Workable 触发器节点文档
+description: 了解如何在 n8n 中使用 Workable 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Workable Trigger node documentation
+- integration
+- reference
+nodeTitle: Workable 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.workabletrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.workabletrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.workabletrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.workabletrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.workabletrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Workable Trigger node <a href="#workable-trigger-node" id="workable-trigger-node"></a>
 
-Use the Workable Trigger node to respond to events in the [Workable](https://www.workable.com/) recruiting platform and integrate Workable with other applications. n8n has built-in support for a wide range of Workable events, including candidate created and moved.
+# Workable 触发器节点 <a href="#workable-trigger-node" id="workable-trigger-node"></a>
 
-On this page, you'll find a list of events the Workable Trigger node can respond to and links to more resources.
+使用 Workable Trigger 节点响应 [Workable](https://www.workable.com/) 招聘平台中的事件，并将其与其他应用集成。n8n 内置支持多种 Workable 事件，包括创建和移动候选人。
+
+本页列出了 Workable Trigger 节点可响应的事件，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Workable credentials documentation](../credentials/workable.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Workable 凭据文档](../credentials/workable.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Workable Trigger integrations](https://n8n.io/integrations/workable-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Workable Trigger 集成](https://n8n.io/integrations/workable-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-- **Candidate Created**
-- **Candidate Moved**
+- **Candidate Created**（候选人已创建）
+- **Candidate Moved**（候选人已移动）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-View [example workflows and related content](https://n8n.io/integrations/workable-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/workable-trigger/)。
 
-Refer to [Workable's API documentation](https://developers.workable.com/) for details about using the service.
+使用该服务的详细信息，请参阅 [Workable API 文档](https://developers.workable.com/)。

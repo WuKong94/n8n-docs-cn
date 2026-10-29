@@ -1,52 +1,50 @@
 ---
-title: Flow Trigger node documentation
-description: >-
-  Learn how to use the Flow Trigger node in n8n. Follow technical documentation
-  to integrate Flow Trigger node into your workflows.
+title: Flow 触发器节点文档
+description: 了解如何在 n8n 中使用 Flow 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Flow Trigger node documentation
+- integration
+- reference
+nodeTitle: Flow 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.flowtrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.flowtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.flowtrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.flowtrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.flowtrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Flow Trigger node <a href="#flow-trigger-node" id="flow-trigger-node"></a>
+
+# Flow 触发器节点 <a href="#flow-trigger-node" id="flow-trigger-node"></a>
 
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-The Flow service has shut down and its API no longer responds, so the Flow and Flow Trigger nodes can't connect to it. Workflows using these nodes will fail. Remove them or switch to another service.
+Flow 服务已经关闭，API 不再响应，因此 Flow 和 Flow Trigger 节点无法连接该服务。使用这些节点的工作流会失败，请移除这些节点或改用其他服务。
 {% endhint %}
 
-Flow is modern task and project management software for teams. It brings together tasks, projects, timelines, and conversations, and integrates with a lot of tools.
+Flow 是面向团队的现代任务和项目管理软件，整合任务、项目、时间线和对话，并可与多种工具集成。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Flow credentials documentation](../credentials/flow.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Flow 凭据文档](../credentials/flow.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Flow Trigger integrations](https://n8n.io/integrations/flow-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Flow Trigger 集成](https://n8n.io/integrations/flow-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* New Flow event
+* 新的 Flow 事件
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Flow. Refer to the [Flow node documentation](../app-nodes/n8n-nodes-base.flow.md) for more information.
+n8n 为 Flow 提供应用节点。更多信息请参阅 [Flow 节点文档](../app-nodes/n8n-nodes-base.flow.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/flow-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/flow-trigger/)。
 

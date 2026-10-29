@@ -1,18 +1,14 @@
 ---
-title: Notion Trigger node documentation
+title: Notion 触发器节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Notion Trigger node documentation
+nodeTitle: Notion 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.notiontrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.notiontrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.notiontrigger
-description: >-
-  Learn how to use the Notion Trigger node in n8n. Follow technical
-  documentation to integrate Notion Trigger node into your workflows.
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.notiontrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.notiontrigger
+description: 了解如何在 n8n 中使用 Notion 触发器节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -32,32 +28,34 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Notion Trigger
 
-[Notion](https://notion.so) is an all-in-one workspace for your notes, tasks, wikis, and databases.
+# Notion 触发器 <a id="notion-trigger"></a>
+
+[Notion](https://notion.so) 是集笔记、任务、Wiki 和数据库于一体的工作区。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Notion credentials documentation](../credentials/notion.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Notion 凭据文档](../credentials/notion.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Notion Trigger integrations](https://n8n.io/integrations/notion-trigger-beta/) page.
+入门用法示例和模板，请参阅 n8n 的 [Notion Trigger 集成](https://n8n.io/integrations/notion-trigger-beta/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Page added to database
-* Page updated in database
+* Page added to database（数据库中已添加页面）
+* Page updated in database（数据库中的页面已更新）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Notion. Refer to the [Notion node documentation](../app-nodes/n8n-nodes-base.notion/README.md) for more information.
+n8n 为 Notion 提供应用节点。更多信息请参阅 [Notion 节点文档](../app-nodes/n8n-nodes-base.notion/README.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/notion-trigger-beta/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/notion-trigger-beta/)。
 
-Refer to [Notion's documentation](https://developers.notion.com/) for details about their API.
+API 的详细信息，请参阅 [Notion 文档](https://developers.notion.com/)。

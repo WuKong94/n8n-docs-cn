@@ -1,49 +1,47 @@
 ---
-title: Stripe Trigger node documentation
-description: >-
-  Learn how to use the Stripe Trigger node in n8n. Follow technical
-  documentation to integrate Stripe Trigger node into your workflows.
+title: Stripe 触发器节点文档
+description: 了解如何在 n8n 中使用 Stripe 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Stripe Trigger node documentation
+nodeTitle: Stripe 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.stripetrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.stripetrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.stripetrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.stripetrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.stripetrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Stripe Trigger node <a href="#stripe-trigger-node" id="stripe-trigger-node"></a>
 
-[Stripe](https://stripe.com/) is a suite of payment APIs that powers commerce for online businesses.
+# Stripe 触发器节点 <a href="#stripe-trigger-node" id="stripe-trigger-node"></a>
+
+[Stripe](https://stripe.com/) 是一组支付 API，为在线企业的商业交易提供支持。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Stripe credentials documentation](../credentials/stripe.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Stripe 凭据文档](../credentials/stripe.md)。
 {% endhint %}
 
-## Webhook authentication <a href="#webhook-authentication" id="webhook-authentication"></a>
+## Webhook 身份验证 <a href="#webhook-authentication" id="webhook-authentication"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Verification of incoming requests is available from n8n 2.25.7 and n8n 2.26.2.
+从 n8n 2.25.7 和 n8n 2.26.2 起，可以验证传入请求。
 {% endhint %}
 
-The Stripe Trigger node can verify that incoming webhook requests genuinely come from Stripe.
+Stripe Trigger 节点可以验证传入 Webhook 请求是否确实来自 Stripe。
 
-When you set a **Signature Secret** on your [Stripe credential](../credentials/stripe.md), the node checks the `Stripe-Signature` header on each request and rejects any request that's unsigned, forged, or more than five minutes old with a `401 Unauthorized` response. n8n doesn't run your workflow for rejected requests.
+在 [Stripe 凭据](../credentials/stripe.md)中设置 **Signature Secret**（签名密钥）后，节点会检查每个请求的 `Stripe-Signature` 请求头，并对未签名、伪造或超过五分钟的请求返回 `401 Unauthorized` 响应。n8n 不会为被拒绝的请求运行工作流。
 
-Without a **Signature Secret**, the node doesn't verify incoming requests, so anyone who knows your webhook URL could send forged events. n8n strongly recommends setting one. For setup steps, refer to [Verify incoming requests](../credentials/stripe.md#verify-incoming-requests).
+未设置 **Signature Secret** 时，节点不会验证传入请求，知道 Webhook URL 的任何人都可能发送伪造事件。n8n 强烈建议设置签名密钥。配置步骤请参阅[验证传入请求](../credentials/stripe.md#verify-incoming-requests)。
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Stripe Trigger integrations](https://n8n.io/integrations/stripe-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Stripe Trigger 集成](https://n8n.io/integrations/stripe-trigger/)页面。
 {% endhint %}

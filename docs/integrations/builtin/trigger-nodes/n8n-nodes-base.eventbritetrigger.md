@@ -1,34 +1,32 @@
 ---
-title: Eventbrite Trigger node documentation
-description: >-
-  Learn how to use the Eventbrite Trigger node in n8n. Follow technical
-  documentation to integrate Eventbrite Trigger node into your workflows.
+title: Eventbrite 触发器节点文档
+description: 了解如何在 n8n 中使用 Eventbrite 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Eventbrite Trigger node documentation
+- integration
+- reference
+nodeTitle: Eventbrite 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.eventbritetrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.eventbritetrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.eventbritetrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.eventbritetrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.eventbritetrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Eventbrite Trigger node <a href="#eventbrite-trigger-node" id="eventbrite-trigger-node"></a>
 
-[Eventbrite](https://www.eventbrite.com/) is an event management and ticketing website. The service allows users to browse, create, and promote local events.
+# Eventbrite 触发器节点 <a href="#eventbrite-trigger-node" id="eventbrite-trigger-node"></a>
+
+[Eventbrite](https://www.eventbrite.com/) 是活动管理和票务网站，允许用户浏览、创建和推广本地活动。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Eventbrite credentials documentation](../credentials/eventbrite.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Eventbrite 凭据文档](../credentials/eventbrite.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Eventbrite Trigger integrations](https://n8n.io/integrations/eventbrite-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Eventbrite Trigger 集成](https://n8n.io/integrations/eventbrite-trigger/)页面。
 {% endhint %}

@@ -1,34 +1,32 @@
 ---
-title: Taiga Trigger node documentation
-description: >-
-  Learn how to use the Taiga Trigger node in n8n. Follow technical documentation
-  to integrate Taiga Trigger node into your workflows.
+title: Taiga 触发器节点文档
+description: 了解如何在 n8n 中使用 Taiga 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Taiga Trigger node documentation
+- integration
+- reference
+nodeTitle: Taiga 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.taigatrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.taigatrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.taigatrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.taigatrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.taigatrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Taiga Trigger node <a href="#taiga-trigger-node" id="taiga-trigger-node"></a>
 
-[Taiga](https://www.taiga.io/) is a free and open-source project management platform for startups, agile developers, and designers.
+# Taiga 触发器节点 <a href="#taiga-trigger-node" id="taiga-trigger-node"></a>
+
+[Taiga](https://www.taiga.io/) 是面向初创企业、敏捷开发者和设计师的免费开源项目管理平台。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Taiga credentials documentation](../credentials/taiga.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Taiga 凭据文档](../credentials/taiga.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Taiga Trigger integrations](https://n8n.io/integrations/taiga-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Taiga Trigger 集成](https://n8n.io/integrations/taiga-trigger/)页面。
 {% endhint %}

@@ -1,34 +1,32 @@
 ---
-title: Gumroad Trigger node documentation
-description: >-
-  Learn how to use the Gumroad Trigger node in n8n. Follow technical
-  documentation to integrate Gumroad Trigger node into your workflows.
+title: Gumroad 触发器节点文档
+description: 了解如何在 n8n 中使用 Gumroad 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Gumroad Trigger node documentation
+- integration
+- reference
+nodeTitle: Gumroad 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.gumroadtrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gumroadtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gumroadtrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gumroadtrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gumroadtrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Gumroad Trigger node <a href="#gumroad-trigger-node" id="gumroad-trigger-node"></a>
 
-[Gumroad](https://gumroad.com) is an online platform that enables creators to sell products directly to consumers.
+# Gumroad 触发器节点 <a href="#gumroad-trigger-node" id="gumroad-trigger-node"></a>
+
+[Gumroad](https://gumroad.com) 是让创作者直接向消费者销售产品的在线平台。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Gumroad credentials documentation](../credentials/gumroad.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Gumroad 凭据文档](../credentials/gumroad.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Gumroad Trigger integrations](https://n8n.io/integrations/gumroad-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Gumroad Trigger 集成](https://n8n.io/integrations/gumroad-trigger/)页面。
 {% endhint %}

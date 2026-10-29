@@ -1,46 +1,44 @@
 ---
-title: AWS SNS Trigger node documentation
-description: >-
-  Learn how to use the AWS SNS Trigger node in n8n. Follow technical
-  documentation to integrate AWS SNS Trigger node into your workflows.
+title: AWS SNS 触发器节点文档
+description: 了解如何在 n8n 中使用 AWS SNS 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: AWS SNS Trigger node documentation
+- integration
+- reference
+nodeTitle: AWS SNS 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.awssnstrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.awssnstrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.awssnstrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.awssnstrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.awssnstrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AWS SNS Trigger node <a href="#aws-sns-trigger-node" id="aws-sns-trigger-node"></a>
 
-[AWS SNS](https://aws.amazon.com/sns/) is a notification service provided as part of Amazon Web Services. It provides a low-cost infrastructure for the mass delivery of messages, predominantly to mobile users.
+# AWS SNS 触发器节点 <a href="#aws-sns-trigger-node" id="aws-sns-trigger-node"></a>
+
+[AWS SNS](https://aws.amazon.com/sns/) 是 Amazon Web Services 提供的通知服务，为大规模消息投递提供低成本基础设施，主要面向移动用户。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [AWS credentials documentation](../credentials/aws.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [AWS 凭据文档](../credentials/aws.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [AWS SNS Trigger integrations](https://n8n.io/integrations/aws-sns-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [AWS SNS Trigger 集成](https://n8n.io/integrations/aws-sns-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* New AWS SNS event
+* 新的 AWS SNS 事件
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for AWS SNS. Refer to the [AWS SNS node documentation](../app-nodes/n8n-nodes-base.awssns.md) for more information.
+n8n 为 AWS SNS 提供应用节点。更多信息请参阅 [AWS SNS 节点文档](../app-nodes/n8n-nodes-base.awssns.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/aws-sns-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/aws-sns-trigger/)。
 
-Refer to [AWS SNS's documentation](https://docs.aws.amazon.com/sns/latest/api/Welcome.html) for details about their API.
+API 的详细信息，请参阅 [AWS SNS 文档](https://docs.aws.amazon.com/sns/latest/api/Welcome.html)。

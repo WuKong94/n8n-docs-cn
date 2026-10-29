@@ -1,45 +1,43 @@
 ---
-title: Google Drive Trigger node documentation
-description: >-
-  Learn how to use the Google Drive Trigger node in n8n. Follow technical
-  documentation to integrate Google Drive Trigger node into your workflows.
+title: Google Drive 触发器节点文档
+description: 了解如何在 n8n 中使用 Google Drive 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
 nodeTitle: n8n-nodes-base.googledrivetrigger
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.googledrivetrigger/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googledrivetrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googledrivetrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googledrivetrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googledrivetrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Drive Trigger node <a href="#google-drive-trigger-node" id="google-drive-trigger-node"></a>
 
-[Google Drive](https://drive.google.com) is a file storage and synchronization service developed by Google. It allows users to store files on their servers, synchronize files across devices, and share files.
+# Google Drive 触发器节点 <a href="#google-drive-trigger-node" id="google-drive-trigger-node"></a>
+
+[Google Drive](https://drive.google.com) 是 Google 开发的文件存储与同步服务，允许用户在服务器上存储文件、跨设备同步文件，以及共享文件。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Google credentials documentation](../../credentials/google/README.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Google 凭据文档](../../credentials/google/README.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Google Drive Trigger integrations](https://n8n.io/integrations/google-drive-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Google Drive Trigger 集成](https://n8n.io/integrations/google-drive-trigger/)页面。
 {% endhint %}
 
 {% hint style="info" %}
-**Manual Executions vs. Activation**
+**手动执行与启用**
 
-On manual executions this node will return the last event matching its search criteria. If no event matches the criteria (for example because you are watching for files to be created but no files have been created so far), an error is thrown. Once saved and published, the node will regularly check for any matching events and will trigger your workflow for each event found.
+手动执行时，此节点会返回符合搜索条件的最近一个事件。如果没有匹配事件，例如正在监控新建文件但尚未创建任何文件，则会抛出错误。保存并发布后，节点会定期检查匹配事件，并为找到的每个事件触发工作流。
 {% endhint %}
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。

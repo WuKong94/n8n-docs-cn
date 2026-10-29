@@ -1,46 +1,44 @@
 ---
-title: Asana Trigger node documentation
-description: >-
-  Learn how to use the Asana Trigger node in n8n. Follow technical documentation
-  to integrate Asana Trigger node into your workflows.
+title: Asana 触发器节点文档
+description: 了解如何在 n8n 中使用 Asana 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Asana Trigger node documentation
+- integration
+- reference
+nodeTitle: Asana 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Asana Trigger node <a href="#asana-trigger-node" id="asana-trigger-node"></a>
 
-[Asana](https://asana.com/) is a web and mobile application designed to help teams organize, track, and manage their work.
+# Asana 触发器节点 <a href="#asana-trigger-node" id="asana-trigger-node"></a>
+
+[Asana](https://asana.com/) 是网页和移动应用，帮助团队组织、跟踪和管理工作。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Asana credentials documentation](../credentials/asana.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Asana 凭据文档](../credentials/asana.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Asana Trigger integrations](https://n8n.io/integrations/asana-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Asana Trigger 集成](https://n8n.io/integrations/asana-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* New Asana event
+* 新的 Asana 事件
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Asana. Refer to the [Asana node documentation](../app-nodes/n8n-nodes-base.asana.md) for more information.
+n8n 为 Asana 提供应用节点。更多信息请参阅 [Asana 节点文档](../app-nodes/n8n-nodes-base.asana.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/asana-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/asana-trigger/)。
 
-Refer to [Asana's documentation](https://developers.asana.com/reference/rest-api-reference) for details about their API.
+API 的详细信息，请参阅 [Asana 文档](https://developers.asana.com/reference/rest-api-reference)。

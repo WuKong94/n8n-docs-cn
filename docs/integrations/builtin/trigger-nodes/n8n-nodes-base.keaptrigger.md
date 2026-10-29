@@ -1,34 +1,32 @@
 ---
-title: Keap Trigger node documentation
-description: >-
-  Learn how to use the Keap Trigger node in n8n. Follow technical documentation
-  to integrate Keap Trigger node into your workflows.
+title: Keap 触发器节点文档
+description: 了解如何在 n8n 中使用 Keap 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Keap Trigger node documentation
+- integration
+- reference
+nodeTitle: Keap 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.keaptrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.keaptrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.keaptrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.keaptrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.keaptrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Keap Trigger node <a href="#keap-trigger-node" id="keap-trigger-node"></a>
 
-[Keap](https://keap.com/) is an e-mail marketing and sales platform for small businesses, including products to manage and optimize the customer lifecycle, customer relationship management, marketing automation, lead capture, and e-commerce.
+# Keap 触发器节点 <a href="#keap-trigger-node" id="keap-trigger-node"></a>
+
+[Keap](https://keap.com/) 是面向小企业的电子邮件营销和销售平台，提供客户生命周期管理与优化、客户关系管理、营销自动化、销售线索收集和电子商务等产品。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Keap credentials documentation](../credentials/keap.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Keap 凭据文档](../credentials/keap.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Keap Trigger integrations](https://n8n.io/integrations/keap-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Keap Trigger 集成](https://n8n.io/integrations/keap-trigger/)页面。
 {% endhint %}

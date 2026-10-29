@@ -1,42 +1,40 @@
 ---
-title: Acuity Scheduling Trigger node documentation
-description: >-
-  Learn how to use the Acuity Scheduling Trigger node in n8n. Follow technical
-  documentation to integrate Acuity Scheduling Trigger node into your workflows.
+title: Acuity Scheduling 触发器节点文档
+description: 了解如何在 n8n 中使用 Acuity Scheduling 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Acuity Scheduling Trigger node documentation
+- integration
+- reference
+nodeTitle: Acuity Scheduling 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.acuityschedulingtrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.acuityschedulingtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.acuityschedulingtrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.acuityschedulingtrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.acuityschedulingtrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Acuity Scheduling Trigger node <a href="#acuity-scheduling-trigger-node" id="acuity-scheduling-trigger-node"></a>
 
-[Acuity Scheduling](https://acuityscheduling.com/) is a cloud-based appointment scheduling software solution that enables business owners to manage their appointments online. It has the capability to automatically sync calendars according to users' time zones and can send regular alerts and reminders to users regarding their appointment schedules.
+# Acuity Scheduling 触发器节点 <a href="#acuity-scheduling-trigger-node" id="acuity-scheduling-trigger-node"></a>
+
+[Acuity Scheduling](https://acuityscheduling.com/) 是基于云的预约排程软件，帮助企业在线管理预约。它可以根据用户时区自动同步日历，并定期发送预约提醒和通知。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Acuity Scheduling credentials documentation](../credentials/acuityscheduling.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Acuity Scheduling 凭据文档](../credentials/acuityscheduling.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Acuity Scheduling Trigger integrations](https://n8n.io/integrations/acuity-scheduling-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Acuity Scheduling Trigger 集成](https://n8n.io/integrations/acuity-scheduling-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Appointment canceled
-* Appointment changed
-* Appointment rescheduled
-* Appointment scheduled
-* Order completed
+* Appointment canceled（预约已取消）
+* Appointment changed（预约已更改）
+* Appointment rescheduled（预约已重新安排）
+* Appointment scheduled（预约已安排）
+* Order completed（订单已完成）

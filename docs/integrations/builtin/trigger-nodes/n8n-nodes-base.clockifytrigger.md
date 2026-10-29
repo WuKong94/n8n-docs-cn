@@ -1,36 +1,34 @@
 ---
-title: Clockify Trigger node documentation
-description: >-
-  Learn how to use the Clockify Trigger node in n8n. Follow technical
-  documentation to integrate Clockify Trigger node into your workflows.
+title: Clockify 触发器节点文档
+description: 了解如何在 n8n 中使用 Clockify 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Clockify Trigger node documentation
+- integration
+- reference
+nodeTitle: Clockify 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.clockifytrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.clockifytrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.clockifytrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.clockifytrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.clockifytrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Clockify Trigger node <a href="#clockify-trigger-node" id="clockify-trigger-node"></a>
 
-[Clockify](https://clockify.me/) is a free time tracker and timesheet app for tracking work hours across projects.
+# Clockify 触发器节点 <a href="#clockify-trigger-node" id="clockify-trigger-node"></a>
+
+[Clockify](https://clockify.me/) 是免费的工时跟踪与时间表应用，用于跨项目记录工作时长。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Clockify credentials documentation](../credentials/clockify.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Clockify 凭据文档](../credentials/clockify.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Clockify Trigger integrations](https://n8n.io/integrations/clockify-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Clockify Trigger 集成](https://n8n.io/integrations/clockify-trigger/)页面。
 {% endhint %}
 
-This node uses the workflow timezone setting to specify the range of time entries starting time. Configure the timezone in your [Workflow Settings](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/configure-workflow-settings) if you want this trigger node to retrieve the right time entries.
+此节点使用工作流的时区设置，确定时间记录开始时间的查询范围。要让触发器获取正确的时间记录，请在[工作流设置](../../../build/manage-workflows/configure-workflow-settings.md)中配置时区。

@@ -9603,5 +9603,613 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.activecampaigntrigger.md": {
+    "status": "translated",
+    "source_sha256": "c2b5e6043db922184018073906adc817fc00e6f1ee475cd5a7cbe31d6a305be3",
+    "translation_sha256": "f9353ec1f660bd5367603c6b705b082990819859d98098f2a3166e2c2f9b5663",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.acuityschedulingtrigger.md": {
+    "status": "translated",
+    "source_sha256": "73e6903aa7047dede04292895053a4bf5a653de5b4ef49332533b61fffc9b5c0",
+    "translation_sha256": "d5ffdf14a0561f83764bc132eb6b5764e58eab35e68d758071a97177d4b31f9a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.amqptrigger.md": {
+    "status": "translated",
+    "source_sha256": "57b6a6289286bd50683aaf91062314c8c1d0d2fb54b6c40257b610c259e0fd6d",
+    "translation_sha256": "93fce1391b4bf5ca4b91d11028cd624bb157c475e83359381a9b139be93d800d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.asanatrigger.md": {
+    "status": "translated",
+    "source_sha256": "806cc694d26f91a16bb67d9db528d87df461047dff401454bf510580e70023b8",
+    "translation_sha256": "61892075894ea15929a7b8b84c1c2708de3efee8ac5a60f825b7c0c2af492632",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.awssnstrigger.md": {
+    "status": "translated",
+    "source_sha256": "26ef5f2c8d4d0978612276a9b8b87470fae74eb9557696c8cedae8923c321329",
+    "translation_sha256": "5c0749ad420b509d98b4109359865462f2835cf5c78d997ddfe13c990d2b1d98",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.bitbuckettrigger.md": {
+    "status": "translated",
+    "source_sha256": "248535db6ffd252d41c44ccb0498779b26c4d048f0ec09c12bf4bb18a661e031",
+    "translation_sha256": "f471465e8955679257ef0206c790bff2e719c77ebbb1a236251cb2c506fbfb25",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.boxtrigger.md": {
+    "status": "translated",
+    "source_sha256": "6d37d75153730f16376546eaeeba3afa43733140a4e10fbb749fc97a709dd2e6",
+    "translation_sha256": "853b03cca955ee0f56e0a1677e0f232afca2265f919bbedea2eb4f5bc2142102",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.caltrigger.md": {
+    "status": "translated",
+    "source_sha256": "7c9c9674f18cb971f3ed493a3fcd47d0c12fc844e549a11e89614ce7b5ab25d1",
+    "translation_sha256": "492cee58e57db0c2d978f375e54b001df63b6b5b08ce522573cbd9cdbdce72a7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.ciscowebextrigger.md": {
+    "status": "translated",
+    "source_sha256": "6589f4daa72c7dc6201adccb00959cbe5d105a79ef22c0e564704c8cfe9d681f",
+    "translation_sha256": "d1ec4501243fb77513be0b22a0226671dfcd005e33a17129a1da88f0b9a8f308",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.clockifytrigger.md": {
+    "status": "translated",
+    "source_sha256": "282c9d6b3f0cd83202c12b773861e8f890ee9d08a88feddb2a63200106fd717d",
+    "translation_sha256": "c3e9bf67c843bcd8558eb39228e47013860fd68db4cdac8aed2eae90f2eadca9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.emeliatrigger.md": {
+    "status": "translated",
+    "source_sha256": "a6dbd95bb2783263350e3839f63b4915077e19389437f0dd9f1ca007ff2ebcd2",
+    "translation_sha256": "98e5ce9eb8bd01db682ffdbff270e858dbf3d368c621dc23d4ea9bd91bdecea0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.eventbritetrigger.md": {
+    "status": "translated",
+    "source_sha256": "0af09d2a4ce102d80ae98e4dce75d895372cc965fc3798233b8c856c98a494e1",
+    "translation_sha256": "0a269b3089b9b9f02990f15c03289ac2940b61cc167749865851ec0a5d12a5d0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.flowtrigger.md": {
+    "status": "translated",
+    "source_sha256": "d227ccd31af338e6dd3c2d2b94aeadc4d5b0c45d723f20b0d5714510e4687ab3",
+    "translation_sha256": "334bfd79a43a715c4a70fdf2d3b421c609a3f765e0fe6bafb593a9bd72d82b0e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.formiotrigger.md": {
+    "status": "translated",
+    "source_sha256": "e28ab508ca99d8aba337231f0262fc0dd829e871c279a2ab8de0f50f90f6945e",
+    "translation_sha256": "aa150b0e321ccef316b94d6e75f1a8e4d64be9a987063fdc849414056961e99e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.formstacktrigger.md": {
+    "status": "translated",
+    "source_sha256": "c9099fa7e6b7437aa281d0dedd216c22880a00f387193ea5f52b37e70bb798b1",
+    "translation_sha256": "4774e133a202a9c77109ac800aef7bc89c01407f8871901b2d85e8567f9a0a78",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.getresponsetrigger.md": {
+    "status": "translated",
+    "source_sha256": "605ec188eddf7bb9bcfd75568fde826cd74f2d67271f7e22eba161c07fa32c99",
+    "translation_sha256": "d7929d210b9345061573c238296585b746ad8eb1023d65b6a5251bc25cb9c5c7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.googlebusinessprofiletrigger.md": {
+    "status": "translated",
+    "source_sha256": "456a5c2a8d2b06324392a685db9afdae22dcf12f2f56072a08458d35a2b401da",
+    "translation_sha256": "39e9205bdf0b66ac3b03f7e64b7f22740476138b3538dc67ce8c960f678cd6cd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.gumroadtrigger.md": {
+    "status": "translated",
+    "source_sha256": "dbbae3d643e1dfe516c02716d65297a782c8af02419888340a3503fa51cf8a77",
+    "translation_sha256": "35d737f132e9c61f810993eef7ca627d6b3231c75574fbddf19476dd9bc771e1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.helpscouttrigger.md": {
+    "status": "translated",
+    "source_sha256": "d06b8e96445cf2b9d685c16f1638e8956bf228f728a61a9dcf966f5cdd27a86c",
+    "translation_sha256": "0ea64f832076db8eb5939deed905f6a6d015b600ccb6b3aaf66112b68cfe355e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.invoiceninjatrigger.md": {
+    "status": "translated",
+    "source_sha256": "0020ae194a65594c01e8283adede1a52d1ccff0b9ce3024caa13b7c14a9dfeb8",
+    "translation_sha256": "2ac6166ec1e4f00da9ba97411c78cbc1807e4ede865b54e9ddc7109ac4bae57b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.jiratrigger.md": {
+    "status": "translated",
+    "source_sha256": "3dde8aa4b0c0adf5f3085b1415045d19ed4c3c5a1ab68b2b0de13212bef9cddf",
+    "translation_sha256": "f77bbd7a7f9fc127abca21f4359d82791a397bc931e703f48066992ac3b2d01e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.jotformtrigger.md": {
+    "status": "translated",
+    "source_sha256": "86f42f484e9877c86cbbbefaba9a3307548263dde0702fb85ed0faa4f89ffe20",
+    "translation_sha256": "91b412f7d86b40d2276ee47381714342e0eee41bb81f94f19a71690f2cc55ebe",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.keaptrigger.md": {
+    "status": "translated",
+    "source_sha256": "cea3cd592f5b0420efcb8be9103cb481dec9775e9a87a1557959beca3eee23d9",
+    "translation_sha256": "fa8fee0d420f0d12437db8d2c9fa0c624d11ae4a4b771821cfec7e4f6c3a7241",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.kobotoolboxtrigger.md": {
+    "status": "translated",
+    "source_sha256": "b0887d32f44b579f9ba3cb109b94f941beeb290887d860ee5764cf4b2a7aa687",
+    "translation_sha256": "fa763d2e1439ecdcf32dcc517f2adff45c420ad0018e1de9ce6e36dfa690c314",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.lineartrigger.md": {
+    "status": "translated",
+    "source_sha256": "5d10a461c896ca64a0c19ba99d5f4308e7543cd1668676aa7bd620b294f4ecb9",
+    "translation_sha256": "dc125ad7be40d1ab1ee5fca161e4014e84cf1302cc4e02d5dda2d582eda79d77",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.lonescaletrigger.md": {
+    "status": "translated",
+    "source_sha256": "4afff7987c3c6f1facca3ea63777a576bf04b00afb25765e2b6f56cef0749883",
+    "translation_sha256": "42c81d0912952f128dce249ae6bf82a35a3a77ff2972858acf3c5587fb3e6280",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.mailchimptrigger.md": {
+    "status": "translated",
+    "source_sha256": "c49bcdb01b678c1d7dd029d0473d472fb9e33a4b5988d9f94b3abde9f50c2316",
+    "translation_sha256": "46140c0d48c621fdbe3594402d587daa1460595d5215258a6e4ef1cf60640df6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.mailjettrigger.md": {
+    "status": "translated",
+    "source_sha256": "734954dfe1e24980b4f5a7200b6dc92b08a7f7129ee84e905450408db1bd3e90",
+    "translation_sha256": "62aa4afb33b347b6da0af0b70b3343e9229a01d83724a93c1eed764c96835d44",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.mautictrigger.md": {
+    "status": "translated",
+    "source_sha256": "3fbdd4d441f165b243d4274dcafa0651c8e3398df553ea2a66a92ed6e27c91d6",
+    "translation_sha256": "6b9b399031cd1e5052eb63493422f4bcdfdf1cf7b93b3a3b77cea44fced627e4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.mqtttrigger.md": {
+    "status": "translated",
+    "source_sha256": "e9cb6c0738c0bb429451644a64565445092f5e96a19caebedd7156bb015c1aac",
+    "translation_sha256": "1217465eb1dd6ecd9dd64ba515125938049e74183405917a8e37665a80ad2a1d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.netlifytrigger.md": {
+    "status": "translated",
+    "source_sha256": "dbd29cf9e0a01c0223ab2f7f6e69259e6212a47f08f65bc4ba897add6d19450c",
+    "translation_sha256": "6a579d90e7caede1fbda62fe3bb0cef32218c6d580dcbe621d79a109542f6b90",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.notiontrigger.md": {
+    "status": "translated",
+    "source_sha256": "afca88bdff918b94360d1670aeb0d22ee21dca68bf5c60128a1f42263404efac",
+    "translation_sha256": "323df73d18488a893660b7b7eed38130eff051a937c1aee9920ba43b46f628ed",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.paypaltrigger.md": {
+    "status": "translated",
+    "source_sha256": "dc7152a6bbd4bb8d5b195daadcebb2955de7ea682d396af2485552e89dfeac8b",
+    "translation_sha256": "ab402225c2a81f150753422fb25777bedd55b59ce327c08d13f5a91815a9b9c7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.pipedrivetrigger.md": {
+    "status": "translated",
+    "source_sha256": "500f1b2b26e7e9e25b80682a689103b4e04b3d6830a0a1b11b080bb35ec332b9",
+    "translation_sha256": "273104a4a0387148145bda0de7275825c20e492b82a9c8d97cbdc5ea3d45fb02",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.postmarktrigger.md": {
+    "status": "translated",
+    "source_sha256": "bc5add4fde8b9820e07aa993f1723ad204601be405dea772e4873f180f337b05",
+    "translation_sha256": "ec25fbaf1c360469a6dd5ce06c0478094150094cef7dabecdfe6b31356f24d61",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.rabbitmqtrigger.md": {
+    "status": "translated",
+    "source_sha256": "2eac472085527bff0b7fa9d8093269ff6740622e1fbeddb590f1d78c29a2da41",
+    "translation_sha256": "effa3255c29977b984ef49887a557d05f3b3c1c8a2d4116d85563d6924a76358",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.redistrigger.md": {
+    "status": "translated",
+    "source_sha256": "a8a897bdb08872231798c944dd90a3aa28fc221b4a4ef8eb04650c5620b9d164",
+    "translation_sha256": "dbdfb0829e83c809b487a059a479d302d3ceafb297dd4c85ab1da221b312b924",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.seatabletrigger.md": {
+    "status": "translated",
+    "source_sha256": "3bc6b708ff871f173d4a07a0e3d428c9eee3e5b08abfee3ca5483c43a8ecb8d8",
+    "translation_sha256": "3e6e0889ce7c2c7e9a6577a5ac424563fbe2b0f332fe7a04c999d2c7f8bc8785",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.shopifytrigger.md": {
+    "status": "translated",
+    "source_sha256": "01b66ab300d3c3e32e4729b315aefd57f8b4972cd905d64cc528306d562ad963",
+    "translation_sha256": "73d59b6353e848d463fa0620d75eed69fb2d35ae48190d42a3fc9c82915e1344",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.stripetrigger.md": {
+    "status": "translated",
+    "source_sha256": "1897f4104a488a04ee34beb8ee1dfe000b98be490501ca4129f15c0926076451",
+    "translation_sha256": "9f843d6600fe697d7cc9bf24aeeea957e8f16ab348c0c9d6e4e17017b8b06684",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.surveymonkeytrigger.md": {
+    "status": "translated",
+    "source_sha256": "c6eea32b7939a0758d3da9dba7496b23244e5b27c48ac45e3f3a7ce8fe3055f7",
+    "translation_sha256": "a23951169fec89b54342a53702178ce2121db10338f806d62e1b12849c4f839b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.taigatrigger.md": {
+    "status": "translated",
+    "source_sha256": "9c81d3d771b9688fabe99790b1762ef1445b08013decbbfb6c92036e44a172e1",
+    "translation_sha256": "d4c08b3afd489fa70e100582d4d9f0615c64e4c6a6c3047675765bccf142a28b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.toggltrigger.md": {
+    "status": "translated",
+    "source_sha256": "96348f3106d9dad17e52bf2a4d30bd5e61d162524079e63abc905a416dbc9573",
+    "translation_sha256": "5598f6b7cffe6cd947e04da7017266c04283b8fe7d511fd3459e9ea39f44e99c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.typeformtrigger.md": {
+    "status": "translated",
+    "source_sha256": "7eb45cc99b2261f0b59c12687393bc69f8afb67693850d5ce4fd3ae13f94a5a6",
+    "translation_sha256": "c718c28ab940ddd40839f58d1248653c8b895b5f110ffbbb40dbaa7acfe6ecfb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.venafitlsprotectcloudtrigger.md": {
+    "status": "translated",
+    "source_sha256": "8cb53fabaefc36ec5d39f52c0aa3eedf8da2abb223913505296ec8844feed72c",
+    "translation_sha256": "51280b59a875e6dcc33be8fa08010c8c3c4e20e85c62734775474c37b23da59b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.webflowtrigger.md": {
+    "status": "translated",
+    "source_sha256": "59e3059778825f355a6cc1f90c0723d3d4afbdaf273eeaf1549cf5687bd09cf1",
+    "translation_sha256": "3f5d787e75e089185ef04b411c38958e57764edfd4ce8ca4fd2ec543f01a312b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.wisetrigger.md": {
+    "status": "translated",
+    "source_sha256": "a511909997adba6b79040218461f0b7edda474063d020240df29571d67e2ef26",
+    "translation_sha256": "b7cd82bd865da2aafacb34e99e97e0bd45a116cc2fd3494b344c9cae2a5fd396",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.workabletrigger.md": {
+    "status": "translated",
+    "source_sha256": "e2b9008c3714311e370cb5cbf26a55010bc1ac297dec7f4bb3f962b8b657a3b6",
+    "translation_sha256": "5ff3b8c81a2c643955d812c23c72dae33da4e892a064ef662eca06fbb42ad2e6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.wufootrigger.md": {
+    "status": "translated",
+    "source_sha256": "3435aa3d3ee36e70245303d8eddce38c5dd0b9b12d9d96c3f1013dad2b28c5d1",
+    "translation_sha256": "42c5c81b636611ec43534a8b5c2d59874fb6da14bc090b711e8848f7d6426d4a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.zendesktrigger.md": {
+    "status": "translated",
+    "source_sha256": "0df905efa73d7a9b3d89559ef9c37aea6970f1a04babe34b820c216d22f58973",
+    "translation_sha256": "75dd2e0c8feffccdc5baa32889de69b95c9d6688537b02f6c21b4d40bd0ee1bf",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/README.md": {
+    "status": "translated",
+    "source_sha256": "ebcbdebfe0e08bf62e1dbbd6b88f467a844a3aa1abb8b4a164442e2651f8e47a",
+    "translation_sha256": "817b988682f7c5a43bfde410f86ba6804a86694697fe6af93b320d3008618f87",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "53c762ef720dc8328ac14e2ea2712ce35a948c2bb4fe86264d122ec2bb0cb564",
+    "translation_sha256": "8c4389c68f785c30d7a2adcf7b6267ffbe7ea978f214ebb3d7b24b95fed5d278",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/poll-mode-options.md": {
+    "status": "translated",
+    "source_sha256": "83b90eeac0c864d66b182bdc8ca65f36fce729e32b109fdfcdec003c6b9da297",
+    "translation_sha256": "eda9dd878e968679edf46a442529b69599a7d86c08b3ee52192d7c5a04ecca62",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/trigger-nodes/n8n-nodes-base.googledrivetrigger/README.md": {
+    "status": "translated",
+    "source_sha256": "e6c2fee46739e9ea229ee2fe71b51ac85c823eae398a7a31e5b6c8418b899fed",
+    "translation_sha256": "62e9ca7f029f59db2ccd4ec685308e11c512547c3b72cc9a7c9efba07e1c315e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/poll-modes.md": {
+    "status": "translated",
+    "source_sha256": "670ebc51d88a57d50488b550343b49f84b264a69bcb635086862b95a82bec46e",
+    "translation_sha256": "2379adadbc887ad6f9335cff07a0ecb28fcd2f88835103c01a1578bd5b8192ef",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "poll-mode-cron-seconds-position"
+    ]
   }
 }

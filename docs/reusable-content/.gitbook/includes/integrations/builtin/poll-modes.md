@@ -1,61 +1,63 @@
 ---
-title: poll-modes
+title: 轮询模式
 ---
-### Every Hour mode <a href="#every-hour-mode" id="every-hour-mode"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Enter the **Minute** of the hour to trigger the poll, from `0` to `59`.
+### Every Hour（每小时）模式 <a href="#every-hour-mode" id="every-hour-mode"></a>
 
-### Every Day mode <a href="#every-day-mode" id="every-day-mode"></a>
+在 **Minute**（分钟）中输入每小时触发轮询的分钟数，范围为 `0` 至 `59`。
 
-* Enter the **Hour** of the day to trigger the poll in 24-hour format, from `0` to `23`.
-* Enter the **Minute** of the hour to trigger the poll, from `0` to `59`.
+### Every Day（每天）模式 <a href="#every-day-mode" id="every-day-mode"></a>
 
-### Every Week mode <a href="#every-week-mode" id="every-week-mode"></a>
+* 在 **Hour**（小时）中，以 24 小时制输入每天触发轮询的小时数，范围为 `0` 至 `23`。
+* 在 **Minute**（分钟）中输入每小时触发轮询的分钟数，范围为 `0` 至 `59`。
 
-* Enter the **Hour** of the day to trigger the poll in 24-hour format, from `0` to `23`.
-* Enter the **Minute** of the hour to trigger the poll, from `0` to `59`.
-* Select the **Weekday** to trigger the poll.
+### Every Week（每周）模式 <a href="#every-week-mode" id="every-week-mode"></a>
 
-### Every Month mode <a href="#every-month-mode" id="every-month-mode"></a>
+* 在 **Hour**（小时）中，以 24 小时制输入当天触发轮询的小时数，范围为 `0` 至 `23`。
+* 在 **Minute**（分钟）中输入触发轮询的分钟数，范围为 `0` 至 `59`。
+* 在 **Weekday**（星期几）中选择触发轮询的星期几。
 
-* Enter the **Hour** of the day to trigger the poll in 24-hour format, from `0` to `23`.
-* Enter the **Minute** of the hour to trigger the poll, from `0` to `59`.
-* Enter the **Day of the Month** to trigger the poll, from `0` to `31`.
+### Every Month（每月）模式 <a href="#every-month-mode" id="every-month-mode"></a>
 
-### Every X mode <a href="#every-x-mode" id="every-x-mode"></a>
+* 在 **Hour**（小时）中，以 24 小时制输入当天触发轮询的小时数，范围为 `0` 至 `23`。
+* 在 **Minute**（分钟）中输入触发轮询的分钟数，范围为 `0` 至 `59`。
+* 在 **Day of the Month**（每月第几天）中输入触发轮询的日期，范围为 `0` 至 `31`。
 
-* Enter the **Value** of measurement for how often to trigger the poll in either minutes or hours.
-* Select the **Unit** for the value. Supported units are **Minutes** and **Hours**.
+### Every X（每隔一段时间）模式 <a href="#every-x-mode" id="every-x-mode"></a>
 
-### Custom mode <a href="#custom-mode" id="custom-mode"></a>
+* 在 **Value**（数值）中输入轮询触发间隔，以分钟或小时为单位。
+* 在 **Unit**（单位）中选择数值的单位，支持 **Minutes**（分钟）和 **Hours**（小时）。
 
-Enter a custom **Cron Expression** to trigger the poll. Use these values and ranges:
+### Custom（自定义）模式 <a href="#custom-mode" id="custom-mode"></a>
 
-* Seconds: `0` - `59`
-* Minutes: `0` - `59`
-* Hours: `0` - `23`
-* Day of Month: `1` - `31`
-* Months: `0` - `11` (Jan - Dec)
-* Day of Week: `0` - `6` (Sun - Sat)
+输入自定义 **Cron Expression**（Cron 表达式）触发轮询，使用以下值和范围：
 
-To generate a Cron expression, you can use [crontab guru](https://crontab.guru). Paste the Cron expression that you generated using crontab guru in the **Cron Expression** field in n8n.
+* 秒：`0` - `59`
+* 分钟：`0` - `59`
+* 小时：`0` - `23`
+* 每月第几天：`1` - `31`
+* 月份：`0` - `11`（一月至十二月）
+* 星期几：`0` - `6`（星期日至星期六）
 
-#### Examples <a href="#examples" id="examples"></a>
+可以使用 [crontab guru](https://crontab.guru) 生成 Cron 表达式，再将结果粘贴到 n8n 的 **Cron Expression** 字段。
 
-If you want to trigger your workflow every day at 04:08:30, enter the following in the **Cron Expression** field.
+#### 示例 <a href="#examples" id="examples"></a>
+
+要在每天 04:08:30 触发工作流，在 **Cron Expression** 字段中输入以下内容。
 ```
 30 8 4 * * *
 ```
 
-If you want to trigger your workflow every day at 04:08, enter the following in the **Cron Expression** field.
+要在每天 04:08 触发工作流，在 **Cron Expression** 字段中输入以下内容。
 ```
 8 4 * * *
 ```
 
-#### Why there are six asterisks in the Cron expression <a href="#why-there-are-six-asterisks-in-the-cron-expression" id="why-there-are-six-asterisks-in-the-cron-expression"></a>
+#### 为什么 Cron 表达式中有六个星号 <a href="#why-there-are-six-asterisks-in-the-cron-expression" id="why-there-are-six-asterisks-in-the-cron-expression"></a>
 
-The sixth asterisk in the Cron expression represents seconds. Setting this is optional. The node will execute even if you don't set the value for seconds.
+六字段 Cron 表达式的第一个字段表示秒。该字段可选，即使不设置秒值，节点也会执行。
 
 |  *  |  *  |  *  |  *  |  *  |  *  |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|second|minute|hour|day of month|month|day of week|
+|秒|分钟|小时|每月第几天|月份|星期几|

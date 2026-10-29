@@ -1,28 +1,25 @@
 ---
-title: Gmail Trigger node poll mode options documentation
-description: >-
-  Learn about the poll mode options available to the Gmail Trigger node in n8n
-  and how to configure them.
+title: Gmail 触发器节点轮询模式选项文档
+description: 了解 n8n 的 Gmail 触发器节点支持哪些轮询模式选项，以及如何配置。
 contentType: howto
 priority: high
-nodeTitle: Gmail Trigger node poll mode options documentation
-originalFilePath: >-
-  integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/poll-mode-options.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/poll-mode-options
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/poll-mode-options
+nodeTitle: Gmail 触发器节点轮询模式选项文档
+originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/poll-mode-options.md
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/poll-mode-options
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/poll-mode-options
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Gmail Trigger node Poll Mode options <a href="#gmail-trigger-node-poll-mode-options" id="gmail-trigger-node-poll-mode-options"></a>
 
-Use the [Gmail Trigger node's](README.md) **Poll Time** parameter to set how often to trigger the poll. Your **Mode** selection will add or remove relevant fields.
+# Gmail 触发器节点轮询模式选项 <a href="#gmail-trigger-node-poll-mode-options" id="gmail-trigger-node-poll-mode-options"></a>
 
-## Poll mode options <a href="#poll-mode-options" id="poll-mode-options"></a>
+使用 [Gmail 触发器节点](README.md)的 **Poll Time**（轮询时间）参数设置轮询触发频率。选择不同 **Mode**（模式）时，会添加或移除相应字段。
 
-Refer to the sections below for details on using each **Mode**.
+## 轮询模式选项 <a href="#poll-mode-options" id="poll-mode-options"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/DnRpcOvtlMPcHD6I3kyx/" %}
+各 **Mode** 的详细用法，请参阅下文。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/poll-modes.md" %}
