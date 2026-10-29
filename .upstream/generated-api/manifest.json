@@ -1,0 +1,226 @@
+[
+  {
+    "official_path": "/connect/n8n-api/audit",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/audit.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/audit.md",
+    "source_sha256": "dd56c4940c9389fef1a799ce307a75384bd13105239590f9af82b02ea3942fa1",
+    "bytes": 10826
+  },
+  {
+    "official_path": "/connect/n8n-api/community-package",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/community-package.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/community-package.md",
+    "source_sha256": "46292ecbb46b03e653d3a62b913a230806250e1db7cbcb2251dea76c5c2b80e9",
+    "bytes": 12002
+  },
+  {
+    "official_path": "/connect/n8n-api/credential",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/credential.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/credential.md",
+    "source_sha256": "9202c4261e5929c3d1e3bffb750ecfe0e9c2025cea42be1d69fceb822ab5062f",
+    "bytes": 24947
+  },
+  {
+    "official_path": "/connect/n8n-api/credential-type-policy",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/credential-type-policy.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/credential-type-policy.md",
+    "source_sha256": "9dbd172fc2044c6113cff50db113aeab3d9fef830ed5b59873c5f8071b58b790",
+    "bytes": 45917
+  },
+  {
+    "official_path": "/connect/n8n-api/data-table",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/data-table.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/data-table.md",
+    "source_sha256": "710300133b7ba6898126dc4ea3084b7cfbfc36e3c6825e42a4633cedefb581ad",
+    "bytes": 56439
+  },
+  {
+    "official_path": "/connect/n8n-api/discover",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/discover.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/discover.md",
+    "source_sha256": "00d39c37a01a36d47cb80fb599205592616ac34a8ec41b1f7fd60a7ee4c81be2",
+    "bytes": 3706
+  },
+  {
+    "official_path": "/connect/n8n-api/evaluation",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/evaluation.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/evaluation.md",
+    "source_sha256": "8050fc73d80b4200b25eaaa878c397b510a78a56c64ebaeaad10bae19f6496d0",
+    "bytes": 16402
+  },
+  {
+    "official_path": "/connect/n8n-api/executions",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/executions.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/executions.md",
+    "source_sha256": "fd83804b8c0766225019a1ef55401ef911c9ddaa9e84495e8c2209aab8e752d6",
+    "bytes": 34370
+  },
+  {
+    "official_path": "/connect/n8n-api/folders",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/folders.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/folders.md",
+    "source_sha256": "ce319715ec8888a6c55ef66cfbb378c3e343eaeed007644ea2ff7603d83b5905",
+    "bytes": 14865
+  },
+  {
+    "official_path": "/connect/n8n-api/insights",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/insights.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/insights.md",
+    "source_sha256": "64ce4db2b1cfe3b76679c3579d518a28c5118e37347ed98ebfe2809518192d4a",
+    "bytes": 3290
+  },
+  {
+    "official_path": "/connect/n8n-api/log-streaming",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/log-streaming.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/log-streaming.md",
+    "source_sha256": "6cb763d46485cdbe730316fb2886e95714a600dd92423efb5642ed3b1c5820aa",
+    "bytes": 78557
+  },
+  {
+    "official_path": "/connect/n8n-api/n8n-package",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/n8n-package.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/n8n-package.md",
+    "source_sha256": "54222bfc4044cef9eea13d8c96b4dd81166cdb8efdaa6227e146d9cf5036e3bb",
+    "bytes": 110959
+  },
+  {
+    "official_path": "/connect/n8n-api/node-type-policy",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/node-type-policy.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/node-type-policy.md",
+    "source_sha256": "78ca1fdbbe6d2ea282f78a88616786544c26783a78ea1e2b48e86ed6e847d0da",
+    "bytes": 42115
+  },
+  {
+    "official_path": "/connect/n8n-api/projects",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/projects.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/projects.md",
+    "source_sha256": "8acc8203e8b4ebfd265339a2fee4b27f8e5bde24df45680d252613ba94de3fbf",
+    "bytes": 21455
+  },
+  {
+    "official_path": "/connect/n8n-api/promotions",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/promotions.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/promotions.md",
+    "source_sha256": "df3060386d90116899d3a1b9b7da6a37aa2fda8457f8e7afb3f6c39c2483be2b",
+    "bytes": 183214
+  },
+  {
+    "official_path": "/connect/n8n-api/role",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/role.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/role.md",
+    "source_sha256": "4b70ebd3f2dee9761f44d1d1550cc99781ac4ad0de9ec28f7e53cbd6a87da95e",
+    "bytes": 14346
+  },
+  {
+    "official_path": "/connect/n8n-api/role-mapping-rule",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/role-mapping-rule.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/role-mapping-rule.md",
+    "source_sha256": "83e2a505cf7f50708ab3510092079bdef455e67d5b4fad7d975738780ee35674",
+    "bytes": 16259
+  },
+  {
+    "official_path": "/connect/n8n-api/security-policy",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/security-policy.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/security-policy.md",
+    "source_sha256": "0fd2fa7cdf5d94636b0d48f56c3e765824a6b532e010f60fee14c27d876e05a9",
+    "bytes": 8860
+  },
+  {
+    "official_path": "/connect/n8n-api/settings-ldap",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/settings-ldap.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/settings-ldap.md",
+    "source_sha256": "47e867f0575222424366223181b5e3c88c08e161598d6543555ab548e1c62389",
+    "bytes": 21958
+  },
+  {
+    "official_path": "/connect/n8n-api/settings-otel",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/settings-otel.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/settings-otel.md",
+    "source_sha256": "93fb33bfc2c417ce9dce5cd2e05c93aeef603af8323189e08bc10e992202bc32",
+    "bytes": 21108
+  },
+  {
+    "official_path": "/connect/n8n-api/settings-sso-oidc",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/settings-sso-oidc.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/settings-sso-oidc.md",
+    "source_sha256": "ba3823e5dcbd03e93ee10ece8c7d542a701650b7da1c6ce33e06c3507961851d",
+    "bytes": 10382
+  },
+  {
+    "official_path": "/connect/n8n-api/settings-sso-saml",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/settings-sso-saml.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/settings-sso-saml.md",
+    "source_sha256": "ca7d7c1181dffad3afe862b8479ae779fb415eff3854b511ea8e52713adacc40",
+    "bytes": 17809
+  },
+  {
+    "official_path": "/connect/n8n-api/source-control",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/source-control.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/source-control.md",
+    "source_sha256": "505ad8fb73fd8483eec43bf8cb06c1b8870de48cb8e4b41f6fe726dc92d3a8a9",
+    "bytes": 18703
+  },
+  {
+    "official_path": "/connect/n8n-api/tags",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/tags.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/tags.md",
+    "source_sha256": "44e9ebd66bfd95f245bc42a5a51d518625b0134740b2fd0163d7ac21d04a8b14",
+    "bytes": 11346
+  },
+  {
+    "official_path": "/connect/n8n-api/user",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/user.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/user.md",
+    "source_sha256": "803f239e162cf722e486d7d3ce075ed66fe8365617c23494c6b6d27fbce3cc14",
+    "bytes": 13168
+  },
+  {
+    "official_path": "/connect/n8n-api/variables",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/variables.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/variables.md",
+    "source_sha256": "52473c3492601412f6dc3aaf7e7b9db7f78eb8aef813c0c87b55a0ec2c5e7fc3",
+    "bytes": 9810
+  },
+  {
+    "official_path": "/connect/n8n-api/workflow",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/workflow.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/workflow.md",
+    "source_sha256": "78ebdd8a011648694f7bb6ee08a2296ba766fc7768378338d052bcc4d74d4eba",
+    "bytes": 188652
+  },
+  {
+    "official_path": "/connect/n8n-api/models",
+    "source_url": "https://docs.n8n.io/connect/n8n-api/models.md",
+    "source_kind": "gitbook-generated-api",
+    "source": "docs/connect/n8n-api/models.md",
+    "source_sha256": "c41468292f265e1d4d21fbc6d90b4dc069ccdc1f60dd102927971e428afdd165",
+    "bytes": 126450
+  }
+]

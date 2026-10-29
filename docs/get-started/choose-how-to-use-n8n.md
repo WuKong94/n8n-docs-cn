@@ -1,8 +1,8 @@
 ---
 description: >-
-  Choose between n8n Cloud and self-hosting, and learn about licenses and plans.
+  在 n8n Cloud 和自托管之间做出选择，并了解许可和套餐。
 contentType: overview
-nodeTitle: Choose how to use n8n
+nodeTitle: 选择 n8n 的使用方式
 originalFilePath: choose-n8n.md
 originalUrl: 'https://docs.n8n.io/choose-n8n'
 url: 'https://docs.n8n.io/get-started/choose-how-to-use-n8n'
@@ -10,15 +10,17 @@ layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Choose your n8n <a href="#choose-your-n8n" id="choose-your-n8n"></a>
 
-n8n offers two primary deployment options: **n8n Cloud** (fully-managed) and **Self-hosted** (deploy on your own infrastructure). Choosing involves two decisions:
+# 选择适合你的 n8n <a href="#choose-your-n8n" id="choose-your-n8n"></a>
 
-1. **Cloud or self-hosted?** Decide whether n8n manages the infrastructure or you do.
-2. **Which plan or edition?** Within each option, pick the tier that has the features and limits you need.
+n8n 提供两种主要部署方式：**n8n Cloud**（完全托管）和**自托管**（部署在你自己的基础设施上）。选择时需要做出两个决定：
 
-This page helps with both.
+1. **云服务还是自托管？** 决定由 n8n 管理基础设施，还是由你自行管理。
+2. **选择哪个套餐或版本？** 在所选部署方式中，选择功能和用量限制符合需求的档位。
+
+本页将帮助你做出这两个决定。
 
 <figure>
   <picture>
@@ -28,127 +30,127 @@ This page helps with both.
     />
     <img
       src=".gitbook/assets/choose-your-n8n-diag-light.png"
-      alt="Decision flowchart: n8n Cloud offers the Starter, Pro, and Enterprise plans; self-hosted offers the Community, Registered Community, Business, and Enterprise editions"
+      alt="决策流程图：n8n Cloud 提供 Starter、Pro 和 Enterprise 套餐；自托管提供社区版、注册社区版、Business 和 Enterprise 版本"
     />
   </picture>
-  <figcaption>Choosing your n8n deployment option, plan, and edition</figcaption>
+  <figcaption>选择 n8n 的部署方式、套餐和版本</figcaption>
 </figure>
 
 {% hint style="info" %}
-**Want to try n8n quickly?**
+**想快速试用 n8n？**
 
-**Start with n8n Cloud** for instant access with no installation required.
+**从 n8n Cloud 开始**，无需安装即可立即使用。
 
-[Start free trial](https://n8n.io/cloud/)
+[开始免费试用](https://n8n.io/cloud/)
 {% endhint %}
 
-## Decision 1: Cloud or self-hosted <a href="#decision-1-cloud-or-self-hosted" id="decision-1-cloud-or-self-hosted"></a>
+## 决定一：云服务还是自托管 <a href="#decision-1-cloud-or-self-hosted" id="decision-1-cloud-or-self-hosted"></a>
 
-Use this guide to choose a deployment option:
+参考下表选择部署方式：
 
-| Your situation | Recommended option | Reason |
+| 你的情况 | 推荐方式 | 原因 |
 |----------------|-------------------|---------|
-| Want to start right away | **n8n Cloud** | No installation needed |
-| Don't have technical expertise | **n8n Cloud** | Fully managed, no setup or maintenance required |
-| Need production-ready deployment | **Both options work** | Both n8n Cloud and self-hosted support production use |
-| Don't want to manage infrastructure | **n8n Cloud** | n8n handles hosting, updates, and scaling |
-| Need full control over deployment | **Self-hosted** | You control the environment and configuration |
-| Have customized use cases | **Self-hosted** | Full control over deployment and configuration |
-| Need enterprise features (SSO, environments, projects, etc.) | **Both options work** | Enterprise plans (paid) are available with both |
-| Have infrastructure and technical resources | **Self-hosted** | You can manage your own deployment |
-| Want to run n8n for free | **Self-hosted (Community edition)** | Free with almost the complete feature set |
+| 希望立即开始使用 | **n8n Cloud** | 无需安装 |
+| 不具备技术专长 | **n8n Cloud** | 完全托管，无需自行配置和维护 |
+| 需要可用于生产环境的部署 | **两种方式均可** | n8n Cloud 和自托管均支持生产使用 |
+| 不想管理基础设施 | **n8n Cloud** | n8n 负责托管、更新和扩容 |
+| 需要完全控制部署 | **自托管** | 由你掌控运行环境和配置 |
+| 存在定制需求 | **自托管** | 可以完全控制部署和配置 |
+| 需要企业功能（SSO、环境、项目等） | **两种方式均可** | 两者均提供付费企业套餐 |
+| 已有基础设施和技术资源 | **自托管** | 可以自行管理部署 |
+| 希望免费运行 n8n | **自托管（社区版）** | 免费提供几乎完整的功能集 |
 
-For specific feature availability across different plans, see the [pricing page](https://n8n.io/pricing/).
+各套餐具体提供哪些功能，请参阅[价格页面](https://n8n.io/pricing/)。
 
-### Pros and cons comparison <a href="#pros-and-cons-comparison" id="pros-and-cons-comparison"></a>
+### 优缺点比较 <a href="#pros-and-cons-comparison" id="pros-and-cons-comparison"></a>
 
-| Aspect | n8n Cloud | Self-hosted |
+| 比较项 | n8n Cloud | 自托管 |
 |--------|-----------|-------------|
-| **Setup & Deployment** |
-| Installation | ✅ No installation needed | ❌ Requires setup (npm, Docker, or server) |
-| Technical expertise | ✅ None required | ❌ Required for installation and configuration |
-| **Infrastructure Management** |
-| Hosting | ✅ Fully hosted by n8n | ❌ You must provide and manage infrastructure |
-| Maintenance | ✅ Handled by n8n | ❌ Your responsibility |
-| **Control & Customization** |
-| Deployment control | ❌ Managed by n8n | ✅ Full control over deployment |
-| Customization | ❌ Limited to available options | ✅ Recommended for customized use cases |
-| **Cost** |
-| Free option | ⚠️ Free trial available | ✅ Free Community edition with most features |
-| Paid options | ✅ Range of paid plans | ✅ Paid Business and Enterprise options available |
-| **Features** |
-| Core features | ✅ Included | ✅ Included in free Community edition |
-| Enterprise features | ❌ Requires paid plans | ❌ Requires a paid plan (free Community limited) |
-| **Use Cases** |
-| Quick start | ✅ Ideal for getting started | ⚠️ Takes longer to set up |
-| Production use | ✅ Supported | ✅ Recommended for production |
-| Custom requirements | ⚠️ Limited customization | ✅ Recommended for customized use cases |
+| **设置与部署** |
+| 安装 | ✅ 无需安装 | ❌ 需要配置 npm、Docker 或服务器 |
+| 技术要求 | ✅ 无技术要求 | ❌ 安装和配置需要技术能力 |
+| **基础设施管理** |
+| 托管 | ✅ 由 n8n 完全托管 | ❌ 需要自行提供并管理基础设施 |
+| 维护 | ✅ 由 n8n 负责 | ❌ 由你负责 |
+| **控制与定制** |
+| 部署控制权 | ❌ 由 n8n 管理 | ✅ 完全控制部署 |
+| 定制 | ❌ 受限于平台提供的选项 | ✅ 适合有定制需求的场景 |
+| **成本** |
+| 免费选项 | ⚠️ 提供免费试用 | ✅ 免费社区版包含大部分功能 |
+| 付费选项 | ✅ 提供多种付费套餐 | ✅ 提供付费 Business 和 Enterprise 选项 |
+| **功能** |
+| 核心功能 | ✅ 包含 | ✅ 免费社区版包含 |
+| 企业功能 | ❌ 需要付费套餐 | ❌ 需要付费套餐（免费社区版功能有限） |
+| **使用场景** |
+| 快速开始 | ✅ 适合快速入门 | ⚠️ 部署耗时较长 |
+| 生产使用 | ✅ 支持 | ✅ 推荐用于生产环境 |
+| 定制需求 | ⚠️ 定制能力有限 | ✅ 适合定制场景 |
 
-**Legend**: ✅ Advantage | ❌ Disadvantage | ⚠️ Mixed/depends on needs
+**图例**：✅ 优点 | ❌ 缺点 | ⚠️ 各有利弊，取决于需求
 
-For specific feature availability across different plans, see the [pricing page](https://n8n.io/pricing/).
+各套餐具体提供哪些功能，请参阅[价格页面](https://n8n.io/pricing/)。
 
-## Decision 2: Choose a plan or edition <a href="#decision-2-choose-a-plan-or-edition" id="decision-2-choose-a-plan-or-edition"></a>
+## 决定二：选择套餐或版本 <a href="#decision-2-choose-a-plan-or-edition" id="decision-2-choose-a-plan-or-edition"></a>
 
-Once you've chosen a deployment option, pick a plan or edition. The [pricing page](https://n8n.io/pricing/) lists the definitive features, usage limits, and prices.
+选定部署方式后，再选择套餐或版本。具体功能、用量限制和价格以[价格页面](https://n8n.io/pricing/)为准。
 
-### Pick a plan for n8n Cloud <a href="#if-you-chose-n8n-cloud-pick-a-plan" id="if-you-chose-n8n-cloud-pick-a-plan"></a>
+### 为 n8n Cloud 选择套餐 <a href="#if-you-chose-n8n-cloud-pick-a-plan" id="if-you-chose-n8n-cloud-pick-a-plan"></a>
 
-Every plan runs on the same underlying product with different features, usage limits, and computing power.
+所有套餐都运行相同的基础产品，但提供的功能、用量限制和计算资源不同。
 
-| Plan | Designed for |
+| 套餐 | 适用人群 |
 |------|--------------|
-| **Free trial** | Trying n8n Cloud with Pro features for 14 days |
-| **Starter** | Individuals and small projects getting started |
-| **Pro** | Power users and small teams that need higher limits, admin accounts, and insights |
-| **Enterprise** | Organizations that need advanced security, scaling, and dedicated support |
+| **免费试用** | 希望使用 Pro 功能试用 n8n Cloud 14 天的用户 |
+| **Starter** | 刚开始使用的个人和小型项目 |
+| **Pro** | 需要更高用量限额、管理员账号和洞察功能的高级用户及小团队 |
+| **Enterprise** | 需要高级安全、扩展能力和专属支持的组织 |
 
-For how to start a trial and upgrade, see [Try free then choose a plan](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/start-your-free-trial). For what each plan includes, see the [pricing page](https://n8n.io/pricing/).
+如何开始试用及升级，请参阅[免费试用并选择套餐](../deploy/use-n8n-cloud/start-your-free-trial.md). 各套餐包含哪些内容，请参阅[价格页面](https://n8n.io/pricing/)。
 
-### Pick a plan or edition for self-hosted n8n <a href="#if-you-chose-self-hosted-pick-an-edition" id="if-you-chose-self-hosted-pick-an-edition"></a>
+### 为自托管 n8n 选择套餐或版本 <a href="#if-you-chose-self-hosted-pick-an-edition" id="if-you-chose-self-hosted-pick-an-edition"></a>
 
-Every self-hosted installation runs on the same underlying product. You can stick with the free Community edition indefinitely, or register for free to unlock extra features. For paid features, subscribe to a plan to get a license key that unlocks them.
+所有自托管安装都运行相同的基础产品。你可以一直使用免费社区版，也可以免费注册以解锁额外功能。如需付费功能，请订阅套餐并获取许可证密钥以解锁这些功能。
 
-| Edition / Plan | Cost | Designed for |
+| 版本／套餐 | 费用 | 适用人群 |
 |---------|------|--------------|
-| **Community** | Free | Self-hosting with almost the complete feature set |
-| **Registered Community** | Free | Community plus folders, debug in editor, and custom execution data. Unlock by registering your email |
-| **Business** | Paid (license key when you subscribe to Business plan) | Teams needing paid features like SSO, environments, and projects |
-| **Enterprise** | Paid (license key when you subscribe to Enterprise plan) | Organizations needing the most advanced security, scaling, and governance |
+| **社区版（Community）** | 免费 | 需要以自托管方式使用几乎完整功能集的用户 |
+| **注册社区版（Registered Community）** | 免费 | 在社区版基础上增加文件夹、编辑器内调试和自定义执行数据，注册邮箱即可解锁 |
+| **Business** | 付费（订阅 Business 套餐后获得许可证密钥） | 需要 SSO、环境、项目等付费功能的团队 |
+| **Enterprise** | 付费（订阅 Enterprise 套餐后获得许可证密钥） | 需要最高级别安全、扩展能力和治理功能的组织 |
 
-For the differences between editions and how to register or license an instance, see [Compare plans and editions](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/community-edition-features). For what each plan includes, see the [pricing page](https://n8n.io/pricing/).
+各版本的区别，以及如何注册实例或为实例配置许可，请参阅[比较套餐和版本](../deploy/host-n8n/community-edition-features.md). 各套餐包含哪些内容，请参阅[价格页面](https://n8n.io/pricing/)。
 
-To register a Community edition instance for the extra free features, go to **Settings > Usage and plan** and select **Unlock**.
+要为社区版实例注册并解锁额外的免费功能，请进入 **Settings > Usage and plan（设置 > 用量与套餐）**，然后选择 **Unlock（解锁）**。
 
-## Which features need a paid plan or edition <a href="#which-features-need-a-paid-plan-or-edition" id="which-features-need-a-paid-plan-or-edition"></a>
+## 哪些功能需要付费套餐或版本 <a href="#which-features-need-a-paid-plan-or-edition" id="which-features-need-a-paid-plan-or-edition"></a>
 
-Some features require certain paid plan subscriptions, including:
+部分功能需要订阅特定的付费套餐，包括：
 
-- Custom variables
-- Environments
-- External secrets
-- External storage for binary data
-- Log streaming (standard logging is included)
-- Multi-main mode (queue mode is included)
-- Projects
-- SSO (SAML, LDAP)
-- Workflow and credential sharing
-- Version control using Git
+- 自定义变量
+- 环境
+- 外部密钥
+- 二进制数据外部存储
+- 日志流（标准日志功能已包含）
+- 多主实例模式（队列模式已包含）
+- 项目
+- SSO 单点登录（SAML、LDAP）
+- 工作流和凭据共享
+- 使用 Git 进行版本控制
 
-Feature availability changes over time and differs by plan and edition. For exactly what each plan and edition includes, the [pricing page](https://n8n.io/pricing/) is the definitive source. See also [Compare plans and editions](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/community-edition-features) for how the self-hosted plans and editions differ.
+功能提供情况会随时间变化，也因套餐和版本而异。各套餐和版本的具体内容以[价格页面](https://n8n.io/pricing/)为准。另请参阅[比较套餐和版本](../deploy/host-n8n/community-edition-features.md) 了解自托管套餐与版本之间的差异。
 
-## Getting started <a href="#getting-started" id="getting-started"></a>
+## 开始使用 <a href="#getting-started" id="getting-started"></a>
 
-Ready to begin?
+准备开始了吗？
 
-- **[Get started with n8n Cloud](https://n8n.io/cloud/)** — sign up for instant access, then [choose a plan](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/start-your-free-trial)
-- **[Get started with self-hosted](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n)** — installation and deployment guides, then [choose a plan or edition](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/community-edition-features)
+- **[开始使用 n8n Cloud](https://n8n.io/cloud/)** — 注册后即可立即使用，然后[选择套餐](../deploy/use-n8n-cloud/start-your-free-trial.md)
+- **[开始使用自托管](../deploy/host-n8n/README.md)** — 按照指南完成安装和部署，然后[选择套餐或版本](../deploy/host-n8n/community-edition-features.md)
 
-For the current plans, editions, licenses, and prices, always check the [pricing page](https://n8n.io/pricing/).
+最新套餐、版本、许可和价格，请始终以[价格页面](https://n8n.io/pricing/)为准。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [n8n Docs](./)
-* [Build your first workflow](build-your-first-workflow.md)
-* [Learning paths](learning-paths.md)
-* [Key concept glossary](key-concept-glossary.md)
+* [n8n 文档](./)
+* [构建你的第一个工作流](build-your-first-workflow.md)
+* [学习路径](learning-paths.md)
+* [核心概念词汇表](key-concept-glossary.md)

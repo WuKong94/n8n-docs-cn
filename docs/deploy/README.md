@@ -1,5 +1,5 @@
 ---
-description: Deploy n8n on n8n Cloud or self-host it, and find guides for installing, configuring, and maintaining your instance.
+description: 在 n8n Cloud 上部署或自行托管 n8n，并查阅实例安装、配置和维护指南。
 layout:
   width: default
   title:
@@ -19,55 +19,57 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Deploy
 
-n8n offers two different deployment methods. [n8n Cloud](use-n8n-cloud/README.md) gives fast, managed setup on an instance run by n8n. [Self-hosted n8n](host-n8n/README.md) lets you run n8n on your own machine or infrastructure.
+# 部署 <a id="deploy"></a>
 
-**Deploy** documentation helps you deploy, configure, secure, and maintain n8n in either model.
+n8n 提供两种部署方式。[n8n Cloud](use-n8n-cloud/README.md) 提供由 n8n 运营的托管实例，可以快速开始使用。[自托管 n8n](host-n8n/README.md) 则允许你在自己的计算机或基础设施上运行 n8n。
 
-<table data-view="cards"><thead><tr><th>Deployment option</th><th data-card-target data-type="content-ref">Go to section</th></tr></thead><tbody><tr><td><strong>Use n8n Cloud</strong><br>Managed by n8n. Get started fast, with less operational work.</td><td><a href="use-n8n-cloud/">use-n8n-cloud</a></td></tr><tr><td><strong>Self-host n8n</strong><br>Run n8n yourself with Docker, npm, Docker Compose, or a supported platform.</td><td><a href="host-n8n/">host-n8n</a></td></tr></tbody></table>
+**部署**文档将帮助你在这两种模式下部署、配置、保护和维护 n8n。
 
-### Compare deployment options
+<table data-view="cards"><thead><tr><th>部署方式</th><th data-card-target data-type="content-ref">进入章节</th></tr></thead><tbody><tr><td><strong>使用 n8n Cloud</strong><br>由 n8n 托管。快速开始使用，减少运维工作。</td><td><a href="use-n8n-cloud/">使用 n8n Cloud</a></td></tr><tr><td><strong>自托管 n8n</strong><br>通过 Docker、npm、Docker Compose 或受支持的平台自行运行 n8n。</td><td><a href="host-n8n/">托管 n8n</a></td></tr></tbody></table>
 
-Below is a high-level overview of each option. If you're still deciding, look at [Choose your n8n](https://app.gitbook.com/s/CxSeOtVxqqhfxMSac0AV/choose-how-to-use-n8n) for more guidance.
+### 比较部署方式 <a id="compare-deployment-options"></a>
 
-#### Use n8n Cloud
+下面简要介绍两种方式。如果尚未决定，请参阅[选择适合你的 n8n](../get-started/choose-how-to-use-n8n.md)获取更多建议。
 
-n8n Cloud is the managed option. n8n runs the instance for you.
+#### 使用 n8n Cloud <a id="use-n8n-cloud"></a>
 
-Choose n8n Cloud if you want to:
+n8n Cloud 是托管方式，由 n8n 为你运行实例。
 
-* Start fast with minimal setup
-* Reduce infrastructure and maintenance work
-* Use Cloud-specific admin and configuration tools
+如果你希望做到以下几点，可以选择 n8n Cloud：
+
+* 以最少的配置快速开始使用
+* 减少基础设施和维护工作
+* 使用 Cloud 专属的管理和配置工具
 
 {% content-ref url="use-n8n-cloud/" %}
-[use-n8n-cloud](use-n8n-cloud/README.md)
+[使用 n8n Cloud](use-n8n-cloud/README.md)
 {% endcontent-ref %}
 
-#### Self-host n8n
+#### 自托管 n8n <a id="self-host-n8n"></a>
 
-Self-hosting gives you control over how n8n runs and how you manage your environment.
+自托管让你能够控制 n8n 的运行方式和环境管理方式。
 
-Choose self-hosting if you want to:
+如果你希望做到以下几点，可以选择自托管：
 
-* Run n8n on your own infrastructure
-* Finely control upgrades, configuration, and security
-* Design for custom scaling or platform requirements
+* 在自己的基础设施上运行 n8n
+* 精细控制升级、配置和安全设置
+* 根据定制的扩展或平台需求设计部署架构
 
 {% hint style="success" %}
-**Want to try self-hosting right now?**
+**想立即尝试自托管？**
 
 ```bash
 curl -fsSL https://get.n8n.io | sh
 ```
 
-Requires Docker on Linux or macOS (or WSL on Windows). Sets up n8n locally in one step. See the [one-line setup guide](host-n8n/install-options/one-line-setup.md) for details.
+需要在 Linux 或 macOS 上安装 Docker（Windows 则使用 WSL）。一条命令即可在本地配置 n8n。详情请参阅[一行命令安装指南](host-n8n/install-options/one-line-setup.md)。
 {% endhint %}
 
-<table data-view="cards"><thead><tr><th>Self-hosted topic</th><th data-card-target data-type="content-ref">Open</th></tr></thead><tbody><tr><td><strong>Host n8n overview</strong><br>Start with the main self-hosted landing page.</td><td><a href="host-n8n/">host-n8n</a></td></tr><tr><td><strong>Install options</strong><br>Set up n8n with Docker, npm, Docker Compose, or a cloud provider.</td><td><a href="host-n8n/install-options/">install-options</a></td></tr><tr><td><strong>Configure n8n</strong><br>Manage databases, environment variables, users, licenses, and security settings.</td><td><a href="host-n8n/configure-n8n/">configure-n8n</a></td></tr><tr><td><strong>Keep n8n running</strong><br>Monitor, log, trace, and update your instance.</td><td><a href="host-n8n/keep-n8n-running/">keep-n8n-running</a></td></tr><tr><td><strong>Understand the architecture</strong><br>Learn how n8n works and how it structures its database.</td><td><a href="host-n8n/understand-the-architecture/">understand-the-architecture</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th>自托管主题</th><th data-card-target data-type="content-ref">打开</th></tr></thead><tbody><tr><td><strong>托管 n8n 概览</strong><br>从自托管主页开始。</td><td><a href="host-n8n/">托管 n8n</a></td></tr><tr><td><strong>安装方式</strong><br>使用 Docker、npm、Docker Compose 或云服务商配置 n8n。</td><td><a href="host-n8n/install-options/">安装方式</a></td></tr><tr><td><strong>配置 n8n</strong><br>管理数据库、环境变量、用户、许可和安全设置。</td><td><a href="host-n8n/configure-n8n/">配置 n8n</a></td></tr><tr><td><strong>维护 n8n 运行</strong><br>监控实例，记录日志和追踪信息，并更新实例。</td><td><a href="host-n8n/keep-n8n-running/">维护 n8n 运行</a></td></tr><tr><td><strong>理解架构</strong><br>了解 n8n 的工作原理和数据库结构。</td><td><a href="host-n8n/understand-the-architecture/">理解架构</a></td></tr></tbody></table>
 
 {% content-ref url="host-n8n/" %}
-[host-n8n](host-n8n/README.md)
+[托管 n8n](host-n8n/README.md)
 {% endcontent-ref %}

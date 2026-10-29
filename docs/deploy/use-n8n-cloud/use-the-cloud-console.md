@@ -1,7 +1,7 @@
 ---
-description: How to open and find your way around the n8n Cloud console, where instance owners manage their n8n Cloud instance, plan, and credits.
+description: 了解如何打开和使用 n8n Cloud 控制台，供实例所有者管理 Cloud 实例、套餐和额度。
 contentType: howto
-nodeTitle: Use the Cloud console
+nodeTitle: 使用 Cloud 控制台
 originalFilePath: manage-cloud/cloud-admin-dashboard.md
 originalUrl: 'https://docs.n8n.io/manage-cloud/cloud-admin-dashboard'
 url: 'https://docs.n8n.io/deploy/use-n8n-cloud/use-the-cloud-console'
@@ -9,61 +9,63 @@ layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Use the Cloud console
 
-The n8n Cloud console at [app.n8n.cloud](https://app.n8n.cloud) is where the instance owner manages their n8n Cloud instance, plan, billing, and credits.
+# 使用 Cloud 控制台 <a id="use-the-cloud-console"></a>
 
-Only the instance owner can open the Cloud console. Other users on the instance work in the n8n editor and don't have access to it.
+实例所有者可以通过 [app.n8n.cloud](https://app.n8n.cloud) 上的 n8n Cloud 控制台，管理 n8n Cloud 实例、套餐、账单和额度。
 
-## Pages in the Cloud console
+只有实例所有者可以打开 Cloud 控制台。实例中的其他用户通过 n8n 编辑器工作，无权访问该控制台。
 
-The left sidebar of the Cloud console has these pages:
+## Cloud 控制台中的页面 <a id="pages-in-the-cloud-console"></a>
 
-* **Overview**: your instance's status, with **Open instance** to go to the editor. It also shows your plan, execution usage, credit balances, n8n version, latest backup, and recent activity.
-* **Instance settings**: change your n8n version, release track, update cadence, and maintenance window. Set the time zone and which executions to save, and turn Gateway credits and verified community nodes on or off. You can also restart your instance and delete your account here.
-* **Assistant credits**: check and top up the [Assistant credits](assistant-credits/README.md) that pay for n8n Assistant.
-* **Gateway credits**: check and top up the [Gateway credits](gateway-credits/README.md) that pay for AI models and services in your workflows.
-* **Billing**: see your current plan, change or cancel it, change your payment method, and view your transaction history.
-* **Export**: [download your workflows](download-workflows.md) from a backup.
+Cloud 控制台的左侧边栏包含以下页面：
 
-The **Assistant credits** and **Gateway credits** pages only appear if those features are available for your instance.
+* **Overview（概览）**：显示实例状态，选择 **Open instance（打开实例）** 可进入编辑器。还会显示套餐、执行用量、额度余额、n8n 版本、最新备份和近期活动。
+* **Instance settings（实例设置）**：更改 n8n 版本、发布通道、更新频率和维护窗口；设置时区及需要保存的执行类型；启用或关闭 Gateway 额度和已验证社区节点。你也可以在这里重启实例或删除账号。
+* **Assistant credits（Assistant 额度）**：查看和充值用于支付 n8n Assistant 使用费用的 [Assistant 额度](assistant-credits/README.md)。
+* **Gateway credits（Gateway 额度）**：查看和充值用于支付工作流中 AI 模型和服务费用的 [Gateway 额度](gateway-credits/README.md)。
+* **Billing（账单）**：查看、变更或取消当前套餐，更改付款方式，并查看交易记录。
+* **Export（导出）**：从备份中[下载工作流](download-workflows.md)。
 
-Select **Help & resources** at the bottom of the sidebar for links to the help center, documentation, community forum, and workflow templates.
+只有实例支持相应功能时，才会显示 **Assistant credits** 和 **Gateway credits** 页面。
 
-## Open the Cloud console from n8n
+选择侧边栏底部的 **Help & resources（帮助与资源）**，可找到帮助中心、文档、社区论坛和工作流模板的链接。
 
-1. Log in to your n8n instance as the instance owner.
-1. In the left menu, select **Admin Panel**. n8n opens the Cloud console.
+## 从 n8n 打开 Cloud 控制台 <a id="open-the-cloud-console-from-n8n"></a>
 
-## Open the Cloud console with a magic link
+1. 以实例所有者身份登录 n8n 实例。
+1. 在左侧菜单中选择 **Admin Panel（管理面板）**。n8n 会打开 Cloud 控制台。
 
-You can sign in to the Cloud console with a magic link sent to your email. This works even if your instance is offline, for example because it can't start.
+## 使用免密登录链接打开 Cloud 控制台 <a id="open-the-cloud-console-with-a-magic-link"></a>
 
-1. Go to [app.n8n.cloud/magic-link](https://app.n8n.cloud/magic-link).
-1. In **Instance owner email**, enter the email address of the instance owner account.
-1. Select **Send magic link**.
-1. Open the email from n8n and select the link to sign in.
+你可以使用发送到邮箱的免密登录链接进入 Cloud 控制台。即使实例由于无法启动等原因处于离线状态，这种方式仍然有效。
 
-On the [app.n8n.cloud](https://app.n8n.cloud) sign-in page, you can also select **Don't know your instance name?**, then **Sign in to the Cloud console**, to reach the same page.
+1. 前往 [app.n8n.cloud/magic-link](https://app.n8n.cloud/magic-link)。
+1. 在 **Instance owner email（实例所有者邮箱）** 中输入实例所有者账号的邮箱地址。
+1. 选择 **Send magic link（发送免密登录链接）**。
+1. 打开 n8n 发送的邮件，点击其中的链接登录。
 
-## Restart your instance
+你也可以在 [app.n8n.cloud](https://app.n8n.cloud) 登录页面选择 **Don't know your instance name?（不知道实例名称？）**，再选择 **Sign in to the Cloud console（登录 Cloud 控制台）**，进入同一个页面。
 
-If your instance is offline or not responding, restart it from the Cloud console:
+## 重启实例 <a id="restart-your-instance"></a>
 
-1. Open the Cloud console and select **Instance settings**.
-1. Select **Restart** next to the instance status at the top of the page.
-1. Select **Restart instance** to confirm.
+如果实例离线或无响应，可以通过 Cloud 控制台重启：
 
-Your instance is offline until the restart completes, and any running executions stop.
+1. 打开 Cloud 控制台，选择 **Instance settings（实例设置）**。
+1. 在页面顶部的实例状态旁选择 **Restart（重启）**。
+1. 选择 **Restart instance（重启实例）** 进行确认。
 
-## Related resources
+重启完成前，实例会处于离线状态，所有正在运行的执行任务都会停止。
 
-* [Use n8n Cloud](./)
-* [Try free then choose a plan](start-your-free-trial.md)
-* [Update your version](update-your-version.md)
-* [Configure Cloud](configure-cloud/README.md)
-* [Gateway credits](gateway-credits/README.md)
-* [Assistant credits](assistant-credits/README.md)
-* [Understand concurrency](understand-concurrency.md)
-* [Download workflows](download-workflows.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [使用 n8n Cloud](./)
+* [免费试用并选择套餐](start-your-free-trial.md)
+* [更新版本](update-your-version.md)
+* [配置 Cloud](configure-cloud/README.md)
+* [Gateway 额度](gateway-credits/README.md)
+* [Assistant 额度](assistant-credits/README.md)
+* [理解并发](understand-concurrency.md)
+* [下载工作流](download-workflows.md)

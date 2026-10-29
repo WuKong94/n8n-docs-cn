@@ -1,10 +1,10 @@
 ---
 contentType: guide
-nodeTitle: n8n CLI
+nodeTitle: 连接
 originalFilePath: api/n8n-cli/index.md
 originalUrl: https://docs.n8n.io/api/n8n-cli
 url: https://docs.n8n.io/connect/
-description: Use the API, CLI, and MCP server to connect to n8n programmatically.
+description: 使用 API、CLI 和 MCP 服务器，以编程方式连接 n8n。
 layout:
   width: default
   title:
@@ -24,55 +24,57 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Connect
 
-Connect to n8n from code, scripts, and AI tools.
+# 连接 <a id="connect"></a>
 
-Use this documentation when you want to work with n8n outside the editor. You can call the public API, script against it with the CLI, or connect MCP-compatible clients.
+通过代码、脚本和 AI 工具连接 n8n。
 
-This section includes the n8n API guides and reference material, the n8n CLI reference, and the docs for the built-in n8n MCP server. It also covers authentication, connection setup, and client-specific instructions for connecting tools and agents to n8n.
+如果你需要在编辑器之外使用 n8n，请查阅本节文档。你可以调用公共 API、使用 CLI 编写脚本，或连接兼容 MCP 的客户端。
+
+本节包含 n8n API 指南与参考资料、n8n CLI 参考，以及内置 n8n MCP 服务器文档。内容还涵盖身份验证、连接设置，以及将不同客户端的工具和智能体连接到 n8n 的具体说明。
 
 {% hint style="info" %}
-Choose the interface that matches your workflow. Each option uses a different access model and fits a different job.
+选择适合你工作流程的接口。每种方式采用不同的访问模型，适合不同任务。
 {% endhint %}
 
 {% tabs %}
 {% tab title="n8n API" %}
-Manage n8n programmatically over HTTP.
+通过 HTTP 以编程方式管理 n8n。
 
-Best for:
+适合：
 
-* Building platforms and tooling on top of n8n
-* Triggering and monitoring executions from external systems
-* Automating workflow and credential management
+* 基于 n8n 构建平台和工具
+* 从外部系统触发和监控执行
+* 自动管理工作流和凭据
 
-Start with [n8n API](n8n-api/README.md).
+从 [n8n API](n8n-api/README.md) 开始。
 {% endtab %}
 
 {% tab title="n8n CLI" %}
-Control n8n directly from your terminal.
+直接通过终端控制 n8n。
 
-Best for:
+适合：
 
-* Importing and exporting workflows
-* Running executions in scripts and CI pipelines
-* Local development and debugging
+* 导入和导出工作流
+* 在脚本和 CI 流水线中运行执行任务
+* 本地开发和调试
 
-Start with [n8n CLI](n8n-cli.md).
+从 [n8n CLI](n8n-cli.md) 开始。
 {% endtab %}
 
-{% tab title="MCP server" %}
-Connect AI agents and MCP clients directly to your n8n instance.
+{% tab title="MCP 服务器" %}
+将 AI 智能体和 MCP 客户端直接连接到你的 n8n 实例。
 
-Best for:
+适合：
 
-* Claude Code, Claude Desktop, Lovable, and similar tools
-* Discovering and executing workflows from an AI agent
-* Managing workflows through an MCP client
+* Claude Code、Claude Desktop、Lovable 等工具
+* 通过 AI 智能体发现和执行工作流
+* 通过 MCP 客户端管理工作流
 
-Start with [Connect to n8n MCP server](connect-to-n8n-mcp-server.md).
+从[连接 n8n MCP 服务器](connect-to-n8n-mcp-server.md)开始。
 {% endtab %}
 {% endtabs %}
 
-You can also connect an MCP client to [the n8n docs MCP server](connect-to-n8n-docs-mcp-server.md) so AI tools can search the docs, or [create your own node](create-nodes/README.md) to add a custom integration to n8n.
+你也可以将 MCP 客户端连接到 [n8n 文档 MCP 服务器](connect-to-n8n-docs-mcp-server.md)，让 AI 工具能够搜索文档；或[创建自己的节点](create-nodes/README.md)，为 n8n 添加自定义集成。

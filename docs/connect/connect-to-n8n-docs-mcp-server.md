@@ -1,7 +1,6 @@
 ---
 description: >-
-  Connect an AI tool to an n8n docs Model Context Protocol (MCP) server to
-  search and answer questions from the documentation and wider knowledge base.
+  将 AI 工具连接到 n8n 文档的模型上下文协议（MCP）服务器，以搜索文档和更广泛的知识库并回答问题。
 layout:
   width: default
   title:
@@ -21,51 +20,53 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Connect to the n8n docs MCP server
 
-The n8n documentation publishes two [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers. Connect an AI tool to a server to let it search n8n's knowledge and answer your questions as you work.
+# 连接 n8n 文档 MCP 服务器 <a id="connect-to-the-n8n-docs-mcp-server"></a>
 
-The two servers draw on different sources, so pick the one that fits how you want your AI tool to answer:
+n8n 文档提供两个[模型上下文协议（MCP）](https://modelcontextprotocol.io/)服务器。将 AI 工具连接到服务器后，它就可以在你工作时搜索 n8n 知识并回答问题。
 
-| Server | Sources | Best for |
+两个服务器使用不同的信息来源，请根据希望 AI 工具如何回答问题来选择：
+
+| 服务器 | 信息来源 | 适合用途 |
 |--------|---------|----------|
-| **GitBook docs server** | The published n8n docs only | Searching and reading exact documentation pages. The docs are the single, authoritative source. |
-| **Kapa.ai server** | The docs, the [community forum](https://community.n8n.io/), and the [n8n blog](https://blog.n8n.io/) | Broader questions that the docs alone don't cover, such as troubleshooting and real-world examples. This is the same engine that powers the AI Assistant on the docs site. |
+| **GitBook 文档服务器** | 仅包含已发布的 n8n 文档 | 搜索和阅读具体文档页面，以文档作为唯一权威来源。 |
+| **Kapa.ai 服务器** | 文档、[社区论坛](https://community.n8n.io/)和 [n8n 博客](https://blog.n8n.io/) | 文档之外更广泛的问题，例如故障排查和实际案例。文档站的 AI Assistant 也使用同一引擎。 |
 
-You can connect both. Use the GitBook server when you want answers grounded in the docs, and the Kapa.ai server when you want answers drawn from n8n's wider knowledge base.
+你可以同时连接两者。希望答案以文档为依据时，使用 GitBook 服务器；希望从 n8n 更广泛的知识库中获取答案时，使用 Kapa.ai 服务器。
 
-Both servers use HTTP transport, so your AI tool needs to support remote MCP servers over HTTP. Neither supports stdio or SSE.
+两个服务器均使用 HTTP 传输，因此 AI 工具需要支持通过 HTTP 连接远程 MCP 服务器。两者都不支持 stdio 或 SSE。
 
-## MCP server URLs
+## MCP 服务器地址 <a id="mcp-server-urls"></a>
 
-Use the endpoint for the server you want:
+使用所需服务器对应的端点：
 
-| Server | URL |
+| 服务器 | URL |
 |--------|-----|
-| GitBook docs server | `https://docs.n8n.io/~gitbook/mcp` |
-| Kapa.ai server | `https://n8n.mcp.kapa.ai` |
+| GitBook 文档服务器 | `https://docs.n8n.io/~gitbook/mcp` |
+| Kapa.ai 服务器 | `https://n8n.mcp.kapa.ai` |
 
-## Connect your AI tool
+## 连接 AI 工具 <a id="connect-your-ai-tool"></a>
 
-The steps differ by tool, but each one needs a server URL from above. The following examples set up both servers. To connect only one, keep the entry you want and remove the other.
+不同工具的操作步骤有所不同，但都需要上面的服务器地址。下面的示例会配置两个服务器。如果只需要连接一个，保留所需条目并删除另一个即可。
 
 {% hint style="info" %}
-The Kapa.ai server requires authentication. Your AI tool opens a browser-based sign-in flow when you first connect to it, or the first time you use it. Follow the prompts to approve the connection.
+Kapa.ai 服务器需要身份验证。首次连接或首次使用时，AI 工具会打开基于浏览器的登录流程。请按照提示批准连接。
 {% endhint %}
 
-### Claude Code
+### Claude Code <a id="claude-code"></a>
 
-Run these commands in your terminal:
+在终端中运行以下命令：
 
 ```bash
 claude mcp add --transport http n8n-docs https://docs.n8n.io/~gitbook/mcp
 claude mcp add --transport http n8n-kapa https://n8n.mcp.kapa.ai
 ```
 
-### Cursor
+### Cursor <a id="cursor"></a>
 
-Add the servers to your `mcp.json` file:
+将服务器添加到 `mcp.json` 文件：
 
 ```json
 {
@@ -80,9 +81,9 @@ Add the servers to your `mcp.json` file:
 }
 ```
 
-### VS Code
+### VS Code <a id="vs-code"></a>
 
-Add the servers to your `mcp.json` file:
+将服务器添加到 `mcp.json` 文件：
 
 ```json
 {
@@ -99,25 +100,25 @@ Add the servers to your `mcp.json` file:
 }
 ```
 
-### Other tools
+### 其他工具 <a id="other-tools"></a>
 
-For any other MCP client, add a new remote (HTTP) server in its MCP settings and enter a server URL:
+对于其他 MCP 客户端，请在其 MCP 设置中添加远程（HTTP）服务器，并输入服务器地址：
 
 ```
 https://docs.n8n.io/~gitbook/mcp
 https://n8n.mcp.kapa.ai
 ```
 
-After you connect, your tool can search n8n's knowledge as you work.
+连接后，工具即可在你工作时搜索 n8n 知识。
 
 {% hint style="info" %}
-The exact configuration steps and file locations vary between tools and versions. Check your tool's documentation for how it adds a remote MCP server. For more on the Kapa.ai server, see the [Kapa.ai MCP documentation](https://docs.kapa.ai/overview/build-with-ai).
+具体配置步骤和文件位置因工具及版本而异。如何添加远程 MCP 服务器，请参阅对应工具的文档。有关 Kapa.ai 服务器的更多信息，请参阅 [Kapa.ai MCP 文档](https://docs.kapa.ai/overview/build-with-ai)。
 {% endhint %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Connect](./)
+* [连接](./)
 * [n8n API](n8n-api/README.md)
 * [n8n CLI](n8n-cli.md)
-* [Connect to n8n MCP server](connect-to-n8n-mcp-server.md)
-* [Create nodes](create-nodes/README.md)
+* [连接 n8n MCP 服务器](connect-to-n8n-mcp-server.md)
+* [创建节点](create-nodes/README.md)

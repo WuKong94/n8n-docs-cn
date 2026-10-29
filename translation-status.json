@@ -1,0 +1,233 @@
+{
+  "get-started/learning-paths.md": {
+    "status": "translated",
+    "source_sha256": "b3a35bf3da88fff121f9d0142b098b5c91f7bce57c52dea6b7c8b723edd06c38",
+    "translation_sha256": "86864a134b5dd8a25b9c3d84b1f8e7531526ecfa9b62ea15041cbcf1420856bd",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "get-started/README.md": {
+    "status": "translated",
+    "source_sha256": "79c485fef675db43cbc989ed6530b42eb26fa298dc416966bd5980a29f33df7a",
+    "translation_sha256": "cdc1120e4dbcd4dd9f23680881736eca44ef920f1fa2a7d32af10f774b866efc",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "get-started/choose-how-to-use-n8n.md": {
+    "status": "translated",
+    "source_sha256": "57aa6a655f42dfdf1ca0b1777d2b50d09a18c9ffda2c079c2d02929590941b4d",
+    "translation_sha256": "2ee3d2c4510d9522609ca7b523ee182e576408fc5e7f8519c9fff04f8dcdde9d",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "get-started/build-your-first-workflow.md": {
+    "status": "translated",
+    "source_sha256": "1fa5c51ac20d0013e483d1e5f7fb1d87c7249fe0765f09612e277c04a7919278",
+    "translation_sha256": "02838bff2512e473ad0b4d20feff2651bee81e9404c13ddd92238735e457813c",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "get-started/key-concept-glossary.md": {
+    "status": "translated",
+    "source_sha256": "537aaa4732465f02ac730cdabdc1b909620d4a95f072a87700a41db4a4341f2b",
+    "translation_sha256": "6b3807ece66f264f5e434a0da85980c022654f989f50d03887b47d1c29f50abe",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "get-started/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "eb93ce93cd8d018eba24e7a4d485366f526d925a9ba2b8d0314f58f135e1139f",
+    "translation_sha256": "6bbc039c349de279704f682ee04c44e0e57106fc00122af51c0badf28cb090d7",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/README.md": {
+    "status": "translated",
+    "source_sha256": "fa60d5c29e3e58d886cdc1a2f08de3783d89cda01b361e4ebdaac40ca6eb9bb4",
+    "translation_sha256": "5fe1ee9092ab8ace26c7d069455cc86a052f84996d1767fbcbe8d7c945ffc07e",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/README.md": {
+    "status": "translated",
+    "source_sha256": "293b2bb500738c7fd7c4a670b020aafa94f9fe5dcd131d27645a09222c6c8000",
+    "translation_sha256": "652186ec42c5d2badf095b9fe5f96377f3cce955f781baa03b9b4a9d59118afe",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/README.md": {
+    "status": "translated",
+    "source_sha256": "089f288696b7960efa0753f435daabcc1e9fa5b3830f631f23197098e85f8cfd",
+    "translation_sha256": "4e054129bb8ea5ba03e1efc9a89943d04b77de062039029e58b5f1e7e32706b7",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/start-your-free-trial.md": {
+    "status": "translated",
+    "source_sha256": "802f05687a55bf48535b5a5e5c8d3836ffb8722048ba8044090784c35f6fd2e3",
+    "translation_sha256": "9149cac1e95361457998a7e2a9d8821c4e6aa40a70a5f0b925eba573a4c2b610",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/n8n-api/api-reference.md": {
+    "status": "translated",
+    "source_sha256": "f36dca0cc12bb208e6dd6e85e8d12e1b6b49677cd8b000faf5763b301ae7b0c4",
+    "translation_sha256": "aaa194c68739ce9ed9c2bc69c9a656f37aee3d3555e8e5a8f1b2079ebc6e270c",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/configure-cloud/README.md": {
+    "status": "translated",
+    "source_sha256": "c2c2f6e3c5eb60e996a8ef195117ba385606f807e23ceb1162b63aec4077a974",
+    "translation_sha256": "ceaf2a944f2b6f8514fb9555b13f47916d4070c5496e0d6f39312ab092e3dece",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/configure-cloud/set-your-timezone.md": {
+    "status": "translated",
+    "source_sha256": "c26c6074eb166004410a88a03b99de6c54594a19f377ee209626981292a33698",
+    "translation_sha256": "358d20da243151dbcd0f6674de45b4cffe6c33faf0dc5da1380b2c51a631160f",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/configure-cloud/change-instance-ownership-or-username.md": {
+    "status": "translated",
+    "source_sha256": "4b35bb4a50a45cf23178165e081182e6ea3ab4de7aec4b97bc9b0afef96e4dfd",
+    "translation_sha256": "c7eca7f869d53f49072fbc861457e3d722b46783a8fea225ac8493a44dc7eec8",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/download-workflows.md": {
+    "status": "translated",
+    "source_sha256": "2c4778781a98df8de9cd871db84bed3d0ca187c4cdca584de251745183e11eee",
+    "translation_sha256": "ea888e24063fb4997b19af1615b00ccf4cd7b06111a11f849c75e83bc153a5be",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/update-your-version.md": {
+    "status": "translated",
+    "source_sha256": "af0beb3dc59ae672d99ae0e6ae49a37cfd91f58d5ecd32ca22d0563fea65aee7",
+    "translation_sha256": "01ef10617558370664cbf6e0500a9dcb85328c4cf030e2fcaef6c09e6ebe77e4",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md": {
+    "status": "translated",
+    "source_sha256": "1a8e8bcb0b12c6501dc4d828d772df334daeea01b17b0cf7448b2d619ed31b10",
+    "translation_sha256": "6f2bdb31e67909c0108a5b1873b123e6d7ec6f26977c3c9d360907b9935ad9b6",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/use-the-cloud-console.md": {
+    "status": "translated",
+    "source_sha256": "f617051b79c7df2c7c8a10366e2c1256698a7c4a8c6be417567001d44a6e2c93",
+    "translation_sha256": "4755dd237e0e3bcd920fdce6a60968a339bc6a5a4a880eab96d34bd958e3d022",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/connect-to-n8n-docs-mcp-server.md": {
+    "status": "translated",
+    "source_sha256": "ae487182a4d15e653bb38b9f8f6474cbbb3845288713dc77274e6db97fc22020",
+    "translation_sha256": "213df7a32a8e1a642713974e449647d904108d90eb3f3a380478eec326a98711",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/scaling/reduce-memory-consumption.md": {
+    "status": "translated",
+    "source_sha256": "fa96b4b850d21573c2ada86ccb56f17f89eaceecca0094f750deabb29e33500e",
+    "translation_sha256": "548b90d4ba19b87ac5dbb8f3aef29967f5a28b5336134857e1ae84d0668ab932",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/use-n8n-cloud/configure-cloud/manage-your-data.md": {
+    "status": "translated",
+    "source_sha256": "2620e0c3ffae9f071b9a545755cbcfdff59e26113f1f5591b65b85b8d4d0ff61",
+    "translation_sha256": "37400fadb28abadea0444262a7c1f344ddfe0cd0c6b8b8fb6606886cf6db435c",
+    "checks": [
+      "code-examples-identical",
+      "image-destinations-identical",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  }
+}

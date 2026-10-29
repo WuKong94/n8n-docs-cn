@@ -1,8 +1,8 @@
 ---
-title: n8n Glossary
-description: Definitions of the terms n8n uses for workflows, agents, AI, and hosting, with links to the pages that explain each concept.
+title: n8n 词汇表
+description: 解释 n8n 在工作流、智能体、AI 和托管方面使用的术语，并提供各概念的详细说明链接。
 contentType: reference
-nodeTitle: Key concept glossary
+nodeTitle: 核心概念词汇表
 originalFilePath: glossary.md
 originalUrl: 'https://docs.n8n.io/glossary'
 url: 'https://docs.n8n.io/get-started/key-concept-glossary'
@@ -10,189 +10,191 @@ layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-This glossary defines the terms n8n uses for building, running, and managing workflows and agents. Each entry links to the page that explains the concept in full.
 
-## Workflow building blocks
+本词汇表解释了 n8n 在构建、运行和管理工作流及智能体时使用的术语。每个条目都链接到详细说明该概念的页面。
 
-### canvas (n8n) <a href="#canvas-n8n" id="canvas-n8n"></a>
+## 工作流基本组件 <a id="workflow-building-blocks"></a>
 
-The canvas is the main interface for building workflows in n8n's editor UI. You use the canvas to add and connect nodes to compose workflows. Learn more: [Create and run workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/create-and-run-workflows).
+### 画布（n8n） <a href="#canvas-n8n" id="canvas-n8n"></a>
 
-### community node (n8n) <a href="#community-node-n8n" id="community-node-n8n"></a>
+画布是 n8n 编辑器界面中构建工作流的主要区域。你可以在画布上添加和连接节点，组成工作流。了解更多：[创建并运行工作流](../build/understand-workflows/create-and-run-workflows.md)。
 
-A community node is a node built and shared by the community, not one of n8n's built-in nodes. You install community nodes on your instance to add integrations that n8n doesn't provide. Learn more: [Using community nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/community-nodes/using-community-nodes).
+### 社区节点（n8n） <a href="#community-node-n8n" id="community-node-n8n"></a>
 
-### credential (n8n) <a href="#credential-n8n" id="credential-n8n"></a>
+社区节点由社区开发并共享，属于 n8n 内置节点之外的节点。你可以在实例上安装社区节点，添加 n8n 未提供的集成。了解更多：[使用社区节点](../integrations/community-nodes/using-community-nodes.md)。
 
-In n8n, credentials store authentication information to connect with specific apps and services. After creating credentials with your authentication information (username and password, API key, OAuth secrets, and so on), you can use the associated app node to interact with the service. Learn more: [Create and edit credentials](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/create-and-edit-credentials).
+### 凭据（n8n） <a href="#credential-n8n" id="credential-n8n"></a>
 
-### editor (n8n) <a href="#editor-n8n" id="editor-n8n"></a>
+在 n8n 中，凭据保存连接特定应用和服务所需的身份验证信息。使用用户名和密码、API 密钥、OAuth 密钥等信息创建凭据后，即可通过对应的应用节点与服务交互。了解更多：[创建和编辑凭据](../build/understand-workflows/create-and-edit-credentials.md)。
 
-The n8n editor UI lets you create and manage workflows. The main area is the canvas, where you can compose workflows by adding, configuring, and connecting nodes. The side and top panels let you access other areas of the UI like credentials, templates, variables, executions, and more. Learn more: [Create and run workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/create-and-run-workflows).
+### 编辑器（n8n） <a href="#editor-n8n" id="editor-n8n"></a>
 
-### expression (n8n) <a href="#expression-n8n" id="expression-n8n"></a>
+n8n 编辑器界面用于创建和管理工作流。其主要区域是画布，你可以在这里添加、配置和连接节点来组成工作流。侧边和顶部面板提供凭据、模板、变量、执行等其他界面的入口。了解更多：[创建并运行工作流](../build/understand-workflows/create-and-run-workflows.md)。
 
-In n8n, expressions let you populate node parameters dynamically by executing JavaScript code. Instead of providing a static value, you can use the n8n expression syntax to define the value using data from previous nodes, other workflows, or your n8n environment. Learn more: [Expressions for data transformation](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/transform-data/expressions-for-data-transformation).
+### 表达式（n8n） <a href="#expression-n8n" id="expression-n8n"></a>
 
-### node (n8n) <a href="#node-n8n" id="node-n8n"></a>
+在 n8n 中，表达式通过执行 JavaScript 代码动态填充节点参数。你可以使用 n8n 表达式语法，根据先前节点、其他工作流或 n8n 环境中的数据确定值，而不是填写固定值。了解更多：[使用表达式转换数据](../build/work-with-data/transform-data/expressions-for-data-transformation.md)。
 
-In n8n, nodes are individual components that you compose to create workflows. Some nodes start workflows; others fetch, send, and process data, define flow control logic, or connect with external services. Learn more: [Work with nodes](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/workflow-components/work-with-nodes).
+### 节点（n8n） <a href="#node-n8n" id="node-n8n"></a>
 
-### sub-workflow (n8n)
+在 n8n 中，节点是组成工作流的独立组件。有些节点启动工作流，其他节点则获取、发送和处理数据，定义流程控制逻辑，或连接外部服务。了解更多：[使用节点](../build/understand-workflows/workflow-components/work-with-nodes.md)。
 
-A sub-workflow is a workflow that another workflow calls. Use sub-workflows to split a large workflow into smaller, reusable parts. Learn more: [Sub-workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/flow-logic/break-workflows-into-smaller-parts).
+### 子工作流（n8n） <a id="sub-workflow-n8n"></a>
 
-### template (n8n) <a href="#template-n8n" id="template-n8n"></a>
+子工作流是由另一个工作流调用的工作流。使用子工作流可以将大型工作流拆分成较小、可复用的部分。了解更多：[子工作流](../build/flow-logic/break-workflows-into-smaller-parts.md)。
 
-n8n templates are pre-built workflows designed by n8n and community members that you can import into your n8n instance. When using templates, you may need to fill in credentials and adjust the configuration to suit your needs. Learn more: [Workflow templates](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/ways-of-building-workflows/use-templates).
+### 模板（n8n） <a href="#template-n8n" id="template-n8n"></a>
 
-### trigger node (n8n) <a href="#trigger-node-n8n" id="trigger-node-n8n"></a>
+n8n 模板是由 n8n 和社区成员设计的预构建工作流，可以导入你的 n8n 实例。使用模板时，可能需要填写凭据，并根据自己的需求调整配置。了解更多：[工作流模板](../build/ways-of-building-workflows/use-templates.md)。
 
-A trigger node is a special node responsible for executing the workflow in response to certain conditions. All production workflows need at least one trigger to determine when the workflow should run. Learn more: [Trigger nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/trigger-nodes).
+### 触发器节点（n8n） <a href="#trigger-node-n8n" id="trigger-node-n8n"></a>
 
-### workflow (n8n) <a href="#workflow-n8n" id="workflow-n8n"></a>
+触发器节点是一种特殊节点，负责在满足特定条件时触发工作流执行。所有生产工作流都至少需要一个触发器，来确定何时运行。了解更多：[触发器节点](../integrations/builtin/trigger-nodes/README.md)。
 
-An n8n workflow is a collection of nodes that automate a process. Workflows begin execution when a trigger condition occurs, when you run them manually, or when another workflow calls them. They execute node by node, and can branch, merge, and loop to achieve complex tasks. Learn more: [Create and run workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/create-and-run-workflows).
+### 工作流（n8n） <a href="#workflow-n8n" id="workflow-n8n"></a>
 
-## Data
+n8n 工作流是用于自动执行某个流程的一组节点。触发条件出现、手动运行或被另一个工作流调用时，工作流便会开始执行。它逐个节点执行，并通过分支、合并和循环完成复杂任务。了解更多：[创建并运行工作流](../build/understand-workflows/create-and-run-workflows.md)。
 
-### binary data (n8n)
+## 数据 <a id="data"></a>
 
-Binary data is file-type data, such as images and documents. An item holds binary data in its `binary` object, separate from its `json` data. Learn more: [Binary data](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/handle-special-data-types/work-with-files-and-images).
+### 二进制数据（n8n） <a id="binary-data-n8n"></a>
 
-### data pinning (n8n) <a href="#data-pinning-n8n" id="data-pinning-n8n"></a>
+二进制数据指图片、文档等文件类型的数据。数据项将二进制数据保存在 `binary` 对象中，与 `json` 数据分开。了解更多：[二进制数据](../build/work-with-data/handle-special-data-types/work-with-files-and-images.md)。
 
-Data pinning lets you temporarily freeze the output data of a node during workflow development. This lets you develop workflows with predictable data without making repeated requests to external services. Production workflows ignore pinned data and request new data on each execution. Learn more: [Data mocking and pinning](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/pin-and-mock-data).
+### 数据固定（n8n） <a href="#data-pinning-n8n" id="data-pinning-n8n"></a>
 
-### data table (n8n)
+数据固定允许你在开发工作流时暂时冻结节点的输出数据。这样无需反复请求外部服务，就能使用可预测的数据进行开发。生产工作流会忽略固定数据，每次执行时都请求新数据。了解更多：[模拟和固定数据](../build/work-with-data/pin-and-mock-data.md)。
 
-A data table stores structured, tabular data inside n8n, so you don't need an external database. Data tables are scoped to a [project](#project-n8n), and workflows in that project can read and write them with the [Data Table node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.datatable). You can also manage them in the Data tables tab and through the [n8n API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/api-reference). Data tables suit light to moderate storage. Learn more: [Data tables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/data-tables) and [Data Table node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.datatable).
+### 数据表（n8n） <a id="data-table-n8n"></a>
 
-### variable (n8n)
+数据表在 n8n 内部保存结构化的表格数据，因此不需要外部数据库。数据表归属于某个[项目](#project-n8n)，该项目中的工作流可通过[Data Table 节点](../integrations/builtin/core-nodes/n8n-nodes-base.datatable/README.md)读写数据表。你也可以在 Data tables（数据表）标签页及通过 [n8n API](../connect/n8n-api/api-reference.md) 管理数据表。数据表适用于轻量到中等规模的数据存储。了解更多：[数据表](../build/work-with-data/data-tables.md)和[Data Table 节点](../integrations/builtin/core-nodes/n8n-nodes-base.datatable/README.md)。
 
-A custom variable stores a read-only string that you reuse across workflows. A variable is either global, available across the whole instance, or scoped to a single project. Learn more: [Custom variables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/define-custom-variables).
+### 变量（n8n） <a id="variable-n8n"></a>
 
-## Agents and AI in n8n
+自定义变量保存可在多个工作流中复用的只读字符串。变量可以是全局变量，供整个实例使用；也可以限定在单个项目内。了解更多：[自定义变量](../build/code-in-n8n/define-custom-variables.md)。
 
-### agent (n8n)
+## n8n 中的智能体和 AI <a id="agents-and-ai-in-n8n"></a>
 
-An agent is an autonomous assistant you build in n8n. Each agent has a language model, instructions, and capabilities you configure, such as tools, [skills](#skill-n8n), memory, a [knowledge base](#knowledge-base-n8n), and [sub-agents](#sub-agent-n8n). Agents are separate items in your project, not part of a workflow, and people reach them through chat, channels, and schedules. Agents are in Preview. Don't confuse an agent with the [AI Agent node](#ai-agent-node-n8n), which runs inside a workflow. Learn more: [Build and manage agents](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/build-and-manage-agents).
+### 智能体（n8n） <a id="agent-n8n"></a>
 
-### AI agent <a href="#ai-agent" id="ai-agent"></a>
+智能体是你在 n8n 中构建的自主助手。每个智能体都包含语言模型、指令，以及你配置的工具、[技能](#skill-n8n)、记忆、[知识库](#knowledge-base-n8n)和[子智能体](#sub-agent-n8n)等能力。智能体是项目中的独立条目，不属于工作流；用户通过聊天、渠道和时间计划与之交互。智能体目前处于预览阶段。请勿将它与运行在工作流中的 [AI Agent 节点](#ai-agent-node-n8n)混淆。了解更多：[构建和管理智能体](../build/build-and-manage-agents/README.md)。
 
-An AI agent is an AI system that uses a large language model (LLM) to interpret a request and decide which actions to take, such as calling tools, to complete it. In n8n you can build an AI agent in two ways: as an [agent](#agent-n8n), or with the [AI Agent node](#ai-agent-node-n8n) in a workflow. Learn more: [What's an agent in AI?](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/understand-ai-components/what-agents-do).
+### AI 智能体 <a href="#ai-agent" id="ai-agent"></a>
 
-### AI Agent node (n8n)
+AI 智能体是一种 AI 系统，使用大语言模型（LLM）理解请求，并决定调用工具等操作以完成请求。在 n8n 中，可以通过两种方式构建 AI 智能体：创建独立的[智能体](#agent-n8n)，或在工作流中使用 [AI Agent 节点](#ai-agent-node-n8n)。了解更多：[AI 中的智能体是什么？](../build/integrate-ai/understand-ai-components/what-agents-do.md)。
 
-The AI Agent node adds an AI agent to a workflow. It's a cluster node: a root node that you extend with sub-nodes, such as a chat model, tools, and memory. It's a different feature from an [agent](#agent-n8n) built in the Agent Builder. Learn more: [AI Agent node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent).
+### AI Agent 节点（n8n） <a id="ai-agent-node-n8n"></a>
 
-### AI chain <a href="#ai-chain" id="ai-chain"></a>
+AI Agent 节点为工作流添加 AI 智能体。它是一个集群节点：以根节点为核心，通过聊天模型、工具、记忆等子节点扩展能力。它与在 Agent Builder（智能体构建器）中创建的[智能体](#agent-n8n)属于不同功能。了解更多：[AI Agent 节点](../integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/README.md)。
 
-An AI chain calls an LLM and other components in a fixed sequence. Unlike an agent, a chain doesn't decide which steps to take. AI chains in n8n don't use persistent memory, so you can't use them to reference previous context (use AI agents for this). Learn more: [What's a chain in AI?](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/understand-ai-components/what-chains-do).
+### AI 链 <a href="#ai-chain" id="ai-chain"></a>
 
-### AI memory <a href="#ai-memory" id="ai-memory"></a>
+AI 链按固定顺序调用 LLM 和其他组件。与智能体不同，链不会自行决定执行哪些步骤。n8n 中的 AI 链不使用持久记忆，因此无法借助它引用先前的上下文（这种情况应使用 AI 智能体）。了解更多：[AI 中的链是什么？](../build/integrate-ai/understand-ai-components/what-chains-do.md)。
 
-In an AI context, memory lets AI tools persist message context across interactions. This lets you have continuing conversations with AI agents, for example, without submitting ongoing context with each message. In n8n, agents and AI Agent nodes can use memory, but AI chains can't. Learn more: [What's memory in AI?](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/understand-ai-components/how-memory-works).
+### AI 记忆 <a href="#ai-memory" id="ai-memory"></a>
 
-### AI tool <a href="#ai-tool" id="ai-tool"></a>
+在 AI 场景中，记忆让 AI 工具能够在多次交互之间保留消息上下文。例如，你可以持续与 AI 智能体对话，而不必每次都提交之前的上下文。在 n8n 中，独立智能体和 AI Agent 节点都能使用记忆，但 AI 链不能。了解更多：[AI 中的记忆是什么？](../build/integrate-ai/understand-ai-components/how-memory-works.md)。
 
-In an AI context, a tool is an add-on resource that the AI can refer to for specific information or features when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks. Learn more: [What's a tool in AI?](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/understand-ai-components/how-tools-work).
+### AI 工具 <a href="#ai-tool" id="ai-tool"></a>
 
-### cluster node (n8n) <a href="#cluster-node-n8n" id="cluster-node-n8n"></a>
+在 AI 场景中，工具是 AI 响应请求时可使用的附加资源，用于获取特定信息或能力。AI 模型可以通过工具与外部系统交互，或完成特定且范围明确的任务。了解更多：[AI 中的工具是什么？](../build/integrate-ai/understand-ai-components/how-tools-work.md)。
 
-In n8n, cluster nodes are groups of nodes that work together to provide AI features in a workflow, such as agents, chains, and vector stores. They consist of a root node and one or more sub-nodes that extend the node's features. For example, the AI Agent root node uses sub-nodes for a chat model, memory, and tools. n8n represents most LangChain concepts as cluster nodes. Learn more: [Cluster nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes).
+### 集群节点（n8n） <a href="#cluster-node-n8n" id="cluster-node-n8n"></a>
 
-### knowledge base (n8n)
+在 n8n 中，集群节点由一组协同工作的节点组成，为工作流提供智能体、链、向量存储等 AI 功能。它包含一个根节点，以及一个或多个用于扩展能力的子节点。例如，AI Agent 根节点通过子节点获得聊天模型、记忆和工具。n8n 将大多数 LangChain 概念表示为集群节点。了解更多：[集群节点](../integrations/builtin/cluster-nodes/README.md)。
 
-A knowledge base is a set of files that an [agent](#agent-n8n) can search and read for context when it answers. You upload files to the agent, such as CSV, PDF, Markdown, and text files. Knowledge bases are available on n8n Cloud, and in Preview on self-hosted instances. Learn more: [Build and manage agents](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/build-and-manage-agents#upload-knowledge).
+### 知识库（n8n） <a id="knowledge-base-n8n"></a>
 
-### Model Context Protocol (MCP)
+知识库是[智能体](#agent-n8n)在回答问题时可搜索和读取的一组文件，为回答提供上下文。你可以向智能体上传 CSV、PDF、Markdown、文本等文件。知识库在 n8n Cloud 上可用，在自托管实例上处于预览阶段。了解更多：[构建和管理智能体](../build/build-and-manage-agents/README.md#upload-knowledge)。
 
-Model Context Protocol (MCP) is an open standard that lets AI clients connect to external tools and data. n8n supports both sides of it:
+### 模型上下文协议（MCP） <a id="model-context-protocol-mcp"></a>
 
-- **As an MCP client**, n8n lets agents and the AI Agent node use tools from MCP servers, either from the one-click server registry or through the MCP Client Tool node.
-- **As an MCP server**, n8n lets MCP clients such as Claude connect to your instance. The instance-level MCP server lets a client build, edit, run, and test workflows and manage data tables and agents. The MCP Server Trigger node exposes a single workflow's tools as its own MCP server.
+模型上下文协议（MCP）是一项开放标准，让 AI 客户端能够连接外部工具和数据。n8n 同时支持协议的两端：
 
-Learn more: [MCP servers](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/mcp-servers) and [Set up and use n8n MCP server](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server).
+- **作为 MCP 客户端**：n8n 允许智能体和 AI Agent 节点使用 MCP 服务器上的工具，可通过一键式服务器注册表或 MCP Client Tool 节点连接。
+- **作为 MCP 服务器**：n8n 允许 Claude 等 MCP 客户端连接你的实例。实例级 MCP 服务器让客户端可以构建、编辑、运行和测试工作流，并管理数据表和智能体。MCP Server Trigger 节点则将单个工作流的工具暴露为独立的 MCP 服务器。
 
-### n8n Assistant
+了解更多：[MCP 服务器](../build/integrate-ai/mcp-servers.md)和[设置和使用 n8n MCP 服务器](../connect/connect-to-n8n-mcp-server.md)。
 
-n8n Assistant is a chat-based agent in n8n that helps you create, edit, test, and troubleshoot workflows from natural language. It can also build agents and help with instance tasks. n8n Assistant is in Preview. Learn more: [Use n8n Assistant](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/ways-of-building-workflows/n8n-assistant).
+### n8n Assistant <a id="n8n-assistant"></a>
 
-### root node (n8n) <a href="#root-node-n8n" id="root-node-n8n"></a>
+n8n Assistant 是 n8n 内置的聊天式智能体，可根据自然语言帮助你创建、编辑、测试工作流并排查问题。它还能构建智能体并协助处理实例相关任务。n8n Assistant 目前处于预览阶段。了解更多：[使用 n8n Assistant](../build/ways-of-building-workflows/n8n-assistant.md)。
 
-Each n8n cluster node contains a single root node that defines the main function of the cluster, such as running an AI agent or a chain. One or more sub-nodes attach to the root node to extend its features. Learn more: [Cluster nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes).
+### 根节点（n8n） <a href="#root-node-n8n" id="root-node-n8n"></a>
 
-### skill (n8n)
+每个 n8n 集群节点都包含一个根节点，定义集群的主要功能，例如运行 AI 智能体或链。一个或多个子节点连接到根节点，以扩展其功能。了解更多：[集群节点](../integrations/builtin/cluster-nodes/README.md)。
 
-A skill bundles instructions with the tools an agent needs for a specific task. Add a skill to an agent to reuse that behavior. Learn more: [Build and manage agents](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/build-and-manage-agents#bundle-capabilities-with-skills).
+### 技能（n8n） <a id="skill-n8n"></a>
 
-### sub-agent (n8n)
+技能将某项任务所需的指令和工具打包在一起。向智能体添加技能，即可复用相应行为。了解更多：[构建和管理智能体](../build/build-and-manage-agents/README.md#bundle-capabilities-with-skills)。
 
-A sub-agent is a published agent that another agent can hand work to. Use sub-agents when a task has separate parts and a specialized agent can handle each part better. Learn more: [Build and manage agents](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/build-and-manage-agents#add-sub-agents).
+### 子智能体（n8n） <a id="sub-agent-n8n"></a>
 
-### sub-node (n8n) <a href="#sub-node-n8n" id="sub-node-n8n"></a>
+子智能体是已发布的智能体，其他智能体可以将工作移交给它。当任务可以拆分为多个部分，且由专门的智能体处理每个部分更合适时，可以使用子智能体。了解更多：[构建和管理智能体](../build/build-and-manage-agents/README.md#add-sub-agents)。
 
-n8n cluster nodes consist of one or more sub-nodes connected to a root node. Sub-nodes extend the features of the root node, providing access to specific services or resources, such as chat models, memory, and vector stores, or offering specific types of dedicated processing, like a calculator. Learn more: [Sub-nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/cluster-nodes/sub-nodes).
+### 子节点（n8n） <a href="#sub-node-n8n" id="sub-node-n8n"></a>
 
-### tool approval (n8n)
+n8n 集群节点由一个根节点和一个或多个与之相连的子节点组成。子节点扩展根节点的功能，提供聊天模型、记忆、向量存储等特定服务或资源，也可提供计算器等专用处理能力。了解更多：[子节点](../integrations/builtin/cluster-nodes/sub-nodes/README.md)。
 
-Tool approval is a human-in-the-loop check on an AI tool call. For a sensitive tool, the agent pauses and waits for a person to approve or reject the call before the tool runs. Learn more: [Build and manage agents](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/build-and-manage-agents#approve-tool-calls) and [Human-in-the-loop for AI tool calls](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/ai-examples/human-in-the-loop-for-tools).
+### 工具审批（n8n） <a id="tool-approval-n8n"></a>
 
-## Organize, run, and publish
+工具审批是针对 AI 工具调用的人在回路检查机制。对于敏感工具，智能体会在执行前暂停，等待人员批准或拒绝调用。了解更多：[构建和管理智能体](../build/build-and-manage-agents/README.md#approve-tool-calls)和[AI 工具调用中的人在回路](../build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md)。
 
-### draft (n8n)
+## 组织、运行与发布 <a id="organize-run-and-publish"></a>
 
-A draft is the working version of a workflow, or of an agent. n8n saves your edits to the draft automatically, and the draft doesn't run in production until you publish it. See also [publish](#publish-n8n). Learn more: [Save and publish workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/save-and-publish-workflows).
+### 草稿（n8n） <a id="draft-n8n"></a>
 
-### evaluation (n8n) <a href="#evaluation-n8n" id="evaluation-n8n"></a>
+草稿是工作流或智能体正在编辑的版本。n8n 会自动将修改保存到草稿中，只有发布后，草稿才会在生产环境运行。另请参阅[发布](#publish-n8n)。了解更多：[保存和发布工作流](../build/understand-workflows/save-and-publish-workflows.md)。
 
-An evaluation tests a workflow by running a dataset of test cases through it and checking the results against expected outputs or metrics. Use evaluations to confirm that an AI workflow stays reliable as you change models, prompts, or logic. Learn more: [Evaluations](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/test-and-improve-ai-workflows/understand-why-to-test).
+### 评估（n8n） <a href="#evaluation-n8n" id="evaluation-n8n"></a>
 
-### execution (n8n)
+评估通过使用一组测试用例运行工作流，并将结果与预期输出或指标比较，来测试工作流。修改模型、提示词或逻辑时，可以通过评估确认 AI 工作流仍然可靠。了解更多：[评估](../build/integrate-ai/test-and-improve-ai-workflows/understand-why-to-test.md)。
 
-An execution is a single run of a workflow. A manual execution starts when you run the workflow from the editor. A production execution starts automatically when a published workflow's trigger fires. Learn more: [Executions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/understand-executions).
+### 执行（n8n） <a id="execution-n8n"></a>
 
-### project (n8n) <a href="#project-n8n" id="project-n8n"></a>
+执行是工作流的一次运行。在编辑器中主动运行工作流时，会启动手动执行；已发布工作流的触发器触发时，会自动启动生产执行。了解更多：[执行](../build/understand-workflows/understand-executions/README.md)。
 
-n8n projects let you separate workflows, variables, credentials, data tables, and agents into separate groups for easier management. Projects make it easier for teams to collaborate by sharing and compartmentalizing related resources. You assign each user a role in each project, so one person can have different access in different projects. Learn more: [RBAC projects](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects).
+### 项目（n8n） <a href="#project-n8n" id="project-n8n"></a>
 
-### publish (n8n)
+n8n 项目允许你将工作流、变量、凭据、数据表和智能体分组管理。通过共享和划分相关资源，项目让团队协作更加方便。你可以在各项目中为用户分配角色，因此同一个人在不同项目中可以拥有不同角色。了解更多：[RBAC 项目](../administer/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects.md)。
 
-n8n saves your changes to a workflow as you edit. When you're ready to put the workflow into production, you publish a version of it. The published version runs when its trigger fires. Learn more: [Save and publish workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/save-and-publish-workflows).
+### 发布（n8n） <a id="publish-n8n"></a>
 
-## Hosting, editions, and licensing
+编辑工作流时，n8n 会将修改保存为草稿。准备好投入生产环境后，即可发布一个版本。触发器触发时，将运行已发布的版本。了解更多：[保存和发布工作流](../build/understand-workflows/save-and-publish-workflows.md)。
 
-### edition (n8n) <a href="#edition-n8n" id="edition-n8n"></a>
+## 托管、版本与许可 <a id="hosting-editions-and-licensing"></a>
 
-When you self-host n8n, the edition is the variant of the software you run: Community, Registered Community, Business, or Enterprise. All editions share the same underlying product. The free Community edition runs without a license key. When you subscribe to a paid Business or Enterprise plan, you get a license key that unlocks the features for that plan. See also [plan](#plan-n8n) and [license](#license-n8n). Learn more: [Compare plans and editions](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/community-edition-features).
+### 版本（n8n） <a href="#edition-n8n" id="edition-n8n"></a>
 
-### entitlement (n8n) <a href="#entitlement-n8n" id="entitlement-n8n"></a>
+自托管 n8n 时，版本指你运行的软件类别：社区版、注册社区版、Business 或 Enterprise。所有版本共享相同的基础产品。免费社区版无需许可证密钥即可运行。订阅付费 Business 或 Enterprise 套餐后，你会获得一个许可证密钥，用来解锁该套餐的功能。另请参阅[套餐](#plan-n8n)和[许可](#license-n8n)。了解更多：[比较套餐和版本](../deploy/host-n8n/community-edition-features.md)。
 
-In n8n, entitlements grant n8n instances access to plan-restricted features for a specific period of time.
+### 授权权益（n8n） <a href="#entitlement-n8n" id="entitlement-n8n"></a>
 
-Floating entitlements are a pool of entitlements that you can distribute among various n8n instances. You can reassign a floating entitlement to transfer its access to a different n8n instance. See also [license](#license-n8n) and [plan](#plan-n8n). Learn more: [License key](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/manage-your-license).
+在 n8n 中，授权权益允许 n8n 实例在一定期限内使用受套餐限制的功能。
 
-### instance (n8n)
+浮动授权权益是一组可分配给多个 n8n 实例的权益。你可以重新分配某项浮动权益，将其使用权限转移到另一个 n8n 实例。另请参阅[许可](#license-n8n)和[套餐](#plan-n8n)。了解更多：[许可证密钥](../deploy/host-n8n/configure-n8n/manage-your-license.md)。
 
-An instance is a single n8n installation, either hosted by n8n Cloud or self-hosted. Each instance has its own workflows, users, credentials, and settings. Learn more: [Choose how to use n8n](choose-how-to-use-n8n.md).
+### 实例（n8n） <a id="instance-n8n"></a>
 
-### license (n8n) <a href="#license-n8n" id="license-n8n"></a>
+实例是单独安装的一套 n8n，可以由 n8n Cloud 托管，也可以自行托管。每个实例都有自己的工作流、用户、凭据和设置。了解更多：[选择 n8n 的使用方式](choose-how-to-use-n8n.md)。
 
-License has two senses in n8n. First, it's the legal terms n8n uses to distribute its source code. Second, it's the license key that unlocks the features for a paid plan. When you self-host and subscribe to a paid Business or Enterprise plan, you add the license key to your instance to activate it. See also [entitlement](#entitlement-n8n) and [plan](#plan-n8n). Learn more: [License key](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/manage-your-license).
+### 许可（n8n） <a href="#license-n8n" id="license-n8n"></a>
 
-### plan (n8n) <a href="#plan-n8n" id="plan-n8n"></a>
+在 n8n 中，许可有两种含义：一是分发源代码所依据的法律条款；二是解锁付费套餐功能的许可证密钥。自托管并订阅付费 Business 或 Enterprise 套餐后，需要将许可证密钥添加到实例中，才能激活该套餐的功能。另请参阅[授权权益](#entitlement-n8n)和[套餐](#plan-n8n)。了解更多：[许可证密钥](../deploy/host-n8n/configure-n8n/manage-your-license.md)。
 
-A plan is a commercial subscription tier, such as Starter, Pro, Business, or Enterprise. Your plan sets the features, usage limits, and price for your subscription, whether you use n8n Cloud or self-host. See also [edition](#edition-n8n) and [license](#license-n8n). Learn more: [Compare plans and editions](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/community-edition-features).
+### 套餐（n8n） <a href="#plan-n8n" id="plan-n8n"></a>
 
-### queue mode (n8n)
+套餐是商业订阅档位，例如 Starter、Pro、Business 或 Enterprise。无论使用 n8n Cloud 还是自托管，套餐都会决定订阅包含的功能、用量限制和价格。另请参阅[版本](#edition-n8n)和[许可](#license-n8n)。了解更多：[比较套餐和版本](../deploy/host-n8n/community-edition-features.md)。
 
-Queue mode is a self-hosted scaling setup. A main instance receives triggers and passes executions to worker instances, which run them in parallel. Learn more: [Queue mode](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/scaling/enable-queue-mode).
+### 队列模式（n8n） <a id="queue-mode-n8n"></a>
 
-## Related resources
+队列模式是一种自托管扩展架构。主实例接收触发事件，并将执行任务分发给工作实例，由工作实例并行运行。了解更多：[队列模式](../deploy/host-n8n/configure-n8n/scaling/enable-queue-mode.md)。
 
-* [n8n Docs](./)
-* [Choose how to use n8n](choose-how-to-use-n8n.md)
-* [Build your first workflow](build-your-first-workflow.md)
-* [Learning paths](learning-paths.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [n8n 文档](./)
+* [选择 n8n 的使用方式](choose-how-to-use-n8n.md)
+* [构建你的第一个工作流](build-your-first-workflow.md)
+* [学习路径](learning-paths.md)

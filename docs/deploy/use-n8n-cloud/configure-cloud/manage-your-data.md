@@ -1,10 +1,10 @@
 ---
 contentType: howto
-nodeTitle: Manage your data
+nodeTitle: 管理数据
 originalFilePath: manage-cloud/cloud-data-management.md
 originalUrl: https://docs.n8n.io/manage-cloud/cloud-data-management
 url: https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/manage-your-data
-description: How to manage your data on n8n Cloud.
+description: 如何管理 n8n Cloud 上的数据。
 layout:
   width: default
   title:
@@ -24,89 +24,91 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Manage your data
 
-There are two concerns when managing data on n8n Cloud:
+# 管理数据 <a id="manage-your-data"></a>
 
-* Memory usage: complex workflows processing large amounts of data can exceed n8n's memory limits. If this happens, the instance can crash and become inaccessible.
-* Data storage: depending on your execution settings and volume, your n8n database can grow in size and run out of storage.
+在 n8n Cloud 上管理数据时，需要关注两个方面：
 
-To avoid these issues, n8n recommends that you build your workflows with memory efficiency in mind, and don't save unnecessary data
+* 内存使用：复杂工作流处理大量数据时，可能超出 n8n 的内存限制，导致实例崩溃并无法访问。
+* 数据存储：受执行设置和执行数量影响，n8n 数据库可能持续增大，最终耗尽存储空间。
 
-## Memory limits on each n8n Cloud plan <a href="#memory-limits-on-each-cloud-plan" id="memory-limits-on-each-cloud-plan"></a>
+为避免这些问题，n8n 建议在构建工作流时考虑内存效率，并且不要保存不必要的数据。
 
-Current plans:
+## 各 n8n Cloud 套餐的内存限制 <a href="#memory-limits-on-each-cloud-plan" id="memory-limits-on-each-cloud-plan"></a>
 
-* Trial: 640MiB RAM, 10 millicore CPU burstable
-* Starter: 640MiB RAM, 10 millicore CPU burstable
-* Pro-1 (10k executions): 640MiB RAM, 20 millicore CPU burstable
-* Pro-2 (50k executions): 1280MiB RAM, 80 millicore CPU burstable
-* Enterprise: 4096MiB RAM, 80 millicore CPU burstable
+当前套餐：
 
-Legacy plans:
+* 试用：640MiB RAM，10 毫核 CPU，支持突发
+* Starter：640MiB RAM，10 毫核 CPU，支持突发
+* Pro-1（10,000 次执行）：640MiB RAM，20 毫核 CPU，支持突发
+* Pro-2（50,000 次执行）：1280MiB RAM，80 毫核 CPU，支持突发
+* Enterprise：4096MiB RAM，80 毫核 CPU，支持突发
 
-* Start: 320MiB RAM, 10 millicore CPU burstable
-* Power: 1280MiB RAM, 80 millicore CPU burstable
+旧套餐：
 
-n8n gives each instance up to 100GB of data storage.
+* Start：320MiB RAM，10 毫核 CPU，支持突发
+* Power：1280MiB RAM，80 毫核 CPU，支持突发
 
-## How to reduce memory consumption in your workflow <a href="#how-to-reduce-memory-consumption-in-your-workflow" id="how-to-reduce-memory-consumption-in-your-workflow"></a>
+n8n 为每个实例提供最多 100GB 的数据存储空间。
 
-The way you build workflows affects how much data they consume when executed. Although these guidelines aren't applicable to all cases, they provide a baseline of best practices to avoid exceeding instance memory.
+## 如何减少工作流的内存消耗 <a href="#how-to-reduce-memory-consumption-in-your-workflow" id="how-to-reduce-memory-consumption-in-your-workflow"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/EzVIOV8i2lmQ5HW3xFoo/" %}
+工作流的构建方式会影响执行时的数据和内存消耗。虽然以下建议不适用于所有情况，但可作为避免超出实例内存限制的基础最佳实践。
 
-Note that n8n itself consumes memory to run. On average, the software alone uses around 180MiB RAM.
+{% include "../../../reusable-content/.gitbook/includes/self-hosting/scaling/reduce-memory-consumption.md" %}
 
-Interactions with the UI also consume memory. Playing around with the workflow UI while it performs heavy executions could also push the memory capacity over the limit.
+注意，n8n 自身运行也会消耗内存。仅软件本身平均就需要约 180MiB RAM。
 
-## How to manage execution data on n8n Cloud <a href="#how-to-manage-execution-data-on-cloud" id="how-to-manage-execution-data-on-cloud"></a>
+与界面交互同样会消耗内存。在工作流进行高负载执行时操作其界面，也可能使内存使用超出限制。
 
-Execution data includes node data, parameters, variables, execution context, and binary data references. It's text-based.
+## 如何管理 n8n Cloud 的执行数据 <a href="#how-to-manage-execution-data-on-cloud" id="how-to-manage-execution-data-on-cloud"></a>
 
-Binary data is non-textual data that n8n can't represent as plain text. This is files and media such as images, documents, audio files, and videos. It's much larger than textual data.
+执行数据包括节点数据、参数、变量、执行上下文和二进制数据引用，以文本形式保存。
 
-If a workflow consumes a large amounts of data and is past testing stage, it's a good option to stop saving the successful executions.
+二进制数据是 n8n 无法用纯文本表示的非文本数据，例如图片、文档、音频和视频等文件及媒体。它通常远大于文本数据。
 
-There are two ways you can control how much execution data n8n stores in the database:
+如果工作流处理的数据量很大，且已结束测试阶段，可以考虑停止保存成功执行的数据。
 
-In the n8n Cloud console:
+你可以通过以下两种方式，控制 n8n 在数据库中保存的执行数据量：
 
-1. Open the [Cloud console](../use-the-cloud-console.md) and select **Instance settings**.
-2. In the **Runtime** section, under **Executions to save**, deselect the execution types you don't want to log: **Manual**, **Failed**, or **Successful**.
-3. Select **Save and restart** in the bar at the bottom of the page. Your instance restarts to apply the change.
+在 n8n Cloud 控制台中：
 
-In your workflow settings:
+1. 打开 [Cloud 控制台](../use-the-cloud-console.md)，选择 **Instance settings（实例设置）**。
+2. 在 **Runtime（运行时）** 部分的 **Executions to save（要保存的执行）** 下，取消勾选不想记录的执行类型：**Manual（手动）**、**Failed（失败）** 或 **Successful（成功）**。
+3. 在页面底部的操作栏中选择 **Save and restart（保存并重启）**。实例会重启以应用修改。
 
-1. Select the **Options** <img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="Options menu" data-size="line"> menu.
-2. Select **Settings**. n8n opens the **Workflow settings** modal.
-3. Change **Save successful production executions** to **Do not save**.
+在工作流设置中：
 
-## n8n Cloud data pruning and out of memory incident prevention <a href="#cloud-data-pruning-and-out-of-memory-incident-prevention" id="cloud-data-pruning-and-out-of-memory-incident-prevention"></a>
+1. 选择 **Options（选项）** <img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="选项菜单" data-size="line"> 菜单。
+2. 选择 **Settings（设置）**。n8n 会打开 **Workflow settings（工作流设置）** 弹窗。
+3. 将 **Save successful production executions（保存成功的生产执行）** 改为 **Do not save（不保存）**。
 
-### Automatic data pruning <a href="#automatic-data-pruning" id="automatic-data-pruning"></a>
+## n8n Cloud 数据清理与内存不足事件预防 <a href="#cloud-data-pruning-and-out-of-memory-incident-prevention" id="cloud-data-pruning-and-out-of-memory-incident-prevention"></a>
 
-n8n automatically prunes execution logs after a certain time or once you reach the max storage limit, whichever comes first. The pruning always happens from oldest to newest and the limits depend on your n8n Cloud plan:
+### 自动数据清理 <a href="#automatic-data-pruning" id="automatic-data-pruning"></a>
 
-* Start and Starter plans: max 2500 executions saved and 7 days execution log retention;
-* Pro plans: max 25000 executions saved and 30 days execution log retention;
-* Enterprise plan: max 50000 executions saved and unlimited execution log retention time.
+达到保留期限或存储上限时，n8n 会自动清理执行日志，以先达到的条件为准。清理始终从最旧的数据开始，具体限制取决于 n8n Cloud 套餐：
 
-You reach the maximum storage limit either by exceeding the maximum number of saved executions or by exceeding the instance's database storage size. If the instance's database reaches this limit, n8n removes only the execution data and keeps the execution record. Pruning based on execution count or retention time, however, removes the record completely.
+* Start 和 Starter 套餐：最多保存 2,500 次执行，执行日志保留 7 天；
+* Pro 套餐：最多保存 25,000 次执行，执行日志保留 30 天；
+* Enterprise 套餐：最多保存 50,000 次执行，执行日志保留时间不限。
 
-### Manual data pruning <a href="#manual-data-pruning" id="manual-data-pruning"></a>
+超过可保存的执行数量，或达到实例数据库存储大小限制，都可能触及上限。如果是数据库达到存储限制，n8n 只会删除执行数据，保留执行记录；如果基于执行数量或保留期限进行清理，则会彻底删除记录。
 
-Heavier executions and use cases can exceed database capacity despite the automatic pruning practices. In cases like this, n8n will manually prune data to protect instance stability.
+### 手动数据清理 <a href="#manual-data-pruning" id="manual-data-pruning"></a>
 
-1. An alert system warns n8n if an instance is at 85% disk capacity.
-2. n8n prunes execution data. n8n does this by running a backup of the instance (workflows, users, credentials and execution data) and restoring it without execution data.
+即使启用了自动清理，高负载执行或某些使用场景仍可能超出数据库容量。此时，n8n 会手动清理数据，以保护实例稳定性。
 
-Due to the human steps in this process, the alert system isn't perfect. If warnings are triggered after hours or if data consumption rates are high, there might not be time to prune the data before the remaining disk space fills up.
+1. 实例磁盘使用率达到 85% 时，告警系统会通知 n8n。
+2. n8n 清理执行数据：先备份实例（包含工作流、用户、凭据和执行数据），再恢复备份，但不恢复执行数据。
 
-## Related resources
+由于流程需要人工操作，告警机制并非万无一失。如果告警发生在非工作时间，或数据增长过快，剩余磁盘空间可能在来得及清理之前就被占满。
 
-* [Configure Cloud](./)
-* [Set your timezone](set-your-timezone.md)
-* [Find your IP addresses](find-your-ip-addresses.md)
-* [Change instance ownership or username](change-instance-ownership-or-username.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [配置 Cloud](./)
+* [设置时区](set-your-timezone.md)
+* [查找 IP 地址](find-your-ip-addresses.md)
+* [更改实例所有者或用户名](change-instance-ownership-or-username.md)

@@ -1,10 +1,9 @@
 ---
-title: Try n8n Cloud free, then choose a plan
+title: 免费试用 n8n Cloud，然后选择套餐
 description: >-
-  Start a free n8n Cloud trial, then compare the Starter, Pro, and Enterprise
-  plans to choose the right one.
+  开始免费试用 n8n Cloud，然后比较 Starter、Pro 和 Enterprise 套餐，选择适合你的方案。
 contentType: overview
-nodeTitle: Try free then choose a plan
+nodeTitle: 免费试用并选择套餐
 originalFilePath: manage-cloud/cloud-free-trial.md
 originalUrl: 'https://docs.n8n.io/manage-cloud/cloud-free-trial'
 url: 'https://docs.n8n.io/deploy/use-n8n-cloud/start-your-free-trial'
@@ -12,86 +11,88 @@ layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Try free then choose a plan <a href="#cloud-free-trial" id="cloud-free-trial"></a>
 
-[n8n Cloud](README.md) is the managed way to run n8n: n8n hosts your instance, so you don't set up or maintain any infrastructure. The best way to start is with a free trial, then move to a paid plan that fits your needs.
+# 免费试用并选择套餐 <a href="#cloud-free-trial" id="cloud-free-trial"></a>
 
-## Start with a free trial <a href="#start-with-a-free-trial" id="start-with-a-free-trial"></a>
+[n8n Cloud](README.md) 是运行 n8n 的托管方式：n8n 为你托管实例，你无需配置或维护基础设施。建议先免费试用，再选择符合需求的付费套餐。
 
-When you create a new n8n Cloud trial, you have 14 days to try all the features of the [Pro plan](https://n8n.io/pricing/), including:
+## 从免费试用开始 <a href="#start-with-a-free-trial" id="start-with-a-free-trial"></a>
 
-- Global variables
-- Insights dashboard
-- Execution search
-- Five days of workflow history to roll back
+创建新的 n8n Cloud 试用实例后，你可以在 14 天内体验 [Pro 套餐](https://n8n.io/pricing/)的全部功能，包括：
 
-The trial gives you Pro plan features with a limit of 1000 executions and the same computing power as the [Starter plan](https://n8n.io/pricing/).
+- 全局变量
+- 洞察仪表盘
+- 执行搜索
+- 可用于回滚的五天工作流历史记录
 
-## Compare n8n Cloud plans <a href="#compare-n8n-cloud-plans" id="compare-n8n-cloud-plans"></a>
+试用提供 Pro 套餐功能，限额为 1,000 次执行，计算资源与 [Starter 套餐](https://n8n.io/pricing/)相同。
 
-After your trial, you can move to a paid plan. Each plan suits a different user and includes different features, usage limits, and computing power.
+## 比较 n8n Cloud 套餐 <a href="#compare-n8n-cloud-plans" id="compare-n8n-cloud-plans"></a>
 
-The following plans are available for n8n Cloud users:
+试用结束后，你可以转为付费套餐。各套餐面向不同用户，提供不同的功能、用量限制和计算资源。
 
-| Plan | Designed for |
+n8n Cloud 用户可以选择以下套餐：
+
+| 套餐 | 适用人群 |
 |------|--------------|
-| **Free trial** | Trying n8n Cloud with Pro features for 14 days|
-| **Starter** | Individuals and small projects getting started |
-| **Pro** | Power users and small teams that need higher limits, admin accounts, and insights |
-| **Enterprise** | Organizations that need advanced security, scaling, and dedicated support |
+| **免费试用** | 希望使用 Pro 功能试用 n8n Cloud 14 天的用户 |
+| **Starter** | 刚开始使用的个人和小型项目 |
+| **Pro** | 需要更高用量限额、管理员账号和洞察功能的高级用户及小团队 |
+| **Enterprise** | 需要高级安全、扩展能力和专属支持的组织 |
 
 {% hint style="info" %}
-**Always check current pricing and conditions**
+**请始终核对当前价格和条件**
 
-Exact features, usage limits, and prices for each plan can change. For the current details, see the [pricing page](https://n8n.io/pricing/). This page explains what the plans are, not the specifics of what each one includes.
+各套餐的具体功能、用量限制和价格可能变化。最新详情请参阅[价格页面](https://n8n.io/pricing/)。本页介绍套餐类别，不列出各套餐所含内容的具体细节。
 {% endhint %}
 
-## Upgrade to a paid plan <a href="#upgrade-to-a-paid-account" id="upgrade-to-a-paid-account"></a>
+## 升级为付费套餐 <a href="#upgrade-to-a-paid-account" id="upgrade-to-a-paid-account"></a>
 
-You can upgrade to a paid plan at any time during your trial. To upgrade from the n8n Cloud console:
+试用期间可以随时升级为付费套餐。在 n8n Cloud 控制台中升级的步骤如下：
 
-1. Open the [Cloud console](use-the-cloud-console.md).
-2. Select **Upgrade plan** in the trial banner at the top of the page. You can also go to **Billing** and select **Upgrade plan**. n8n opens the **Choose a plan** page.
-3. Choose **Monthly** or **Annual** billing.
-4. Select **Select plan** on the plan you want.
-5. Enter your payment details and complete the checkout.
+1. 打开 [Cloud 控制台](use-the-cloud-console.md)。
+2. 选择页面顶部试用横幅中的 **Upgrade plan（升级套餐）**。你也可以进入 **Billing（账单）**，选择 **Upgrade plan**。n8n 会打开 **Choose a plan（选择套餐）** 页面。
+3. 选择 **Monthly（按月）** 或 **Annual（按年）** 计费。
+4. 在所需套餐上选择 **Select plan（选择套餐）**。
+5. 输入付款信息并完成结账。
 
-In the n8n editor, the upgrade button in the trial banner at the top of the page opens the same **Choose a plan** page in the Cloud console.
+在 n8n 编辑器中，页面顶部试用横幅的升级按钮也会打开 Cloud 控制台中的同一个 **Choose a plan（选择套餐）** 页面。
 
-## When your trial ends <a href="#trial-expiration" id="trial-expiration"></a>
+## 试用结束后 <a href="#trial-expiration" id="trial-expiration"></a>
 
-If you don't upgrade by the end of your trial, the trial automatically expires and n8n deletes your instance.
+如果在试用结束前未升级，试用会自动到期，n8n 将删除你的实例。
 
 {% hint style="info" %}
-**Download your workflows**
+**下载你的工作流**
 
-You can [download your workflows](download-workflows.md) to reuse them later. You have 90 days to download your workflows after your free trial ends.
+你可以[下载工作流](download-workflows.md)，留待以后复用。免费试用结束后，你有 90 天时间下载工作流。
 {% endhint %}
 
-### Cancelling your trial <a href="#cancelling-your-trial" id="cancelling-your-trial"></a>
+### 取消试用 <a href="#cancelling-your-trial" id="cancelling-your-trial"></a>
 
-You don't need to cancel your trial. Your trial automatically expires at the end of the trial period and no charges occur. n8n deletes all your data soon after.
+无需手动取消试用。试用期结束后会自动到期，不会产生费用。之后不久，n8n 会删除你的全部数据。
 
-## Enterprise trial <a href="#enterprise-trial" id="enterprise-trial"></a>
+## Enterprise 试用 <a href="#enterprise-trial" id="enterprise-trial"></a>
 
-To test the [Enterprise plan](https://n8n.io/pricing/), contact the sales team. The Enterprise plan includes features such as:
+如需试用 [Enterprise 套餐](https://n8n.io/pricing/)，请联系销售团队。Enterprise 套餐包含以下功能：
 
-- SSO (SAML and LDAP)
-- Environments
-- External secrets
-- Log streaming
-- Version control using Git
+- SSO 单点登录（SAML 和 LDAP）
+- 环境
+- 外部密钥
+- 日志流
+- 使用 Git 进行版本控制
 
-Select the **Contact** button on the [n8n website](https://n8n.io/pricing/).
+选择 [n8n 网站](https://n8n.io/pricing/)上的 **Contact（联系）** 按钮。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use n8n Cloud](./)
-* [Use the Cloud console](use-the-cloud-console.md)
-* [Update your version](update-your-version.md)
-* [Configure Cloud](configure-cloud/README.md)
-* [Gateway credits](gateway-credits/README.md)
-* [Assistant credits](assistant-credits/README.md)
-* [Understand concurrency](understand-concurrency.md)
-* [Download workflows](download-workflows.md)
+* [使用 n8n Cloud](./)
+* [使用 Cloud 控制台](use-the-cloud-console.md)
+* [更新版本](update-your-version.md)
+* [配置 Cloud](configure-cloud/README.md)
+* [Gateway 额度](gateway-credits/README.md)
+* [Assistant 额度](assistant-credits/README.md)
+* [理解并发](understand-concurrency.md)
+* [下载工作流](download-workflows.md)

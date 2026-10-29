@@ -1,7 +1,7 @@
 ---
-description: Endpoint reference for n8n's public REST API, generated from the OpenAPI specification.
+description: 根据 OpenAPI 规范生成的 n8n 公共 REST API 端点参考。
 contentType: reference
-nodeTitle: Endpoint reference
+nodeTitle: 端点参考
 originalFilePath: api/api-reference.md
 originalUrl: 'https://docs.n8n.io/api/api-reference'
 url: 'https://docs.n8n.io/connect/n8n-api/api-reference'
@@ -9,45 +9,47 @@ layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Endpoint reference
 
-This section is the complete endpoint reference for n8n's public REST API, generated from the OpenAPI specification. Use it to explore every available operation and view the parameters, request bodies, and response schemas.
+# 端点参考 <a id="endpoint-reference"></a>
 
-{% hint style="info" %}
-**Feature availability**
-
-The n8n API is available on:
-
-- **n8n Cloud:** Starter, Pro, Enterprise
-- **Self-hosted:** All editions
-
-It isn't available on the free trial.
-{% endhint %}
-
-## Before you start
-
-* **Authenticate**: every request needs an API key. Refer to [Authentication](authentication.md).
-* **Set your base URL**:
-    * n8n Cloud: `https://<your-instance>.app.n8n.cloud/api/v1`
-    * Self-hosted: `https://<your-domain>/api/v1`
-* **Paginate** large result sets. Refer to [Pagination](pagination.md).
-* **Retry a POST** with an `Idempotency-Key` header. Refer to [Idempotency](idempotency.md).
-
-## Browse the endpoints
-
-The endpoints are grouped by resource in the left sidebar under **n8n API**: Workflow, Execution, Credential, User, Audit, Tags, Source Control, Variables, Data Table, Projects, and more. Each page documents that resource's operations and schemas.
+本节是根据 OpenAPI 规范生成的 n8n 公共 REST API 完整端点参考。你可以查阅所有可用操作，以及参数、请求体和响应结构。
 
 {% hint style="info" %}
-**Try the API safely**
+**功能可用范围**
 
-To experiment with live calls, use the [built-in API playground](use-an-api-playground.md) (self-hosted n8n only), or point requests at a test workflow or test instance.
+以下套餐和版本可以使用 n8n API：
+
+- **n8n Cloud：** Starter、Pro、Enterprise
+- **自托管：** 所有版本
+
+免费试用期间无法使用。
 {% endhint %}
 
-## Related resources
+## 开始之前 <a id="before-you-start"></a>
+
+* **身份验证**：每个请求都需要 API 密钥。请参阅[身份验证](authentication.md)。
+* **设置基础 URL**：
+    * n8n Cloud：`https://<your-instance>.app.n8n.cloud/api/v1`
+    * 自托管：`https://<your-domain>/api/v1`
+* 对大型结果集使用**分页**。请参阅[分页](pagination.md)。
+* 使用 `Idempotency-Key` 请求头**重试 POST 请求**。请参阅[幂等性](idempotency.md)。
+
+## 浏览端点 <a id="browse-the-endpoints"></a>
+
+左侧边栏的 **n8n API** 下按资源对端点分组，包括 Workflow（工作流）、Execution（执行）、Credential（凭据）、User（用户）、Audit（审计）、Tags（标签）、Source Control（源代码管理）、Variables（变量）、Data Table（数据表）、Projects（项目）等。每个页面都说明该资源的操作和数据结构。
+
+{% hint style="info" %}
+**安全地试用 API**
+
+如需尝试实际 API 调用，请使用[内置 API 调试界面](use-an-api-playground.md)（仅限自托管 n8n），或将请求发送到测试工作流或测试实例。
+{% endhint %}
+
+## 相关资源 <a id="related-resources"></a>
 
 * [n8n API](./)
-* [Authentication](authentication.md)
-* [Pagination](pagination.md)
-* [Idempotency](idempotency.md)
-* [Use an API playground](use-an-api-playground.md)
+* [身份验证](authentication.md)
+* [分页](pagination.md)
+* [幂等性](idempotency.md)
+* [使用 API 调试界面](use-an-api-playground.md)

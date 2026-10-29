@@ -1,0 +1,10 @@
+{
+  "repository": "n8n-io/n8n-docs",
+  "commit": "dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941",
+  "translation_repository": "WuKong94/n8n-docs-cn",
+  "changelog": "preserved-in-English",
+  "generated_api": {
+    "manifest": ".upstream/generated-api/manifest.json",
+    "policy": "English source snapshots preserved byte-for-byte; each export is pinned by SHA-256."
+  }
+}
