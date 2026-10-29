@@ -1,70 +1,72 @@
 ---
-description: Get metrics for a health check
+description: 获取健康检查指标。
 contentType: howto
-nodeTitle: Monitor n8n
+nodeTitle: 监控 n8n
 originalFilePath: hosting/logging-monitoring/monitoring.md
-originalUrl: 'https://docs.n8n.io/hosting/logging-monitoring/monitoring'
-url: 'https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/monitor-n8n'
+originalUrl: https://docs.n8n.io/hosting/logging-monitoring/monitoring
+url: https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/monitor-n8n
 layout:
   description:
     visible: false
 ---
-
-# Monitoring <a href="#monitoring" id="monitoring"></a>
-
-There are three API endpoints you can call to check the status of your instance: `/healthz`, `healthz/readiness`, and `/metrics`.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## healthz and healthz/readiness <a href="#healthz-and-healthzreadiness" id="healthz-and-healthzreadiness"></a>
+# 监控 <a href="#monitoring" id="monitoring"></a>
 
-The `/healthz` endpoint returns a standard HTTP status code. 200 indicates the instance is reachable. It doesn't indicate DB status. It's available for both self-hosted and Cloud users.
+可以调用三个 API 端点，检查实例状态：`/healthz`、`healthz/readiness` 和 `/metrics`。
 
-Access the endpoint:
+
+## healthz 和 healthz/readiness <a href="#healthz-and-healthzreadiness" id="healthz-and-healthzreadiness"></a>
+
+`/healthz` 端点返回标准 HTTP 状态码。200 表示实例可访问，不表示数据库状态。自托管和 Cloud 用户均可使用。
+
+访问端点：
 
 ```
 <your-instance-url>/healthz
 ```
 
-The `/healthz/readiness` endpoint is similar to the `/healthz` endpoint, but it returns a HTTP status code of 200 if the DB is connected and migrated and therefore the instance is ready to accept traffic.
+`/healthz/readiness` 端点与 `/healthz` 端点类似，但仅在数据库已连接并完成迁移，即实例已准备好接收流量时，返回 HTTP 状态码 200。
 
-Access the endpoint:
+访问端点：
 
 ```
 <your-instance-url>/healthz/readiness
 ```
 
 {% hint style="info" %}
-**Customizing health check endpoints**
+**自定义健康检查端点**
 
-You can customize the health check endpoint path using the [`N8N_ENDPOINT_HEALTH`](../configure-n8n/basic-configuration/use-environment-variables/endpoints.md) environment variable.
+可以通过 [`N8N_ENDPOINT_HEALTH`](../configure-n8n/basic-configuration/use-environment-variables/endpoints.md) 环境变量自定义健康检查端点路径。
 {% endhint %}
 
 ## metrics <a href="#metrics" id="metrics"></a>
 
-The `/metrics` endpoint provides more detailed information about the current status of the instance.
+`/metrics` 端点提供更详细的实例当前状态信息。
 
-Access the endpoint:
+访问端点：
 
 ```
 <your-instance-url>/metrics
 ```
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-The `/metrics` endpoint is available on:
+`/metrics` 端点可用于：
 
-- **Self-hosted:** All editions
+- **自托管：**所有版本。
 
-It isn't available on n8n Cloud.
+n8n Cloud 不提供此端点。
 {% endhint %}
 
 
-## How do I enable metrics and health checks? <a href="#enable-metrics-and-health-checks-for-self-hosted-n8n" id="enable-metrics-and-health-checks-for-self-hosted-n8n"></a>
+## 如何启用指标和健康检查？ <a href="#enable-metrics-and-health-checks-for-self-hosted-n8n" id="enable-metrics-and-health-checks-for-self-hosted-n8n"></a>
 
-The `/metrics` endpoint is disabled by default. The health endpoint is always enabled on the main n8n server. For worker servers in [queue mode](../configure-n8n/scaling/enable-queue-mode.md), the health endpoint is disabled by default.
+`/metrics` 端点默认禁用。n8n 主服务器始终启用健康检查端点；[队列模式](../configure-n8n/scaling/enable-queue-mode.md)下的工作进程服务器默认禁用健康检查端点。
 
-To enable them, configure your n8n instance:
+要启用，请配置 n8n 实例：
 
 ```shell
 # metrics <a href="#metrics" id="metrics"></a>
@@ -73,13 +75,13 @@ N8N_METRICS=true
 QUEUE_HEALTH_CHECK_ACTIVE=true
 ```
 
-Refer to [Configuration methods](../configure-n8n/basic-configuration.md) for more information on how to configure your instance using environment variables.
+使用环境变量配置实例的更多信息，请参阅[配置方式](../configure-n8n/basic-configuration.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Keep n8n running](./)
-* [Set up logging](set-up-logging.md)
-* [Visualize metrics with Grafana](visualize-metrics-with-grafana.md)
-* [Back up and restore](backup-and-restore.md)
-* [Update n8n](update-n8n.md)
-* [Trace executions with OpenTelemetry](trace-executions-with-opentelemetry.md)
+* [保持 n8n 运行](./)
+* [设置日志](set-up-logging.md)
+* [使用 Grafana 可视化指标](visualize-metrics-with-grafana.md)
+* [备份与恢复](backup-and-restore.md)
+* [更新 n8n](update-n8n.md)
+* [使用 OpenTelemetry 跟踪执行](trace-executions-with-opentelemetry.md)

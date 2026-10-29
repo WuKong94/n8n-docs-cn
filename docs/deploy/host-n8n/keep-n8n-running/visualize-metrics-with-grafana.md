@@ -1,41 +1,42 @@
 ---
 contentType: howto
-nodeTitle: Visualize metrics with Grafana
+nodeTitle: 使用 Grafana 可视化指标
 originalFilePath: hosting/logging-monitoring/grafana.md
-originalUrl: 'https://docs.n8n.io/hosting/logging-monitoring/grafana'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/visualize-metrics-with-grafana
+originalUrl: https://docs.n8n.io/hosting/logging-monitoring/grafana
+url: https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/visualize-metrics-with-grafana
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # Grafana <a href="#grafana" id="grafana"></a>
 
-Enable the Prometheus metrics endpoint in n8n, then connect Grafana through a Prometheus instance to visualize your n8n data. Refer to [Enable Prometheus metrics](../configure-n8n/basic-configuration/configuration-examples/enable-prometheus-metrics.md) before following this guide.
+在 n8n 中启用 Prometheus 指标端点，然后让 Grafana 通过 Prometheus 实例连接，以可视化 n8n 数据。开始本指南前，请先参阅[启用 Prometheus 指标](../configure-n8n/basic-configuration/configuration-examples/enable-prometheus-metrics.md)。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-The `/metrics` endpoint is available on:
+`/metrics` 端点可用于：
 
-- **Self-hosted:** All editions
+- **自托管：**所有版本。
 
-It isn't available on n8n Cloud.
+n8n Cloud 不提供此端点。
 {% endhint %}
 
-## Reusable dashboard templates <a href="#reusable-dashboard-templates" id="reusable-dashboard-templates"></a>
+## 可复用仪表盘模板 <a href="#reusable-dashboard-templates" id="reusable-dashboard-templates"></a>
 
-Once you enable Prometheus metrics for your n8n instance, you'll want to build dashboards to observe them.
+为 n8n 实例启用 Prometheus 指标后，你可以构建仪表盘来观察这些指标。
 
-n8n publishes reusable grafana dashboards for several of the supported prometheus metrics in this GitHub project:
+n8n 在以下 GitHub 项目中，为部分受支持的 Prometheus 指标提供可复用的 Grafana 仪表盘：
 [n8n-observability](https://github.com/n8n-io/n8n-observability)
 
-## Configure Prometheus to scrape n8n <a href="#configure-prometheus-to-scrape-n8n" id="configure-prometheus-to-scrape-n8n"></a>
+## 配置 Prometheus 抓取 n8n 指标 <a href="#configure-prometheus-to-scrape-n8n" id="configure-prometheus-to-scrape-n8n"></a>
 
-Prometheus scrapes n8n's `/metrics` endpoint on a schedule and stores the data. Grafana then queries Prometheus to display it.
+Prometheus 定期抓取 n8n 的 `/metrics` 端点并保存数据，Grafana 再查询 Prometheus，展示这些数据。
 
-Add a scrape job targeting your n8n instance in your `prometheus.yml`:
+在 `prometheus.yml` 中添加以 n8n 实例为目标的抓取作业：
 
 ```yaml
 scrape_configs:
@@ -46,145 +47,145 @@ scrape_configs:
     metrics_path: /metrics
 ```
 
-Replace `<n8n-host>` and `<n8n-port>` with your n8n instance address. The default n8n port is `5678`.
+将 `<n8n-host>` 和 `<n8n-port>` 替换为 n8n 实例地址，n8n 默认端口为 `5678`。
 
-After editing, reload or restart Prometheus to apply the change.
+编辑后，重新加载或重启 Prometheus，使更改生效。
 
-## Add Prometheus as a Grafana data source <a href="#add-prometheus-as-a-grafana-data-source" id="add-prometheus-as-a-grafana-data-source"></a>
+## 将 Prometheus 添加为 Grafana 数据源 <a href="#add-prometheus-as-a-grafana-data-source" id="add-prometheus-as-a-grafana-data-source"></a>
 
-1. In Grafana, go to **Connections** > **Data sources**.
-2. Select **Add new data source**.
-3. Select **Prometheus**.
-4. Set **Prometheus server URL** to your Prometheus instance address, for example `http://prometheus:9090`.
-5. Select **Save & test**.
+1. 在 Grafana 中前往 **Connections**（连接）> **Data sources**（数据源）。
+2. 选择 **Add new data source**（添加新数据源）。
+3. 选择 **Prometheus**。
+4. 将 **Prometheus server URL**（Prometheus 服务器 URL）设为 Prometheus 实例地址，例如 `http://prometheus:9090`。
+5. 选择 **Save & test**（保存并测试）。
 
-Grafana confirms the connection with a success message.
+Grafana 会显示成功消息，确认连接。
 
-## Webhook observability <a href="#webhook-observability" id="webhook-observability"></a>
+## Webhook 可观测性 <a href="#webhook-observability" id="webhook-observability"></a>
 
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Webhook observability is available from n8n 2.28.0.
+自 n8n 2.28.0 起提供 webhook 可观测性。
 {% endhint %}
 
-n8n exposes a `n8n_webhook_request_duration_seconds` histogram for every webhook call. Enable these environment variables to collect it:
+n8n 为每次 webhook 调用提供 `n8n_webhook_request_duration_seconds` 直方图。启用以下环境变量以收集此指标：
 
-| Variable | Default | Description |
+| 变量 | 默认值 | 说明 |
 |----------|---------|-------------|
-| `N8N_METRICS_INCLUDE_WEBHOOK_METRICS` | `false` | Exposes the `n8n_webhook_request_duration_seconds` histogram. |
-| `N8N_METRICS_INCLUDE_WORKFLOW_INFO` | `false` | Exposes the `n8n_workflow_info` gauge for human-readable workflow names. See [Workflow name lookup](#workflow-name-lookup). |
+| `N8N_METRICS_INCLUDE_WEBHOOK_METRICS` | `false` | 提供 `n8n_webhook_request_duration_seconds` 直方图。 |
+| `N8N_METRICS_INCLUDE_WORKFLOW_INFO` | `false` | 提供 `n8n_workflow_info` 仪表指标，显示便于阅读的工作流名称。参阅[工作流名称查找](#workflow-name-lookup)。 |
 
-You can find a [ready-to-use dashboard](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-webhook-executions) for this histogram in our n8n-observability project.
+n8n-observability 项目为此直方图提供了[可直接使用的仪表盘](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-webhook-executions)。
 
-### What the metric tracks <a href="#what-the-metric-tracks" id="what-the-metric-tracks"></a>
+### 指标跟踪的内容 <a href="#what-the-metric-tracks" id="what-the-metric-tracks"></a>
 
-`n8n_webhook_request_duration_seconds` is a Prometheus histogram. For each webhook call, n8n records how long the request took (time of "request received" -> "response sent"). The metric exposes three series per label combination:
+`n8n_webhook_request_duration_seconds` 是一个 Prometheus 直方图。n8n 为每次 webhook 调用记录请求耗时，即从“收到请求”到“发出响应”的时长。每个标签组合提供三个时间序列：
 
-| Series | Description |
+| 序列 | 说明 |
 |--------|-------------|
-| `_bucket{le="<bound>"}` | Cumulative count of requests that completed within `<bound>` seconds. |
-| `_sum` | Total seconds spent across all requests. |
-| `_count` | Total number of requests. |
+| `_bucket{le="<bound>"}` | 在 `<bound>` 秒内完成的请求的累计数量。 |
+| `_sum` | 所有请求的总耗时，单位为秒。 |
+| `_count` | 请求总数。 |
 
-Each series carries these labels:
+每个序列都带有以下标签：
 
-| Label | Example | Description |
+| 标签 | 示例 | 说明 |
 |-------|---------|-------------|
-| `method` | `GET` | HTTP method of the incoming request. |
-| `status_code` | `200` | HTTP status code n8n returned. |
-| `webhook_path` | `294febd8-…` | UUID path that identifies the webhook endpoint. |
-| `workflow_id` | `KhcGg7EmAMoa7Bmv` | ID of the workflow the webhook belongs to. |
+| `method` | `GET` | 入站请求的 HTTP 方法。 |
+| `status_code` | `200` | n8n 返回的 HTTP 状态码。 |
+| `webhook_path` | `294febd8-…` | 标识 webhook 端点的 UUID 路径。 |
+| `workflow_id` | `KhcGg7EmAMoa7Bmv` | webhook 所属工作流的 ID。 |
 
-### Dashboard ideas <a href="#dashboard-ideas" id="dashboard-ideas"></a>
+### 仪表盘示例思路 <a href="#dashboard-ideas" id="dashboard-ideas"></a>
 
-| Panel | PromQL |
+| 面板 | PromQL |
 |-------|--------|
-| Request rate per workflow | `sum by (workflow_id) (rate(n8n_webhook_request_duration_seconds_count[5m]))` |
-| p95 latency across all webhooks | `histogram_quantile(0.95, sum by (le) (rate(n8n_webhook_request_duration_seconds_bucket[5m])))` |
-| p95 latency per workflow | `histogram_quantile(0.95, sum by (le, workflow_id) (rate(n8n_webhook_request_duration_seconds_bucket[5m])))` |
-| Error rate (non-2xx) | `sum by (workflow_id) (rate(n8n_webhook_request_duration_seconds_count{status_code!="2.."}[5m]))` |
-| Average request duration | `rate(n8n_webhook_request_duration_seconds_sum[5m]) / rate(n8n_webhook_request_duration_seconds_count[5m])` |
+| 各工作流的请求速率 | `sum by (workflow_id) (rate(n8n_webhook_request_duration_seconds_count[5m]))` |
+| 所有 webhook 的 p95 延迟 | `histogram_quantile(0.95, sum by (le) (rate(n8n_webhook_request_duration_seconds_bucket[5m])))` |
+| 各工作流的 p95 延迟 | `histogram_quantile(0.95, sum by (le, workflow_id) (rate(n8n_webhook_request_duration_seconds_bucket[5m])))` |
+| 错误率，非 2xx 响应 | `sum by (workflow_id) (rate(n8n_webhook_request_duration_seconds_count{status_code!="2.."}[5m]))` |
+| 平均请求时长 | `rate(n8n_webhook_request_duration_seconds_sum[5m]) / rate(n8n_webhook_request_duration_seconds_count[5m])` |
 
-## Form submission observability <a href="#form-submission-observability" id="form-submission-observability"></a>
+## 表单提交可观测性 <a href="#form-submission-observability" id="form-submission-observability"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Form submission observability is available from n8n 2.28.0.
+自 n8n 2.28.0 起提供表单提交可观测性。
 {% endhint %}
 
-n8n exposes a `n8n_form_submission_duration_seconds` histogram for every form submission. Enable these environment variables to collect it:
+n8n 为每次表单提交提供 `n8n_form_submission_duration_seconds` 直方图。启用以下环境变量以收集此指标：
 
-| Variable | Default | Description |
+| 变量 | 默认值 | 说明 |
 |----------|---------|-------------|
-| `N8N_METRICS_INCLUDE_FORM_METRICS` | `false` | Exposes the `n8n_form_submission_duration_seconds` histogram. |
-| `N8N_METRICS_INCLUDE_WORKFLOW_INFO` | `false` | Exposes the `n8n_workflow_info` gauge for human-readable workflow names. See [Workflow name lookup](#workflow-name-lookup). |
+| `N8N_METRICS_INCLUDE_FORM_METRICS` | `false` | 提供 `n8n_form_submission_duration_seconds` 直方图。 |
+| `N8N_METRICS_INCLUDE_WORKFLOW_INFO` | `false` | 提供 `n8n_workflow_info` 仪表指标，显示便于阅读的工作流名称。参阅[工作流名称查找](#workflow-name-lookup)。 |
 
-You can find a [ready-to-use dashboard](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-form-executions) for this histogram in our n8n-observability project.
+n8n-observability 项目为此直方图提供了[可直接使用的仪表盘](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-form-executions)。
 
-### What the metric tracks <a href="#what-the-metric-tracks" id="what-the-metric-tracks"></a>
+### 指标跟踪的内容 <a href="#what-the-metric-tracks" id="what-the-metric-tracks"></a>
 
-`n8n_form_submission_duration_seconds` is a Prometheus histogram. For each form submission, n8n records how long it took from the "user pressing submit" to "user getting feedback on form submission". The metric exposes three series per label combination:
+`n8n_form_submission_duration_seconds` 是一个 Prometheus 直方图。n8n 为每次表单提交记录从“用户按下提交”到“用户收到提交反馈”的时长。每个标签组合提供三个时间序列：
 
-| Series | Description |
+| 序列 | 说明 |
 |--------|-------------|
-| `_bucket{le="<bound>"}` | Cumulative count of submissions that completed within `<bound>` seconds. |
-| `_sum` | Total seconds spent processing all submissions. |
-| `_count` | Total number of submissions. |
+| `_bucket{le="<bound>"}` | 在 `<bound>` 秒内完成的提交的累计数量。 |
+| `_sum` | 所有提交的总处理时长，单位为秒。 |
+| `_count` | 提交总数。 |
 
-Each series carries these labels:
+每个序列都带有以下标签：
 
-| Label | Example | Description |
+| 标签 | 示例 | 说明 |
 |-------|---------|-------------|
-| `status_code` | `200` | HTTP status code n8n returned. |
-| `form_path` | `b395d2e2-…` | UUID path that identifies the form endpoint. |
-| `workflow_id` | `qTzTyGlEROwSuVlY` | ID of the workflow the form belongs to. |
+| `status_code` | `200` | n8n 返回的 HTTP 状态码。 |
+| `form_path` | `b395d2e2-…` | 标识表单端点的 UUID 路径。 |
+| `workflow_id` | `qTzTyGlEROwSuVlY` | 表单所属工作流的 ID。 |
 
 {% hint style="info" %}
-**No method label**
+**不包含 method 标签**
 
-Form submissions don't include a `method` label because n8n only accepts form data via `POST`.
+表单提交不包含 `method` 标签，因为 n8n 仅通过 `POST` 接收表单数据。
 {% endhint %}
 
-### Dashboard ideas <a href="#dashboard-ideas" id="dashboard-ideas"></a>
+### 仪表盘示例思路 <a href="#dashboard-ideas" id="dashboard-ideas"></a>
 
-| Panel | PromQL |
+| 面板 | PromQL |
 |-------|--------|
-| Submission rate per workflow | `sum by (workflow_id) (rate(n8n_form_submission_duration_seconds_count[5m]))` |
-| p95 processing time across all forms | `histogram_quantile(0.95, sum by (le) (rate(n8n_form_submission_duration_seconds_bucket[5m])))` |
-| p95 processing time per workflow | `histogram_quantile(0.95, sum by (le, workflow_id) (rate(n8n_form_submission_duration_seconds_bucket[5m])))` |
-| Error rate (non-2xx) | `sum by (workflow_id) (rate(n8n_form_submission_duration_seconds_count{status_code!="2.."}[5m]))` |
-| Average processing duration | `rate(n8n_form_submission_duration_seconds_sum[5m]) / rate(n8n_form_submission_duration_seconds_count[5m])` |
+| 各工作流的提交速率 | `sum by (workflow_id) (rate(n8n_form_submission_duration_seconds_count[5m]))` |
+| 所有表单的 p95 处理时长 | `histogram_quantile(0.95, sum by (le) (rate(n8n_form_submission_duration_seconds_bucket[5m])))` |
+| 各工作流的 p95 处理时长 | `histogram_quantile(0.95, sum by (le, workflow_id) (rate(n8n_form_submission_duration_seconds_bucket[5m])))` |
+| 错误率，非 2xx 响应 | `sum by (workflow_id) (rate(n8n_form_submission_duration_seconds_count{status_code!="2.."}[5m]))` |
+| 平均处理时长 | `rate(n8n_form_submission_duration_seconds_sum[5m]) / rate(n8n_form_submission_duration_seconds_count[5m])` |
 
-## Durable scheduler observability
+## 持久调度器可观测性 <a id="durable-scheduler-observability"></a>
 
-n8n exposes queue-depth, scheduling-lag, dispatch, retry, and dead-letter metrics for the [durable scheduler](../configure-n8n/durable-scheduler.md). Enable them with `N8N_METRICS_INCLUDE_SCHEDULER_METRICS`, then see [Durable scheduler observability](../configure-n8n/durable-scheduler.md#observability) for what each metric means. n8n publishes a [ready-to-use dashboard](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-scheduler) for them.
+n8n 为[持久调度器](../configure-n8n/durable-scheduler.md)提供队列深度、调度延迟、分发、重试和死信指标。使用 `N8N_METRICS_INCLUDE_SCHEDULER_METRICS` 启用，指标含义请参阅[持久调度器可观测性](../configure-n8n/durable-scheduler.md#observability)。n8n 提供了[可直接使用的仪表盘](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-scheduler)。
 
-## Poll trigger observability
+## 轮询触发器可观测性 <a id="poll-trigger-observability"></a>
 
-n8n exposes poll-duration, poll-error, overlap, and cursor-commit metrics for [poll triggers](../configure-n8n/durable-scheduler.md#poll-triggers). Enable them with `N8N_METRICS_INCLUDE_POLL_TRIGGER_METRICS`, then see [Poll trigger metrics](../configure-n8n/durable-scheduler.md#poll-trigger-metrics) for what each metric means. n8n publishes a [ready-to-use dashboard](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-poll-triggers) for them.
+n8n 为[轮询触发器](../configure-n8n/durable-scheduler.md#poll-triggers)提供轮询时长、轮询错误、重叠和游标提交指标。使用 `N8N_METRICS_INCLUDE_POLL_TRIGGER_METRICS` 启用，指标含义请参阅[轮询触发器指标](../configure-n8n/durable-scheduler.md#poll-trigger-metrics)。n8n 提供了[可直接使用的仪表盘](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-poll-triggers)。
 
-## System task observability
+## 系统任务可观测性 <a id="system-task-observability"></a>
 
-n8n exposes run-duration, last-success, in-flight, skip, and timer-lag metrics for its own [system tasks](../configure-n8n/system-tasks.md), the maintenance jobs that prune and compact your data. Enable them with `N8N_METRICS_INCLUDE_SYSTEM_TASK_METRICS`, then see [System task observability](../configure-n8n/system-tasks.md#observability) for what each metric means. n8n publishes a [ready-to-use dashboard](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-system-tasks) for them.
+n8n 为自身的[系统任务](../configure-n8n/system-tasks.md)，即清理和压缩数据的维护作业，提供运行时长、最近成功时间、运行中数量、跳过次数和定时器延迟指标。使用 `N8N_METRICS_INCLUDE_SYSTEM_TASK_METRICS` 启用，指标含义请参阅[系统任务可观测性](../configure-n8n/system-tasks.md#observability)。n8n 提供了[可直接使用的仪表盘](https://github.com/n8n-io/n8n-observability/tree/main/dashboards/grafana/n8n-system-tasks)。
 
-## Workflow name lookup <a href="#workflow-name-lookup" id="workflow-name-lookup"></a>
+## 工作流名称查找 <a href="#workflow-name-lookup" id="workflow-name-lookup"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Workflow name lookup is available from n8n 2.28.0.
+自 n8n 2.28.0 起提供工作流名称查找。
 {% endhint %}
 
-When you enable `N8N_METRICS_INCLUDE_WORKFLOW_INFO`, n8n exposes one gauge per workflow:
+启用 `N8N_METRICS_INCLUDE_WORKFLOW_INFO` 后，n8n 会为每个工作流提供一个仪表指标：
 
 ```
 n8n_workflow_info{workflow_id="VaQPuPmx9tPpo6BX",workflow_name="My workflow"} 1
 ```
 
-Join it onto any other n8n metric via `workflow_id` to replace opaque IDs with human-readable names in Grafana panels. For example, to show webhook request rate by workflow name:
+通过 `workflow_id` 将其与其他任意 n8n 指标关联，即可在 Grafana 面板中，用便于阅读的名称替换不直观的 ID。例如，按工作流名称显示 webhook 请求速率：
 
 ```promql
 sum by (workflow_name) (
@@ -194,11 +195,11 @@ sum by (workflow_name) (
 )
 ```
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Keep n8n running](./)
-* [Set up logging](set-up-logging.md)
-* [Monitor n8n](monitor-n8n.md)
-* [Back up and restore](backup-and-restore.md)
-* [Update n8n](update-n8n.md)
-* [Trace executions with OpenTelemetry](trace-executions-with-opentelemetry.md)
+* [保持 n8n 运行](./)
+* [设置日志](set-up-logging.md)
+* [监控 n8n](monitor-n8n.md)
+* [备份与恢复](backup-and-restore.md)
+* [更新 n8n](update-n8n.md)
+* [使用 OpenTelemetry 跟踪执行](trace-executions-with-opentelemetry.md)

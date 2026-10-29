@@ -1,44 +1,46 @@
 ---
 contentType: howto
-nodeTitle: Set up logging
+nodeTitle: 设置日志
 originalFilePath: hosting/logging-monitoring/logging.md
-originalUrl: 'https://docs.n8n.io/hosting/logging-monitoring/logging'
-url: 'https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/set-up-logging'
+originalUrl: https://docs.n8n.io/hosting/logging-monitoring/logging
+url: https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/set-up-logging
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Logging in n8n <a href="#logging-in-n8n" id="logging-in-n8n"></a>
 
-Logging is an important feature for debugging. n8n uses the [winston](https://www.npmjs.com/package/winston) logging library.
+# n8n 日志 <a href="#logging-in-n8n" id="logging-in-n8n"></a>
+
+日志是调试的重要功能。n8n 使用 [winston](https://www.npmjs.com/package/winston) 日志库。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-All logging options described in this document (except Log streaming) are available on:
+本文介绍的所有日志选项，日志流除外，可用于：
 
-- **n8n Cloud:** All plans
-- **Self-hosted:** All editions
+- **n8n Cloud：**所有套餐。
+- **自托管：**所有版本。
 
-[Log streaming](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/stream-logs-to-external-systems) is available on:
+[日志流](../../../administer/observe-and-log/stream-logs-to-external-systems.md)可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 
 {% endhint %}
 
-## How do I set up logging in n8n? <a href="#setup" id="setup"></a>
+## 如何在 n8n 中设置日志？ <a href="#setup" id="setup"></a>
 
-To set up logging in n8n, you need to set the following environment variables (you can also set the values in the [configuration file](../configure-n8n/basic-configuration/use-environment-variables/README.md))
+要在 n8n 中设置日志，需要设置以下环境变量，也可以在[配置文件](../configure-n8n/basic-configuration/use-environment-variables/README.md)中设置相应值。
 
-| Setting in the configuration file | Using environment variables | Description |
+| 配置文件中的设置 | 使用环境变量 | 说明 |
 |-----------------------------------|-----------------------------|-------------|
-| n8n.log.level | N8N_LOG_LEVEL | The log output level. The available options (from lowest to highest level) are error, warn, info, and debug. The default value is `info`. Refer to [Log levels](#log-levels) for more about these options. |
-| n8n.log.output | N8N_LOG_OUTPUT | Where to output logs. The available options are `console` and `file`. Multiple values can be used separated by a comma (`,`). `console` is used by default. |
-| n8n.log.file.location | N8N_LOG_FILE_LOCATION | The log file location, used only if log output is set to file. By default, `<n8nFolderPath>/logs/n8n.log` is used. |
-| n8n.log.file.fileSizeMax | N8N_LOG_FILE_SIZE_MAX | The maximum size (in MB) for each log file. By default, n8n uses 16 MB. |
-| n8n.log.file.fileCountMax | N8N_LOG_FILE_COUNT_MAX | The maximum number of log files to keep. The default value is 100. This value should be set when using workers. |
+| n8n.log.level | N8N_LOG_LEVEL | 日志输出级别，可用选项从低到高为 error、warn、info 和 debug，默认值为 `info`。这些选项的更多信息，请参阅[日志级别](#log-levels)。 |
+| n8n.log.output | N8N_LOG_OUTPUT | 日志输出位置，可用选项为 `console` 和 `file`，可使用逗号（`,`）分隔多个值，默认使用 `console`。 |
+| n8n.log.file.location | N8N_LOG_FILE_LOCATION | 日志文件位置，仅在日志输出设为文件时使用，默认为 `<n8nFolderPath>/logs/n8n.log`。 |
+| n8n.log.file.fileSizeMax | N8N_LOG_FILE_SIZE_MAX | 每个日志文件的最大大小，单位为 MB，默认 16 MB。 |
+| n8n.log.file.fileCountMax | N8N_LOG_FILE_COUNT_MAX | 保留日志文件的最大数量，默认 100。使用工作进程时应设置此值。 |
 
 
 ```bash
@@ -58,38 +60,38 @@ export N8N_LOG_FILE_SIZE_MAX=50
 export N8N_LOG_FILE_COUNT_MAX=60
 ```
 
-### Log levels <a href="#log-levels" id="log-levels"></a>
+### 日志级别 <a href="#log-levels" id="log-levels"></a>
 
-n8n uses standard log levels to report:
+n8n 使用标准日志级别报告信息：
 
-- `silent`: outputs nothing at all
-- `error`: outputs only errors and nothing else
-- `warn`: outputs errors and warning messages
-- `info`: contains useful information about progress
-- `debug`: the most verbose output. n8n outputs a lot of information to help you debug issues.
+- `silent`：不输出任何内容。
+- `error`：仅输出错误。
+- `warn`：输出错误和警告消息。
+- `info`：包含进度相关的有用信息。
+- `debug`：最详细的输出，n8n 输出大量信息来帮助调试问题。
 
 
-## How do I add logging during development? <a href="#development" id="development"></a>
+## 如何在开发期间添加日志？ <a href="#development" id="development"></a>
 
-During development, adding log messages is a good practice. It assists in debugging errors. To configure logging for development, follow the guide below.
+开发期间添加日志消息是良好实践，有助于调试错误。按以下指南配置开发日志。
 
-### Implementation details <a href="#implementation-details" id="implementation-details"></a>
+### 实现细节 <a href="#implementation-details" id="implementation-details"></a>
 
-n8n uses the `LoggerProxy` class, located in the `workflow` package. Calling the `LoggerProxy.init()` by passing in an instance of `Logger`, initializes the class before the usage.
+n8n 使用 `LoggerProxy` 类，该类位于 `workflow` 包中。使用前，调用 `LoggerProxy.init()` 并传入 `Logger` 实例来初始化此类。
 
-The initialization process happens only once. The [`start.ts`](https://github.com/n8n-io/n8n/blob/master/packages/cli/src/commands/start.ts) file already does this process for you. If you are creating a new command from scratch, you need to initialize the `LoggerProxy` class.
+初始化仅发生一次。[`start.ts`](https://github.com/n8n-io/n8n/blob/master/packages/cli/src/commands/start.ts) 文件已完成此过程。如果从头创建新命令，需要初始化 `LoggerProxy` 类。
 
-Once the `Logger` implementation gets created in the `cli` package, it can be obtained by calling the `getInstance` convenience method from the exported module.
+创建 `Logger` 在 `cli` 包中的实现后，可以调用所导出模块的 `getInstance` 便捷方法获取它。
 
-Check the [start.ts](https://github.com/n8n-io/n8n/blob/master/packages/cli/src/commands/start.ts) file to learn more about how this process works.
+请查看 [start.ts](https://github.com/n8n-io/n8n/blob/master/packages/cli/src/commands/start.ts) 文件，了解此过程的工作方式。
 
-### Adding logs <a href="#adding-logs" id="adding-logs"></a>
+### 添加日志 <a href="#adding-logs" id="adding-logs"></a>
 
-Once the `LoggerProxy` class gets initialized in the project, you can import it to any other file and add logs.
+在项目中初始化 `LoggerProxy` 类后，就可以将其导入其他文件并添加日志。
 
-Convenience methods are provided for all logging levels, so new logs can be added whenever needed using the format `Logger.<logLevel>('<message>', ...meta)`, where `meta` represents any additional properties desired beyond `message`.
+所有日志级别都提供便捷方法，可以随时按 `Logger.<logLevel>('<message>', ...meta)` 格式添加日志。其中 `meta` 表示在 `message` 之外所需的附加属性。
 
-In the example above, we use the standard log levels described [above](#log-levels). The `message` argument is a string, and `meta` is a data object.
+上例使用[前文](#log-levels)介绍的标准日志级别。`message` 参数为字符串，`meta` 为数据对象。
 
 ```js
 // You have to import the LoggerProxy. We rename it to Logger to make it easier
@@ -103,22 +105,22 @@ import {
 Logger.info(`Polling trigger initiated for workflow "${workflow.name}"`, {workflowName: workflow.name, workflowId: workflow.id});
 ```
 
-When creating new loggers, some useful standards to keep in mind are:
+创建新日志记录器时，请遵循以下有用规范：
 
-- Craft log messages to be as human-readable as possible. For example, always wrap names in quotes.
-- Duplicating information in the log message and metadata, like workflow name in the above example, can be useful as messages are easier to search and metadata enables easier filtering.
-- Include multiple IDs (for example, `executionId`, `workflowId`, and `sessionId`) throughout all logs.
-- Use node types instead of node names (or both) as this is more consistent, and so easier to search.
+- 尽量使日志消息便于阅读，例如始终用引号包裹名称。
+- 在日志消息和元数据中重复相同信息可能有帮助，例如上例的工作流名称：消息更易搜索，元数据更便于筛选。
+- 在各处日志中包含多个 ID，例如 `executionId`、`workflowId` 和 `sessionId`。
+- 使用节点类型而非节点名称，或同时包含两者，使记录更一致，也更易搜索。
 
-## Are front-end logs available? <a href="#front-end-logs" id="front-end-logs"></a>
+## 是否提供前端日志？ <a href="#front-end-logs" id="front-end-logs"></a>
 
-As of now, front-end logs aren't available. Using `Logger` or `LoggerProxy` would yield errors in the `editor-ui` package. This functionality will get implemented in the future versions.
+目前不提供前端日志。使用 `Logger` 或 `LoggerProxy` 会在 `editor-ui` 包中产生错误，未来版本将实现此功能。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Keep n8n running](./)
-* [Monitor n8n](monitor-n8n.md)
-* [Visualize metrics with Grafana](visualize-metrics-with-grafana.md)
-* [Back up and restore](backup-and-restore.md)
-* [Update n8n](update-n8n.md)
-* [Trace executions with OpenTelemetry](trace-executions-with-opentelemetry.md)
+* [保持 n8n 运行](./)
+* [监控 n8n](monitor-n8n.md)
+* [使用 Grafana 可视化指标](visualize-metrics-with-grafana.md)
+* [备份与恢复](backup-and-restore.md)
+* [更新 n8n](update-n8n.md)
+* [使用 OpenTelemetry 跟踪执行](trace-executions-with-opentelemetry.md)

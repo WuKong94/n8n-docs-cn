@@ -1,112 +1,114 @@
 ---
-description: Back up and restore a self-hosted n8n instance, including what CLI backups contain, what they miss, and how to recover a full instance.
+description: 备份与恢复自托管 n8n 实例，了解 CLI 备份包含和遗漏的内容，以及如何恢复完整实例。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Back up and restore
 
-Back up a self-hosted n8n instance so you can recover from data loss, roll back a failed update, or move to a new server. A complete backup includes more than the CLI export commands produce on their own. This page explains what a complete backup contains, what the CLI `--backup` flag exports, and how to restore each kind of backup.
+# 备份与恢复 <a id="back-up-and-restore"></a>
 
-## What a complete backup includes
+备份自托管 n8n 实例，以便在数据丢失后恢复、回滚失败的更新，或迁移到新服务器。完整备份所需的内容多于单独使用 CLI 导出命令产生的文件。本页说明完整备份包含哪些内容、CLI 的 `--backup` 标志会导出什么，以及如何恢复各类备份。
 
-A complete backup of a self-hosted n8n instance consists of two parts:
+## 完整备份包含哪些内容 <a id="what-a-complete-backup-includes"></a>
 
-* The `.n8n` user folder, `~/.n8n` by default. It holds the `config` file, which stores the credential encryption key. With the default SQLite database, it also holds the database file itself. If binary data or execution data uses the `filesystem` storage mode, it holds that data too.
+自托管 n8n 实例的完整备份由两部分组成：
 
-You can change the folder's location with the `N8N_USER_FOLDER` environment variable: n8n uses the `.n8n` subfolder of the path you set.
-* Your external database, if you use PostgreSQL instead of the default SQLite. Back it up with your database's own tooling. The `.n8n` folder is still part of the backup, because credentials in the database are encrypted with the key it holds.
+* `.n8n` 用户文件夹，默认为 `~/.n8n`。其中的 `config` 文件保存凭据加密密钥。使用默认 SQLite 数据库时，该文件夹也包含数据库文件。如果二进制数据或执行数据采用 `filesystem` 存储模式，也包含这些数据。
 
-If you configured external storage for binary data or execution data, such as S3 or Azure Blob Storage, back that storage up as well. If binary data or execution data is stored on a custom filesystem path, include that location in your backup too. If you load custom nodes from directories set in the `N8N_CUSTOM_EXTENSIONS` environment variable, back those directories up as well: a restored instance without them is missing the nodes its workflows reference.
+可以通过 `N8N_USER_FOLDER` 环境变量更改文件夹位置：n8n 使用所设路径下的 `.n8n` 子文件夹。
+* 如果使用 PostgreSQL 而非默认 SQLite，还需要备份外部数据库。请使用数据库自身的工具备份。`.n8n` 文件夹仍属于备份的一部分，因为数据库中的凭据由其中保存的密钥加密。
 
-With the default SQLite database, stop n8n before copying the `.n8n` folder. Copying the database file while n8n is writing to it can produce an inconsistent backup. If you can't stop n8n, use a tool that takes a consistent snapshot of the SQLite file instead.
+如果为二进制数据或执行数据配置了 S3、Azure Blob Storage 等外部存储，也请备份这些存储。如果二进制数据或执行数据存储在自定义文件系统路径，请将该位置纳入备份。如果通过 `N8N_CUSTOM_EXTENSIONS` 环境变量指定目录来加载自定义节点，也请备份这些目录，否则恢复后的实例会缺少工作流引用的节点。
 
-If you run n8n in Docker, the `.n8n` folder lives in the `n8n_data` volume, mounted at `/home/node/.n8n`. For more information about persistent data in Docker, see [Install with Docker](../install-options/install-with-docker.md).
+使用默认 SQLite 数据库时，复制 `.n8n` 文件夹之前请先停止 n8n。在 n8n 写入数据库时复制数据库文件，可能生成不一致的备份。如果无法停止 n8n，请使用能为 SQLite 文件创建一致性快照的工具。
+
+在 Docker 中运行 n8n 时，`.n8n` 文件夹位于 `n8n_data` 卷中，挂载到 `/home/node/.n8n`。Docker 持久化数据的更多信息，请参阅[使用 Docker 安装](../install-options/install-with-docker.md)。
 
 {% hint style="info" %}
-**The encryption key is required to restore credentials**
+**恢复凭据需要加密密钥**
 
-n8n saves credentials to the database in encrypted form. Without the encryption key from the `config` file, or a custom `N8N_ENCRYPTION_KEY`, a restored database or encrypted credential export can't be decrypted. For more information, see [Set a custom encryption key](../configure-n8n/basic-configuration/configuration-examples/set-a-custom-encryption-key.md).
+n8n 将凭据以加密形式保存在数据库中。没有 `config` 文件中的加密密钥，或自定义的 `N8N_ENCRYPTION_KEY`，就无法解密恢复后的数据库或加密的凭据导出文件。更多信息请参阅[设置自定义加密密钥](../configure-n8n/basic-configuration/configuration-examples/set-a-custom-encryption-key.md)。
 {% endhint %}
 
-n8n recommends taking a full backup before updating. For update procedures, see [Update n8n](update-n8n.md).
+n8n 建议在更新前进行完整备份。更新步骤请参阅[更新 n8n](update-n8n.md)。
 
-## Back up workflows and credentials with the CLI
+## 使用 CLI 备份工作流和凭据 <a id="back-up-workflows-and-credentials-with-the-cli"></a>
 
-You can export workflows and credentials to JSON files using the [Server CLI](../configure-n8n/use-the-command-line.md):
+可以使用[服务器 CLI](../configure-n8n/use-the-command-line.md)，将工作流和凭据导出到 JSON 文件：
 
 ```bash
 n8n export:workflow --backup --output=backups/workflows/
 n8n export:credentials --backup --output=backups/credentials/
 ```
 
-The `--backup` flag sets `--all --pretty --separate`, so each workflow and credential is written as a separate, readable JSON file.
+`--backup` 标志会设置 `--all --pretty --separate`，将每个工作流和凭据分别写入独立、便于阅读的 JSON 文件。
 
-Use a different output directory for each command. `import:credentials --separate` currently fails when the input directory also contains workflow files. This is a [known issue](https://github.com/n8n-io/n8n/issues/37814).
+请为每条命令使用不同的输出目录。目前，如果输入目录还包含工作流文件，`import:credentials --separate` 就会失败。这是一个[已知问题](https://github.com/n8n-io/n8n/issues/37814)。
 
-If you run n8n in Docker, a `backups/` directory inside the container isn't persisted: only the `.n8n` folder is in a volume. Bind-mount a host directory for your backups, or copy the exported files out of the container before recreating it.
+在 Docker 中运行 n8n 时，容器内的 `backups/` 目录不会持久化，只有 `.n8n` 文件夹位于卷中。请绑定挂载主机目录来存放备份，或在重新创建容器前，将导出的文件复制到容器外。
 
-### What a CLI backup doesn't contain
+### CLI 备份不包含哪些内容 <a id="what-a-cli-backup-doesnt-contain"></a>
 
-The `--backup` exports contain workflows and credentials only. They don't include:
+`--backup` 导出仅包含工作流和凭据，不包含：
 
-* Users and their roles. After importing into a fresh instance, n8n shows the owner setup screen again, and the first person to complete it becomes the owner.
-* Execution history and logs.
-* Variables.
-* Instance settings, including the encryption key.
+* 用户及其角色。导入到全新实例后，n8n 会再次显示所有者设置页面，首个完成设置的人会成为所有者。
+* 执行历史和日志。
+* 变量。
+* 实例设置，包括加密密钥。
 
-This means a CLI backup is enough to move workflows between instances, but not enough to recover a full instance on its own. For that, keep a backup of the `.n8n` folder and the external database as described in [What a complete backup includes](#what-a-complete-backup-includes).
+因此，CLI 备份足以在实例间迁移工作流，但无法单独用于恢复完整实例。要恢复完整实例，请按[完整备份包含哪些内容](#what-a-complete-backup-includes)一节备份 `.n8n` 文件夹和外部数据库。
 
-## Restore
+## 恢复 <a id="restore"></a>
 
-### Restore workflows and credentials
+### 恢复工作流和凭据 <a id="restore-workflows-and-credentials"></a>
 
-Import the files from your CLI backup. On a fresh instance, complete the owner setup first: the import commands need an existing user, and imported credentials need an owner. If your instance has multiple users or projects, use `--userId` or `--projectId` to assign the imported credentials.
+导入 CLI 备份中的文件。全新实例应先完成所有者设置：导入命令需要已有用户，导入的凭据也需要所有者。如果实例包含多个用户或项目，请使用 `--userId` 或 `--projectId` 指定导入凭据的归属。
 
 ```bash
 n8n import:workflow --separate --input=backups/workflows/
 n8n import:credentials --separate --input=backups/credentials/
 ```
 
-Exports include the original workflow and credential IDs. If the target instance already has items with the same IDs, they're overwritten. Imported workflows are deactivated by default. Activate them in the UI after importing, or pass `--activeState=fromJson` to restore each workflow's exported active state, which only works in queue or multi-main mode. For the full list of flags and caveats, see [Use the command line](../configure-n8n/use-the-command-line.md).
+导出内容包含原工作流和凭据 ID。如果目标实例已存在相同 ID 的条目，它们会被覆盖。导入的工作流默认停用。导入后请在界面中激活，或传入 `--activeState=fromJson` 恢复各工作流导出时的活动状态，此选项仅适用于队列或多主实例模式。完整标志列表和注意事项请参阅[使用命令行](../configure-n8n/use-the-command-line.md)。
 
-To restore credentials, the importing instance must be able to decrypt them. You have two options:
+要恢复凭据，导入实例必须能够解密它们。有两种选择：
 
-* Use the same encryption key as the exporting instance. Restore the `config` file to the `.n8n` folder, or set the same `N8N_ENCRYPTION_KEY` environment variable.
-* Export with the `--decrypted` flag, which writes credentials in plain text.
+* 使用与导出实例相同的加密密钥。将 `config` 文件恢复到 `.n8n` 文件夹，或设置相同的 `N8N_ENCRYPTION_KEY` 环境变量。
+* 使用 `--decrypted` 标志导出，以明文形式写入凭据。
 
 {% hint style="warning" %}
-**Sensitive information**
+**敏感信息**
 
-A `--decrypted` export contains all credential data in plain text. Store it with the same care as the credentials themselves, and delete it once the restore is complete.
+`--decrypted` 导出包含明文形式的全部凭据数据。请像保护凭据本身一样妥善保存，并在恢复完成后删除。
 {% endhint %}
 
-### Restore the full instance
+### 恢复完整实例 <a id="restore-the-full-instance"></a>
 
-To restore a complete instance:
+要恢复完整实例：
 
-1. Stop n8n.
-2. Restore the `.n8n` folder to its original location, plus any custom-node directories you configured with `N8N_CUSTOM_EXTENSIONS`.
-3. Restore your PostgreSQL database from its backup, if you use one.
-4. Restore your deployment configuration: the environment variables for your database connection, a custom `N8N_ENCRYPTION_KEY` if you use one, and any external storage settings. Without them, a restored instance can't reach its database or decrypt its data.
-5. Start n8n.
+1. 停止 n8n。
+2. 将 `.n8n` 文件夹恢复到原位置，并恢复通过 `N8N_CUSTOM_EXTENSIONS` 配置的所有自定义节点目录。
+3. 如果使用 PostgreSQL，请从备份恢复数据库。
+4. 恢复部署配置，包括数据库连接环境变量、使用自定义密钥时的 `N8N_ENCRYPTION_KEY`，以及外部存储设置。缺少这些配置，恢复后的实例将无法访问数据库或解密数据。
+5. 启动 n8n。
 
-With the default SQLite database, the `.n8n` folder holds everything needed to recover the instance: the SQLite database file, which contains users, settings, and execution data, the encryption key, and, on filesystem storage modes, binary and execution data. With PostgreSQL, the `.n8n` folder still holds the encryption key, and the database backup holds the rest.
+使用默认 SQLite 数据库时，`.n8n` 文件夹包含恢复实例所需的全部内容：保存用户、设置和执行数据的 SQLite 数据库文件、加密密钥，以及在文件系统存储模式下的二进制数据和执行数据。使用 PostgreSQL 时，`.n8n` 文件夹仍保存加密密钥，数据库备份保存其余内容。
 
-## Related content
+## 相关内容 <a id="related-content"></a>
 
-* [Keep n8n running](README.md): guides for operating a self-hosted n8n instance.
-* [Use the command line](../configure-n8n/use-the-command-line.md): the full Server CLI reference, including all export and import flags.
-* [Set a custom encryption key](../configure-n8n/basic-configuration/configuration-examples/set-a-custom-encryption-key.md): how to provide `N8N_ENCRYPTION_KEY` explicitly.
-* [Choose n8n's database](../configure-n8n/choose-n8ns-database.md): SQLite and PostgreSQL configuration.
-* [Update n8n](update-n8n.md): update procedures for npm and Docker installations.
+* [保持 n8n 运行](README.md)：自托管 n8n 实例的运行维护指南。
+* [使用命令行](../configure-n8n/use-the-command-line.md)：完整服务器 CLI 参考，包括所有导出和导入标志。
+* [设置自定义加密密钥](../configure-n8n/basic-configuration/configuration-examples/set-a-custom-encryption-key.md)：如何显式提供 `N8N_ENCRYPTION_KEY`。
+* [选择 n8n 的数据库](../configure-n8n/choose-n8ns-database.md)：SQLite 和 PostgreSQL 配置。
+* [更新 n8n](update-n8n.md)：npm 和 Docker 安装的更新步骤。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Keep n8n running](./)
-* [Set up logging](set-up-logging.md)
-* [Monitor n8n](monitor-n8n.md)
-* [Visualize metrics with Grafana](visualize-metrics-with-grafana.md)
-* [Update n8n](update-n8n.md)
-* [Trace executions with OpenTelemetry](trace-executions-with-opentelemetry.md)
+* [保持 n8n 运行](./)
+* [设置日志](set-up-logging.md)
+* [监控 n8n](monitor-n8n.md)
+* [使用 Grafana 可视化指标](visualize-metrics-with-grafana.md)
+* [更新 n8n](update-n8n.md)
+* [使用 OpenTelemetry 跟踪执行](trace-executions-with-opentelemetry.md)

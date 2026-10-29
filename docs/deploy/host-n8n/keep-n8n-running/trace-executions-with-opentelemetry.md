@@ -1,101 +1,100 @@
 ---
-title: OpenTelemetry tracing
-description: >-
-  Send workflow and node execution traces from n8n to an OpenTelemetry
-  collector.
+title: OpenTelemetry 跟踪
+description: 将 n8n 的工作流和节点执行跟踪发送到 OpenTelemetry 收集器。
 contentType: howto
-nodeTitle: Trace executions with OpenTelemetry
+nodeTitle: 使用 OpenTelemetry 跟踪执行
 originalFilePath: hosting/logging-monitoring/opentelemetry.md
-originalUrl: 'https://docs.n8n.io/hosting/logging-monitoring/opentelemetry'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/trace-executions-with-opentelemetry
+originalUrl: https://docs.n8n.io/hosting/logging-monitoring/opentelemetry
+url: https://docs.n8n.io/deploy/host-n8n/keep-n8n-running/trace-executions-with-opentelemetry
 layout:
   description:
     visible: false
 status: preview
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenTelemetry tracing <a href="#opentelemetry-tracing" id="opentelemetry-tracing"></a>
+
+# OpenTelemetry 跟踪 <a href="#opentelemetry-tracing" id="opentelemetry-tracing"></a>
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-OpenTelemetry tracing is in Preview from n8n 2.19.0 and may change in future releases. Avoid relying on it in production workflows. n8n plans to add OpenTelemetry-formatted metrics in a later release.
+OpenTelemetry 跟踪自 n8n 2.19.0 起处于预览阶段，未来版本可能更改。请避免在生产工作流中依赖此功能。n8n 计划在后续版本中增加 OpenTelemetry 格式的指标。
 {% endhint %}
 
-n8n can emit [OpenTelemetry](https://opentelemetry.io/) traces for workflow and node executions. Use these traces to monitor execution latency, debug failures, and track requests across services in your observability stack.
+n8n 可以为工作流和节点执行生成 [OpenTelemetry](https://opentelemetry.io/) 跟踪。使用这些跟踪，可以监控执行延迟、调试故障，并在可观测性系统中跨服务跟踪请求。
 
-Watch an overview of OpenTelemetry tracing in n8n:
+观看 n8n OpenTelemetry 跟踪概览：
 
 {% embed url="https://www.youtube.com/embed/xOi8K_-GLRM" %}
 
-## What you get <a href="#what-you-get" id="what-you-get"></a>
+## 可获得的内容 <a href="#what-you-get" id="what-you-get"></a>
 
-When you turn on tracing, n8n exports two kinds of spans for each execution:
+启用跟踪后，n8n 会为每次执行导出两类 span（跟踪片段）：
 
-- **`workflow.execute`**: One span per workflow execution. It records the workflow ID, name, version, project, node count, execution mode, status, and any error type.
-- **`node.execute`**: One span per node execution, nested inside its workflow span. It records the node ID, name, type, version, the number of input and output items, and the execution, workflow, and project it belongs to.
+- **`workflow.execute`**：每次工作流执行生成一个 span，记录工作流 ID、名称、版本、项目、节点数量、执行模式、状态和错误类型。
+- **`node.execute`**：每次节点执行生成一个 span，嵌套在所属工作流 span 中，记录节点 ID、名称、类型、版本、输入和输出条目数量，以及所属执行、工作流和项目。
 
-n8n exports a span when it ends. To see a run while it's still going, turn on [start spans](#start-spans).
+n8n 在 span 结束时导出它。要在运行仍进行时查看，请启用[开始 span](#start-spans)。
 
-Each span includes resource attributes that identify the n8n instance:
+每个 span 都包含用于标识 n8n 实例的资源属性：
 
-- `service.name` (default `n8n`)
-- `service.version` (the n8n version)
+- `service.name`，默认为 `n8n`。
+- `service.version`，即 n8n 版本。
 - `n8n.instance.id`
-- `n8n.instance.role` (for example, `main`, `worker`, or `webhook`)
+- `n8n.instance.role`，例如 `main`、`worker` 或 `webhook`。
 
-n8n also handles trace context propagation:
+n8n 也会处理跟踪上下文传播：
 
-- **Inbound**: If a webhook request includes a [W3C `traceparent` header](https://www.w3.org/TR/trace-context/), n8n uses it as the parent for the workflow span. This links the n8n workflow trace to the upstream caller.
-- **Outbound**: HTTP Request nodes (and other nodes that use the n8n HTTP helpers) can inject a `traceparent` header into outbound requests. Downstream services that support W3C trace context can therefore continue the trace.
-- **Sub-workflows**: A sub-workflow's span uses the parent workflow's span as its parent.
-- **Resumed workflows**: When a workflow resumes after a wait, the new span links back to the previous span using a span link.
+- **入站**：如果 webhook 请求包含 [W3C `traceparent` 标头](https://www.w3.org/TR/trace-context/)，n8n 会将其作为工作流 span 的父级，将 n8n 工作流跟踪与上游调用方关联。
+- **出站**：HTTP Request 节点及其他使用 n8n HTTP 辅助方法的节点，可以在出站请求中注入 `traceparent` 标头。支持 W3C 跟踪上下文的下游服务即可继续此跟踪。
+- **子工作流**：子工作流的 span 使用父工作流的 span 作为父级。
+- **恢复的工作流**：工作流从等待中恢复时，新的 span 通过 span link 关联到之前的 span。
 
-## Enable tracing in the UI <a href="#enable-tracing-in-the-ui" id="enable-tracing-in-the-ui"></a>
-
-{% hint style="info" %}
-**Feature availability**
-
-Configuring OpenTelemetry tracing from the UI is available from n8n 2.27.0. You need to be an instance owner or admin to configure OpenTelemetry in the UI.
-{% endhint %}
-
-Instead of setting environment variables, you can configure tracing from **Settings > OpenTelemetry**. n8n applies your changes without a restart, and reloads them across workers and webhook processors in [queue mode](../configure-n8n/scaling/enable-queue-mode.md).
-
-To configure tracing:
-
-1. Select **Settings > OpenTelemetry**.
-1. Turn on **Enable OpenTelemetry**.
-1. Under **Collector connection**, enter your **OTLP endpoint** and any other connection details.
-1. Under **Tracing**, set your sampling and span options.
-1. Select **Save settings**.
-
-To check that n8n can reach your collector, select **Send test trace** under **Verify configuration**. n8n sends a single test span and reports whether the collector accepted it. You can run this before or after you save.
-
-Each field maps to an environment variable, shown in the field's tooltip. For the full list, see [OpenTelemetry environment variables](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md).
+## 在界面中启用跟踪 <a href="#enable-tracing-in-the-ui" id="enable-tracing-in-the-ui"></a>
 
 {% hint style="info" %}
-**Environment variables take precedence**
+**功能可用范围**
 
-If you set an option with an environment variable, n8n uses that value and disables the matching field in the UI. To manage a setting from the UI, leave its environment variable unset. When n8n restarts, environment variables override the values saved in the UI.
+自 n8n 2.27.0 起，可以在界面中配置 OpenTelemetry 跟踪。需要实例所有者或管理员身份。
 {% endhint %}
 
-## Enable tracing with environment variables <a href="#enable-tracing-with-environment-variables" id="enable-tracing-with-environment-variables"></a>
+可以在 **Settings > OpenTelemetry**（设置 > OpenTelemetry）中配置跟踪，无需设置环境变量。n8n 会直接应用更改，无需重启，并在[队列模式](../configure-n8n/scaling/enable-queue-mode.md)下将配置重新加载到各工作进程和 webhook 处理器。
 
-Set the following environment variables on each n8n instance you want workflow tracing enabled (main, workers, and webhook processors):
+要配置跟踪：
+
+1. 选择 **Settings > OpenTelemetry**（设置 > OpenTelemetry）。
+1. 打开 **Enable OpenTelemetry**（启用 OpenTelemetry）。
+1. 在 **Collector connection**（收集器连接）下，填写 **OTLP endpoint**（OTLP 端点）和其他连接信息。
+1. 在 **Tracing**（跟踪）下设置采样和 span 选项。
+1. 选择 **Save settings**（保存设置）。
+
+要检查 n8n 能否访问收集器，请在 **Verify configuration**（验证配置）下选择 **Send test trace**（发送测试跟踪）。n8n 会发送单个测试 span，并报告收集器是否接受。保存前后都可以测试。
+
+每个字段都对应一个环境变量，字段提示中会显示该变量。完整列表请参阅 [OpenTelemetry 环境变量](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md)。
+
+{% hint style="info" %}
+**环境变量优先**
+
+如果通过环境变量设置某个选项，n8n 会使用该值，并禁用界面中的对应字段。要从界面管理设置，请不要设置其环境变量。n8n 重启时，环境变量会覆盖界面保存的值。
+{% endhint %}
+
+## 通过环境变量启用跟踪 <a href="#enable-tracing-with-environment-variables" id="enable-tracing-with-environment-variables"></a>
+
+在每个需要启用工作流跟踪的 n8n 实例上设置以下环境变量，包括主实例、工作进程和 webhook 处理器：
 
 ```bash
 export N8N_OTEL_ENABLED=true
 export N8N_OTEL_EXPORTER_OTLP_ENDPOINT=http://<your-collector-host>:4318
 ```
 
-Restart n8n. The instance starts exporting spans over OTLP HTTP using the Protobuf encoding. To export over gRPC instead, refer to [Choose the OTLP protocol](#choose-the-otlp-protocol).
+重启 n8n。实例会使用 Protobuf 编码，通过 OTLP HTTP 导出 span。要改用 gRPC 导出，请参阅[选择 OTLP 协议](#choose-the-otlp-protocol)。
 
-n8n appends `/v1/traces` to the endpoint by default. Point `N8N_OTEL_EXPORTER_OTLP_ENDPOINT` at the base URL of your collector, not the traces path. The endpoint must be an `http://` or `https://` URL. If you set another scheme, or no scheme, n8n logs a warning and uses the default endpoint.
+n8n 默认会在端点后追加 `/v1/traces`。请将 `N8N_OTEL_EXPORTER_OTLP_ENDPOINT` 指向收集器的基础 URL，而非跟踪路径。端点必须使用 `http://` 或 `https://` URL。如果使用其他协议或未指定协议，n8n 会记录警告并使用默认端点。
 
-If your collector needs authentication, set `N8N_OTEL_EXPORTER_OTLP_HEADERS` to a comma-separated list of `key=value` pairs:
+如果收集器需要身份验证，请将 `N8N_OTEL_EXPORTER_OTLP_HEADERS` 设为以逗号分隔的 `key=value` 键值对列表：
 
 ```bash
 export N8N_OTEL_EXPORTER_OTLP_HEADERS="authorization=Bearer <your-token>,x-tenant=acme"
@@ -104,257 +103,257 @@ export N8N_OTEL_EXPORTER_OTLP_HEADERS="authorization=Bearer <your-token>,x-tenan
 export N8N_OTEL_EXPORTER_OTLP_HEADERS_FILE=/mnt/otel-headers
 ```
 
-For the full list of supported variables, refer to [OpenTelemetry environment variables](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md).
+完整的受支持变量列表，请参阅 [OpenTelemetry 环境变量](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md)。
 
 {% hint style="info" %}
-**Queue mode**
+**队列模式**
 
-In [queue mode](../configure-n8n/scaling/enable-queue-mode.md), the OpenTelemetry variables must be set on all instances. Trace context is propagated between instances.
+在[队列模式](../configure-n8n/scaling/enable-queue-mode.md)下，必须在所有实例上设置 OpenTelemetry 变量。跟踪上下文会在实例间传播。
 {% endhint %}
 
-## Choose the OTLP protocol
+## 选择 OTLP 协议 <a id="choose-the-otlp-protocol"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-The OTLP gRPC protocol, with the **Protocol** setting and the `N8N_OTEL_EXPORTER_OTLP_PROTOCOL` environment variable, is available from n8n 2.39.0.
+自 n8n 2.39.0 起，提供 OTLP gRPC 协议、**Protocol**（协议）设置和 `N8N_OTEL_EXPORTER_OTLP_PROTOCOL` 环境变量。
 {% endhint %}
 
-n8n can export traces over two OTLP transports:
+n8n 可以通过两种 OTLP 传输方式导出跟踪：
 
-- **`http/protobuf`** (default): OTLP over HTTP with Protobuf encoding. Collectors listen for it on port 4318 by convention. It works through proxies, ingresses, and firewalls that don't support HTTP/2, and it's simpler to debug.
-- **`grpc`**: OTLP over gRPC. Collectors listen for it on port 4317 by convention. HTTP/2 multiplexing and binary framing give it lower overhead per export. The difference matters most at high span volume. It needs HTTP/2 support end to end. Some proxies and load balancers require explicit configuration for HTTP/2.
+- **`http/protobuf`**，默认选项：通过 HTTP 传输 OTLP，使用 Protobuf 编码。收集器通常在端口 4318 监听。可通过不支持 HTTP/2 的代理、Ingress 和防火墙，调试也更简单。
+- **`grpc`**：通过 gRPC 传输 OTLP。收集器通常在端口 4317 监听。HTTP/2 多路复用和二进制分帧降低了每次导出的开销，span 数量很大时差异最明显。此方式要求端到端支持 HTTP/2，部分代理和负载均衡器需要显式配置 HTTP/2。
 
-Keep the default `http/protobuf` unless your collector only accepts gRPC, or you export a high trace volume through infrastructure that supports HTTP/2.
+除非收集器仅接受 gRPC，或你通过支持 HTTP/2 的基础设施导出大量跟踪，否则请保留默认的 `http/protobuf`。
 
-To select the protocol, set the **Protocol** field in **Settings > OpenTelemetry**, or set the environment variable:
+要选择协议，请设置 **Settings > OpenTelemetry**（设置 > OpenTelemetry）中的 **Protocol**（协议）字段，或设置环境变量：
 
 ```bash
 export N8N_OTEL_EXPORTER_OTLP_PROTOCOL=grpc
 ```
 
-The variable name and its values (`http/protobuf` and `grpc`) match the upstream [`OTEL_EXPORTER_OTLP_PROTOCOL`](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) specification. As with the other fields in **Settings > OpenTelemetry**, n8n disables the **Protocol** field when you set the environment variable.
+变量名及其值（`http/protobuf` 和 `grpc`）与上游 [`OTEL_EXPORTER_OTLP_PROTOCOL`](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) 规范一致。与 **Settings > OpenTelemetry** 中的其他字段一样，设置环境变量后，n8n 会禁用 **Protocol** 字段。
 
-### TLS
+### TLS <a id="tls"></a>
 
-The endpoint scheme controls TLS for both protocols. `https://` turns TLS on and `http://` turns it off. n8n doesn't accept a `grpc://` scheme.
+两种协议都通过端点 URL 的协议部分控制 TLS。`https://` 启用 TLS，`http://` 禁用 TLS。n8n 不接受 `grpc://` 协议。
 
-To trust a custom certificate authority, or to present a client certificate for mutual TLS (mTLS), use the upstream OpenTelemetry variables `OTEL_EXPORTER_OTLP_CERTIFICATE`, `OTEL_EXPORTER_OTLP_CLIENT_KEY`, and `OTEL_EXPORTER_OTLP_CLIENT_CERTIFICATE`. For the `http/protobuf` protocol, `NODE_EXTRA_CA_CERTS` also works. n8n has no setting of its own for certificates.
+要信任自定义证书颁发机构，或提供客户端证书进行双向 TLS（mTLS），请使用上游 OpenTelemetry 变量 `OTEL_EXPORTER_OTLP_CERTIFICATE`、`OTEL_EXPORTER_OTLP_CLIENT_KEY` 和 `OTEL_EXPORTER_OTLP_CLIENT_CERTIFICATE`。对于 `http/protobuf` 协议，`NODE_EXTRA_CA_CERTS` 也有效。n8n 本身没有证书设置。
 
-### gRPC behavior
+### gRPC 行为 <a id="grpc-behavior"></a>
 
-The `grpc` protocol differs from `http/protobuf` in these ways:
+`grpc` 协议与 `http/protobuf` 有以下区别：
 
-- **Include the port in the endpoint.** A gRPC endpoint without an explicit port connects to port 443, the gRPC default, not 4317. Write `http://<your-collector-host>:4317`.
-- **gRPC endpoints take no URL path.** n8n ignores the **Trace path** setting (`N8N_OTEL_EXPORTER_OTLP_TRACING_PATH`) and hides its row in the UI. n8n keeps the saved value and applies it again if you switch back to `http/protobuf`.
-- **Custom headers become gRPC metadata.** n8n converts the keys to lowercase. It skips entries that gRPC rejects, including `-bin`-suffixed keys with text values, and logs a warning instead of failing startup.
-- **The startup connectivity check waits for the gRPC channel to become ready.** A ready channel proves that n8n can open a TCP connection, complete the TLS handshake for `https://`, and establish an HTTP/2 connection. It doesn't prove that the endpoint serves OTLP. Use **Send test trace** in **Settings > OpenTelemetry** to confirm that the collector receives spans. The check doesn't block startup.
+- **在端点中包含端口。**未显式指定端口的 gRPC 端点会连接到 gRPC 默认端口 443，而非 4317。请写为 `http://<your-collector-host>:4317`。
+- **gRPC 端点不包含 URL 路径。**n8n 会忽略 **Trace path**（跟踪路径）设置（`N8N_OTEL_EXPORTER_OTLP_TRACING_PATH`），并在界面中隐藏该行。n8n 保留已保存的值，切回 `http/protobuf` 时会重新应用。
+- **自定义标头转换为 gRPC 元数据。**n8n 会将键转为小写。对于 gRPC 拒绝的条目，包括带 `-bin` 后缀但值为文本的键，n8n 会跳过并记录警告，而不是导致启动失败。
+- **启动连接检查会等待 gRPC 通道就绪。**通道就绪证明 n8n 能打开 TCP 连接、在 `https://` 下完成 TLS 握手，并建立 HTTP/2 连接，但不能证明端点提供 OTLP。请使用 **Settings > OpenTelemetry** 中的 **Send test trace**（发送测试跟踪），确认收集器收到 span。此检查不会阻止启动。
 
-## Sampling <a href="#sampling" id="sampling"></a>
+## 采样 <a href="#sampling" id="sampling"></a>
 
-By default, n8n exports every trace. To reduce volume in busy instances, set `N8N_OTEL_TRACES_SAMPLE_RATE` to a value between `0` and `1`:
+默认情况下，n8n 导出每条跟踪。要减少繁忙实例的数据量，请将 `N8N_OTEL_TRACES_SAMPLE_RATE` 设为 `0` 到 `1` 之间的值：
 
 ```bash
 # Export 10% of traces <a href="#export-10percent-of-traces" id="export-10percent-of-traces"></a>
 export N8N_OTEL_TRACES_SAMPLE_RATE=0.1
 ```
 
-n8n uses a trace ID ratio sampler, so the same trace ID is either fully sampled or fully dropped across all spans in the trace.
+n8n 使用基于跟踪 ID 比例的采样器，因此同一跟踪 ID 下的所有 span 要么全部采样，要么全部丢弃。
 
 {% hint style="info" %}
-By default, n8n only outputs traces for [production executions](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/understand-executions/types-of-executions). To output traces for all workflow executions, set `N8N_OTEL_TRACES_PRODUCTION_ONLY=false`.
+n8n 默认仅为[生产执行](../../../build/understand-workflows/understand-executions/types-of-executions.md)输出跟踪。要为所有工作流执行输出跟踪，请设置 `N8N_OTEL_TRACES_PRODUCTION_ONLY=false`。
 {% endhint %}
 
-## Reduce span volume <a href="#reduce-span-volume" id="reduce-span-volume"></a>
+## 减少 span 数量 <a href="#reduce-span-volume" id="reduce-span-volume"></a>
 
-Each node in a workflow produces its own span. For workflows with lots of nodes, this can produce more data than you need. To export only workflow-level spans, set:
+工作流中的每个节点都会生成自己的 span，节点很多时，产生的数据可能超出需要。要仅导出工作流级 span，请设置：
 
 ```bash
 export N8N_OTEL_TRACES_INCLUDE_NODE_SPANS=false
 ```
 
-To stop n8n from injecting `traceparent` headers into outbound HTTP requests, set:
+要停止 n8n 向出站 HTTP 请求注入 `traceparent` 标头，请设置：
 
 ```bash
 export N8N_OTEL_TRACES_INJECT_OUTBOUND=false
 ```
 
-## Start spans
+## 开始 span <a id="start-spans"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Start spans are available from n8n 2.44.0.
+自 n8n 2.44.0 起提供开始 span。
 {% endhint %}
 
-A long-running workflow or node is invisible in your backend until its span ends. With start spans on, n8n also sends a 0 ms child span the moment the workflow or node starts. The start span carries the same attributes as its parent at that moment, so you know right away what's running, and in which workflow and project.
+长时间运行的工作流或节点，在其 span 结束前不会显示在观测后端中。启用开始 span 后，n8n 还会在工作流或节点开始的瞬间发送一个 0 毫秒的子 span。开始 span 携带父 span 在该时刻的相同属性，让你立即知道哪些任务正在运行，以及所属工作流和项目。
 
-| Start span | Parent | Setting | Environment variable |
+| 开始 span | 父级 | 设置 | 环境变量 |
 | :--------- | :----- | :------ | :------------------- |
-| `workflow.execute.started` | `workflow.execute` | **Send workflow start spans** | `N8N_OTEL_TRACES_EMIT_WORKFLOW_START_SPAN` |
-| `node.execute.started` | `node.execute` | **Send node start spans** | `N8N_OTEL_TRACES_EMIT_NODE_START_SPAN` |
+| `workflow.execute.started` | `workflow.execute` | **Send workflow start spans**（发送工作流开始 span） | `N8N_OTEL_TRACES_EMIT_WORKFLOW_START_SPAN` |
+| `node.execute.started` | `node.execute` | **Send node start spans**（发送节点开始 span） | `N8N_OTEL_TRACES_EMIT_NODE_START_SPAN` |
 
-Both are off by default. Turn them on under **Settings > OpenTelemetry > Tracing**, or set the environment variables to `true`. Node start spans also need **Include node spans** (`N8N_OTEL_TRACES_INCLUDE_NODE_SPANS`) on. In queue mode, set the variables on the main instance and on every worker.
+两者默认均关闭。可以在 **Settings > OpenTelemetry > Tracing**（设置 > OpenTelemetry > 跟踪）下启用，或将环境变量设为 `true`。节点开始 span 还需要启用 **Include node spans**（包含节点 span，`N8N_OTEL_TRACES_INCLUDE_NODE_SPANS`）。队列模式下，请在主实例和每个工作进程上设置变量。
 
-To use the public API, call `PUT /api/v1/settings/otel` with `emitWorkflowStartSpan` and `emitNodeStartSpan`, using an API key with the `otel:manage` scope. This call replaces all OpenTelemetry settings. n8n rejects a body that leaves out a required field. If you leave out an optional field, `exporterProtocol`, `emitWorkflowStartSpan`, or `emitNodeStartSpan`, n8n resets it to its default.
+要使用公共 API，请调用 `PUT /api/v1/settings/otel`，传入 `emitWorkflowStartSpan` 和 `emitNodeStartSpan`，并使用具有 `otel:manage` 权限范围的 API 密钥。此调用会替换所有 OpenTelemetry 设置。缺少必填字段的请求体会被 n8n 拒绝。如果省略可选字段 `exporterProtocol`、`emitWorkflowStartSpan` 或 `emitNodeStartSpan`，n8n 会将其重置为默认值。
 
-## Crashed executions
+## 崩溃的执行 <a id="crashed-executions"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Spans for crashed executions are available from n8n 2.42.0.
+自 n8n 2.42.0 起，崩溃的执行也会产生 span。
 {% endhint %}
 
-An execution is `crashed` when the n8n instance running it stopped without recording a result, for example after an out-of-memory kill or a container eviction. n8n marks the execution `crashed` later, once it notices the execution can't finish. Before n8n 2.42.0, these executions produced no span, so the error rate in your trace backend missed every platform failure. From n8n 2.42.0, a crashed execution produces one `workflow.execute` span.
+运行执行的 n8n 实例未记录结果就停止时，例如因内存不足被终止或容器被驱逐，执行即处于 `crashed` 状态。n8n 发现执行无法完成后，会将其标记为 `crashed`。在 n8n 2.42.0 之前，这些执行不产生 span，因此跟踪后端的错误率会漏掉所有这类平台故障。自 n8n 2.42.0 起，崩溃的执行会产生一个 `workflow.execute` span。
 
-### Receive crashed spans
+### 接收崩溃 span <a id="receive-crashed-spans"></a>
 
-The instance that notices the crash emits the span, not the instance that ran the execution. In [queue mode](../configure-n8n/scaling/enable-queue-mode.md), that's the main instance, so enable OpenTelemetry on the main instance, not only on the workers. In regular mode, the single main instance runs and checks its own executions, so the normal setup covers it.
+span 由发现崩溃的实例发出，而非运行该执行的实例。在[队列模式](../configure-n8n/scaling/enable-queue-mode.md)下，这是主实例，因此需要在主实例启用 OpenTelemetry，不能仅在工作进程启用。常规模式下，单个主实例运行并检查自身执行，因此正常配置即可覆盖。
 
-### Read a crashed span
+### 阅读崩溃 span <a id="read-a-crashed-span"></a>
 
-A crashed span carries the usual [workflow span attributes](#workflow-span-workflowexecute) plus:
+崩溃 span 携带通常的[工作流 span 属性](#workflow-span-workflowexecute)，并增加：
 
-| Attribute | Value |
+| 属性 | 值 |
 | :-------- | :---- |
 | `n8n.execution.status` | `crashed` |
 | `n8n.execution.error_type` | `WorkflowCrashedError` |
-| `n8n.execution.crash.detector` | Which check found the crash. See [How n8n detects a crash](#how-n8n-detects-a-crash). |
-| `n8n.execution.reconstructed` | `false` when n8n ended the original span, `true` when it rebuilt one. See [Tracked and rebuilt spans](#tracked-and-rebuilt-spans). |
+| `n8n.execution.crash.detector` | 哪种检查发现了崩溃。参阅 [n8n 如何检测崩溃](#how-n8n-detects-a-crash)。 |
+| `n8n.execution.reconstructed` | n8n 结束原 span 时为 `false`，重建 span 时为 `true`。参阅[跟踪中的 span 与重建的 span](#tracked-and-rebuilt-spans)。 |
 
-The span has status error and an `exception` event.
+span 状态为 error，并带有 `exception` 事件。
 
-### How n8n detects a crash
+### n8n 如何检测崩溃 <a id="how-n8n-detects-a-crash"></a>
 
-| Detector | Meaning |
+| 检测器 | 含义 |
 | :------- | :------ |
-| `stall` | Queue mode. The worker stopped renewing its job lock. |
-| `queue-recovery` | Queue mode. A periodic check found a running execution with no job in the queue. |
-| `startup-recovery` | n8n restarted and found an execution still marked as running. |
-| `start-failure` | The execution couldn't start. |
-| `workflow-deactivation` | Someone unpublished the workflow while it had executions in progress. |
+| `stall` | 队列模式下，工作进程停止续订其作业锁。 |
+| `queue-recovery` | 队列模式下，定期检查发现有正在运行的执行，但队列中不存在对应作业。 |
+| `startup-recovery` | n8n 重启后，发现执行仍标记为正在运行。 |
+| `start-failure` | 执行无法启动。 |
+| `workflow-deactivation` | 执行仍在进行时，有人取消发布了工作流。 |
 
-### Tracked and rebuilt spans
+### 跟踪中的 span 与重建的 span <a id="tracked-and-rebuilt-spans"></a>
 
-The instance that starts an execution opens its `workflow.execute` span. If the same instance detects the crash, it ends that span in place with `n8n.execution.reconstructed=false`. The span keeps every attribute set at start. Node spans still open on that instance end with `n8n.node.termination_reason=workflow_crashed`.
+启动执行的实例会打开其 `workflow.execute` span。如果同一实例检测到崩溃，就直接结束该 span，并设置 `n8n.execution.reconstructed=false`。span 保留启动时设置的全部属性。该实例上仍未结束的节点 span 会以 `n8n.node.termination_reason=workflow_crashed` 结束。
 
-If a different instance detects the crash, for example after the main instance restarted, no open span exists. n8n rebuilds a `workflow.execute` span in the same trace from the trace context stored on the execution, with `n8n.execution.reconstructed=true`. A rebuilt span carries the workflow ID, workflow name, workflow version ID, project ID, project and workflow [custom span attributes](#custom-span-attributes), execution ID, execution mode, `n8n.execution.is_retry`, and `n8n.execution.retry_of`. It lacks:
+如果由其他实例检测到崩溃，例如主实例已重启，就不存在尚未结束的 span。n8n 会使用执行中存储的跟踪上下文，在同一跟踪中重建一个 `workflow.execute` span，并设置 `n8n.execution.reconstructed=true`。重建的 span 包含工作流 ID、工作流名称、工作流版本 ID、项目 ID、项目和工作流的[自定义 span 属性](#custom-span-attributes)、执行 ID、执行模式、`n8n.execution.is_retry` 和 `n8n.execution.retry_of`，但不包含：
 
 - `n8n.workflow.node_count`.
-- Node spans of its own. Node spans exported before the crash stay in the trace. The node that was running when the instance died has no span.
-- A span link to the previous span, when the execution had resumed from a wait.
+- 自身的节点 span。崩溃前已导出的节点 span 仍保留在跟踪中，实例停止时正在运行的节点没有 span。
+- 执行曾从等待中恢复时，指向之前 span 的 span link。
 
-Its workflow custom attributes come from the workflow's current settings, not the version that ran.
+其工作流自定义属性来自工作流当前设置，而非实际运行的版本。
 
-### Crashed execution caveats
+### 崩溃执行的注意事项 <a id="crashed-execution-caveats"></a>
 
-- **Duration is detection lag, not run time.** A crashed span ends when n8n detected the crash, not when the instance died. That's one to two minutes for `stall`, the next periodic check for `queue-recovery`, and the next restart for `startup-recovery`. Exclude spans with `n8n.execution.status=crashed` from latency metrics. Count them in error-rate metrics only.
-- **Rebuilt spans show a missing parent.** The stored trace context is the original span's ID, and OpenTelemetry can't reuse a span ID. The rebuilt span is a child of the span that never ended, so Jaeger and similar backends flag a missing parent. Expect the warning.
-- **Stalled queue jobs changed status.** Before n8n 2.42.0, a job whose worker died ended as `error`. From n8n 2.42.0 it ends as `crashed` with detector `stall`. Alerts that match only `n8n.execution.status=error` miss these.
+- **时长表示检测延迟，而非运行时间。**崩溃 span 在 n8n 检测到崩溃时结束，而非实例停止时。对于 `stall`，延迟为一至两分钟；对于 `queue-recovery`，到下次定期检查时才发现；对于 `startup-recovery`，到下次重启时才发现。延迟指标应排除带 `n8n.execution.status=crashed` 的 span，仅在错误率指标中计入它们。
+- **重建的 span 会显示父级缺失。**存储的跟踪上下文是原 span 的 ID，而 OpenTelemetry 不能复用 span ID。重建的 span 成为从未结束的 span 的子级，因此 Jaeger 等后端会标记父级缺失。这是预期警告。
+- **停滞队列作业的状态发生变化。**在 n8n 2.42.0 之前，工作进程停止的作业以 `error` 结束；自 n8n 2.42.0 起，以 `crashed` 结束，检测器为 `stall`。仅匹配 `n8n.execution.status=error` 的告警会漏掉这些情况。
 
-## Agent tracing <a href="#agent-tracing" id="agent-tracing"></a>
+## 智能体跟踪 <a href="#agent-tracing" id="agent-tracing"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Agent tracing is available from n8n 2.33.0.
+自 n8n 2.33.0 起提供智能体跟踪。
 {% endhint %}
 
-n8n can also emit detailed spans for agent runs built with the Agents feature, using the same tracer as workflow tracing. This covers agent runs started from a workflow, from chat integrations, and from scheduled tasks.
+n8n 也可以为使用 Agents 功能构建的智能体运行生成详细 span，与工作流跟踪使用同一跟踪器。覆盖从工作流、聊天集成和计划任务启动的智能体运行。
 
 {% hint style="warning" %}
-**Legacy AI Agent node**
+**旧版 AI Agent 节点**
 
-This section covers tracing for the new Agents feature. The older AI Agent (LangChain) node only produces the standard `node.execute` span like any other node. It doesn't emit the `gen_ai.*` agent-run or tool-call spans.
+本节介绍新 Agents 功能的跟踪。较早的 AI Agent（LangChain）节点与其他节点一样，仅产生标准 `node.execute` span，不生成 `gen_ai.*` 智能体运行或工具调用 span。
 {% endhint %}
 
-Agent tracing rides along with the rest of the OTel module. With `N8N_OTEL_ENABLED` turned on, add:
+智能体跟踪依赖 OTel 模块。启用 `N8N_OTEL_ENABLED` 后，添加：
 
 ```bash
 export N8N_AGENTS_TRACING_ENABLED=true
 ```
 
-Set it to `false` to keep workflow and node spans while dropping agent spans.
+将其设为 `false`，即可保留工作流和节点 span，同时不生成智能体 span。
 
-By default, agent tracing records prompts, tool arguments, responses, and tool results. To exclude sensitive input or output data:
+默认情况下，智能体跟踪会记录提示词、工具参数、响应和工具结果。要排除敏感输入或输出数据：
 
 ```bash
 export N8N_AGENTS_TRACING_RECORD_INPUTS=false
 export N8N_AGENTS_TRACING_RECORD_OUTPUTS=false
 ```
 
-For the full list of variables, refer to [OpenTelemetry environment variables](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md).
+完整变量列表请参阅 [OpenTelemetry 环境变量](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md)。
 
-### What you get <a href="#what-you-get-agents" id="what-you-get-agents"></a>
+### 可获得的内容 <a href="#what-you-get-agents" id="what-you-get-agents"></a>
 
-Each agent run produces one root span, named `<agent name>.generate` or `<agent name>.stream` depending on whether the run streams its response. Each tool call the agent makes produces a nested `execute_tool <tool name>` span.
+每次智能体运行生成一个根 span，根据是否流式返回响应，命名为 `<agent name>.generate` 或 `<agent name>.stream`。智能体的每次工具调用生成一个嵌套的 `execute_tool <tool name>` span。
 
-These spans use the OpenTelemetry [GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) (`gen_ai.*` attributes), so they're readable in any OTLP backend, not just tools built for LangSmith.
+这些 span 使用 OpenTelemetry 的 [GenAI 语义约定](https://opentelemetry.io/docs/specs/semconv/gen-ai/)，即 `gen_ai.*` 属性，因此任何 OTLP 后端都能读取，不限于为 LangSmith 构建的工具。
 
-## Custom span attributes <a href="#custom-span-attributes" id="custom-span-attributes"></a>
+## 自定义 span 属性 <a href="#custom-span-attributes" id="custom-span-attributes"></a>
 
-You can add custom attributes to project, workflow, and node spans. n8n exports each custom attribute as an OpenTelemetry span attribute to your configured observability backend.
+可以为项目、工作流和节点 span 添加自定义属性。n8n 将每个自定义属性作为 OpenTelemetry span 属性导出到已配置的可观测性后端。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Custom span attributes are available on:
+自定义 span 属性可用于：
 
-- **Self-hosted:** Enterprise
+- **自托管：**企业版。
 
-They aren't available on n8n Cloud.
+n8n Cloud 不提供此功能。
 
-Project and workflow custom span attributes are available from n8n 2.24.0. Node custom span attributes are available from n8n 2.22.0.
+项目和工作流自定义 span 属性自 n8n 2.24.0 起提供，节点自定义 span 属性自 n8n 2.22.0 起提供。
 {% endhint %}
 
-Don't include secrets, personal data, or other sensitive values in attribute values.
+请勿在属性值中包含密钥、个人数据或其他敏感值。
 
-n8n supports the following custom attribute levels:
+n8n 支持以下自定义属性级别：
 
-| Level | Configure in | Exported span | Default attribute prefix |
+| 级别 | 配置位置 | 导出的 span | 默认属性前缀 |
 | :---- | :----------- | :------------ | :--------------- |
-| Project | **Project settings** | `workflow.execute` | `n8n.project.custom.<key>` |
-| Workflow | **Workflow settings** | `workflow.execute` | `n8n.workflow.custom.<key>` |
-| Node | Node **Settings** tab | `node.execute` | `n8n.node.custom.<key>` |
+| 项目 | **Project settings**（项目设置） | `workflow.execute` | `n8n.project.custom.<key>` |
+| 工作流 | **Workflow settings**（工作流设置） | `workflow.execute` | `n8n.workflow.custom.<key>` |
+| 节点 | 节点的 **Settings**（设置）选项卡 | `node.execute` | `n8n.node.custom.<key>` |
 
-### Add project span attributes <a href="#add-project-span-attributes" id="add-project-span-attributes"></a>
+### 添加项目 span 属性 <a href="#add-project-span-attributes" id="add-project-span-attributes"></a>
 
-To add project-level span attributes:
+要添加项目级 span 属性：
 
-1. Open a project.
-1. Select **Project settings**.
-1. Under **Custom Span Attributes**, add one or more span attributes.
-1. Select **Save**.
+1. 打开项目。
+1. 选择 **Project settings**（项目设置）。
+1. 在 **Custom Span Attributes**（自定义 span 属性）下，添加一个或多个 span 属性。
+1. 选择 **Save**（保存）。
 
-Use plain text for project attribute values.
+项目属性值请使用纯文本。
 
-### Add workflow span attributes <a href="#add-workflow-span-attributes" id="add-workflow-span-attributes"></a>
+### 添加工作流 span 属性 <a href="#add-workflow-span-attributes" id="add-workflow-span-attributes"></a>
 
-To add workflow-level span attributes:
+要添加工作流级 span 属性：
 
-1. Open the workflow.
-1. Open **Workflow settings**.
-1. Under **Custom Span Attributes**, select **Configure**.
-1. Add one or more span attributes.
-1. Select **Save**.
+1. 打开工作流。
+1. 打开 **Workflow settings**（工作流设置）。
+1. 在 **Custom Span Attributes**（自定义 span 属性）下选择 **Configure**（配置）。
+1. 添加一个或多个 span 属性。
+1. 选择 **Save**（保存）。
 
-Use plain text for workflow attribute values.
+工作流属性值请使用纯文本。
 
-### Add node span attributes <a href="#add-node-span-attributes" id="add-node-span-attributes"></a>
+### 添加节点 span 属性 <a href="#add-node-span-attributes" id="add-node-span-attributes"></a>
 
-To add node-level span attributes:
+要添加节点级 span 属性：
 
-1. Open the node and select the **Settings** tab.
-1. Under **Custom Span Attributes**, select **Add Attribute**.
-1. Enter a **Key**. Keys must be plain text.
-1. Enter a **Value**. Values can be plain text or expressions, such as `={{ $json.environment }}`.
+1. 打开节点，选择 **Settings**（设置）选项卡。
+1. 在 **Custom Span Attributes**（自定义 span 属性）下选择 **Add Attribute**（添加属性）。
+1. 输入 **Key**（键），键必须为纯文本。
+1. 输入 **Value**（值），可以是纯文本或表达式，例如 `={{ $json.environment }}`。
 
-Node attribute values must resolve to a string, number, or boolean.
+节点属性值必须解析为字符串、数字或布尔值。
 
-### Add attributes programmatically in a custom node <a href="#add-attributes-programmatically-in-a-custom-node" id="add-attributes-programmatically-in-a-custom-node"></a>
+### 在自定义节点中通过代码添加属性 <a href="#add-attributes-programmatically-in-a-custom-node" id="add-attributes-programmatically-in-a-custom-node"></a>
 
-If you're [building a custom node](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/overview), you can attach custom key-value pairs from code. Call `setMetadata` from the node's `execute` method:
+如果正在[构建自定义节点](../../../connect/create-nodes/overview.md)，可以通过代码添加自定义键值对。调用 `setMetadata`，位置是节点的 `execute` 方法：
 
 ```typescript
 async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
@@ -370,45 +369,45 @@ async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 }
 ```
 
-By default, n8n prefixes each key with `n8n.node.custom.`. You can [change the attribute prefixes](#change-the-attribute-prefixes). Values must be strings, numbers, or boolean.
+默认情况下，n8n 为每个键添加 `n8n.node.custom.` 前缀。可以[更改属性前缀](#change-the-attribute-prefixes)。值必须为字符串、数字或布尔值。
 
-This API isn't available from the Code node. It's intended for node authors who want to enrich spans with domain-specific data.
+Code 节点不能使用此 API。此 API 面向希望用领域相关数据丰富 span 的节点作者。
 
-If a node sets an attribute key here that's also configured as a [custom node span attribute](#add-node-span-attributes), the programmatic value takes precedence.
+如果节点通过此方式设置的属性键，也配置为[自定义节点 span 属性](#add-node-span-attributes)，则代码设置的值优先。
 
-### Change the attribute prefixes
+### 更改属性前缀 <a id="change-the-attribute-prefixes"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Custom attribute prefixes are available from n8n 2.46.0.
+自 n8n 2.46.0 起提供自定义属性前缀。
 {% endhint %}
 
-n8n adds a prefix to custom attribute keys. To change or remove the prefix, set `N8N_OTEL_TRACES_CUSTOM_ATTRIBUTE_PREFIXES` to a JSON object. The object accepts these keys, each with a string value:
+n8n 会为自定义属性键添加前缀。要更改或移除前缀，请将 `N8N_OTEL_TRACES_CUSTOM_ATTRIBUTE_PREFIXES` 设为 JSON 对象。此对象接受以下键，每个键的值都为字符串：
 
-| Key | Sets the prefix for | Default prefix |
+| 键 | 设置哪类属性的前缀 | 默认前缀 |
 | :-- | :------------------ | :------------- |
-| `project` | Project attributes | `n8n.project.custom.` |
-| `workflow` | Workflow attributes | `n8n.workflow.custom.` |
-| `node` | Node attributes | `n8n.node.custom.` |
+| `project` | 项目属性 | `n8n.project.custom.` |
+| `workflow` | 工作流属性 | `n8n.workflow.custom.` |
+| `node` | 节点属性 | `n8n.node.custom.` |
 
-An empty string removes the prefix. A key you leave out keeps its default prefix. Set the same value on the main instance, workers, and webhook processors.
+空字符串会移除前缀。省略的键保留默认前缀。请在主实例、工作进程和 webhook 处理器上设置相同的值。
 
-To remove both prefixes and use attribute names exactly as entered in the UI:
+要移除这两个前缀，使属性名称与界面中输入的名称完全一致：
 
 ```bash
 # A project attribute named team becomes team
 export N8N_OTEL_TRACES_CUSTOM_ATTRIBUTE_PREFIXES='{"project":"","node":""}'
 ```
 
-Set custom prefixes:
+设置自定义前缀：
 
 ```bash
 # A project attribute named team becomes acme.project.team
 export N8N_OTEL_TRACES_CUSTOM_ATTRIBUTE_PREFIXES='{"project":"acme.project.","node":"acme.node."}'
 ```
 
-Change only one prefix:
+仅更改一个前缀：
 
 ```bash
 # A project attribute named team becomes acme.team
@@ -416,19 +415,19 @@ Change only one prefix:
 export N8N_OTEL_TRACES_CUSTOM_ATTRIBUTE_PREFIXES='{"project":"acme."}'
 ```
 
-If the value isn't valid JSON, uses any other key, or has a non-string value, n8n logs a warning and uses the default prefixes for all levels.
+如果值不是有效 JSON、使用其他键，或存在非字符串值，n8n 会记录警告，并在所有级别使用默认前缀。
 
 {% hint style="warning" %}
-**OpenTelemetry standard attributes**
+**OpenTelemetry 标准属性**
 
-n8n doesn't check custom keys against the [OpenTelemetry semantic conventions](https://opentelemetry.io/docs/specs/semconv/). If your key matches a standard attribute, such as `user.id` or `http.request.method`, your backend reads your value as that attribute. Avoid standard keys unless your value has the standard meaning.
+n8n 不会将自定义键与 [OpenTelemetry 语义约定](https://opentelemetry.io/docs/specs/semconv/)对照检查。如果键与标准属性匹配，例如 `user.id` 或 `http.request.method`，后端会将你的值作为该属性读取。除非值符合标准含义，否则请避免使用标准键。
 {% endhint %}
 
-## Try it out with Jaeger <a href="#try-it-out-with-jaeger" id="try-it-out-with-jaeger"></a>
+## 使用 Jaeger 试用 <a href="#try-it-out-with-jaeger" id="try-it-out-with-jaeger"></a>
 
-You can send traces to a local [Jaeger](https://www.jaegertracing.io/) instance to see them in action.
+可以将跟踪发送到本地 [Jaeger](https://www.jaegertracing.io/) 实例，查看实际效果。
 
-1. Save the following as `docker-compose.yml`:
+1. 将以下内容保存为 `docker-compose.yml`：
 
 ```yaml
 services:
@@ -440,158 +439,158 @@ services:
       - "4318:4318"   # OTLP HTTP
 ```
 
-2. Start Jaeger:
+2. 启动 Jaeger：
 
 ```bash
 docker compose up -d
 ```
 
-3. Start n8n with tracing turned on and pointed at Jaeger. Refer to [starting n8n](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md) for setup details:
+3. 启用跟踪，将目标指向 Jaeger，然后启动 n8n。设置详情请参阅[启动 n8n](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md)：
 
 ```bash
 N8N_OTEL_ENABLED=true N8N_OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318 n8n start
 ```
 
-5. Run a workflow, then open the Jaeger UI at [http://localhost:16686](http://localhost:16686) - Select "n8n" as service" and click "Find traces" to see the OpenTelemetry traces emitted by n8n.
+5. 运行工作流，然后在 [http://localhost:16686](http://localhost:16686) 打开 Jaeger 界面。选择“n8n”作为 service（服务），点击“Find traces”（查找跟踪），查看 n8n 生成的 OpenTelemetry 跟踪。
 
-## Span attributes <a href="#span-attributes" id="span-attributes"></a>
+## Span 属性 <a href="#span-attributes" id="span-attributes"></a>
 
-Workflow and node spans include the following n8n-specific attributes.
+工作流和节点 span 包含以下 n8n 专用属性。
 
-### Workflow span (`workflow.execute`) <a href="#workflow-span-workflowexecute" id="workflow-span-workflowexecute"></a>
+### 工作流 span（`workflow.execute`）<a href="#workflow-span-workflowexecute" id="workflow-span-workflowexecute"></a>
 
-| Attribute | Description |
+| 属性 | 说明 |
 | :-------- | :---------- |
-| `n8n.workflow.id` | Workflow ID. |
-| `n8n.workflow.name` | Workflow name. |
-| `n8n.workflow.version_id` | Workflow version ID. |
-| `n8n.workflow.node_count` | Number of nodes in the workflow. Absent on a [rebuilt span](#tracked-and-rebuilt-spans) for a crashed execution. |
-| `n8n.project.id` | Project ID. Available from n8n 2.23.0. |
-| `n8n.project.name` | Project name. Team projects only: a personal project's name contains its owner's name and email, so n8n leaves it out. Available from n8n 2.44.0. |
-| `n8n.execution.id` | Execution ID. |
-| `n8n.execution.mode` | Execution mode (for example, `manual`, `webhook`, `trigger`, `retry`). |
-| `n8n.execution.status` | Final execution status, including `crashed` for a [crashed execution](#crashed-executions). |
-| `n8n.execution.is_retry` | `true` if the execution is a retry. |
-| `n8n.execution.retry_of` | The original execution ID, when the execution is a retry. |
-| `n8n.execution.error_type` | Error class name, set when the execution fails. `WorkflowCrashedError` on a crash. |
-| `n8n.execution.crash.detector` | Which check found the crash: `stall`, `queue-recovery`, `startup-recovery`, `start-failure`, or `workflow-deactivation`. See [How n8n detects a crash](#how-n8n-detects-a-crash). Available from n8n 2.42.0. |
-| `n8n.execution.reconstructed` | `true` when n8n rebuilt the span after a crash, `false` when it ended the original span. See [Tracked and rebuilt spans](#tracked-and-rebuilt-spans). Available from n8n 2.42.0. |
-| `n8n.continuation.reason` | Set on a span link when the workflow resumes after a wait. |
-| `n8n.project.custom.<key>` | Custom attributes set through [project-level custom span attributes](#custom-span-attributes). |
-| `n8n.workflow.custom.<key>` | Custom attributes set through [workflow-level custom span attributes](#custom-span-attributes). |
+| `n8n.workflow.id` | 工作流 ID。 |
+| `n8n.workflow.name` | 工作流名称。 |
+| `n8n.workflow.version_id` | 工作流版本 ID。 |
+| `n8n.workflow.node_count` | 工作流中的节点数量。崩溃执行的[重建 span](#tracked-and-rebuilt-spans) 中不包含。 |
+| `n8n.project.id` | 项目 ID，自 n8n 2.23.0 起提供。 |
+| `n8n.project.name` | 项目名称。仅用于团队项目：个人项目名称包含所有者姓名和邮箱，因此 n8n 不包含此值。自 n8n 2.44.0 起提供。 |
+| `n8n.execution.id` | 执行 ID。 |
+| `n8n.execution.mode` | 执行模式，例如 `manual`、`webhook`、`trigger`、`retry`。 |
+| `n8n.execution.status` | 最终执行状态，包括[崩溃执行](#crashed-executions)的 `crashed`。 |
+| `n8n.execution.is_retry` | 执行为重试时，值为 `true`。 |
+| `n8n.execution.retry_of` | 执行为重试时，记录原始执行 ID。 |
+| `n8n.execution.error_type` | 错误类名，执行失败时设置；崩溃时为 `WorkflowCrashedError`。 |
+| `n8n.execution.crash.detector` | 发现崩溃的检查：`stall`、`queue-recovery`、`startup-recovery`、`start-failure` 或 `workflow-deactivation`。参阅 [n8n 如何检测崩溃](#how-n8n-detects-a-crash)。自 n8n 2.42.0 起提供。 |
+| `n8n.execution.reconstructed` | n8n 在崩溃后重建 span 时为 `true`，结束原 span 时为 `false`。参阅[跟踪中的 span 与重建的 span](#tracked-and-rebuilt-spans)。自 n8n 2.42.0 起提供。 |
+| `n8n.continuation.reason` | 工作流从等待中恢复时，在 span link 上设置。 |
+| `n8n.project.custom.<key>` | 通过[项目级自定义 span 属性](#custom-span-attributes)设置的自定义属性。 |
+| `n8n.workflow.custom.<key>` | 通过[工作流级自定义 span 属性](#custom-span-attributes)设置的自定义属性。 |
 
-### Node span (`node.execute`) <a href="#node-span-nodeexecute" id="node-span-nodeexecute"></a>
+### 节点 span（`node.execute`）<a href="#node-span-nodeexecute" id="node-span-nodeexecute"></a>
 
-| Attribute | Description |
+| 属性 | 说明 |
 | :-------- | :---------- |
-| `n8n.node.id` | Node ID. |
-| `n8n.node.name` | Node name. |
-| `n8n.node.type` | Node type (for example, `n8n-nodes-base.httpRequest`). |
-| `n8n.node.type_version` | Node type version. |
-| `n8n.node.items.input` | Number of input items the node received. |
-| `n8n.node.items.output` | Number of output items the node produced. |
-| `n8n.node.termination_reason` | Why a node span ended without a normal completion (for example, `workflow_cancelled` or `workflow_crashed`). |
-| `n8n.node.custom.<key>` | Custom attributes set through [node-level custom span attributes](#custom-span-attributes) in the node settings or `metadata.tracing` in custom node code. |
+| `n8n.node.id` | 节点 ID。 |
+| `n8n.node.name` | 节点名称。 |
+| `n8n.node.type` | 节点类型，例如 `n8n-nodes-base.httpRequest`。 |
+| `n8n.node.type_version` | 节点类型版本。 |
+| `n8n.node.items.input` | 节点收到的输入条目数量。 |
+| `n8n.node.items.output` | 节点生成的输出条目数量。 |
+| `n8n.node.termination_reason` | 节点 span 未正常完成就结束的原因，例如 `workflow_cancelled` 或 `workflow_crashed`。 |
+| `n8n.node.custom.<key>` | 在节点设置中通过[节点级自定义 span 属性](#custom-span-attributes)，或在自定义节点代码中通过 `metadata.tracing` 设置的自定义属性。 |
 
-From n8n 2.44.0, node spans also carry `n8n.execution.id`, `n8n.workflow.id`, `n8n.workflow.name`, `n8n.project.id`, and `n8n.project.name`, with the same values as their workflow span. To find every span of one execution in Jaeger, search for the tag `n8n.execution.id=<execution-id>`.
+自 n8n 2.44.0 起，节点 span 还包含 `n8n.execution.id`、`n8n.workflow.id`、`n8n.workflow.name`、`n8n.project.id` 和 `n8n.project.name`，值与所属工作流 span 相同。要在 Jaeger 中查找某次执行的全部 span，请搜索标签 `n8n.execution.id=<execution-id>`。
 
-When a node fails, n8n records an `exception` event on the span with the standard OpenTelemetry exception attributes (`exception.type`, `exception.message`, `exception.stacktrace`).
+节点失败时，n8n 会在 span 上记录 `exception` 事件，并包含标准 OpenTelemetry 异常属性（`exception.type`、`exception.message`、`exception.stacktrace`）。
 
-### Agent run span (`<agent name>.generate` or `<agent name>.stream`) <a href="#agent-run-span" id="agent-run-span"></a>
+### 智能体运行 span（`<agent name>.generate` 或 `<agent name>.stream`）<a href="#agent-run-span" id="agent-run-span"></a>
 
-| Attribute | Description |
+| 属性 | 说明 |
 | :-------- | :---------- |
-| `gen_ai.operation.name` | Always `invoke_agent`. |
-| `gen_ai.agent.name` | Agent name. |
-| `gen_ai.request.model` | Model ID, as `<provider>/<model name>`, when known. |
-| `gen_ai.conversation.id` | Thread ID. |
-| `gen_ai.prompt` | Serialized prompt, tool count, and tool catalog. Omitted when `N8N_AGENTS_TRACING_RECORD_INPUTS` is `false`. |
-| `agent_id` | Agent ID. |
-| `project_id` | Project ID. |
-| `thread_id` | Thread ID. |
-| `source` | Where the run started (for example, `workflow`, or a chat integration name). |
-| `user_id` | User ID, when known. |
-| `model_id` | Model ID, as `<provider>/<model name>`, when known. |
-| `execution_id` | Execution ID, for workflow-triggered runs. |
-| `workflow_id` | Workflow ID, for workflow-triggered runs. |
-| `node_id` | Node ID, for workflow-triggered runs. |
+| `gen_ai.operation.name` | 始终为 `invoke_agent`。 |
+| `gen_ai.agent.name` | 智能体名称。 |
+| `gen_ai.request.model` | 已知时记录模型 ID，格式为 `<provider>/<model name>`。 |
+| `gen_ai.conversation.id` | 对话线程 ID。 |
+| `gen_ai.prompt` | 序列化提示词、工具数量和工具目录。`N8N_AGENTS_TRACING_RECORD_INPUTS` 为 `false` 时省略。 |
+| `agent_id` | 智能体 ID。 |
+| `project_id` | 项目 ID。 |
+| `thread_id` | 对话线程 ID。 |
+| `source` | 运行启动的来源，例如 `workflow` 或聊天集成名称。 |
+| `user_id` | 已知时记录用户 ID。 |
+| `model_id` | 已知时记录模型 ID，格式为 `<provider>/<model name>`。 |
+| `execution_id` | 由工作流触发的运行所对应的执行 ID。 |
+| `workflow_id` | 由工作流触发的运行所对应的工作流 ID。 |
+| `node_id` | 由工作流触发的运行所对应的节点 ID。 |
 
-### Tool call span (`execute_tool <tool name>`) <a href="#tool-call-span" id="tool-call-span"></a>
+### 工具调用 span（`execute_tool <tool name>`）<a href="#tool-call-span" id="tool-call-span"></a>
 
-| Attribute | Description |
+| 属性 | 说明 |
 | :-------- | :---------- |
-| `gen_ai.operation.name` | Always `execute_tool`. |
-| `gen_ai.tool.name` | Tool name. |
-| `gen_ai.tool.call.id` | Tool call ID. |
-| `gen_ai.agent.name` | Agent name. |
-| `gen_ai.tool.call.arguments` | Tool call arguments. Omitted when `N8N_AGENTS_TRACING_RECORD_INPUTS` is `false`. |
-| `gen_ai.tool.call.result` | Tool call result. Omitted when `N8N_AGENTS_TRACING_RECORD_OUTPUTS` is `false`. |
+| `gen_ai.operation.name` | 始终为 `execute_tool`。 |
+| `gen_ai.tool.name` | 工具名称。 |
+| `gen_ai.tool.call.id` | 工具调用 ID。 |
+| `gen_ai.agent.name` | 智能体名称。 |
+| `gen_ai.tool.call.arguments` | 工具调用参数。`N8N_AGENTS_TRACING_RECORD_INPUTS` 为 `false` 时省略。 |
+| `gen_ai.tool.call.result` | 工具调用结果。`N8N_AGENTS_TRACING_RECORD_OUTPUTS` 为 `false` 时省略。 |
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排查 <a href="#troubleshooting" id="troubleshooting"></a>
 
-### No traces appear in your backend <a href="#no-traces-appear-in-your-backend" id="no-traces-appear-in-your-backend"></a>
+### 后端未显示任何跟踪 <a href="#no-traces-appear-in-your-backend" id="no-traces-appear-in-your-backend"></a>
 
-If n8n can't reach the OTLP endpoint at startup, it logs an error:
+如果 n8n 启动时无法访问 OTLP 端点，会记录以下错误：
 
 ```
 Failed to connect to OpenTelemetry OTLP endpoint during startup
 ```
 
-Check that:
+请检查：
 
-- `N8N_OTEL_ENABLED` is set to `true`.
-- `N8N_OTEL_EXPORTER_OTLP_ENDPOINT` points at the base URL of the collector (not the `/v1/traces` path).
-- The collector is reachable from the n8n container or host.
-- Any required `N8N_OTEL_EXPORTER_OTLP_HEADERS` (such as authentication tokens) are set.
+- `N8N_OTEL_ENABLED` 已设为 `true`。
+- `N8N_OTEL_EXPORTER_OTLP_ENDPOINT` 指向收集器的基础 URL，而非 `/v1/traces` 路径。
+- n8n 容器或主机能访问收集器。
+- 已设置所有必需的 `N8N_OTEL_EXPORTER_OTLP_HEADERS`，例如身份验证令牌。
 
-If you use the `grpc` protocol, also check that the endpoint includes an explicit port. Without one, n8n connects to port 443, not 4317.
+如果使用 `grpc` 协议，还需检查端点是否显式包含端口。未指定时，n8n 连接端口 443，而非 4317。
 
-n8n logs OpenTelemetry diagnostics at `warn` level by default. Set `N8N_LOG_LEVEL=debug` to see more detail.
+n8n 默认以 `warn` 级别记录 OpenTelemetry 诊断信息。设置 `N8N_LOG_LEVEL=debug` 可查看更详细的信息。
 
-### Startup connectivity error with gRPC and a private CA
+### 使用 gRPC 和私有 CA 时出现启动连接错误 <a id="startup-connectivity-error-with-grpc-and-a-private-ca"></a>
 
-The startup connectivity check for the `grpc` protocol uses the default TLS trust store. It doesn't read `OTEL_EXPORTER_OTLP_CERTIFICATE`, `OTEL_EXPORTER_OTLP_CLIENT_KEY`, or `OTEL_EXPORTER_OTLP_CLIENT_CERTIFICATE`, while the exporter honors them. A collector behind a private certificate authority, or one that requires mTLS, can fail the check and log `Failed to connect to OpenTelemetry OTLP endpoint during startup` while exporting works. The check doesn't block startup. Use **Send test trace** in **Settings > OpenTelemetry** to confirm that the collector receives spans.
+`grpc` 协议的启动连接检查使用默认 TLS 信任库，不读取 `OTEL_EXPORTER_OTLP_CERTIFICATE`、`OTEL_EXPORTER_OTLP_CLIENT_KEY` 或 `OTEL_EXPORTER_OTLP_CLIENT_CERTIFICATE`，但导出器会采用这些变量。使用私有证书颁发机构，或要求 mTLS 的收集器，可能出现检查失败并记录 `Failed to connect to OpenTelemetry OTLP endpoint during startup`，但实际导出正常。此检查不会阻止启动。请在 **Settings > OpenTelemetry** 中使用 **Send test trace**（发送测试跟踪），确认收集器收到 span。
 
-### Custom span attributes are missing <a href="#custom-span-attributes-are-missing" id="custom-span-attributes-are-missing"></a>
+### 缺少自定义 span 属性 <a href="#custom-span-attributes-are-missing" id="custom-span-attributes-are-missing"></a>
 
-Check that:
+请检查：
 
-- You have an Enterprise license.
-- You set `N8N_OTEL_ENABLED` to `true`.
-- For node-level span attributes, `N8N_OTEL_TRACES_INCLUDE_NODE_SPANS` isn't set to `false`.
-- If you set `N8N_OTEL_TRACES_CUSTOM_ATTRIBUTE_PREFIXES`, search for the new key. n8n drops keys that match built-in attributes. Refer to [Change the attribute prefixes](#change-the-attribute-prefixes).
+- 你拥有 Enterprise 许可证。
+- 已将 `N8N_OTEL_ENABLED` 设为 `true`。
+- 对于节点级 span 属性，`N8N_OTEL_TRACES_INCLUDE_NODE_SPANS` 未设为 `false`。
+- 如果设置了 `N8N_OTEL_TRACES_CUSTOM_ATTRIBUTE_PREFIXES`，请搜索新键。n8n 会丢弃与内置属性匹配的键。参阅[更改属性前缀](#change-the-attribute-prefixes)。
 
-### A crashed execution has no span
+### 崩溃的执行没有 span <a id="a-crashed-execution-has-no-span"></a>
 
-Enable OpenTelemetry on the main instance. In queue mode, the main instance detects the crash and emits the span, so enabling it on the workers alone produces no crash spans. Set the same variables on every instance type so worker spans keep their parent context.
+请在主实例启用 OpenTelemetry。队列模式下，由主实例检测崩溃并发出 span，因此仅在工作进程启用不会生成崩溃 span。请在所有类型的实例上设置相同变量，使工作进程 span 保留父级上下文。
 
-The node that was running when the instance died has no span. Node spans exported before the crash stay in the trace. See [Crashed executions](#crashed-executions).
+实例停止时正在运行的节点没有 span。崩溃前已导出的节点 span 仍保留在跟踪中。参阅[崩溃的执行](#crashed-executions)。
 
-### A rebuilt span shows a missing-parent warning
+### 重建的 span 显示父级缺失警告 <a id="a-rebuilt-span-shows-a-missing-parent-warning"></a>
 
-n8n rebuilds the span from the trace context stored on the execution. That context is the ID of the original span, which never ended, and OpenTelemetry can't reuse a span ID. That makes the rebuilt span a child of a span the backend never received. Expect the warning. The span carries `n8n.execution.reconstructed=true`. See [Caveats](#crashed-execution-caveats).
+n8n 使用执行中存储的跟踪上下文重建 span。该上下文是从未结束的原 span 的 ID，而 OpenTelemetry 不能复用 span ID。因此，重建的 span 成为后端从未收到的 span 的子级。这是预期警告。span 带有 `n8n.execution.reconstructed=true`。参阅[注意事项](#crashed-execution-caveats)。
 
-### Worker traces are missing parent context <a href="#worker-traces-are-missing-parent-context" id="worker-traces-are-missing-parent-context"></a>
+### 工作进程跟踪缺少父级上下文 <a href="#worker-traces-are-missing-parent-context" id="worker-traces-are-missing-parent-context"></a>
 
-In queue mode, workers read the parent trace context from the database. If you only set the OpenTelemetry environment variables on the main instance, worker spans won't link to the parent workflow trace. Set the same variables on every instance type.
+队列模式下，工作进程从数据库读取父级跟踪上下文。如果仅在主实例设置 OpenTelemetry 环境变量，工作进程 span 就无法关联到父工作流跟踪。请在所有类型的实例上设置相同变量。
 
-### No agent spans appear <a href="#no-agent-spans-appear" id="no-agent-spans-appear"></a>
+### 没有智能体 span <a href="#no-agent-spans-appear" id="no-agent-spans-appear"></a>
 
-Agent spans depend on the OTel module. Check that:
+智能体 span 依赖 OTel 模块。请检查：
 
-- `N8N_OTEL_ENABLED` is set to `true`.
-- `N8N_AGENTS_TRACING_ENABLED` is set to `true`.
+- `N8N_OTEL_ENABLED` 已设为 `true`。
+- `N8N_AGENTS_TRACING_ENABLED` 已设为 `true`。
 
-With `N8N_OTEL_ENABLED` set to `false`, agent runs complete normally, but n8n emits no spans for them, even with `N8N_AGENTS_TRACING_ENABLED` set to `true`.
+当 `N8N_OTEL_ENABLED` 设为 `false` 时，智能体运行正常完成，但 n8n 不为其生成 span，即使 `N8N_AGENTS_TRACING_ENABLED` 已设为 `true`。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-- [Keep n8n running](./)
-- [Logging in n8n](set-up-logging.md)
-- [Monitoring](monitor-n8n.md)
-- [Visualize metrics with Grafana](visualize-metrics-with-grafana.md)
-- [Back up and restore](backup-and-restore.md)
-- [Update n8n](update-n8n.md)
-- [OpenTelemetry environment variables](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md)
-- [W3C Trace Context specification](https://www.w3.org/TR/trace-context/)
-- [OpenTelemetry Collector documentation](https://opentelemetry.io/docs/collector/)
+- [保持 n8n 运行](./)
+- [n8n 日志](set-up-logging.md)
+- [监控](monitor-n8n.md)
+- [使用 Grafana 可视化指标](visualize-metrics-with-grafana.md)
+- [备份与恢复](backup-and-restore.md)
+- [更新 n8n](update-n8n.md)
+- [OpenTelemetry 环境变量](../configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md)
+- [W3C Trace Context 规范](https://www.w3.org/TR/trace-context/)
+- [OpenTelemetry Collector 文档](https://opentelemetry.io/docs/collector/)
