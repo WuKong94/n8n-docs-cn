@@ -1,40 +1,37 @@
 ---
-title: WhatsApp Business Cloud node common issues
-description: >-
-  Documentation for common issues and questions in the WhatsApp Business Cloud
-  node in n8n, a workflow automation platform. Includes details of the issue and
-  suggested solutions.
+title: WhatsApp Business Cloud 节点常见问题
+description: 了解 n8n 工作流自动化平台中 WhatsApp Business Cloud 节点的常见问题，包括问题详情和建议的解决方法。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: WhatsApp Business Cloud node common issues
+nodeTitle: WhatsApp Business Cloud 节点常见问题
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/common-issues.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/common-issues
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/common-issues
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/common-issues
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/common-issues
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# WhatsApp Business Cloud node common issues <a href="#whatsapp-business-cloud-node-common-issues" id="whatsapp-business-cloud-node-common-issues"></a>
 
-Here are some common errors and issues with the [WhatsApp Business Cloud node](README.md) and steps to resolve or troubleshoot them.
+# WhatsApp Business Cloud 节点常见问题 <a href="#whatsapp-business-cloud-node-common-issues" id="whatsapp-business-cloud-node-common-issues"></a>
 
-## Bad request - please check your parameters <a href="#bad-request-please-check-your-parameters" id="bad-request-please-check-your-parameters"></a>
+本页介绍 [WhatsApp Business Cloud 节点](README.md)的一些常见错误和问题，以及解决或排查步骤。
 
-This error occurs when WhatsApp Business Cloud rejects your request because of a problem with its parameters. It's common to see this when using the **Send Template** operation if the data you send doesn't match the format of your template.
+## Bad request - please check your parameters（请求无效，请检查参数） <a href="#bad-request-please-check-your-parameters" id="bad-request-please-check-your-parameters"></a>
 
-To resolve this issue, review the parameters in your [message template](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Pay attention to each parameter's data type and the order they're defined in the template.
+当 WhatsApp Business Cloud 因参数问题拒绝请求时，会出现此错误。使用 **Send Template**（发送模板）操作时，如果发送的数据与模板格式不匹配，就常会遇到此问题。
 
-Check the data that n8n is mapping to the template parameters. If you're using expressions to set parameter values, check the input data to make sure each item resolves to a valid value. You may want to use the [Edit Fields (Set) node](../../core-nodes/n8n-nodes-base.set.md) or set a fallback value to ensure you send a value with the correct format.
+要解决此问题，请检查[消息模板](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)中的参数，注意每个参数的数据类型及其在模板中的定义顺序。
 
-## Working with non-text media <a href="#working-with-non-text-media" id="working-with-non-text-media"></a>
+检查 n8n 映射到模板参数的数据。如果使用表达式设置参数值，请检查输入数据，确保每个数据项都能解析为有效值。可以使用 [Edit Fields (Set) 节点](../../core-nodes/n8n-nodes-base.set.md)，或设置回退值，确保发送的值格式正确。
 
-The WhatsApp Business Cloud node can work with non-text messages and media like images, audio, documents, and more.
+## 处理非文本媒体 <a href="#working-with-non-text-media" id="working-with-non-text-media"></a>
 
-If your operation includes a **Input Data Field Name** or **Property Name** parameter, set this to the field name itself rather than referencing the data in an expression.
+WhatsApp Business Cloud 节点可以处理非文本消息，以及图片、音频、文档等媒体。
 
-For example, if you are trying to send a message with an "Image" **MessageType** and **Take Image From** set to "n8n", set **Input Data Field Name** to a field name like `data` instead of an expression like `{{ $json.input.data }}`.
+如果操作包含 **Input Data Field Name**（输入数据字段名称）或 **Property Name**（属性名称）参数，请将其设为字段名称本身，而不是使用表达式引用字段数据。
+
+例如，要发送“Image”（图片）类型的 **MessageType**（消息类型），并将 **Take Image From**（图片来源）设为“n8n”时，应将 **Input Data Field Name**（输入数据字段名称）设为 `data` 这样的字段名称，而不是 `{{ $json.input.data }}` 这样的表达式。

@@ -1,16 +1,13 @@
 ---
-title: MiniMax node documentation
+title: MiniMax 节点
 contentType:
-  - integration
-  - reference
-nodeTitle: MiniMax node documentation
+- integration
+- reference
+nodeTitle: MiniMax 节点
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-langchain.minimax.md
 originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.minimax
 url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.minimax
-description: >-
-  The MiniMax node lets you interact with MiniMax AI models from n8n. This
-  documentation explains how to integrate MiniMax into your n8n workflows to
-  generate images, produce speech from text, generate
+description: 在 n8n 中调用 MiniMax AI 模型，了解如何将 MiniMax 集成到工作流以生成图片和将文本合成为语音。
 layout:
   width: default
   title:
@@ -30,131 +27,133 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MiniMax
 
-{% hint style="info" %}
-On n8n Cloud, you can use the MiniMax node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own MiniMax API key. Select **Use Gateway credits** in the node's credential field to run the node without a MiniMax account.
-{% endhint %}
-
-The MiniMax node connects n8n workflows to MiniMax AI models. Use it to generate images from text prompts, synthesize speech, create videos from text or images, and send messages to MiniMax language models.
+# MiniMax <a id="minimax"></a>
 
 {% hint style="info" %}
-**Credentials**
-
-Refer to the [MiniMax credentials documentation](../credentials/minimax.md) for authentication information for this node.
+在 n8n Cloud 中，可以使用 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 MiniMax 节点，无需提供自己的 MiniMax API 密钥。在节点的凭据字段中选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 MiniMax 账户的情况下运行节点。
 {% endhint %}
 
-## Resources and operations <a href="#resources-and-operations" id="resources-and-operations"></a>
+MiniMax 节点将 n8n 工作流连接到 MiniMax AI 模型。使用它根据文本提示词生成图片、合成语音、根据文本或图片创建视频，以及向 MiniMax 语言模型发送消息。
 
-* **Audio**: Convert text to speech using MiniMax speech synthesis models.
-* **Image**: Generate images from a text prompt.
-* **Text**: Send messages to a MiniMax language model and receive responses.
-* **Video**: Generate videos from a text prompt or a first-frame image.
+{% hint style="info" %}
+**凭据**
 
-### Text to speech <a href="#text-to-speech" id="text-to-speech"></a>
+有关此节点的身份验证信息，请参阅 [MiniMax 凭据文档](../credentials/minimax.md)。
+{% endhint %}
 
-Convert text to speech using a MiniMax speech synthesis model.
+## 资源与操作 <a href="#resources-and-operations" id="resources-and-operations"></a>
 
-**Parameters**
+* **Audio**（音频）：使用 MiniMax 语音合成模型，将文本转换为语音。
+* **Image**（图片）：根据文本提示词生成图片。
+* **Text**（文本）：向 MiniMax 语言模型发送消息并接收响应。
+* **Video**（视频）：根据文本提示词或首帧图片生成视频。
 
-* **Model** (type: options, field: `modelId`): The speech synthesis model to use. Default: `speech-2.8-hd`
-* **Text** (type: string, field: `text`): The text to convert to speech. Maximum 10,000 characters. Required.
-* **Voice ID** (type: string, field: `voiceId`): The voice to use for synthesis. Browse available voices in the [MiniMax documentation](https://platform.minimax.io/docs/faq/system-voice-id). Default: `English_Graceful_Lady`. Required.
-* **Download Audio** (type: boolean, field: `downloadAudio`): Whether to download the generated audio as binary data. When disabled, the node returns only the audio URL. Default: `true`
+### Text to speech（文本转语音） <a href="#text-to-speech" id="text-to-speech"></a>
 
-**Options**
+使用 MiniMax 语音合成模型，将文本转换为语音。
 
-* **Audio Format** (type: options, field: `audioFormat`): Output audio format. Options: MP3, PCM, FLAC, WAV. The node supports WAV in non-streaming mode only. Default: `mp3`
-* **Emotion** (type: options, field: `emotion`): Emotion to apply to the synthesized speech. The model automatically selects the most natural emotion. Default: `calm`
-* **Language Boost** (type: options, field: `languageBoost`): Enhance recognition accuracy for a specific language. Default: `auto`
-* **Pitch** (type: number, field: `pitch`): Pitch adjustment for the speech, from –12 to 12. `0` keeps the original pitch. Default: `0`
-* **Speed** (type: number, field: `speed`): Speech speed from 0.5 to 2. Higher values produce faster speech. Default: `1`
-* **Volume** (type: number, field: `volume`): Speech volume from 0.1 to 10. Higher values produce louder speech. Default: `1`
+**参数**
 
-### Generate an image <a href="#generate-an-image" id="generate-an-image"></a>
+* **Model**（模型；类型：options；字段：`modelId`）：要使用的语音合成模型。默认值：`speech-2.8-hd`。
+* **Text**（文本；类型：string；字段：`text`）：要转换为语音的文本，最多 10,000 个字符，必填。
+* **Voice ID**（音色 ID；类型：string；字段：`voiceId`）：合成语音使用的音色。可在 [MiniMax 文档](https://platform.minimax.io/docs/faq/system-voice-id)中浏览可用音色。默认值：`English_Graceful_Lady`。必填。
+* **Download Audio**（下载音频；类型：boolean；字段：`downloadAudio`）：是否将生成的音频下载为二进制数据。关闭时，节点仅返回音频 URL。默认值：`true`。
 
-Create an image from a text prompt using a MiniMax image generation model.
+**选项**
 
-**Parameters**
+* **Audio Format**（音频格式；类型：options；字段：`audioFormat`）：输出音频格式，可选 MP3、PCM、FLAC、WAV。节点仅在非流式模式下支持 WAV。默认值：`mp3`。
+* **Emotion**（情绪；类型：options；字段：`emotion`）：应用于合成语音的情绪。模型会自动选择最自然的情绪。默认值：`calm`。
+* **Language Boost**（语言增强；类型：options；字段：`languageBoost`）：提高特定语言的识别准确率。默认值：`auto`。
+* **Pitch**（音调；类型：number；字段：`pitch`）：调整语音的音调，范围为 –12 到 12。`0` 表示保持原始音调。默认值：`0`。
+* **Speed**（语速；类型：number；字段：`speed`）：语速，范围为 0.5 到 2。值越高，语速越快。默认值：`1`。
+* **Volume**（音量；类型：number；字段：`volume`）：音量，范围为 0.1 到 10。值越高，音量越大。默认值：`1`。
 
-* **Model** (type: options, field: `modelId`): The image generation model to use. Default: `image-01`
-* **Prompt** (type: string, field: `prompt`): Text description of the image to generate. Maximum 1500 characters. Required.
-* **Aspect Ratio** (type: options, field: `aspectRatio`): The aspect ratio of the generated image. Options include 1:1, 16:9, 9:16, 4:3, 3:4, 3:2, 2:3, and 21:9. Default: `1:1`
-* **Number of Images** (type: number, field: `numberOfImages`): Number of images to generate per request, from one to nine. Default: `1`
-* **Download Image** (type: boolean, field: `downloadImage`): Whether to download the generated image as binary data. When disabled, the node returns only the image URL. Default: `true`
+### Generate an image（生成图片） <a href="#generate-an-image" id="generate-an-image"></a>
 
-**Options**
+使用 MiniMax 图片生成模型，根据文本提示词创建图片。
 
-* **Prompt Optimizer** (type: boolean, field: `promptOptimizer`): Whether to automatically optimize the prompt for better results. Default: `false`
-* **Seed** (type: number, field: `seed`): Random seed for reproducible outputs. Using the same seed with the same parameters produces the same image. Default: `0`
+**参数**
 
-### Message a model <a href="#message-a-model" id="message-a-model"></a>
+* **Model**（模型；类型：options；字段：`modelId`）：要使用的图片生成模型。默认值：`image-01`。
+* **Prompt**（提示词；类型：string；字段：`prompt`）：待生成图片的文本描述，最多 1500 个字符，必填。
+* **Aspect Ratio**（宽高比；类型：options；字段：`aspectRatio`）：生成图片的宽高比。可选项包括 1:1、16:9、9:16、4:3、3:4、3:2、2:3 和 21:9。默认值：`1:1`。
+* **Number of Images**（图片数量；类型：number；字段：`numberOfImages`）：每次请求生成的图片数量，范围为一到九张。默认值：`1`。
+* **Download Image**（下载图片；类型：boolean；字段：`downloadImage`）：是否将生成的图片下载为二进制数据。关闭时，节点仅返回图片 URL。默认值：`true`。
 
-Send one or more messages to a MiniMax language model and receive its response.
+**选项**
 
-**Parameters**
+* **Prompt Optimizer**（提示词优化器；类型：boolean；字段：`promptOptimizer`）：是否自动优化提示词，以获得更好的结果。默认值：`false`。
+* **Seed**（随机种子；类型：number；字段：`seed`）：用于复现输出的随机种子。相同种子配合相同参数会生成相同的图片。默认值：`0`。
 
-* **Model** (type: options, field: `modelId`): The language model to use. Default: `MiniMax-M2.7`
-* **Messages** (type: fixedCollection, field: `messages`): One or more messages forming the conversation. Each message has:
-  * **Prompt** (type: string, field: `content`): The text content of the message.
-  * **Role** (type: options, field: `role`): The role of the message sender. Use `user` to send a message and receive a response, or `assistant` to set the model's tone or persona.
-* **Simplify Output** (type: boolean, field: `simplify`): When enabled, the node returns a simplified response rather than the full raw API output. Default: `true`
+### Message a model（向模型发送消息） <a href="#message-a-model" id="message-a-model"></a>
 
-**Options**
+向 MiniMax 语言模型发送一条或多条消息，并接收其响应。
 
-* **Hide Thinking** (type: boolean, field: `hideThinking`): Strip chain-of-thought reasoning from the response, returning only the final answer. Default: `true`
-* **Maximum Number of Tokens** (type: number, field: `maxTokens`): Maximum number of tokens to generate. Default: `1024`
-* **Max Tool Calls Iterations** (type: number, field: `maxToolsIterations`): Maximum number of tool-iteration cycles the model runs before stopping. One iteration can include multiple tool calls. Set to `0` for no limit. Default: `15`
-* **Output Randomness (Temperature)** (type: number, field: `temperature`): Controls the randomness of the output. Lower values make the output more deterministic and repetitive. Range: 0–1. Default: `0.7`
-* **Output Randomness (Top P)** (type: number, field: `topP`): Maximum cumulative probability of tokens to consider when sampling. Range: 0–1. Default: `0.95`
-* **System Message** (type: string, field: `system`): A system-level instruction that guides the model's behavior and tone.
+**参数**
 
-### Generate video from text <a href="#generate-video-from-text" id="generate-video-from-text"></a>
+* **Model**（模型；类型：options；字段：`modelId`）：要使用的语言模型。默认值：`MiniMax-M2.7`。
+* **Messages**（消息；类型：fixedCollection；字段：`messages`）：组成对话的一条或多条消息。每条消息包含：
+  * **Prompt**（提示词；类型：string；字段：`content`）：消息的文本内容。
+  * **Role**（角色；类型：options；字段：`role`）：消息发送者的角色。使用 `user` 发送消息并接收响应，或使用 `assistant` 设置模型的语气或角色。
+* **Simplify Output**（简化输出；类型：boolean；字段：`simplify`）：开启时，节点返回简化响应，而不是完整的原始 API 输出。默认值：`true`。
 
-Generate a video from a text prompt using a MiniMax video generation model.
+**选项**
 
-**Parameters**
+* **Hide Thinking**（隐藏推理内容；类型：boolean；字段：`hideThinking`）：从响应中移除思维链推理内容，仅返回最终答案。默认值：`true`。
+* **Maximum Number of Tokens**（最大 token 数；类型：number；字段：`maxTokens`）：最多生成的 token 数。默认值：`1024`。
+* **Max Tool Calls Iterations**（最大工具调用迭代次数；类型：number；字段：`maxToolsIterations`）：模型停止前最多执行的工具迭代轮数。一轮迭代可以包含多次工具调用。设为 `0` 表示不限制。默认值：`15`。
+* **Output Randomness (Temperature)**（输出随机性（温度）；类型：number；字段：`temperature`）：控制输出的随机性。值越低，输出越确定，也越容易重复。范围：0–1。默认值：`0.7`。
+* **Output Randomness (Top P)**（输出随机性（Top P）；类型：number；字段：`topP`）：采样时考虑的 token 的最大累计概率。范围：0–1。默认值：`0.95`。
+* **System Message**（系统消息；类型：string；字段：`system`）：用于引导模型行为和语气的系统级指令。
 
-* **Model** (type: options, field: `modelId`): The video generation model to use. Default: `MiniMax-Hailuo-2.3`
-* **Prompt** (type: string, field: `prompt`): Text description of the video. Maximum 2000 characters. You can control camera movements using `[command]` syntax, for example `[Push in]` or `[Pan left]`. Required.
-* **Duration (Seconds)** (type: options, field: `duration`): Duration of the generated video. Options: 6 seconds or 10 seconds. Default: `6`
-* **Resolution** (type: options, field: `resolution`): Resolution of the generated video. Available options depend on the model. Options: 720P, 768P, 1080P. Default: `768P`
-* **Download Video** (type: boolean, field: `downloadVideo`): Whether to download the generated video as binary data. When disabled, the node returns only the video URL. Default: `true`
+### Generate video from text（根据文本生成视频） <a href="#generate-video-from-text" id="generate-video-from-text"></a>
 
-**Options**
+使用 MiniMax 视频生成模型，根据文本提示词生成视频。
 
-* **Prompt Optimizer** (type: boolean, field: `promptOptimizer`): Whether to automatically optimize the prompt for better results. Default: `true`
+**参数**
 
-### Generate video from image <a href="#generate-video-from-image" id="generate-video-from-image"></a>
+* **Model**（模型；类型：options；字段：`modelId`）：要使用的视频生成模型。默认值：`MiniMax-Hailuo-2.3`。
+* **Prompt**（提示词；类型：string；字段：`prompt`）：视频的文本描述，最多 2000 个字符。可以使用 `[command]` 语法控制镜头运动，例如 `[Push in]` 或 `[Pan left]`。必填。
+* **Duration (Seconds)**（时长（秒）；类型：options；字段：`duration`）：生成视频的时长，可选 6 秒或 10 秒。默认值：`6`。
+* **Resolution**（分辨率；类型：options；字段：`resolution`）：生成视频的分辨率，可用选项取决于模型。可选项：720P、768P、1080P。默认值：`768P`。
+* **Download Video**（下载视频；类型：boolean；字段：`downloadVideo`）：是否将生成的视频下载为二进制数据。关闭时，节点仅返回视频 URL。默认值：`true`。
 
-Generate a video using an image as the first frame.
+**选项**
 
-**Parameters**
+* **Prompt Optimizer**（提示词优化器；类型：boolean；字段：`promptOptimizer`）：是否自动优化提示词，以获得更好的结果。默认值：`true`。
 
-* **Model** (type: options, field: `modelId`): The video generation model to use. Default: `MiniMax-Hailuo-2.3`
-* **Image Input Type** (type: options, field: `imageInputType`): How to provide the first frame image. Options: URL or Binary File. Default: `url`
-* **Image URL** (type: string, field: `imageUrl`): Public URL of the first frame image. Supports JPG, JPEG, PNG, and WebP files up to 20MB. Displayed when **Image Input Type** is `URL`. Required.
-* **Input Data Field Name** (type: string, field: `binaryPropertyName`): The name of the input field containing the binary image data. Displayed when **Image Input Type** is `Binary File`. Default: `data`. Required.
-* **Prompt** (type: string, field: `prompt`): Optional text description of the video. Maximum 2000 characters. You can control camera movements using `[command]` syntax, for example `[Zoom in]`.
-* **Duration (Seconds)** (type: options, field: `duration`): Duration of the generated video. Options: 6 seconds or 10 seconds. Default: `6`
-* **Resolution** (type: options, field: `resolution`): Resolution of the generated video. Available options depend on the model. Options: 512P, 720P, 768P, 1080P. Default: `768P`
-* **Download Video** (type: boolean, field: `downloadVideo`): Whether to download the generated video as binary data. When disabled, the node returns only the video URL. Default: `true`
+### Generate video from image（根据图片生成视频） <a href="#generate-video-from-image" id="generate-video-from-image"></a>
 
-**Options**
+以一张图片作为首帧生成视频。
 
-* **Prompt Optimizer** (type: boolean, field: `promptOptimizer`): Whether to automatically optimize the prompt. Default: `true`
-* **Last Frame Image Input Type** (type: options, field: `lastFrameInputType`): Provide a last frame image to generate a first-and-last-frame video. MiniMax-Hailuo-2.3 and MiniMax-Hailuo-02 support this option only. Default: `none`
-  * **Last Frame Image URL** (type: string, field: `lastFrameImageUrl`): Public URL of the last frame image. Displayed when **Last Frame Image Input Type** is `URL`.
-  * **Last Frame Data Field Name** (type: string, field: `lastFrameBinaryPropertyName`): The binary field name containing the last frame image. Displayed when **Last Frame Image Input Type** is `Binary File`. Default: `lastFrame`
-* **Subject Reference Input Type** (type: options, field: `subjectReferenceInputType`): Provide a face photo to maintain facial consistency in the generated video. MiniMax-Hailuo-2.3 supports this option only. Default: `none`
-  * **Subject Reference Image URL** (type: string, field: `subjectReferenceImageUrl`): Public URL of the reference face image. Displayed when **Subject Reference Input Type** is `URL`.
-  * **Subject Reference Data Field Name** (type: string, field: `subjectReferenceBinaryPropertyName`): The binary field name containing the reference face image. Displayed when **Subject Reference Input Type** is `Binary File`. Default: `subjectReference`
+**参数**
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+* **Model**（模型；类型：options；字段：`modelId`）：要使用的视频生成模型。默认值：`MiniMax-Hailuo-2.3`。
+* **Image Input Type**（图片输入类型；类型：options；字段：`imageInputType`）：首帧图片的提供方式，可选 URL 或 Binary File（二进制文件）。默认值：`url`。
+* **Image URL**（图片 URL；类型：string；字段：`imageUrl`）：首帧图片的公开 URL，支持最大 20MB 的 JPG、JPEG、PNG 和 WebP 文件。**Image Input Type**（图片输入类型）为 `URL` 时显示。必填。
+* **Input Data Field Name**（输入数据字段名称；类型：string；字段：`binaryPropertyName`）：包含图片二进制数据的输入字段名称。**Image Input Type**（图片输入类型）为 `Binary File` 时显示。默认值：`data`。必填。
+* **Prompt**（提示词；类型：string；字段：`prompt`）：可选的视频文本描述，最多 2000 个字符。可以使用 `[command]` 语法控制镜头运动，例如 `[Zoom in]`。
+* **Duration (Seconds)**（时长（秒）；类型：options；字段：`duration`）：生成视频的时长，可选 6 秒或 10 秒。默认值：`6`。
+* **Resolution**（分辨率；类型：options；字段：`resolution`）：生成视频的分辨率，可用选项取决于模型。可选项：512P、720P、768P、1080P。默认值：`768P`。
+* **Download Video**（下载视频；类型：boolean；字段：`downloadVideo`）：是否将生成的视频下载为二进制数据。关闭时，节点仅返回视频 URL。默认值：`true`。
 
-[Browse MiniMax node documentation integration templates](https://n8n.io/integrations/minimax) or [search all templates](https://n8n.io/workflows/)
+**选项**
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+* **Prompt Optimizer**（提示词优化器；类型：boolean；字段：`promptOptimizer`）：是否自动优化提示词。默认值：`true`。
+* **Last Frame Image Input Type**（尾帧图片输入类型；类型：options；字段：`lastFrameInputType`）：提供尾帧图片以生成首尾帧视频。仅 MiniMax-Hailuo-2.3 和 MiniMax-Hailuo-02 支持此选项。默认值：`none`。
+  * **Last Frame Image URL**（尾帧图片 URL；类型：string；字段：`lastFrameImageUrl`）：尾帧图片的公开 URL。**Last Frame Image Input Type**（尾帧图片输入类型）为 `URL` 时显示。
+  * **Last Frame Data Field Name**（尾帧数据字段名称；类型：string；字段：`lastFrameBinaryPropertyName`）：包含尾帧图片的二进制字段名称。**Last Frame Image Input Type**（尾帧图片输入类型）为 `Binary File` 时显示。默认值：`lastFrame`。
+* **Subject Reference Input Type**（主体参考输入类型；类型：options；字段：`subjectReferenceInputType`）：提供人脸照片，以保持生成视频中的面部一致性。仅 MiniMax-Hailuo-2.3 支持此选项。默认值：`none`。
+  * **Subject Reference Image URL**（主体参考图片 URL；类型：string；字段：`subjectReferenceImageUrl`）：参考人脸图片的公开 URL。**Subject Reference Input Type**（主体参考输入类型）为 `URL` 时显示。
+  * **Subject Reference Data Field Name**（主体参考数据字段名称；类型：string；字段：`subjectReferenceBinaryPropertyName`）：包含参考人脸图片的二进制字段名称。**Subject Reference Input Type**（主体参考输入类型）为 `Binary File` 时显示。默认值：`subjectReference`。
 
-Refer to the [MiniMax documentation](https://platform.minimax.io/docs) for more information about the service.
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+[浏览 MiniMax 集成模板](https://n8n.io/integrations/minimax)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+有关该服务的更多信息，请参阅 [MiniMax 文档](https://platform.minimax.io/docs)。

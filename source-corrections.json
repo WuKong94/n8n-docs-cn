@@ -1098,5 +1098,19 @@
     ],
     "scope": "仅修正文档中有明确来源证据的适用条件、操作语境、参数归属及上限；重复误写在同一文件中同步修正。原始快照、代码、消息固定文本、链接地址和锚点保持不变；不发送 Telegram 消息、不注册 webhook，也不宣称运行验证通过。",
     "source_sha256": "ccafa531e7fc877711de38a30536563e3181df17e889f59451d8e8a87ebe58e3"
+  },
+  {
+    "id": "aws-certificate-manager-create-operation-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.awscertificatemanager.md",
+    "original_sentence": "Use the AWS Certificate Manager node to automate work in AWS Certificate Manager, and integrate AWS Certificate Manager with other applications. n8n has built-in support for a wide range of AWS Certificate Manager features, including creating, deleting, getting, and renewing SSL certificates.",
+    "translated_sentence": "使用 AWS Certificate Manager 节点自动处理 AWS Certificate Manager 中的工作，并将其与其他应用集成。n8n 内置支持多种 AWS Certificate Manager 功能，包括删除、获取和续期 SSL 证书。译注：原文还提及创建证书，但本页操作列表及所核对版本的节点源码未提供创建操作。",
+    "evidence": "简介提到 creating SSL certificates，但同页操作只有 Delete、Get、Get Many、Get Metadata、Renew。固定 n8n 提交的 CertificateDescription.ts 中 certificateOperations 与此一致，AwsCertificateManager.node.ts 的执行分支也没有创建证书操作。译文按实际列表介绍功能，并保留译注说明原文提及创建但所核对版本未提供该操作，不将 AWS 服务本身的能力混同为节点操作。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.awscertificatemanager.md",
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/nodes/Aws/CertificateManager/CertificateDescription.ts",
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/nodes/Aws/CertificateManager/AwsCertificateManager.node.ts"
+    ],
+    "scope": "仅澄清简介中创建证书的表述与该版本节点操作列表不一致，保留完整操作列表和全部链接，不推断其他版本能力，不调用 AWS API、不创建或续期证书。",
+    "source_sha256": "e8112e06fc5b26a08d0e403c8609633d034eafefebe97adb88e2213305f2eb32"
   }
 ]

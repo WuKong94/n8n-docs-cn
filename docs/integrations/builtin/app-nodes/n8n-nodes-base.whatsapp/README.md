@@ -1,59 +1,59 @@
 ---
-title: WhatsApp Business Cloud node documentation
-description: >-
-  Learn how to use the WhatsApp Business Cloud node in n8n. Follow technical
-  documentation to integrate WhatsApp Business Cloud node into your workflows.
+title: WhatsApp Business Cloud 节点
+description: 了解如何在 n8n 中使用 WhatsApp Business Cloud 节点，并将其集成到工作流。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-base.whatsapp
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# WhatsApp Business Cloud node <a href="#whatsapp-business-cloud-node" id="whatsapp-business-cloud-node"></a>
 
-Use the WhatsApp Business Cloud node to automate work in WhatsApp Business, and integrate WhatsApp Business with other applications. n8n has built-in support for a wide range of WhatsApp Business features, including sending messages, and uploading, downloading, and deleting media. 
+# WhatsApp Business Cloud 节点 <a href="#whatsapp-business-cloud-node" id="whatsapp-business-cloud-node"></a>
 
-On this page, you'll find a list of operations the WhatsApp Business Cloud node supports and links to more resources.
+使用 WhatsApp Business Cloud 节点自动处理 WhatsApp Business 中的工作，并将其与其他应用集成。n8n 内置支持多种 WhatsApp Business 功能，包括发送消息，以及上传、下载和删除媒体文件。
+
+本页列出了 WhatsApp Business Cloud 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [WhatsApp Business Cloud credentials](../../credentials/whatsapp.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [WhatsApp Business Cloud 凭据](../../credentials/whatsapp.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/sYWM3IB0LEL4RkPx8ndF/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/hitl-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Message
-	* Send
-	* Send and Wait for Response
-	* Send Template
-* Media
-	* Upload
-	* Download
-	* Delete
+* Message（消息）
+    * Send（发送）
+    * Send and Wait for Response（发送并等待响应）
+    * Send Template（发送模板）
+* Media（媒体）
+    * Upload（上传）
+    * Download（下载）
+    * Delete（删除）
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/c0Jp2CWNEFSR2IfIVdlL/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/send-and-wait-operation.md" %}
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse WhatsApp Business Cloud integration templates](https://n8n.io/integrations/whatsapp-business-cloud) or [search all templates](https://n8n.io/workflows/)
+[浏览 WhatsApp Business Cloud 集成模板](https://n8n.io/integrations/whatsapp-business-cloud)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [WhatsApp Business Platform's Cloud API documentation](https://developers.facebook.com/docs/whatsapp/cloud-api) for details about the operations.
+有关操作详情，请参阅 [WhatsApp Business Platform Cloud API 文档](https://developers.facebook.com/docs/whatsapp/cloud-api)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common errors or issues and suggested resolution steps, refer to [Common Issues](common-issues.md).
+常见错误或问题及建议的解决步骤，请参阅[常见问题](common-issues.md)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

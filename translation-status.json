@@ -15526,5 +15526,96 @@
       "telegram-remove-keyboard-reference-source-note",
       "telegram-selective-reply-current-message-context"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.awscertificatemanager.md": {
+    "status": "translated",
+    "source_sha256": "e8112e06fc5b26a08d0e403c8609633d034eafefebe97adb88e2213305f2eb32",
+    "translation_sha256": "0d9977fa576c5fe81ba46bf744dd13fe00f9b0d71cacc18fb584c82e665f3d1e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "aws-certificate-manager-create-operation-source-note"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.microsoftdataverse.md": {
+    "status": "translated",
+    "source_sha256": "63534fabcee753a2e469e32083641a1148fe1ac0ea9ab698fac0ba45a30ccfc2",
+    "translation_sha256": "6e91517cc9efbd6f4a5b1464cf3d1f2e6dc93a3f57d38460b036871279fad562",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.mistralai.md": {
+    "status": "translated",
+    "source_sha256": "0a2ed54e0078945974de9723f16c0d6a48f7b4a08a2ab1b8f76be36fc77fefc0",
+    "translation_sha256": "e771f735755b238cc272154a37e41960bdaac7fc0aa08357f668c993ec380c86",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/README.md": {
+    "status": "translated",
+    "source_sha256": "29131905c56336bade7e7895f3cea4f4ce90b9d0d445c80288b3ea0a61a8409b",
+    "translation_sha256": "58d2e263adb61f6153b917e5a8117b4c30681674381d0b4823760327066f2092",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "99d82ca19fe7e0679534bba1338865670cb92c21e57dbadb2f38ee84d34047c7",
+    "translation_sha256": "a8a008aef75d8b5986a2b9e4b956d27d88364fcd33caf9333d0bff11b0227980",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.alibabacloud.md": {
+    "status": "translated",
+    "source_sha256": "d591457baa436771cb6414f2e58ecea0d5d1d3a1253e3c35f89aa731342bc21c",
+    "translation_sha256": "0715b441a8861bcead9b6f6061f0bd9fef25a01a1abed737628965b12744dcbe",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.minimax.md": {
+    "status": "translated",
+    "source_sha256": "a202a1ec0aaee83bea3a1c4210ee6d2cbb5c872062f438916bddde81d9ea7cfc",
+    "translation_sha256": "2cea503b644d327a20243aecfc97de6942a50c9d6c0b6a6c9ef1fdae9056f3b4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-langchain.moonshot.md": {
+    "status": "translated",
+    "source_sha256": "81be8fb48bf6fa0c5433cc37f47184e8f55653cfa7630a72b5ee12105792e336",
+    "translation_sha256": "c7ad2a7906c50af7a00091ddfbb52dfc684c13aa67305d0edd7d5fe0701f0351",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

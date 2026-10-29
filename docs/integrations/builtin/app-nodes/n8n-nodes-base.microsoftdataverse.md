@@ -1,56 +1,58 @@
 ---
-description: Create, update, delete, and query Microsoft Dataverse rows in n8n workflows.
+description: 在 n8n 工作流中创建、更新、删除和查询 Microsoft Dataverse 数据行。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Dataverse node
 
-Use the Microsoft Dataverse node to automate work in Microsoft Dataverse and integrate it with other applications. You can create, read, update, and delete rows in standard and custom tables using the Dataverse Web API.
+# Microsoft Dataverse 节点 <a id="microsoft-dataverse-node"></a>
+
+使用 Microsoft Dataverse 节点自动处理 Microsoft Dataverse 中的工作，并将其与其他应用集成。你可以通过 Dataverse Web API，在标准表和自定义表中创建、读取、更新和删除数据行。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Microsoft Dataverse credentials](../credentials/microsoftdataverse.md) for authentication setup. The node supports delegated user access and app-only access through the **Microsoft Dataverse OAuth2 API** credential.
+有关身份验证设置，请参阅 [Microsoft Dataverse 凭据](../credentials/microsoftdataverse.md)。此节点通过 **Microsoft Dataverse OAuth2 API** 凭据支持用户委派访问和仅应用访问。
 {% endhint %}
 
-## Operations
+## 操作 <a id="operations"></a>
 
-* **Row**
-	* **Create**: Add a new row.
-	* **Create or Update**: Create a row or update an existing row using a row ID or alternate key.
-	* **Delete**: Delete a row.
-	* **Get**: Get a row by its ID.
-	* **Get Many**: Get multiple rows, with optional filtering and sorting.
-	* **Update**: Update an existing row. This operation doesn't create a missing row.
+* **Row**（数据行）
+    * **Create**（创建）：添加新行。
+    * **Create or Update**（创建或更新）：通过行 ID 或替代键创建新行，或更新已有行。
+    * **Delete**（删除）：删除一行。
+    * **Get**（获取）：按 ID 获取一行。
+    * **Get Many**（获取多行）：获取多行，可选筛选和排序。
+    * **Update**（更新）：更新已有行。此操作不会创建不存在的行。
 
-## Select a table and row
+## 选择表和数据行 <a id="select-a-table-and-row"></a>
 
-Set **Resource** to **Row**, then select an **Operation**.
+将 **Resource**（资源）设为 **Row**（数据行），然后选择 **Operation**（操作）。
 
-In **Table Name or ID**, choose **From List** to search your environment's tables. To enter a table manually, choose **By ID** and enter its Web API entity set name, such as `accounts` or `contacts`. This isn't the table's display name, singular logical name, or GUID.
+在 **Table Name or ID**（表名称或 ID）中，选择 **From List**（从列表）以搜索环境中的表。要手动输入表，选择 **By ID**（按 ID），并填写其 Web API 实体集名称，例如 `accounts` 或 `contacts`。这不是表的显示名称、单数形式的逻辑名称或 GUID。
 
-For **Get**, **Update**, and **Delete**, use **Row ID** to select a row **From List** or enter its GUID **By ID**. For example, `00000000-0000-0000-0000-000000000001` has the required format. Replace it with the ID of a row in your environment.
+对于 **Get**（获取）、**Update**（更新）和 **Delete**（删除），使用 **Row ID**（行 ID）从 **From List**（从列表）选择数据行，或通过 **By ID**（按 ID）输入其 GUID。例如，`00000000-0000-0000-0000-000000000001` 符合所需格式，请替换为你所在环境中实际数据行的 ID。
 
-Only **Create or Update** supports [alternate-key addressing](#create-or-update-a-row).
+只有 **Create or Update**（创建或更新）支持[使用替代键寻址](#create-or-update-a-row)。
 
-## Create and update rows
+## 创建和更新数据行 <a id="create-and-update-rows"></a>
 
-For **Create**, **Update**, and **Create or Update**, choose an **Input Mode**:
+对于 **Create**（创建）、**Update**（更新）和 **Create or Update**（创建或更新），选择一种 **Input Mode**（输入模式）：
 
-| Input mode | How to enter values |
+| 输入模式 | 值的输入方式 |
 | --- | --- |
-| **JSON** (default) | Enter an object in **Row Item (JSON)**. Use column logical names as keys and the data types the columns expect. |
-| **Fields (Key / Value Pairs)** | Under **Fields**, select **Add Field**, choose a **Field Name or ID**, and enter a **Field Value**. Repeat for each column. |
+| **JSON**（默认） | 在 **Row Item (JSON)**（行数据 JSON）中输入对象。以列的逻辑名称作为键，并使用列所要求的数据类型。 |
+| **Fields (Key / Value Pairs)**（字段：键值对） | 在 **Fields**（字段）下选择 **Add Field**（添加字段），选择 **Field Name or ID**（字段名称或 ID），然后输入 **Field Value**（字段值）。为每列重复此步骤。 |
 
-Provide at least one field. The node rejects an empty row item. The field picker shows writable columns for the selected operation. For **Create or Update**, it shows columns that support both creating and updating rows.
+至少提供一个字段，节点会拒绝空的行数据。字段选择器会显示适用于所选操作的可写列。对于 **Create or Update**（创建或更新），它会显示同时支持创建和更新的列。
 
-The **Field Value** input is a string field. The node doesn't automatically convert literal text to numbers or booleans. Use **JSON** when you need to preserve these types or send `null`.
+**Field Value**（字段值）输入框是字符串字段。节点不会自动将文本字面量转换为数字或布尔值。需要保留这些类型或发送 `null` 时，请使用 **JSON**。
 
-### Create an account
+### 创建客户账户 <a id="create-an-account"></a>
 
-To create an account, select **Create**, set **Table Name or ID** to `accounts`, and use **JSON** input. Enter this object in **Row Item (JSON)**:
+要创建客户账户，选择 **Create**（创建），将 **Table Name or ID**（表名称或 ID）设为 `accounts`，并使用 **JSON** 输入。在 **Row Item (JSON)**（行数据 JSON）中输入以下对象：
 
 ```json
 {
@@ -61,21 +63,21 @@ To create an account, select **Create**, set **Table Name or ID** to `accounts`,
 }
 ```
 
-For **Update**, select the existing account's **Row ID** and send only the fields you want to change. For example, `{"telephone1": "555-0100"}` updates the phone number without replacing the other fields.
+使用 **Update**（更新）时，选择已有客户账户的 **Row ID**（行 ID），并仅发送要修改的字段。例如，`{"telephone1": "555-0100"}` 会更新电话号码，而不替换其他字段。
 
-### Set lookup columns
+### 设置查找列 <a id="set-lookup-columns"></a>
 
-A lookup column refers to a row in another table. When relationship metadata is accessible, the node converts lookup values to the navigation-property bindings Dataverse requires.
+查找列用于引用另一个表中的数据行。能够访问关系元数据时，节点会将查找值转换为 Dataverse 要求的导航属性绑定。
 
-| Lookup type | Value to provide |
+| 查找类型 | 需要提供的值 |
 | --- | --- |
-| One target table, such as `primarycontactid` on an account | A row GUID or a reference such as `/contacts(<contact-id>)`. |
-| Multiple target tables, such as a Customer column | An explicit reference such as `/accounts(<account-id>)` or `/contacts(<contact-id>)`. A bare GUID is ambiguous. |
-| Owner column | `/systemusers(<user-id>)` or `/teams(<team-id>)`. A bare GUID is ambiguous. |
+| 单一目标表，例如客户账户中的 `primarycontactid` | 行 GUID，或 `/contacts(<contact-id>)` 这样的引用。 |
+| 多个目标表，例如 Customer 列 | 显式引用，例如 `/accounts(<account-id>)` 或 `/contacts(<contact-id>)`。仅提供 GUID 会有歧义。 |
+| Owner 列 | `/systemusers(<user-id>)` 或 `/teams(<team-id>)`。仅提供 GUID 会有歧义。 |
 
-Replace the angle-bracket placeholders with row GUIDs from your environment. You can omit the leading slash in these references.
+将尖括号占位符替换为你所在环境中数据行的 GUID。可以省略这些引用开头的斜杠。
 
-For example, to set an account's primary contact and owner, include the following fields in **Row Item (JSON)**:
+例如，要设置客户账户的主要联系人和所有者，在 **Row Item (JSON)**（行数据 JSON）中包含以下字段：
 
 ```json
 {
@@ -84,72 +86,72 @@ For example, to set an account's primary contact and owner, include the followin
 }
 ```
 
-You can also supply an explicit binding, such as `{"primarycontactid@odata.bind": "/contacts(<contact-id>)"}`. The node passes explicit bindings through unchanged. Use the exact, case-sensitive navigation property name from your table's metadata, which can differ from the column logical name.
+也可以直接提供显式绑定，例如 `{"primarycontactid@odata.bind": "/contacts(<contact-id>)"}`。节点会原样传递显式绑定。请使用表元数据中准确且区分大小写的导航属性名称；它可能与列的逻辑名称不同。
 
-To clear a single-target lookup, send `null`, for example `{"primarycontactid": null}`. For a multi-table lookup, clear the specific navigation property instead, if Dataverse permits clearing that relationship.
+要清空单一目标的查找列，发送 `null`，例如 `{"primarycontactid": null}`。对于多表查找，应清空对应的具体导航属性，前提是 Dataverse 允许清除此关系。
 
-## Create or update a row
+## 创建或更新一行 <a id="create-or-update-a-row"></a>
 
-Select **Create or Update** to address a row using either of these **Identifier Type** values:
+选择 **Create or Update**（创建或更新），并通过以下任一种 **Identifier Type**（标识符类型）寻址数据行：
 
-* **Row ID (GUID)**: Select or enter a **Row ID**. If the row doesn't exist, Dataverse creates it with that GUID.
-* **Alternate Key**: Enter an **Alternate Key Predicate**, such as `accountnumber='ACC-001'`. Configure the alternate key on the table in Dataverse before using it.
+* **Row ID (GUID)**（行 ID）：选择或输入 **Row ID**（行 ID）。如果该行不存在，Dataverse 会使用此 GUID 创建数据行。
+* **Alternate Key**（替代键）：输入 **Alternate Key Predicate**（替代键谓词），例如 `accountnumber='ACC-001'`。使用前，先在 Dataverse 中为该表配置替代键。
 
-Enter only the predicate, without the table name or surrounding parentheses. For a string key, keep the single quotes around the value. The node rejects URL delimiters, path separators, and control characters in the predicate.
+仅输入谓词，不包含表名称或外围括号。对于字符串键，保留值两侧的单引号。节点会拒绝谓词中的 URL 分隔符、路径分隔符和控制字符。
 
-Under **Options**, use **Behavior** to control the write:
+在 **Options**（选项）下，使用 **Behavior**（行为）控制写入方式：
 
-| Behavior | Result |
+| 行为 | 结果 |
 | --- | --- |
-| **Create or Update** (default) | Create the row if it doesn't exist, or update it if it does. |
-| **Update Only** | Update an existing row. Fail if the row doesn't exist. |
-| **Create Only** | Create a new row. Fail if the row already exists. |
+| **Create or Update**（创建或更新，默认） | 行不存在时创建，存在时更新。 |
+| **Update Only**（仅更新） | 更新已有行。行不存在时失败。 |
+| **Create Only**（仅创建） | 创建新行。行已存在时失败。 |
 
-For example, select the `accounts` table, choose **Alternate Key**, and enter `accountnumber='ACC-001'`. Send `{"name": "Contoso"}` in **Row Item (JSON)** to create or update the account with that account number.
+例如，选择 `accounts` 表，选择 **Alternate Key**（替代键），然后输入 `accountnumber='ACC-001'`。在 **Row Item (JSON)**（行数据 JSON）中发送 `{"name": "Contoso"}`，即可创建或更新具有该账户编号的客户账户。
 
-## Query rows
+## 查询数据行 <a id="query-rows"></a>
 
-The **Get** operation supports **Select Column Names or IDs** and **Expand Query** under **Options**. **Get Many** supports those options and additional filters, sorting, and result limits.
+**Get**（获取）操作支持 **Options**（选项）中的 **Select Column Names or IDs**（选择列名称或 ID）和 **Expand Query**（展开查询）。**Get Many**（获取多行）支持这些选项，以及额外的筛选、排序和结果数量限制。
 
-### Get many rows with OData
+### 使用 OData 获取多行 <a id="get-many-rows-with-odata"></a>
 
-Select **Get Many** and configure the following parameters:
+选择 **Get Many**（获取多行），并配置以下参数：
 
-| Parameter | Default | Description |
+| 参数 | 默认值 | 说明 |
 | --- | --- | --- |
-| **Return All** | Off | Follow OData pagination links until no more results remain. |
-| **Limit** | `50` | Maximum number of rows to return when **Return All** is off. Minimum: `1`. |
-| **Select Column Names or IDs** | None selected | Choose the columns to retrieve. Leave empty to use Dataverse's default projection. |
-| **Filter Rows** | Empty | OData filter expression, such as `statecode eq 0`. Don't include the `$filter=` prefix. |
-| **Expand Query** | Empty | OData expression to retrieve related rows, such as `primarycontactid($select=fullname)`. |
-| **Sort Column Name or ID** | None selected | Column to sort by. |
-| **Sort Direction** | **Ascending** | Sort direction for the selected column. |
-| **Sort By Override** | Empty | Raw OData sort expression, such as `createdon desc, name asc`. Used only when **Sort Column Name or ID** is empty. |
-| **Row Count ($Top)** | Unset | Server-side cap on results. Overrides the `$top` value derived from **Limit** and disables server-driven paging. |
+| **Return All**（返回全部） | 关闭 | 跟随 OData 分页链接，直到没有更多结果。 |
+| **Limit**（数量限制） | `50` | **Return All**（返回全部）关闭时，最多返回的行数。最小值：`1`。 |
+| **Select Column Names or IDs**（选择列名称或 ID） | 未选择 | 选择要获取的列。留空时，使用 Dataverse 默认的投影。 |
+| **Filter Rows**（筛选行） | 留空 | OData 筛选表达式，例如 `statecode eq 0`。不要包含 `$filter=` 前缀。 |
+| **Expand Query**（展开查询） | 留空 | 用于获取关联数据行的 OData 表达式，例如 `primarycontactid($select=fullname)`。 |
+| **Sort Column Name or ID**（排序列名称或 ID） | 未选择 | 要用于排序的列。 |
+| **Sort Direction**（排序方向） | **Ascending**（升序） | 所选列的排序方向。 |
+| **Sort By Override**（排序覆盖） | 留空 | 原始 OData 排序表达式，例如 `createdon desc, name asc`。仅在 **Sort Column Name or ID**（排序列名称或 ID）为空时使用。 |
+| **Row Count ($Top)**（行数） | 未设置 | 服务端结果数量上限。会覆盖根据 **Limit**（数量限制）推导的 `$top` 值，并禁用服务端驱动的分页。 |
 
-For example, to retrieve up to 100 active accounts whose names start with `Contoso`:
+例如，要获取名称以 `Contoso` 开头、最多 100 个处于活动状态的客户账户：
 
-1. Set **Table Name or ID** to `accounts`.
-2. Leave **Return All** off and set **Limit** to `100`.
-3. Under **Options**, select `name` and `accountnumber` in **Select Column Names or IDs**.
-4. Set **Filter Rows** to `statecode eq 0 and startswith(name,'Contoso')`.
-5. Set **Sort Column Name or ID** to `name` and **Sort Direction** to **Ascending**.
+1. 将 **Table Name or ID**（表名称或 ID）设为 `accounts`。
+2. 保持 **Return All**（返回全部）关闭，并将 **Limit**（数量限制）设为 `100`。
+3. 在 **Options**（选项）下，在 **Select Column Names or IDs**（选择列名称或 ID）中选择 `name` 和 `accountnumber`。
+4. 将 **Filter Rows**（筛选行）设为 `statecode eq 0 and startswith(name,'Contoso')`。
+5. 将 **Sort Column Name or ID**（排序列名称或 ID）设为 `name`，并将 **Sort Direction**（排序方向）设为 **Ascending**（升序）。
 
-The read-column pickers use lookup property names such as `_primarycontactid_value` automatically. When writing raw filters or sort expressions, use that property form for lookup GUIDs. For example, filter by `_primarycontactid_value eq <contact-id>`, replacing `<contact-id>` with the GUID without quotes. Use navigation property names for **Expand Query**.
+读取列的选择器会自动使用 `_primarycontactid_value` 这样的查找属性名称。编写原始筛选或排序表达式时，请使用这种属性形式表示查找 GUID。例如，通过 `_primarycontactid_value eq <contact-id>` 筛选，将 `<contact-id>` 替换为不带引号的 GUID。对于 **Expand Query**（展开查询），请使用导航属性名称。
 
-### Pagination and result limits
+### 分页和结果数量限制 <a id="pagination-and-result-limits"></a>
 
-For OData queries, the node follows `@odata.nextLink` until it reaches **Limit** or retrieves all available results.
+对于 OData 查询，节点会跟随 `@odata.nextLink`，直到达到 **Limit**（数量限制）或获取所有可用结果。
 
-When **Limit** is 5,000 or less, the node also sends it as `$top`. For larger limits, the node leaves `$top` unset so Dataverse can return multiple pages. An explicit **Row Count ($Top)** takes precedence and can restrict results even when **Return All** is on.
+**Limit**（数量限制）为 5,000 或更小时，节点还会将其作为 `$top` 发送。限制更大时，节点不设置 `$top`，让 Dataverse 可以返回多页结果。显式设置的 **Row Count ($Top)**（行数）优先级更高，即使开启 **Return All**（返回全部），也可能限制结果数量。
 
-To retrieve more than 5,000 rows, leave **Row Count ($Top)** unset and either enable **Return All** or set **Limit** above 5,000. These paging rules apply to OData queries, not FetchXML.
+要获取超过 5,000 行的数据，请保持 **Row Count ($Top)**（行数）未设置，并开启 **Return All**（返回全部），或将 **Limit**（数量限制）设为大于 5,000。这些分页规则适用于 OData 查询，不适用于 FetchXML。
 
-### Use FetchXML
+### 使用 FetchXML <a id="use-fetchxml"></a>
 
-Set **Options** > **FetchXML Query** to run a FetchXML query. It replaces the OData select, filter, sort, expand, and top options. Keep **Return All** off and set **Limit** to cap the returned rows.
+设置 **Options**（选项）> **FetchXML Query**（FetchXML 查询）以运行 FetchXML 查询。它会替代 OData 的选择、筛选、排序、展开和 top 选项。保持 **Return All**（返回全部）关闭，并设置 **Limit**（数量限制）以限制返回行数。
 
-For example, select the `accounts` table and enter this query to retrieve up to 50 active accounts:
+例如，选择 `accounts` 表，并输入以下查询，以获取最多 50 个处于活动状态的客户账户：
 
 ```xml
 <fetch top="50">
@@ -163,56 +165,56 @@ For example, select the `accounts` table and enter this query to retrieve up to 
 </fetch>
 ```
 
-FetchXML uses the table's logical name, `account`, even though **Table Name or ID** uses the entity set name, `accounts`.
+FetchXML 使用表的逻辑名称 `account`，而 **Table Name or ID**（表名称或 ID）使用实体集名称 `accounts`。
 
 {% hint style="warning" %}
-**FetchXML pagination**
+**FetchXML 分页**
 
-The Microsoft Dataverse node doesn't support FetchXML pagination. **FetchXML Query** with **Return All** produces an error. Turning off **Return All** avoids the error, but increasing **Limit** doesn't retrieve additional FetchXML pages. Use an OData query for automatic pagination.
+Microsoft Dataverse 节点不支持 FetchXML 分页。**FetchXML Query**（FetchXML 查询）与 **Return All**（返回全部）一起使用会报错。关闭 **Return All** 可以避免该错误，但提高 **Limit**（数量限制）不会获取更多 FetchXML 页。需要自动分页时，请使用 OData 查询。
 {% endhint %}
 
-## Work with elastic tables
+## 使用弹性表 <a id="work-with-elastic-tables"></a>
 
-For **Get**, **Get Many**, and **Delete**, set **Options** > **Partition ID** when you need to target an elastic-table partition.
+对于 **Get**（获取）、**Get Many**（获取多行）和 **Delete**（删除），需要定位弹性表分区时，设置 **Options**（选项）> **Partition ID**（分区 ID）。
 
-**Create**, **Update**, and **Create or Update** don't expose a **Partition ID** option. For **Create**, include `partitionid` in the row JSON when creating a partitioned row.
+**Create**（创建）、**Update**（更新）和 **Create or Update**（创建或更新）不提供 **Partition ID**（分区 ID）选项。使用 **Create** 创建分区内的数据行时，在行 JSON 中包含 `partitionid`。
 
-To update or upsert a partitioned row, use **Create or Update** with **Identifier Type** set to **Alternate Key**. Include the table's primary key and `partitionid` in **Alternate Key Predicate**:
+要更新分区内的数据行或执行创建或更新操作，使用 **Create or Update**（创建或更新），并将 **Identifier Type**（标识符类型）设为 **Alternate Key**（替代键）。在 **Alternate Key Predicate**（替代键谓词）中包含表的主键和 `partitionid`：
 
 ```text
 <primary-key-column>=<row-id>,partitionid='<partition-id>'
 ```
 
-Replace the placeholders with your table's primary key column logical name, row GUID, and partition ID. Set **Behavior** to **Update Only** if the row must already exist. Refer to Microsoft's [elastic table documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-elastic-tables) for table-specific behavior and restrictions.
+将占位符替换为表主键列的逻辑名称、行 GUID 和分区 ID。如果要求该行必须已存在，将 **Behavior**（行为）设为 **Update Only**（仅更新）。有关表的具体行为和限制，请参阅 Microsoft 的[弹性表文档](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-elastic-tables)。
 
-## Output and metadata
+## 输出和元数据 <a id="output-and-metadata"></a>
 
-* **Create**, **Update**, and **Create or Update** request the row after the write and return Dataverse's response.
-* **Get** returns a single row.
-* **Get Many** returns each row as a separate n8n item, rather than a collection inside a `value` field.
-* **Delete** returns `{"success": true, "id": "<row-id>"}` after a successful deletion.
+* **Create**（创建）、**Update**（更新）和 **Create or Update**（创建或更新）会在写入后请求该行，并返回 Dataverse 的响应。
+* **Get**（获取）返回单行。
+* **Get Many**（获取多行）将每行作为单独的 n8n 数据项返回，而不是放在 `value` 字段中的集合。
+* **Delete**（删除）成功后返回 `{"success": true, "id": "<row-id>"}`。
 
-All operations except **Delete** offer **Options** > **Return Full Metadata**, which is off by default. Turn it on to request OData annotations, including formatted values where Dataverse provides them. The node doesn't rename columns or simplify annotations.
+除 **Delete**（删除）外，所有操作都提供 **Options**（选项）> **Return Full Metadata**（返回完整元数据），默认关闭。开启后，会请求 OData 注解，包括 Dataverse 提供的格式化值。节点不会重命名列或简化注解。
 
-## Common issues
+## 常见问题 <a id="common-issues"></a>
 
-### Table or column options don't load
+### 表或列选项无法加载 <a id="table-or-column-options-dont-load"></a>
 
-Check the HTTP status and Dataverse error shown in the picker. Verify the environment URL and credential access, including access to table metadata. Refer to [Microsoft Dataverse credential troubleshooting](../credentials/microsoftdataverse.md#common-issues).
+检查选择器显示的 HTTP 状态和 Dataverse 错误。验证环境 URL 和凭据访问权限，包括访问表元数据的权限。请参阅 [Microsoft Dataverse 凭据故障排查](../credentials/microsoftdataverse.md#common-issues)。
 
-If you know the table's entity set name, you can enter it using **Table Name or ID** > **By ID**. This doesn't bypass Dataverse permissions.
+如果知道表的实体集名称，可以通过 **Table Name or ID**（表名称或 ID）> **By ID**（按 ID）输入。这不会绕过 Dataverse 权限检查。
 
-### A lookup value is rejected
+### 查找值被拒绝 <a id="a-lookup-value-is-rejected"></a>
 
-Don't use a display name as a lookup value. Use a GUID for a single-target lookup, or a reference containing the entity set name and row ID. Customer and Owner columns need an explicit target table. Refer to [Set lookup columns](#set-lookup-columns) for examples.
+不要将显示名称用作查找值。对于单一目标查找，使用 GUID，或包含实体集名称和行 ID 的引用。Customer 和 Owner 列需要明确指定目标表。示例请参阅[设置查找列](#set-lookup-columns)。
 
-### A query returns fewer rows than expected
+### 查询返回的行数少于预期 <a id="a-query-returns-fewer-rows-than-expected"></a>
 
-Check **Limit**, remove **Row Count ($Top)** if you need paging, and confirm whether the query uses FetchXML. Refer to [Pagination and result limits](#pagination-and-result-limits) and [Use FetchXML](#use-fetchxml).
+检查 **Limit**（数量限制）；需要分页时，移除 **Row Count ($Top)**（行数），并确认查询是否使用 FetchXML。请参阅[分页和结果数量限制](#pagination-and-result-limits)及[使用 FetchXML](#use-fetchxml)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Microsoft Dataverse credentials](../credentials/microsoftdataverse.md)
-* [Dataverse Web API documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview)
-* [Query data using the Web API](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query/overview)
-* [Use alternate keys with the Web API](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-alternate-key-reference-record)
+* [Microsoft Dataverse 凭据](../credentials/microsoftdataverse.md)
+* [Dataverse Web API 文档](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview)
+* [使用 Web API 查询数据](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query/overview)
+* [通过 Web API 使用替代键](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-alternate-key-reference-record)

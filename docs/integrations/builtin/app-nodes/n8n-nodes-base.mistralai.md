@@ -1,61 +1,61 @@
 ---
-title: MistralAI node documentation
-description: >-
-  Learn how to use the Mistral AI node in n8n. Follow technical documentation to
-  integrate Mistral AI node into your workflows.
+title: Mistral AI 节点
+description: 了解如何在 n8n 中使用 Mistral AI 节点，并将其集成到工作流。
 contentType:
-  - integration
-  - reference
-nodeTitle: MistralAI node documentation
+- integration
+- reference
+nodeTitle: Mistral AI 节点
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.mistralai.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mistralai'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mistralai'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mistralai
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mistralai
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Mistral AI node <a href="#mistral-ai-node" id="mistral-ai-node"></a>
 
-Use the Mistral AI node to automate work in Mistral AI and integrate Mistral AI with other applications. n8n has built-in support for extracting text with various models, file types, and input methods.
+# Mistral AI 节点 <a href="#mistral-ai-node" id="mistral-ai-node"></a>
 
-On this page, you'll find a list of operations the Mistral AI node supports, and links to more resources.
+使用 Mistral AI 节点自动处理 Mistral AI 中的工作，并将其与其他应用集成。n8n 内置支持多种模型、文件类型和输入方式的文本提取。
+
+本页列出了 Mistral AI 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Mistral Cloud credentials documentation](../credentials/mistral.md) for authentication information for this node.
+有关此节点的身份验证信息，请参阅 [Mistral Cloud 凭据文档](../credentials/mistral.md)。
 {% endhint %}
 
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Resource**: The resource that Mistral AI should operate on. The current implementation supports the "Document" resource.
-* **Operation**: The operation to perform:
-	* **Extract Text**: Extracts text from a document or image using optical character recognition (OCR).
-* **Model**: The model to use for the given operation. The current version requires the `mistral-ocr-latest` model.
-* **Document Type**: The document format to process. Can be "Document" or "Image".
-* **Input Type**: How to input the document:
-	* **Binary Data**: Pass the document to this node as a binary field.
-	* **URL**: Fetch the document from a given URL.
-* **Input Binary Field**: When using the "Binary Data" input type, defines the name of the input binary field containing the file.
-* **URL**: When using the "URL" input type, the URL of the document or image to process.
+* **Resource**（资源）：Mistral AI 要操作的资源。本文对应的实现支持“Document”（文档）资源。
+* **Operation**（操作）：要执行的操作：
+    * **Extract Text**（提取文本）：使用光学字符识别（OCR）从文档或图片中提取文本。
+* **Model**（模型）：用于此操作的模型。本文对应的版本要求使用 `mistral-ocr-latest` 模型。
+* **Document Type**（文档类型）：要处理的文档格式，可选“Document”（文档）或“Image”（图片）。
+* **Input Type**（输入类型）：文档的输入方式：
+    * **Binary Data**（二进制数据）：通过二进制字段将文档传入此节点。
+    * **URL**：从指定 URL 获取文档。
+* **Input Binary Field**（输入二进制字段）：使用“Binary Data”（二进制数据）输入类型时，指定包含文件的输入二进制字段名称。
+* **URL**：使用“URL”输入类型时，指定要处理的文档或图片的 URL。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Enable Batch Processing**: Whether to process multiple documents in the same API call. This may reduce your costs by bundling requests.
-* **Batch Size**: When using "Enable Batch Processing", sets the maximum number of documents to process per batch.
-* **Delete Files After Processing**: When using "Enable Batch Processing", whether to delete the files from Mistral Cloud after processing.
-
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+* **Enable Batch Processing**（启用批量处理）：是否在同一次 API 调用中处理多个文档。合并请求可能降低成本。
+* **Batch Size**（批次大小）：启用“Enable Batch Processing”（启用批量处理）时，设置每批最多处理的文档数量。
+* **Delete Files After Processing**（处理后删除文件）：启用“Enable Batch Processing”（启用批量处理）时，选择是否在处理完成后从 Mistral Cloud 删除文件。
 
 
-[Browse MistralAI node documentation integration templates](https://n8n.io/integrations/mistral-ai) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-Refer to [Mistral AI's documentation](https://docs.mistral.ai/api/) for more information about the service.
+[浏览 Mistral AI 集成模板](https://n8n.io/integrations/mistral-ai)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+
+有关该服务的更多信息，请参阅 [Mistral AI 文档](https://docs.mistral.ai/api/)。
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

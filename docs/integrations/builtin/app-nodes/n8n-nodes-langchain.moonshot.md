@@ -1,18 +1,13 @@
 ---
-title: Moonshot Kimi node documentation
+title: Moonshot Kimi 节点
 contentType:
-  - integration
-  - reference
-nodeTitle: Moonshot Kimi node documentation
+- integration
+- reference
+nodeTitle: Moonshot Kimi 节点
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-langchain.moonshot.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.moonshot
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.moonshot
-description: >-
-  The Moonshot Kimi node lets you interact with Moonshot Kimi AI models from
-  n8n. This documentation explains how to send messages to models, attach
-  images, and analyze images using the node's operation
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.moonshot
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.moonshot
+description: 在 n8n 中调用 Moonshot Kimi AI 模型，了解如何向模型发送消息、附加图片，以及使用节点操作分析图片。
 layout:
   width: default
   title:
@@ -32,73 +27,75 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Moonshot Kimi
 
-{% hint style="info" %}
-On n8n Cloud, you can use the Moonshot Kimi node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own Moonshot API key. Select **Use Gateway credits** in the node's credential field to run the node without a Moonshot account.
-{% endhint %}
-
-The Moonshot Kimi node connects n8n workflows to Moonshot Kimi AI models. Use it to send prompts and receive model responses, attach images to messages, or analyze images with an image-analysis model.
+# Moonshot Kimi <a id="moonshot-kimi"></a>
 
 {% hint style="info" %}
-**Credentials**
-
-Refer to the [Moonshot credentials documentation](../credentials/moonshot.md) for authentication information for this node.
+在 n8n Cloud 中，可以使用 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 Moonshot Kimi 节点，无需提供自己的 Moonshot API 密钥。在节点的凭据字段中选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 Moonshot 账户的情况下运行节点。
 {% endhint %}
 
-## Resources and operations <a href="#resources-and-operations" id="resources-and-operations"></a>
+Moonshot Kimi 节点将 n8n 工作流连接到 Moonshot Kimi AI 模型。使用它发送提示词并接收模型响应、为消息附加图片，或使用图片分析模型分析图片。
 
-* **Analyze image**: Analyze images and answer questions about them.
-* **Message a model**: Send text-based messages to a Moonshot Kimi model and receive responses (supports attachments, system messages, and advanced options like thinking mode and web search).
+{% hint style="info" %}
+**凭据**
 
-### Analyze image <a href="#analyze-image" id="analyze-image"></a>
+有关此节点的身份验证信息，请参阅 [Moonshot 凭据文档](../credentials/moonshot.md)。
+{% endhint %}
 
-Analyze an image and answer questions about it.
+## 资源与操作 <a href="#resources-and-operations" id="resources-and-operations"></a>
 
-**Parameters**
+* **Analyze image**（分析图片）：分析图片并回答相关问题。
+* **Message a model**（向模型发送消息）：向 Moonshot Kimi 模型发送文本消息并接收响应，支持附件、系统消息，以及思考模式、网页搜索等高级选项。
 
-* **Model** (type: resourceLocator, field: `modelId`): Select the Moonshot Kimi model to use for analysis.
-* **Text Input** (type: string, field: `text`): A prompt or question to send along with the image. Default: `What's in this image?`
-* **Input Data Field Name(s)** (type: string, field: `binaryPropertyName`): Name of the binary field(s) that contain the image(s). When you provide multiple fields, separate them with commas. Default: `data`
-* **Simplify Output** (type: boolean, field: `simplify`): When enabled, the node returns a simplified version of the response rather than the full raw API response. Default: `true`
+### Analyze image（分析图片） <a href="#analyze-image" id="analyze-image"></a>
 
-**Options**
+分析一张图片，并回答与图片有关的问题。
 
-* **Maximum Number of Tokens** (type: number, field: `maxTokens`): Fewer tokens produce shorter, less detailed image descriptions. Default: `1024`
+**参数**
 
-### Message a model <a href="#message-a-model" id="message-a-model"></a>
+* **Model**（模型；类型：resourceLocator；字段：`modelId`）：选择用于分析的 Moonshot Kimi 模型。
+* **Text Input**（文本输入；类型：string；字段：`text`）：与图片一起发送的提示词或问题。默认值：`What's in this image?`。
+* **Input Data Field Name(s)**（输入数据字段名称；类型：string；字段：`binaryPropertyName`）：包含图片的一个或多个二进制字段名称。多个字段以逗号分隔。默认值：`data`。
+* **Simplify Output**（简化输出；类型：boolean；字段：`simplify`）：开启时，节点返回简化响应，而不是完整的原始 API 响应。默认值：`true`。
 
-Send one or more messages to a Moonshot Kimi model and receive its response. Support role-based messages (user/assistant), attachments, system messages, and advanced generation options.
+**选项**
 
-**Parameters**
+* **Maximum Number of Tokens**（最大 token 数；类型：number；字段：`maxTokens`）：token 越少，生成的图片描述越短，细节也越少。默认值：`1024`。
 
-* **Model** (type: resourceLocator, field: `modelId`): Select the Moonshot Kimi model to message.
-* **Messages** (type: fixedCollection, field: `messages`): one or more messages forming the conversation prompt.
-  * content (type: string): The text content of the message. (Display name: Prompt)
-  * role (type: options): Role of the message, for example, `user` or `assistant`, that guides how the model should respond.
-* **Add Attachments** (type: boolean, field: `addAttachments`): Whether to attach images to the message. Default: `false`
-* **Attachment Input Data Field Name(s)** (type: string, field: `binaryPropertyName`): Name of the binary field(s) containing images to attach. Separate multiple fields with commas. Default: `data`
-* **Simplify Output** (type: boolean, field: `simplify`): When you enable it, the node returns a simplified version of the response instead of the raw API output. Default: `true`
+### Message a model（向模型发送消息） <a href="#message-a-model" id="message-a-model"></a>
 
-**Options**
+向 Moonshot Kimi 模型发送一条或多条消息，并接收其响应。支持按角色区分的消息（user/assistant）、附件、系统消息及高级生成选项。
 
-* **Frequency Penalty** (type: number, field: `frequencyPenalty`): Positive values penalize tokens already present in the text, reducing repetition. Default: `0`
-* **Include Merged Response** (type: boolean, field: `includeMergedResponse`): Include a single output string that merges all text parts of the model's response. Default: `false`
-* **Maximum Number of Tokens** (type: number, field: `maxTokens`): Maximum tokens to generate for the completion. Default: `1024`
-* **Max Tool Calls Iterations** (type: number, field: `maxToolsIterations`): Maximum number of tool-iteration cycles the LLM will run before stopping. One iteration may include multiple tool calls. Set to `0` for no limit. Default: `15`
-* **Output Randomness (Temperature)** (type: number, field: `temperature`): Controls randomness of the output. Lower values make output more deterministic. Default: `0.7`
-* **Output Randomness (Top P)** (type: number, field: `topP`): Maximum cumulative probability of tokens to consider when sampling. Default: `1`
-* **Presence Penalty** (type: number, field: `presencePenalty`): Positive values penalize tokens based on whether they already appear in the text so far, encouraging new topics. Default: `0`
-* **Response Format** (type: options, field: `responseFormat`): Format of the returned response, for example, `text`.
-* **System Message** (type: string, field: `system`): A system-level instruction that guides the model's overall behavior and tone.
-* **Thinking Mode** (type: boolean, field: `thinkingMode`): When you enable it, the model includes reasoning steps in a chain-of-thought style. You can't use it together with **Web Search**. Default: `false`
-* **Web Search** (type: boolean, field: `webSearch`): When you enable it, the model performs built-in web searches for up-to-date information. You can't use it together with **Thinking Mode**. Default: `false`
+**参数**
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+* **Model**（模型；类型：resourceLocator；字段：`modelId`）：选择要向其发送消息的 Moonshot Kimi 模型。
+* **Messages**（消息；类型：fixedCollection；字段：`messages`）：组成对话提示的一条或多条消息。
+  * content（类型：string）：消息的文本内容。（显示名称：Prompt）
+  * role（类型：options）：消息的角色，例如 `user` 或 `assistant`，用于引导模型如何响应。
+* **Add Attachments**（添加附件；类型：boolean；字段：`addAttachments`）：是否为消息附加图片。默认值：`false`。
+* **Attachment Input Data Field Name(s)**（附件输入数据字段名称；类型：string；字段：`binaryPropertyName`）：包含待附加图片的一个或多个二进制字段名称。多个字段以逗号分隔。默认值：`data`。
+* **Simplify Output**（简化输出；类型：boolean；字段：`simplify`）：开启时，节点返回简化响应，而不是原始 API 输出。默认值：`true`。
 
-[Browse Moonshot Kimi node documentation integration templates](https://n8n.io/integrations/moonshot-kimi) or [search all templates](https://n8n.io/workflows/)
+**选项**
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+* **Frequency Penalty**（频率惩罚；类型：number；字段：`frequencyPenalty`）：正值会惩罚文本中已出现的 token，以减少重复。默认值：`0`。
+* **Include Merged Response**（包含合并响应；类型：boolean；字段：`includeMergedResponse`）：包含一个将模型响应中所有文本部分合并后的输出字符串。默认值：`false`。
+* **Maximum Number of Tokens**（最大 token 数；类型：number；字段：`maxTokens`）：补全响应最多生成的 token 数。默认值：`1024`。
+* **Max Tool Calls Iterations**（最大工具调用迭代次数；类型：number；字段：`maxToolsIterations`）：大语言模型停止前最多执行的工具迭代轮数。一轮迭代可以包含多次工具调用。设为 `0` 表示不限制。默认值：`15`。
+* **Output Randomness (Temperature)**（输出随机性（温度）；类型：number；字段：`temperature`）：控制输出的随机性。值越低，输出越确定。默认值：`0.7`。
+* **Output Randomness (Top P)**（输出随机性（Top P）；类型：number；字段：`topP`）：采样时考虑的 token 的最大累计概率。默认值：`1`。
+* **Presence Penalty**（存在惩罚；类型：number；字段：`presencePenalty`）：正值会根据 token 是否已在当前文本中出现过施加惩罚，鼓励引入新话题。默认值：`0`。
+* **Response Format**（响应格式；类型：options；字段：`responseFormat`）：返回响应的格式，例如 `text`。
+* **System Message**（系统消息；类型：string；字段：`system`）：用于引导模型整体行为和语气的系统级指令。
+* **Thinking Mode**（思考模式；类型：boolean；字段：`thinkingMode`）：开启时，模型会以思维链形式包含推理步骤。不能与 **Web Search**（网页搜索）同时使用。默认值：`false`。
+* **Web Search**（网页搜索；类型：boolean；字段：`webSearch`）：开启时，模型会执行内置网页搜索以获取最新信息。不能与 **Thinking Mode**（思考模式）同时使用。默认值：`false`。
 
-Refer to the [Moonshot Kimi documentation](https://platform.kimi.ai/docs/overview) for more information about the service.
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+[浏览 Moonshot Kimi 集成模板](https://n8n.io/integrations/moonshot-kimi)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+有关该服务的更多信息，请参阅 [Moonshot Kimi 文档](https://platform.kimi.ai/docs/overview)。
