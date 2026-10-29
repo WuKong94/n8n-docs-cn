@@ -527,5 +527,20 @@
     "related_source": "integrations/builtin/credentials/send-email/README.md",
     "related_source_sha256": "fd0162685c1d491c6ab2de836502f94e1c4320e62e92b1012e43b069fb919beb",
     "scope": "保留 Yahoo 的全部原端口、设置步骤、密码说明和引用，仅添加同版本总览对照译注；不新增连接示例或声称经过实际邮箱连接测试。"
+  },
+  {
+    "id": "http-oauth1-token-endpoint-source-note",
+    "path": "integrations/builtin/credentials/httprequest.md",
+    "source_sha256": "f7240ab3e0b663b766cf85f9e5011d4429541076b035b8171bab18a01190a069",
+    "original_sentence": "* A **Request Token URL**: This is the URI used to switch from temporary credentials to long-lived credentials after authorization. This URL typically ends in `/oauth1/access`.",
+    "translated_sentence": "> 译注：原文将 Access Token URL 和 Request Token URL 的流程说明及示例路径对调了。按 OAuth 1.0 的流程，Request Token URL 用于获取临时凭据，Access Token URL 用于在授权后用临时凭据交换访问令牌。实际端点请以服务商文档为准，勿直接套用上面的示例路径。",
+    "evidence": "RFC 5849 第 2、2.1、2.3 节明确区分获取临时凭据与授权后交换令牌凭据的端点，并将 Request Token 对应临时凭据。n8n 官方 OAuth1Api 凭据定义将 Access Token URL、Request Token URL 分别映射为 accessTokenUrl、requestTokenUrl。原文两字段用途及示例路径对调。2026-10-29 核对，保留原文内容并加对照译注。",
+    "implementation_commit": "1faf2acf9e8a7f5e829db6271532880f64751c82",
+    "implementation_blob_sha": "fd21cf65ecfde88321187264c4dc03514ec90938",
+    "evidence_sources": [
+      "https://www.rfc-editor.org/rfc/rfc5849.html#section-2",
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/credentials/OAuth1Api.credentials.ts"
+    ],
+    "scope": "保留原字段列表、示例路径、签名方法及全部代码，只添加译注说明两种端点用途和应以服务商文档为准；不改写示例 URL，不声称已执行 OAuth 握手或验证服务商行为。"
   }
 ]

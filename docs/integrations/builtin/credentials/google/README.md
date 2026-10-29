@@ -1,13 +1,11 @@
 ---
-title: Google credentials
+title: Google 凭据
 contentType: overview
 nodeTitle: Google
 originalFilePath: integrations/builtin/credentials/google/index.md
 originalUrl: https://docs.n8n.io/integrations/builtin/credentials/google
 url: https://docs.n8n.io/integrations/builtin/credentials/google
-description: >-
-  Documentation for Google credentials. Use these credentials to authenticate
-  with Google in n8n.
+description: Google 凭据文档。使用这些凭据在 n8n 中完成 Google 的身份验证。
 layout:
   width: default
   title:
@@ -27,47 +25,49 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google
 
-This section contains:
+# Google <a id="google"></a>
 
-* [OAuth2 single service](oauth-single-service.md): Create an OAuth2 credential for a specific service node, such as the Gmail node. Two options exist:
-  * [Managed OAuth2](oauth-single-service.md#managed-oauth2): Sign in with Google directly on n8n, with no setup required on the Google Cloud Console. Available for n8n Cloud users only, for certain Google nodes.
-  * [Custom OAuth2](oauth-single-service.md#custom-oauth2): Configure an OAuth2 app in the Google Cloud Console and connect it to your n8n credential.
-* [OAuth2 API (generic)](oauth-generic.md): Create an OAuth2 credential for use with [custom operations](../../custom-api-actions-for-existing-nodes.md).
-* [Service Account](service-account.md): Create a [Service Account](https://cloud.google.com/iam/docs/service-account-overview) credential for some specific service nodes.
-* [Google PaLM and Gemini](../googleai.md): Get a Google Gemini/Google PaLM API key.
+本节包含：
 
-## OAuth2 and Service Account <a href="#oauth2-and-service-account" id="oauth2-and-service-account"></a>
+* [单一服务 OAuth2](oauth-single-service.md)：为特定服务节点（例如 Gmail 节点）创建 OAuth2 凭据。有两种方式：
+  * [托管 OAuth2](oauth-single-service.md#managed-oauth2)：在 n8n 中直接使用 Google 登录，无需在 Google Cloud Console 中设置。仅向 n8n Cloud 用户开放，适用于部分 Google 节点。
+  * [自定义 OAuth2](oauth-single-service.md#custom-oauth2)：在 Google Cloud Console 中配置 OAuth2 应用，并将其连接到 n8n 凭据。
+* [OAuth2 API（通用）](oauth-generic.md)：创建用于[自定义操作](../../custom-api-actions-for-existing-nodes.md)的 OAuth2 凭据。
+* [服务账户](service-account.md)：为部分特定服务节点创建[服务账户](https://cloud.google.com/iam/docs/service-account-overview)凭据。
+* [Google PaLM 和 Gemini](../googleai.md)：获取 Google Gemini/Google PaLM API 密钥。
 
-Google service nodes support two authentication methods:
+## OAuth2 和服务账户 <a href="#oauth2-and-service-account" id="oauth2-and-service-account"></a>
 
-* [OAuth2](https://developers.google.com/identity/protocols/oauth2): Recommended because it's more widely available and easier to set up.
-* [Service Account](https://cloud.google.com/iam/docs/understanding-service-accounts): Refer to the [Google documentation: Understanding service accounts](https://cloud.google.com/iam/docs/understanding-service-accounts) for guidance on when you need a service account.
+Google 服务节点支持两种身份验证方式：
 
-### Managed OAuth2 for n8n Cloud users <a href="#managed-oauth2-for-n8n-cloud-users" id="managed-oauth2-for-n8n-cloud-users"></a>
+* [OAuth2](https://developers.google.com/identity/protocols/oauth2)：推荐使用，支持范围更广，设置也更简单。
+* [服务账户](https://cloud.google.com/iam/docs/understanding-service-accounts)：何时需要服务账户，请参阅 [Google 文档：了解服务账户](https://cloud.google.com/iam/docs/understanding-service-accounts)。
+
+### 面向 n8n Cloud 用户的托管 OAuth2 <a href="#managed-oauth2-for-n8n-cloud-users" id="managed-oauth2-for-n8n-cloud-users"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Managed OAuth2 for the Google nodes listed below is available on:
+下列 Google 节点的托管 OAuth2 适用于：
 
-- **n8n Cloud:** All plans
+- **n8n Cloud：**所有套餐
 
-It isn't available on self-hosted. For self-hosted, configure your own OAuth2 credentials instead.
+自托管版本不提供此功能。自托管时，请配置自己的 OAuth2 凭据。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/OI5s27oyRBdDvpwcuMQF/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/managed-google-oauth.md" %}
 
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/OI5s27oyRBdDvpwcuMQF/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/managed-google-oauth.md" %}
 
-## Compatible nodes <a href="#compatible-nodes" id="compatible-nodes"></a>
+## 兼容节点 <a href="#compatible-nodes" id="compatible-nodes"></a>
 
-Once configured, you can use your credentials to authenticate the following nodes. Most nodes are compatible with OAuth2 authentication. n8n has limited support for Service Account authentication.
+配置完成后，可使用凭据为以下节点进行身份验证。大多数节点兼容 OAuth2 身份验证，n8n 对服务账户身份验证的支持有限。
 
-| Node                                                                                            | OAuth | Service Account |
+| 节点 | OAuth | 服务账户 |
 | ----------------------------------------------------------------------------------------------- | :---: | :-------------: |
 | [Google Ads](../../app-nodes/n8n-nodes-base.googleads.md)                                       |   ✅   |        ❌        |
 | [Gmail](../../app-nodes/n8n-nodes-base.gmail/README.md)                                                  |   ✅   |        ⚠️       |
@@ -93,9 +93,9 @@ Once configured, you can use your credentials to authenticate the following node
 | [YouTube](../../app-nodes/n8n-nodes-base.youtube.md)                                            |   ✅   |        ❌        |
 
 {% hint style="warning" %}
-**Gmail and Service Accounts**
+**Gmail 和服务账户**
 
-Google technically supports Service Accounts for use with Gmail, but it requires enabling domain-wide delegation, which Google discourages, and its behavior can be inconsistent.
+Google 在技术上支持通过服务账户使用 Gmail，但这需要启用全域委派，而 Google 不建议这样做，且其行为可能不一致。
 
-n8n recommends using OAuth2 with the Gmail node.
+n8n 建议 Gmail 节点使用 OAuth2。
 {% endhint %}

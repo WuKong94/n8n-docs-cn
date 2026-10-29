@@ -1,18 +1,14 @@
 ---
-title: Google OAuth2 single service
+title: Google OAuth2（单一服务）
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Google OAuth2 single service
+nodeTitle: Google OAuth2（单一服务）
 originalFilePath: integrations/builtin/credentials/google/oauth-single-service.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service
-url: >-
-  https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service
-description: >-
-  Documentation for single service OAuth2 Google credentials. Use these
-  credentials to authenticate with Google in n8n.
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service
+url: https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service
+description: 单一服务 Google OAuth2 凭据文档。使用这些凭据在 n8n 中完成 Google 的身份验证。
 layout:
   width: default
   title:
@@ -32,127 +28,129 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google OAuth2 single service
 
-This document contains instructions for creating a Google credential for a single service. They're also available as a [video](oauth-single-service.md#video).
+# Google OAuth2（单一服务） <a id="google-oauth2-single-service"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+本文说明如何为单一服务创建 Google 凭据，也提供了[视频](oauth-single-service.md#video)说明。
 
-* Create a [Google Cloud](https://cloud.google.com/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Managed OAuth2 <a href="#managed-oauth2" id="managed-oauth2"></a>
+* 创建 [Google Cloud](https://cloud.google.com/) 账户。
 
-n8n Cloud users can use **Managed OAuth2** for the following nodes:
+## 托管 OAuth2 <a href="#managed-oauth2" id="managed-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/OI5s27oyRBdDvpwcuMQF/" %}
+n8n Cloud 用户可为以下节点使用**托管 OAuth2**：
 
-To use **Managed OAuth2**, click **Sign in with Google** in the credentials screen. You don't need any more setup in the Google Cloud Console or elsewhere.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/managed-google-oauth.md" %}
 
-![n8n credential screen with a Sign in with Google button and a dropdown to switch to Custom OAuth2](../../../.gitbook/assets/managed-oauth.png)
+要使用**托管 OAuth2**，请在凭据界面点击 **Sign in with Google**（使用 Google 登录）。无需在 Google Cloud Console 或其他地方进行额外设置。
 
-If you prefer to use Custom OAuth2, use the dropdown to change the authentication type.
+![n8n 凭据界面，包含“使用 Google 登录”按钮和切换到自定义 OAuth2 的下拉菜单](../../../.gitbook/assets/managed-oauth.png)
 
-## Custom OAuth2 <a href="#custom-oauth2" id="custom-oauth2"></a>
+如果希望使用自定义 OAuth2，请通过下拉菜单更改身份验证类型。
 
-Managed OAuth2 isn't available for self-hosted n8n users, nor for Google nodes not listed [above](oauth-single-service.md#managed-oauth2). You must create a custom OAuth2 single service credential. This means creating an app in the Google Cloud Console and connecting it to n8n with a Client ID and Client Secret.
+## 自定义 OAuth2 <a href="#custom-oauth2" id="custom-oauth2"></a>
 
-The rest of this document covers the full process.
+自托管 n8n 用户，以及[上方](oauth-single-service.md#managed-oauth2)未列出的 Google 节点，均无法使用托管 OAuth2。必须创建自定义的单一服务 OAuth2 凭据，即在 Google Cloud Console 中创建应用，并通过 Client ID 和 Client Secret 连接到 n8n。
 
-## Set up Custom OAuth2 <a href="#set-up-custom-oauth2" id="set-up-custom-oauth2"></a>
+本文余下部分介绍完整流程。
 
-Follow five steps to connect your n8n credential to Google services:
+## 设置自定义 OAuth2 <a href="#set-up-custom-oauth2" id="set-up-custom-oauth2"></a>
 
-1. [Create a Google Cloud Console project](oauth-single-service.md#create-a-google-cloud-console-project).
-2. [Enable APIs](oauth-single-service.md#enable-apis).
-3. [Configure your OAuth consent screen](oauth-single-service.md#configure-your-oauth-consent-screen).
-4. [Create your Google OAuth client credentials](oauth-single-service.md#create-your-google-oauth-client-credentials).
-5. [Finish your n8n credential](oauth-single-service.md#finish-your-n8n-credential).
+按照五个步骤，将 n8n 凭据连接到 Google 服务：
 
-### Create a Google Cloud Console project <a href="#create-a-google-cloud-console-project" id="create-a-google-cloud-console-project"></a>
+1. [创建 Google Cloud Console 项目](oauth-single-service.md#create-a-google-cloud-console-project)。
+2. [启用 API](oauth-single-service.md#enable-apis)。
+3. [配置 OAuth 授权同意页面](oauth-single-service.md#configure-your-oauth-consent-screen)。
+4. [创建 Google OAuth 客户端凭据](oauth-single-service.md#create-your-google-oauth-client-credentials)。
+5. [完成 n8n 凭据设置](oauth-single-service.md#finish-your-n8n-credential)。
 
-First, create a Google Cloud Console project. If you already have a project, jump to the [next section](oauth-single-service.md#enable-apis):
+### 创建 Google Cloud Console 项目 <a href="#create-a-google-cloud-console-project" id="create-a-google-cloud-console-project"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/n3k6ZZ7BRnKZ6enSxeVQ/" %}
+首先创建 Google Cloud Console 项目。如果已有项目，请跳到[下一节](oauth-single-service.md#enable-apis)：
 
-### Enable APIs <a href="#enable-apis" id="enable-apis"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/google/create-google-cloud-project.md" %}
 
-With your project created, enable the APIs you'll need access to:
+### 启用 API <a href="#enable-apis" id="enable-apis"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Xs1r022aU39nYSgCg3At/" %}
+创建项目后，启用需要访问的 API：
 
-### Configure your OAuth consent screen <a href="#configure-your-oauth-consent-screen" id="configure-your-oauth-consent-screen"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/google/enable-apis.md" %}
 
-If you haven't used OAuth in your Google Cloud project before, you'll need to [configure the OAuth consent screen](https://developers.google.com/workspace/guides/configure-oauth-consent):
+### 配置 OAuth 授权同意页面 <a href="#configure-your-oauth-consent-screen" id="configure-your-oauth-consent-screen"></a>
 
-1.  Access your [Google Cloud Console - Library](https://console.cloud.google.com/apis/library). Make sure you're in the correct project.
+如果之前未在 Google Cloud 项目中使用 OAuth，需要[配置 OAuth 授权同意页面](https://developers.google.com/workspace/guides/configure-oauth-consent)：
 
-    <figure><img src="../../../.gitbook/assets/google-cloud-project-dropdown (1).png" alt=""><figcaption><p>Check the project dropdown in the Google Cloud top navigation</p></figcaption></figure>
-2. Open the left navigation menu and go to **APIs & Services > OAuth consent screen**. Google will redirect you to the Google Auth Platform overview page.
-3. Select **Get started** on the **Overview** tab to begin configuring OAuth consent.
-4. Enter an **App name** and **User support email** to include on the Oauth screen. Select **Next** to continue.
-5.  For the **Audience**, select **Internal** for user access within your organization's Google workspace or **External** for any user with a Google account. Refer to Google's [User type documentation](https://support.google.com/cloud/answer/15549945?sjid=17061891731152303663-EU#user-type) for more information on user types. Select **Next** to continue.<br>
+1. 进入 [Google Cloud Console - Library（库）](https://console.cloud.google.com/apis/library)，确认当前位于正确的项目中。
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Testing mode and test users</strong></p><p>If you select <strong>External</strong>, your app will default to Testing mode. In this mode, only Google accounts you manually add as test users can complete the OAuth flow. Everyone else sees an "access denied" screen. See <a href="oauth-single-service.md#google-hasnt-verified-this-app">Google hasn't verified this app</a> to learn how to add them.</p></div>
-6. Select the **Email addresses** Google should use to contact you about changes to your project. Select **Next** to continue.
-7. Read and accept the Google's User Data Policy. Select **Continue** and then select **Create**.
-8. In the left-hand menu, select **Branding**.
-9. In the **Authorized domains** section, select **Add domain**:
-   * If you're using n8n's Cloud service, add `n8n.cloud`
-   * If you're [self-hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n), add the domain of your n8n instance.
-10. Select **Save** at the bottom of the page.
+    <figure><img src="../../../.gitbook/assets/google-cloud-project-dropdown (1).png" alt=""><figcaption><p>检查 Google Cloud 顶部导航栏中的项目下拉菜单</p></figcaption></figure>
+2. 打开左侧导航菜单，进入 **APIs & Services > OAuth consent screen**（API 和服务 > OAuth 授权同意页面）。Google 会将你重定向到 Google Auth Platform 概览页面。
+3. 在 **Overview**（概览）选项卡中选择 **Get started**（开始使用），开始配置 OAuth 授权同意。
+4. 输入授权页面中显示的 **App name**（应用名称）和 **User support email**（用户支持邮箱）。选择 **Next**（下一步）继续。
+5. 对于 **Audience**（受众），如果只允许组织内 Google Workspace 用户访问，请选择 **Internal**（内部）；如果允许任何具有 Google 账户的用户访问，请选择 **External**（外部）。用户类型的更多信息，请参阅 Google 的[用户类型文档](https://support.google.com/cloud/answer/15549945?sjid=17061891731152303663-EU#user-type)。选择 **Next**（下一步）继续。<br>
 
-### Create your Google OAuth client credentials <a href="#create-your-google-oauth-client-credentials" id="create-your-google-oauth-client-credentials"></a>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>测试模式和测试用户</strong></p><p>如果选择 <strong>External（外部）</strong>，应用默认处于 Testing（测试）模式。在此模式下，只有手动添加为测试用户的 Google 账户才能完成 OAuth 流程，其他人会看到“access denied”（访问被拒绝）页面。添加方法请参阅 <a href="oauth-single-service.md#google-hasnt-verified-this-app">Google 尚未验证此应用</a>。</p></div>
+6. 选择 Google 用于联系你、通知项目变更的 **Email addresses**（电子邮件地址）。选择 **Next**（下一步）继续。
+7. 阅读并接受 Google 用户数据政策。选择 **Continue**（继续），再选择 **Create**（创建）。
+8. 在左侧菜单中选择 **Branding**（品牌信息）。
+9. 在 **Authorized domains**（已获授权的网域）部分选择 **Add domain**（添加网域）：
+   * 如果使用 n8n Cloud 服务，请添加 `n8n.cloud`
+   * 如果[自托管](../../../../deploy/host-n8n/README.md)，请添加 n8n 实例的域名。
+10. 在页面底部选择 **Save**（保存）。
 
-Next, create the OAuth client credentials in Google:
+### 创建 Google OAuth 客户端凭据 <a href="#create-your-google-oauth-client-credentials" id="create-your-google-oauth-client-credentials"></a>
 
-1. Access your [Google Cloud Console](https://console.cloud.google.com/). Make sure you're in the correct project.
-2. In the **APIs & Services** section, select [**Credentials**](https://console.cloud.google.com/apis/credentials).
-3. Select **+ Create credentials** > **OAuth client ID**.
-4. In the **Application type** dropdown, select **Web application**.
-5. Google automatically generates a **Name**. Update the **Name** to something you'll recognize in your console.
-6.  From your n8n credential, copy the **OAuth Redirect URL**. Paste it into the **Authorized redirect URIs** in Google Console.<br>
+接下来，在 Google 中创建 OAuth 客户端凭据：
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>OAuth redirect URL for self-hosting</strong></p><p>If you're running n8n on your local machine, you don't need a public domain, SSL certificate, or port forwarding to use Google OAuth. Google allows localhost as a valid redirect URI for development purposes. Your n8n OAuth redirect URL will look something like this: <code>http://localhost:5678/rest/oauth2-credential/callback</code> For more details on acceptable redirect URIs, refer to <a href="https://support.google.com/cloud/answer/15549257?hl=en#zippy=%2Cweb-applications">Google's redirect URI documentation</a>.</p></div>
-7. Select **Create**.
+1. 进入 [Google Cloud Console](https://console.cloud.google.com/)，确认当前位于正确的项目中。
+2. 在 **APIs & Services**（API 和服务）部分选择 [**Credentials**（凭据）](https://console.cloud.google.com/apis/credentials)。
+3. 选择 **+ Create credentials**（+ 创建凭据）> **OAuth client ID**（OAuth 客户端 ID）。
+4. 在 **Application type**（应用类型）下拉菜单中选择 **Web application**（Web 应用）。
+5. Google 会自动生成 **Name**（名称）。请将其改为能在控制台中辨认的名称。
+6. 从 n8n 凭据中复制 **OAuth Redirect URL**（OAuth 重定向 URL），粘贴到 Google Console 的 **Authorized redirect URIs**（已获授权的重定向 URI）中。<br>
 
-### Finish your n8n credential <a href="#finish-your-n8n-credential" id="finish-your-n8n-credential"></a>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>自托管时的 OAuth 重定向 URL</strong></p><p>如果在本地计算机上运行 n8n，使用 Google OAuth 无需公共域名、SSL 证书或端口转发。Google 允许在开发时将 localhost 用作有效重定向 URI。n8n 的 OAuth 重定向 URL 类似于 <code>http://localhost:5678/rest/oauth2-credential/callback</code>。可接受的重定向 URI 的更多详情，请参阅 <a href="https://support.google.com/cloud/answer/15549257?hl=en#zippy=%2Cweb-applications">Google 重定向 URI 文档</a>。</p></div>
+7. 选择 **Create**（创建）。
 
-With the Google project and credentials fully configured, finish the n8n credential:
+### 完成 n8n 凭据设置 <a href="#finish-your-n8n-credential" id="finish-your-n8n-credential"></a>
 
-1. From Google's **OAuth client created** modal, copy the **Client ID**. Enter this in your n8n credential.
-2. From the same Google modal, copy the **Client Secret**. Enter this in your n8n credential.
-3. In n8n, select **Sign in with Google** to complete your Google authentication.
-4. **Save** your new credentials.
+Google 项目和凭据配置完成后，完成 n8n 凭据设置：
 
-## Video <a href="#video" id="video"></a>
+1. 在 Google 的 **OAuth client created**（已创建 OAuth 客户端）弹窗中复制 **Client ID**（客户端 ID），填入 n8n 凭据。
+2. 在同一个 Google 弹窗中复制 **Client Secret**（客户端密钥），填入 n8n 凭据。
+3. 在 n8n 中选择 **Sign in with Google**（使用 Google 登录），完成 Google 身份验证。
+4. **Save**（保存）新凭据。
+
+## 视频 <a href="#video" id="video"></a>
 
 {% embed url="https://www.youtube.com/embed/FBGtpWMTppw" %}
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排查 <a href="#troubleshooting" id="troubleshooting"></a>
 
-### Google hasn't verified this app <a href="#google-hasnt-verified-this-app" id="google-hasnt-verified-this-app"></a>
+### Google 尚未验证此应用 <a href="#google-hasnt-verified-this-app" id="google-hasnt-verified-this-app"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/uEYII1oKijzYurya61sf/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/google/unverified-app.md" %}
 
-### Google Cloud app becoming unauthorized <a href="#google-cloud-app-becoming-unauthorized" id="google-cloud-app-becoming-unauthorized"></a>
+### Google Cloud 应用授权失效 <a href="#google-cloud-app-becoming-unauthorized" id="google-cloud-app-becoming-unauthorized"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/PlbR0ntmBBE0DgjKiavq/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/google/app-becoming-unauthorized.md" %}
 
 ### redirect\_uri\_mismatch <a href="#redirecturimismatch" id="redirecturimismatch"></a>
 
-This error means the redirect URI n8n is sending doesn't match any of the URIs registered in your Google Cloud Console OAuth client.
+此错误表示 n8n 发送的重定向 URI 与 Google Cloud Console OAuth 客户端中登记的所有 URI 均不匹配。
 
-**Fix:** Copy the **OAuth Redirect URL** from your n8n credential panel and paste it exactly — including the protocol (`http` or `https`) and port number — into the **Authorized redirect URIs** field of your Google OAuth client.
+**解决方法：**从 n8n 凭据面板复制 **OAuth Redirect URL**（OAuth 重定向 URL），将其完整粘贴到 Google OAuth 客户端的 **Authorized redirect URIs**（已获授权的重定向 URI）字段，包括协议（`http` 或 `https`）和端口号。
 
-### Access denied / "app not verified" <a href="#access-denied-app-not-verified" id="access-denied-app-not-verified"></a>
+### 访问被拒绝 / “应用未验证” <a href="#access-denied-app-not-verified" id="access-denied-app-not-verified"></a>
 
-This usually happens when your app is still in Testing mode and you haven't added the Google account you're trying to authenticate with as a test user.
+这通常是因为应用仍处于 Testing（测试）模式，而用于身份验证的 Google 账户尚未添加为测试用户。
 
-**Fix:** Go to **APIs & Services** > **OAuth consent screen** > **Test users** and add the account you're trying to use.
+**解决方法：**进入 **APIs & Services**（API 和服务）> **OAuth consent screen**（OAuth 授权同意页面）> **Test users**（测试用户），添加要使用的账户。
 
 ### invalid\_client <a href="#invalidclient" id="invalidclient"></a>
 
-This error typically means the Client ID or Client Secret in your n8n credential doesn't match what's in Google Cloud Console.
+此错误通常表示 n8n 凭据中的 Client ID 或 Client Secret 与 Google Cloud Console 中的值不匹配。
 
-**Fix:** Go back to your OAuth client in Google Cloud Console, copy both values fresh, and re-enter them in n8n. Watch out for accidental spaces when copying.
+**解决方法：**返回 Google Cloud Console 中的 OAuth 客户端，重新复制这两个值并填入 n8n。复制时注意避免意外带入空格。

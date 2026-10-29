@@ -14484,5 +14484,107 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/credentials/google/README.md": {
+    "status": "translated",
+    "source_sha256": "c3029f4409d4a2cc1c935ad034a602241318ce14f319b7a18c0b2440b912ea5a",
+    "translation_sha256": "f584a982849effc9e4a863699804140fa8371818b7cc5809b76a5a83bf95be62",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/google/oauth-generic.md": {
+    "status": "translated",
+    "source_sha256": "c383323c393c8da8ef7bf211ea2068f8821676415b67d2edd26049c48eed53cf",
+    "translation_sha256": "1a6095a8ab4eba24ba5ef291a1188ebd0aeb21f6741cfd888c9193e20e8118e3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/google/oauth-single-service.md": {
+    "status": "translated",
+    "source_sha256": "b5a4aa7c98ad24aeb45e40dd3a06a39f13abd5051d7c283e9ec6eeb8b000246c",
+    "translation_sha256": "3bda3691bd2998405d86fec31cec3aa743f1a5943366d11ae17af51359742ac5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/google/service-account.md": {
+    "status": "translated",
+    "source_sha256": "837ba7b5a0a889ebed6f5b82340733a7fc643f76f7d499352e82defe4a706ca3",
+    "translation_sha256": "7ead9688e40f4d2326ef70108bd109f0847c02fe55f7a44c622b424f7d498ec2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/googlevertexai.md": {
+    "status": "translated",
+    "source_sha256": "a6acddc91f325f4c04702f9dd9d08ffda425fa1b4634ad58c57cbbe3b69bdc6c",
+    "translation_sha256": "ea288cb82311309712c3f651b7922baae05e32aa99cd2ad0fe7b488cb791128d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/httprequest.md": {
+    "status": "translated",
+    "source_sha256": "f7240ab3e0b663b766cf85f9e5011d4429541076b035b8171bab18a01190a069",
+    "translation_sha256": "5f17c4743915bd81a129720570596e39460641eafff35dbb9d401370608aee99",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "http-oauth1-token-endpoint-source-note"
+    ]
+  },
+  "integrations/builtin/credentials/microsoft.md": {
+    "status": "translated",
+    "source_sha256": "fb4c7f509cba7216ef8e8fb534428bb8d2ae6674e60d03192c11e1d8282b0f84",
+    "translation_sha256": "6658e94004a7bd88752399990ce5adc87d73c49635ca7062d3de750ccca33ddd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/managed-google-oauth.md": {
+    "status": "translated",
+    "source_sha256": "49953f9d1a9354773592bfa6b85d30f0d5a8b01113f74d13f52c790c66998d6b",
+    "translation_sha256": "9fb1d7af226b5040bca730da3f521b544b457871a50d0e7ed2682479aa1e40a1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/predefined-credential-type-how-to.md": {
+    "status": "translated",
+    "source_sha256": "c4820784452a4de733551c212820cee991fbeba5dd790455dfa1201cf67cd1b1",
+    "translation_sha256": "0907427f52f92cdf4c75076e5ff5d11bf0cc6d6e118574247662133d6799a8f2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

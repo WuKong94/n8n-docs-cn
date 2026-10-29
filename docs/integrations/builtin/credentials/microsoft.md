@@ -1,24 +1,24 @@
 ---
-title: Microsoft credentials
-description: >-
-  Documentation for Microsoft credentials. Use these credentials to authenticate
-  with Microsoft in n8n.
+title: Microsoft 凭据
+description: Microsoft 凭据文档。使用这些凭据在 n8n 中完成 Microsoft 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Microsoft credentials
+nodeTitle: Microsoft 凭据
 originalFilePath: integrations/builtin/credentials/microsoft.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/microsoft'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/microsoft'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/microsoft
+url: https://docs.n8n.io/integrations/builtin/credentials/microsoft
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft credentials <a href="#microsoft-credentials" id="microsoft-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Microsoft 凭据 <a href="#microsoft-credentials" id="microsoft-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Microsoft Dynamics CRM](../app-nodes/n8n-nodes-base.microsoftdynamicscrm.md)
 - [Microsoft Excel (OneDrive)](../app-nodes/n8n-nodes-base.microsoftexcel.md)
@@ -26,96 +26,96 @@ You can use these credentials to authenticate the following nodes:
 - [Microsoft Graph Security](../app-nodes/n8n-nodes-base.microsoftgraphsecurity.md)
 - [Microsoft OneDrive](../app-nodes/n8n-nodes-base.microsoftonedrive.md)
 - [Microsoft Outlook](../app-nodes/n8n-nodes-base.microsoftoutlook.md)
-- [Microsoft Outlook Trigger](../trigger-nodes/n8n-nodes-base.microsoftoutlooktrigger.md)
+- [Microsoft Outlook Trigger（触发器）](../trigger-nodes/n8n-nodes-base.microsoftoutlooktrigger.md)
 - [Microsoft SharePoint](../app-nodes/n8n-nodes-base.microsoftsharepoint.md)
-- [Microsoft SharePoint Trigger](../trigger-nodes/n8n-nodes-base.microsoftsharepointtrigger.md)
+- [Microsoft SharePoint Trigger（触发器）](../trigger-nodes/n8n-nodes-base.microsoftsharepointtrigger.md)
 - [Microsoft Teams](../app-nodes/n8n-nodes-base.microsoftteams.md)
-- [Microsoft Teams Trigger](../trigger-nodes/n8n-nodes-base.microsoftteamstrigger.md)
+- [Microsoft Teams Trigger（触发器）](../trigger-nodes/n8n-nodes-base.microsoftteamstrigger.md)
 - [Microsoft To Do](../app-nodes/n8n-nodes-base.microsofttodo.md)
 
 {% hint style="info" %}
-**Choosing a credential type**
+**选择凭据类型**
 
-Some nodes (such as Microsoft Excel (OneDrive) and Microsoft OneDrive) let you choose between the node-specific credential (for example, **Microsoft Excel OAuth2 API**) and this generic **Microsoft OAuth2 API** credential. You can reuse the generic credential across multiple Microsoft nodes. When you use it, make sure you grant it the scopes each node needs. Nodes that don't show this dropdown use their node-specific credential. The Microsoft Excel (SharePoint) node only works with this generic credential (or the Microsoft Entra Service Principal credential for app-only access); it doesn't accept the node-specific Microsoft Excel or Microsoft SharePoint credentials. The Microsoft SharePoint node works the same way from version 2 of the node, while version 1 keeps using the node-specific Microsoft SharePoint credential.
+部分节点（例如 Microsoft Excel (OneDrive) 和 Microsoft OneDrive）允许在节点专用凭据（例如 **Microsoft Excel OAuth2 API**）与此通用 **Microsoft OAuth2 API** 凭据之间选择。通用凭据可在多个 Microsoft 节点之间复用，使用时须授予各节点所需的作用域。未显示此下拉菜单的节点使用各自的专用凭据。Microsoft Excel (SharePoint) 节点仅支持此通用凭据，或用于仅应用访问的 Microsoft Entra Service Principal 凭据，不接受 Microsoft Excel 或 Microsoft SharePoint 的节点专用凭据。Microsoft SharePoint 节点从第 2 版起也采用此方式，第 1 版仍使用节点专用的 Microsoft SharePoint 凭据。
 {% endhint %}
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a [Microsoft Azure](https://azure.microsoft.com/) account.
-- Create at least one user account with access to the appropriate service.
-- If a corporate Microsoft Entra account manages the user account, the administrator account has enabled the option “User can consent to apps accessing company data on their behalf” for this user (see the [Microsoft Entra documentation](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent)).
+- 创建 [Microsoft Azure](https://azure.microsoft.com/) 账户。
+- 创建至少一个有权访问相应服务的用户账户。
+- 如果用户账户由企业 Microsoft Entra 账户管理，管理员已为该用户启用“User can consent to apps accessing company data on their behalf”（用户可同意应用代表自己访问公司数据）选项。请参阅 [Microsoft Entra 文档](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to the linked Microsoft API documentation below for more information about each service's API:
+各服务 API 的更多信息，请参阅下方链接中的 Microsoft API 文档：
 
-- Dynamics CRM: [Web API](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview)
-- Excel: [Graph API](https://learn.microsoft.com/en-us/graph/api/resources/excel)
-- Graph Security: [Graph API](https://learn.microsoft.com/en-us/graph/api/overview)
-- OneDrive: [Graph API](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/)
-- Outlook: [Graph API](https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview) and [Outlook API](https://learn.microsoft.com/en-us/outlook/rest/reference)
-- Teams: [Graph API](https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview)
-- To Do: [Graph API](https://learn.microsoft.com/en-us/graph/todo-concept-overview)
+- Dynamics CRM：[Web API](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview)
+- Excel：[Graph API](https://learn.microsoft.com/en-us/graph/api/resources/excel)
+- Graph Security：[Graph API](https://learn.microsoft.com/en-us/graph/api/overview)
+- OneDrive：[Graph API](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/)
+- Outlook：[Graph API](https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview) 和 [Outlook API](https://learn.microsoft.com/en-us/outlook/rest/reference)
+- Teams：[Graph API](https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview)
+- To Do：[Graph API](https://learn.microsoft.com/en-us/graph/todo-concept-overview)
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-Some Microsoft services require extra information for OAuth2. Refer to [Service-specific settings](#service-specific-settings) for more guidance on those services.
+部分 Microsoft 服务的 OAuth2 需要额外信息。相关服务的更多指引，请参阅[服务专用设置](#service-specific-settings)。
 
-If you're self-hosted, or on n8n Cloud and select **Custom OAuth2** in the credential, configure OAuth2 from scratch in two main steps:
+如果使用自托管版本，或在 n8n Cloud 凭据中选择 **Custom OAuth2**（自定义 OAuth2），需通过以下两个主要步骤从头配置 OAuth2：
 
-1. [Register an application](#register-an-application) with the Microsoft Identity Platform.
-2. Add a credential to that application, either by [generating a client secret](#generate-a-client-secret) or [registering a certificate](#authenticate-with-a-certificate).
+1. 在 Microsoft Identity Platform 中[注册应用](#register-an-application)。
+2. 为应用添加凭据，可[生成客户端密钥](#generate-a-client-secret)或[注册证书](#authenticate-with-a-certificate)。
 
-Follow the detailed instructions for each step below. For more detail on the Microsoft OAuth2 web flow, refer to [Microsoft authentication and authorization basics](https://learn.microsoft.com/en-us/graph/auth/auth-concepts).
+各步骤的详细说明见下文。Microsoft OAuth2 Web 流程的更多详情，请参阅 [Microsoft 身份验证与授权基础](https://learn.microsoft.com/en-us/graph/auth/auth-concepts)。
 
-### Register an application <a href="#register-an-application" id="register-an-application"></a>
+### 注册应用 <a href="#register-an-application" id="register-an-application"></a>
 
-Register an application with the Microsoft Identity Platform:
+在 Microsoft Identity Platform 中注册应用：
 
-1. Open the [Microsoft Application Registration Portal](https://aka.ms/appregistrations).
-2. Select **Register an application**.
-3. Enter a **Name** for your app.
-4. In **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multi-tenant) and personal Microsoft accounts (for example, Skype, Xbox)**.
-5. In **Register an application**:
-    1. Copy the **OAuth Callback URL** from your n8n credential.
-    2. Paste it into the **Redirect URI (optional)** field.
-    3. Select **Select a platform** > **Web**.
-6. Select **Register** to finish creating your application.
-7. Copy the **Application (client) ID** and paste it into n8n as the **Client ID**.
+1. 打开 [Microsoft 应用注册门户](https://aka.ms/appregistrations)。
+2. 选择 **Register an application**（注册应用）。
+3. 输入应用的 **Name**（名称）。
+4. 在 **Supported account types**（支持的账户类型）中选择 **Accounts in any organizational directory (Any Azure AD directory - Multi-tenant) and personal Microsoft accounts (for example, Skype, Xbox)**（任何组织目录中的账户，任何 Azure AD 目录、多租户，以及个人 Microsoft 账户，例如 Skype、Xbox）。
+5. 在 **Register an application**（注册应用）中：
+    1. 从 n8n 凭据复制 **OAuth Callback URL**（OAuth 回调 URL）。
+    2. 将其粘贴到 **Redirect URI (optional)**（重定向 URI，可选）字段。
+    3. 选择 **Select a platform**（选择平台）> **Web**。
+6. 选择 **Register**（注册），完成应用创建。
+7. 复制 **Application (client) ID**（应用程序，客户端 ID），填入 n8n 的 **Client ID**（客户端 ID）。
 
-Refer to [Register an application with the Microsoft Identity Platform](https://learn.microsoft.com/en-us/graph/auth-register-app-v2) for more information.
+更多信息，请参阅[在 Microsoft Identity Platform 中注册应用](https://learn.microsoft.com/en-us/graph/auth-register-app-v2)。
 
-### Generate a client secret <a href="#generate-a-client-secret" id="generate-a-client-secret"></a>
+### 生成客户端密钥 <a href="#generate-a-client-secret" id="generate-a-client-secret"></a>
 
-With your application created, generate a client secret for it:
+应用创建完成后，为其生成客户端密钥：
 
-1. On your Microsoft application page, select **Certificates & secrets** in the left navigation.
-1. In **Client secrets**, select **+ New client secret**.
-1. Enter a **Description** for your client secret, such as `n8n credential`.
-1. Select **Add**.
-1. Copy the **Secret** in the **Value** column.
-1. Paste it into n8n as the **Client Secret**.
-1. If you see other fields in the n8n credential, refer to [Service-specific settings](#service-specific-settings) below for guidance on completing those fields.
-1. Select **Connect my account** in n8n to finish setting up the connection.
-1. Log in to your Microsoft account and allow the app to access your info.
+1. 在 Microsoft 应用页面中，从左侧导航栏选择 **Certificates & secrets**（证书和密钥）。
+1. 在 **Client secrets**（客户端密钥）中，选择 **+ New client secret**（新建客户端密钥）。
+1. 输入客户端密钥的 **Description**（描述），例如 `n8n credential`。
+1. 选择 **Add**（添加）。
+1. 复制 **Value**（值）列中的 **Secret**（秘密值）。
+1. 将其粘贴到 n8n 的 **Client Secret**（客户端密钥）。
+1. 如果 n8n 凭据中还显示其他字段，请参阅下方[服务专用设置](#service-specific-settings)，了解如何填写。
+1. 在 n8n 中选择 **Connect my account**（连接我的账户），完成连接设置。
+1. 登录 Microsoft 账户，允许应用访问你的信息。
 
-Refer to Microsoft's [Add credentials](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials) for more information on adding a client secret.
+添加客户端密钥的更多信息，请参阅 Microsoft 的[添加凭据](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials)文档。
 
-### Authenticate with a certificate <a href="#authenticate-with-a-certificate" id="authenticate-with-a-certificate"></a>
+### 使用证书进行身份验证 <a href="#authenticate-with-a-certificate" id="authenticate-with-a-certificate"></a>
 
-Instead of a client secret, you can authenticate the application with a **certificate** (a signed client assertion, also known as `private_key_jwt`). This is useful when your organization's security policy doesn't allow text client secrets. The OAuth2 flow is otherwise unchanged: the same sign-in, consent screen, and permissions apply. Only the application's proof of identity at the token exchange and refresh changes from a secret to a signed assertion.
+可使用**证书**代替客户端密钥，对应用进行身份验证。证书用于签名客户端断言，也称为 `private_key_jwt`。当组织安全策略不允许使用文本客户端密钥时，这种方式很有用。OAuth2 流程的其他部分不变：登录、授权同意页面和权限均相同。仅在令牌交换和刷新时，应用的身份证明从密钥改为签名断言。
 
-The default authentication method is **Client Secret**, so existing credentials keep working. Switch a credential to **Certificate** only when you want to use one.
+默认身份验证方式为 **Client Secret**（客户端密钥），因此现有凭据可继续工作。仅在需要使用证书时，将凭据切换为 **Certificate**（证书）。
 
-#### Generate a certificate <a href="#generate-a-certificate" id="generate-a-certificate"></a>
+#### 生成证书 <a href="#generate-a-certificate" id="generate-a-certificate"></a>
 
-If you don't already have one, create a self-signed certificate and private key with [OpenSSL](https://www.openssl.org/):
+如果尚无证书，请使用 [OpenSSL](https://www.openssl.org/) 创建自签名证书和私钥：
 
 ```shell
 openssl req -x509 -newkey rsa:2048 -nodes \
@@ -125,43 +125,43 @@ openssl req -x509 -newkey rsa:2048 -nodes \
   -subj "/CN=n8n-microsoft-cert"
 ```
 
-This produces two files:
+这会生成两个文件：
 
-- `private-key.pem`: the RSA private key. Keep it private: you paste it into n8n, and n8n never sends it to Microsoft.
-- `certificate.pem`: the public certificate. You upload this to your Entra app registration.
+- `private-key.pem`：RSA 私钥。请妥善保密，将其粘贴到 n8n 中；n8n 不会将它发送给 Microsoft。
+- `certificate.pem`：公开证书，需要上传到 Entra 应用注册中。
 
-The private key must be an **RSA** key. n8n signs the client assertion with RS256, so EC and Ed25519 keys don't work.
+私钥必须为 **RSA** 密钥。n8n 使用 RS256 签名客户端断言，因此 EC 和 Ed25519 密钥无法使用。
 
-#### Register the certificate on your app <a href="#register-the-certificate-on-your-app" id="register-the-certificate-on-your-app"></a>
+#### 为应用注册证书 <a href="#register-the-certificate-on-your-app" id="register-the-certificate-on-your-app"></a>
 
-1. On your Microsoft application page, select **Certificates & secrets** in the left navigation.
-2. Select the **Certificates** tab, then select **Upload certificate**.
-3. Select your `certificate.pem` file (the public certificate, not the private key).
-4. Enter an optional **Description**, such as `n8n credential`, then select **Add**.
+1. 在 Microsoft 应用页面中，从左侧导航栏选择 **Certificates & secrets**（证书和密钥）。
+2. 选择 **Certificates**（证书）选项卡，再选择 **Upload certificate**（上传证书）。
+3. 选择 `certificate.pem` 文件，即公开证书，而非私钥。
+4. 可选：输入 **Description**（描述），例如 `n8n credential`，再选择 **Add**（添加）。
 
-Refer to Microsoft's [Add credentials](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials) for more information on adding a certificate.
+添加证书的更多信息，请参阅 Microsoft 的[添加凭据](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials)文档。
 
-#### Complete the credential in n8n <a href="#complete-the-certificate-credential-in-n8n" id="complete-the-certificate-credential-in-n8n"></a>
+#### 在 n8n 中完成凭据设置 <a href="#complete-the-certificate-credential-in-n8n" id="complete-the-certificate-credential-in-n8n"></a>
 
-1. Set **Authentication** to **Certificate**.
-2. Paste the contents of `private-key.pem` into the **Private Key** field.
-3. Paste the contents of `certificate.pem` into the **Certificate** field.
-4. If you see other fields in the n8n credential, refer to [Service-specific settings](#service-specific-settings) below for guidance on completing those fields.
-5. Select **Connect my account** in n8n to finish setting up the connection.
-6. Log in to your Microsoft account and allow the app to access your info.
+1. 将 **Authentication**（身份验证）设为 **Certificate**（证书）。
+2. 将 `private-key.pem` 的内容粘贴到 **Private Key**（私钥）字段。
+3. 将 `certificate.pem` 的内容粘贴到 **Certificate**（证书）字段。
+4. 如果 n8n 凭据中还显示其他字段，请参阅下方[服务专用设置](#service-specific-settings)，了解如何填写。
+5. 在 n8n 中选择 **Connect my account**（连接我的账户），完成连接设置。
+6. 登录 Microsoft 账户，允许应用访问你的信息。
 
-Token refresh also uses the certificate, so n8n never sends a client secret.
+令牌刷新也使用证书，因此 n8n 不会发送客户端密钥。
 
-### Microsoft Graph API Base URL <a href="#microsoft-graph-api-base-url" id="microsoft-graph-api-base-url"></a>
+### Microsoft Graph API 基础 URL <a href="#microsoft-graph-api-base-url" id="microsoft-graph-api-base-url"></a>
 
-The Microsoft OAuth2 credential supports different Microsoft cloud environments. Select the appropriate endpoint based on your tenant's cloud environment:
+Microsoft OAuth2 凭据支持不同的 Microsoft 云环境。请根据租户所在云环境选择相应端点：
 
-- **Global**: Use for standard Microsoft 365 tenants (default)
-- **US Government**: Use for Azure US Government (GCC) tenants
-- **US Government DOD**: Use for Azure US Government Department of Defense tenants
-- **China**: Use for Microsoft 365 operated by 21Vianet in China
+- **Global**（全球）：用于标准 Microsoft 365 租户，默认选项
+- **US Government**（美国政府）：用于 Azure 美国政府（GCC）租户
+- **US Government DOD**（美国政府国防部）：用于 Azure 美国政府国防部租户
+- **China**（中国）：用于中国由世纪互联运营的 Microsoft 365
 
-This setting applies to all Microsoft Graph API nodes that use Microsoft credentials, including:
+此设置适用于所有使用 Microsoft 凭据的 Microsoft Graph API 节点，包括：
 
 - Microsoft Teams
 - Microsoft Outlook
@@ -169,22 +169,22 @@ This setting applies to all Microsoft Graph API nodes that use Microsoft credent
 - Microsoft Excel (SharePoint)
 - Microsoft OneDrive
 - Microsoft Graph Security
-- Microsoft SharePoint (from version 2 of the node)
-- Microsoft SharePoint Trigger
+- Microsoft SharePoint（从节点第 2 版起）
+- Microsoft SharePoint Trigger（触发器）
 - Microsoft To Do
 
 {% hint style="warning" %}
-**Government Cloud Authorization URLs**
+**政府云授权 URL**
 
-If you're using a government cloud tenant, you may also need to update the **Authorization URL** and **Access Token URL** fields in your credential to use the government cloud endpoints. For example:
+使用政府云租户时，可能还需要更新凭据的 **Authorization URL**（授权 URL）和 **Access Token URL**（访问令牌 URL），改用政府云端点。例如：
 
-- US Government: Use `https://login.microsoftonline.us/{tenant}/oauth2/v2.0/authorize` and `https://login.microsoftonline.us/{tenant}/oauth2/v2.0/token`
-- Replace `{tenant}` with your tenant ID or use `common` for multi-tenant apps
+- 美国政府云：使用 `https://login.microsoftonline.us/{tenant}/oauth2/v2.0/authorize` 和 `https://login.microsoftonline.us/{tenant}/oauth2/v2.0/token`
+- 将 `{tenant}` 替换为租户 ID；多租户应用可使用 `common`
 {% endhint %}
 
-### Custom Scopes <a href="#custom-scopes" id="custom-scopes"></a>
+### 自定义作用域 <a href="#custom-scopes" id="custom-scopes"></a>
 
-Define granular permissions for interacting with the following Microsoft services:
+定义与以下 Microsoft 服务交互时的细粒度权限：
 
 * Microsoft Teams
 * Microsoft Excel
@@ -192,11 +192,11 @@ Define granular permissions for interacting with the following Microsoft service
 * Microsoft SharePoint
 * Microsoft OneDrive
 
-To select different scopes for one of these credentials, enable the **Custom Scopes** slider and edit the **Enabled Scopes** list. Some features may not work as expected with more restrictive scopes.
+要为这些凭据选择不同作用域，请启用 **Custom Scopes**（自定义作用域）开关，再编辑 **Enabled Scopes**（已启用的作用域）列表。作用域限制更严格时，部分功能可能无法按预期工作。
 
-#### Default scopes for Microsoft Outlook
+#### Microsoft Outlook 的默认作用域 <a id="default-scopes-for-microsoft-outlook"></a>
 
-Microsoft Outlook credentials use the following scopes by default:
+Microsoft Outlook 凭据默认使用以下作用域：
 
 * `openid`
 * `offline_access`
@@ -211,25 +211,25 @@ Microsoft Outlook credentials use the following scopes by default:
 * `Mail.Send.Shared`
 * `MailboxSettings.Read`
 
-#### Default scopes for Microsoft SharePoint
+#### Microsoft SharePoint 的默认作用域 <a id="default-scopes-for-microsoft-sharepoint"></a>
 
-Microsoft SharePoint credentials use the following scopes by default:
+Microsoft SharePoint 凭据默认使用以下作用域：
 
 * `openid`
 * `offline_access`
-* `https://<subdomain>.sharepoint.com/.default`, where you replace `<subdomain>` with the credential's **Subdomain** value
+* `https://<subdomain>.sharepoint.com/.default`，其中将 `<subdomain>` 替换为凭据的 **Subdomain**（子域名）值
 
-#### Default scopes for Microsoft OneDrive
+#### Microsoft OneDrive 的默认作用域 <a id="default-scopes-for-microsoft-onedrive"></a>
 
-Microsoft OneDrive credentials use the following scopes by default:
+Microsoft OneDrive 凭据默认使用以下作用域：
 
 * `openid`
 * `offline_access`
 * `Files.ReadWrite.All`
 
-#### Default scopes for Microsoft Teams
+#### Microsoft Teams 的默认作用域 <a id="default-scopes-for-microsoft-teams"></a>
 
-Microsoft Teams credentials use the following scopes by default:
+Microsoft Teams 凭据默认使用以下作用域：
 
 * `openid`
 * `offline_access`
@@ -237,109 +237,109 @@ Microsoft Teams credentials use the following scopes by default:
 * `Group.ReadWrite.All`
 * `Chat.ReadWrite`
 * `ChannelMessage.Read.All`
-* `ChannelMessage.ReadWrite` (available from n8n 2.40.0)
-* `OnlineMeetings.ReadWrite` (available from n8n 2.39.0)
-* `TeamworkTag.Read` (available from n8n 2.41.0)
-* `TeamsActivity.Send` (available from n8n 2.42.0)
-* `TeamMember.Read.All` (available from n8n 2.45.0)
+* `ChannelMessage.ReadWrite`（从 n8n 2.40.0 起可用）
+* `OnlineMeetings.ReadWrite`（从 n8n 2.39.0 起可用）
+* `TeamworkTag.Read`（从 n8n 2.41.0 起可用）
+* `TeamsActivity.Send`（从 n8n 2.42.0 起可用）
+* `TeamMember.Read.All`（从 n8n 2.45.0 起可用）
 
-`TeamMember.Read.All` needs admin consent. A credential connected before n8n 2.45.0 requests the scope when you reconnect it. A Microsoft Entra administrator must consent to the scope before you reconnect, or the sign-in fails, as described in [New scopes need a new approval](#new-scopes-need-a-new-approval). If the credential uses **Custom Scopes**, add the scope to **Enabled Scopes** if it isn't there, then reconnect.
+`TeamMember.Read.All` 需要管理员同意。n8n 2.45.0 之前连接的凭据会在重新连接时请求此作用域。Microsoft Entra 管理员必须先同意该作用域，再重新连接，否则登录会失败，详见[新增作用域需要重新批准](#new-scopes-need-a-new-approval)。如果凭据使用 **Custom Scopes**（自定义作用域），请先确认 **Enabled Scopes**（已启用的作用域）中包含该作用域；若没有，先添加再重新连接。
 
-For the permission each Microsoft Teams Trigger event needs, refer to [Required scopes](../trigger-nodes/n8n-nodes-base.microsoftteamstrigger.md#required-scopes) in the Microsoft Teams Trigger documentation.
+各 Microsoft Teams Trigger 事件需要的权限，请参阅 Microsoft Teams Trigger 文档中的[所需作用域](../trigger-nodes/n8n-nodes-base.microsoftteamstrigger.md#required-scopes)。
 
-### Service-specific settings <a href="#service-specific-settings" id="service-specific-settings"></a>
+### 服务专用设置 <a href="#service-specific-settings" id="service-specific-settings"></a>
 
-The following services require extra information for OAuth2:
+以下服务的 OAuth2 需要额外信息：
 
 #### Dynamics <a href="#dynamics" id="dynamics"></a>
 
-Dynamics OAuth2 requires information about your Dynamics domain and region. Follow these extra steps to complete the credential:
+Dynamics OAuth2 需要 Dynamics 域名和区域信息。请执行以下额外步骤完成凭据设置：
 
-1. Enter your Dynamics **Domain**.
-2. Select the Dynamics data center **Region** you're within.
+1. 输入 Dynamics **Domain**（域名）。
+2. 选择 Dynamics 所在数据中心的 **Region**（区域）。
 
-Refer to the [Microsoft Datacenter regions documentation](https://learn.microsoft.com/en-us/power-platform/admin/new-datacenter-regions) for more information on the region options and corresponding URLs.
+区域选项及对应 URL 的更多信息，请参阅 [Microsoft 数据中心区域文档](https://learn.microsoft.com/en-us/power-platform/admin/new-datacenter-regions)。
 
-#### Microsoft (general) <a href="#microsoft-general" id="microsoft-general"></a>
+#### Microsoft（通用） <a href="#microsoft-general" id="microsoft-general"></a>
 
-The general Microsoft OAuth2 also requires you to provide a space-separated list of **Scope**s for this credential.
+通用 Microsoft OAuth2 还要求为此凭据提供以空格分隔的 **Scope**（作用域）列表。
 
-Refer to [Scopes and permissions in the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc) for a list of possible scopes.
+可用作用域列表，请参阅 [Microsoft 标识平台中的作用域和权限](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc)。
 
-The n8n node documentation lists the exact scopes each node needs. For example, the [Microsoft SharePoint node](../app-nodes/n8n-nodes-base.microsoftsharepoint.md) (from version 2) gives full scope strings such as `openid offline_access Sites.ReadWrite.All`, including the `openid offline_access` scopes the credential needs to refresh its tokens.
+n8n 节点文档列出了各节点所需的确切作用域。例如，[Microsoft SharePoint 节点](../app-nodes/n8n-nodes-base.microsoftsharepoint.md)（从第 2 版起）提供完整作用域字符串，如 `openid offline_access Sites.ReadWrite.All`，其中包含凭据刷新令牌所需的 `openid offline_access` 作用域。
 
 #### Outlook <a href="#outlook" id="outlook"></a>
 
-Outlook OAuth2 supports the credential accessing a user's primary email inbox or a shared inbox. By default, the credential will access a user's primary email inbox. To change this behavior:
+Outlook OAuth2 支持凭据访问用户的主邮箱或共享邮箱，默认访问用户主邮箱。要更改此行为：
 
-1. Turn on **Use Shared Inbox**.
-2. Enter the target user's UPN or ID as the **User Principal Name**.
+1. 开启 **Use Shared Inbox**（使用共享邮箱）。
+2. 将目标用户的 UPN 或 ID 填入 **User Principal Name**（用户主体名称）。
 
 #### SharePoint <a href="#sharepoint" id="sharepoint"></a>
 
-These settings apply to the node-specific Microsoft SharePoint credential, which version 1 of the Microsoft SharePoint node uses. Version 2 of the node uses the generic Microsoft OAuth2 credential (no subdomain needed) or the [Microsoft Entra Service Principal credential](microsoftentraserviceprincipal.md); refer to the [Microsoft SharePoint node documentation](../app-nodes/n8n-nodes-base.microsoftsharepoint.md) for the scopes to enter.
+这些设置适用于 Microsoft SharePoint 节点第 1 版使用的节点专用 Microsoft SharePoint 凭据。节点第 2 版使用通用 Microsoft OAuth2 凭据，无需子域名，或使用 [Microsoft Entra Service Principal 凭据](microsoftentraserviceprincipal.md)；应填写的作用域请参阅 [Microsoft SharePoint 节点文档](../app-nodes/n8n-nodes-base.microsoftsharepoint.md)。
 
-SharePoint OAuth2 requires information about your SharePoint **Subdomain**.
+SharePoint OAuth2 需要 SharePoint **Subdomain**（子域名）信息。
 
-To complete the credential, enter the **Subdomain** part of your SharePoint URL. For example, if your SharePoint URL is `https://tenant123.sharepoint.com`, the subdomain is `tenant123`.
+要完成凭据设置，请输入 SharePoint URL 的 **Subdomain**（子域名）部分。例如，SharePoint URL 为 `https://tenant123.sharepoint.com` 时，子域名为 `tenant123`。
 
-SharePoint requires the following permissions:
+SharePoint 需要以下权限：
 
-Application permissions:
+应用程序权限：
 
 * `Sites.Read.All`
 * `Sites.ReadWrite.All`
 
-Delegated permissions:
+委派权限：
 
 * `SearchConfiguration.Read.All`
 * `SearchConfiguration.ReadWrite.All`
 
-## Microsoft Teams on Cloud: Admin approval <a href="#microsoft-teams-on-cloud-admin-approval" id="microsoft-teams-on-cloud-admin-approval"></a>
+## 云端 Microsoft Teams：管理员批准 <a href="#microsoft-teams-on-cloud-admin-approval" id="microsoft-teams-on-cloud-admin-approval"></a>
 
-On n8n Cloud, a Microsoft Entra administrator of your organization approves the managed Microsoft Teams credential's permissions once, before users who aren't administrators can connect or reconnect it.
+在 n8n Cloud 中，组织的 Microsoft Entra 管理员须先批准一次托管 Microsoft Teams 凭据的权限，非管理员用户才能连接或重新连接。
 
-Several of the [default scopes for Microsoft Teams](#default-scopes-for-microsoft-teams) are permissions that only an administrator can grant. n8n requests them when you select **Connect my account**, and Microsoft treats the request as all or nothing: if your tenant hasn't approved every requested permission, the sign-in fails and n8n gets no token. Once an administrator approves the permissions on behalf of the organization, users of your n8n Cloud instance can connect without seeing the prompt again. The same credential serves the Microsoft Teams node and the Microsoft Teams Trigger. For the scope each Trigger event needs, refer to [Required scopes](../trigger-nodes/n8n-nodes-base.microsoftteamstrigger.md#required-scopes) in the Microsoft Teams Trigger documentation.
+[Microsoft Teams 默认作用域](#default-scopes-for-microsoft-teams)中有多项权限只能由管理员授予。选择 **Connect my account**（连接我的账户）时，n8n 会请求这些权限；Microsoft 对整个请求采取全部通过或全部拒绝的处理方式：如果租户未批准每一项所请求的权限，登录就会失败，n8n 不会收到令牌。管理员代表组织批准权限后，n8n Cloud 实例的用户即可连接，无需再次看到该提示。同一凭据用于 Microsoft Teams 节点和 Microsoft Teams Trigger。各触发器事件所需的作用域，请参阅 Microsoft Teams Trigger 文档中的[所需作用域](../trigger-nodes/n8n-nodes-base.microsoftteamstrigger.md#required-scopes)。
 
-### Why reconnecting alone fails
+### 为什么仅重新连接会失败 <a id="why-reconnecting-alone-fails"></a>
 
-If you aren't an administrator and your tenant hasn't approved the permissions, Microsoft stops the sign-in at a **Need admin approval** or **Approval required** screen with no **Accept** button. The popup ends with an error such as `AADSTS65004`, and n8n never receives a token. The credential stays disconnected, so every node that uses it fails, not only the operations that need the missing permission. Reconnecting shows the same screen and fails the same way. The order matters: your administrator approves first, then you reconnect.
+如果你不是管理员，且租户尚未批准权限，Microsoft 会在 **Need admin approval**（需要管理员批准）或 **Approval required**（需要批准）页面阻止登录，且没有 **Accept**（接受）按钮。弹窗最终显示 `AADSTS65004` 等错误，n8n 始终不会收到令牌。凭据保持断开，因此所有使用它的节点都会失败，而不只是需要缺失权限的操作。重新连接仍会显示同一页面并以相同方式失败。顺序很重要：先由管理员批准，再由你重新连接。
 
-If the screen offers **Request approval**, your tenant has Microsoft's [admin consent workflow](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/admin-consent-workflow-overview) enabled: enter a justification and send the request to your administrators. Otherwise, contact your Microsoft Entra administrator directly and ask them to follow the steps in [Approve the permissions for your organization](#approve-the-permissions-for-your-organization).
+如果页面提供 **Request approval**（请求批准），则表示租户已启用 Microsoft 的[管理员同意工作流](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/admin-consent-workflow-overview)：输入理由并向管理员发送请求。否则，请直接联系 Microsoft Entra 管理员，请其按照[为组织批准权限](#approve-the-permissions-for-your-organization)中的步骤操作。
 
-### Approve the permissions for your organization
+### 为组织批准权限 <a id="approve-the-permissions-for-your-organization"></a>
 
-These steps are for the Microsoft Entra administrator. Microsoft shows the **Consent on behalf of your organization** option only to Global Administrators and Privileged Role Administrators. A designated reviewer with the Cloud Application Administrator or Application Administrator role can approve the same permissions through a user's request in the [admin consent workflow](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/review-admin-consent-requests) instead. You also need a user account on the n8n Cloud instance, or ask the blocked user to start the connection and sign in to Microsoft in their popup.
+以下步骤供 Microsoft Entra 管理员执行。Microsoft 仅向 Global Administrator（全局管理员）和 Privileged Role Administrator（特权角色管理员）显示 **Consent on behalf of your organization**（代表组织同意）选项。被指定为审核者且具有 Cloud Application Administrator（云应用程序管理员）或 Application Administrator（应用程序管理员）角色的人员，可改为通过[管理员同意工作流](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/review-admin-consent-requests)批准用户请求中的相同权限。还需在 n8n Cloud 实例上有用户账户，或请被阻止的用户发起连接，再由你在其弹窗中登录 Microsoft。
 
-1. In n8n, open a Microsoft Teams credential, or create one: select **Create credential**, choose **Microsoft Teams OAuth2 API**, and keep **Managed OAuth2**.
-2. Select **Connect my account**, or **Reconnect** on an existing credential, and sign in with your administrator account.
-3. On the **Permissions requested** screen, review the permissions, select **Consent on behalf of your organization**, then select **Accept**.
-4. Wait for n8n to show **Account connected**.
+1. 在 n8n 中打开 Microsoft Teams 凭据，或创建新凭据：选择 **Create credential**（创建凭据），选择 **Microsoft Teams OAuth2 API**，并保留 **Managed OAuth2**（托管 OAuth2）。
+2. 选择 **Connect my account**（连接我的账户），已有凭据则选择 **Reconnect**（重新连接），使用管理员账户登录。
+3. 在 **Permissions requested**（请求的权限）页面检查权限，选择 **Consent on behalf of your organization**（代表组织同意），再选择 **Accept**（接受）。
+4. 等待 n8n 显示 **Account connected**（账户已连接）。
 
-Microsoft stores the consent in your tenant, not in n8n. You can delete the credential you used, and the approval stays in place. Users now create or reconnect their own credentials, and the sign-in completes without the approval screen.
+Microsoft 将授权同意保存在租户中，而非 n8n 中。可以删除为此使用的凭据，批准仍然有效。用户此时创建或重新连接自己的凭据，登录即可完成，无需经过批准页面。
 
 {% hint style="warning" %}
-**Granting consent in the Microsoft Entra admin center doesn't cover these permissions**
+**在 Microsoft Entra 管理中心授予同意并不涵盖这些权限**
 
-n8n requests the Microsoft Teams permissions at sign-in instead of declaring them on its app registration. **Grant admin consent** on the app's **Permissions** page in the Microsoft Entra admin center only covers declared permissions, so it doesn't unblock the credential. [Approve the permissions through the sign-in prompt](#approve-the-permissions-for-your-organization), or approve a user's request in the [admin consent workflow](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/review-admin-consent-requests).
+n8n 在登录时请求 Microsoft Teams 权限，而不是在应用注册中声明这些权限。Microsoft Entra 管理中心内应用 **Permissions**（权限）页面上的 **Grant admin consent**（授予管理员同意）仅涵盖已声明权限，因此无法解除凭据阻塞。请[通过登录提示批准权限](#approve-the-permissions-for-your-organization)，或通过[管理员同意工作流](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/review-admin-consent-requests)批准用户请求。
 {% endhint %}
 
-### New scopes need a new approval
+### 新增作用域需要重新批准 <a id="new-scopes-need-a-new-approval"></a>
 
-n8n adds scopes to the Microsoft Teams credential over time, and the [default scopes for Microsoft Teams](#default-scopes-for-microsoft-teams) note the n8n release that added each newer scope. A credential you connected before that release keeps working with its old token, but the operations that need the new scope fail with a 403 error until you reconnect. If the new scope needs admin consent, the reconnect hits the approval screen again, even in a tenant that approved the credential before. The sequence is the same: your administrator [approves the new permission through the sign-in prompt](#approve-the-permissions-for-your-organization), then every user reconnects.
+n8n 会持续为 Microsoft Teams 凭据添加作用域，[Microsoft Teams 默认作用域](#default-scopes-for-microsoft-teams)会标明各新增作用域对应的 n8n 版本。在该版本之前连接的凭据可继续使用旧令牌，但需要新作用域的操作会因 403 错误而失败，直到重新连接。如果新作用域需要管理员同意，即使租户以前已批准此凭据，重新连接时仍会出现批准页面。顺序相同：管理员先[通过登录提示批准新权限](#approve-the-permissions-for-your-organization)，然后每位用户重新连接。
 
-### Use your own app registration instead
+### 改用自己的应用注册 <a id="use-your-own-app-registration-instead"></a>
 
-If your organization doesn't allow consent to n8n's shared app or wants to control the permissions itself, connect through your own Microsoft Entra app registration. This works on n8n Cloud too:
+如果组织不允许同意 n8n 的共享应用，或希望自行控制权限，请通过自己的 Microsoft Entra 应用注册连接。此方式同样适用于 n8n Cloud：
 
-1. In the credential, switch from **Managed OAuth2** to **Custom OAuth2**.
-2. [Register an application](#register-an-application) and add a [client secret](#generate-a-client-secret) or a [certificate](#authenticate-with-a-certificate). Use the **OAuth Redirect URL** the credential shows. On n8n Cloud, it's a shared n8n callback URL rather than your instance URL.
-3. Ask a Microsoft Entra administrator to grant admin consent on your app registration. Because your organization owns it, they can declare the permissions on it and approve them in the Microsoft Entra admin center, or sign in through n8n and select **Consent on behalf of your organization**. [Delegated access for organisation-wide Microsoft integrations](microsoftentra.md#delegated-access-for-organisation-wide-microsoft-integrations) in the Microsoft Entra credentials documentation covers the app registration and the consent steps in detail.
+1. 在凭据中从 **Managed OAuth2**（托管 OAuth2）切换为 **Custom OAuth2**（自定义 OAuth2）。
+2. [注册应用](#register-an-application)，添加[客户端密钥](#generate-a-client-secret)或[证书](#authenticate-with-a-certificate)。使用凭据中显示的 **OAuth Redirect URL**（OAuth 重定向 URL）。在 n8n Cloud 中，这是 n8n 共用的回调 URL，而非实例 URL。
+3. 请 Microsoft Entra 管理员为应用注册授予管理员同意。因为该应用由组织拥有，管理员可在应用上声明权限，并在 Microsoft Entra 管理中心批准，或通过 n8n 登录并选择 **Consent on behalf of your organization**（代表组织同意）。Microsoft Entra 凭据文档中的[面向组织范围 Microsoft 集成的委派访问](microsoftentra.md#delegated-access-for-organisation-wide-microsoft-integrations)详细介绍应用注册和授权同意步骤。
 
-The permissions that need admin consent still need an administrator, but on an app your organization controls. Enable **Custom Scopes** to trim the list to what your workflows use.
+需要管理员同意的权限仍须由管理员批准，但对应的是组织自行控制的应用。启用 **Custom Scopes**（自定义作用域），将列表缩减到工作流实际使用的范围。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-Common errors and issues with Microsoft OAuth2 credentials:
+Microsoft OAuth2 凭据的常见错误和问题：
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/fXYywkPyzPTxeGOEnYgb/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/microsoft-need-admin-approval.md" %}

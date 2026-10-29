@@ -1,16 +1,14 @@
 ---
-title: HTTP Request credentials
+title: HTTP Request 凭据
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: HTTP Request credentials
+nodeTitle: HTTP Request 凭据
 originalFilePath: integrations/builtin/credentials/httprequest.md
 originalUrl: https://docs.n8n.io/integrations/builtin/credentials/httprequest
 url: https://docs.n8n.io/integrations/builtin/credentials/httprequest
-description: >-
-  Documentation for HTTP Request credentials. Use these credentials to
-  authenticate the HTTP Request node in n8n.
+description: HTTP Request 凭据文档。使用这些凭据在 n8n 中完成 HTTP Request 节点的身份验证。
 layout:
   width: default
   title:
@@ -30,157 +28,162 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# HTTP Request credentials
 
-You can use these credentials to authenticate the following nodes:
+# HTTP Request 凭据 <a id="http-request-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [HTTP Request](../core-nodes/n8n-nodes-base.httprequest/README.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-You must use the authentication method required by the app or service you want to query.
+必须使用要查询的应用或服务所要求的身份验证方式。
 
-If you need to secure the authentication with an SSL certificate, refer to [Provide an SSL certificate](httprequest.md#provide-an-ssl-certificate) for the information you'll need.
+如果需要使用 SSL 证书保护身份验证，请参阅[提供 SSL 证书](httprequest.md#provide-an-ssl-certificate)，了解所需信息。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-* Predefined credential type
-* Basic auth (generic credential type)
-* Custom auth (generic credential type)
-* Digest auth (generic credential type)
-* Header auth (generic credential type)
-* Bearer auth (generic credential type)
-* OAuth1 (generic credential type)
-* OAuth2 (generic credential type)
-* Query auth (generic credential type)
-* Simplified Custom Auth (generic credential type)
+* 预定义凭据类型
+* Basic auth（基本身份验证，通用凭据类型）
+* Custom auth（自定义身份验证，通用凭据类型）
+* Digest auth（摘要身份验证，通用凭据类型）
+* Header auth（请求头身份验证，通用凭据类型）
+* Bearer auth（持有者令牌身份验证，通用凭据类型）
+* OAuth1（通用凭据类型）
+* OAuth2（通用凭据类型）
+* Query auth（查询参数身份验证，通用凭据类型）
+* Simplified Custom Auth（简化自定义身份验证，通用凭据类型）
 
-Refer to [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) for more information relating to generic credential types.
+通用凭据类型的更多相关信息，请参阅 [HTTP 身份验证](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)。
 
 {% hint style="info" %}
-**Predefined credential types**
+**预定义凭据类型**
 
-n8n recommends using predefined credential types whenever there's a credential type available for the service you want to connect to. It offers an easier way to set up and manage credentials, compared to configuring generic credentials.
+只要所连接的服务有对应凭据类型，n8n 就建议使用预定义凭据类型。与配置通用凭据相比，它能更方便地设置和管理凭据。
 
-You can use [Predefined credential types](../custom-api-actions-for-existing-nodes.md#predefined-credential-types) to perform custom operations with some APIs where n8n has a node for the platform. For example, n8n has an Asana node, and supports using your Asana credentials in the HTTP Request node. Refer to [Custom operations](../custom-api-actions-for-existing-nodes.md) for more information.
+对于 n8n 已提供平台节点的部分 API，可使用[预定义凭据类型](../custom-api-actions-for-existing-nodes.md#predefined-credential-types)执行自定义操作。例如，n8n 有 Asana 节点，也支持在 HTTP Request 节点中使用 Asana 凭据。更多信息，请参阅[自定义操作](../custom-api-actions-for-existing-nodes.md)。
 {% endhint %}
 
-## Using predefined credential type <a href="#using-predefined-credential-type" id="using-predefined-credential-type"></a>
+## 使用预定义凭据类型 <a href="#using-predefined-credential-type" id="using-predefined-credential-type"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ZmZC9v8B1NG5lgRY44yF/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/predefined-credential-type-how-to.md" %}
 
-Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) for more information.
+更多信息，请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/vIyn1XsEkjlolZzHTfTG/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/basic-auth.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/tq6Yob45CR8oPKrT6Ggr/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/digest-auth.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/fjWxEWe1g0CDvsx1igf6/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/header-auth.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/JeIbggto5Oi1mPf9SOYv/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/bearer-auth.md" %}
 
-## Using OAuth1 <a href="#using-oauth1" id="using-oauth1"></a>
+## 使用 OAuth1 <a href="#using-oauth1" id="using-oauth1"></a>
 
-Use this generic authentication if your app or service supports OAuth1 authentication.
+如果应用或服务支持 OAuth1 身份验证，请使用此通用身份验证方式。
 
-To configure this credential, enter:
+配置此凭据时，请输入：
 
-* An **Authorization URL**: Also known as the Resource Owner Authorization URI. This URL typically ends in `/oauth1/authorize`. n8n sends the temporary credentials here to prompt a user to complete authorization.
-* An **Access Token URL**: This is the URI used for the initial request for temporary credentials. This URL typically ends in `/oauth1/request` or `/oauth1/token`.
-* A **Consumer Key**: Also known as the client key, like a username. This specifies the `oauth_consumer_key` to use for the call.
-* A **Consumer Secret**: Also known as the client secret, like a password.
-* A **Request Token URL**: This is the URI used to switch from temporary credentials to long-lived credentials after authorization. This URL typically ends in `/oauth1/access`.
-* Select the **Signature Method** the auth handshake uses. This specifies the `oauth_signature_method` to use for the call. Options include:
+* **Authorization URL**（授权 URL）：也称为 Resource Owner Authorization URI（资源所有者授权 URI）。此 URL 通常以 `/oauth1/authorize` 结尾。n8n 将临时凭据发送到此处，提示用户完成授权。
+* **Access Token URL**（访问令牌 URL）：用于首次请求临时凭据的 URI。此 URL 通常以 `/oauth1/request` 或 `/oauth1/token` 结尾。
+* **Consumer Key**（消费者密钥）：也称为客户端键，类似用户名，用于指定调用所使用的 `oauth_consumer_key`。
+* **Consumer Secret**（消费者秘密值）：也称为客户端密钥，类似密码。
+* **Request Token URL**（请求令牌 URL）：授权完成后，将临时凭据交换为长期凭据的 URI。此 URL 通常以 `/oauth1/access` 结尾。
+
+> 译注：原文将 Access Token URL 和 Request Token URL 的流程说明及示例路径对调了。按 OAuth 1.0 的流程，Request Token URL 用于获取临时凭据，Access Token URL 用于在授权后用临时凭据交换访问令牌。实际端点请以服务商文档为准，勿直接套用上面的示例路径。
+
+* 选择身份验证握手使用的 **Signature Method**（签名方法），用于指定调用所使用的 `oauth_signature_method`。选项包括：
   * **HMAC-SHA1**
   * **HMAC-SHA256**
   * **HMAC-SHA512**
 
-For most OAuth1 integrations, you'll need to configure an app, service, or integration to generate the values for most of these fields. Use the **OAuth Redirect URL** in n8n as the redirect URL or redirect URI for such a service.
+对于大多数 OAuth1 集成，需要配置应用、服务或集成，生成上述大部分字段的值。请将 n8n 中的 **OAuth Redirect URL**（OAuth 重定向 URL）用作该服务的重定向 URL 或重定向 URI。
 
-Read more about [OAuth1](https://oauth.net/1/) and the [OAuth1 authorization flow](https://oauth1.wp-api.org/docs/basics/Auth-Flow.html).
+进一步了解 [OAuth1](https://oauth.net/1/) 和 [OAuth1 授权流程](https://oauth1.wp-api.org/docs/basics/Auth-Flow.html)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-Use this generic authentication if your app or service supports OAuth2 authentication.
+如果应用或服务支持 OAuth2 身份验证，请使用此通用身份验证方式。
 
-Requirements to configure this credential depend on the **Grant Type** selected. Refer to [OAuth Grant Types](https://oauth.net/2/grant-types/) for more information on each grant type.
+配置此凭据的要求取决于所选的 **Grant Type**（授权类型）。各授权类型的更多信息，请参阅 [OAuth 授权类型](https://oauth.net/2/grant-types/)。
 
-For most OAuth2 integrations, you'll need to configure an app, service, or integration. Use the **OAuth Redirect URL** in n8n as the redirect URL or redirect URI for such a service.
+对于大多数 OAuth2 集成，需要配置应用、服务或集成。请将 n8n 中的 **OAuth Redirect URL**（OAuth 重定向 URL）用作该服务的重定向 URL 或重定向 URI。
 
-Read more about [OAuth2](https://oauth.net/2/).
+进一步了解 [OAuth2](https://oauth.net/2/)。
 
-### Authorization Code grant type <a href="#authorization-code-grant-type" id="authorization-code-grant-type"></a>
+### Authorization Code（授权码）授权类型 <a href="#authorization-code-grant-type" id="authorization-code-grant-type"></a>
 
-Use Authorization Code grant type to exchange an authorization code for an access token. The auth flow uses the redirect URL to return the user to the client. Then the application gets the authorization code from the URL and uses it to request an access token. Refer to [Authorization Code Request](https://www.oauth.com/oauth2-servers/access-tokens/authorization-code-request/) for more information.
+使用 Authorization Code 授权类型，将授权码交换为访问令牌。身份验证流程通过重定向 URL 将用户返回到客户端，随后应用从 URL 中获取授权码，并用它请求访问令牌。更多信息，请参阅[授权码请求](https://www.oauth.com/oauth2-servers/access-tokens/authorization-code-request/)。
 
-To configure this credential, select **Authorization Code** as the **Grant Type**.
+配置此凭据时，请将 **Grant Type**（授权类型）设为 **Authorization Code**（授权码）。
 
-Then enter:
+然后输入：
 
-* An **Authorization URL**
-* An **Access Token URL**
-* A **Client ID**: The ID or username to log in with.
-* A **Client Secret**: The secret or password used to log in with.
-* _Optional:_ Enter one or more **Scope**s for the credential. If unspecified, the credential will request all scopes available to the client.
-* _Optional:_ Some services require more query parameters. If your service does, add them as **Auth URI Query Parameters**.
-* An **Authentication** type: Select the option that best suits your use case. Options include:
-  * **Header**: Send the credentials as a basic auth header.
-  * **Body**: Send the credentials in the body of the request.
-* _Optional:_ Choose whether to **Ignore SSL Issues**. If turned on, n8n will connect even if SSL validation fails.
+* **Authorization URL**（授权 URL）
+* **Access Token URL**（访问令牌 URL）
+* **Client ID**（客户端 ID）：用于登录的 ID 或用户名。
+* **Client Secret**（客户端密钥）：用于登录的密钥或密码。
+* _可选：_为凭据输入一个或多个 **Scope**（作用域）。如果未指定，凭据将请求客户端可用的所有作用域。
+* _可选：_某些服务要求额外查询参数。如果所用服务有此要求，请将其添加为 **Auth URI Query Parameters**（身份验证 URI 查询参数）。
+* **Authentication**（身份验证）类型：选择最适合使用场景的选项，包括：
+  * **Header**（请求头）：以基本身份验证请求头发送凭据。
+  * **Body**（请求体）：在请求体中发送凭据。
+* _可选：_选择是否 **Ignore SSL Issues**（忽略 SSL 问题）。开启后，即使 SSL 验证失败，n8n 仍会连接。
 
-### Client Credentials grant type <a href="#client-credentials-grant-type" id="client-credentials-grant-type"></a>
+### Client Credentials（客户端凭据）授权类型 <a href="#client-credentials-grant-type" id="client-credentials-grant-type"></a>
 
-Use the Client Credentials grant type when applications request an access token to access their own resources, not on behalf of a user. Refer to [Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) for more information.
+当应用请求访问令牌以访问自身资源，而不是代表用户访问资源时，使用 Client Credentials 授权类型。更多信息，请参阅[客户端凭据](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)。
 
-To configure this credential, select **Client Credentials** as the **Grant Type**.
+配置此凭据时，请将 **Grant Type**（授权类型）设为 **Client Credentials**（客户端凭据）。
 
-Then enter:
+然后输入：
 
-* An **Access Token URL**: The URL to hit to begin the OAuth2 flow. Typically this URL ends in `/token`.
-* A **Client ID**: The ID or username to use to log in to the client.
-* A **Client Secret**: The secret or password used to log in to the client.
-* _Optional:_ Enter one or more **Scope**s for the credential. Most services don't support scopes for Client Credentials grant types; only enter scopes here if yours does.
-* An **Authentication** type: Select the option that best suits your use case. Options include:
-  * **Header**: Send the credentials as a basic auth header.
-  * **Body**: Send the credentials in the body of the request.
-* _Optional:_ Choose whether to **Ignore SSL Issues**. If turned on, n8n will connect even if SSL validation fails.
+* **Access Token URL**（访问令牌 URL）：用于启动 OAuth2 流程的请求 URL，通常以 `/token` 结尾。
+* **Client ID**（客户端 ID）：用于登录客户端的 ID 或用户名。
+* **Client Secret**（客户端密钥）：用于登录客户端的密钥或密码。
+* _可选：_为凭据输入一个或多个 **Scope**（作用域）。大多数服务不支持为 Client Credentials 授权类型设置作用域；仅当所用服务支持时才填写。
+* **Authentication**（身份验证）类型：选择最适合使用场景的选项，包括：
+  * **Header**（请求头）：以基本身份验证请求头发送凭据。
+  * **Body**（请求体）：在请求体中发送凭据。
+* _可选：_选择是否 **Ignore SSL Issues**（忽略 SSL 问题）。开启后，即使 SSL 验证失败，n8n 仍会连接。
 
-### PKCE grant type <a href="#pkce-grant-type" id="pkce-grant-type"></a>
+### PKCE 授权类型 <a href="#pkce-grant-type" id="pkce-grant-type"></a>
 
-Proof Key for Code Exchange (PKCE) grant type is an extension to the Authorization Code flow to prevent CSRF and authorization code injection attacks.
+Proof Key for Code Exchange（PKCE，代码交换证明密钥）授权类型是 Authorization Code 流程的扩展，用于防止 CSRF 和授权码注入攻击。
 
-To configure this credential, select **PKCE** as the **Grant Type**.
+配置此凭据时，请将 **Grant Type**（授权类型）设为 **PKCE**。
 
-Then enter:
+然后输入：
 
-* An **Authorization URL**
-* An **Access Token URL**
-* A **Client ID**: The ID or username to log in with.
-* A **Client Secret**: The secret or password used to log in with.
-* _Optional:_ Enter one or more **Scope**s for the credential. If unspecified, the credential will request all scopes available to the client.
-* _Optional:_ Some services require more query parameters. If your service does, add them as **Auth URI Query Parameters**.
-* An **Authentication** type: Select the option that best suits your use case. Options include:
-  * **Header**: Send the credentials as a basic auth header.
-  * **Body**: Send the credentials in the body of the request.
-* _Optional:_ Choose whether to **Ignore SSL Issues**. If turned on, n8n will connect even if SSL validation fails.
+* **Authorization URL**（授权 URL）
+* **Access Token URL**（访问令牌 URL）
+* **Client ID**（客户端 ID）：用于登录的 ID 或用户名。
+* **Client Secret**（客户端密钥）：用于登录的密钥或密码。
+* _可选：_为凭据输入一个或多个 **Scope**（作用域）。如果未指定，凭据将请求客户端可用的所有作用域。
+* _可选：_某些服务要求额外查询参数。如果所用服务有此要求，请将其添加为 **Auth URI Query Parameters**（身份验证 URI 查询参数）。
+* **Authentication**（身份验证）类型：选择最适合使用场景的选项，包括：
+  * **Header**（请求头）：以基本身份验证请求头发送凭据。
+  * **Body**（请求体）：在请求体中发送凭据。
+* _可选：_选择是否 **Ignore SSL Issues**（忽略 SSL 问题）。开启后，即使 SSL 验证失败，n8n 仍会连接。
 
-## Using query auth <a href="#using-query-auth" id="using-query-auth"></a>
+## 使用查询参数身份验证 <a href="#using-query-auth" id="using-query-auth"></a>
 
-Use this generic authentication if your app or service supports passing authentication as a single key/value query parameter. (For multiple query parameters, use [Custom Auth](httprequest.md#using-custom-auth).)
+如果应用或服务支持通过单个键值查询参数传递身份验证信息，请使用此通用身份验证方式。多个查询参数请使用[自定义身份验证](httprequest.md#using-custom-auth)。
 
-To configure this credential, enter:
+配置此凭据时，请输入：
 
-* A query parameter key or **Name**
-* A query parameter **Value**
+* 查询参数键，即 **Name**（名称）
+* 查询参数 **Value**（值）
 
-## Using custom auth <a href="#using-custom-auth" id="using-custom-auth"></a>
+## 使用自定义身份验证 <a href="#using-custom-auth" id="using-custom-auth"></a>
 
-Use this generic authentication if your app or service supports passing authentication as multiple key/value query parameters or you need more flexibility than the other generic auth options.
+如果应用或服务支持通过多个键值查询参数传递身份验证信息，或需要比其他通用身份验证选项更灵活的配置，请使用此方式。
 
-The **Custom Auth** credential expects JSON data to define your credential. You can use `headers`, `qs`, `body` or a mix. Review the examples below to get started.
+**Custom Auth**（自定义身份验证）凭据使用 JSON 数据定义凭据，可使用 `headers`、`qs`、`body`，或混合使用。请从下方示例开始了解。
 
-### Sending two headers <a href="#sending-two-headers" id="sending-two-headers"></a>
+### 发送两个请求头 <a href="#sending-two-headers" id="sending-two-headers"></a>
 
 ```
 {
@@ -191,7 +194,7 @@ The **Custom Auth** credential expects JSON data to define your credential. You 
 }
 ```
 
-### Body <a href="#body" id="body"></a>
+### 请求体 <a href="#body" id="body"></a>
 
 ```
 {
@@ -202,7 +205,7 @@ The **Custom Auth** credential expects JSON data to define your credential. You 
 }
 ```
 
-### Query string <a href="#query-string" id="query-string"></a>
+### 查询字符串 <a href="#query-string" id="query-string"></a>
 
 ```
 {
@@ -213,7 +216,7 @@ The **Custom Auth** credential expects JSON data to define your credential. You 
 }
 ```
 
-### Sending header and query string <a href="#sending-header-and-query-string" id="sending-header-and-query-string"></a>
+### 发送请求头和查询字符串 <a href="#sending-header-and-query-string" id="sending-header-and-query-string"></a>
 
 ```
 {
@@ -226,33 +229,33 @@ The **Custom Auth** credential expects JSON data to define your credential. You 
 }
 ```
 
-## Using Simplified Custom Auth
+## 使用简化自定义身份验证 <a id="using-simplified-custom-auth"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Simplified Custom Auth is available from n8n 2.35.0. In older versions, use [Custom auth](httprequest.md#using-custom-auth) instead.
+Simplified Custom Auth（简化自定义身份验证）从 n8n 2.35.0 起可用。较早版本请改用[自定义身份验证](httprequest.md#using-custom-auth)。
 {% endhint %}
 
-Use this generic authentication if your app or service expects static authentication values in headers, query parameters, or the request body, and you want to keep the secret values separate from the request definition.
+如果应用或服务要求在请求头、查询参数或请求体中提供静态身份验证值，并且希望将秘密值与请求定义分开保存，请使用此通用身份验证方式。
 
-Simplified Custom Auth works like [Custom auth](httprequest.md#using-custom-auth): JSON that n8n merges into every request that uses the credential. The difference is that the JSON is a template containing `{{placeholder}}` markers instead of the secrets themselves. The credential form shows one field per placeholder, and n8n replaces each marker with the field's value when it sends a request.
+简化自定义身份验证与[自定义身份验证](httprequest.md#using-custom-auth)类似，均使用 JSON，n8n 会将其合并到使用该凭据的每个请求中。区别在于，该 JSON 是模板，包含 `{{placeholder}}` 标记而非秘密值本身。凭据表单为每个占位符显示一个字段，n8n 在发送请求时用字段值替换各标记。
 
-This split exists so n8n Assistant can prepare the setup part for you. When [n8n Assistant](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/ways-of-building-workflows/n8n-assistant) builds a workflow for a service that has no dedicated n8n credential, it creates this credential type: it prepares the template, the fields, and the test URL from the service's API documentation, and you only paste the secret values into the form. It also records the service's API host so that n8n only offers the credential to nodes calling the same service.
+这样拆分是为了让 n8n Assistant 代为准备设置部分。[n8n Assistant](../../../build/ways-of-building-workflows/n8n-assistant.md) 为没有专用 n8n 凭据的服务构建工作流时，会创建此凭据类型：依据服务 API 文档准备模板、字段和测试 URL，你只需将秘密值粘贴到表单中。它还会记录服务的 API 主机，使 n8n 仅向调用同一服务的节点提供此凭据。
 
-You can also set up the credential yourself. Select **Edit setup** in the credential modal and enter:
+也可自行设置凭据。在凭据弹窗中选择 **Edit setup**（编辑设置），输入：
 
-* An **Auth template**: The JSON n8n merges into every request that uses this credential. You can use `headers`, `qs`, `body`, or a mix, with a `{{placeholder}}` marker wherever a secret or account-specific value goes. Don't put real values in the template itself.
-* The **Fields** settings for each placeholder: a **Label**, whether the value is **Secret** (masked) or **Plain text**, whether it's **Required**, and an optional **Hint** clarifying the expected value, such as its format.
-* _Optional:_ A **Test URL**: A GET endpoint n8n calls with the authentication applied to check that the credential works when you save it. Pick a side-effect-free endpoint that never triggers billable work, such as an account or profile endpoint.
-* _Optional:_ **Accepted status codes**: Status codes to treat as success alongside 2xx responses when testing the credential, such as `403` for services that return 403 for a valid key with limited scopes.
-* _Optional:_ A **Documentation URL**: The provider page where you create or copy the secret. It doesn't appear in the credential form; n8n Assistant uses it to point you to the exact page.
+* **Auth template**（身份验证模板）：n8n 会将此 JSON 合并到使用该凭据的每个请求中。可使用 `headers`、`qs`、`body`，或混合使用，在秘密值或账户特定值的位置放置 `{{placeholder}}` 标记。不要将真实值填入模板。
+* 每个占位符的 **Fields**（字段）设置：包括 **Label**（标签）、值是 **Secret**（秘密值，遮罩显示）还是 **Plain text**（纯文本）、是否 **Required**（必填），以及可选的 **Hint**（提示），用于说明预期值，例如其格式。
+* _可选：_**Test URL**（测试 URL）：保存凭据时，n8n 会携带身份验证信息调用此 GET 端点，检查凭据是否可用。请选择没有副作用、不会触发计费工作的端点，例如账户或个人资料端点。
+* _可选：_**Accepted status codes**（接受的状态码）：测试凭据时，除 2xx 响应外也视为成功的状态码。例如，对于有效但作用域有限的密钥返回 403 的服务，可填写 `403`。
+* _可选：_**Documentation URL**（文档 URL）：在提供商处创建或复制秘密值的页面。此字段不会出现在凭据表单中，n8n Assistant 会用它引导你前往准确页面。
 
-Then go back to the form and enter a value for each field. n8n redacts the values after saving.
+然后返回表单，为每个字段填入值。保存后，n8n 会隐藏这些值。
 
-### Sending an API key in a header
+### 在请求头中发送 API 密钥 <a id="sending-an-api-key-in-a-header"></a>
 
-A template that sends a bearer token:
+发送 Bearer 令牌的模板：
 
 ```
 {
@@ -262,25 +265,25 @@ A template that sends a bearer token:
 }
 ```
 
-The credential form shows one field for `api_key`. When the node sends a request, n8n replaces the marker with the field's value, resulting in the header `Authorization: Bearer <your-api-key>`.
+凭据表单为 `api_key` 显示一个字段。节点发送请求时，n8n 用字段值替换标记，得到请求头 `Authorization: Bearer <your-api-key>`。
 
-If a required field is empty, requests fail with an error rather than sending the literal marker to the service. If an optional field is empty, n8n removes the template entries that use it from the request.
+如果必填字段为空，请求会报错，不会将标记原样发送给服务。如果可选字段为空，n8n 会从请求中移除使用该字段的模板条目。
 
-## Provide an SSL certificate <a href="#provide-an-ssl-certificate" id="provide-an-ssl-certificate"></a>
+## 提供 SSL 证书 <a href="#provide-an-ssl-certificate" id="provide-an-ssl-certificate"></a>
 
-You can send an SSL certificate with your HTTP request. Create the SSL certificate as a separate credential for use by the node:
+可在 HTTP 请求中发送 SSL 证书。请将 SSL 证书创建为单独的凭据，供节点使用：
 
-1. In the HTTP Request node **Settings**, turn on **SSL Certificates**.
-2. On the **Parameters** tab, add an existing SSL Certificate credential to **Credential for SSL Certificates** or create a new one.
+1. 在 HTTP Request 节点的 **Settings**（设置）中开启 **SSL Certificates**（SSL 证书）。
+2. 在 **Parameters**（参数）选项卡中，将现有 SSL Certificate 凭据添加到 **Credential for SSL Certificates**（SSL 证书凭据），或创建新凭据。
 
-To configure your SSL Certificates credential, you'll need to add:
+配置 SSL Certificates 凭据需要添加：
 
-* The Certificate Authority **CA** bundle
-* The **Certificate** (CRT): May also appear as a Public Key, depending on who your issuing CA was and how they format the cert
-* The **Private Key** (KEY)
-* _Optional:_ If the **Private Key** is encrypted, enter a **Passphrase** for the private key.
+* 证书颁发机构 **CA** 证书包
+* **Certificate**（证书，CRT）：根据签发 CA 及其证书格式，也可能显示为 Public Key（公钥）
+* **Private Key**（私钥，KEY）
+* _可选：_如果 **Private Key**（私钥）已加密，请输入私钥的 **Passphrase**（口令）。
 
-If your SSL certificate is in a single file (such as a `.pfx` file), you'll need to open the file to copy details from it to paste into the appropriate fields:
+如果 SSL 证书保存在单个文件中，例如 `.pfx` 文件，需要打开文件，复制其中的信息并粘贴到相应字段：
 
-* Enter the Public Key/CRT as the **Certificate**
-* Enter the **Private Key**/KEY in that field
+* 将 Public Key/CRT 填入 **Certificate**（证书）
+* 将 **Private Key**（私钥）/KEY 填入对应字段

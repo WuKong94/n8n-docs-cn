@@ -1,15 +1,13 @@
 ---
-title: Google Service Account
+title: Google 服务账户
 contentType:
-  - integration
-  - reference
-nodeTitle: Google Service Account
+- integration
+- reference
+nodeTitle: Google 服务账户
 originalFilePath: integrations/builtin/credentials/google/service-account.md
 originalUrl: https://docs.n8n.io/integrations/builtin/credentials/google/service-account
 url: https://docs.n8n.io/integrations/builtin/credentials/google/service-account
-description: >-
-  Documentation for service account Google credentials. Use these credentials to
-  authenticate Google in n8n, a workflow automation platform.
+description: Google 服务账户凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Google 的身份验证。
 layout:
   width: default
   title:
@@ -29,114 +27,116 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Service Account
 
-Using service accounts is more complex than OAuth2. Before you begin:
+# Google 服务账户 <a id="google-service-account"></a>
 
-* Check if your node is [compatible](./README.md#compatible-nodes) with Service Account.
-* Make sure you need to use Service Account. For most use cases, [OAuth2](oauth-single-service.md) is a better option.
-* Read the Google documentation on [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
+使用服务账户比 OAuth2 更复杂。开始前：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+* 检查节点是否[兼容](./README.md#compatible-nodes)服务账户。
+* 确认确实需要使用服务账户。对于大多数使用场景，[OAuth2](oauth-single-service.md) 是更好的选择。
+* 阅读 Google 的[创建和管理服务账户](https://cloud.google.com/iam/docs/creating-managing-service-accounts)文档。
 
-* Create a [Google Cloud](https://cloud.google.com/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Set up Service Account <a href="#set-up-service-account" id="set-up-service-account"></a>
+* 创建 [Google Cloud](https://cloud.google.com/) 账户。
 
-There are four steps to connecting your n8n credential to a Google Service Account:
+## 设置服务账户 <a href="#set-up-service-account" id="set-up-service-account"></a>
 
-1. [Create a Google Cloud Console project](service-account.md#create-a-google-cloud-console-project).
-2. [Enable APIs](service-account.md#enable-apis).
-3. [Set up Google Cloud Service Account](service-account.md#set-up-google-cloud-service-account).
-4. [Finish your n8n credential](service-account.md#finish-your-n8n-credential).
+将 n8n 凭据连接到 Google 服务账户需要四个步骤：
 
-### Create a Google Cloud Console project <a href="#create-a-google-cloud-console-project" id="create-a-google-cloud-console-project"></a>
+1. [创建 Google Cloud Console 项目](service-account.md#create-a-google-cloud-console-project)。
+2. [启用 API](service-account.md#enable-apis)。
+3. [设置 Google Cloud 服务账户](service-account.md#set-up-google-cloud-service-account)。
+4. [完成 n8n 凭据设置](service-account.md#finish-your-n8n-credential)。
 
-First, create a Google Cloud Console project. If you already have a project, jump to the next section:
+### 创建 Google Cloud Console 项目 <a href="#create-a-google-cloud-console-project" id="create-a-google-cloud-console-project"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/n3k6ZZ7BRnKZ6enSxeVQ/" %}
+首先创建 Google Cloud Console 项目。如果已有项目，请跳到下一节：
 
-### Enable APIs <a href="#enable-apis" id="enable-apis"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/google/create-google-cloud-project.md" %}
 
-With your project created, enable the APIs you'll need access to:
+### 启用 API <a href="#enable-apis" id="enable-apis"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Xs1r022aU39nYSgCg3At/" %}
+创建项目后，启用需要访问的 API：
 
-### Set up Google Cloud Service Account <a href="#set-up-google-cloud-service-account" id="set-up-google-cloud-service-account"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/google/enable-apis.md" %}
 
-1.  Access your [Google Cloud Console - Library](https://console.cloud.google.com/apis/library). Make sure you're in the correct project.
+### 设置 Google Cloud 服务账户 <a href="#set-up-google-cloud-service-account" id="set-up-google-cloud-service-account"></a>
 
-    <figure><img src="../../../.gitbook/assets/google-cloud-project-dropdown (1).png" alt=""><figcaption><p>Check the project dropdown in the Google Cloud top navigation</p></figcaption></figure>
-2. Open the left navigation menu and go to **APIs & Services > Credentials**. Google takes you to your **Credentials** page.
-3. Select **+ Create credentials > Service account**.
-4. Enter a name in **Service account name** and an ID in **Service account ID**. Refer to [Creating a service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts?hl=en#creating) for more information.
-5. Select **Create and continue**.
-6. Based on your use-case, you may want to **Select a role** and **Grant users access to this service account** using the corresponding sections.
-7. Select **Done**.
-8. Select your newly created service account under the **Service Accounts** section. Open the **Keys** tab.
-9. Select **Add key > Create new key**.
-10. In the modal that appears, select **JSON**, then select **CREATE**. Google saves the file to your computer.
+1. 进入 [Google Cloud Console - Library（库）](https://console.cloud.google.com/apis/library)，确认当前位于正确的项目中。
 
-### Finish your n8n credential <a href="#finish-your-n8n-credential" id="finish-your-n8n-credential"></a>
+    <figure><img src="../../../.gitbook/assets/google-cloud-project-dropdown (1).png" alt=""><figcaption><p>检查 Google Cloud 顶部导航栏中的项目下拉菜单</p></figcaption></figure>
+2. 打开左侧导航菜单，进入 **APIs & Services > Credentials**（API 和服务 > 凭据）。Google 会打开 **Credentials**（凭据）页面。
+3. 选择 **+ Create credentials > Service account**（+ 创建凭据 > 服务账户）。
+4. 在 **Service account name**（服务账户名称）中输入名称，在 **Service account ID**（服务账户 ID）中输入 ID。更多信息，请参阅[创建服务账户](https://cloud.google.com/iam/docs/creating-managing-service-accounts?hl=en#creating)。
+5. 选择 **Create and continue**（创建并继续）。
+6. 根据使用场景，可在相应部分 **Select a role**（选择角色），以及 **Grant users access to this service account**（授予用户访问此服务账户的权限）。
+7. 选择 **Done**（完成）。
+8. 在 **Service Accounts**（服务账户）部分选择新建的服务账户，打开 **Keys**（密钥）选项卡。
+9. 选择 **Add key > Create new key**（添加密钥 > 创建新密钥）。
+10. 在弹窗中选择 **JSON**，再选择 **CREATE**（创建）。Google 会将文件保存到你的计算机。
 
-With the Google project and credentials fully configured, finish the n8n credential:
+### 完成 n8n 凭据设置 <a href="#finish-your-n8n-credential" id="finish-your-n8n-credential"></a>
 
-1. Open the downloaded JSON file.
-2. Copy the `client_email` and enter it in your n8n credential as the **Service Account Email**.
-3.  Copy the `private_key`. Don't include the surrounding `"` marks. Enter this as the **Private Key** in your n8n credential.<br>
+Google 项目和凭据配置完成后，完成 n8n 凭据设置：
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><strong>Older versions of n8n</strong></p><p>If you're running an n8n version older than 0.156.0, replace all instances of <code>\n</code> in the JSON file with new lines.</p></div>
-4. **Optional**: Choose if you want to [**Impersonate a User**](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority) (turned on).
-   1. To use this option, you must [Enable domain-wide delegation](service-account.md#enable-domain-wide-delegation) for the service account as a Google Workspace super admin.
-   2. Enter the **Email** of the user you want to impersonate.
-5. If you plan to use this credential with the [HTTP Request](../../core-nodes/n8n-nodes-base.httprequest/README.md) node, turn on **Set up for use in HTTP Request node**.
-   1. With this setting turned on, you'll need to add **Scope(s)** for the node. n8n prepopulates some scopes. Refer to [OAuth 2.0 Scopes for Google APIs](https://developers.google.com/identity/protocols/oauth2/scopes) for more information.
-6. **Save** your credentials.
+1. 打开下载的 JSON 文件。
+2. 复制 `client_email`，填入 n8n 凭据的 **Service Account Email**（服务账户邮箱）。
+3. 复制 `private_key`，不要包含两侧的 `"` 引号。将其填入 n8n 凭据的 **Private Key**（私钥）。<br>
 
-## Video <a href="#video" id="video"></a>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><strong>旧版 n8n</strong></p><p>如果使用早于 0.156.0 的 n8n 版本，请将 JSON 文件中所有 <code>\n</code> 替换为实际换行。</p></div>
+4. **可选**：选择是否启用 [**Impersonate a User**（模拟用户）](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority)。
+   1. 要使用此选项，必须以 Google Workspace 超级管理员身份，为服务账户[启用全域委派](service-account.md#enable-domain-wide-delegation)。
+   2. 输入要模拟用户的 **Email**（电子邮件地址）。
+5. 如果计划将此凭据用于 [HTTP Request](../../core-nodes/n8n-nodes-base.httprequest/README.md) 节点，请开启 **Set up for use in HTTP Request node**（设置为在 HTTP Request 节点中使用）。
+   1. 开启此设置后，需要为节点添加 **Scope(s)**（作用域）。n8n 会预填部分作用域。更多信息，请参阅 [Google API 的 OAuth 2.0 作用域](https://developers.google.com/identity/protocols/oauth2/scopes)。
+6. **Save**（保存）凭据。
+
+## 视频 <a href="#video" id="video"></a>
 
 {% embed url="https://www.youtube.com/embed/FzQzGODb5Gk?si=YR9vDaTet8vsj-y2" %}
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排查 <a href="#troubleshooting" id="troubleshooting"></a>
 
-### Service Account can't access Google Drive files <a href="#service-account-cant-access-google-drive-files" id="service-account-cant-access-google-drive-files"></a>
+### 服务账户无法访问 Google Drive 文件 <a href="#service-account-cant-access-google-drive-files" id="service-account-cant-access-google-drive-files"></a>
 
 {% hint style="danger" %}
-**No access to my drive**
+**无法访问“我的云端硬盘”**
 
-Google no longer allows Service Accounts created after April 15, 2025 to access `my drive`. Service Accounts now only have access to shared drives.
+Google 不再允许 2025 年 4 月 15 日之后创建的服务账户访问 `my drive`。服务账户现在只能访问共享云端硬盘。
 
-While not recommended, if you need to use a Service Account to access `my drive`, you can do so by [enabling domain-wide delegation](service-account.md#enable-domain-wide-delegation). You can learn more in [this post in the community](https://community.n8n.io/t/please-please-help-upload-file-google-drive-node-with-service-account-not-working/147750/15).
+虽然不推荐，但如果需要使用服务账户访问 `my drive`，可通过[启用全域委派](service-account.md#enable-domain-wide-delegation)实现。更多信息，请参阅[这篇社区帖子](https://community.n8n.io/t/please-please-help-upload-file-google-drive-node-with-service-account-not-working/147750/15)。
 {% endhint %}
 
-A Service Account can't access Google Drive files and folders that weren't shared with its associated user email.
+服务账户无法访问未与其关联邮箱共享的 Google Drive 文件和文件夹。
 
-1. Access your [Google Cloud Console](https://console.cloud.google.com) and copy your Service Account email.
-2. Access your [Google Drive](https://drive.google.com) and go to the designated file or folder.
-3. Right-click on the file or folder and select **Share**.
-4. Paste your Service Account email into **Add People and groups**.
-5. Select **Editor** for read-write access or **Viewer** for read-only access.
+1. 进入 [Google Cloud Console](https://console.cloud.google.com)，复制服务账户邮箱。
+2. 进入 [Google Drive](https://drive.google.com)，找到目标文件或文件夹。
+3. 右键点击文件或文件夹，选择 **Share**（共享）。
+4. 将服务账户邮箱粘贴到 **Add People and groups**（添加用户和群组）。
+5. 选择 **Editor**（编辑者）授予读写访问权限，或选择 **Viewer**（查看者）授予只读访问权限。
 
-### Enable domain-wide delegation <a href="#enable-domain-wide-delegation" id="enable-domain-wide-delegation"></a>
+### 启用全域委派 <a href="#enable-domain-wide-delegation" id="enable-domain-wide-delegation"></a>
 
-To impersonate a user with a service account, you must enable domain-wide delegation for the service account.
+要通过服务账户模拟用户，必须为服务账户启用全域委派。
 
 {% hint style="warning" %}
-**Not recommended**
+**不推荐**
 
-Google recommends you [avoid using domain-wide delegation](https://cloud.google.com/iam/docs/best-practices-service-accounts#domain-wide-delegation), as it allows impersonation of any user (including super admins) and can pose a security risk.
+Google 建议[避免使用全域委派](https://cloud.google.com/iam/docs/best-practices-service-accounts#domain-wide-delegation)，因为它允许模拟任何用户，包括超级管理员，可能带来安全风险。
 {% endhint %}
 
-To delegate domain-wide authority to a service account, you must be a super administrator for the Google Workspace domain. Then:
+要将全域权限委派给服务账户，必须是 Google Workspace 网域的超级管理员。然后执行以下步骤：
 
-1. From your Google Workspace domain's [Admin console](https://admin.google.com/), select the hamburger menu, then select **Security > Access and data control > API Controls**.
-2. In the **Domain wide delegation** pane, select **Manage Domain Wide Delegation**.
-3. Select **Add new**.
-4. In the **Client ID** field, enter the service account's **Client ID**. To get the Client ID:
-   * Open your Google Cloud Console project, then open the [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) page.
-   * Copy the **OAuth 2 Client ID** and use this as the **Client ID** for the **Domain Wide Delegation**.
-5. In the **OAuth scopes** field, enter a list of comma-separate scopes to grant your application access. For example, if your application needs domain-wide full access to the Google Drive API and the Google Calendar API, enter: `https://www.googleapis.com/auth/drive, https://www.googleapis.com/auth/calendar`.
-6. Select **Authorize**.
+1. 在 Google Workspace 网域的[管理控制台](https://admin.google.com/)中选择汉堡菜单，再选择 **Security > Access and data control > API Controls**（安全性 > 访问权限和数据控制 > API 控制）。
+2. 在 **Domain wide delegation**（全域委派）面板中选择 **Manage Domain Wide Delegation**（管理全域委派）。
+3. 选择 **Add new**（新增）。
+4. 在 **Client ID**（客户端 ID）字段输入服务账户的 **Client ID**。获取方式如下：
+   * 打开 Google Cloud Console 项目，再打开 [Service Accounts（服务账户）](https://console.cloud.google.com/iam-admin/serviceaccounts)页面。
+   * 复制 **OAuth 2 Client ID**（OAuth 2 客户端 ID），将其用作 **Domain Wide Delegation**（全域委派）的 **Client ID**。
+5. 在 **OAuth scopes**（OAuth 作用域）字段中，输入以逗号分隔的作用域列表，授予应用访问权限。例如，如果应用需要全域完整访问 Google Drive API 和 Google Calendar API，请输入 `https://www.googleapis.com/auth/drive, https://www.googleapis.com/auth/calendar`。
+6. 选择 **Authorize**（授权）。
 
-It can take from 5 minutes up to 24 hours before you can impersonate all users in your Workspace.
+可能需要等待 5 分钟至 24 小时，才能模拟 Workspace 中的所有用户。
