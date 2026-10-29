@@ -232,5 +232,14 @@
     "evidence": "同版本 connect/connect-to-n8n-mcp-server/mcp-server-tools-reference.md 的 execute_workflow 参数表，将 executionMode 的 Required 标为 Yes，Default 为空，允许值为 manual 和 production。工具参考来源哈希：d230f5309517e1b96cb6694f71d5e17558d9fb40e070bc163bca6e30f636e984。",
     "scope": "保留两处原文，仅添加对照译注，不更改工具参数或示例代码；未执行工具或验证默认模式。",
     "source_sha256": "f4f08bf9df66f45650f89847f31144c0721704e9b5fcbfbc94b9810e434ce632"
+  },
+  {
+    "id": "mcp-detail-level-table-format",
+    "path": "connect/connect-to-n8n-mcp-server/mcp-server-tools-reference.md",
+    "source_sha256": "d230f5309517e1b96cb6694f71d5e17558d9fb40e070bc163bca6e30f636e984",
+    "original_sentence": "| `detailLevel` | \\`\"full\" | \"execution\"\\` | No      | `\"full\"`                           |",
+    "translated_sentence": "| `detailLevel` | \"full\" \\| \"execution\" | 否 | `\"full\"` | |",
+    "evidence": "同页 get_workflow_details 参数表有 Name、Type、Required、Default、Description 五列；detailLevel 行将反引号转义为普通文本，full/execution 联合类型的竖线却未转义，且缺少末尾说明单元格。原行中允许值为 full 和 execution、Required 为 No、Default 为 full；修复仅重新呈现这些原始内容。CommonMark 解析出的全部代码内容在修复前后完全一致。",
+    "scope": "仅修复 Markdown 表格格式并补齐空说明列；不改变参数名、枚举值、必填含义或默认值，不新增接口行为或推断运行兼容性。"
   }
 ]

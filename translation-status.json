@@ -7075,5 +7075,19 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "connect/connect-to-n8n-mcp-server/mcp-server-tools-reference.md": {
+    "status": "translated",
+    "source_sha256": "d230f5309517e1b96cb6694f71d5e17558d9fb40e070bc163bca6e30f636e984",
+    "translation_sha256": "f9e2c1cc61b0155c306bd6271ad6b4eb682d330cc2e9cb5e7c79232a679d6292",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "mcp-detail-level-table-format"
+    ]
   }
 }
