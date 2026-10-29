@@ -3538,5 +3538,148 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "build/manage-workflows/n8n-packages/README.md": {
+    "status": "translated",
+    "source_sha256": "a072494f9fae932dbcfe2c335c47f7cc84238e0b9658286a7168438232dc7b33",
+    "translation_sha256": "cd280e416c1f6b7bc643d80ec2ef7badeea771f8ad45ab822427364236bc93e5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/n8n-packages/export-a-package.md": {
+    "status": "translated",
+    "source_sha256": "449cd1c4721dd0649c60abaac6363d34911505e29795d46f6242a01fe4d9cd47",
+    "translation_sha256": "1fdc9be8d1c972254b5f7ba19b875b07784afdafa8eadd343b1a4eeddd677fdc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/n8n-packages/package-format.md": {
+    "status": "translated",
+    "source_sha256": "96a80d6026779b5dee3ff3f7f168679618244c3e2690c46a73467d4fcd20a450",
+    "translation_sha256": "d5e776e58966239a2e8ab93148fa65217c3efb06ff8a4255c34396b86b5a387f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/n8n-packages/import-a-package.md": {
+    "status": "translated",
+    "source_sha256": "284c3fc211ad7e9942662044d70c68e425bf1125cf779d964d22f2ea82774c14",
+    "translation_sha256": "852f65f754656df6b4d9b16fb9b59d1a3a4a1e194f28bfc90195c9d6a2be0fe9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/n8n-packages/how-import-works.md": {
+    "status": "translated",
+    "source_sha256": "e6f05c10b7442eefe84ca8e707f8c5653952cafee44b79e4b359c5686dfd5eef",
+    "translation_sha256": "b63cd0b24c0287a792bac00eaaf492f586aba19a69b308123ac0eb521e022183",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/manage-workflows/n8n-packages/limits-and-permissions.md": {
+    "status": "translated",
+    "source_sha256": "193e996f71e67b56862f3133292826f9238ebbdadab7d9cbf37120039afd59ec",
+    "translation_sha256": "6193edfc5076f4ec45431cf498f7c09bb1d88a364f6ec14f154bddb0db667d77",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/ways-of-building-workflows/README.md": {
+    "status": "translated",
+    "source_sha256": "d607effb1c43ad24abcb288d3614772e8a6fee1a49666db4a57bdc6b61b480bd",
+    "translation_sha256": "da348e5f8dd0bf499577a570dad6d46650ab8faa5d492fe72e7fdfcf78532233",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/ways-of-building-workflows/use-templates.md": {
+    "status": "translated",
+    "source_sha256": "80a5047d41c1c1530481ebf0b449c8262154981e8e13a6d4147dda29ce5787ae",
+    "translation_sha256": "26d932f7888510894631143408b6116959972f9952eb23c7a20e8f94b9be88fb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/ways-of-building-workflows/connect-to-n8n-mcp-server.md": {
+    "status": "translated",
+    "source_sha256": "85dd63be12bf9199ca9ae4901bf8ff20ce83f1aa9cd61c36623a2852351a0c01",
+    "translation_sha256": "9fec8261cd98e2eae08604c9c8843fc93480ebd39b33c9e259674e3e62790cc3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/ways-of-building-workflows/ai-workflow-builder.md": {
+    "status": "translated",
+    "source_sha256": "dc5beb94e3fbe56c97f064be49eff0587f1d39ebd6757c2fab1958182ccdecc3",
+    "translation_sha256": "cbac34a7536cbd85b2efb862b05f0c74292c46b2c842dc3daa9a7995f29d97da",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/workflows/templates/submit-templates.md": {
+    "status": "translated",
+    "source_sha256": "f061ea358f4b03d59e09406db514d58fd62d714f9e2d2f51075fb9e0ca10d984",
+    "translation_sha256": "24d2222782a2e5b117bb0dafa2cee23a6f68f9b46a34c64d6b4dbd3cb60054cd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/workflows/templates/disable-templates.md": {
+    "status": "translated",
+    "source_sha256": "8f34e7f74d130b0f3fd79fca40e3822e9d610e93ef83512267a63dc21afd9bc9",
+    "translation_sha256": "5aee452a8631fa5a98aafad3ff4804755efba48906de409e5c1639f25b0c431c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/workflows/templates/custom-templates-library.md": {
+    "status": "translated",
+    "source_sha256": "c6666f281bc4e889eafcbca8129b6d6df9c2c0f9a87e7312ca423e8ff236658b",
+    "translation_sha256": "b90ffe892e6842d439697622547cba697ca6744984979b72451c4e08c3030b8a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

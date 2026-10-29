@@ -1,13 +1,11 @@
 ---
-title: AI Workflow Builder
+title: AI 工作流构建器
 status: beta
-nodeTitle: AI Workflow Builder
+nodeTitle: AI 工作流构建器
 originalFilePath: advanced-ai/ai-workflow-builder.md
 originalUrl: https://docs.n8n.io/advanced-ai/ai-workflow-builder
 url: https://docs.n8n.io/build/ways-of-building-workflows/ai-workflow-builder
-description: >-
-  Create, refine, and debug workflows using natural language descriptions of
-  your goals.
+description: 通过自然语言描述目标，创建、改进和调试工作流。
 hidden: true
 layout:
   width: default
@@ -28,59 +26,61 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Use AI Workflow Builder
 
-AI Workflow Builder enables you to create, refine, and debug workflows using natural language descriptions of your goals.
+# 使用 AI 工作流构建器 <a id="use-ai-workflow-builder"></a>
 
-It handles the entire workflow construction process, including node selection, placement, and configuration, thereby reducing the time required to build functional workflows.
+AI 工作流构建器（AI Workflow Builder）可以根据你用自然语言描述的目标，创建、改进和调试工作流。
 
-For details of pricing and availability of AI Workflow Builder, see [n8n Plans and Pricing](https://n8n.io/pricing/).
+它负责整个工作流构建过程，包括节点选择、布局和配置，从而缩短构建可用工作流所需的时间。
 
-## Working with the builder <a href="#working-with-the-builder" id="working-with-the-builder"></a>
+AI 工作流构建器的价格和可用范围，请参阅 [n8n 套餐与定价](https://n8n.io/pricing/)。
 
-1. **Describe your workflow:** Either select an example prompt or describe your requirements in natural language.
-2. **Monitor the build:** The builder provides real-time feedback through several phases.
-3.  **Review and refine the generated workflow:** Review required credentials and other parameters. Refine the workflow using prompts.
+## 使用构建器 <a href="#working-with-the-builder" id="working-with-the-builder"></a>
 
-    ![AI Workflow Builder panel showing a generated workflow with a chat box for refining it](../.gitbook/assets/ai-workflow-builder.png)
+1. **描述工作流：** 选择示例提示词，或用自然语言描述需求。
+2. **观察构建过程：** 构建器会在多个阶段提供实时反馈。
+3. **检查并改进生成的工作流：** 检查所需凭据和其他参数，使用提示词进一步改进工作流。
 
-### Commands you can run in the builder <a href="#commands-you-can-run-in-the-builder" id="commands-you-can-run-in-the-builder"></a>
+    ![AI 工作流构建器面板，显示生成的工作流及用于改进的聊天输入框](../.gitbook/assets/ai-workflow-builder.png)
 
-* `/clear`: Clears the context for the LLM and lets you start from scratch
+### 构建器中可运行的命令 <a href="#commands-you-can-run-in-the-builder" id="commands-you-can-run-in-the-builder"></a>
 
-## Understanding credits <a href="#understanding-credits" id="understanding-credits"></a>
+* `/clear`：清空大语言模型的上下文，让你重新开始。
 
-### How credits work <a href="#how-credits-work" id="how-credits-work"></a>
+## 理解额度 <a href="#understanding-credits" id="understanding-credits"></a>
 
-Each time you send a message to the builder asking it to create or modify a workflow, that counts as one **interaction**, which is worth one **credit**.
+### 额度如何计算 <a href="#how-credits-work" id="how-credits-work"></a>
 
-✅ **Counts as an interaction**
+每次向构建器发送消息，要求创建或修改工作流，都计为一次**交互**，消耗一个**额度**。
 
-* Sending a message to create a new workflow
-* Asking the builder to modify an existing workflow
-* Clicking the **Execute and refine** button in the builder window after a workflow is built
+✅ **计为交互**
 
-❌ **Does NOT count as an interaction**
+* 发送消息创建新工作流
+* 要求构建器修改已有工作流
+* 工作流构建完成后，点击构建器窗口中的 **Execute and refine（执行并改进）** 按钮
 
-* Messages that fail or produce generation errors
-* Requests you manually stop by clicking the stop button
+❌ **不计为交互**
 
-### Getting more credits <a href="#getting-more-credits" id="getting-more-credits"></a>
+* 失败或产生生成错误的消息
+* 点击停止按钮手动中止的请求
 
-If you've used your monthly limit, you can upgrade to a higher plan.
+### 获取更多额度 <a href="#getting-more-credits" id="getting-more-credits"></a>
 
-For details on plans and pricing, see [n8n Plans and Pricing](https://n8n.io/pricing/).
+如果已用完每月额度，可以升级到更高套餐。
 
-## AI model and data handling <a href="#ai-model-and-data-handling" id="ai-model-and-data-handling"></a>
+套餐和价格详情，请参阅 [n8n 套餐与定价](https://n8n.io/pricing/)。
 
-The following data are sent to the LLM:
+## AI 模型和数据处理 <a href="#ai-model-and-data-handling" id="ai-model-and-data-handling"></a>
 
-* Text prompts that you provide to create, refine, or debug the workflow
-* Node definitions, parameters, and connections and the current workflow definition.
-* Any mock execution data that is loaded when using the builder
+以下数据会发送给大语言模型：
 
-The following data are not sent:
+* 你为创建、改进或调试工作流提供的文本提示词
+* 节点定义、参数、连接以及当前工作流定义。
+* 使用构建器时加载的任何模拟执行数据
 
-* Details of any credentials you use
-* Past executions of the workflow
+以下数据不会发送：
+
+* 所用凭据的详细信息
+* 工作流以往的执行记录

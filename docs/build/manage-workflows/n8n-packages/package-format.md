@@ -1,42 +1,42 @@
 ---
-description: >-
-  What's inside a .n8np file: the three package shapes, the directory layout,
-  and the manifest.
+description: .n8np 文件内部的内容：三种软件包结构、目录布局和清单。
 status: preview
 layout:
   description:
     visible: false
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Package format
+
+# 软件包格式 <a id="package-format"></a>
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-n8n packages are in Preview. The package format may change in future releases.
+n8n 软件包处于预览阶段，软件包格式在未来版本中可能发生变化。
 {% endhint %}
 
-An [n8n package](README.md) is a gzip-compressed tar archive. Standard tools read it, so you can inspect one without n8n:
+[n8n 软件包](README.md)是 gzip 压缩的 tar 归档。标准工具即可读取，因此无需 n8n 也能检查其内容：
 
 ```bash
 tar -tzf triage.n8np    # list what's inside
 tar -xzf triage.n8np    # extract it
 ```
 
-The `.n8np` extension is a naming convention. n8n doesn't check the file name on import, and it accepts an uncompressed tar with the same layout.
+`.n8np` 扩展名是一种命名约定。n8n 导入时不检查文件名，也接受布局相同的未压缩 tar 文件。
 
-Inside the archive, every entity is its own small JSON file in its own directory, and a `manifest.json` at the root indexes the whole thing. `manifest.json` must be the first file in the archive, so n8n can validate a package before reading the rest of it.
+归档内的每个实体都在自己的目录中，以独立的小型 JSON 文件保存；根目录中的 `manifest.json` 为全部内容建立索引。`manifest.json` 必须是归档中的第一个文件，这样 n8n 才能在读取其余内容前验证软件包。
 
-## Three package shapes
+## 三种软件包结构 <a id="three-package-shapes"></a>
 
-The shape depends on what you exported. All three carry the same kinds of file, arranged differently.
+结构取决于导出的内容。三种结构携带的文件类型相同，但排列方式不同。
 
-### Workflow package
+### 工作流软件包 <a id="workflow-package"></a>
 
-Exporting by workflow ID gives you loose workflows, with everything they depend on at the top level:
+按工作流 ID 导出时，工作流直接存放在顶层，其所有依赖也位于顶层：
 
 ```
 triage.n8np
@@ -60,9 +60,9 @@ triage.n8np
         └── tag.json
 ```
 
-### Folder package
+### 文件夹软件包 <a id="folder-package"></a>
 
-Exporting by folder ID keeps the folder tree. A folder's workflows sit in a `workflows/` directory inside that folder, and nested folders sit directly inside their parent, with no repeated `folders/` segment. Credentials, variables, data tables, and tags stay at the top level:
+按文件夹 ID 导出会保留文件夹树。工作流存放在所属文件夹内的 `workflows/` 目录中；嵌套文件夹直接位于父文件夹中，不会重复添加 `folders/` 路径段。凭据、变量、数据表和标签保留在顶层：
 
 ```
 in-progress.n8np
@@ -88,9 +88,9 @@ in-progress.n8np
         └── tag.json
 ```
 
-### Project package
+### 项目软件包 <a id="project-package"></a>
 
-Exporting by project ID adds a namespacing layer. Several projects can travel in one package. Credentials, variables, and data tables owned by an exported project nest under that project. Anything global, or owned by a project that isn't in the package, stays at the top level. Tags are always at the top level, because tags are global in n8n:
+按项目 ID 导出会增加一层命名空间。一个软件包可以携带多个项目。属于已导出项目的凭据、变量和数据表会嵌套在该项目之下。全局资源或属于包外项目的资源仍位于顶层。标签始终位于顶层，因为 n8n 中的标签是全局的：
 
 ```
 team-ligo.n8np
@@ -128,14 +128,14 @@ team-ligo.n8np
 ```
 
 {% hint style="info" %}
-In a project package, where a variable sits decides where it's created. A variable under `projects/<project-slug>/variables/` is created in that project. One at the top level is created globally. This is why `--variable-parent-policy` is rejected for project packages: the layout already decided.
+在项目软件包中，变量所在位置决定创建位置。位于 `projects/<project-slug>/variables/` 下的变量会在该项目中创建；位于顶层的变量会作为全局变量创建。这也是项目软件包拒绝 `--variable-parent-policy` 的原因：布局已决定其位置。
 {% endhint %}
 
-## Directory naming
+## 目录命名 <a id="directory-naming"></a>
 
-Each entity gets a directory named after a slug of its name, holding one JSON file. Slugging lowercases the name, drops every character that isn't a letter a to z, a digit, whitespace, or a hyphen, then turns whitespace runs into single hyphens:
+每个实体都有一个根据名称生成 slug 的目录，其中保存一个 JSON 文件。生成 slug 时，名称先转为小写，再移除 a 到 z 字母、数字、空白和连字符以外的所有字符，最后将连续空白替换为单个连字符：
 
-| Entity name | Directory |
+| 实体名称 | 目录 |
 |-------------|-----------|
 | `Triage inbound` | `triage-inbound` |
 | `Linear api` | `linear-api` |
@@ -143,43 +143,43 @@ Each entity gets a directory named after a slug of its name, holding one JSON fi
 | `Q4 报告` | `q4` |
 | `報告` | `workflow` |
 
-The last row shows the fallback: when nothing survives slugging, n8n uses the entity type as the name (`workflow`, `folder`, `project`, `credential`, `variable`, `data-table`, or `tag`). Names that slug identically get a numeric suffix starting at 2, so a second `Triage inbound` becomes `triage-inbound-2`.
+最后一行展示了回退规则：如果生成 slug 后没有剩余字符，n8n 就使用实体类型作为名称（`workflow`、`folder`、`project`、`credential`、`variable`、`data-table` 或 `tag`）。名称生成相同 slug 时，从 2 开始添加数字后缀，因此第二个 `Triage inbound` 会变为 `triage-inbound-2`。
 
-Directory names are for humans reading the archive. n8n identifies entities by the IDs in the manifest and the JSON files, never by the directory name.
+目录名便于人阅读归档。n8n 始终通过清单和 JSON 文件中的 ID 识别实体，不使用目录名。
 
-## `manifest.json`
+## `manifest.json` <a id="manifestjson"></a>
 
-The manifest is an index. It tells n8n what's in the package and what the target instance has to supply, so an import can fail fast without reading every file.
+清单是一份索引，说明软件包包含什么，以及目标实例必须提供什么。这样，导入可以在不读取每个文件的情况下尽早发现问题并失败。
 
-These four fields are always present:
+以下四个字段始终存在：
 
-* `packageFormatVersion`: the version of the package format, currently the string `"1"`.
-* `exportedAt`: when n8n created the package, as an ISO 8601 timestamp.
-* `sourceN8nVersion`: the n8n version that created the package.
-* `sourceId`: an identifier for the instance that created the package.
+* `packageFormatVersion`：软件包格式版本，当前为字符串 `"1"`。
+* `exportedAt`：n8n 创建软件包的时间，格式为 ISO 8601 时间戳。
+* `sourceN8nVersion`：创建软件包的 n8n 版本。
+* `sourceId`：创建软件包的实例标识符。
 
-Then come the entry lists, one per entity type that's present: `workflows`, `folders`, `projects`, `credentials`, `dataTables`, `variables`, and `tags`. A list is left out entirely when it would be empty. Every entry has the same three fields:
+之后是各类实体的条目列表，只有对应类型存在时才出现：`workflows`、`folders`、`projects`、`credentials`、`dataTables`、`variables` 和 `tags`。空列表会完全省略。每个条目都有相同的三个字段：
 
-* `id`: the entity's ID on the source instance.
-* `name`: the entity's name.
-* `target`: the directory holding the entity's JSON file, relative to the package root.
+* `id`：实体在源实例上的 ID。
+* `name`：实体名称。
+* `target`：保存实体 JSON 文件的目录，相对于软件包根目录。
 
-Last comes `requirements`, which lists what the workflows need to run on the target instance. It has up to six sections, and each entry carries `usedByWorkflows`, the IDs of the workflows that need it:
+最后是 `requirements`，列出工作流在目标实例运行所需的资源。最多包含六个部分，每个条目都带有 `usedByWorkflows`，即依赖该资源的工作流 ID：
 
-| Section | Entry shape | Notes |
+| 部分 | 条目结构 | 说明 |
 |---------|-------------|-------|
-| `credentials` | `{ id, name, type, usedByWorkflows }` | n8n never exports credential data, so a credential requirement always means the target has to supply it |
-| `dataTables` | `{ id, name, usedByWorkflows }` | The schema itself is in the bundled `data-table.json` |
-| `workflows` | `{ id, name, usedByWorkflows }` | Sub-workflow and error workflow references. `name` is optional, because a referenced workflow may not be one the exporting user can see |
-| `variables` | `{ name, usedByWorkflows }` | Name only. There's no ID, because `$vars.<name>` resolves by name at runtime |
+| `credentials` | `{ id, name, type, usedByWorkflows }` | n8n 不会导出凭据数据，因此凭据需求始终表示必须由目标实例提供 |
+| `dataTables` | `{ id, name, usedByWorkflows }` | 表结构本身位于包内的 `data-table.json` 中 |
+| `workflows` | `{ id, name, usedByWorkflows }` | 子工作流和错误工作流引用。`name` 为可选字段，因为导出用户不一定能查看被引用的工作流 |
+| `variables` | `{ name, usedByWorkflows }` | 仅名称，没有 ID，因为 `$vars.<name>` 在运行时按名称解析 |
 | `tags` | `{ id, name, usedByWorkflows }` | |
-| `nodeTypes` | `{ type, typeVersion, usedByWorkflows }` | Every node type and version the workflows use. Read it to tell whether a target instance can import the package, since it needs all of them installed. n8n re-derives the same list from the workflows on import rather than trusting this one |
+| `nodeTypes` | `{ type, typeVersion, usedByWorkflows }` | 工作流使用的所有节点类型和版本。阅读此列表可判断目标实例能否导入软件包，因为这些节点必须全部安装。导入时，n8n 会根据工作流重新推导此列表，而不是信任清单中的列表 |
 
 {% hint style="warning" %}
-`requirements` lists what the workflows need, which isn't the same as what the package contains. `requirements.workflows` lists every static workflow reference, including sub-workflows that are bundled in the package. A credential the exporting user can't read appears in `requirements.credentials` with no matching file. Don't read `requirements` as an inventory of the archive; read the entry lists for that.
+`requirements` 列出工作流的需求，不等同于软件包内容。`requirements.workflows` 列出每个静态工作流引用，包括已打包的子工作流。导出用户无权读取的凭据会出现在 `requirements.credentials` 中，但没有对应文件。因此，不应将 `requirements` 视为归档内容清单，应查看实体条目列表。
 {% endhint %}
 
-A full manifest for a workflow package holding two workflows:
+以下是包含两个工作流的工作流软件包的完整清单：
 
 ```json
 {
@@ -232,9 +232,9 @@ A full manifest for a workflow package holding two workflows:
 }
 ```
 
-## `data-table.json`
+## `data-table.json` <a id="data-tablejson"></a>
 
-Each data table file holds the table's schema. Rows never travel.
+每个数据表文件保存该表的结构，数据行不会随包迁移。
 
 ```json
 {
@@ -247,39 +247,39 @@ Each data table file holds the table's schema. Rows never travel.
 }
 ```
 
-| Field | Description |
+| 字段 | 说明 |
 |-------|-------------|
-| `id` | The table's ID on the source instance. A table the import creates keeps it |
-| `name` | The table's name |
-| `columns` | One entry per column, with its `id`, `name`, `type`, and `index` (its position in the table) |
-| `columns[].id` | The column's ID on the source instance. Missing in packages exported before n8n 2.44.0 |
+| `id` | 表在源实例上的 ID。导入时创建的新表会保留此 ID |
+| `name` | 表名称 |
+| `columns` | 每列一个条目，包含其 `id`、`name`、`type` 和 `index`（在表中的位置） |
+| `columns[].id` | 列在源实例上的 ID。n8n 2.44.0 之前导出的软件包不包含此字段 |
 
-Column IDs let an import recognize a renamed column, so the column keeps its values. Packages exported before n8n 2.44.0 don't carry column IDs, so n8n pairs their columns by name, and a renamed column counts as a destructive change. See [Data tables](how-import-works.md#data-tables).
+列 ID 让导入过程能够识别重命名的列，从而保留列值。n8n 2.44.0 之前导出的软件包不携带列 ID，因此 n8n 会按名称匹配列，重命名列会被视为破坏性更改。请参阅[数据表](how-import-works.md#data-tables)。
 
-## Version compatibility
+## 版本兼容性 <a id="version-compatibility"></a>
 
-`packageFormatVersion` is currently `"1"`. An n8n instance imports a package only when the version matches exactly. There's no compatibility window and no migration path: a package declaring any other version is rejected with a `400` before anything is written.
+`packageFormatVersion` 当前为 `"1"`。只有格式版本完全一致时，n8n 实例才会导入软件包。不存在兼容范围，也没有迁移路径：声明其他版本的软件包会在写入任何内容前被拒绝，并返回 `400`。
 
-`sourceN8nVersion` is recorded for information only. Nothing compares it against the target instance, so a package moves freely between instances running different n8n versions as long as the format version matches, and as long as the target has the node types the workflows use.
+`sourceN8nVersion` 仅供参考，不会与目标实例的版本比较。因此，只要格式版本一致，且目标实例安装了工作流使用的节点类型，就可以在不同 n8n 版本的实例之间迁移软件包。
 
-The exception is data table column IDs. From n8n 2.44.0, an exported data table carries column IDs, and an older instance rejects a package with column IDs with a `400`. Upgrade the importing instance first.
+数据表列 ID 是例外。从 n8n 2.44.0 起，导出的数据表会携带列 ID，较旧实例会拒绝含列 ID 的软件包，并返回 `400`。请先升级导入实例。
 
-## Comparing packages in a pipeline
+## 在流水线中比较软件包 <a id="comparing-packages-in-a-pipeline"></a>
 
-The archive is deterministic: file timestamps are fixed at the Unix epoch, permissions are fixed, and gzip runs in portable mode. Two exports of identical content produce identical bytes in the container.
+归档生成是确定性的：文件时间戳固定为 Unix 纪元，权限固定，gzip 使用可移植模式。相同内容两次导出时，容器中的字节相同。
 
-The one exception is `manifest.json`, which carries a fresh `exportedAt` on every export. Two exports of unchanged content aren't byte-identical because of that field alone. If you checksum packages to detect change in a pipeline, exclude `exportedAt` from the comparison, or you'll see drift on every run.
+唯一例外是 `manifest.json`，每次导出都会携带新的 `exportedAt`。仅因这一字段，即使内容未变，两次导出的字节也不完全相同。如果在流水线中通过校验和检测软件包变化，请从比较中排除 `exportedAt`，否则每次运行都会出现差异。
 
-## Read next
+## 继续阅读 <a id="read-next"></a>
 
-* [Export a package](export-a-package.md) for how to produce each of the three shapes.
-* [Import a package](import-a-package.md) for the options that control where the contents land.
-* [How import works](how-import-works.md) for what n8n does with each entity file.
+* [导出软件包](export-a-package.md)：了解如何生成三种结构。
+* [导入软件包](import-a-package.md)：了解控制内容存放位置的选项。
+* [导入机制](how-import-works.md)：了解 n8n 如何处理各实体文件。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [n8n packages](./)
-* [Export a package](export-a-package.md)
-* [Import a package](import-a-package.md)
-* [How import works](how-import-works.md)
-* [Limits and permissions](limits-and-permissions.md)
+* [n8n 软件包](./)
+* [导出软件包](export-a-package.md)
+* [导入软件包](import-a-package.md)
+* [导入机制](how-import-works.md)
+* [限制和权限](limits-and-permissions.md)

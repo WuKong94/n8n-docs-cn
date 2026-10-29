@@ -1,56 +1,58 @@
 ---
-title: custom-templates-library
+title: 自定义模板库
 ---
-In your environment variables, set `N8N_TEMPLATES_HOST` to the base URL of your API.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-### Endpoints <a href="#endpoints" id="endpoints"></a>
+在环境变量中，将 `N8N_TEMPLATES_HOST` 设为 API 的基础 URL。
 
-Your API must provide the same endpoints and data structure as n8n's.
+### 端点 <a href="#endpoints" id="endpoints"></a>
 
-The endpoints are:
+你的 API 必须提供与 n8n 相同的端点和数据结构。
 
-| Method | Path | Purpose |
+端点如下：
+
+| 方法 | 路径 | 用途 |
 | ------ | ---- | ------- |
-| GET | `/templates/workflows/<id>` | Fetch template metadata for preview/browsing |
-| GET | `/workflows/templates/<id>` | Fetch workflow data to import onto canvas |
-| GET | `/templates/search` | Search for workflow templates |
-| GET | `/templates/collections/<id>` | Get a specific template collection |
-| GET | `/templates/collections` | List all template collections |
-| GET | `/templates/categories` | List all template categories |
-| GET | `/health` | Health check endpoint |
+| GET | `/templates/workflows/<id>` | 获取模板元数据，用于预览和浏览 |
+| GET | `/workflows/templates/<id>` | 获取要导入画布的工作流数据 |
+| GET | `/templates/search` | 搜索工作流模板 |
+| GET | `/templates/collections/<id>` | 获取指定模板集合 |
+| GET | `/templates/collections` | 列出所有模板集合 |
+| GET | `/templates/categories` | 列出所有模板类别 |
+| GET | `/health` | 健康检查端点 |
 
 {% hint style="warning" %}
-**Critical: Two different response formats required**
+**重要：需要两种不同的响应格式**
 
-The two workflow endpoints require **different response formats**:
+两个工作流端点要求**不同的响应格式**：
 
-- **`/templates/workflows/{id}`**: Returns the template itself, which includes the workflow in the `workflow` key
-- **`/workflows/templates/{id}`**: Returns the workflow the template contains
+- **`/templates/workflows/{id}`**：返回模板本身，其中的 `workflow` 键包含工作流
+- **`/workflows/templates/{id}`**：返回模板包含的工作流
 
-See Schemas below for details.
+详情请参阅下方的数据结构说明。
 {% endhint %}
 
-### Query parameters <a href="#query-parameters" id="query-parameters"></a>
+### 查询参数 <a href="#query-parameters" id="query-parameters"></a>
 
-The `/templates/search` endpoint accepts the following query parameters:
+`/templates/search` 端点接受以下查询参数：
 
-| Parameter  | Type                                         | Description                                      |
+| 参数 | 类型 | 说明 |
 |------------|----------------------------------------------|--------------------------------------------------|
-| `page`     | integer                                      | The page of results to return                    |
-| `rows`     | integer                                      | The maximum number of results to return per page |
-| `category` | comma-separated list of strings (categories) | The categories to search within                  |
-| `search`   | string                                       | The search query                                 |
+| `page` | 整数 | 要返回的结果页码 |
+| `rows` | 整数 | 每页最多返回的结果数 |
+| `category` | 以逗号分隔的字符串列表（类别） | 要搜索的类别 |
+| `search` | 字符串 | 搜索词 |
 
-The `/templates/collections` endpoint accepts the following query parameters:
+`/templates/collections` 端点接受以下查询参数：
 
-| Parameter  | Type                                         | Description                     |
+| 参数 | 类型 | 说明 |
 |------------|----------------------------------------------|---------------------------------|
-| `category` | comma-separated list of strings (categories) | The categories to search within |
-| `search`   | string                                       | The search query                |
+| `category` | 以逗号分隔的字符串列表（类别） | 要搜索的类别 |
+| `search` | 字符串 | 搜索词 |
 
-### Schemas <a href="#schemas" id="schemas"></a>
+### 数据结构 <a href="#schemas" id="schemas"></a>
 
-The key difference between the two workflow endpoints:
+两个工作流端点的关键区别如下：
 
 ```json
 // GET /templates/workflows/{id} returns (wrapped):
@@ -78,17 +80,17 @@ The key difference between the two workflow endpoints:
 }
 ```
 
-Detailed schemas for response objects:
+响应对象的详细数据结构：
 
 <details>
 
-<summary>Show <code>workflow</code> item data schema</summary>
+<summary>显示 <code>workflow</code> 条目数据结构</summary>
 
-Used by `/templates/workflows/{id}` endpoint (wrapped in a `workflow` key).
+用于 `/templates/workflows/{id}` 端点（包裹在 `workflow` 键中）。
 
-This schema describes the template metadata used for displaying templates in search/browse UI. It includes a nested `workflow` property that contains the actual importable workflow definition.
+此结构描述在搜索和浏览界面中展示模板所用的元数据。其中包含一个嵌套的 `workflow` 属性，保存实际可导入的工作流定义。
 
-```json title="Workflow item data schema"
+```json title="工作流条目数据结构"
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Generated schema for Root",
@@ -363,9 +365,9 @@ This schema describes the template metadata used for displaying templates in sea
 
 <details>
 
-<summary>Show <code>category</code> item data schema</summary>
+<summary>显示 <code>category</code> 条目数据结构</summary>
 
-```json title="Category item data schema"
+```json title="类别条目数据结构"
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
@@ -388,9 +390,9 @@ This schema describes the template metadata used for displaying templates in sea
 
 <details>
 
-<summary>Show <code>collection</code> item data schema</summary>
+<summary>显示 <code>collection</code> 条目数据结构</summary>
 
-```json title="Collection item data schema"
+```json title="集合条目数据结构"
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
@@ -441,7 +443,7 @@ This schema describes the template metadata used for displaying templates in sea
 
 </details>
 
-You can also interactively explore n8n's API endpoints:
+也可以交互式探索 n8n 的 API 端点：
 
 [https://api.n8n.io/templates/categories](https://api.n8n.io/templates/categories)
 [https://api.n8n.io/templates/collections](https://api.n8n.io/templates/collections)
@@ -449,4 +451,4 @@ You can also interactively explore n8n's API endpoints:
 [https://api.n8n.io/health](https://api.n8n.io/health)
 
 
-You can [contact us](mailto:help@n8n.io) for more support.
+可以[联系我们](mailto:help@n8n.io)获取更多支持。

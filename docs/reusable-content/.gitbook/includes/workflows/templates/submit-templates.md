@@ -1,8 +1,10 @@
 ---
-title: submit-templates
+title: 提交工作流模板
 ---
-You can submit your workflows to n8n's template library.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-n8n is working on a creator program, and developing a marketplace of templates. This is an ongoing project, and details are likely to change.
+可以将工作流提交到 n8n 模板库。
 
-Refer to [n8n Creator hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f) for information on how to submit templates and become a creator.
+n8n 正在筹备创作者计划，并开发模板市场。这是持续推进的项目，具体细节可能变化。
+
+提交模板和成为创作者的方法，请参阅 [n8n 创作者中心](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f)。

@@ -1,33 +1,33 @@
 ---
-description: >-
-  Export workflows, folders, or whole projects into a .n8np package, and control
-  how n8n handles sub-workflow dependencies.
+description: 将工作流、文件夹或完整项目导出为 .n8np 软件包，并控制 n8n 处理子工作流依赖的方式。
 status: preview
 layout:
   description:
     visible: false
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Export a package
+
+# 导出软件包 <a id="export-a-package"></a>
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-n8n packages are in Preview. The export options may change in future releases.
+n8n 软件包处于预览阶段，导出选项在未来版本中可能发生变化。
 {% endhint %}
 
-Export writes an [n8n package](README.md), a [.n8np archive](package-format.md), containing what you asked for, plus references to everything those workflows need on the target instance. Export doesn't modify the source instance.
+导出会生成一个 [n8n 软件包](README.md)，即 [.n8np 归档](package-format.md)，其中包含指定内容，以及这些工作流在目标实例上所需的全部资源引用。导出不会修改源实例。
 
-Use the [n8n CLI](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-cli):
+使用 [n8n CLI](../../../connect/n8n-cli.md)：
 
 ```bash
 n8n-cli package export --workflow-id=<workflow-id> --output=triage.n8np
 ```
 
-Or call the endpoint directly:
+也可以直接调用端点：
 
 ```bash
 curl -X POST 'https://n8n.example.com/api/v1/n8n-packages/export' \
@@ -37,11 +37,11 @@ curl -X POST 'https://n8n.example.com/api/v1/n8n-packages/export' \
 	-o triage.n8np
 ```
 
-For the full request and response schema, see the `N8nPackage` section of the [endpoint reference](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/api-reference).
+完整的请求和响应结构，请参阅[端点参考](../../../connect/n8n-api/api-reference.md)中的 `N8nPackage` 部分。
 
-## Choose what to export
+## 选择导出内容 <a id="choose-what-to-export"></a>
 
-Pass at least one ID. Repeat a flag to name several: there's no comma-separated form.
+至少传入一个 ID。要指定多个 ID，请重复使用对应标志，不支持逗号分隔形式。
 
 ```bash
 # Two workflows
@@ -57,49 +57,49 @@ n8n-cli package export --workflow-id=wf7Kq2 --folder-id=fdInProg --output=mixed.
 n8n-cli package export --project-id=prTeam9 --project-id=prOps3 --output=teams.n8np
 ```
 
-Workflow and folder IDs can be combined. Project IDs can't be combined with either, because a project package has a different shape. Mixing the two groups returns a `400`.
+工作流 ID 和文件夹 ID 可以组合使用。项目软件包的结构不同，因此项目 ID 不能与前两者组合。混合这两组 ID 会返回 `400`。
 
-A folder always brings its nested folders and their workflows. If you name a workflow that's also inside a folder you named, it's exported once, inside the folder.
+导出文件夹时，始终包含其嵌套文件夹和工作流。如果指定的工作流也位于指定文件夹中，它只会在该文件夹中导出一次。
 
-n8n caps each group of IDs at 300. That's per group, so one export can name 300 workflows and 300 folders. Exceeding the cap returns a `400`, and the CLI doesn't catch it before sending the request.
+n8n 对每组 ID 的上限为 300 个。这是每组的限制，因此一次导出可以指定 300 个工作流和 300 个文件夹。超出上限会返回 `400`，CLI 不会在发送请求前检测此问题。
 
-An empty project exports as project metadata only, with no `workflows` list in the manifest.
+空项目仅导出项目元数据，清单中没有 `workflows` 列表。
 
-## Export flags
+## 导出标志 <a id="export-flags"></a>
 
-| Flag | Description |
+| 标志 | 说明 |
 |------|-------------|
-| `--workflow-id`, `-w` | Workflow ID to include. Repeat to export several. |
-| `--folder-id` | Folder ID to include, with everything nested inside it. Repeat to export several. |
-| `--project-id`, `-p` | Project ID to include. Repeat to export several. Can't be combined with `--workflow-id` or `--folder-id`. |
-| `--output`, `-o` | File to write the package to. Defaults to `export.n8np` in the current directory. |
-| `--include-variable-values` | `true` (default) or `false`. Whether variable values are bundled. See [Variable values](#variable-values). |
-| `--include-tags` | `true` (default) or `false`. Whether the tags on the exported workflows are bundled. |
-| `--missing-workflow-dependency-policy` | `fail` (default), `include-in-package`, or `reference-only`. How n8n handles a sub-workflow you didn't name. See [Sub-workflow dependencies](#sub-workflow-dependencies). |
+| `--workflow-id`、`-w` | 要包含的工作流 ID。重复使用可导出多个。 |
+| `--folder-id` | 要包含的文件夹 ID，及其中所有嵌套内容。重复使用可导出多个。 |
+| `--project-id`、`-p` | 要包含的项目 ID。重复使用可导出多个。不能与 `--workflow-id` 或 `--folder-id` 组合。 |
+| `--output`、`-o` | 软件包的输出文件，默认为当前目录下的 `export.n8np`。 |
+| `--include-variable-values` | `true`（默认）或 `false`。控制是否打包变量值。请参阅[变量值](#variable-values)。 |
+| `--include-tags` | `true`（默认）或 `false`。控制是否打包所导出工作流的标签。 |
+| `--missing-workflow-dependency-policy` | `fail`（默认）、`include-in-package` 或 `reference-only`。控制 n8n 如何处理未指定的子工作流。请参阅[子工作流依赖](#sub-workflow-dependencies)。 |
 
 {% hint style="info" %}
-The `n8n-cli package export` flags are shown here in kebab-case. `--help` prints the equivalent camelCase names (`--workflowId`, `--includeTags`, `--missingWorkflowDependencyPolicy`), and error messages use them too. Both spellings work.
+本文中的 `n8n-cli package export` 标志使用 kebab-case（短横线命名）。`--help` 会显示等效的 camelCase（驼峰命名）名称（`--workflowId`、`--includeTags`、`--missingWorkflowDependencyPolicy`），错误消息也使用这些名称。两种写法都有效。
 {% endhint %}
 
-`--output` overwrites an existing file without warning. n8n writes nothing when the export fails, so a failed run leaves the previous file in place.
+`--output` 会覆盖已有文件，且不发出警告。导出失败时，n8n 不会写入任何内容，因此原有文件会保留。
 
-## Sub-workflow dependencies
+## 子工作流依赖 <a id="sub-workflow-dependencies"></a>
 
-If a workflow calls a sub-workflow, or names an error workflow, that's a dependency of the package. `--missing-workflow-dependency-policy` decides what n8n does when a dependency isn't in the set of IDs you named.
+工作流调用的子工作流，或指定的错误工作流，都属于软件包依赖。当某个依赖不在指定的 ID 集合中时，`--missing-workflow-dependency-policy` 决定 n8n 的处理方式。
 
-| Value | What it does |
+| 值 | 行为 |
 |-------|--------------|
-| `fail` (default) | Abort the export and list what's missing, up to 20 IDs |
-| `include-in-package` | Walk the dependency graph and add the missing workflows to the package |
-| `reference-only` | Leave them out, and record them in `requirements.workflows` as workflows the target instance must already have |
+| `fail`（默认） | 中止导出并列出缺失内容，最多列出 20 个 ID |
+| `include-in-package` | 遍历依赖图，将缺失的工作流添加到软件包 |
+| `reference-only` | 不包含这些工作流，将其记录在 `requirements.workflows` 中，要求目标实例已存在这些工作流 |
 
-**`fail` and `include-in-package` follow the whole chain.** If workflow A calls B and B calls C, exporting A and B still fails on C. Only `reference-only` stops at direct references, on the assumption that a referenced workflow and its own dependencies already exist on the target together.
+**`fail` 和 `include-in-package` 会追踪整条依赖链。** 如果工作流 A 调用 B，B 调用 C，即使导出 A 和 B，仍会因缺少 C 而失败。只有 `reference-only` 在直接引用处停止，因为它假定被引用工作流及其自身依赖已经同时存在于目标实例。
 
-**An error workflow counts as a dependency.** A workflow with an error workflow configured under **Settings > Error workflow** fails a default export unless you include that workflow too. The exceptions are the literal value `DEFAULT` and any error workflow set by an expression, which n8n ignores.
+**错误工作流也计为依赖。** 如果工作流在 **Settings > Error workflow（设置 > 错误工作流）** 下配置了错误工作流，默认导出会失败，除非也包含该错误工作流。例外是字面值 `DEFAULT` 和通过表达式指定的错误工作流，n8n 会忽略这两种情况。
 
-n8n never treats a reference set by an expression as a dependency, and never rewrites one on import. Only static references count.
+n8n 不会将通过表达式设置的引用视为依赖，也不会在导入时改写此类引用。只有静态引用会被识别。
 
-The everyday promotion case has two forms:
+常见的环境推进场景有两种形式：
 
 ```bash
 # Name the dependency yourself
@@ -112,92 +112,92 @@ n8n-cli package export --workflow-id=wf7Kq2 \
 ```
 
 {% hint style="warning" %}
-On a project export, `include-in-package` can pull in projects you didn't ask for. A dependency owned by another project brings that project's shell and folder chain into the archive. The CLI's summary counts the projects you named rather than the projects in the archive, so it under-reports when this happens. Extract the archive or read the manifest to see what you actually got.
+导出项目时，`include-in-package` 可能引入未指定的项目。属于其他项目的依赖会将该项目的基本结构和文件夹链带入归档。CLI 摘要统计的是指定项目数，而不是归档中的项目数，因此这种情况下会少计。请解压归档或阅读清单，确认实际导出了哪些内容。
 {% endhint %}
 
-## Variable values
+## 变量值 <a id="variable-values"></a>
 
-By default, a variable referenced by an exported workflow travels with its value. With `--include-variable-values=false`, the variable still travels, and still appears in the manifest and in `requirements.variables`, but its `value` field is left out.
+默认情况下，导出工作流引用的变量会连同值一起迁移。使用 `--include-variable-values=false` 时，变量仍会迁移，并仍出现在清单和 `requirements.variables` 中，但省略 `value` 字段。
 
-Turning values off changes what happens on import: the target instance creates the variable empty rather than filling it in. It doesn't stop the variable traveling.
+禁用变量值会改变导入行为：目标实例会创建空变量，而不是填入值。这不会阻止变量本身迁移。
 
-Bundling values needs the `variable:list` API key scope, but only when the exported workflows reference at least one variable. Without it, the export returns a `403` telling you to add the scope or set `--include-variable-values=false`. Every role that can create an API key can assign `variable:list`, so a `403` here means the key you used was created without it.
+打包变量值需要 `variable:list` API 密钥权限范围，但仅在导出工作流至少引用一个变量时才需要。缺少此权限时，导出返回 `403`，提示添加权限或设置 `--include-variable-values=false`。所有有权创建 API 密钥的角色都可以分配 `variable:list`，因此此处出现 `403`，表示所用密钥在创建时未分配该权限。
 
-n8n finds variable references by scanning node parameters and workflow settings for `$vars.NAME`, `$vars['NAME']`, and `$vars["NAME"]`.
+n8n 会扫描节点参数和工作流设置中的 `$vars.NAME`、`$vars['NAME']` 和 `$vars["NAME"]`，查找变量引用。
 
-An export is blocked when one variable name would resolve to two different variables in the same package, because the package can only carry one of them.
+如果同一个变量名称在同一软件包中会解析到两个不同变量，导出就会被阻止，因为软件包只能携带其中一个。
 
-## Tags
+## 标签 <a id="tags"></a>
 
-With `--include-tags=false`, no tag data travels: the exported workflows carry no tag references and the archive has no `tags/` directory.
+使用 `--include-tags=false` 时，不迁移任何标签数据：导出的工作流不带标签引用，归档中也没有 `tags/` 目录。
 
-This matters more on import than it looks. A workflow that carries a tag list, including an empty one, overwrites the target workflow's tags with exactly that list. A workflow with no tag list at all leaves the target's tags alone. So `--include-tags=false` is the option that preserves existing tags on the target.
+这对导入的影响比表面上更大。工作流只要带有标签列表，即使列表为空，也会用该列表精确覆盖目标工作流的标签。完全不带标签列表的工作流则会保留目标的标签。因此，要保留目标上的现有标签，应使用 `--include-tags=false`。
 
-If the source instance sets `N8N_WORKFLOW_TAGS_DISABLED=true`, tags are left out of every export regardless of this flag, with no warning.
+如果源实例设置了 `N8N_WORKFLOW_TAGS_DISABLED=true`，所有导出都会省略标签，不受此标志影响，也不会发出警告。
 
-## What the response tells you
+## 响应中的信息 <a id="what-the-response-tells-you"></a>
 
-A successful export returns the archive as `application/gzip`, with an `X-N8n-Export-Counts` header carrying the real per-entity counts:
+导出成功时，以 `application/gzip` 返回归档，并通过 `X-N8n-Export-Counts` 响应头提供各类实体的实际数量：
 
 ```
 X-N8n-Export-Counts: {"workflows":2,"folders":0,"credentials":1,"dataTables":1,"variables":1,"tags":1}
 ```
 
-These are the counts of what ended up in the archive, after folder contents and any auto-included sub-workflows, so they don't have to match the number of IDs you asked for. The header has no `projects` key. The CLI prints a summary built from it.
+这些数量统计的是展开文件夹内容并自动包含子工作流后，最终进入归档的内容，因此不一定等于指定的 ID 数量。响应头没有 `projects` 键。CLI 根据此响应头输出摘要。
 
-`credentials` counts bundled credential files, so a credential you can't read is recorded as a requirement without adding to the count. `variables` counts bundled variable files rather than referenced names.
+`credentials` 统计打包的凭据文件，因此无权读取的凭据只会记录为需求，不计入数量。`variables` 统计打包的变量文件，而不是引用的名称数量。
 
-The download file name is always `export.n8np`, whatever you exported. The CLI writes to `--output` instead.
+无论导出什么，下载文件名始终为 `export.n8np`。CLI 则写入 `--output`。
 
-## Permissions
+## 权限 <a id="permissions"></a>
 
-Export needs an API key with:
+导出需要具有以下权限范围的 API 密钥：
 
-* `workflow:export`, when you name workflow or folder IDs. Folders use the workflow scope.
-* `project:export`, when you name project IDs.
-* `variable:list`, when values are bundled and the workflows reference at least one variable.
+* 指定工作流或文件夹 ID 时，需要 `workflow:export`。文件夹使用工作流权限范围。
+* 指定项目 ID 时，需要 `project:export`。
+* 打包变量值且工作流至少引用一个变量时，需要 `variable:list`。
 
-On top of the API key, you can only export what you can read: n8n checks your own access to each workflow, folder, project, and credential as it builds the package. A credential you can't read is recorded as a requirement rather than bundled.
+除 API 密钥权限外，只能导出你有权读取的内容。n8n 构建软件包时，会检查你对每个工作流、文件夹、项目和凭据的访问权限。无权读取的凭据会记录为需求，而不是打包。
 
-Export needs no license feature. For the full matrix, see [Limits and permissions](limits-and-permissions.md).
+导出不需要任何许可证功能。完整矩阵请参阅[限制和权限](limits-and-permissions.md)。
 
-## Errors
+## 错误 <a id="errors"></a>
 
-| Status | Cause |
+| 状态 | 原因 |
 |--------|-------|
-| `400` | A requested workflow, folder, or project doesn't exist, or you can't access it. Also mixing ID groups, passing no IDs, exceeding 300 IDs in a group, or a blocked export under `--missing-workflow-dependency-policy=fail` |
-| `403` | The API key is missing a scope it needs |
+| `400` | 请求的工作流、文件夹或项目不存在，或你无权访问；也可能是混合了 ID 组、未传入 ID、某组超过 300 个 ID，或 `--missing-workflow-dependency-policy=fail` 阻止了导出 |
+| `403` | API 密钥缺少所需权限范围 |
 
-A missing entity and an inaccessible one return the same `400` with the same message, so you can't use export to test whether an ID exists. Export never returns a `404`.
+实体不存在和无权访问都会返回相同的 `400` 及相同消息，因此不能利用导出探测某个 ID 是否存在。导出不会返回 `404`。
 
-Error bodies carry a `message` only. 
+错误响应体仅包含 `message`。
 
-## Events
+## 事件 <a id="events"></a>
 
-Every export emits an event on both the log streaming and telemetry paths, so you can audit what left an instance.
+每次导出都会在日志流和遥测路径上发出事件，便于审计哪些内容离开了实例。
 
-| Event | Emitted when |
+| 事件 | 发出时机 |
 |-------|--------------|
-| `n8n.audit.n8n-package.export.success` | The export succeeded |
-| `n8n.audit.n8n-package.export.failed` | The export failed |
+| `n8n.audit.n8n-package.export.success` | 导出成功 |
+| `n8n.audit.n8n-package.export.failed` | 导出失败 |
 
-The success event carries the user and the `workflowIds`, `folderIds`, and `projectIds` that actually ended up in the package, so it reflects folder contents and auto-included sub-workflows rather than what you asked for. Each list is present only when it isn't empty.
+成功事件包含用户，以及最终进入软件包的 `workflowIds`、`folderIds` 和 `projectIds`，因此反映的是文件夹内容和自动包含的子工作流，而不只是指定内容。各列表仅在非空时出现。
 
-The failure event carries the user, the IDs requested, and a `reason` of `access-denied`, `entity-not-found`, `blocked`, or `validation`.
+失败事件包含用户、请求的 ID，以及 `reason`，其值为 `access-denied`、`entity-not-found`、`blocked` 或 `validation`。
 
-Log streaming events carry IDs. 
-Telemetry events emit counts to keep the data anonymized.
+日志流事件携带 ID。
+遥测事件则发送数量，以保持数据匿名。
 
-## Read next
+## 继续阅读 <a id="read-next"></a>
 
-* [Import a package](import-a-package.md) to move the file onto another instance.
-* [Package format](package-format.md) for what you'll find inside the archive.
-* [Limits and permissions](limits-and-permissions.md) for the size caps and the full scope matrix.
+* [导入软件包](import-a-package.md)：将文件迁移到另一个实例。
+* [软件包格式](package-format.md)：了解归档中的内容。
+* [限制和权限](limits-and-permissions.md)：了解大小上限和完整的权限范围矩阵。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [n8n packages](./)
-* [Package format](package-format.md)
-* [Import a package](import-a-package.md)
-* [How import works](how-import-works.md)
-* [Limits and permissions](limits-and-permissions.md)
+* [n8n 软件包](./)
+* [软件包格式](package-format.md)
+* [导入软件包](import-a-package.md)
+* [导入机制](how-import-works.md)
+* [限制和权限](limits-and-permissions.md)

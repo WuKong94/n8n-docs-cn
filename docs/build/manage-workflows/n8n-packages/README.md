@@ -1,74 +1,74 @@
 ---
-description: >-
-  Bundle workflows and the structure they need into a portable .n8np file, and
-  move them between n8n instances.
+description: 将工作流及其所需结构打包为可移植的 .n8np 文件，在 n8n 实例之间迁移。
 status: preview
 layout:
   description:
     visible: false
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# n8n packages
+
+# n8n 软件包 <a id="n8n-packages"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-n8n packages are available from n8n 2.27.0, and n8n has added options in most releases since, so check your version if an option here isn't recognized.
+n8n 软件包从 n8n 2.27.0 起可用，此后大多数版本都增加了选项。如果本文中的某个选项无法识别，请检查所用版本。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-n8n packages are in Preview. The package format and the API may change in future releases, so avoid relying on them for critical automation without a plan to update.
+n8n 软件包处于预览阶段。软件包格式和 API 在未来版本中可能发生变化，因此在没有更新计划的情况下，请避免让关键自动化任务依赖此功能。
 {% endhint %}
 
-An n8n package is a single file that holds a slice of your n8n instance: some workflows, plus the structure and references those workflows need to run. Export a package from one instance, move the file, and import it into another. Think of it as an `npm` package for part of your n8n instance.
+n8n 软件包是一个文件，包含 n8n 实例中的一部分内容：若干工作流，以及这些工作流运行所需的结构和引用。可以从一个实例导出软件包，移动文件，再导入另一个实例。可以将其理解为 n8n 实例部分内容的 `npm` 软件包。
 
-A package is a gzipped tar archive with the `.n8np` extension. Inside it, each entity is a small JSON file, and a `manifest.json` lists what's in the package and what the target instance has to supply. See [Package format](package-format.md) for the full layout.
+软件包是扩展名为 `.n8np` 的 gzip 压缩 tar 归档。内部每个实体都是一个小型 JSON 文件，`manifest.json` 列出包内内容以及目标实例必须提供的资源。完整布局请参阅[软件包格式](package-format.md)。
 
-Packages are an API feature. You export and import them through the [n8n API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api), or through the [n8n CLI](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-cli), which wraps the same two endpoints. There's no way to export or import a package from the n8n editor.
+软件包是 API 功能。可以通过 [n8n API](../../../connect/n8n-api/README.md) 导出和导入，也可以使用封装了相同两个端点的 [n8n CLI](../../../connect/n8n-cli.md)。n8n 编辑器不提供软件包导出或导入功能。
 
-## Three package shapes
+## 三种软件包结构 <a id="three-package-shapes"></a>
 
-What you export decides the shape of the package, and the shape decides how the contents land on import:
+导出的内容决定软件包的结构，而结构决定导入时内容存放的位置：
 
-* **Workflow package**: one or more workflows. On import, they land in the project and folder you choose.
-* **Folder package**: one or more folders, always including everything nested inside them. On import, the folder tree lands in the project you choose.
-* **Project package**: one or more whole projects. The package carries its own projects, so it decides where its contents land and ignores any target project you pass.
+* **工作流软件包**：包含一个或多个工作流。导入时，工作流存放到指定的项目和文件夹。
+* **文件夹软件包**：包含一个或多个文件夹，始终包含其中的所有嵌套内容。导入时，文件夹树存放到指定项目中。
+* **项目软件包**：包含一个或多个完整项目。软件包自带项目，因此由自身结构决定内容的存放位置，传入的目标项目会被忽略。
 
-You can combine workflows and folders in one export. You can't combine either with projects.
+一次导出可以同时包含工作流和文件夹，但不能将这两者中的任意一种与项目混合导出。
 
-## What travels in a package
+## 软件包包含的内容 <a id="what-travels-in-a-package"></a>
 
-| Travels | Doesn't travel |
+| 随包迁移 | 不随包迁移 |
 |---------|----------------|
-| Workflows: nodes, connections, settings, published state, archived state | Credential secrets and configuration |
-| Folders and their nesting | Data table rows |
-| Projects: name, description, icon | Executions and execution history |
-| Credential references: ID, name, and type only | Users, project members, roles, and sharing |
-| Data table schemas: column IDs, names, and types | Pinned data and workflow static data |
-| Variables: name and type, and the value unless you exclude it | Workflow version history |
-| Tags | Whether a workflow is marked as a favorite |
+| 工作流：节点、连接、设置、发布状态和归档状态 | 凭据机密值和配置 |
+| 文件夹及其嵌套关系 | 数据表中的行 |
+| 项目：名称、说明和图标 | 执行记录和执行历史 |
+| 凭据引用：仅 ID、名称和类型 | 用户、项目成员、角色和共享关系 |
+| 数据表结构：列 ID、名称和类型 | 固定数据和工作流静态数据 |
+| 变量：名称、类型及变量值（除非选择排除值） | 工作流版本历史 |
+| 标签 | 工作流是否被收藏 |
 
-**Credential secrets never travel.** A credential file in a package holds exactly three fields: ID, name, and type. Non-secret configuration such as a host, base URL, or region lives in the same encrypted store as the secret, so it doesn't travel either. On import, n8n matches each reference to a credential that already exists on the target instance, or creates an empty placeholder for you to fill in.
+**凭据机密值绝不会随包迁移。** 软件包中的凭据文件只有三个字段：ID、名称和类型。主机、基础 URL、区域等非机密配置与机密值保存在同一加密存储中，因此也不会随包迁移。导入时，n8n 会将每个引用匹配到目标实例上已有的凭据，或创建空占位凭据，供你补充信息。
 
-**Data table rows never travel.** Only the schema does. An imported data table starts empty.
+**数据表中的行绝不会随包迁移。** 只迁移表结构。导入的数据表最初为空。
 
-## When to use packages
+## 何时使用软件包 <a id="when-to-use-packages"></a>
 
-Use packages when you need a repeatable, automatable way to move work between instances:
+需要以可重复、可自动化的方式在实例间迁移工作时，可以使用软件包：
 
-* **Promote between environments.** Push workflows from development to staging to production as part of a pipeline. Repeated imports update in place rather than creating duplicates, so the same command works the first time and every time after.
-* **Migrate to a new instance.** Move a project, its folders, and its workflows in one file.
-* **Share work without sharing secrets.** Hand a workflow to another team knowing no credential data is in the file.
-* **Back up structure.** Keep a copy of the workflows and structure you'd need to rebuild, though a package isn't a full backup: no execution data travels.
+* **在环境之间推进部署。** 作为流水线的一部分，将工作流从开发环境推到预发布环境，再推到生产环境。重复导入会就地更新，而不是创建副本，因此首次及后续迁移都可以使用同一条命令。
+* **迁移到新实例。** 用一个文件迁移项目、其文件夹及工作流。
+* **共享成果而不共享机密信息。** 将工作流交给其他团队，同时确保文件不含凭据数据。
+* **备份结构。** 保存重建时所需的工作流和结构副本。不过软件包不是完整备份，不包含执行数据。
 
-## Quick start
+## 快速入门 <a id="quick-start"></a>
 
-Point the CLI at your source instance, then export a workflow:
+将 CLI 指向源实例，再导出一个工作流：
 
 ```bash
 n8n-cli config set-url https://source.example.com
@@ -77,7 +77,7 @@ n8n-cli config set-api-key <your-api-key>
 n8n-cli package export --workflow-id=<workflow-id> --output=triage.n8np
 ```
 
-Point it at the target instance and import the file:
+将 CLI 指向目标实例，再导入文件：
 
 ```bash
 n8n-cli config set-url https://target.example.com
@@ -86,25 +86,25 @@ n8n-cli config set-api-key <your-api-key>
 n8n-cli package import --file=triage.n8np --project-id=<target-project-id>
 ```
 
-n8n checks the whole package before it writes anything. If something would block the import, such as a workflow that uses a node type the target instance doesn't have, the command exits with a non-zero status and lists every problem it found at once.
+n8n 会在写入任何内容前检查整个软件包。如果存在阻止导入的问题，例如工作流使用了目标实例没有的节点类型，命令会以非零状态退出，并一次性列出发现的所有问题。
 
-## In this section
+## 本节内容 <a id="in-this-section"></a>
 
-* [Package format](package-format.md): what's inside a `.n8np` file, the three package shapes, and the manifest.
-* [Export a package](export-a-package.md): export workflows, folders, or whole projects into a package.
-* [Import a package](import-a-package.md): import a package and control where its contents land.
-* [How import works](how-import-works.md): how n8n checks a package and resolves its dependencies before writing it.
-* [Limits and permissions](limits-and-permissions.md): size limits, license features, and API key scopes.
+* [软件包格式](package-format.md)：`.n8np` 文件的内容、三种软件包结构和清单。
+* [导出软件包](export-a-package.md)：将工作流、文件夹或完整项目导出为软件包。
+* [导入软件包](import-a-package.md)：导入软件包，并控制内容的存放位置。
+* [导入机制](how-import-works.md)：n8n 如何在写入前检查软件包并解析依赖。
+* [限制和权限](limits-and-permissions.md)：大小限制、许可证功能和 API 密钥权限范围。
 
-For other ways to move a workflow, including copy and paste and the editor's download and import options, see [Export and import](../export-and-import.md).
+有关复制粘贴以及编辑器下载、导入选项等其他迁移方式，请参阅[导出和导入](../export-and-import.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Manage workflows](../)
-* [Configure workflow settings](../configure-workflow-settings.md)
-* [Tag workflows](../tag-workflows.md)
-* [Favorite items](../favorite-items.md)
-* [View change history](../view-change-history.md)
-* [Review workflows](../workflow-reviews.md)
-* [Export and import](../export-and-import.md)
-* [Share with others](../share-with-others.md)
+* [管理工作流](../)
+* [配置工作流设置](../configure-workflow-settings.md)
+* [为工作流添加标签](../tag-workflows.md)
+* [收藏项目](../favorite-items.md)
+* [查看更改历史](../view-change-history.md)
+* [审核工作流](../workflow-reviews.md)
+* [导出和导入](../export-and-import.md)
+* [与他人共享](../share-with-others.md)
