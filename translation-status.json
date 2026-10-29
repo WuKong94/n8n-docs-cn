@@ -15728,5 +15728,104 @@
     "source_correction_ids": [
       "openai-video-duration-api-values-source-note"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.code/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "593d0e1453520618fd4332eb2111bccbd817624f6e243f827cf31f8ec4e822be",
+    "translation_sha256": "9439e9677368d4c6792c3d669948d93ea0016408aa324430a93e21b5999065a9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts.md": {
+    "status": "translated",
+    "source_sha256": "b2a66b3f53e424a5e978ea8c0d5b28f3ef18de63196e7ed1d2b4b550d274da4e",
+    "translation_sha256": "645d68e8b0b221c0417396094fd886fecbd9f89e4b5179c3e1a1bd40f9b22ba2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.converttofile.md": {
+    "status": "translated",
+    "source_sha256": "147ef5b594b35a71571e480e3441d4726120d378996892d817ff805fbeaf57ce",
+    "translation_sha256": "fd623a4ce6e8f74506d65beaca34351c1288ad85215b558aeb6d023bc1dcf696",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "convert-to-file-rtf-options-heading-spelling"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.extractfromfile.md": {
+    "status": "translated",
+    "source_sha256": "f9ee34162fcc64730963e453db7bb71268d9d847ff6271f9ced8fcd302a49460",
+    "translation_sha256": "7a8721f498d5ab86955451fbf4c64e29892fb8839a05257e897e4791c352642f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.crypto.md": {
+    "status": "translated",
+    "source_sha256": "000afec77acb4f6c4aae9009b7f6a9adc5f412f53d2465c7102cfbfcdfcdfb8a",
+    "translation_sha256": "65bd3f8d116c9df06bcc7b60392acb13d21595003bb0d3d1ec50e0e285356473",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.editimage.md": {
+    "status": "translated",
+    "source_sha256": "199895e3e772817c91dc8b930b81e890ed3d1082ec123858c6cb9251e97e57ac",
+    "translation_sha256": "de0da5e74f07d7b6274d9b26205b9e3f5f4399d1d7166cf89222fd4b84141cfe",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "edit-image-end-y-draw-position-context",
+      "edit-image-rotation-negative-bound-spelling",
+      "edit-image-rotation-background-non-right-angle"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.markdown.md": {
+    "status": "translated",
+    "source_sha256": "c5c5226886f5550652199ff3e1d970a05aa50b59a3462a169e9e5a2faa60ba83",
+    "translation_sha256": "7a09f4a75ed3ee9f8d122ce1d58a27c2783861f85a3ac30e9fc36a2871aa5da0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.xml.md": {
+    "status": "translated",
+    "source_sha256": "650b04cded9a146161265e25c786584227dc3c3466d564869a4c3853c0166fab",
+    "translation_sha256": "d56a02e5da44dbbf2b4c88b6031cf88d9ea5fd0f2fe55e743245d545409d4e58",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "xml-merge-ignore-attributes-option-name"
+    ]
   }
 }

@@ -1,144 +1,144 @@
 ---
-title: Crypto
-description: >-
-  Documentation for the Crypto node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+title: Crypto（加密）
+description: 了解 n8n 工作流自动化平台中的 Crypto 节点，包括用法说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Crypto
+nodeTitle: Crypto（加密）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.crypto.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.crypto'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.crypto'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.crypto
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.crypto
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Crypto <a href="#crypto" id="crypto"></a>
 
-Use the Crypto node to perform cryptographic operations in workflows.
+# Crypto（加密） <a href="#crypto" id="crypto"></a>
 
-{% hint style="info" %}
-**Credentials**
-
-Refer to the [Crypto credentials documentation](../credentials/crypto.md) for authentication information for this node.
-{% endhint %}
-
-## Actions <a href="#actions" id="actions"></a>
-
-* [**Decrypt** a string](#decrypt-parameters) with a passphrase or private key
-* [**Encrypt** a string](#encrypt-parameters) with a passphrase or public key
-* [**Generate** a random string](#generate-parameters)
-* [**Hash** a text or file](#hash-parameters) in a specified format
-* [**Hmac** a text or file](#hmac-parameters) in a specified format
-* [**Sign** a string](#sign-parameters) using a private key
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
-
-Node parameters depend on the action you select.
-
-The **Hmac**, **Sign**, **Encrypt**, and **Decrypt** actions need [Crypto credentials](../credentials/crypto.md). Each action uses the credential field it needs:
-
-* **Hmac** uses the **Hmac Secret**.
-* **Sign** uses the **Private Key**.
-* **Encrypt** and **Decrypt** use the **Encryption Passphrase** for symmetric mode, or the **Encryption Public Key** and **Encryption Private Key** for asymmetric mode.
-
-### Decrypt parameters <a href="#decrypt-parameters" id="decrypt-parameters"></a>
-
-* **Mode**: Select the mode to use. This must match the mode used to encrypt the value. Choose from:
-	* **Symmetric (Passphrase)**: Decrypt with a passphrase using an authenticated cipher.
-	* **Asymmetric (RSA)**: Decrypt with an RSA private key.
-* **Cipher**: When you select **Symmetric (Passphrase)**, choose the authenticated cipher to use. This must match the cipher used to encrypt the value. Choose from:
-	* **AES-256-GCM**
-	* **AES-192-GCM**
-	* **AES-128-GCM**
-	* **ChaCha20-Poly1305**
-* **Value**: Enter the base64 string produced by the **Encrypt** action.
-* **Property Name**: Enter the name of the property you want to write the decrypted value to.
-
-### Encrypt parameters <a href="#encrypt-parameters" id="encrypt-parameters"></a>
-
-* **Mode**: Select the mode to use. Choose from:
-	* **Symmetric (Passphrase)**: Encrypt with a passphrase using an authenticated cipher.
-	* **Asymmetric (RSA)**: Encrypt with an RSA public key.
-* **Cipher**: When you select **Symmetric (Passphrase)**, choose the authenticated cipher to use. You must select the same cipher when you decrypt the value. Choose from:
-	* **AES-256-GCM**
-	* **AES-192-GCM**
-	* **AES-128-GCM**
-	* **ChaCha20-Poly1305**
-* **Value**: Enter the value you want to encrypt.
-* **Property Name**: Enter the name of the property you want to write the encrypted value to. The node writes the result as a base64 string.
+使用 Crypto 节点在工作流中执行密码学操作。
 
 {% hint style="info" %}
-**RSA payload size**
+**凭据**
 
-Asymmetric (RSA) mode can only encrypt small payloads, around 190 bytes with a 2048-bit key. Use symmetric mode for larger data.
+有关此节点的身份验证信息，请参阅 [Crypto 凭据文档](../credentials/crypto.md)。
 {% endhint %}
 
-### Generate parameters <a href="#generate-parameters" id="generate-parameters"></a>
+## 动作 <a href="#actions" id="actions"></a>
 
-* **Property Name**: Enter the name of the property to write the random string to.
-* **Type**: Select the encoding type to use to generate the string. Choose from:
-	* **ASCII**
-	* **BASE64**
-	* **HEX**
-	* **UUID**
-* **Length**: When you select **ASCII**, **BASE64**, or **HEX**, enter the length of the generated string. The default is `32`.
+* 使用口令或私钥[**Decrypt**（解密）字符串](#decrypt-parameters)。
+* 使用口令或公钥[**Encrypt**（加密）字符串](#encrypt-parameters)。
+* [**Generate**（生成）随机字符串](#generate-parameters)。
+* 按指定格式对文本或文件计算[**Hash**（哈希）](#hash-parameters)。
+* 按指定格式对文本或文件计算[**Hmac**](#hmac-parameters)。
+* 使用私钥对字符串进行[**Sign**（签名）](#sign-parameters)。
 
-### Hash parameters <a href="#hash-parameters" id="hash-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Type**: Select the hash type to use. Choose from:
-	* **MD5**
-	* **SHA256**
-	* **SHA3-256**
-	* **SHA3-384**
-	* **SHA3-512**
-	* **SHA384**
-	* **SHA512**
-* **Binary File**: Turn this parameter on if the data you want to hash is from a binary file.
-	* **Value**: If you turn off **Binary File**, enter the value you want to hash.
-	* **Binary Property Name**: If you turn on **Binary File**, enter the name of the binary property that contains the data you want to hash.
-* **Property Name**: Enter the name of the property you want to write the hash to.
-* **Encoding**: Select the encoding type to use. Choose from:
-	* **BASE64**
-	* **HEX**
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-### Hmac parameters <a href="#hmac-parameters" id="hmac-parameters"></a>
+节点参数取决于所选动作。
 
-* **Binary File**: Turn this parameter on if the data you want to create an Hmac for is from a binary file.
-	* **Value**: If you turn off **Binary File**, enter the value you want to create an Hmac for.
-	* **Binary Property Name**: If you turn on **Binary File**, enter the name of the binary property that contains the data you want to create an Hmac for.
-* **Type**: Select the hash type to use. Choose from:
-	* **MD5**
-	* **SHA256**
-	* **SHA3-256**
-	* **SHA3-384**
-	* **SHA3-512**
-	* **SHA384**
-	* **SHA512**
-* **Property Name**: Enter the name of the property you want to write the Hmac to.
-* **Encoding**: Select the encoding type to use. Choose from:
-	* **BASE64**
-	* **HEX**
+**Hmac**、**Sign**（签名）、**Encrypt**（加密）和 **Decrypt**（解密）动作需要 [Crypto 凭据](../credentials/crypto.md)。每种动作使用相应的凭据字段：
 
-This action uses the **Hmac Secret** from your [Crypto credentials](../credentials/crypto.md).
+* **Hmac** 使用 **Hmac Secret**（Hmac 密钥）。
+* **Sign**（签名）使用 **Private Key**（私钥）。
+* **Encrypt**（加密）和 **Decrypt**（解密）在对称模式下使用 **Encryption Passphrase**（加密口令），在非对称模式下分别使用 **Encryption Public Key**（加密公钥）和 **Encryption Private Key**（加密私钥）。
 
-### Sign parameters <a href="#sign-parameters" id="sign-parameters"></a>
+### Decrypt（解密）参数 <a href="#decrypt-parameters" id="decrypt-parameters"></a>
 
-* **Value**: Enter the value you want to sign.
-* **Property Name**: Enter the name of the property you want to write the signed value to.
-* **Algorithm Name or ID**: Choose an algorithm name from the list or specify an ID using an [expression](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes).
-* **Encoding**: Select the encoding type to use. Choose from:
-	* **BASE64**
-	* **HEX**
+* **Mode**（模式）：选择要使用的模式，必须与加密时使用的模式一致。可选：
+    * **Symmetric (Passphrase)**（对称：口令）：使用口令和认证加密算法解密。
+    * **Asymmetric (RSA)**（非对称：RSA）：使用 RSA 私钥解密。
+* **Cipher**（加密算法）：选择 **Symmetric (Passphrase)**（对称：口令）时，选择要使用的认证加密算法，必须与加密时一致。可选：
+    * **AES-256-GCM**
+    * **AES-192-GCM**
+    * **AES-128-GCM**
+    * **ChaCha20-Poly1305**
+* **Value**（值）：输入 **Encrypt**（加密）动作生成的 base64 字符串。
+* **Property Name**（属性名称）：输入用于写入解密结果的属性名称。
 
-This action uses the **Private Key** from your [Crypto credentials](../credentials/crypto.md).
+### Encrypt（加密）参数 <a href="#encrypt-parameters" id="encrypt-parameters"></a>
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+* **Mode**（模式）：选择要使用的模式，可选：
+    * **Symmetric (Passphrase)**（对称：口令）：使用口令和认证加密算法加密。
+    * **Asymmetric (RSA)**（非对称：RSA）：使用 RSA 公钥加密。
+* **Cipher**（加密算法）：选择 **Symmetric (Passphrase)**（对称：口令）时，选择要使用的认证加密算法，解密时必须选择同一算法。可选：
+    * **AES-256-GCM**
+    * **AES-192-GCM**
+    * **AES-128-GCM**
+    * **ChaCha20-Poly1305**
+* **Value**（值）：输入要加密的值。
+* **Property Name**（属性名称）：输入用于写入加密结果的属性名称。节点将结果写为 base64 字符串。
+
+{% hint style="info" %}
+**RSA 载荷大小**
+
+非对称（RSA）模式只能加密少量数据，使用 2048 位密钥时约为 190 字节。较大的数据请使用对称模式。
+{% endhint %}
+
+### Generate（生成）参数 <a href="#generate-parameters" id="generate-parameters"></a>
+
+* **Property Name**（属性名称）：输入用于写入随机字符串的属性名称。
+* **Type**（类型）：选择用于生成字符串的编码类型，可选：
+    * **ASCII**
+    * **BASE64**
+    * **HEX**
+    * **UUID**
+* **Length**（长度）：选择 **ASCII**、**BASE64** 或 **HEX** 时，输入要生成的字符串长度，默认值为 `32`。
+
+### Hash（哈希）参数 <a href="#hash-parameters" id="hash-parameters"></a>
+
+* **Type**（类型）：选择要使用的哈希类型，可选：
+    * **MD5**
+    * **SHA256**
+    * **SHA3-256**
+    * **SHA3-384**
+    * **SHA3-512**
+    * **SHA384**
+    * **SHA512**
+* **Binary File**（二进制文件）：如果要计算哈希的数据来自二进制文件，开启此参数。
+    * **Value**（值）：关闭 **Binary File**（二进制文件）时，输入要计算哈希的值。
+    * **Binary Property Name**（二进制属性名称）：开启 **Binary File**（二进制文件）时，输入包含待计算哈希数据的二进制属性名称。
+* **Property Name**（属性名称）：输入用于写入哈希结果的属性名称。
+* **Encoding**（编码）：选择要使用的编码类型，可选：
+    * **BASE64**
+    * **HEX**
+
+### Hmac 参数 <a href="#hmac-parameters" id="hmac-parameters"></a>
+
+* **Binary File**（二进制文件）：如果要计算 Hmac 的数据来自二进制文件，开启此参数。
+    * **Value**（值）：关闭 **Binary File**（二进制文件）时，输入要计算 Hmac 的值。
+    * **Binary Property Name**（二进制属性名称）：开启 **Binary File**（二进制文件）时，输入包含待计算 Hmac 数据的二进制属性名称。
+* **Type**（类型）：选择要使用的哈希类型，可选：
+    * **MD5**
+    * **SHA256**
+    * **SHA3-256**
+    * **SHA3-384**
+    * **SHA3-512**
+    * **SHA384**
+    * **SHA512**
+* **Property Name**（属性名称）：输入用于写入 Hmac 结果的属性名称。
+* **Encoding**（编码）：选择要使用的编码类型，可选：
+    * **BASE64**
+    * **HEX**
+
+此动作使用 [Crypto 凭据](../credentials/crypto.md)中的 **Hmac Secret**（Hmac 密钥）。
+
+### Sign（签名）参数 <a href="#sign-parameters" id="sign-parameters"></a>
+
+* **Value**（值）：输入要签名的值。
+* **Property Name**（属性名称）：输入用于写入签名结果的属性名称。
+* **Algorithm Name or ID**（算法名称或 ID）：从列表中选择算法名称，或通过[表达式](../../../build/work-with-data/expressions-versus-data-nodes.md)指定 ID。
+* **Encoding**（编码）：选择要使用的编码类型，可选：
+    * **BASE64**
+    * **HEX**
+
+此动作使用 [Crypto 凭据](../credentials/crypto.md)中的 **Private Key**（私钥）。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Crypto integration templates](https://n8n.io/integrations/crypto) or [search all templates](https://n8n.io/workflows/)
+[浏览 Crypto 集成模板](https://n8n.io/integrations/crypto)，或[搜索所有模板](https://n8n.io/workflows/)

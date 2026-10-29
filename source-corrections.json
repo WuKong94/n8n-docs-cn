@@ -1227,5 +1227,66 @@
     ],
     "scope": "仅修正有明确文档依据的原文笔误、语境或限制关系，或补充核对时的可用性说明。重复原文误写在同页同步澄清。原始快照、模型名、代码、链接与锚点保持原样，不迁移 API、不运行请求、不产生费用；归档资料不当作当前模型能力保证。",
     "source_sha256": "020528f0c1af736fefb14d95fc033b66ea6091f4f1e6326d1d91775f2f1bb28e"
+  },
+  {
+    "id": "convert-to-file-rtf-options-heading-spelling",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.converttofile.md",
+    "original_sentence": "#### Convert to RFT options <a href=\"#convert-to-rft-options\" id=\"convert-to-rft-options\"></a>",
+    "translated_sentence": "#### Convert to RTF 选项 <a href=\"#convert-to-rft-options\" id=\"convert-to-rft-options\"></a>",
+    "evidence": "Convert to RTF 段下的小标题误拼为 Convert to RFT options；同页操作列表与上级标题均为 RTF。只修正可见标题，原 convert-to-rft-options 锚点及链接保持原样。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.converttofile.md"
+    ],
+    "scope": "仅修正可见名称笔误、坐标语境或有明确依据的旋转说明；原始快照、代码、图片、链接及锚点保持原样，不运行文档命令、不处理真实文件，也不声称已验证编辑器实际快捷键。",
+    "source_sha256": "147ef5b594b35a71571e480e3441d4726120d378996892d817ff805fbeaf57ce"
+  },
+  {
+    "id": "edit-image-end-y-draw-position-context",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.editimage.md",
+    "original_sentence": "* **End Position Y**: Enter the y axis position (vertical) to start drawing at.",
+    "translated_sentence": "* **End Position Y**（终点 Y 坐标）：输入结束绘制的位置，沿 y 轴（垂直方向）。",
+    "evidence": "Draw 的 End Position Y 描述误写开始绘制的位置；相邻 End Position X 明确为结束绘制，且已有独立 Start Position Y。译文明确此字段为结束绘制的垂直坐标，不交换 X/Y 方向。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.editimage.md"
+    ],
+    "scope": "仅修正可见名称笔误、坐标语境或有明确依据的旋转说明；原始快照、代码、图片、链接及锚点保持原样，不运行文档命令、不处理真实文件，也不声称已验证编辑器实际快捷键。",
+    "source_sha256": "199895e3e772817c91dc8b930b81e890ed3d1082ec123858c6cb9251e97e57ac"
+  },
+  {
+    "id": "edit-image-rotation-negative-bound-spelling",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.editimage.md",
+    "original_sentence": "* **Rotate**: Enter the number of degrees to rotate the image, from --360 to 360.",
+    "translated_sentence": "* **Rotate**（旋转）：输入旋转角度，范围为 -360 到 360 度。",
+    "evidence": "旋转角度范围的负端原文写作 --360，存在重复减号。译文按该上下文保留负向到正向的范围，修正为 -360 到 360，不增加新角度限制或改变旋转方向。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.editimage.md"
+    ],
+    "scope": "仅修正可见名称笔误、坐标语境或有明确依据的旋转说明；原始快照、代码、图片、链接及锚点保持原样，不运行文档命令、不处理真实文件，也不声称已验证编辑器实际快捷键。",
+    "source_sha256": "199895e3e772817c91dc8b930b81e890ed3d1082ec123858c6cb9251e97e57ac"
+  },
+  {
+    "id": "edit-image-rotation-background-non-right-angle",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.editimage.md",
+    "original_sentence": "* **Background Color**: Set the background color for the image. You can either enter a hex or select the color swatch to open a color picker. This color is used to fill in the empty background whenever the image is rotated by multiples of 90 degrees. If multipled of 90 degrees are used for the **Rotate** field, the background color isn't used.",
+    "translated_sentence": "* **Background Color**（背景色）：输入十六进制颜色值，或选择色块打开颜色选择器。当图片以非 90 度整数倍的角度旋转时，此颜色用于填充产生的空白区域。若 **Rotate**（旋转）为 90 度的整数倍，则不使用此背景色。",
+    "evidence": "背景色段前句称 90 度整数倍旋转时填充空白，后句又称这些角度不使用背景色，前后矛盾。GraphicsMagick 的 MagickRotateImage 文档说明背景色用于旋转后剩余的空白三角区；直角整数倍旋转不产生此类区域。译文将前句明确为非 90 度整数倍，保留后句边界与字段关系。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.editimage.md",
+      "https://graphicsmagick.sourceforge.io/wand/magick_wand.html#magickrotateimage"
+    ],
+    "scope": "仅修正可见名称笔误、坐标语境或有明确依据的旋转说明；原始快照、代码、图片、链接及锚点保持原样，不运行文档命令、不处理真实文件，也不声称已验证编辑器实际快捷键。",
+    "source_sha256": "199895e3e772817c91dc8b930b81e890ed3d1082ec123858c6cb9251e97e57ac"
+  },
+  {
+    "id": "xml-merge-ignore-attributes-option-name",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.xml.md",
+    "original_sentence": "- **Merge Attributes**: Set whether to merge attributes and child elements as properties of the parent (turned on) or key attributes off a child attribute object (turned off). This option is ignored if **Ignore Attribute** is turned on.",
+    "translated_sentence": "- **Merge Attributes**（合并属性）：开启时将属性与子元素一起合并为父节点的属性；关闭时，将 XML 属性放在单独的子属性对象中。开启 **Ignore Attributes**（忽略属性）时，此选项被忽略。",
+    "evidence": "Merge Attributes 的条件误写 Ignore Attribute，而同页实际选项标签为 Ignore Attributes。只统一该条件中的界面字段名称，保留开启忽略属性时合并选项被忽略的语义。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.xml.md"
+    ],
+    "scope": "仅修正可见名称笔误、坐标语境或有明确依据的旋转说明；原始快照、代码、图片、链接及锚点保持原样，不运行文档命令、不处理真实文件，也不声称已验证编辑器实际快捷键。",
+    "source_sha256": "650b04cded9a146161265e25c786584227dc3c3466d564869a4c3853c0166fab"
   }
 ]

@@ -1,192 +1,190 @@
 ---
-title: Convert to File
-description: >-
-  Documentation for the Convert to File node in n8n, a workflow automation
-  platform. Includes guidance on usage, and links to examples.
+title: Convert to File（转换为文件）
+description: 了解 n8n 工作流自动化平台中的 Convert to File 节点，包括用法说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Convert to File
+nodeTitle: Convert to File（转换为文件）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.converttofile.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.converttofile
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.converttofile
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.converttofile
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.converttofile
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Convert to File <a href="#convert-to-file" id="convert-to-file"></a>
 
-Use the Convert to File node to take input data and output it as a file. This converts the input JSON data into a binary format.
+# Convert to File（转换为文件） <a href="#convert-to-file" id="convert-to-file"></a>
+
+使用 Convert to File 节点，将输入数据输出为文件。此节点会将输入的 JSON 数据转换为二进制格式。
 
 {% hint style="info" %}
-**Extract From File**
+**Extract From File（从文件提取）**
 
-To extract data from a file and convert it to JSON, use the [Extract from File](n8n-nodes-base.extractfromfile.md) node.
+要从文件提取数据并转换为 JSON，请使用 [Extract from File](n8n-nodes-base.extractfromfile.md) 节点。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* [**Convert to CSV**](#convert-to-csv)
-* [**Convert to HTML**](#convert-to-html)
-* [**Convert to ICS**](#convert-to-ics)
-* [**Convert to JSON**](#convert-to-json)
-* [**Convert to ODS**](#convert-to-ods)
-* [**Convert to RTF**](#convert-to-rtf)
-* [**Convert to Text File**](#convert-to-text-file)
-* [**Convert to XLS**](#convert-to-xls)
-* [**Convert to XLSX**](#convert-to-xlsx)
-* [**Move Base64 String to File**](#move-base64-string-to-file)
+* [**Convert to CSV**](#convert-to-csv)（转换为 CSV）
+* [**Convert to HTML**](#convert-to-html)（转换为 HTML）
+* [**Convert to ICS**](#convert-to-ics)（转换为 ICS）
+* [**Convert to JSON**](#convert-to-json)（转换为 JSON）
+* [**Convert to ODS**](#convert-to-ods)（转换为 ODS）
+* [**Convert to RTF**](#convert-to-rtf)（转换为 RTF）
+* [**Convert to Text File**](#convert-to-text-file)（转换为文本文件）
+* [**Convert to XLS**](#convert-to-xls)（转换为 XLS）
+* [**Convert to XLSX**](#convert-to-xlsx)（转换为 XLSX）
+* [**Move Base64 String to File**](#move-base64-string-to-file)（将 Base64 字符串转为文件）
 
-Node parameters and options depend on the operation you select.
+节点参数和选项取决于所选操作。
 
-### Convert to CSV <a href="#convert-to-csv" id="convert-to-csv"></a>
+### Convert to CSV（转换为 CSV） <a href="#convert-to-csv" id="convert-to-csv"></a>
 
-Configure the node for this operation with the **Put Output File in Field** parameter. Enter the name of the field in the output data to contain the file.
+通过 **Put Output File in Field**（输出文件字段）参数配置此操作，填写输出数据中用于存放文件的字段名称。
 
-#### Convert to CSV options <a href="#convert-to-csv-options" id="convert-to-csv-options"></a>
+#### Convert to CSV 选项 <a href="#convert-to-csv-options" id="convert-to-csv-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* If the first row of the file contains header names, turn on the **Header Row** option.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* 如果文件首行包含表头名称，开启 **Header Row**（表头行）选项。
 
-### Convert to HTML <a href="#convert-to-html" id="convert-to-html"></a>
+### Convert to HTML（转换为 HTML） <a href="#convert-to-html" id="convert-to-html"></a>
 
-Configure the node for this operation with the **Put Output File in Field** parameter. Enter the name of the field in the output data to contain the file.
+通过 **Put Output File in Field**（输出文件字段）参数配置此操作，填写输出数据中用于存放文件的字段名称。
 
-#### Convert to HTML options <a href="#convert-to-html-options" id="convert-to-html-options"></a>
+#### Convert to HTML 选项 <a href="#convert-to-html-options" id="convert-to-html-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* If the first row of the file contains header names, turn on the **Header Row** option.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* 如果文件首行包含表头名称，开启 **Header Row**（表头行）选项。
 
-### Convert to ICS <a href="#convert-to-ics" id="convert-to-ics"></a>
+### Convert to ICS（转换为 ICS） <a href="#convert-to-ics" id="convert-to-ics"></a>
 
-* **Put Output File in Field**. Enter the name of the field in the output data to contain the file.
-* **Event Title**: Enter the title for the event.
-* **Start**: Enter the date and time the event will start. All-day events ignore the time.
-* **End**: Enter the date and time the event will end. All-day events ignore the time. If unset, the node uses the start date.
-* **All Day**: Select whether the event is an all day event (turned on) or not (turned off).
+* **Put Output File in Field**（输出文件字段）：输入输出数据中用于存放文件的字段名称。
+* **Event Title**（事件标题）：输入事件标题。
+* **Start**（开始）：输入事件开始的日期和时间。全天事件忽略时间部分。
+* **End**（结束）：输入事件结束的日期和时间。全天事件忽略时间部分；未设置时，节点使用开始日期。
+* **All Day**（全天）：开启时设为全天事件，关闭时不设为全天事件。
 
-#### Convert to ICS options <a href="#convert-to-ics-options" id="convert-to-ics-options"></a>
+#### Convert to ICS 选项 <a href="#convert-to-ics-options" id="convert-to-ics-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* **Attendees**: Use this option to add attendees to the event. For each attendee, add:
-	* **Name**
-	* **Email**
-	* **RSVP**: Select whether the attendee needs to confirm attendance (turned on) or doesn't (turned off).
-* **Busy Status**: Use this option to set the busy status for Microsoft applications like Outlook. Choose from:
-	* **Busy**
-	* **Tentative**
-* **Calendar Name**: For Apple and Microsoft calendars, enter the [calendar name](https://learn.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcical/1da58449-b97e-46bd-b018-a1ce576f3e6d) for the event.
-*  **Description**: Enter an event description.
-* **Geolocation**: Enter the **Latitude** and **Longitude** for the event's location.
-* **Location**: Enter the event's intended venue/location.
-* **Recurrence Rule**: Enter a rule to define the repeat pattern of the event (RRULE). Generate rules using the [iCalendar.org RRULE Tool](https://icalendar.org/rrule-tool.html).
-* **Organizer**: Enter the organizer's **Name** and **Email**.
-* **Sequence**: If you're sending an update for an event with the same universally unique ID (UID), enter the revision sequence number.
-* **Status**: Set the status of the event. Choose from:
-	* **Confirmed**
-	* **Cancelled**
-	* **Tentative**
-* **UID**: Enter a universally unique ID (UID) for the event. The UID should be globally unique. The node automatically generates a UID if you don't enter one.
-* **URL**: Enter a URL associated with the event.
-* **Use Workflow Timezone**: Whether to use UTC time zone (turned off) or the workflow's timezone (turned on). Set the workflow's timezone in the [Workflow Settings](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/configure-workflow-settings).
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* **Attendees**（参与者）：使用此选项为事件添加参与者。为每位参与者填写：
+    * **Name**（姓名）
+    * **Email**（电子邮箱）
+    * **RSVP**（确认出席）：开启时要求参与者确认出席，关闭时不要求确认。
+* **Busy Status**（忙闲状态）：为 Outlook 等 Microsoft 应用设置忙闲状态，可选：
+    * **Busy**（忙碌）
+    * **Tentative**（暂定）
+* **Calendar Name**（日历名称）：对于 Apple 和 Microsoft 日历，输入事件的[日历名称](https://learn.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcical/1da58449-b97e-46bd-b018-a1ce576f3e6d)。
+* **Description**（描述）：输入事件描述。
+* **Geolocation**（地理位置）：输入事件地点的 **Latitude**（纬度）和 **Longitude**（经度）。
+* **Location**（地点）：输入计划举办事件的场所或位置。
+* **Recurrence Rule**（重复规则）：输入定义事件重复模式的规则（RRULE）。可使用 [iCalendar.org RRULE 工具](https://icalendar.org/rrule-tool.html)生成规则。
+* **Organizer**（组织者）：输入组织者的 **Name**（姓名）和 **Email**（电子邮箱）。
+* **Sequence**（修订序号）：如果要发送具有相同通用唯一标识符（UID）的事件更新，输入修订序号。
+* **Status**（状态）：设置事件状态，可选：
+    * **Confirmed**（已确认）
+    * **Cancelled**（已取消）
+    * **Tentative**（暂定）
+* **UID**：输入事件的通用唯一标识符（UID），应在全局范围内唯一。未填写时，节点会自动生成 UID。
+* **URL**：输入与事件相关的 URL。
+* **Use Workflow Timezone**（使用工作流时区）：关闭时使用 UTC 时区，开启时使用工作流时区。可在[工作流设置](../../../build/manage-workflows/configure-workflow-settings.md)中配置工作流时区。
 
-### Convert to JSON <a href="#convert-to-json" id="convert-to-json"></a>
+### Convert to JSON（转换为 JSON） <a href="#convert-to-json" id="convert-to-json"></a>
 
-Choose the best output **Mode** for your needs from these options:
+根据需求选择合适的输出 **Mode**（模式）：
 
-* **All Items to One File**: Send all input items to a single file.
-* **Each Item to Separate File**: Create a file for every input item.
+* **All Items to One File**（所有数据项合并为一个文件）：将所有输入数据项写入同一个文件。
+* **Each Item to Separate File**（每个数据项单独生成文件）：为每个输入数据项创建一个文件。
 
-#### Convert to JSON options <a href="#convert-to-json-options" id="convert-to-json-options"></a>
+#### Convert to JSON 选项 <a href="#convert-to-json-options" id="convert-to-json-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* **Format**: Choose whether to format the JSON for easier reading (turned on) or not (turned off).
-* **Encoding**: Choose the character set to use to encode the data. The default is **utf8**.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* **Format**（格式化）：开启时格式化 JSON，使其更易读；关闭时不格式化。
+* **Encoding**（编码）：选择数据编码使用的字符集，默认值为 **utf8**。
 
-### Convert to ODS <a href="#convert-to-ods" id="convert-to-ods"></a>
+### Convert to ODS（转换为 ODS） <a href="#convert-to-ods" id="convert-to-ods"></a>
 
-Configure the node for this operation with the **Put Output File in Field** parameter. Enter the name of the field in the output data to contain the file.
+通过 **Put Output File in Field**（输出文件字段）参数配置此操作，填写输出数据中用于存放文件的字段名称。
 
-#### Convert to ODS options <a href="#convert-to-ods-options" id="convert-to-ods-options"></a>
+#### Convert to ODS 选项 <a href="#convert-to-ods-options" id="convert-to-ods-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* **Compression**: Choose whether to compress and reduce the file's output size.
-* **Header Row**: Turn on if the first row of the file contains header names.
-* **Sheet Name**: Enter the Sheet Name to create in the spreadsheet.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* **Compression**（压缩）：选择是否压缩文件，以减小输出文件大小。
+* **Header Row**（表头行）：如果文件首行包含表头名称，开启此选项。
+* **Sheet Name**（工作表名称）：输入要在电子表格中创建的工作表名称。
 
-### Convert to RTF <a href="#convert-to-rtf" id="convert-to-rtf"></a>
+### Convert to RTF（转换为 RTF） <a href="#convert-to-rtf" id="convert-to-rtf"></a>
 
-Configure the node for this operation with the **Put Output File in Field** parameter. Enter the name of the field in the output data to contain the file.
+通过 **Put Output File in Field**（输出文件字段）参数配置此操作，填写输出数据中用于存放文件的字段名称。
 
-#### Convert to RFT options <a href="#convert-to-rft-options" id="convert-to-rft-options"></a>
+#### Convert to RTF 选项 <a href="#convert-to-rft-options" id="convert-to-rft-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* If the first row of the file contains header names, turn on the **Header Row** option.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* 如果文件首行包含表头名称，开启 **Header Row**（表头行）选项。
 
-### Convert to Text File <a href="#convert-to-text-file" id="convert-to-text-file"></a>
+### Convert to Text File（转换为文本文件） <a href="#convert-to-text-file" id="convert-to-text-file"></a>
 
-Enter the name of the **Text Input Field** that contains a string to convert to a file. Use dot-notation for deep fields, for example `level1.level2.currentKey`.
+输入 **Text Input Field**（文本输入字段）的名称，该字段包含要转换为文件的字符串。嵌套字段可使用点表示法，例如 `level1.level2.currentKey`。
 
-#### Convert to Text File options <a href="#convert-to-text-file-options" id="convert-to-text-file-options"></a>
+#### Convert to Text File 选项 <a href="#convert-to-text-file-options" id="convert-to-text-file-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* **Encoding**: Choose the character set to use to encode the data. The default is **utf8**.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* **Encoding**（编码）：选择数据编码使用的字符集，默认值为 **utf8**。
 
-### Convert to XLS <a href="#convert-to-xls" id="convert-to-xls"></a>
+### Convert to XLS（转换为 XLS） <a href="#convert-to-xls" id="convert-to-xls"></a>
 
-Configure the node for this operation with the **Put Output File in Field** parameter. Enter the name of the field in the output data to contain the file.
+通过 **Put Output File in Field**（输出文件字段）参数配置此操作，填写输出数据中用于存放文件的字段名称。
 
-#### Convert to XLS options <a href="#convert-to-xls-options" id="convert-to-xls-options"></a>
+#### Convert to XLS 选项 <a href="#convert-to-xls-options" id="convert-to-xls-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* **Header Row**: Turn on if the first row of the file contains header names.
-* **Sheet Name**: Enter the Sheet Name to create in the spreadsheet.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* **Header Row**（表头行）：如果文件首行包含表头名称，开启此选项。
+* **Sheet Name**（工作表名称）：输入要在电子表格中创建的工作表名称。
 
-### Convert to XLSX <a href="#convert-to-xlsx" id="convert-to-xlsx"></a>
+### Convert to XLSX（转换为 XLSX） <a href="#convert-to-xlsx" id="convert-to-xlsx"></a>
 
-Configure the node for this operation with the **Put Output File in Field** parameter. Enter the name of the field in the output data to contain the file.
+通过 **Put Output File in Field**（输出文件字段）参数配置此操作，填写输出数据中用于存放文件的字段名称。
 
-#### Convert to XLSX options <a href="#convert-to-xlsx-options" id="convert-to-xlsx-options"></a>
+#### Convert to XLSX 选项 <a href="#convert-to-xlsx-options" id="convert-to-xlsx-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* **Compression**: Choose whether to compress and reduce the file's output size.
-* **Header Row**: Turn on if the first row of the file contains header names.
-* **Sheet Name**: Enter the Sheet Name to create in the spreadsheet.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* **Compression**（压缩）：选择是否压缩文件，以减小输出文件大小。
+* **Header Row**（表头行）：如果文件首行包含表头名称，开启此选项。
+* **Sheet Name**（工作表名称）：输入要在电子表格中创建的工作表名称。
 
-### Move Base64 String to File <a href="#move-base64-string-to-file" id="move-base64-string-to-file"></a>
+### Move Base64 String to File（将 Base64 字符串转为文件） <a href="#move-base64-string-to-file" id="move-base64-string-to-file"></a>
 
-Enter the name of the **Base64 Input Field** that contains the Base64 string to convert to a file. Use dot-notation for deep fields, for example `level1.level2.currentKey`.
+输入 **Base64 Input Field**（Base64 输入字段）的名称，该字段包含要转换为文件的 Base64 字符串。嵌套字段可使用点表示法，例如 `level1.level2.currentKey`。
 
-#### Move Base64 String to File options <a href="#move-base64-string-to-file-options" id="move-base64-string-to-file-options"></a>
+#### Move Base64 String to File 选项 <a href="#move-base64-string-to-file-options" id="move-base64-string-to-file-options"></a>
 
-You can also configure this operation with these **Options**:
+也可以通过以下 **Options**（选项）配置此操作：
 
-* **File Name**: Enter the file name for the generated output file.
-* **MIME Type**: Enter the MIME type of the output file. Refer to [Common MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) for a list of common MIME types and the file extensions they relate to.
+* **File Name**（文件名称）：输入生成的输出文件的名称。
+* **MIME Type**（MIME 类型）：输入输出文件的 MIME 类型。常用 MIME 类型及对应的文件扩展名，请参阅[常见 MIME 类型](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Convert to File integration templates](https://n8n.io/integrations/convert-to-file) or [search all templates](https://n8n.io/workflows/)
+[浏览 Convert to File 集成模板](https://n8n.io/integrations/convert-to-file)，或[搜索所有模板](https://n8n.io/workflows/)

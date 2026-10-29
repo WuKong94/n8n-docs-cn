@@ -1,16 +1,14 @@
 ---
-title: Edit Image
+title: Edit Image（编辑图片）
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Edit Image
+nodeTitle: Edit Image（编辑图片）
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.editimage.md
 originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.editimage
 url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.editimage
-description: >-
-  Documentation for the Edit Image node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+description: 了解 n8n 工作流自动化平台中的 Edit Image 节点，包括用法说明和示例链接。
 layout:
   width: default
   title:
@@ -30,60 +28,62 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Edit Image
 
-Use the Edit Image node to manipulate and edit images.
+# Edit Image（编辑图片） <a id="edit-image"></a>
+
+使用 Edit Image 节点处理和编辑图片。
 
 {% hint style="info" %}
-**Dependencies**
+**依赖项**
 
-1. If you aren't running n8n on Docker, you need to install [GraphicsMagick](http://www.graphicsmagick.org/README.html).
-2. You need to use a node such as the [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md) node or the [HTTP Request](n8n-nodes-base.httprequest/README.md) node to pass the image file as a data property to the Edit Image node.
+1. 如果不是通过 Docker 运行 n8n，需要安装 [GraphicsMagick](http://www.graphicsmagick.org/README.html)。
+2. 需要使用 [Read/Write Files from Disk](n8n-nodes-base.readwritefile.md)（读写磁盘文件）或 [HTTP Request](n8n-nodes-base.httprequest/README.md)（HTTP 请求）等节点，将图片文件作为数据属性传入 Edit Image 节点。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Add a **Blur** to the image to reduce sharpness
-* Add a **Border** to the image
-* **Composite** an image on top of another image
-* **Create** a new image
-* **Crop** the image
-* **Draw** on an image
-* **Get Information** about the image
-* **Multi Step** perform multiple operations on the image
-* **Resize**: Change the size of the image
-* **Rotate** the image
-* **Shear** image along the X or Y axis
-* Add **Text** to the image
-* Make a color in image **Transparent**
+* **Blur**（模糊）：降低图片的清晰度。
+* **Border**（边框）：为图片添加边框。
+* **Composite**（合成）：将一张图片叠加到另一张图片上。
+* **Create**（创建）：创建新图片。
+* **Crop**（裁剪）：裁剪图片。
+* **Draw**（绘制）：在图片上绘图。
+* **Get Information**（获取信息）：获取图片信息。
+* **Multi Step**（多步骤）：对图片执行多个操作。
+* **Resize**（调整大小）：更改图片尺寸。
+* **Rotate**（旋转）：旋转图片。
+* **Shear**（错切）：沿 X 轴或 Y 轴对图片进行错切。
+* **Text**（文本）：在图片上添加文本。
+* **Transparent**（透明）：将图片中的某种颜色设为透明。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-The parameters for this node depend on the operation you select.
+此节点的参数取决于所选操作。
 
-### Blur parameters <a href="#blur-parameters" id="blur-parameters"></a>
+### Blur（模糊）参数 <a href="#blur-parameters" id="blur-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Blur**: Enter a number to set how strong the blur should be, between 0 and 1000. Higher numbers create blurrier images.
-* **Sigma**: Enter a number to set the stigma for the blur, between 0 and 1000. Higher numbers create blurrier images.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Blur**（模糊）：输入 0 到 1000 之间的数值，设置模糊强度。值越大，图片越模糊。
+* **Sigma**：输入 0 到 1000 之间的数值，设置模糊的 sigma 值。值越大，图片越模糊。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Border parameters <a href="#border-parameters" id="border-parameters"></a>
+### Border（边框）参数 <a href="#border-parameters" id="border-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Border Width**: Enter the width of the border.
-* **Border Height**: Enter the height of the border.
-* **Border Color**: Set the color for the border. You can either enter a hex or select the color swatch to open a color picker.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Border Width**（边框宽度）：输入边框宽度。
+* **Border Height**（边框高度）：输入边框高度。
+* **Border Color**（边框颜色）：输入十六进制颜色值，或选择色块打开颜色选择器。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Composite parameters <a href="#composite-parameters" id="composite-parameters"></a>
+### Composite（合成）参数 <a href="#composite-parameters" id="composite-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data. This image is your base image.
-* **Composite Image Property**: Enter the name of the binary property that stores image to composite on top of the **Property Name** image.
-* **Operator**: Select composite operator, which determines how the composite works. Options include:
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称，这张图片用作底图。
+* **Composite Image Property**（叠加图片属性）：输入存放叠加图片的二进制属性名称，该图片将叠加到 **Property Name**（属性名称）指定的图片上。
+* **Operator**（运算符）：选择决定合成方式的合成运算符，可选：
   * **Add**
   * **Atop**
   * **Bumpmap**
@@ -106,113 +106,113 @@ Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional c
   * **Plus**
   * **Subtract**
   * **Xor**
-* **Position X**: Enter the x axis position (horizontal) of the composite image.
-* **Position Y**: Enter the y axis position (vertical) of the composite image.
+* **Position X**（X 坐标）：输入叠加图片在 x 轴上的位置（水平方向）。
+* **Position Y**（Y 坐标）：输入叠加图片在 y 轴上的位置（垂直方向）。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Create parameters <a href="#create-parameters" id="create-parameters"></a>
+### Create（创建）参数 <a href="#create-parameters" id="create-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Background Color**: Set the background color for the image. You can either enter a hex or select the color swatch to open a color picker.
-* **Image Width**: Enter the width of the image.
-* **Image Height**: Enter the height of the image.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Background Color**（背景色）：设置图片背景色。可以输入十六进制颜色值，或选择色块打开颜色选择器。
+* **Image Width**（图片宽度）：输入图片宽度。
+* **Image Height**（图片高度）：输入图片高度。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Crop parameters <a href="#crop-parameters" id="crop-parameters"></a>
+### Crop（裁剪）参数 <a href="#crop-parameters" id="crop-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Width**: Enter the width you'd like to crop to.
-* **Height**: Enter the height you'd like to crop to.
-* **Position X**: Enter the x axis position (horizontal) to start the crop from.
-* **Position Y**: Enter the y axis position (vertical) to start the crop from.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Width**（宽度）：输入裁剪后的目标宽度。
+* **Height**（高度）：输入裁剪后的目标高度。
+* **Position X**（X 坐标）：输入裁剪起点在 x 轴上的位置（水平方向）。
+* **Position Y**（Y 坐标）：输入裁剪起点在 y 轴上的位置（垂直方向）。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Draw parameters <a href="#draw-parameters" id="draw-parameters"></a>
+### Draw（绘制）参数 <a href="#draw-parameters" id="draw-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Primitive**: Select the primitive shape to draw. Choose from:
-  * **Circle**
-  * **Line**
-  * **Rectangle**
-* **Color**: Set the color for the primitive. You can either enter a hex or select the color swatch to open a color picker.
-* **Start Position X**: Enter the x axis position (horizontal) to start drawing from.
-* **Start Position Y**: Enter the y axis position (vertical) to start drawing from.
-* **End Position X**: Enter the x axis position (horizontal) to stop drawing at.
-* **End Position Y**: Enter the y axis position (vertical) to start drawing at.
-* **Corner Radius**: Enter a number to set the corner radius. Adding a corner radius will round the corners of the drawn primitive.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Primitive**（图形）：选择要绘制的基本图形，可选：
+  * **Circle**（圆）
+  * **Line**（线）
+  * **Rectangle**（矩形）
+* **Color**（颜色）：设置图形颜色。可以输入十六进制颜色值，或选择色块打开颜色选择器。
+* **Start Position X**（起点 X 坐标）：输入开始绘制的位置，沿 x 轴（水平方向）。
+* **Start Position Y**（起点 Y 坐标）：输入开始绘制的位置，沿 y 轴（垂直方向）。
+* **End Position X**（终点 X 坐标）：输入结束绘制的位置，沿 x 轴（水平方向）。
+* **End Position Y**（终点 Y 坐标）：输入结束绘制的位置，沿 y 轴（垂直方向）。
+* **Corner Radius**（圆角半径）：输入圆角半径数值。设置后，绘制的图形将具有圆角。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Get Information parameters <a href="#get-information-parameters" id="get-information-parameters"></a>
+### Get Information（获取信息）参数 <a href="#get-information-parameters" id="get-information-parameters"></a>
 
-For this operation, you only need to add the **Property Name** of the binary property that stores the image data.
+此操作只需填写存放图片数据的二进制属性的 **Property Name**（属性名称）。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Multi Step parameters <a href="#multi-step-parameters" id="multi-step-parameters"></a>
+### Multi Step（多步骤）参数 <a href="#multi-step-parameters" id="multi-step-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Operations**: Add the operations you want the multi step operation to perform. You can use any of the other operations.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Operations**（操作）：添加多步骤操作中要执行的操作，可使用其他任意操作。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Resize parameters <a href="#resize-parameters" id="resize-parameters"></a>
+### Resize（调整大小）参数 <a href="#resize-parameters" id="resize-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Width**: Enter the new width you'd like for the image.
-* **Height**: Enter the new height you'd like for the image.
-* **Option**: Select how you'd like to resize the image. Choose from:
-  * **Ignore Aspect Ratio**: Ignore the aspect ratio and resize to the exact height and width you've entered.
-  * **Maximum Area**: The height and width you've entered is the maximum area/size for the image. The image maintains its aspect ratio and won't be larger than the height and/or width you've entered.
-  * **Minimum Area**: The height and width you've entered is the minimum area/size for the image. The image maintains its aspect ratio and won't be smaller than the height and/or width you've entered.
-  * **Only if Larger**: Resize the image only if it's larger than the width and height you entered. The image maintains its aspect ratio.
-  * **Only if Smaller**: Resize the image only if it's smaller than the width and height you entered. The image maintains its aspect ratio.
-  * **Percent**: Resize the image using the width and height as percentages of the original image.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Width**（宽度）：输入图片的新宽度。
+* **Height**（高度）：输入图片的新高度。
+* **Option**（选项）：选择调整图片大小的方式，可选：
+  * **Ignore Aspect Ratio**（忽略宽高比）：忽略原始宽高比，精确调整到输入的高度和宽度。
+  * **Maximum Area**（最大区域）：输入的高度和宽度是图片允许的最大尺寸。保持图片宽高比，且不超过输入的高度和／或宽度。
+  * **Minimum Area**（最小区域）：输入的高度和宽度是图片要求的最小尺寸。保持图片宽高比，且不小于输入的高度和／或宽度。
+  * **Only if Larger**（仅当原图较大时）：仅在图片大于输入宽度和高度时调整大小，并保持宽高比。
+  * **Only if Smaller**（仅当原图较小时）：仅在图片小于输入宽度和高度时调整大小，并保持宽高比。
+  * **Percent**（百分比）：将宽度和高度视为原图尺寸的百分比来调整大小。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Rotate parameters <a href="#rotate-parameters" id="rotate-parameters"></a>
+### Rotate（旋转）参数 <a href="#rotate-parameters" id="rotate-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Rotate**: Enter the number of degrees to rotate the image, from --360 to 360.
-* **Background Color**: Set the background color for the image. You can either enter a hex or select the color swatch to open a color picker. This color is used to fill in the empty background whenever the image is rotated by multiples of 90 degrees. If multipled of 90 degrees are used for the **Rotate** field, the background color isn't used.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Rotate**（旋转）：输入旋转角度，范围为 -360 到 360 度。
+* **Background Color**（背景色）：输入十六进制颜色值，或选择色块打开颜色选择器。当图片以非 90 度整数倍的角度旋转时，此颜色用于填充产生的空白区域。若 **Rotate**（旋转）为 90 度的整数倍，则不使用此背景色。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Shear parameters <a href="#shear-parameters" id="shear-parameters"></a>
+### Shear（错切）参数 <a href="#shear-parameters" id="shear-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Degrees X**: Enter the number of degrees to shear from the x axis.
-* **Degrees Y**: Enter the number of degrees to shear from the y axis.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Degrees X**（X 轴角度）：输入沿 x 轴错切的角度。
+* **Degrees Y**（Y 轴角度）：输入沿 y 轴错切的角度。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Text parameters <a href="#text-parameters" id="text-parameters"></a>
+### Text（文本）参数 <a href="#text-parameters" id="text-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Text**: Enter the text you'd like to write on the image.
-* **Font Size**: Select the font size for the text.
-* **Font Color**: Set the font color. You can either enter a hex or select the color swatch to open a color picker.
-* **Position X**: Enter the x axis position (horizontal) to begin the text at.
-* **Position Y**: Enter the y axis position (vertical) to begin the text at.
-* **Max Line Length**: Enter the maximum amount of characters in a line before adding a line break.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Text**（文本）：输入要写在图片上的文本。
+* **Font Size**（字号）：选择文本字号。
+* **Font Color**（字体颜色）：输入十六进制颜色值，或选择色块打开颜色选择器。
+* **Position X**（X 坐标）：输入文本起点在 x 轴上的位置（水平方向）。
+* **Position Y**（Y 坐标）：输入文本起点在 y 轴上的位置（垂直方向）。
+* **Max Line Length**（最大行长度）：输入每行在换行之前允许的最大字符数。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-### Transparent parameters <a href="#transparent-parameters" id="transparent-parameters"></a>
+### Transparent（透明）参数 <a href="#transparent-parameters" id="transparent-parameters"></a>
 
-* **Property Name**: Enter the name of the binary property that stores the image data.
-* **Color**: Set the color to make transparent. You can either enter a hex or select the color swatch to open a color picker.
+* **Property Name**（属性名称）：输入存放图片数据的二进制属性名称。
+* **Color**（颜色）：设置要变为透明的颜色。可以输入十六进制颜色值，或选择色块打开颜色选择器。
 
-Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional configuration options.
+可选配置请参阅[节点选项](n8n-nodes-base.editimage.md#node-options)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **File Name**: Enter the filename of the output file.
-* **Format**: Enter the image format of the output file. Choose from:
+* **File Name**（文件名称）：输入输出文件的名称。
+* **Format**（格式）：输入输出文件的图片格式，可选：
   * **bmp**
   * **gif**
   * **jpeg**
@@ -220,8 +220,8 @@ Refer to [Node options](n8n-nodes-base.editimage.md#node-options) for optional c
   * **tiff**
   * **WebP**
 
-The **Text** operation also includes the option for **Font Name or ID**. Select the text font from the dropdown or specify an ID using an [expression](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes).
+**Text**（文本）操作还包含 **Font Name or ID**（字体名称或 ID）选项。可从下拉列表选择字体，或通过[表达式](../../../build/work-with-data/expressions-versus-data-nodes.md)指定 ID。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Edit Image integration templates](https://n8n.io/integrations/edit-image) or [search all templates](https://n8n.io/workflows/)
+[浏览 Edit Image 集成模板](https://n8n.io/integrations/edit-image)，或[搜索所有模板](https://n8n.io/workflows/)

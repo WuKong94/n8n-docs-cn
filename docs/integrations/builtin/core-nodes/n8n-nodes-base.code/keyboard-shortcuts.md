@@ -1,352 +1,350 @@
 ---
 contentType: reference
-title: Code editor keyboard shortcuts
-description: >-
-  A list of the keyboard shortcuts, for multiple platforms, which are supported
-  by the Code node editor.
+title: Code 编辑器键盘快捷键
+description: Code 节点编辑器在不同操作系统上支持的键盘快捷键列表。
 priority: high
-nodeTitle: Code editor keyboard shortcuts
+nodeTitle: Code 编辑器键盘快捷键
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Keyboard shortcuts when using the Code editor <a href="#keyboard-shortcuts-when-using-the-code-editor" id="keyboard-shortcuts-when-using-the-code-editor"></a>
 
-The Code node editing environment supports a range of keyboard shortcuts to speed up and enhance your experience. Select the appropriate tab to see the relevant shortcuts for your operating system.
+# Code 编辑器键盘快捷键 <a href="#keyboard-shortcuts-when-using-the-code-editor" id="keyboard-shortcuts-when-using-the-code-editor"></a>
 
-## Cursor Movement <a href="#cursor-movement" id="cursor-movement"></a>
+Code 节点的编辑环境支持多种键盘快捷键，可加快操作并改善使用体验。选择与你的操作系统对应的标签页，查看相关快捷键。
+
+## 光标移动 <a href="#cursor-movement" id="cursor-movement"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-<table><thead><tr><th width="349">Action</th><th>Shortcut</th></tr></thead><tbody><tr><td>Move cursor left</td><td><kbd>← Left</kbd></td></tr><tr><td>Move cursor right</td><td><kbd>→ Right</kbd></td></tr><tr><td>Move cursor up</td><td><kbd>↑ Up</kbd></td></tr><tr><td>Move cursor down</td><td><kbd>↓ Down</kbd></td></tr><tr><td>Move cursor by word left</td><td><kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>Move cursor by word right</td><td><kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>Move to line start</td><td><kbd>⤒ Home</kbd> <strong>or</strong> <kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>Move to line end</td><td><kbd>⤓ End</kbd> <strong>or</strong> <kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>Move to document start</td><td><kbd>^ Ctrl</kbd> <strong>or</strong> <kbd>⤒ Home</kbd> </td></tr><tr><td>Move to document end</td><td><kbd>^ Ctrl</kbd> <strong>or</strong>  <kbd>⤓ End</kbd> </td></tr><tr><td>Move page up</td><td><kbd>⇞ Page Up</kbd></td></tr><tr><td>Move page down</td><td><kbd>⇟ Page Down</kbd></td></tr></tbody></table>
+<table><thead><tr><th width="349">操作</th><th>快捷键</th></tr></thead><tbody><tr><td>向左移动光标</td><td><kbd>← Left</kbd></td></tr><tr><td>向右移动光标</td><td><kbd>→ Right</kbd></td></tr><tr><td>向上移动光标</td><td><kbd>↑ Up</kbd></td></tr><tr><td>向下移动光标</td><td><kbd>↓ Down</kbd></td></tr><tr><td>按单词向左移动光标</td><td><kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>按单词向右移动光标</td><td><kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>移动到行首</td><td><kbd>⤒ Home</kbd> <strong>或</strong> <kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>移动到行尾</td><td><kbd>⤓ End</kbd> <strong>或</strong> <kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>移动到文档开头</td><td><kbd>^ Ctrl</kbd> <strong>或</strong> <kbd>⤒ Home</kbd> </td></tr><tr><td>移动到文档末尾</td><td><kbd>^ Ctrl</kbd> <strong>或</strong>  <kbd>⤓ End</kbd> </td></tr><tr><td>向上移动一页</td><td><kbd>⇞ Page Up</kbd></td></tr><tr><td>向下移动一页</td><td><kbd>⇟ Page Down</kbd></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action                    | Shortcut                                                                       |
+| 操作 | 快捷键 |
 | ------------------------- | ------------------------------------------------------------------------------ |
-| Move cursor left          | <kbd>← Left</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>B</kbd>                      |
-| Move cursor right         | <kbd>→ Right</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>F</kbd>                     |
-| Move cursor up            | <kbd>↑ Up</kbd>  **or** <kbd>^ Ctrl</kbd> + <kbd>P</kbd>                       |
-| Move cursor down          | <kbd>↓ Down</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>N</kbd>                      |
-| Move cursor by word left  | <kbd>⌥ Option</kbd> + <kbd>← Left</kbd>                                        |
-| Move cursor by word right | <kbd>⌥ Option</kbd> + <kbd>→ Right</kbd>                                       |
-| Move to line start        | <kbd>⌘ Cmd</kbd> +  <kbd>← Left</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>A</kbd>  |
-| Move to line end          | <kbd>⌘ Cmd</kbd> +  <kbd>→ Right</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>E</kbd> |
-| Move to document start    | <kbd>⌘ Cmd</kbd> + <kbd>↑ Up</kbd>                                             |
-| Move to document end      | <kbd>⌘ Cmd</kbd> + <kbd>↓ Down</kbd>                                           |
-| Move page up              | <kbd>⇞ Page Up</kbd>                                                           |
-| Move page down            | <kbd>⇟ Page Down</kbd>                                                         |
+| 向左移动光标 | <kbd>← Left</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>B</kbd> |
+| 向右移动光标 | <kbd>→ Right</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>F</kbd> |
+| 向上移动光标 | <kbd>↑ Up</kbd>  **或** <kbd>^ Ctrl</kbd> + <kbd>P</kbd> |
+| 向下移动光标 | <kbd>↓ Down</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>N</kbd> |
+| 按单词向左移动光标 | <kbd>⌥ Option</kbd> + <kbd>← Left</kbd> |
+| 按单词向右移动光标 | <kbd>⌥ Option</kbd> + <kbd>→ Right</kbd> |
+| 移动到行首 | <kbd>⌘ Cmd</kbd> +  <kbd>← Left</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>A</kbd> |
+| 移动到行尾 | <kbd>⌘ Cmd</kbd> +  <kbd>→ Right</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>E</kbd> |
+| 移动到文档开头 | <kbd>⌘ Cmd</kbd> + <kbd>↑ Up</kbd> |
+| 移动到文档末尾 | <kbd>⌘ Cmd</kbd> + <kbd>↓ Down</kbd> |
+| 向上移动一页 | <kbd>⇞ Page Up</kbd> |
+| 向下移动一页 | <kbd>⇟ Page Down</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-<table><thead><tr><th width="349">Action</th><th>Shortcut</th></tr></thead><tbody><tr><td>Move cursor left</td><td><kbd>← Left</kbd></td></tr><tr><td>Move cursor right</td><td><kbd>→ Right</kbd></td></tr><tr><td>Move cursor up</td><td><kbd>↑ Up</kbd> </td></tr><tr><td>Move cursor down</td><td><kbd>↓ Down</kbd></td></tr><tr><td>Move cursor by word left</td><td><kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>Move cursor by word right</td><td><kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>Move to line start</td><td><kbd>⤒ Home</kbd> <strong>or</strong> <kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>Move to line end</td><td><kbd>⤓ End</kbd> <strong>or</strong> <kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>Move to document start</td><td><kbd>^ Ctrl</kbd> <strong>or</strong> <kbd>⤒ Home</kbd> </td></tr><tr><td>Move to document end</td><td><kbd>^ Ctrl</kbd> <strong>or</strong>  <kbd>⤓ End</kbd> </td></tr><tr><td>Move page up</td><td><kbd>⇞ Page Up</kbd></td></tr><tr><td>Move page down</td><td><kbd>⇟ Page Down</kbd></td></tr></tbody></table>
+<table><thead><tr><th width="349">操作</th><th>快捷键</th></tr></thead><tbody><tr><td>向左移动光标</td><td><kbd>← Left</kbd></td></tr><tr><td>向右移动光标</td><td><kbd>→ Right</kbd></td></tr><tr><td>向上移动光标</td><td><kbd>↑ Up</kbd> </td></tr><tr><td>向下移动光标</td><td><kbd>↓ Down</kbd></td></tr><tr><td>按单词向左移动光标</td><td><kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>按单词向右移动光标</td><td><kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>移动到行首</td><td><kbd>⤒ Home</kbd> <strong>或</strong> <kbd>^ Ctrl</kbd> + <kbd>← Left</kbd></td></tr><tr><td>移动到行尾</td><td><kbd>⤓ End</kbd> <strong>或</strong> <kbd>^ Ctrl</kbd> + <kbd>→ Right</kbd></td></tr><tr><td>移动到文档开头</td><td><kbd>^ Ctrl</kbd> <strong>或</strong> <kbd>⤒ Home</kbd> </td></tr><tr><td>移动到文档末尾</td><td><kbd>^ Ctrl</kbd> <strong>或</strong>  <kbd>⤓ End</kbd> </td></tr><tr><td>向上移动一页</td><td><kbd>⇞ Page Up</kbd></td></tr><tr><td>向下移动一页</td><td><kbd>⇟ Page Down</kbd></td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
-## Selection <a href="#selection" id="selection"></a>
+## 选择文本 <a href="#selection" id="selection"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action                          | Shortcut                                               |
+| 操作 | 快捷键 |
 | ------------------------------- | ------------------------------------------------------ |
-| Selection with any movement key | <kbd>⇧ Shift</kbd> + \[Movement Key]                   |
-| Select all                      | <kbd>^ Ctrl</kbd> + <kbd>A</kbd>                       |
-| Select line                     | <kbd>^ Ctrl</kbd> + <kbd>L</kbd>                       |
-| Select next occurrence          | <kbd>^ Ctrl</kbd> + <kbd>D</kbd>                       |
-| Select all occurrences          | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>L</kbd>  |
-| Go to matching bracket          | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>\\</kbd> |
+| 配合任意移动键选择文本 | <kbd>⇧ Shift</kbd> + \[移动键] |
+| 全选 | <kbd>^ Ctrl</kbd> + <kbd>A</kbd> |
+| 选择整行 | <kbd>^ Ctrl</kbd> + <kbd>L</kbd> |
+| 选择下一个匹配项 | <kbd>^ Ctrl</kbd> + <kbd>D</kbd> |
+| 选择所有匹配项 | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>L</kbd> |
+| 跳转到配对括号 | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>\\</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action                          | Shortcut                                              |
+| 操作 | 快捷键 |
 | ------------------------------- | ----------------------------------------------------- |
-| Selection with any movement key | <kbd>⇧ Shift</kbd> + \[Movement Key]                  |
-| Select all                      | <kbd>⌘ Cmd</kbd> + <kbd>A</kbd>                       |
-| Select line                     | <kbd>⌘ Cmd</kbd> + <kbd>L</kbd>                       |
-| Select next occurrence          | <kbd>⌘ Cmd</kbd> + <kbd>D</kbd>                       |
-| Go to matching bracket          | <kbd>⇧ Shift</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>\\</kbd> |
+| 配合任意移动键选择文本 | <kbd>⇧ Shift</kbd> + \[移动键] |
+| 全选 | <kbd>⌘ Cmd</kbd> + <kbd>A</kbd> |
+| 选择整行 | <kbd>⌘ Cmd</kbd> + <kbd>L</kbd> |
+| 选择下一个匹配项 | <kbd>⌘ Cmd</kbd> + <kbd>D</kbd> |
+| 跳转到配对括号 | <kbd>⇧ Shift</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>\\</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action                          | Shortcut                                               |
+| 操作 | 快捷键 |
 | ------------------------------- | ------------------------------------------------------ |
-| Selection with any movement key | <kbd>⇧ Shift</kbd> + \[Movement Key]                   |
-| Select all                      | <kbd>^ Ctrl</kbd> + <kbd>A</kbd>                       |
-| Select line                     | <kbd>^ Ctrl</kbd> + <kbd>L</kbd>                       |
-| Select next occurrence          | <kbd>^ Ctrl</kbd> + <kbd>D</kbd>                       |
-| Select all occurrences          | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>L</kbd>  |
-| Go to matching bracket          | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>\\</kbd> |
+| 配合任意移动键选择文本 | <kbd>⇧ Shift</kbd> + \[移动键] |
+| 全选 | <kbd>^ Ctrl</kbd> + <kbd>A</kbd> |
+| 选择整行 | <kbd>^ Ctrl</kbd> + <kbd>L</kbd> |
+| 选择下一个匹配项 | <kbd>^ Ctrl</kbd> + <kbd>D</kbd> |
+| 选择所有匹配项 | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>L</kbd> |
+| 跳转到配对括号 | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>\\</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Basic Operations <a href="#basic-operations" id="basic-operations"></a>
+## 基本操作 <a href="#basic-operations" id="basic-operations"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action                    | Shortcut                                                                                      |
+| 操作 | 快捷键 |
 | ------------------------- | --------------------------------------------------------------------------------------------- |
-| New line with indentation | <kbd>Enter ⏎</kbd>                                                                            |
-| Undo                      | <kbd>^ Ctrl</kbd> + <kbd>Z</kbd>                                                              |
-| Redo                      | <kbd>^ Ctrl</kbd> + <kbd>Y</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>V</kbd> |
-| Undo selection            | <kbd>^ Ctrl</kbd> + <kbd>U</kbd>                                                              |
-| Copy                      | <kbd>^ Ctrl</kbd> + <kbd>C</kbd>                                                              |
-| Cut                       | <kbd>^ Ctrl</kbd> + <kbd>X</kbd>                                                              |
-| Paste                     | <kbd>^ Ctrl</kbd> + <kbd>V</kbd>                                                              |
+| 新建带缩进的行 | <kbd>Enter ⏎</kbd> |
+| 撤销 | <kbd>^ Ctrl</kbd> + <kbd>Z</kbd> |
+| 重做 | <kbd>^ Ctrl</kbd> + <kbd>Y</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>V</kbd> |
+| 撤销选择 | <kbd>^ Ctrl</kbd> + <kbd>U</kbd> |
+| 复制 | <kbd>^ Ctrl</kbd> + <kbd>C</kbd> |
+| 剪切 | <kbd>^ Ctrl</kbd> + <kbd>X</kbd> |
+| 粘贴 | <kbd>^ Ctrl</kbd> + <kbd>V</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action                    | Shortcut                                                                                     |
+| 操作 | 快捷键 |
 | ------------------------- | -------------------------------------------------------------------------------------------- |
-| New line with indentation | <kbd>Enter ⏎</kbd>                                                                           |
-| Undo                      | <kbd>⌘ Cmd</kbd> + <kbd>Z</kbd>                                                              |
-| Redo                      | <kbd>⌘ Cmd</kbd> + <kbd>Y</kbd> **or** <kbd>⌘ Cmd</kbd> + <kbd>⇧ Shift</kbd> +  <kbd>Y</kbd> |
-| Undo selection            | <kbd>⌘ Cmd</kbd> + <kbd>U</kbd>                                                              |
-| Copy                      | <kbd>⌘ Cmd</kbd> + <kbd>C</kbd>                                                              |
-| Cut                       | <kbd>⌘ Cmd</kbd> + <kbd>X</kbd>                                                              |
-| Paste                     | <kbd>⌘ Cmd</kbd> + <kbd>V</kbd>                                                              |
+| 新建带缩进的行 | <kbd>Enter ⏎</kbd> |
+| 撤销 | <kbd>⌘ Cmd</kbd> + <kbd>Z</kbd> |
+| 重做 | <kbd>⌘ Cmd</kbd> + <kbd>Y</kbd> **或** <kbd>⌘ Cmd</kbd> + <kbd>⇧ Shift</kbd> +  <kbd>Y</kbd> |
+| 撤销选择 | <kbd>⌘ Cmd</kbd> + <kbd>U</kbd> |
+| 复制 | <kbd>⌘ Cmd</kbd> + <kbd>C</kbd> |
+| 剪切 | <kbd>⌘ Cmd</kbd> + <kbd>X</kbd> |
+| 粘贴 | <kbd>⌘ Cmd</kbd> + <kbd>V</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action                    | Shortcut                                                                                      |
+| 操作 | 快捷键 |
 | ------------------------- | --------------------------------------------------------------------------------------------- |
-| New line with indentation | <kbd>Enter ⏎</kbd>                                                                            |
-| Undo                      | <kbd>^ Ctrl</kbd> + <kbd>Z</kbd>                                                              |
-| Redo                      | <kbd>^ Ctrl</kbd> + <kbd>Y</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>V</kbd> |
-| Undo selection            | <kbd>^ Ctrl</kbd> + <kbd>U</kbd>                                                              |
-| Copy                      | <kbd>^ Ctrl</kbd> + <kbd>C</kbd>                                                              |
-| Cut                       | <kbd>^ Ctrl</kbd> + <kbd>X</kbd>                                                              |
-| Paste                     | <kbd>^ Ctrl</kbd> + <kbd>V</kbd>                                                              |
+| 新建带缩进的行 | <kbd>Enter ⏎</kbd> |
+| 撤销 | <kbd>^ Ctrl</kbd> + <kbd>Z</kbd> |
+| 重做 | <kbd>^ Ctrl</kbd> + <kbd>Y</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>V</kbd> |
+| 撤销选择 | <kbd>^ Ctrl</kbd> + <kbd>U</kbd> |
+| 复制 | <kbd>^ Ctrl</kbd> + <kbd>C</kbd> |
+| 剪切 | <kbd>^ Ctrl</kbd> + <kbd>X</kbd> |
+| 粘贴 | <kbd>^ Ctrl</kbd> + <kbd>V</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Delete Operations <a href="#delete-operations" id="delete-operations"></a>
+## 删除操作 <a href="#delete-operations" id="delete-operations"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action                 | Shortcut                                              |
+| 操作 | 快捷键 |
 | ---------------------- | ----------------------------------------------------- |
-| Delete character left  | <kbd>⌫ Backspace</kbd>                                |
-| Delete character right | <kbd>⌦ Del</kbd>                                      |
-| Delete word left       | <kbd>^ Ctrl</kbd> + <kbd>⌫ Backspace</kbd>            |
-| Delete word right      | <kbd>^ Ctrl</kbd> + <kbd>⌦ Del</kbd>                  |
-| Delete line            | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>K</kbd> |
+| 删除左侧字符 | <kbd>⌫ Backspace</kbd> |
+| 删除右侧字符 | <kbd>⌦ Del</kbd> |
+| 删除左侧单词 | <kbd>^ Ctrl</kbd> + <kbd>⌫ Backspace</kbd> |
+| 删除右侧单词 | <kbd>^ Ctrl</kbd> + <kbd>⌦ Del</kbd> |
+| 删除整行 | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>K</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action                 | Shortcut                                                                                                |
+| 操作 | 快捷键 |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- |
-| Delete character left  | <kbd>⌫ Backspace</kbd>                                                                                  |
-| Delete character right | <kbd>⌦ Del</kbd>                                                                                        |
-| Delete word left       | <kbd>⌥ Option</kbd> + <kbd>⌫ Backspace</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>H</kbd> |
-| Delete word right      | <kbd>⌥ Option</kbd> + <kbd>⌦ Del</kbd> **or** <kbd>Fn</kbd> + <kbd>⌥ Option</kbd> + <kbd>⌦ Del</kbd>    |
-| Delete line            | <kbd>⇧ Shift</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>K</kbd>                                                    |
-| Delete to line start   | <kbd>⌘ Cmd</kbd> + <kbd>⌫ Backspace</kbd>                                                               |
-| Delete to line end     | <kbd>⌘ Cmd</kbd> + <kbd>⌦ Del</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>K</kbd>                             |
+| 删除左侧字符 | <kbd>⌫ Backspace</kbd> |
+| 删除右侧字符 | <kbd>⌦ Del</kbd> |
+| 删除左侧单词 | <kbd>⌥ Option</kbd> + <kbd>⌫ Backspace</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>H</kbd> |
+| 删除右侧单词 | <kbd>⌥ Option</kbd> + <kbd>⌦ Del</kbd> **或** <kbd>Fn</kbd> + <kbd>⌥ Option</kbd> + <kbd>⌦ Del</kbd> |
+| 删除整行 | <kbd>⇧ Shift</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> |
+| 删除至行首 | <kbd>⌘ Cmd</kbd> + <kbd>⌫ Backspace</kbd> |
+| 删除至行尾 | <kbd>⌘ Cmd</kbd> + <kbd>⌦ Del</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>K</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action                 | Shortcut                                              |
+| 操作 | 快捷键 |
 | ---------------------- | ----------------------------------------------------- |
-| Delete character left  | <kbd>⌫ Backspace</kbd>                                |
-| Delete character right | <kbd>⌦ Del</kbd>                                      |
-| Delete word left       | <kbd>^ Ctrl</kbd> + <kbd>⌫ Backspace</kbd>            |
-| Delete word right      | <kbd>^ Ctrl</kbd> + <kbd>⌦ Del</kbd>                  |
-| Delete line            | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>K</kbd> |
+| 删除左侧字符 | <kbd>⌫ Backspace</kbd> |
+| 删除右侧字符 | <kbd>⌦ Del</kbd> |
+| 删除左侧单词 | <kbd>^ Ctrl</kbd> + <kbd>⌫ Backspace</kbd> |
+| 删除右侧单词 | <kbd>^ Ctrl</kbd> + <kbd>⌦ Del</kbd> |
+| 删除整行 | <kbd>⇧ Shift</kbd> + <kbd>^ Ctrl</kbd> + <kbd>K</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Line Operations <a href="#line-operations" id="line-operations"></a>
+## 行操作 <a href="#line-operations" id="line-operations"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action               | Shortcut                                                                   |
+| 操作 | 快捷键 |
 | -------------------- | -------------------------------------------------------------------------- |
-| Move line up         | <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd>                                         |
-| Move line down       | <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd>                                       |
-| Copy line up         | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd>                    |
-| Copy line down       | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd>                  |
-| Toggle line comment  | <kbd>^ Ctrl</kbd> + <kbd>/</kbd>                                           |
-| Add line comment     | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>C</kbd> |
-| Remove line comment  | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>U</kbd> |
-| Toggle block comment | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>A</kbd>                       |
+| 上移当前行 | <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd> |
+| 下移当前行 | <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
+| 向上复制当前行 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd> |
+| 向下复制当前行 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
+| 切换行注释 | <kbd>^ Ctrl</kbd> + <kbd>/</kbd> |
+| 添加行注释 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>C</kbd> |
+| 移除行注释 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>U</kbd> |
+| 切换块注释 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>A</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action               | Shortcut                                                                 |
+| 操作 | 快捷键 |
 | -------------------- | ------------------------------------------------------------------------ |
-| Move line up         | <kbd>⌥ Option</kbd> + <kbd>↑ Up</kbd>                                    |
-| Move line down       | <kbd>⌥ Option</kbd> + <kbd>↓ Down</kbd>                                  |
-| Copy line up         | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>↑ Up</kbd>               |
-| Copy line down       | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>↓ Down</kbd>             |
-| Toggle line comment  | <kbd>⌘ Cmd</kbd> + <kbd>/</kbd>                                          |
-| Add line comment     | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **then** <kbd>⌘ Cmd</kbd> + <kbd>C</kbd> |
-| Remove line comment  | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **then** <kbd>⌘ Cmd</kbd> + <kbd>U</kbd> |
-| Toggle block comment | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>A</kbd>                  |
-| Split line           | <kbd>^ Ctrl</kbd> + <kbd>O</kbd>                                         |
-| Transpose characters | <kbd>^ Ctrl</kbd> + <kbd>T</kbd>                                         |
+| 上移当前行 | <kbd>⌥ Option</kbd> + <kbd>↑ Up</kbd> |
+| 下移当前行 | <kbd>⌥ Option</kbd> + <kbd>↓ Down</kbd> |
+| 向上复制当前行 | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>↑ Up</kbd> |
+| 向下复制当前行 | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>↓ Down</kbd> |
+| 切换行注释 | <kbd>⌘ Cmd</kbd> + <kbd>/</kbd> |
+| 添加行注释 | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **然后** <kbd>⌘ Cmd</kbd> + <kbd>C</kbd> |
+| 移除行注释 | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **然后** <kbd>⌘ Cmd</kbd> + <kbd>U</kbd> |
+| 切换块注释 | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>A</kbd> |
+| 拆分当前行 | <kbd>^ Ctrl</kbd> + <kbd>O</kbd> |
+| 交换字符位置 | <kbd>^ Ctrl</kbd> + <kbd>T</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action               | Shortcut                                                                   |
+| 操作 | 快捷键 |
 | -------------------- | -------------------------------------------------------------------------- |
-| Move line up         | <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd>                                         |
-| Move line down       | <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd>                                       |
-| Copy line up         | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd>                    |
-| Copy line down       | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd>                  |
-| Toggle line comment  | <kbd>^ Ctrl</kbd> + <kbd>/</kbd>                                           |
-| Add line comment     | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>C</kbd> |
-| Remove line comment  | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>U</kbd> |
-| Toggle block comment | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>A</kbd>                       |
+| 上移当前行 | <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd> |
+| 下移当前行 | <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
+| 向上复制当前行 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd> |
+| 向下复制当前行 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
+| 切换行注释 | <kbd>^ Ctrl</kbd> + <kbd>/</kbd> |
+| 添加行注释 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>C</kbd> |
+| 移除行注释 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>U</kbd> |
+| 切换块注释 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>A</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Autocomplete <a href="#autocomplete" id="autocomplete"></a>
+## 自动补全 <a href="#autocomplete" id="autocomplete"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action                      | Shortcut                                   |
+| 操作 | 快捷键 |
 | --------------------------- | ------------------------------------------ |
-| Start completion            | <kbd>^ Ctrl</kbd> + <kbd>Space</kbd>       |
-| Accept completion           | <kbd>Enter ⏎</kbd> **or** <kbd>Tab ⇥</kbd> |
-| Close completion            | <kbd>⎋ Esc</kbd>                           |
-| Navigate completion options | <kbd>↑ Up</kbd> **or** <kbd>↓ Down</kbd>   |
+| 触发自动补全 | <kbd>^ Ctrl</kbd> + <kbd>Space</kbd> |
+| 接受补全项 | <kbd>Enter ⏎</kbd> **或** <kbd>Tab ⇥</kbd> |
+| 关闭补全列表 | <kbd>⎋ Esc</kbd> |
+| 浏览补全选项 | <kbd>↑ Up</kbd> **或** <kbd>↓ Down</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action                      | Shortcut                                   |
+| 操作 | 快捷键 |
 | --------------------------- | ------------------------------------------ |
-| Start completion            | <kbd>^ Ctrl</kbd> + <kbd>Space</kbd>       |
-| Accept completion           | <kbd>Enter ⏎</kbd> **or** <kbd>Tab ⇥</kbd> |
-| Close completion            | <kbd>⎋ Esc</kbd>                           |
-| Navigate completion options | <kbd>↑ Up</kbd> **or** <kbd>↓ Down</kbd>   |
+| 触发自动补全 | <kbd>^ Ctrl</kbd> + <kbd>Space</kbd> |
+| 接受补全项 | <kbd>Enter ⏎</kbd> **或** <kbd>Tab ⇥</kbd> |
+| 关闭补全列表 | <kbd>⎋ Esc</kbd> |
+| 浏览补全选项 | <kbd>↑ Up</kbd> **或** <kbd>↓ Down</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action                      | Shortcut                                   |
+| 操作 | 快捷键 |
 | --------------------------- | ------------------------------------------ |
-| Start completion            | <kbd>^ Ctrl</kbd> + <kbd>Space</kbd>       |
-| Accept completion           | <kbd>Enter ⏎</kbd> **or** <kbd>Tab ⇥</kbd> |
-| Close completion            | <kbd>⎋ Esc</kbd>                           |
-| Navigate completion options | <kbd>↑ Up</kbd> **or** <kbd>↓ Down</kbd>   |
+| 触发自动补全 | <kbd>^ Ctrl</kbd> + <kbd>Space</kbd> |
+| 接受补全项 | <kbd>Enter ⏎</kbd> **或** <kbd>Tab ⇥</kbd> |
+| 关闭补全列表 | <kbd>⎋ Esc</kbd> |
+| 浏览补全选项 | <kbd>↑ Up</kbd> **或** <kbd>↓ Down</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Indentation <a href="#indentation" id="indentation"></a>
+## 缩进 <a href="#indentation" id="indentation"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action      | Shortcut                                                                       |
+| 操作 | 快捷键 |
 | ----------- | ------------------------------------------------------------------------------ |
-| Indent more | <kbd>Tab ⇥</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>]</kbd>                       |
-| Indent less | <kbd>⇧ Shift</kbd> + <kbd>Tab ⇥</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>\[</kbd> |
+| 增加缩进 | <kbd>Tab ⇥</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>]</kbd> |
+| 减少缩进 | <kbd>⇧ Shift</kbd> + <kbd>Tab ⇥</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>\[</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action      | Shortcut                         |
+| 操作 | 快捷键 |
 | ----------- | -------------------------------- |
-| Indent more | <kbd>⌘ Cmd</kbd> + <kbd>]</kbd>  |
-| Indent less | <kbd>⌘ Cmd</kbd> + <kbd>\[</kbd> |
+| 增加缩进 | <kbd>⌘ Cmd</kbd> + <kbd>]</kbd> |
+| 减少缩进 | <kbd>⌘ Cmd</kbd> + <kbd>\[</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action      | Shortcut                                                                       |
+| 操作 | 快捷键 |
 | ----------- | ------------------------------------------------------------------------------ |
-| Indent more | <kbd>Tab ⇥</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>]</kbd>                       |
-| Indent less | <kbd>⇧ Shift</kbd> + <kbd>Tab ⇥</kbd> **or** <kbd>^ Ctrl</kbd> + <kbd>\[</kbd> |
+| 增加缩进 | <kbd>Tab ⇥</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>]</kbd> |
+| 减少缩进 | <kbd>⇧ Shift</kbd> + <kbd>Tab ⇥</kbd> **或** <kbd>^ Ctrl</kbd> + <kbd>\[</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Code Folding <a href="#code-folding" id="code-folding"></a>
+## 代码折叠 <a href="#code-folding" id="code-folding"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action      | Shortcut                                                                   |
+| 操作 | 快捷键 |
 | ----------- | -------------------------------------------------------------------------- |
-| Fold code   | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>\[</kbd>                     |
-| Unfold code | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>]</kbd>                      |
-| Fold all    | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>0</kbd> |
-| Unfold all  | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>J</kbd> |
+| 折叠代码 | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>\[</kbd> |
+| 展开代码 | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>]</kbd> |
+| 全部折叠 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>0</kbd> |
+| 全部展开 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>J</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action      | Shortcut                                                                  |
+| 操作 | 快捷键 |
 | ----------- | ------------------------------------------------------------------------- |
-| Fold code   | <kbd>⌘ Cmd</kbd> + <kbd>⌥ Option</kbd> + <kbd>\[</kbd>                    |
-| Unfold code | <kbd>⌘ Cmd</kbd> + <kbd>⌥ Option</kbd> + <kbd>]</kbd>                     |
-| Fold all    | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **then** <kbd>⌘ Cmd</kbd> + <kbd>0</kbd>  |
-| Unfold all  | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **then** <kbd>⌘ Cmd</kbd> + <kbd>J</kbd>  |
+| 折叠代码 | <kbd>⌘ Cmd</kbd> + <kbd>⌥ Option</kbd> + <kbd>\[</kbd> |
+| 展开代码 | <kbd>⌘ Cmd</kbd> + <kbd>⌥ Option</kbd> + <kbd>]</kbd> |
+| 全部折叠 | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **然后** <kbd>⌘ Cmd</kbd> + <kbd>0</kbd> |
+| 全部展开 | <kbd>⌘ Cmd</kbd> + <kbd>K</kbd> **然后** <kbd>⌘ Cmd</kbd> + <kbd>J</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action      | Shortcut                                                                   |
+| 操作 | 快捷键 |
 | ----------- | -------------------------------------------------------------------------- |
-| Fold code   | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>\[</kbd>                     |
-| Unfold code | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>]</kbd>                      |
-| Fold all    | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>0</kbd> |
-| Unfold all  | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **then** <kbd>^ Ctrl</kbd> + <kbd>J</kbd> |
+| 折叠代码 | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>\[</kbd> |
+| 展开代码 | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>]</kbd> |
+| 全部折叠 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>0</kbd> |
+| 全部展开 | <kbd>^ Ctrl</kbd> + <kbd>K</kbd> **然后** <kbd>^ Ctrl</kbd> + <kbd>J</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Multi-cursor <a href="#multi-cursor" id="multi-cursor"></a>
+## 多光标 <a href="#multi-cursor" id="multi-cursor"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action                       | Shortcut                                                 |
+| 操作 | 快捷键 |
 | ---------------------------- | -------------------------------------------------------- |
-| Add cursor at click position | <kbd>⎇ Alt</kbd> + <kbd>Left Button</kbd>                |
-| Add cursor above             | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd>   |
-| Add cursor below             | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
-| Add cursors to line ends     | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>I</kbd>     |
-| Clear multiple cursors       | <kbd>⎋ Esc</kbd>                                         |
+| 在点击位置添加光标 | <kbd>⎇ Alt</kbd> + <kbd>Left Button</kbd> |
+| 在上方添加光标 | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd> |
+| 在下方添加光标 | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
+| 在各行末尾添加光标 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>I</kbd> |
+| 清除多余光标 | <kbd>⎋ Esc</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action                       | Shortcut                                                    |
+| 操作 | 快捷键 |
 | ---------------------------- | ----------------------------------------------------------- |
-| Add cursor at click position | <kbd>⌥ Option</kbd> + <kbd>Left Button</kbd>                |
-| Add cursor above             | <kbd>^ Ctrl</kbd> + <kbd>⌥ Option</kbd> + <kbd>↑ Up</kbd>   |
-| Add cursor below             | <kbd>^ Ctrl</kbd> + <kbd>⌥ Option</kbd> + <kbd>↓ Down</kbd> |
-| Add cursors to line ends     | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>I</kbd>     |
-| Clear multiple cursors       | <kbd>⎋ Esc</kbd>                                            |
+| 在点击位置添加光标 | <kbd>⌥ Option</kbd> + <kbd>Left Button</kbd> |
+| 在上方添加光标 | <kbd>^ Ctrl</kbd> + <kbd>⌥ Option</kbd> + <kbd>↑ Up</kbd> |
+| 在下方添加光标 | <kbd>^ Ctrl</kbd> + <kbd>⌥ Option</kbd> + <kbd>↓ Down</kbd> |
+| 在各行末尾添加光标 | <kbd>⇧ Shift</kbd> + <kbd>⌥ Option</kbd> + <kbd>I</kbd> |
+| 清除多余光标 | <kbd>⎋ Esc</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action                       | Shortcut                                                 |
+| 操作 | 快捷键 |
 | ---------------------------- | -------------------------------------------------------- |
-| Add cursor at click position | <kbd>⎇ Alt</kbd> + <kbd>Left Button</kbd>                |
-| Add cursor above             | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd>   |
-| Add cursor below             | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
-| Add cursors to line ends     | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>I</kbd>     |
-| Clear multiple cursors       | <kbd>⎋ Esc</kbd>                                         |
+| 在点击位置添加光标 | <kbd>⎇ Alt</kbd> + <kbd>Left Button</kbd> |
+| 在上方添加光标 | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↑ Up</kbd> |
+| 在下方添加光标 | <kbd>^ Ctrl</kbd> + <kbd>⎇ Alt</kbd> + <kbd>↓ Down</kbd> |
+| 在各行末尾添加光标 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>I</kbd> |
+| 清除多余光标 | <kbd>⎋ Esc</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Formatting <a href="#formatting" id="formatting"></a>
+## 格式化 <a href="#formatting" id="formatting"></a>
 
 {% tabs %}
 {% tab title="Windows" %}
-| Action          | Shortcut                                             |
+| 操作 | 快捷键 |
 | --------------- | ---------------------------------------------------- |
-| Format document | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>F</kbd> |
+| 格式化文档 | <kbd>⇧ Shift</kbd> + <kbd>⎇ Alt</kbd> + <kbd>F</kbd> |
 {% endtab %}
 
 {% tab title="macOS" %}
-| Action          | Shortcut                                             |
+| 操作 | 快捷键 |
 | --------------- | ---------------------------------------------------- |
-| Format document | <kbd>⇧ Shift</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>F</kbd> |
+| 格式化文档 | <kbd>⇧ Shift</kbd> + <kbd>⌘ Cmd</kbd> + <kbd>F</kbd> |
 {% endtab %}
 
 {% tab title="Linux" %}
-| Action          | Shortcut                                              |
+| 操作 | 快捷键 |
 | --------------- | ----------------------------------------------------- |
-| Format document | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>I</kbd> |
+| 格式化文档 | <kbd>^ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>I</kbd> |
 {% endtab %}
 {% endtabs %}
 
-## Search & Navigation <a href="#search-and-navigation" id="search-and-navigation"></a>
+## 搜索与导航 <a href="#search-and-navigation" id="search-and-navigation"></a>

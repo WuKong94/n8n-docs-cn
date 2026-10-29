@@ -1,70 +1,70 @@
 ---
 title: XML
-description: >-
-  Documentation for the XML node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+description: 了解 n8n 工作流自动化平台中的 XML 节点，包括用法说明和示例链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
 nodeTitle: XML
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.xml.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.xml'
-url: 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.xml'
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.xml
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.xml
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # XML <a href="#xml" id="xml"></a>
 
-Use the XML node to convert data from and to XML.
+使用 XML 节点，将数据转换为 XML，或将 XML 转换为其他格式。
 
 {% hint style="info" %}
-**Binary files**
+**二进制文件**
 
-If your XML is within a binary file, use the [Extract from File](n8n-nodes-base.extractfromfile.md) node to convert it to text first.
+如果 XML 存放在二进制文件中，先使用 [Extract from File](n8n-nodes-base.extractfromfile.md) 节点将其转换为文本。
 {% endhint %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-- **Mode**: The format the data should be converted from and to.
-	- **JSON to XML**: Converts data from JSON to XML.
-    - **XML to JSON**: Converts data from XML to JSON.
-- **Property Name**: Enter the name of the property which contains the data to convert.
+- **Mode**（模式）：数据转换的源格式与目标格式。
+    - **JSON to XML**：将 JSON 数据转换为 XML。
+    - **XML to JSON**：将 XML 数据转换为 JSON。
+- **Property Name**（属性名称）：输入包含待转换数据的属性名称。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-These options are available regardless of the **Mode** you select:
+无论选择哪种 **Mode**（模式），均可使用以下选项：
 
-- **Attribute Key**: Enter the prefix used to access the attributes. Default is `$`.
-- **Character Key**: Enter the prefix used to access the character content. Default is `_`.
+- **Attribute Key**（属性键）：输入用于访问 XML 属性的前缀，默认值为 `$`。
+- **Character Key**（字符内容键）：输入用于访问字符内容的前缀，默认值为 `_`。
 
-All other options depend on the selected **Mode**.
+其他选项均取决于所选的 **Mode**（模式）。
 
-### JSON to XML options <a href="#json-to-xml-options" id="json-to-xml-options"></a>
+### JSON to XML 选项 <a href="#json-to-xml-options" id="json-to-xml-options"></a>
 
-These options only appear if you select **JSON to XML** as the **Mode**:
+仅在 **Mode**（模式）选择 **JSON to XML** 时显示以下选项：
 
-- **Allow Surrogate Chars**: Set whether to allow using characters from the Unicode surrogate blocks (turned on) or not (turned off).
-- **Cdata**: Set whether to wrap text nodes in `<![CDATA[ ... ]]>` instead of escaping when it's required (turned on) or not (turned off).
-    * Turning this option on doesn't add `<![CDATA[ ... ]]>` if it's not required.
-- **Headless**: Set whether to omit the XML header (turned on) or include it (turned off).
-- **Root Name**: Enter the root element name to use.
+- **Allow Surrogate Chars**（允许代理区字符）：开启时允许使用 Unicode 代理区中的字符，关闭时不允许。
+- **Cdata**：需要时，开启此选项可使用 `<![CDATA[ ... ]]>` 包装文本节点，而不是转义文本；关闭时不启用此行为。
+    * 开启此选项后，若无需包装，仍不会添加 `<![CDATA[ ... ]]>`。
+- **Headless**（无头部）：开启时省略 XML 头部，关闭时包含头部。
+- **Root Name**（根元素名称）：输入要使用的根元素名称。
 
-### XML to JSON options <a href="#xml-to-json-options" id="xml-to-json-options"></a>
+### XML to JSON 选项 <a href="#xml-to-json-options" id="xml-to-json-options"></a>
 
-These options only appear if you select **XML to JSON** as the **Mode**:
+仅在 **Mode**（模式）选择 **XML to JSON** 时显示以下选项：
 
-- **Explicit Array**: Set whether to put child nodes in an array (turned on) or create an array only if there's more than one child node (turned off).
-- **Explicit Root**: Set whether to get the root node in the resulting object (turned on) or not (turned off).
-- **Ignore Attributes**: Set whether to ignore all XML attributes and only create text nodes (turned on) or not (turned off).
-- **Merge Attributes**: Set whether to merge attributes and child elements as properties of the parent (turned on) or key attributes off a child attribute object (turned off). This option is ignored if **Ignore Attribute** is turned on.
-- **Normalize**: Set whether to trim whitespaces inside the text nodes (turned on) or not to trim them (turned off).
-- **Normalize Tags**: Set whether to normalize all tag names to lowercase (turned on) or keep tag names as-is (turned off).
-- **Trim**: Set whether to trim the whitespace at the beginning and end of text nodes (turned on) or to leave the whitespace as-is (turned off).
+- **Explicit Array**（显式数组）：开启时将子节点放入数组；关闭时，仅在存在多个子节点时创建数组。
+- **Explicit Root**（显式根节点）：开启时在结果对象中保留根节点，关闭时不保留。
+- **Ignore Attributes**（忽略属性）：开启时忽略所有 XML 属性，仅创建文本节点；关闭时不忽略属性。
+- **Merge Attributes**（合并属性）：开启时将属性与子元素一起合并为父节点的属性；关闭时，将 XML 属性放在单独的子属性对象中。开启 **Ignore Attributes**（忽略属性）时，此选项被忽略。
+- **Normalize**（规范化）：开启时修整文本节点内部的空白，关闭时不作此处理。
+- **Normalize Tags**（规范化标签）：开启时将所有标签名转为小写，关闭时保留原样。
+- **Trim**（修剪）：开启时去除文本节点首尾的空白，关闭时保留原样。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse XML integration templates](https://n8n.io/integrations/xml) or [search all templates](https://n8n.io/workflows/)
+[浏览 XML 集成模板](https://n8n.io/integrations/xml)，或[搜索所有模板](https://n8n.io/workflows/)
