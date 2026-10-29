@@ -1,69 +1,67 @@
 ---
-title: MCP Client node documentation
-description: >-
-  Learn how to use the MCP Client node in n8n. Follow technical documentation to
-  integrate MCP Client node into your workflows.
+title: MCP Client 节点
+description: 了解如何在 n8n 工作流中配置和使用 MCP Client 节点。
 contentType:
-  - integration
-  - reference
-nodeTitle: MCP Client node documentation
+- integration
+- reference
+nodeTitle: MCP Client 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-langchain.mcpClient.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpClient
-url: >-
-  https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpClient
+originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpClient
+url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcpClient
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MCP Client node <a href="#mcp-client-node" id="mcp-client-node"></a>
 
-The MCP Client node is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) client that allows you to use the tools that are exposed by an external MCP server.
+# MCP Client（MCP 客户端）节点 <a href="#mcp-client-node" id="mcp-client-node"></a>
 
-You can use the MCP Client node to use MCP tools as regular steps in a workflow.
+MCP Client 是[模型上下文协议（MCP）](https://modelcontextprotocol.io/introduction)客户端，用于调用外部 MCP 服务器提供的工具。
 
-If you want to use MCP tools as tools for an AI Agent, use the [MCP Client Tool node](../cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp.md) instead.
+可将 MCP 工具作为工作流中的普通步骤使用。
+
+若要将 MCP 工具作为 AI Agent 的工具，请改用 [MCP Client Tool 节点](../cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp.md)。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-The MCP Client node supports [Bearer](../credentials/httprequest.md#using-bearer-auth), generic [header](../credentials/httprequest.md#using-header-auth), multiple headers, and [OAuth2](../credentials/mcp.md#using-oauth2) authentication methods.
+MCP Client 支持 [Bearer](../credentials/httprequest.md#using-bearer-auth)、通用[请求头](../credentials/httprequest.md#using-header-auth)、多请求头和 [OAuth2](../credentials/mcp.md#using-oauth2) 身份验证。
 {% endhint %}
 
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Configure the node with the following parameters.
+使用以下参数配置节点。
 
-* **Server Transport**: The transport protocol used by the MCP Server endpoint you want to connect to.
-* **MCP Endpoint URL**: The URL of the external MCP Server. For example, `https://mcp.notion.com/mcp`.
-* **Authentication**: The authentication method for authentication to your MCP server. The MCP Client node supports [bearer](../credentials/httprequest.md#using-bearer-auth), generic [header](../credentials/httprequest.md#using-header-auth), multiple headers, and [OAuth2](../credentials/mcp.md#using-oauth2) authentication. Select **None** to attempt to connect without authentication.
-	* **Multiple Headers Auth**: Use this when your MCP server requires more than one header, for example an API key and a username. Add each header as a **Name** and **Value** pair in the credential. You can add as many headers as you need.
-* **Tool**: Select the tool to use in the node. The list of tools is automatically fetched from the external MCP server.
-* **Input Mode**: 
-	* **Manual**: Specify each tool parameter manually.
-	* **JSON**: Specify tool parameters as a JSON object. Use this mode for tools with nested parameters.
+* **Server Transport**（服务器传输方式）：目标 MCP 端点使用的传输协议。
+* **MCP Endpoint URL**（MCP 端点 URL）：外部 MCP 服务器的 URL，例如 `https://mcp.notion.com/mcp`。
+* **Authentication**（身份验证）：连接服务器的认证方式，支持 [bearer](../credentials/httprequest.md#using-bearer-auth)、通用[请求头](../credentials/httprequest.md#using-header-auth)、多请求头及 [OAuth2](../credentials/mcp.md#using-oauth2)。选择 **None**（无）可尝试无认证连接。
+    * **Multiple Headers Auth**（多请求头认证）：服务器要求多个请求头，例如 API 密钥和用户名时使用。在凭据中以 **Name**（名称）/**Value**（值）对添加各请求头，数量不限。
+* **Tool**（工具）：选择要调用的工具，列表会从外部 MCP 服务器自动获取。
+* **Input Mode**（输入模式）：
+    * **Manual**（手动）：逐个指定工具参数。
+    * **JSON**：以 JSON 对象指定参数，适用于含嵌套参数的工具。
 
-## Options <a href="#options" id="options"></a>
+## 选项 <a href="#options" id="options"></a>
 
-* **Convert to Binary**: Whether to convert images and audio to binary data. If false, images and audio are returned as base64 encoded strings.
-* **Timeout**: Time in milliseconds to wait for tool calls to finish.
+* **Convert to Binary**（转换为二进制）：选择是否将图片和音频转换为二进制数据。关闭时，以 base64 编码字符串返回。
+* **Timeout**（超时）：等待工具调用完成的时长，单位为毫秒。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse MCP Client node documentation integration templates](https://n8n.io/integrations/mcp-client) or [search all templates](https://n8n.io/workflows/)
+[浏览 MCP Client 节点集成模板](https://n8n.io/integrations/mcp-client)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-To use MCP tools with AI Agents, n8n has the [MCP Client Tool node](../cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp.md).
+要在 AI Agent 中使用 MCP 工具，请使用 [MCP Client Tool 节点](../cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp.md)。
 
-n8n also has an [MCP Server Trigger](n8n-nodes-langchain.mcptrigger.md) node that allows you to expose n8n tools to external AI Agents.
+n8n 还提供 [MCP Server Trigger](n8n-nodes-langchain.mcptrigger.md) 节点，用于向外部 AI Agent 提供 n8n 工具。
 
-Refer to the [MCP documentation](https://modelcontextprotocol.io/introduction) and [MCP specification](https://modelcontextprotocol.io/specification/) for more details about the protocol, servers, and clients.
+协议、服务器和客户端的更多信息，请参阅 [MCP 文档](https://modelcontextprotocol.io/introduction)及 [MCP 规范](https://modelcontextprotocol.io/specification/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Yl56nEscwQQAbBUeWfvp/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/tools-link.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

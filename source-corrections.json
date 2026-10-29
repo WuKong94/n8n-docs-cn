@@ -1584,5 +1584,69 @@
     ],
     "scope": "仅澄清同版本节点兼容性、可见模板标签及原始示例语法错误；原文快照、程序代码、请求地址、图片和链接目标保持原样。不发送真实邮件或消息，不执行工作流，不验证真实聊天服务。",
     "source_sha256": "850b989a48244cd31ee6b6d6642c34c67ebaa33fbd1a0c976e90a0f31b655568"
+  },
+  {
+    "id": "form-production-url-selector-label-spelling",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.form.md",
+    "original_sentence": "When your workflow is ready, switch to using the n8n Form Trigger's **Production URL** by opening the trigger node and selecting the **Production URL** in the **From URLS** selector. You can then publish your workflow, and n8n runs it automatically when a user submits the form.",
+    "translated_sentence": "工作流准备就绪后，切换到触发器的 **Production URL**（生产 URL）：打开 n8n Form Trigger，在 **Form URLs**（表单 URL）选择器中选择 **Production URL**。发布工作流后，用户提交表单时 n8n 会自动运行工作流。",
+    "evidence": "Form 节点生产流程误写 From URLS，关联 Form Trigger 同版本的主标题和参数均为 Form URLs。只统一可见选择器名称，两个 Production URL 引用及发布流程保持不变。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.form.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.formtrigger.md"
+    ],
+    "scope": "仅修正有原文或官方代码依据的可见名称、开关方向、认证角色及说明歧义。原始快照、演示工作流、代码、参数值、资源与锚点保持原样；不执行工作流或实际网络请求，不改变官方基线。",
+    "source_sha256": "e841c446304dab561ca8333e2d8537ee6dad916474a7bf46e984dd4ad462009d"
+  },
+  {
+    "id": "form-trigger-basic-auth-username-form-context",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.formtrigger.md",
+    "original_sentence": "- The **Username** you use to access the app or service your HTTP Request is targeting.",
+    "translated_sentence": "- **Username**（用户名）：访问此表单时使用的 Basic 认证用户名。",
+    "evidence": "表单 Basic auth 的 Username 描述错误地引用 HTTP Request 的目标应用或服务。当前章节配置的是表单访问认证，后接 Password。译文明确该用户名用于访问此表单，不把它当作向外部服务发请求的凭据。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.formtrigger.md"
+    ],
+    "scope": "仅修正有原文或官方代码依据的可见名称、开关方向、认证角色及说明歧义。原始快照、演示工作流、代码、参数值、资源与锚点保持原样；不执行工作流或实际网络请求，不改变官方基线。",
+    "source_sha256": "f76cd2b89e2766e920247b500c38b13f56a536b59cf39679aeca35e5bcbe8452"
+  },
+  {
+    "id": "n8n-node-return-all-limit-switch-direction",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.n8n.md",
+    "original_sentence": "* **Return All**: Set whether to return all results (turned on) or whether to limit the results to the entered **Limit** (turned on).",
+    "translated_sentence": "* **Return All**（返回全部）：开启时返回全部结果，关闭时按 **Limit**（数量上限）限制结果数量。",
+    "evidence": "Get many executions 和 Get many workflows 的 Return All 两处相同说明都把返回全部与按 Limit 限制写成 turned on；紧随其后的 Limit 字段明确只在 Return All 关闭时生效。译文统一为开启返回全部、关闭按 Limit 限制。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.n8n.md"
+    ],
+    "scope": "仅修正有原文或官方代码依据的可见名称、开关方向、认证角色及说明歧义。原始快照、演示工作流、代码、参数值、资源与锚点保持原样；不执行工作流或实际网络请求，不改变官方基线。",
+    "source_sha256": "f00ae8dee25e291cb1ab73602fa2e21e6ab3d498f95f1a8080fae24a7cd1d533"
+  },
+  {
+    "id": "n8n-node-ssl-warning-does-not-prohibit-https",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-base.n8n.md",
+    "original_sentence": "This node doesn't support SSL. If your server requires an SSL connection, use the [HTTP Request node](n8n-nodes-base.httprequest/README.md) to call the [n8n API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api). The HTTP Request node has options to [provide the SSL certificate](../credentials/httprequest.md#provide-an-ssl-certificate).",
+    "translated_sentence": "译注：原文“不支持 SSL”的说法过于宽泛，同版本 API 认证文档为 n8n 节点提供了 HTTPS Base URL，不能据此认为该节点不能访问 HTTPS。需要为请求提供 SSL 证书时，可使用 [HTTP Request 节点](n8n-nodes-base.httprequest/README.md)调用 [n8n API](../../../connect/n8n-api/README.md)，并通过其选项[提供 SSL 证书](../credentials/httprequest.md#provide-an-ssl-certificate)。",
+    "evidence": "原文笼统称节点不支持 SSL，容易被理解为不能访问 HTTPS。但锁定版本 API authentication 的 Node configuration 明确让用户通过 n8n 节点设置 Cloud 和自托管 HTTPS Base URL。译文澄清 HTTPS 可用与提供自定义 SSL 证书的场景不同，保留原 HTTP Request、n8n API 和提供 SSL 证书三个链接。官方 n8nApi 凭据及请求辅助函数也使用用户给定 baseUrl，提供 HTTPS 示例；不声称已运行 TLS 连接测试。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-base.n8n.md",
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/connect/n8n-api/authentication.md",
+      "https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/credentials/N8nApi.credentials.ts",
+      "https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/N8n/GenericFunctions.ts"
+    ],
+    "scope": "仅修正有原文或官方代码依据的可见名称、开关方向、认证角色及说明歧义。原始快照、演示工作流、代码、参数值、资源与锚点保持原样；不执行工作流或实际网络请求，不改变官方基线。",
+    "source_sha256": "f00ae8dee25e291cb1ab73602fa2e21e6ab3d498f95f1a8080fae24a7cd1d533"
+  },
+  {
+    "id": "guardrails-jailbreak-threshold-confidence-meaning",
+    "path": "integrations/builtin/core-nodes/n8n-nodes-langchain.guardrails.md",
+    "original_sentence": "    - **Threshold**: A value between 0.0 and 1.0. This represents the confidence level required from the AI model to flag the input as a jailbreak attempt. A higher threshold is stricter. ",
+    "translated_sentence": "    - **Threshold**（阈值）：0.0 到 1.0 之间的值，表示将输入标记为越狱所需的模型置信度。阈值越高，作出越狱判定所需的置信度越高。",
+    "evidence": "原文先将阈值定义为标记越狱所需的最低置信度，再笼统称更高阈值更严格，容易误解为更容易拦截。译文只按该定义明确阈值越高，作出越狱判定所需置信度越高；不增加运行时比较运算符或边界值的猜测，0.0–1.0 范围不变。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/core-nodes/n8n-nodes-langchain.guardrails.md"
+    ],
+    "scope": "仅修正有原文或官方代码依据的可见名称、开关方向、认证角色及说明歧义。原始快照、演示工作流、代码、参数值、资源与锚点保持原样；不执行工作流或实际网络请求，不改变官方基线。",
+    "source_sha256": "b8784dc002cec27a54a3634a271d336ee6be27d020e5c50df58b2963d9845780"
   }
 ]

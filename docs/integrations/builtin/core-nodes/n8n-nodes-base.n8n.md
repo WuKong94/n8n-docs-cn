@@ -1,16 +1,14 @@
 ---
-title: n8n
+title: n8n 节点
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: n8n
+nodeTitle: n8n 节点
 originalFilePath: integrations/builtin/core-nodes/n8n-nodes-base.n8n.md
 originalUrl: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8n
 url: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.n8n
-description: >-
-  Documentation for the n8n node in n8n, a workflow automation platform.
-  Includes guidance on usage, and links to examples.
+description: 了解 n8n 中 n8n 管理节点的用法，并查看相关示例。
 layout:
   width: default
   title:
@@ -30,172 +28,174 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# n8n
 
-A node to integrate with n8n itself. This node allows you to consume the [n8n API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api) in your workflows.
+# n8n <a id="n8n"></a>
 
-Refer to the [n8n REST API documentation](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api) for more information on using the n8n API. Refer to [API endpoint reference](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/api-reference) for working with the API endpoints directly.
+此节点与 n8n 本身集成，可在工作流中调用 [n8n API](../../../connect/n8n-api/README.md)。
+
+使用 n8n API 的更多信息，请参阅 [n8n REST API 文档](../../../connect/n8n-api/README.md)；要直接调用端点，请参阅 [API 端点参考](../../../connect/n8n-api/api-reference.md)。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [API authentication documentation](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/authentication) for authentication information for this node.
+此节点的身份验证信息，请参阅 [API 身份验证文档](../../../connect/n8n-api/authentication.md)。
 {% endhint %}
 
 {% hint style="warning" %}
 **SSL**
 
-This node doesn't support SSL. If your server requires an SSL connection, use the [HTTP Request node](n8n-nodes-base.httprequest/README.md) to call the [n8n API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api). The HTTP Request node has options to [provide the SSL certificate](../credentials/httprequest.md#provide-an-ssl-certificate).
+译注：原文“不支持 SSL”的说法过于宽泛，同版本 API 认证文档为 n8n 节点提供了 HTTPS Base URL，不能据此认为该节点不能访问 HTTPS。需要为请求提供 SSL 证书时，可使用 [HTTP Request 节点](n8n-nodes-base.httprequest/README.md)调用 [n8n API](../../../connect/n8n-api/README.md)，并通过其选项[提供 SSL 证书](../credentials/httprequest.md#provide-an-ssl-certificate)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Audit
-  * [**Generate** a security audit](n8n-nodes-base.n8n.md#generate-audit)
-* Credential
-  * [**Create** a credential](n8n-nodes-base.n8n.md#create-credential)
-  * [**Delete** a credential](n8n-nodes-base.n8n.md#delete-credential)
-  * [**Get Schema**](n8n-nodes-base.n8n.md#get-credential-schema): Use this operation to get credential data schema for type
-* Execution
-  * [**Get** an execution](n8n-nodes-base.n8n.md#get-execution)
-  * [**Get Many** executions](n8n-nodes-base.n8n.md#get-many-executions)
-  * [**Delete** an execution](n8n-nodes-base.n8n.md#delete-execution)
-* Workflow
-  * [**Publish** a workflow](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
-  * [**Create** a workflow](n8n-nodes-base.n8n.md#create-workflow)
-  * [**Unpublish** a workflow](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
-  * [**Delete** a workflow](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
-  * [**Get** a workflow](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
-  * [**Get Many** workflows](n8n-nodes-base.n8n.md#get-many-workflows)
-  * [**Update** a workflow](n8n-nodes-base.n8n.md#update-workflow)
+* Audit（审计）
+  * [**Generate**（生成）安全审计](n8n-nodes-base.n8n.md#generate-audit)
+* Credential（凭据）
+  * [**Create**（创建）凭据](n8n-nodes-base.n8n.md#create-credential)
+  * [**Delete**（删除）凭据](n8n-nodes-base.n8n.md#delete-credential)
+  * [**Get Schema**](n8n-nodes-base.n8n.md#get-credential-schema)（获取 schema）：获取指定凭据类型的数据 schema。
+* Execution（执行）
+  * [**Get**（获取）一次执行](n8n-nodes-base.n8n.md#get-execution)
+  * [**Get Many**（获取多个）执行](n8n-nodes-base.n8n.md#get-many-executions)
+  * [**Delete**（删除）一次执行](n8n-nodes-base.n8n.md#delete-execution)
+* Workflow（工作流）
+  * [**Publish**（发布）工作流](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
+  * [**Create**（创建）工作流](n8n-nodes-base.n8n.md#create-workflow)
+  * [**Unpublish**（取消发布）工作流](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
+  * [**Delete**（删除）工作流](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
+  * [**Get**（获取）工作流](n8n-nodes-base.n8n.md#activate-deactivate-delete-and-get-workflow)
+  * [**Get Many**（获取多个）工作流](n8n-nodes-base.n8n.md#get-many-workflows)
+  * [**Update**（更新）工作流](n8n-nodes-base.n8n.md#update-workflow)
 
-## Generate audit <a href="#generate-audit" id="generate-audit"></a>
+## 生成审计 <a href="#generate-audit" id="generate-audit"></a>
 
-This operation has no parameters. Configure it with these options:
+此操作没有参数，可配置以下选项：
 
-* **Categories**: Select the risk categories you want the audit to include. Options include:
-  * **Credentials**
-  * **Database**
-  * **Filesystem**
-  * **Instance**
-  * **Nodes**
-* **Days Abandoned Workflow**: Use this option to set the number of days without execution after which a workflow should be considered abandoned. Enter a number of days. The default is `90`.
+* **Categories**（类别）：选择要纳入审计的风险类别：
+  * **Credentials**（凭据）
+  * **Database**（数据库）
+  * **Filesystem**（文件系统）
+  * **Instance**（实例）
+  * **Nodes**（节点）
+* **Days Abandoned Workflow**（工作流废弃判定天数）：设置连续多少天未执行后将工作流视为废弃，输入天数，默认为 `90`。
 
-## Create credential <a href="#create-credential" id="create-credential"></a>
+## 创建凭据 <a href="#create-credential" id="create-credential"></a>
 
-Configure this operation with these parameters:
+使用以下参数配置此操作：
 
-* **Name**: Enter the name of the credential you'd like to create.
-* **Credential Type**: Enter the credential's type. The available types depend on nodes installed on the n8n instance. Some built-in types include `githubApi`, `notionApi`, and `slackApi`.
-* **Data**: Enter a valid JSON object with the required properties for this **Credential Type**. To see the expected format, use the **Get Schema** operation.
+* **Name**（名称）：要创建的凭据名称。
+* **Credential Type**（凭据类型）：可用类型取决于实例已安装的节点，内置类型包括 `githubApi`、`notionApi` 和 `slackApi`。
+* **Data**（数据）：包含该 **Credential Type**（凭据类型）所需属性的有效 JSON 对象。使用 **Get Schema**（获取 schema）操作查看格式要求。
 
-## Delete credential <a href="#delete-credential" id="delete-credential"></a>
+## 删除凭据 <a href="#delete-credential" id="delete-credential"></a>
 
-Configure this operation with this parameter:
+使用以下参数配置此操作：
 
-* **Credential ID**: Enter the ID of the credential you want to delete.
+* **Credential ID**（凭据 ID）：要删除的凭据 ID。
 
-## Get credential schema <a href="#get-credential-schema" id="get-credential-schema"></a>
+## 获取凭据 schema <a href="#get-credential-schema" id="get-credential-schema"></a>
 
-Configure this operation with this parameter:
+使用以下参数配置此操作：
 
-* **Credential Type**: Enter the credential's type. The available types depend on nodes installed on the n8n instance. Some built-in types include `githubApi`, `notionApi`, and `slackApi`.
+* **Credential Type**（凭据类型）：可用类型取决于实例已安装的节点，内置类型包括 `githubApi`、`notionApi` 和 `slackApi`。
 
-## Get execution <a href="#get-execution" id="get-execution"></a>
+## 获取一次执行 <a href="#get-execution" id="get-execution"></a>
 
-Configure this operation with this parameter:
+使用以下参数配置此操作：
 
-* **Execution ID**: Enter the ID of the execution you want to retrieve.
+* **Execution ID**（执行 ID）：要获取的执行 ID。
 
-### Get execution option <a href="#get-execution-option" id="get-execution-option"></a>
+### 获取执行的选项 <a href="#get-execution-option" id="get-execution-option"></a>
 
-You can further configure this operation with this **Option**:
+还可配置以下 **Option**（选项）：
 
-* **Include Execution Details**: Use this control to set whether to include the detailed execution data (turned on) or not (turned off).
+* **Include Execution Details**（包含执行详情）：开启时包含详细执行数据，关闭时不包含。
 
-## Get many executions <a href="#get-many-executions" id="get-many-executions"></a>
+## 获取多个执行 <a href="#get-many-executions" id="get-many-executions"></a>
 
-Configure this operation with these parameters:
+使用以下参数配置此操作：
 
-* **Return All**: Set whether to return all results (turned on) or whether to limit the results to the entered **Limit** (turned on).
-* **Limit**: Set the number of results to return if the **Return All** control is turned off.
+* **Return All**（返回全部）：开启时返回全部结果，关闭时按 **Limit**（数量上限）限制结果数量。
+* **Limit**（数量上限）：关闭 **Return All**（返回全部）时，设置要返回的结果数量。
 
-### Get many executions filters <a href="#get-many-executions-filters" id="get-many-executions-filters"></a>
+### 获取多个执行的筛选条件 <a href="#get-many-executions-filters" id="get-many-executions-filters"></a>
 
-You can further configure this operation with these **Filters**:
+还可配置以下 **Filters**（筛选条件）：
 
-* **Workflow**: Filter the executions by workflow. Options include:
-  * **From list**: Select a workflow to use as a filter.
-  * **By URL**: Enter a workflow URL to use as a filter.
-  * **By ID**: Enter a workflow ID to use as a filter.
-* **Status**: Filter the executions by status. Options include:
-  * **Error**
-  * **Success**
-  * **Waiting**
+* **Workflow**（工作流）：按工作流筛选执行：
+  * **From list**（从列表选择）：选择工作流。
+  * **By URL**（按 URL）：输入工作流 URL。
+  * **By ID**（按 ID）：输入工作流 ID。
+* **Status**（状态）：按执行状态筛选：
+  * **Error**（错误）
+  * **Success**（成功）
+  * **Waiting**（等待）
 
-### Get many execution options <a href="#get-many-execution-options" id="get-many-execution-options"></a>
+### 获取多个执行的选项 <a href="#get-many-execution-options" id="get-many-execution-options"></a>
 
-You can further configure this operation with this **Option**:
+还可配置以下 **Option**（选项）：
 
-* **Include Execution Details**: Use this control to set whether to include the detailed execution data (turned on) or not (turned off).
+* **Include Execution Details**（包含执行详情）：开启时包含详细执行数据，关闭时不包含。
 
-## Delete execution <a href="#delete-execution" id="delete-execution"></a>
+## 删除执行 <a href="#delete-execution" id="delete-execution"></a>
 
-Configure this operation with this parameter:
+使用以下参数配置此操作：
 
-* **Execution ID**: Enter the ID of the execution you want to delete.
+* **Execution ID**（执行 ID）：要删除的执行 ID。
 
-## Publish, unpublish, delete, and get workflow <a href="#activate-deactivate-delete-and-get-workflow" id="activate-deactivate-delete-and-get-workflow"></a>
+## 发布、取消发布、删除和获取工作流 <a href="#activate-deactivate-delete-and-get-workflow" id="activate-deactivate-delete-and-get-workflow"></a>
 
-The **Publish**, **Unpublish**, **Delete**, and **Get** workflow operations all include the same parameter for you to select the **Workflow** you want to perform the operation on. Options include:
+**Publish**（发布）、**Unpublish**（取消发布）、**Delete**（删除）和 **Get**（获取）操作使用同一个 **Workflow**（工作流）参数选择目标，可选：
 
-* **From list**: Select the workflow from the list.
-* **By URL**: Enter the URL of the workflow.
-* **By ID**: Enter the ID of the workflow.
+* **From list**（从列表选择）：从列表中选择工作流。
+* **By URL**（按 URL）：输入工作流 URL。
+* **By ID**（按 ID）：输入工作流 ID。
 
-## Create workflow <a href="#create-workflow" id="create-workflow"></a>
+## 创建工作流 <a href="#create-workflow" id="create-workflow"></a>
 
-Configure this operation with this parameter:
+使用以下参数配置此操作：
 
-* **Workflow Object**: Enter a valid JSON object with the new workflow's details. The object requires these fields:
+* **Workflow Object**（工作流对象）：输入包含新工作流详情的有效 JSON 对象，必须具有以下字段：
   * `name`
   * `nodes`
   * `connections`
   * `settings`
 
-Refer to [n8n API reference](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/api-reference) for more information.
+更多信息，请参阅 [n8n API 参考](../../../connect/n8n-api/api-reference.md)。
 
-## Get many workflows <a href="#get-many-workflows" id="get-many-workflows"></a>
+## 获取多个工作流 <a href="#get-many-workflows" id="get-many-workflows"></a>
 
-Configure this operation with these parameters:
+使用以下参数配置此操作：
 
-* **Return All**: Set whether to return all results (turned on) or whether to limit the results to the entered **Limit** (turned on).
-* **Limit**: Set the number of results to return if the **Return All** control is turned off.
+* **Return All**（返回全部）：开启时返回全部结果，关闭时按 **Limit**（数量上限）限制结果数量。
+* **Limit**（数量上限）：关闭 **Return All**（返回全部）时，设置要返回的结果数量。
 
-### Get many workflows filters <a href="#get-many-workflows-filters" id="get-many-workflows-filters"></a>
+### 获取多个工作流的筛选条件 <a href="#get-many-workflows-filters" id="get-many-workflows-filters"></a>
 
-You can further configure this operation with these **Filters**:
+还可配置以下 **Filters**（筛选条件）：
 
-* **Return Only Published Workflows**: Select whether to return only published workflows (turned on) or published and unpublished workflows (turned off).
-* **Tags**: Enter a comma-separated list of tags the returned workflows must have.
+* **Return Only Published Workflows**（仅返回已发布工作流）：开启时只返回已发布工作流，关闭时同时返回已发布和未发布工作流。
+* **Tags**（标签）：输入以逗号分隔的标签列表，返回的工作流必须具有这些标签。
 
-## Update workflow <a href="#update-workflow" id="update-workflow"></a>
+## 更新工作流 <a href="#update-workflow" id="update-workflow"></a>
 
-Configure this operation with these parameters:
+使用以下参数配置此操作：
 
-* **Workflow**: Select the workflow you want to update. Options include:
-  * **From list**: Select the workflow from the list.
-  * **By URL**: Enter the URL of the workflow.
-  * **By ID**: Enter the ID of the workflow.
-* **Workflow Object**: Enter a valid JSON object to update the workflow with. The object requires these fields:
+* **Workflow**（工作流）：选择要更新的工作流：
+  * **From list**（从列表选择）：从列表中选择工作流。
+  * **By URL**（按 URL）：输入工作流 URL。
+  * **By ID**（按 ID）：输入工作流 ID。
+* **Workflow Object**（工作流对象）：输入用于更新工作流的有效 JSON 对象，必须具有以下字段：
   * `name`
   * `nodes`
   * `connections`
   * `settings`
 
-Refer to the [n8n API | Update a workflow documentation](https://docs.n8n.io/api/api-reference/#tag/Workflow/paths/~1workflows~1%7Bid%7D/put) for more information.
+更多信息，请参阅 [n8n API 的更新工作流文档](../../../connect/n8n-api/workflow.md#update-a-workflow)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse n8n integration templates](https://n8n.io/integrations/n8n) or [search all templates](https://n8n.io/workflows/)
+[浏览 n8n 集成模板](https://n8n.io/integrations/n8n)，或[搜索所有模板](https://n8n.io/workflows/)

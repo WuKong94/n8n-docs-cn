@@ -16274,5 +16274,95 @@
     "source_correction_ids": [
       "chat-trigger-metadata-object-semicolon-source-note"
     ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.form.md": {
+    "status": "translated",
+    "source_sha256": "e841c446304dab561ca8333e2d8537ee6dad916474a7bf46e984dd4ad462009d",
+    "translation_sha256": "995e6b9e6a77a3b673b33a365865f73a9ae27d2f815db22442ad7daff441fc72",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "form-production-url-selector-label-spelling"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.formtrigger.md": {
+    "status": "translated",
+    "source_sha256": "f76cd2b89e2766e920247b500c38b13f56a536b59cf39679aeca35e5bcbe8452",
+    "translation_sha256": "f4e1cb76699fc48f7a30550ef46a9f75c8b2a2cf064e6d29b9c90853145e882a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "form-trigger-basic-auth-username-form-context"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.html.md": {
+    "status": "translated",
+    "source_sha256": "07fde19c2ff15d3576174d9c5998935f065f0fdb7241345dbc6b886229cbc741",
+    "translation_sha256": "5a2f83fc3b083e13448d6e39804f5b07b8bd321bd30973e0a78e0eda6873820b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-base.n8n.md": {
+    "status": "translated",
+    "source_sha256": "f00ae8dee25e291cb1ab73602fa2e21e6ab3d498f95f1a8080fae24a7cd1d533",
+    "translation_sha256": "153480c34d75ee3b081d2a647cdd99a9a2453900d09e7da1f3a17a3e473d4545",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "n8n-node-return-all-limit-switch-direction",
+      "n8n-node-ssl-warning-does-not-prohibit-https"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-langchain.guardrails.md": {
+    "status": "translated",
+    "source_sha256": "b8784dc002cec27a54a3634a271d336ee6be27d020e5c50df58b2963d9845780",
+    "translation_sha256": "84b9bf93274708cbf17f060f21f954766f9760dda6548bb20acfcdea1e2c585c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "guardrails-jailbreak-threshold-confidence-meaning"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-langchain.mcpClient.md": {
+    "status": "translated",
+    "source_sha256": "9190f98acd2997c9735db27e434c7aabe97477e2370f6c2bc5283a4ed1c40ea7",
+    "translation_sha256": "4b82ccad4e274e354ca6b5af7833de968c834b795fabadf7037eaead5b84740f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger.md": {
+    "status": "translated",
+    "source_sha256": "c1e29566f9ec245f27782136cf31a125f85660eb17612c658373127900d750cd",
+    "translation_sha256": "2b4e85e64e51a970ced4ad92697b9e65fc1de71a7bec728c810e65fbafb96b1e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
