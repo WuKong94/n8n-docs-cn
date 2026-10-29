@@ -124,5 +124,14 @@
     "translated_sentence": "- 检索器：从向量数据库中获取相关文档。配合嵌入模型将查询转换为向量，再通过相似度搜索找到对应文档，而不是从向量逆向还原原始数据。",
     "evidence": "LangChain 官方 JavaScript 文档说明，嵌入模型将原始文本编码为固定长度向量，接口为 embedDocuments 和 embedQuery；向量存储的 similaritySearch 返回最相近的文档，而非把向量解码回原文。来源：https://docs.langchain.com/oss/javascript/integrations/embeddings/ 和 https://docs.langchain.com/oss/javascript/integrations/vectorstores （本批翻译时核对）。",
     "scope": "依据官方嵌入与检索接口说明纠正技术概念；未改动上游快照、示例数据或产品运行行为。"
+  },
+  {
+    "id": "user-management-workflow-shared-email-template",
+    "path": "deploy/host-n8n/configure-n8n/user-management.md",
+    "source_sha256": "9a6d0ba4400192f87aeb91278f0aef98f5160470eb96f0ae1022a10abb9f59ac",
+    "original_sentence": "| `N8N_UM_EMAIL_TEMPLATES_WORKFLOW_SHARED` | String | Overrides the default HTML template for notifying users that a credential was shared. Provide the full path to the template. | Optional |",
+    "translated_sentence": "| `N8N_UM_EMAIL_TEMPLATES_WORKFLOW_SHARED` | String | 覆盖通知用户工作流已共享的默认 HTML 模板。提供模板的完整路径。 | 可选 |",
+    "evidence": "此行变量名为 WORKFLOW_SHARED，而同页另有 CREDENTIALS_SHARED 行。同一锁定版本的 deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/user-management-and-2fa.md 对该变量明确说明 a workflow was shared。该参考文件来源哈希为 4414d5b2d43cdb29bab64b97f323c1086932ab42619f448f59ad5e6007a5f956。",
+    "scope": "依据同页变量名和同版本环境变量参考纠正复制笔误；变量名、默认值、示例代码和上游原文不修改。"
   }
 ]

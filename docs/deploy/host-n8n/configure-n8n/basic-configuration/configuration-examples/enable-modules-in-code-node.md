@@ -1,24 +1,24 @@
 ---
-title: Enable modules in Code node
-description: Allow the use of both built-in and external modules within the Code node.
+title: 在 Code 节点中启用模块
+description: 允许在 Code 节点中使用内置模块和外部模块。
 contentType: howto
-nodeTitle: Enable modules in Code node
+nodeTitle: 在 Code 节点中启用模块
 originalFilePath: hosting/configuration/configuration-examples/modules-in-code-node.md
-originalUrl: >-
-  https://docs.n8n.io/hosting/configuration/configuration-examples/modules-in-code-node
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-modules-in-code-node
+originalUrl: https://docs.n8n.io/hosting/configuration/configuration-examples/modules-in-code-node
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-modules-in-code-node
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Enable modules in Code node <a href="#enable-modules-in-code-node" id="enable-modules-in-code-node"></a>
 
-For security reasons, the Code node restricts importing modules. It's possible to lift that restriction for built-in and external modules by setting the following environment variables:
+# 在 Code 节点中启用模块 <a href="#enable-modules-in-code-node" id="enable-modules-in-code-node"></a>
 
-- `NODE_FUNCTION_ALLOW_BUILTIN`: For built-in modules
-- `NODE_FUNCTION_ALLOW_EXTERNAL`: For external modules sourced from n8n/node_modules directory. External module support is disabled when an environment variable isn't set.
+出于安全原因，Code 节点会限制导入模块。可以通过以下环境变量，解除对内置模块和外部模块的限制：
+
+- `NODE_FUNCTION_ALLOW_BUILTIN`：用于内置模块。
+- `NODE_FUNCTION_ALLOW_EXTERNAL`：用于 n8n/node_modules 目录中的外部模块。未设置此环境变量时，禁用外部模块支持。
 
 ```bash
 # Allows usage of all builtin modules <a href="#allows-usage-of-all-builtin-modules" id="allows-usage-of-all-builtin-modules"></a>
@@ -34,13 +34,13 @@ export NODE_FUNCTION_ALLOW_BUILTIN=crypto,fs
 export NODE_FUNCTION_ALLOW_EXTERNAL=moment,lodash
 ```
 {% hint style="info" %}
-**If using Task Runners**
+**使用任务运行器时**
 
-If n8n instance is setup with [Task Runners](../../set-up-task-runners.md), add the environment variables to the Task Runners instead to the main n8n node.
+如果 n8n 实例已配置[任务运行器](../../set-up-task-runners.md)，请将环境变量添加到任务运行器，而非 n8n 主节点。
 {% endhint %}
 
-Refer to [Environment variables reference](../use-environment-variables/nodes.md) for more information on these variables.
+这些变量的更多信息请参阅[环境变量参考](../use-environment-variables/nodes.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configuration examples](./)
+* [配置示例](./)

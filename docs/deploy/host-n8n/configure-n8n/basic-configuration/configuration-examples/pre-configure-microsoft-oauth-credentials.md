@@ -1,32 +1,29 @@
 ---
-title: Pre-configure Microsoft OAuth credentials
-description: >-
-  Use credential overwrites to pre-configure Microsoft OAuth2 credentials in n8n
-  so users can connect without their own app registration.
+title: 预配置 Microsoft OAuth 凭据
+description: 通过凭据覆盖，在 n8n 中预配置 Microsoft OAuth2 凭据，让用户无需自行注册应用即可连接。
 contentType: howto
-nodeTitle: Pre-configure Microsoft OAuth credentials
-originalFilePath: >-
-  hosting/configuration/configuration-examples/microsoft-oauth-credential-overwrites.md
-originalUrl: >-
-  https://docs.n8n.io/hosting/configuration/configuration-examples/microsoft-oauth-credential-overwrites
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/pre-configure-microsoft-oauth-credentials
+nodeTitle: 预配置 Microsoft OAuth 凭据
+originalFilePath: hosting/configuration/configuration-examples/microsoft-oauth-credential-overwrites.md
+originalUrl: https://docs.n8n.io/hosting/configuration/configuration-examples/microsoft-oauth-credential-overwrites
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/pre-configure-microsoft-oauth-credentials
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Pre-configure Microsoft OAuth credentials <a href="#pre-configure-microsoft-oauth-credentials" id="pre-configure-microsoft-oauth-credentials"></a>
 
-After [setting up a Microsoft Entra ID app registration with delegated access](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials/microsoftentra#delegated-access-for-organisation-wide-microsoft-integrations), you can use [credential overwrites](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-credentials/credential-overwrites) to inject the Client ID and Client Secret into n8n at startup. This means users in your organisation can connect to Microsoft services without completing their own OAuth app registration.
+# 预配置 Microsoft OAuth 凭据 <a href="#pre-configure-microsoft-oauth-credentials" id="pre-configure-microsoft-oauth-credentials"></a>
 
-n8n supports three environment variables for credential overwrites. This guide uses `CREDENTIALS_OVERWRITE_DATA_FILE`. Refer to [Credentials environment variables](../use-environment-variables/credentials.md) for the full variable reference.
+[创建具有委派访问权限的 Microsoft Entra ID 应用注册](../../../../../integrations/builtin/credentials/microsoftentra.md#delegated-access-for-organisation-wide-microsoft-integrations)后，可以通过[凭据覆盖](../../../../../administer/manage-credentials/credential-overwrites.md)，在 n8n 启动时注入客户端 ID 和客户端密钥。这样，组织中的用户无需自行注册 OAuth 应用，即可连接 Microsoft 服务。
 
-## Create the credentials file <a href="#create-the-credentials-file" id="create-the-credentials-file"></a>
+n8n 支持三个用于凭据覆盖的环境变量。本指南使用 `CREDENTIALS_OVERWRITE_DATA_FILE`。完整变量参考请参阅[凭据环境变量](../use-environment-variables/credentials.md)。
 
-On the host running n8n, create a file named `credentials-overwrite.json` in the same directory as your `docker-compose.yaml`.
+## 创建凭据文件 <a href="#create-the-credentials-file" id="create-the-credentials-file"></a>
 
-The file contains a JSON object keyed by the n8n credential type name. For example, to pre-configure Microsoft Outlook:
+在运行 n8n 的主机上，将名为 `credentials-overwrite.json` 的文件创建在与 `docker-compose.yaml` 相同的目录中。
+
+文件包含一个 JSON 对象，以 n8n 凭据类型名称作为键。例如，预配置 Microsoft Outlook：
 
 ```json
 {
@@ -37,7 +34,7 @@ The file contains a JSON object keyed by the n8n credential type name. For examp
 }
 ```
 
-To pre-configure multiple Microsoft services at once, add each credential type as a separate key:
+要同时预配置多个 Microsoft 服务，请将每种凭据类型分别作为键添加：
 
 ```json
 {
@@ -53,20 +50,20 @@ To pre-configure multiple Microsoft services at once, add each credential type a
 ```
 
 {% hint style="info" %}
-**Minified JSON**
+**压缩后的 JSON**
 
-n8n requires the JSON to be minified (no spaces or newlines). The examples above are formatted for readability. Make sure your actual file contains no extra whitespace:
+n8n 要求使用压缩后的 JSON，不包含空格或换行。以上示例为了便于阅读而进行了格式化。请确认实际文件没有多余空白：
 
 ```json
 {"microsoftOutlookOAuth2Api":{"clientId":"YOUR_CLIENT_ID","clientSecret":"YOUR_CLIENT_SECRET"}}
 ```
 {% endhint %}
 
-Refer to [Required scopes by integration](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials/microsoftentra#required-scopes-by-integration) for the credential type name of each Microsoft service.
+各 Microsoft 服务的凭据类型名称，请参阅[各集成所需的作用域](../../../../../integrations/builtin/credentials/microsoftentra.md#required-scopes-by-integration)。
 
 ## Docker Compose <a href="#docker-compose" id="docker-compose"></a>
 
-Mount the credentials file as a read-only volume and set the environment variable in your `compose.yaml`:
+将凭据文件以只读卷挂载，并在 `compose.yaml` 中设置环境变量：
 
 ```yaml
 services:
@@ -95,31 +92,31 @@ volumes:
     external: true
 ```
 
-Apply the changes by restarting the container:
+重启容器以应用修改：
 
 ```bash
 docker compose up -d
 ```
 
-## Verify the overwrite is applied <a href="#verify-the-overwrite-is-applied" id="verify-the-overwrite-is-applied"></a>
+## 验证覆盖配置已生效 <a href="#verify-the-overwrite-is-applied" id="verify-the-overwrite-is-applied"></a>
 
-After n8n starts, have a user create a new credential for one of the pre-configured services (for example, Microsoft Outlook). They should see a **Managed OAuth2 (recommended)** option in the credential selection.
+n8n 启动后，让用户为某个已预配置服务创建新凭据，例如 Microsoft Outlook。凭据选择中应显示 **Managed OAuth2 (recommended)（托管 OAuth2，推荐）**选项。
 
-![Microsoft Entra credentials screen](../../../../.gitbook/assets/microsoft-entra-oauth.png)
+![Microsoft Entra 凭据界面](../../../../.gitbook/assets/microsoft-entra-oauth.png)
 
-The user can click **Connect to Microsoft Outlook**, with no auth required. An **Account connected** message should appear
+用户可以点击 **Connect to Microsoft Outlook（连接到 Microsoft Outlook）**，无需进行身份验证。随后应显示 **Account connected（账号已连接）**消息。
 
-If the **Managed OAuth 2** option doesn't appear, the environment variable wasn't applied correctly. Check that the file path in the volume mount matches the value of `CREDENTIALS_OVERWRITE_DATA_FILE`.
+如果没有 **Managed OAuth 2（托管 OAuth 2）**选项，说明环境变量未正确应用。请检查卷挂载中的文件路径是否与 `CREDENTIALS_OVERWRITE_DATA_FILE` 的值一致。
 
 ## Kubernetes <a href="#kubernetes" id="kubernetes"></a>
 
-For Kubernetes deployments, replace the Docker volume mount with Kubernetes-native primitives. The approach differs by cloud provider. Choose the section that matches your environment.
+在 Kubernetes 部署中，用 Kubernetes 原生机制替代 Docker 卷挂载。不同云提供商的做法有所差异，请选择与你的环境对应的部分。
 
-### Plain Kubernetes Secret (EKS / AKS / GKE) <a href="#plain-kubernetes-secret-eks-aks-gke" id="plain-kubernetes-secret-eks-aks-gke"></a>
+### 普通 Kubernetes Secret（EKS / AKS / GKE） <a href="#plain-kubernetes-secret-eks-aks-gke" id="plain-kubernetes-secret-eks-aks-gke"></a>
 
-This approach works across all three managed Kubernetes providers without additional dependencies.
+此方法适用于三种托管 Kubernetes 服务，无需额外依赖。
 
-**1. Create the Secret:**
+**1. 创建 Secret：**
 
 ```yaml
 apiVersion: v1
@@ -132,7 +129,7 @@ stringData:
   credentials-overwrite.json: '{"microsoftOutlookOAuth2Api":{"clientId":"YOUR_CLIENT_ID","clientSecret":"YOUR_CLIENT_SECRET"}}'
 ```
 
-**2. Mount the Secret in your Deployment:**
+**2. 在 Deployment 中挂载 Secret：**
 
 ```yaml
 spec:
@@ -154,12 +151,12 @@ spec:
         secretName: n8n-credentials-overwrite
 ```
 
-The `subPath` field is important. Without it, Kubernetes replaces the entire `/run/secrets/` directory rather than mounting just the single file.
+`subPath` 字段很重要。缺少此字段时，Kubernetes 会替换整个 `/run/secrets/` 目录，而不是仅挂载单个文件。
 
 {% hint style="info" %}
-**Alternative: inline environment variable**
+**替代方式：直接使用环境变量**
 
-To skip the volume mount entirely, reference the Secret directly as an environment variable:
+如果不想挂载卷，可以直接将 Secret 引用为环境变量：
 
 ```yaml
 env:
@@ -176,20 +173,20 @@ stringData:
   credentials-json: '{"microsoftOutlookOAuth2Api":{"clientId":"...","clientSecret":"..."}}'
 ```
 
-This is cleaner for single-service setups, but note that some Kubernetes environments restrict environment variable size (for example, to 128KB per variable). The file-based approach is safer if you have many credential overwrites.
+对于单个服务，这样更简洁。但有些 Kubernetes 环境会限制环境变量大小，例如每个变量最多 128KB。如果有大量凭据覆盖配置，使用文件的方式更稳妥。
 {% endhint %}
 
-### AWS Secrets Manager (EKS) <a href="#aws-secrets-manager-eks" id="aws-secrets-manager-eks"></a>
+### AWS Secrets Manager（EKS） <a href="#aws-secrets-manager-eks" id="aws-secrets-manager-eks"></a>
 
-This approach uses the [AWS Secrets Store CSI Driver](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html) to mount a secret from AWS Secrets Manager directly into the pod. It adds rotation support, CloudTrail audit logging, and centralised secret management.
+此方法通过 [AWS Secrets Store CSI Driver](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html)，将 AWS Secrets Manager 中的密钥直接挂载到 Pod，提供轮换支持、CloudTrail 审计日志和集中式密钥管理。
 
-**Prerequisites:**
+**前提条件：**
 
-- Secrets Store CSI Driver and ASCP (AWS Secrets and Configuration Provider) installed on the cluster
-- IAM OIDC provider configured for the cluster (required for IRSA)
-- An IAM role with `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret` permissions
+- 集群已安装 Secrets Store CSI Driver 和 ASCP（AWS Secrets and Configuration Provider）。
+- 已为集群配置 IAM OIDC 提供商，IRSA 需要此配置。
+- 一个具有 `secretsmanager:GetSecretValue` 和 `secretsmanager:DescribeSecret` 权限的 IAM 角色。
 
-**1. Create the secret in AWS Secrets Manager:**
+**1. 在 AWS Secrets Manager 中创建密钥：**
 
 ```bash
 aws secretsmanager create-secret \
@@ -198,7 +195,7 @@ aws secretsmanager create-secret \
   --secret-string '{"microsoftOutlookOAuth2Api":{"clientId":"YOUR_CLIENT_ID","clientSecret":"YOUR_CLIENT_SECRET"}}'
 ```
 
-**2. Create an IAM policy:**
+**2. 创建 IAM 策略：**
 
 ```json
 {
@@ -222,7 +219,7 @@ aws iam create-policy \
   --policy-document file://policy.json
 ```
 
-**3. Create a service account with IRSA:**
+**3. 创建使用 IRSA 的服务账号：**
 
 ```bash
 eksctl create iamserviceaccount \
@@ -233,7 +230,7 @@ eksctl create iamserviceaccount \
   --approve
 ```
 
-**4. Create the SecretProviderClass:**
+**4. 创建 SecretProviderClass：**
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -250,7 +247,7 @@ spec:
         objectAlias: "credentials-overwrite.json"
 ```
 
-**5. Update your n8n Deployment:**
+**5. 更新 n8n Deployment：**
 
 ```yaml
 apiVersion: apps/v1
@@ -282,9 +279,9 @@ spec:
               secretProviderClass: n8n-credentials-overwrite
 ```
 
-**Rotating the secret:**
+**轮换密钥：**
 
-To update the credentials, update the value in Secrets Manager:
+更新凭据时，修改 Secrets Manager 中的值：
 
 ```bash
 aws secretsmanager update-secret \
@@ -292,20 +289,20 @@ aws secretsmanager update-secret \
   --secret-string '{"microsoftOutlookOAuth2Api":{"clientId":"NEW_CLIENT_ID","clientSecret":"NEW_CLIENT_SECRET"}}'
 ```
 
-The CSI driver syncs the updated value on its polling interval (default two minutes). Restart the n8n pod for n8n to read the updated file, as n8n reads the credentials file at startup.
+CSI 驱动会按轮询间隔同步更新的值，默认为两分钟。由于 n8n 在启动时读取凭据文件，需要重启 n8n Pod 才能读取更新后的文件。
 
-### Azure Key Vault (AKS) <a href="#azure-key-vault-aks" id="azure-key-vault-aks"></a>
+### Azure Key Vault（AKS） <a href="#azure-key-vault-aks" id="azure-key-vault-aks"></a>
 
-This approach uses the [Azure Key Vault Provider for the Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver) to mount secrets from Azure Key Vault into the pod.
+此方法通过 [Secrets Store CSI Driver 的 Azure Key Vault Provider](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)，将 Azure Key Vault 中的密钥挂载到 Pod。
 
-**Prerequisites:**
+**前提条件：**
 
-- Secrets Store CSI Driver and Azure Key Vault Provider addon enabled on the AKS cluster
-- An Azure Key Vault instance
-- A managed identity or service principal with access to the vault
-- Workload Identity enabled on the cluster (recommended over pod identity)
+- AKS 集群已启用 Secrets Store CSI Driver 和 Azure Key Vault Provider 附加组件。
+- 一个 Azure Key Vault 实例。
+- 一个有权访问保管库的托管标识或服务主体。
+- 集群已启用 Workload Identity，推荐使用它而非 Pod Identity。
 
-**1. Create or use an existing Key Vault:**
+**1. 创建或使用现有 Key Vault：**
 
 ```bash
 az keyvault create \
@@ -314,7 +311,7 @@ az keyvault create \
   --location your-region
 ```
 
-**2. Create the secret in Key Vault:**
+**2. 在 Key Vault 中创建密钥：**
 
 ```bash
 az keyvault secret set \
@@ -323,9 +320,9 @@ az keyvault secret set \
   --value '{"microsoftOutlookOAuth2Api":{"clientId":"YOUR_CLIENT_ID","clientSecret":"YOUR_CLIENT_SECRET"}}'
 ```
 
-**3. Set up Workload Identity:**
+**3. 设置 Workload Identity：**
 
-Create a managed identity and establish the federated credential:
+创建托管标识并建立联合凭据：
 
 ```bash
 # Create a managed identity <a href="#create-a-managed-identity" id="create-a-managed-identity"></a>
@@ -361,7 +358,7 @@ az identity credential create \
   --audience api://AzureADTokenExchange
 ```
 
-**4. Create the Kubernetes ServiceAccount:**
+**4. 创建 Kubernetes ServiceAccount：**
 
 ```yaml
 apiVersion: v1
@@ -375,7 +372,7 @@ metadata:
     azure.workload.identity/use: "true"
 ```
 
-**5. Create the SecretProviderClass:**
+**5. 创建 SecretProviderClass：**
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -399,7 +396,7 @@ spec:
     tenantId: "YOUR_TENANT_ID"
 ```
 
-**6. Update your n8n Deployment:**
+**6. 更新 n8n Deployment：**
 
 ```yaml
 apiVersion: apps/v1
@@ -431,7 +428,7 @@ spec:
               secretProviderClass: n8n-credentials-overwrite
 ```
 
-**Rotating the secret:**
+**轮换密钥：**
 
 ```bash
 az keyvault secret set \
@@ -440,26 +437,26 @@ az keyvault secret set \
   --value '{"microsoftOutlookOAuth2Api":{"clientId":"NEW_CLIENT_ID","clientSecret":"NEW_CLIENT_SECRET"}}'
 ```
 
-The CSI driver syncs on its polling interval (default two minutes). Restart the n8n pod afterward for n8n to pick up the updated file.
+CSI 驱动按轮询间隔同步，默认为两分钟。之后重启 n8n Pod，让 n8n 读取更新后的文件。
 
-### Google Secret Manager (GKE) <a href="#google-secret-manager-gke" id="google-secret-manager-gke"></a>
+### Google Secret Manager（GKE） <a href="#google-secret-manager-gke" id="google-secret-manager-gke"></a>
 
-This approach uses the [GCP provider for the Secrets Store CSI Driver](https://github.com/GoogleCloudPlatform/secrets-store-csi-driver-provider-gcp) to mount secrets from Google Secret Manager into the pod.
+此方法通过 [Secrets Store CSI Driver 的 GCP 提供商](https://github.com/GoogleCloudPlatform/secrets-store-csi-driver-provider-gcp)，将 Google Secret Manager 中的密钥挂载到 Pod。
 
-**Prerequisites:**
+**前提条件：**
 
-- A GKE cluster with Workload Identity Federation enabled
-- The Secret Manager API enabled on the project
-- A Google service account with the `secretmanager.secretAccessor` role
+- 已启用 Workload Identity Federation 的 GKE 集群。
+- 项目已启用 Secret Manager API。
+- 一个具有 `secretmanager.secretAccessor` 角色的 Google 服务账号。
 
-**1. Enable the Secret Manager API:**
+**1. 启用 Secret Manager API：**
 
 ```bash
 gcloud services enable secretmanager.googleapis.com \
   --project your-project-id
 ```
 
-**2. Create the secret:**
+**2. 创建密钥：**
 
 ```bash
 echo -n '{"microsoftOutlookOAuth2Api":{"clientId":"YOUR_CLIENT_ID","clientSecret":"YOUR_CLIENT_SECRET"}}' | \
@@ -468,7 +465,7 @@ echo -n '{"microsoftOutlookOAuth2Api":{"clientId":"YOUR_CLIENT_ID","clientSecret
     --project your-project-id
 ```
 
-**3. Set up Workload Identity Federation:**
+**3. 设置 Workload Identity Federation：**
 
 ```bash
 # Create a Google service account <a href="#create-a-google-service-account" id="create-a-google-service-account"></a>
@@ -489,7 +486,7 @@ gcloud iam service-accounts add-iam-policy-binding \
   --member="serviceAccount:your-project-id.svc.id.goog[your-namespace/n8n-sa]"
 ```
 
-**4. Create the Kubernetes ServiceAccount:**
+**4. 创建 Kubernetes ServiceAccount：**
 
 ```yaml
 apiVersion: v1
@@ -501,7 +498,7 @@ metadata:
     iam.gke.io/gcp-service-account: n8n-secret-reader@your-project-id.iam.gserviceaccount.com
 ```
 
-**5. Install the CSI Driver and GCP provider:**
+**5. 安装 CSI Driver 和 GCP 提供商：**
 
 ```bash
 # Install the CSI driver <a href="#install-the-csi-driver" id="install-the-csi-driver"></a>
@@ -513,7 +510,7 @@ helm install csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
 kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/secrets-store-csi-driver-provider-gcp/main/deploy/provider-gcp-plugin.yaml
 ```
 
-**6. Create the SecretProviderClass:**
+**6. 创建 SecretProviderClass：**
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -529,7 +526,7 @@ spec:
         path: "credentials-overwrite.json"
 ```
 
-**7. Update your n8n Deployment:**
+**7. 更新 n8n Deployment：**
 
 ```yaml
 apiVersion: apps/v1
@@ -561,9 +558,9 @@ spec:
               secretProviderClass: n8n-credentials-overwrite
 ```
 
-**Rotating the secret:**
+**轮换密钥：**
 
-Create a new version of the secret:
+创建密钥的新版本：
 
 ```bash
 echo -n '{"microsoftOutlookOAuth2Api":{"clientId":"NEW_CLIENT_ID","clientSecret":"NEW_CLIENT_SECRET"}}' | \
@@ -572,8 +569,8 @@ echo -n '{"microsoftOutlookOAuth2Api":{"clientId":"NEW_CLIENT_ID","clientSecret"
     --project your-project-id
 ```
 
-Because the SecretProviderClass references `versions/latest`, the CSI driver picks up the new version on its next sync. Restart the n8n pod for n8n to read the updated file.
+由于 SecretProviderClass 引用了 `versions/latest`，CSI 驱动会在下次同步时获取新版本。重启 n8n Pod，让 n8n 读取更新后的文件。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configuration examples](./)
+* [配置示例](./)

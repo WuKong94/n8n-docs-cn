@@ -1,39 +1,41 @@
 ---
-title: Configuration methods
-description: How to set environment variables for n8n.
+title: 配置方式
+description: 如何设置 n8n 的环境变量。
 contentType: howto
-nodeTitle: Basic configuration
+nodeTitle: 基础配置
 originalFilePath: hosting/configuration/configuration-methods.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/configuration-methods'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration'
+originalUrl: https://docs.n8n.io/hosting/configuration/configuration-methods
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Configuration <a href="#configuration" id="configuration"></a>
 
-You can change n8n's settings using environment variables. For a full list of available configurations see [Environment variables](basic-configuration/use-environment-variables/README.md).
+# 配置 <a href="#configuration" id="configuration"></a>
 
-## Set environment variables by command line <a href="#set-environment-variables-by-command-line" id="set-environment-variables-by-command-line"></a>
+可以通过环境变量更改 n8n 设置。所有可用配置请参阅[环境变量](basic-configuration/use-environment-variables/README.md)。
+
+## 通过命令行设置环境变量 <a href="#set-environment-variables-by-command-line" id="set-environment-variables-by-command-line"></a>
 
 ### npm <a href="#npm" id="npm"></a>
 
-For npm, set your desired environment variables in terminal. The command depends on your command line.
+使用 npm 时，在终端中设置所需的环境变量。命令取决于使用的命令行环境。
 
-Bash CLIs:
+Bash 命令行：
 
 ```bash
 export <variable>=<value>
 ```
 
-In cmd.exe:
+在 cmd.exe 中：
 
 ```bash
 set <variable>=<value>
 ```
 
-In PowerShell:
+在 PowerShell 中：
 
 ```powershell
 $env:<variable>=<value>
@@ -41,7 +43,7 @@ $env:<variable>=<value>
 
 ### Docker <a href="#docker" id="docker"></a>
 
-In Docker you can use the `-e` flag from the command line:
+使用 Docker 时，可以通过命令行中的 `-e` 参数设置：
 
 ```bash
 docker run -it --rm \
@@ -52,11 +54,11 @@ docker run -it --rm \
 ```
 
 
-## Docker Compose file <a href="#docker-compose-file" id="docker-compose-file"></a>
+## Docker Compose 文件 <a href="#docker-compose-file" id="docker-compose-file"></a>
 
-In Docker, you can set your environment variables in the `n8n: environment:` element of your `docker-compose.yaml` file.
+在 Docker 中，可以通过 `n8n: environment:` 元素设置环境变量，该元素位于 `docker-compose.yaml` 文件中。
 
-For example:
+例如：
 
 ```yaml
 n8n:
@@ -64,13 +66,13 @@ n8n:
       - N8N_TEMPLATES_ENABLED=false
 ```
 
-## Keeping sensitive data in separate files <a href="#keeping-sensitive-data-in-separate-files" id="keeping-sensitive-data-in-separate-files"></a>
+## 将敏感数据保存在单独的文件中 <a href="#keeping-sensitive-data-in-separate-files" id="keeping-sensitive-data-in-separate-files"></a>
 
-You can append `_FILE` to individual environment variables to provide their configuration in a separate file, enabling you to avoid passing sensitive details using environment variables. n8n loads the data from the file with the given name, making it possible to load data from [Docker secrets](https://docs.docker.com/engine/swarm/secrets/) and [Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+可以为单个环境变量添加 `_FILE` 后缀，改为从单独的文件提供配置，避免通过环境变量直接传递敏感信息。n8n 会从指定文件中加载数据，因此可使用 [Docker secrets](https://docs.docker.com/engine/swarm/secrets/) 和 [Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/)。
 
-Refer to [Environment variables](basic-configuration/use-environment-variables/README.md) for details on each variable.
+各变量的详情请参阅[环境变量](basic-configuration/use-environment-variables/README.md)。
 
-While most environment variables can use the `_FILE` suffix, it's more beneficial for sensitive data such as credentials[^1] and database configuration. Here are some examples: 
+虽然大多数环境变量都可以使用 `_FILE` 后缀，但对于凭据[^1]和数据库配置等敏感数据更有帮助。以下是一些示例：
 
 ```yaml
 CREDENTIALS_OVERWRITE_DATA_FILE=/path/to/credentials_data
@@ -87,13 +89,13 @@ DB_POSTGRESDB_SSL_KEY_FILE=/path/to/ssl_key
 DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED_FILE=/path/to/ssl_reject_unauth
 ```
 
-[^1]: In n8n, credentials store authentication information to connect with specific apps and services. After creating credentials with your authentication information (username and password, API key, OAuth secrets, etc.), you can use the associated app node to interact with the service.
+[^1]: 在 n8n 中，凭据保存连接特定应用和服务所需的身份验证信息。使用用户名和密码、API 密钥、OAuth 密钥等信息创建凭据后，就可以通过相应应用节点与服务交互。
 
-## In this section
+## 本节内容 <a id="in-this-section"></a>
 
-* [Environment variables](basic-configuration/use-environment-variables/README.md): reference for every environment variable n8n supports.
-* [Configuration examples](basic-configuration/configuration-examples/README.md): examples for how to configure n8n to solve particular use cases.
+* [环境变量](basic-configuration/use-environment-variables/README.md)：n8n 支持的所有环境变量参考。
+* [配置示例](basic-configuration/configuration-examples/README.md)：针对特定使用场景配置 n8n 的示例。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configure n8n](./)
+* [配置 n8n](./)

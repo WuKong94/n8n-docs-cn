@@ -1,48 +1,50 @@
 ---
-title: Deploy n8n in canvas-only mode
-description: How the N8N_CANVAS_ONLY environment variable hides n8n's navigation and workflow settings to show only the workflow canvas.
+title: 以仅画布模式部署 n8n
+description: 了解 N8N_CANVAS_ONLY 环境变量如何隐藏 n8n 导航和工作流设置，仅显示工作流画布。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Deploy n8n in canvas-only mode
 
-In canvas-only mode, when you open a workflow you see only that workflow's canvas. Elements that would navigate away from it, like the command bar, are hidden.
+# 以仅画布模式部署 n8n <a id="deploy-n8n-in-canvas-only-mode"></a>
+
+在仅画布模式下，打开工作流时只会看到该工作流的画布。命令栏等可能引导用户离开画布的元素会隐藏。
 
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Canvas-only mode is available from n8n 2.15.0.
+自 n8n 2.15.0 起提供仅画布模式。
 {% endhint %}
 
-## Turn on canvas-only mode
+## 开启仅画布模式 <a id="turn-on-canvas-only-mode"></a>
 
-Set `N8N_CANVAS_ONLY` to `true`:
+将 `N8N_CANVAS_ONLY` 设为 `true`：
 
 ```bash
 export N8N_CANVAS_ONLY=true
 ```
 
-Canvas-only mode applies to the whole instance. You can't turn it on for individual workflows or users.
+仅画布模式作用于整个实例，不能只对特定工作流或用户启用。
 
-## What changes in canvas-only mode
+## 仅画布模式中的变化 <a id="what-changes-in-canvas-only-mode"></a>
 
-On the workflow details route, canvas-only mode hides:
+在工作流详情路由中，仅画布模式会隐藏：
 
-- **The Canvas header.** The workflow name, breadcrumbs, save controls, and tags no longer show.
-- **The left menu.** n8n's main navigation isn't visible.
-- **Overlay elements.** The command bar and "Ask AI assistant" button are no longer shown.
-- **Keyboard shortcuts.** The following keyboard shortcuts are disabled in canvas-only mode: **Ctrl/Cmd** + **s** (save), **Ctrl/Cmd** + **Alt** + **n** (create new workflow), **Ctrl/Cmd** + **p** (publish), **Ctrl/Cmd** + **u** (unpublish), **Ctrl/Cmd** + **k** (command bar)
+- **画布顶部区域**：不再显示工作流名称、面包屑导航、保存控件和标签。
+- **左侧菜单**：不再显示 n8n 主导航。
+- **浮层元素**：不再显示命令栏和“Ask AI assistant”按钮。
+- **键盘快捷键**：仅画布模式会禁用以下快捷键：**Ctrl/Cmd** + **s**（保存）、**Ctrl/Cmd** + **Alt** + **n**（创建新工作流）、**Ctrl/Cmd** + **p**（发布）、**Ctrl/Cmd** + **u**（取消发布）、**Ctrl/Cmd** + **k**（命令栏）。
 
-n8n keeps the following visible:
+n8n 会保留以下元素：
 
-- **The workflow canvas and its nodes.** You can still pan, zoom, and edit the workflow.
-- **The tab bar** for switching between the editor, executions, and evaluations. It floats near the top of the screen instead of sitting inside the header.
-- **The logs panel** to display execution logs of individual nodes.
-- **The node creator panel.** The "Add a node" panel still opens from the canvas, repositioned to the top of the screen instead of below the header.
+- **工作流画布及其节点**：仍可平移、缩放和编辑工作流。
+- **标签栏**：用于在编辑器、执行记录和评估之间切换，浮动在屏幕顶部附近，不再位于顶部区域内部。
+- **日志面板**：显示各个节点的执行日志。
+- **节点创建面板**：“Add a node（添加节点）”面板仍可从画布打开，但会移至屏幕顶部，而非顶部区域下方。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configure n8n](./)
+* [配置 n8n](./)

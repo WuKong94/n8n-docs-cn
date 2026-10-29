@@ -1,26 +1,27 @@
 ---
-title: Configure webhook URLs with reverse proxy
-description: Customize n8n webhook URLs for compatibility with reverse proxy setups.
+title: 配置反向代理下的 Webhook URL
+description: 自定义 n8n Webhook URL，使其兼容反向代理设置。
 contentType: howto
-nodeTitle: Configure webhook URLs with reverse proxy
+nodeTitle: 配置反向代理下的 Webhook URL
 originalFilePath: hosting/configuration/configuration-examples/webhook-url.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/configuration-examples/webhook-url'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/configure-webhook-urls-with-reverse-proxy
+originalUrl: https://docs.n8n.io/hosting/configuration/configuration-examples/webhook-url
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/configure-webhook-urls-with-reverse-proxy
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Configure n8n webhooks with reverse proxy <a href="#configure-n8n-webhooks-with-reverse-proxy" id="configure-n8n-webhooks-with-reverse-proxy"></a>
 
-n8n creates the webhook URL by combining `N8N_PROTOCOL`, `N8N_HOST` and `N8N_PORT`. If n8n runs behind a reverse proxy, that won't work. That's because n8n runs internally on port 5678 but the reverse proxy exposes it to the web on port 443.
+# 在反向代理后配置 n8n Webhook <a href="#configure-n8n-webhooks-with-reverse-proxy" id="configure-n8n-webhooks-with-reverse-proxy"></a>
 
-When running n8n behind a reverse proxy, it's important to do the following:
+n8n 通过组合 `N8N_PROTOCOL`、`N8N_HOST` 和 `N8N_PORT` 创建 Webhook URL。如果 n8n 位于反向代理后，这种方式无法正常工作，因为 n8n 在内部运行于 5678 端口，而反向代理通过 443 端口对外提供访问。
 
-* set the webhook URL manually with the `N8N_WEBHOOK_URL` environment variable so that n8n can display it in the editor UI and register the correct webhook URLs with external services. (`N8N_WEBHOOK_URL` replaces `WEBHOOK_URL`, which is deprecated from n8n 2.35.0; n8n logs a deprecation warning if you still use `WEBHOOK_URL`.)
-* Set the `N8N_PROXY_HOPS` environment variable to `1`.
-* On the last proxy on the request path, set the following headers to pass on information about the initial request:
+在反向代理后运行 n8n 时，请完成以下设置：
+
+* 使用 `N8N_WEBHOOK_URL` 环境变量手动设置 Webhook URL，让 n8n 能在编辑器中显示，并向外部服务注册正确的 Webhook URL。（`N8N_WEBHOOK_URL` 替代了 `WEBHOOK_URL`；后者自 n8n 2.35.0 起已弃用，继续使用 `WEBHOOK_URL` 时，n8n 会记录弃用警告。）
+* 将 `N8N_PROXY_HOPS` 环境变量设为 `1`。
+* 在请求路径的最后一个代理上，设置以下请求头，以传递原始请求的信息：
     * [`X-Forwarded-For`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Forwarded-For)
     * [`X-Forwarded-Host`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Forwarded-Host)
     * [`X-Forwarded-Proto`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Forwarded-Proto)
@@ -29,10 +30,10 @@ When running n8n behind a reverse proxy, it's important to do the following:
 export N8N_WEBHOOK_URL=https://n8n.example.com/
 export N8N_PROXY_HOPS=1
 ```
-Refer to [Environment variables reference](../use-environment-variables/endpoints.md) for more information on this variable.
+此变量的更多信息请参阅[环境变量参考](../use-environment-variables/endpoints.md)。
 
-If you also run n8n's [instance-level MCP server](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server) behind the same reverse proxy, make sure it forwards the [MCP request headers](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server#mcp-request-headers) too.
+如果还通过同一反向代理运行 n8n 的[实例级 MCP 服务器](../../../../../connect/connect-to-n8n-mcp-server.md)，请确认代理也转发了 [MCP 请求头](../../../../../connect/connect-to-n8n-mcp-server.md#mcp-request-headers)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configuration examples](./)
+* [配置示例](./)

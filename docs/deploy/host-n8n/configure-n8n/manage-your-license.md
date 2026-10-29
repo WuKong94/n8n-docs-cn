@@ -1,54 +1,56 @@
 ---
-title: License key
-description: How to activate your license key.
+title: 许可证密钥
+description: 如何激活许可证密钥。
 contentType: howto
-nodeTitle: Manage your license
+nodeTitle: 管理许可证
 originalFilePath: license-key.md
-originalUrl: 'https://docs.n8n.io/license-key'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/manage-your-license'
+originalUrl: https://docs.n8n.io/license-key
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/manage-your-license
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# License Key <a href="#license-key" id="license-key"></a>
 
-To enable certain licensed features, you must first activate your license. You can do this either through the UI or by setting environment variables.
+# 许可证密钥 <a href="#license-key" id="license-key"></a>
 
-## Add a license key using the UI <a href="#add-a-license-key-using-the-ui" id="add-a-license-key-using-the-ui"></a>
+要启用某些需要许可的功能，必须先激活许可证。可以通过界面或环境变量进行激活。
 
-In your n8n instance:
+## 通过界面添加许可证密钥 <a href="#add-a-license-key-using-the-ui" id="add-a-license-key-using-the-ui"></a>
 
-1. Log in as **Admin** or **Owner**.
-1. Select **Settings** > **Usage and plan**.
-1. Select **Enter activation key**.
-1. Paste in your license key.
-1. Select **Activate**.
+在 n8n 实例中：
 
-## Add a license key using an environment variable <a href="#add-a-license-key-using-an-environment-variables" id="add-a-license-key-using-an-environment-variables"></a>
+1. 以 **Admin（管理员）**或 **Owner（所有者）**身份登录。
+1. 选择 **Settings（设置）** > **Usage and plan（使用情况与套餐）**。
+1. 选择 **Enter activation key（输入激活密钥）**。
+1. 粘贴许可证密钥。
+1. 选择 **Activate（激活）**。
 
-In your n8n configuration, set `N8N_LICENSE_ACTIVATION_KEY` to your license key. If the instance already has an activated license, this variable will have no effect.
+## 通过环境变量添加许可证密钥 <a href="#add-a-license-key-using-an-environment-variables" id="add-a-license-key-using-an-environment-variables"></a>
 
-Refer to [Environment variables](basic-configuration.md) to learn more about configuring n8n.
+在 n8n 配置中，将 `N8N_LICENSE_ACTIVATION_KEY` 设置为许可证密钥。如果实例已经激活许可证，此变量不会生效。
 
-### Allowlist the license server IP addresses <a href="#allowlist-the-license-server-ip-addresses" id="allowlist-the-license-server-ip-addresses"></a>
+更多 n8n 配置说明请参阅[环境变量](basic-configuration.md)。
 
-n8n uses Cloudflare to host the license server. As the specific IP addresses can change, you need to allowlist the [full range of Cloudflare IP addresses](https://www.cloudflare.com/ips/) to ensure n8n can always reach the license server.
+### 将许可证服务器 IP 地址加入允许列表 <a href="#allowlist-the-license-server-ip-addresses" id="allowlist-the-license-server-ip-addresses"></a>
 
-## Add a license certificate using an environment variable
+n8n 使用 Cloudflare 托管许可证服务器。具体 IP 地址可能变化，因此需要将 [Cloudflare 的完整 IP 地址范围](https://www.cloudflare.com/ips/)加入允许列表，确保 n8n 始终能够访问许可证服务器。
 
-For certain use cases (for example air-gapped environments) n8n can issue a license certificate instead of a license key. A license certificate is a base64-encoded string that n8n provides.
+## 通过环境变量添加许可证证书 <a id="add-a-license-certificate-using-an-environment-variable"></a>
 
-In your n8n configuration, set `N8N_LICENSE_CERT` to the string you received from n8n:
+对于隔离网络等特定使用场景，n8n 可以提供许可证证书，而非许可证密钥。许可证证书是由 n8n 提供的 base64 编码字符串。
+
+在 n8n 配置中，将 `N8N_LICENSE_CERT` 设为从 n8n 收到的字符串：
 
 ```bash
 N8N_LICENSE_CERT=<base64-encoded-license-string>
 ```
 
-Set either `N8N_LICENSE_CERT` or `N8N_LICENSE_ACTIVATION_KEY`, never both.
+设置 `N8N_LICENSE_CERT` 或 `N8N_LICENSE_ACTIVATION_KEY` 中的一个，不要同时设置。
 
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configure n8n](./)
+* [配置 n8n](./)

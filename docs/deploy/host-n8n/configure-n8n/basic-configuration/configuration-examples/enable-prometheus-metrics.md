@@ -1,44 +1,45 @@
 ---
-title: Enable Prometheus metrics
-description: Enable Prometheus metrics endpoint.
+title: 启用 Prometheus 指标
+description: 启用 Prometheus 指标端点。
 contentType: howto
-nodeTitle: Enable Prometheus metrics
+nodeTitle: 启用 Prometheus 指标
 originalFilePath: hosting/configuration/configuration-examples/prometheus.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/configuration-examples/prometheus'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-prometheus-metrics
+originalUrl: https://docs.n8n.io/hosting/configuration/configuration-examples/prometheus
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-prometheus-metrics
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Enable Prometheus metrics <a href="#enable-prometheus-metrics" id="enable-prometheus-metrics"></a>
 
-To collect and expose metrics, n8n uses the [prom-client](https://www.npmjs.com/package/prom-client) library.
+# 启用 Prometheus 指标 <a href="#enable-prometheus-metrics" id="enable-prometheus-metrics"></a>
 
-The `/metrics` endpoint is disabled by default, but it's possible to enable it using the `N8N_METRICS` environment variable.
+n8n 使用 [prom-client](https://www.npmjs.com/package/prom-client) 库收集并提供指标。
+
+`/metrics` 端点默认禁用，可以通过 `N8N_METRICS` 环境变量启用。
 
 {% hint style="warning" %}
-**Don't expose the metrics endpoint publicly**
+**不要将指标端点公开暴露**
 
-Only expose the `/metrics` endpoint to internal services that consume the Prometheus data. Don't make it accessible on the public internet, as it can reveal sensitive operational data about your n8n instance.
+仅向需要读取 Prometheus 数据的内部服务开放 `/metrics` 端点，不要让它可以从公共互联网访问，因为它可能泄露 n8n 实例的敏感运行数据。
 {% endhint %}
 
 ```bash
 export N8N_METRICS=true
 ```
 
-Refer to the respective [Environment Variables](../use-environment-variables/endpoints.md) (`N8N_METRICS_INCLUDE_*`) for configuring which metrics and labels should get exposed.
+要配置提供哪些指标和标签，请参阅对应的[环境变量](../use-environment-variables/endpoints.md)（`N8N_METRICS_INCLUDE_*`）。
 
-Both `main` and `worker` instances are able to expose metrics.
+`main` 和 `worker` 实例均可提供指标。
 
-For guidance on connecting Grafana to Prometheus to visualize n8n metrics, refer to [Grafana](../../../keep-n8n-running/visualize-metrics-with-grafana.md).
+有关连接 Grafana 与 Prometheus，以可视化 n8n 指标的说明，请参阅 [Grafana](../../../keep-n8n-running/visualize-metrics-with-grafana.md)。
 
-## Queue metrics <a href="#queue-metrics" id="queue-metrics"></a>
+## 队列指标 <a href="#queue-metrics" id="queue-metrics"></a>
 
-To enable queue metrics, set the `N8N_METRICS_INCLUDE_QUEUE_METRICS` env var to `true`. You can adjust the refresh rate with `N8N_METRICS_QUEUE_METRICS_INTERVAL`.
+要启用队列指标，请将 `N8N_METRICS_INCLUDE_QUEUE_METRICS` 环境变量设为 `true`。可以通过 `N8N_METRICS_QUEUE_METRICS_INTERVAL` 调整刷新频率。
 
-n8n gathers these metrics from Bull and exposes them on the main instances. On multi-main setups, when aggregating queries, you can identify the leader using the `instance_role_leader` gauge, set to `1` for the leader main and `0` otherwise.
+n8n 从 Bull 收集这些指标，并由主实例提供。在多主节点环境中，聚合查询时可以通过 `instance_role_leader` 仪表指标识别主节点中的领导者：领导者的值为 `1`，其他主节点为 `0`。
 
 ```
 # HELP n8n_scaling_mode_queue_jobs_active Current number of jobs being processed across all workers in scaling mode. <a href="#help-n8nscalingmodequeuejobsactive-current-number-of-jobs-being-processed-across-all-workers-in-scaling-mode" id="help-n8nscalingmodequeuejobsactive-current-number-of-jobs-being-processed-across-all-workers-in-scaling-mode"></a>
@@ -58,6 +59,6 @@ n8n_scaling_mode_queue_jobs_failed 0
 n8n_scaling_mode_queue_jobs_waiting 0
 ```
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configuration examples](./)
+* [配置示例](./)

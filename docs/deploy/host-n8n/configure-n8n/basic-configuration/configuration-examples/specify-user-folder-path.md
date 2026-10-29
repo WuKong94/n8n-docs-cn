@@ -1,27 +1,28 @@
 ---
-title: Specify user folder path
-description: Specify location of the folder that stores user-specific data.
+title: 指定用户文件夹路径
+description: 指定存储用户专属数据的文件夹位置。
 contentType: howto
-nodeTitle: Specify user folder path
+nodeTitle: 指定用户文件夹路径
 originalFilePath: hosting/configuration/configuration-examples/user-folder.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/configuration-examples/user-folder'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/specify-user-folder-path
+originalUrl: https://docs.n8n.io/hosting/configuration/configuration-examples/user-folder
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/specify-user-folder-path
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Specify user folder path <a href="#specify-user-folder-path" id="specify-user-folder-path"></a>
 
-n8n saves user-specific data like the encryption key, SQLite database file, and
-the ID of the tunnel (if used) in the subfolder `.n8n` of the user who started n8n. It's possible to overwrite the user-folder using an environment variable.
+# 指定用户文件夹路径 <a href="#specify-user-folder-path" id="specify-user-folder-path"></a>
+
+n8n 将加密密钥、SQLite 数据库文件、
+隧道 ID（如果使用隧道）等用户专属数据，保存在启动 n8n 的用户目录下的 `.n8n` 子文件夹中。可以通过环境变量覆盖用户文件夹位置。
 
 ```bash
 export N8N_USER_FOLDER=/home/jim/n8n
 ```
-Refer to [Environment variables reference](../use-environment-variables/deployment.md) for more information on this variable.
+此变量的更多信息请参阅[环境变量参考](../use-environment-variables/deployment.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configuration examples](./)
+* [配置示例](./)

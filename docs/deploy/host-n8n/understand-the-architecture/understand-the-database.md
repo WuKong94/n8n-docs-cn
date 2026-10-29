@@ -1,140 +1,141 @@
 ---
-description: Understand the n8n database structure
+description: 了解 n8n 的数据库结构。
 contentType: explanation
-nodeTitle: Understand the database
+nodeTitle: 理解数据库
 originalFilePath: hosting/architecture/database-structure.md
-originalUrl: 'https://docs.n8n.io/hosting/architecture/database-structure'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/understand-the-architecture/understand-the-database
+originalUrl: https://docs.n8n.io/hosting/architecture/database-structure
+url: https://docs.n8n.io/deploy/host-n8n/understand-the-architecture/understand-the-database
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Database structure <a href="#database-structure" id="database-structure"></a>
 
-This page describes the purpose of each table in the n8n database.
+# 数据库结构 <a href="#database-structure" id="database-structure"></a>
 
-## Database and query technology <a href="#database-and-query-technology" id="database-and-query-technology"></a>
+本页介绍 n8n 数据库中各个表的用途。
 
-By default, n8n uses SQLite as the database. If you are using another database the structure will be similar, but the data-types may be different depending on the database.
+## 数据库与查询技术 <a href="#database-and-query-technology" id="database-and-query-technology"></a>
 
-n8n uses [TypeORM](https://github.com/typeorm/typeorm) for queries and migrations.
+n8n 默认使用 SQLite。如果使用其他数据库，结构会相似，但数据类型可能因数据库不同而有所差异。
 
-To inspect the n8n database, you can use [DBeaver](https://dbeaver.io), which is an open-source universal database tool.
+n8n 使用 [TypeORM](https://github.com/typeorm/typeorm) 进行查询和数据库迁移。
 
-## Tables <a href="#tables" id="tables"></a>
+可以使用开源通用数据库工具 [DBeaver](https://dbeaver.io) 查看 n8n 数据库。
 
-These are the tables n8n creates during setup.
+## 数据表 <a href="#tables" id="tables"></a>
+
+以下是 n8n 在设置过程中创建的表。
 
 ### auth_identity <a href="#authidentity" id="authidentity"></a>
 
-Stores details of external authentication providers when using [SAML](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/verify-user-identity/use-saml).
+使用 [SAML](../../../administer/manage-users-and-access/verify-user-identity/use-saml/README.md) 时，保存外部身份验证提供商的详细信息。
 
 ### auth_provider_sync_history <a href="#authprovidersynchistory" id="authprovidersynchistory"></a>
 
-Stores the history of a SAML connection.
+保存 SAML 连接的历史记录。
 
 ### credentials_entity <a href="#credentialsentity" id="credentialsentity"></a>
 
-Stores the credentials[^1] used to authenticate with integrations.
+保存用于对集成服务进行身份验证的凭据[^1]。
 
 ### event_destinations <a href="#eventdestinations" id="eventdestinations"></a>
 
-Contains the destination configurations for [Log streaming](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/stream-logs-to-external-systems).
+包含[日志流](../../../administer/observe-and-log/stream-logs-to-external-systems.md)的目标配置。
 
 ### execution_data <a href="#executiondata" id="executiondata"></a>
 
-Contains the workflow at time of running, and the execution data.
+包含运行时的工作流及执行数据。
 
 ### execution_entity <a href="#executionentity" id="executionentity"></a>
 
-Stores all saved workflow executions. Workflow settings can affect which executions n8n saves.
+保存所有已存储的工作流执行记录。工作流设置会影响 n8n 保存哪些执行记录。
 
 ### execution_metadata <a href="#executionmetadata" id="executionmetadata"></a>
 
-Stores [Custom executions data](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/understand-executions/customize-executions-data).
+保存[自定义执行数据](../../../build/understand-workflows/understand-executions/customize-executions-data.md)。
 
 ### installed_nodes <a href="#installednodes" id="installednodes"></a>
 
-Lists the [community nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/community-nodes/installation-and-management) installed in your n8n instance.
+列出 n8n 实例中已安装的[社区节点](../../../integrations/community-nodes/installation-and-management/README.md)。
 
 ### installed_packages <a href="#installedpackages" id="installedpackages"></a>
 
-Details of npm community nodes packages installed in your n8n instance. [`installed_nodes`](#installednodes) lists each individual node. `installed_packages` lists npm packages, which may contain more than one node.
+保存实例中已安装的 npm 社区节点包的详细信息。[`installed_nodes`](#installednodes) 列出每个单独的节点，`installed_packages` 列出可能包含多个节点的 npm 包。
 
 ### migrations <a href="#migrations" id="migrations"></a>
 
-A log of all database migrations. Read more about [Migrations](https://typeorm.io/docs/advanced-topics/migrations/) in TypeORM's documentation.
+记录所有数据库迁移。更多信息请参阅 TypeORM 文档中的[迁移](https://typeorm.io/docs/advanced-topics/migrations/)。
 
 ### project <a href="#project" id="project"></a>
 
-Lists the [projects](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects) in your instance.
+列出实例中的[项目](../../../administer/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects.md)。
 
 ### project_relation <a href="#projectrelation" id="projectrelation"></a>
 
-Describes the relationship between a user and a [project](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects), including the user's [role type](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles).
+描述用户与[项目](../../../administer/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects.md)之间的关系，包括用户的[角色类型](../../../administer/manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md)。
 
 ### role <a href="#role" id="role"></a>
 
-Not currently used. For use in future work on custom roles. 
+目前未使用，将用于后续的自定义角色功能。
 
 ### settings <a href="#settings" id="settings"></a>
 
-Records custom instance settings. These are settings that you can't control using environment variables. They include:
+记录自定义实例设置，即无法通过环境变量控制的设置，包括：
 
-* Whether the instance owner is set up
-* Whether the user chose to skip owner and user management setup
-* Whether certain types of authentication, including SAML and LDAP, are on
-* License key
+* 是否已设置实例所有者。
+* 用户是否选择跳过所有者及用户管理设置。
+* 是否启用 SAML、LDAP 等特定身份验证方式。
+* 许可证密钥。
 
 ### shared_credentials <a href="#sharedcredentials" id="sharedcredentials"></a>
 
-Maps credentials to users.
+记录凭据与用户的映射关系。
 
 ### shared_workflow <a href="#sharedworkflow" id="sharedworkflow"></a>
 
-Maps workflows to users.
+记录工作流与用户的映射关系。
 
 ### tag_entity <a href="#tagentity" id="tagentity"></a>
 
-All workflow tags created in the n8n instance. This table lists the tags. [`workflows_tags`](#workflowstags) records which workflows have which tags.
+记录 n8n 实例中创建的所有工作流标签。此表列出标签，[`workflows_tags`](#workflowstags) 记录哪些工作流具有哪些标签。
 
 ### user <a href="#user" id="user"></a>
 
-Contains user data.
+包含用户数据。
 
 ### variables <a href="#variables" id="variables"></a>
 
-Store [variables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/define-custom-variables).
+保存[变量](../../../build/code-in-n8n/define-custom-variables.md)。
 
 ### webhook_entity <a href="#webhookentity" id="webhookentity"></a>
 
-Records the active webhooks in your n8n instance's workflows. This isn't just webhooks uses in the Webhook node. It includes all active webhooks used by any trigger node.
+记录 n8n 实例工作流中处于激活状态的 Webhook。不仅包括 Webhook 节点使用的 Webhook，也包括所有触发器节点使用的激活 Webhook。
 
 ### workflow_entity <a href="#workflowentity" id="workflowentity"></a>
 
-Your n8n instance's saved workflows.
+保存 n8n 实例中已存储的工作流。
 
 ### workflow_history <a href="#workflowhistory" id="workflowhistory"></a>
 
-Store previous versions of workflows.
+保存工作流的历史版本。
 
 ### workflow_statistics <a href="#workflowstatistics" id="workflowstatistics"></a>
 
-Counts workflow IDs and their status.
+统计工作流 ID 及其状态。
 
 ### workflows_tags <a href="#workflowstags" id="workflowstags"></a>
 
-Maps tags to workflows. [`tag_entity`](#tagentity) contains tag details.
+记录标签与工作流的映射关系。[`tag_entity`](#tagentity) 包含标签详情。
 
-## Entity Relationship Diagram (ERD) <a href="#entity-relationship-diagram-erd" id="entity-relationship-diagram-erd"></a>
+## 实体关系图（ERD） <a href="#entity-relationship-diagram-erd" id="entity-relationship-diagram-erd"></a>
 
-![Entity relationship diagram showing foreign-key connections between n8n's database tables, including user, workflow_entity, execution_entity, and credentials_entity](../../.gitbook/assets/n8n-database-diagram.png)
+![实体关系图，展示 n8n 数据库表之间的外键连接，包括 user、workflow_entity、execution_entity 和 credentials_entity](../../.gitbook/assets/n8n-database-diagram.png)
 
-[^1]: In n8n, credentials store authentication information to connect with specific apps and services. After creating credentials with your authentication information (username and password, API key, OAuth secrets, etc.), you can use the associated app node to interact with the service.
+[^1]: 在 n8n 中，凭据保存连接特定应用和服务所需的身份验证信息。使用用户名和密码、API 密钥、OAuth 密钥等信息创建凭据后，就可以通过相应应用节点与服务交互。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Understand the architecture](./)
-* [How n8n works](how-n8n-works.md)
+* [理解架构](./)
+* [n8n 的工作原理](how-n8n-works.md)

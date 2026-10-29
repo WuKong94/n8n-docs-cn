@@ -1,30 +1,30 @@
 ---
-title: Specify location for your custom nodes
-description: Add folders and specify paths for your custom nodes.
+title: 指定自定义节点的位置
+description: 添加文件夹并指定自定义节点的路径。
 contentType: howto
-nodeTitle: Specify custom nodes location
+nodeTitle: 指定自定义节点位置
 originalFilePath: hosting/configuration/configuration-examples/custom-nodes-location.md
-originalUrl: >-
-  https://docs.n8n.io/hosting/configuration/configuration-examples/custom-nodes-location
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/specify-custom-nodes-location
+originalUrl: https://docs.n8n.io/hosting/configuration/configuration-examples/custom-nodes-location
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/specify-custom-nodes-location
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Specify location for your custom nodes <a href="#specify-location-for-your-custom-nodes" id="specify-location-for-your-custom-nodes"></a>
 
-Every user can add custom nodes that get loaded by n8n on startup. The default
-location is in the subfolder `.n8n/custom` of the user who started n8n.
+# 指定自定义节点的位置 <a href="#specify-location-for-your-custom-nodes" id="specify-location-for-your-custom-nodes"></a>
 
-You can define more folders with an environment variable:
+每个用户都可以添加自定义节点，n8n 会在启动时加载。默认位置
+是启动 n8n 的用户目录下的 `.n8n/custom` 子文件夹。
+
+可以通过环境变量定义更多文件夹：
 
 ```bash
 export N8N_CUSTOM_EXTENSIONS="/home/jim/n8n/custom-nodes;/data/n8n/nodes"
 ```
-Refer to [Environment variables reference](../use-environment-variables/nodes.md) for more information on this variable.
+此变量的更多信息请参阅[环境变量参考](../use-environment-variables/nodes.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configuration examples](./)
+* [配置示例](./)

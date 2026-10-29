@@ -1,125 +1,127 @@
 ---
-description: Configure self-hosted n8n for user management
+description: 为自托管 n8n 配置用户管理。
 contentType: howto
-nodeTitle: User management
+nodeTitle: 用户管理
 originalFilePath: hosting/configuration/user-management-self-hosted.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/user-management-self-hosted'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/user-management'
+originalUrl: https://docs.n8n.io/hosting/configuration/user-management-self-hosted
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/user-management
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Configure self-hosted n8n for user management <a href="#configure-self-hosted-n8n-for-user-management" id="configure-self-hosted-n8n-for-user-management"></a>
 
-User management in n8n allows you to invite people to work in your n8n instance. 
+# 为自托管 n8n 配置用户管理 <a href="#configure-self-hosted-n8n-for-user-management" id="configure-self-hosted-n8n-for-user-management"></a>
 
-This document describes how to configure your n8n instance to support user management, and the steps to start inviting users.
+通过 n8n 用户管理，可以邀请其他人在你的 n8n 实例中工作。
 
-Refer to the main [User management](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access) guide for more information about usage, including:
+本页介绍如何为实例配置用户管理，以及如何开始邀请用户。
 
-* [Managing users](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/add-and-remove-users)
-* [Instance roles](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/understand-instance-roles)
-* [Best practices](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/follow-best-practices)
+更多使用说明请参阅主要的[用户管理](../../../administer/manage-users-and-access/README.md)指南，包括：
 
-For LDAP setup information, refer to [LDAP](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/verify-user-identity/connect-ldap).
+* [管理用户](../../../administer/manage-users-and-access/add-and-remove-users.md)
+* [实例角色](../../../administer/manage-users-and-access/understand-instance-roles.md)
+* [最佳实践](../../../administer/manage-users-and-access/follow-best-practices.md)
 
-For SAML setup information, refer to [SAML](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/verify-user-identity/use-saml).
+LDAP 设置说明请参阅 [LDAP](../../../administer/manage-users-and-access/verify-user-identity/connect-ldap.md)。
+
+SAML 设置说明请参阅 [SAML](../../../administer/manage-users-and-access/verify-user-identity/use-saml/README.md)。
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-Support for basic auth and JWT authentication was removed from n8n 1.0.
+自 n8n 1.0 起，已移除对基本身份验证和 JWT 身份验证的支持。
 
-The `N8N_USER_MANAGEMENT_DISABLED` environment variable was also removed from n8n 1.0. No supported way to disable the login screen exists in recent versions of n8n, including for local or development use. If you need to simplify login for local development, consider using a password manager, setting a simple local password, or scripting the standard login flow.
+`N8N_USER_MANAGEMENT_DISABLED` 环境变量也已在 n8n 1.0 中移除。近期版本没有受支持的方式可以禁用登录页面，包括本地或开发环境。如需简化本地开发登录，可以使用密码管理器、设置简单的本地密码，或通过脚本执行标准登录流程。
 {% endhint %}
 
-## Setup <a href="#setup" id="setup"></a>
+## 设置 <a href="#setup" id="setup"></a>
 
-There are three stages to set up user management in n8n:
+在 n8n 中设置用户管理分为三个阶段：
 
-1. Configure your n8n instance to use your SMTP server.
-2. Start n8n and follow the setup steps in the app.
-3. Invite users.
+1. 配置 n8n 实例使用 SMTP 服务器。
+2. 启动 n8n，完成应用内设置。
+3. 邀请用户。
 
-### Step one: SMTP <a href="#step-one-smtp" id="step-one-smtp"></a>
+### 第一步：SMTP <a href="#step-one-smtp" id="step-one-smtp"></a>
 
-n8n recommends setting up an SMTP server, for user invites and password resets. 
+n8n 建议设置 SMTP 服务器，用于发送用户邀请和重置密码。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Setting up SMTP is optional from n8n 0.210.1. You can choose to manually copy and send invite links instead of setting up SMTP. Note that if you skip this step, users can't reset passwords.
+自 n8n 0.210.1 起，SMTP 为可选配置。可以不设置 SMTP，改为手动复制并发送邀请链接。但跳过此步骤后，用户将无法重置密码。
 {% endhint %}
-Get the following information from your SMTP provider:
+从 SMTP 提供商获取以下信息：
 
-* Server name
-* SMTP username
-* SMTP password
-* SMTP sender name
+* 服务器名称。
+* SMTP 用户名。
+* SMTP 密码。
+* SMTP 发件人名称。
 
-To set up SMTP with n8n, configure the SMTP environment variables for your n8n instance. For information on how to set environment variables, refer to [Configuration](basic-configuration.md)
+要为 n8n 设置 SMTP，请配置实例的 SMTP 环境变量。环境变量设置方法请参阅[配置](basic-configuration.md)。
 
-| Variable | Type | Description | Required? |
+| 变量 | 类型 | 说明 | 是否必需 |
 | -------- | ---- | ----------- | --------- |
-| `N8N_EMAIL_MODE` | string | `smtp` | Required |
-| `N8N_SMTP_HOST` | string | _your_SMTP_server_name_ | Required |
-| `N8N_SMTP_PORT` | number | _your_SMTP_server_port_ Default is `465`.| Optional |
-| `N8N_SMTP_USER` | string | _your_SMTP_username_ | Optional |
-| `N8N_SMTP_PASS` | string | _your_SMTP_password_ | Optional |
-| `N8N_SMTP_OAUTH_SERVICE_CLIENT` | string | _your_OAuth_service_client_ | Optional |
-| `N8N_SMTP_OAUTH_PRIVATE_KEY` | string | _your_OAuth_private_key_ | Optional |
-| `N8N_SMTP_SENDER` | string | Sender email address. You can optionally include the sender name. Example with name: _n8n `<contact@n8n.com>`_ | Required |
-| `N8N_SMTP_SSL` | boolean | Whether to use SSL for SMTP (true) or not (false). Defaults to `true`. | Optional | 
-| `N8N_UM_EMAIL_TEMPLATES_INVITE` | string | Full path to your HTML email template. This overrides the default template for invite emails. | Optional |
-| `N8N_UM_EMAIL_TEMPLATES_PWRESET` | string | Full path to your HTML email template. This overrides the default template for password reset emails. | Optional |
-| `N8N_UM_EMAIL_TEMPLATES_WORKFLOW_SHARED` | String | Overrides the default HTML template for notifying users that a credential was shared. Provide the full path to the template. | Optional |
-| `N8N_UM_EMAIL_TEMPLATES_CREDENTIALS_SHARED` | String | Overrides the default HTML template for notifying users that a credential was shared. Provide the full path to the template. | Optional |
-| `N8N_UM_EMAIL_TEMPLATES_PROJECT_SHARED` | String | Overrides the default HTML template for notifying users that a project was shared. Provide the full path to the template. | Optional |
+| `N8N_EMAIL_MODE` | string | `smtp` | 必需 |
+| `N8N_SMTP_HOST` | string | _SMTP 服务器名称_ | 必需 |
+| `N8N_SMTP_PORT` | number | _SMTP 服务器端口_，默认为 `465`。 | 可选 |
+| `N8N_SMTP_USER` | string | _SMTP 用户名_ | 可选 |
+| `N8N_SMTP_PASS` | string | _SMTP 密码_ | 可选 |
+| `N8N_SMTP_OAUTH_SERVICE_CLIENT` | string | _OAuth 服务客户端_ | 可选 |
+| `N8N_SMTP_OAUTH_PRIVATE_KEY` | string | _OAuth 私钥_ | 可选 |
+| `N8N_SMTP_SENDER` | string | 发件人邮箱地址，可包含发件人名称。带名称的示例：_n8n `<contact@n8n.com>`_ | 必需 |
+| `N8N_SMTP_SSL` | boolean | 是否对 SMTP 使用 SSL，true 表示使用，false 表示不使用。默认为 `true`。 | 可选 |
+| `N8N_UM_EMAIL_TEMPLATES_INVITE` | string | HTML 邮件模板的完整路径，用于覆盖邀请邮件的默认模板。 | 可选 |
+| `N8N_UM_EMAIL_TEMPLATES_PWRESET` | string | HTML 邮件模板的完整路径，用于覆盖密码重置邮件的默认模板。 | 可选 |
+| `N8N_UM_EMAIL_TEMPLATES_WORKFLOW_SHARED` | String | 覆盖通知用户工作流已共享的默认 HTML 模板。提供模板的完整路径。 | 可选 |
+| `N8N_UM_EMAIL_TEMPLATES_CREDENTIALS_SHARED` | String | 覆盖通知用户凭据已共享的默认 HTML 模板。提供模板的完整路径。 | 可选 |
+| `N8N_UM_EMAIL_TEMPLATES_PROJECT_SHARED` | String | 覆盖通知用户项目已共享的默认 HTML 模板。提供模板的完整路径。 | 可选 |
 
 
-If your n8n instance is already running, you need to restart it to enable the new SMTP settings.
+如果 n8n 实例已经运行，需要重启才能启用新的 SMTP 设置。
 
 {% hint style="info" %}
-**More configuration options**
+**更多配置选项**
 
-There are more configuration options available as environment variables. Refer to [Environment variables](basic-configuration/use-environment-variables/README.md) for a list. These include options to disable tags, workflow templates, and the personalization survey, if you don't want your users to see them.
+还有更多可通过环境变量设置的配置选项，清单请参阅[环境变量](basic-configuration/use-environment-variables/README.md)。例如，如果不希望用户看到标签、工作流模板或个性化调查，可以禁用这些功能。
 {% endhint %}
 
 {% hint style="info" %}
-**New to SMTP?**
+**初次接触 SMTP？**
 
-If you're not familiar with SMTP, this [blog post by SendGrid](https://sendgrid.com/blog/what-is-an-smtp-server/) offers a short introduction, while [Wikipedia's Simple Mail Transfer Protocol article](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) provides more detailed technical background.
+如果不熟悉 SMTP，可以阅读 [SendGrid 的这篇博客](https://sendgrid.com/blog/what-is-an-smtp-server/)，了解简要介绍；[维基百科的简单邮件传输协议文章](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)提供了更详细的技术背景。
 {% endhint %}
 
-### Step two: In-app setup <a href="#step-two-in-app-setup" id="step-two-in-app-setup"></a>
+### 第二步：应用内设置 <a href="#step-two-in-app-setup" id="step-two-in-app-setup"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/c0111xcskz1G8PKOQogB/" %}
+{% include "../../../reusable-content/.gitbook/includes/user-management/in-app-setup.md" %}
 
-#### Pre-provision the instance owner from environment variables <a href="#pre-provision-the-instance-owner-from-environment-variables" id="pre-provision-the-instance-owner-from-environment-variables"></a>
+#### 通过环境变量预配置实例所有者 <a href="#pre-provision-the-instance-owner-from-environment-variables" id="pre-provision-the-instance-owner-from-environment-variables"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Pre-provisioning the instance owner from environment variables is available from n8n 2.17.0.
+自 n8n 2.17.0 起，支持通过环境变量预配置实例所有者。
 {% endhint %}
 
-You can pre-provision the instance owner from environment variables instead of going through the in-app setup. Set `N8N_INSTANCE_OWNER_MANAGED_BY_ENV` to `true` and provide the owner details. See [Manage instance settings using environment variables](manage-settings-using-environment-variables.md) for how the activation pattern works.
+可以通过环境变量预配置实例所有者，无需完成应用内设置。将 `N8N_INSTANCE_OWNER_MANAGED_BY_ENV` 设为 `true`，并提供所有者信息。启用机制请参阅[通过环境变量管理实例设置](manage-settings-using-environment-variables.md)。
 
-To change the owner email after setup, see [Change the instance owner email for self-hosted n8n](change-instance-owner-email.md).
+设置后如需更改所有者邮箱，请参阅[更改自托管 n8n 的实例所有者邮箱](change-instance-owner-email.md)。
 
 {% hint style="warning" %}
-**`N8N_INSTANCE_OWNER_PASSWORD_HASH` must be a bcrypt hash**
+**`N8N_INSTANCE_OWNER_PASSWORD_HASH` 必须为 bcrypt 哈希值**
 
-This variable expects a pre-hashed bcrypt value. Setting a plaintext password breaks login.
+此变量要求提供预先生成的 bcrypt 哈希值。设置明文密码会导致无法登录。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/75cM0VtFejV1gnDTFOSV/" %}
+{% include "../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/instance-owner.md" %}
 
-### Step three: Invite users <a href="#step-three-invite-users" id="step-three-invite-users"></a>
+### 第三步：邀请用户 <a href="#step-three-invite-users" id="step-three-invite-users"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/8qoOEjsLz4RnydVBogNy/" %}
+{% include "../../../reusable-content/.gitbook/includes/user-management/invite-users.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configure n8n](./)
+* [配置 n8n](./)

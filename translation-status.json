@@ -4940,5 +4940,404 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "deploy/host-n8n/understand-the-architecture/README.md": {
+    "status": "translated",
+    "source_sha256": "f6271dceb9dcd20172ec07cfaacd14ebd3fbdf75ef836b25306982c9d726a123",
+    "translation_sha256": "1b006ef9676567472b3372f3e88c60301e5b95559bda6cdf62f865d61082ee87",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/understand-the-architecture/how-n8n-works.md": {
+    "status": "translated",
+    "source_sha256": "ae9178f7b0dd9acb21500f1382b3e056c860d3308d1ae2a82866bc98ae7b342e",
+    "translation_sha256": "37fb67f61623fb9e9845841aba2bb322f8ed089d5abbc2984661b7057a9ac516",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/understand-the-architecture/understand-the-database.md": {
+    "status": "translated",
+    "source_sha256": "caa669dadb681db1a429826590823d724213b419027487ba687fc82b8e126c89",
+    "translation_sha256": "07f624abba239154c41c59b0c5b0be1e5412d45714044e0501f9604785933eea",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/community-edition-features.md": {
+    "status": "translated",
+    "source_sha256": "d94bbd7c748edcf3f0653b095c07dea3cc62cdaafa1506d360e91f4e397df363",
+    "translation_sha256": "2d0e4e53932c2de041ffde2f90b79184a4fe9cc2f9d1b7ae3fc30a4f61aac2de",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/README.md": {
+    "status": "translated",
+    "source_sha256": "98236bfea41f12ee4e59635b28faba689e314e0cb46bec5f0622d4bef500c65c",
+    "translation_sha256": "649956eccff4734cf7391b56d90fff82d7d843bdf3a64e335348c00d990d0f68",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration.md": {
+    "status": "translated",
+    "source_sha256": "b3732ee2d9df71c6ee6008c9b7140ea288b0cc569f7aa12108188c077234f152",
+    "translation_sha256": "3722416c148bc70ddadd61c97e0b143f5084eb02be19865630203a0d6c40442b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/README.md": {
+    "status": "translated",
+    "source_sha256": "3d4fc46e0151c87268ed3fc9276f60b04297db82f38ec7a87cc14531415318e0",
+    "translation_sha256": "dce23b63d60791cc51d14b7be889f7345e4bb87162e9dc13839e08a7cf27e57a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/configure-a-custom-workflow-templates-library.md": {
+    "status": "translated",
+    "source_sha256": "788fd4dd776cb2103ea9ce22490d2233994844369feb5e3a94083ea303bfcf66",
+    "translation_sha256": "e30c7d88d7c6ed4c54484dd4079e0d5590f01489772ad64f9acf3bf7daf9abee",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/configure-custom-ssl-certificate-authorities.md": {
+    "status": "translated",
+    "source_sha256": "3dda848a35aaaed76f8805545a2296fab4656576e043dbf847858d8243990cd6",
+    "translation_sha256": "c5efc64356e9516583f8cf2b071736f68eb6184a658e2d3bc92f2abe1e74bdf5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/configure-the-base-url.md": {
+    "status": "translated",
+    "source_sha256": "7ecfc3a00f54c7b0995091ece8b08d9a393fcb2880b28e0c1c52fae373bdbd1d",
+    "translation_sha256": "9c67f9433f71aa85f12aec9f3d7a68aabd791fc29000d323535217d97fb18054",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/configure-webhook-urls-with-reverse-proxy.md": {
+    "status": "translated",
+    "source_sha256": "1d35ea02c82d533017984649b86a19c73b5f5e7a614d22e888b01546450627f5",
+    "translation_sha256": "d8147a8dea6e9d0008b973add0ab87a7d3024fd86de238782654c34b86475479",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/configure-workflow-timeouts.md": {
+    "status": "translated",
+    "source_sha256": "80ea3722307a2fc899757cd6534d631e6b4eea39a01aebab75ad051d6c81083f",
+    "translation_sha256": "277b58f26062f0fd8e643e2d5258136cf2e959b9ece3c64b2665187d7ba50fce",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-modules-in-code-node.md": {
+    "status": "translated",
+    "source_sha256": "301a4c20002729d758cce3f94c9fd80c0c723afaa80ad5b6bc79d8bcf871d54b",
+    "translation_sha256": "c1060ba56e5d80dc0d087208c5ddc9d5194e69321ecb5f4fb45f308e8bd85a8e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-prometheus-metrics.md": {
+    "status": "translated",
+    "source_sha256": "fccfb53d728cdf3b0ac340317ee5123aba98d89825a7053b7905143e5011285a",
+    "translation_sha256": "81e19da5ae44fe6652cd9034f9e6d081ce31a25c8a344dc06a1c173a8ed8a12a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/isolate-n8n.md": {
+    "status": "translated",
+    "source_sha256": "c1bf1e0c7d0122147839a066367277ca2032bce27e82352bfff1b3de3b9edca9",
+    "translation_sha256": "30f80bf966beb83dcd471a1933ca0282c675f8894c4ed96703ecb11e76d603b5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/set-a-custom-encryption-key.md": {
+    "status": "translated",
+    "source_sha256": "ef9528d52602b33e977fda952159daa8d885e5be9f026eb03f0aab2481e07c9f",
+    "translation_sha256": "2ceec647851dc5c521aedf1db6e1294b52fc3e4037bf139527b4d506b446f15b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/set-the-timezone.md": {
+    "status": "translated",
+    "source_sha256": "6021f21334f58d37f17ff05c87399529fd994f889e7f34cd824dccd96fa2328d",
+    "translation_sha256": "80d10a308b030ca2f68f75127dd5bae6d867470b0f7bf4cac7516297acc43d15",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/specify-custom-nodes-location.md": {
+    "status": "translated",
+    "source_sha256": "e16196a83f80a6ab7907002d778ded429a29eeebee30fa664228abf1b0f26c5b",
+    "translation_sha256": "4f240005160566714e0687b3560643fac81be098c9dae3bd5f89f11d867868a7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/specify-user-folder-path.md": {
+    "status": "translated",
+    "source_sha256": "1ca87d3f7049bd5d6f0b1686df38b20383e0d248cdae91416f4b2e26268c9cc6",
+    "translation_sha256": "6301ebcec737a4367c6234883a2f7a80787a4c9a744fd738ad45213932754f2a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/pre-configure-microsoft-oauth-credentials.md": {
+    "status": "translated",
+    "source_sha256": "794ab613d70725dcccc7e6b48e47ac5475d19e0bcfb59c8e0cef72282a268834",
+    "translation_sha256": "82613e19250c741a6ce863b6c8ffbc096e86b1818d79ead9f9e42b80be17c5eb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/choose-n8ns-database.md": {
+    "status": "translated",
+    "source_sha256": "c006b9331f7c3a5411ed454b5dbec86cba994259b12e5a2d9ba930fbb7fc1cd5",
+    "translation_sha256": "8ca1c0cae667d7a61b8ccdc9c05537197cea59364379c61cb44f0f8c749479ca",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/change-instance-owner-email.md": {
+    "status": "translated",
+    "source_sha256": "7e3fb86e1e1aa3ffc46976561d1ed306ab20d50d064facebd2d3134d5a0713f5",
+    "translation_sha256": "6def48c48a65265ce29126771f9e7648f7ee9848febdca86e0fc6fbbdd16b38b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/manage-your-license.md": {
+    "status": "translated",
+    "source_sha256": "ee8faba33324c3b98b68926c246dafb03a79197cdb67354d281d5ac817bccf69",
+    "translation_sha256": "e27d22a024d04bfe52356db73f6982e9d5051b84d97556bcd9303061f8ac2a7c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/deploy-n8n-in-canvas-only-mode.md": {
+    "status": "translated",
+    "source_sha256": "08009d0a711dc24bc239ac24938d8171411eb37bb8c35f8283c24678a764b5e2",
+    "translation_sha256": "82a12a78dfa0f83a6ba78db3b8ea8d7022cc1c0af1cb06a3d092ee8c7babb94d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/manage-settings-using-environment-variables.md": {
+    "status": "translated",
+    "source_sha256": "67fe8610fe30e9d3c40345117d681b1e31f2f02efcdeaf03c4eaf7301c2c66df",
+    "translation_sha256": "f593eb9f6e575ae326127e7313ea1e42671955e71b8ced86b04c398cdc985c8b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/user-management.md": {
+    "status": "translated",
+    "source_sha256": "9a6d0ba4400192f87aeb91278f0aef98f5160470eb96f0ae1022a10abb9f59ac",
+    "translation_sha256": "2387cf4ab66aa8357d7b43eb6a1d58623f906c83843af0975576c34fdec477b4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "user-management-workflow-shared-email-template"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/community-packages.md": {
+    "status": "translated",
+    "source_sha256": "b6dbc22f11f9e44b4b8fdc1e55c1cc4de839e61c483d58e9874b76324411a35f",
+    "translation_sha256": "0a69111bbc331272ee1c54567496135c1f87525632cb749c9dbcde0d98866bd2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/instance-owner.md": {
+    "status": "translated",
+    "source_sha256": "d4589b124aec083565d3a69c8dfba5c3f4bc01edcd7efa08456529a31c9aada5",
+    "translation_sha256": "a0391675d336aa3f64d83c9c503fe346406704a5401aecfd055f8485d7786bc3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/log-streaming.md": {
+    "status": "translated",
+    "source_sha256": "726e113a7590cceb758b1007e8c38d4395cde0d2444d8f4c3df5140081feb741",
+    "translation_sha256": "a08fb07faf8c0e5e3e5cb3d3325d13c28faa3b1f341d494ce0093ee3f1851168",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/mcp.md": {
+    "status": "translated",
+    "source_sha256": "acf7457a6170e6a6f610074ab5bd68dbdc1374bc328b59b1908331a23069fd47",
+    "translation_sha256": "b16dd831b349754b7e7f6e39ff176af3e2f2c53abaccf940843ace8ae0230556",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/security-policy.md": {
+    "status": "translated",
+    "source_sha256": "3fa9781270f134e34d46b00a6b3d5e5403db5e0943eeea4cdaf4ba30fdbf5ea4",
+    "translation_sha256": "f96f3b22421c23b05195321b5b1fcbaef0f27398e095430ed6951faf3aeed382",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/sso-activation.md": {
+    "status": "translated",
+    "source_sha256": "8bb17024800e07e9edb29f214d5b8548ff4bc174eba6cea653ed3aeff932ee5f",
+    "translation_sha256": "593d8648c518456daeeff1c68a39d098f4ccac97e76a6a567f788c89a9fdb829",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/sso-oidc.md": {
+    "status": "translated",
+    "source_sha256": "e1f30092a84c305af4606bea87ef001b75194435e15130adc8fbc9efd6475671",
+    "translation_sha256": "50e173a35b8ad3954a2738960e940aac9365a4fedca574e4f1262247300578eb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/sso-saml.md": {
+    "status": "translated",
+    "source_sha256": "4e9dc49265df4954903d77bb6d5bf1e25583bb41c12c2e97b12b577b90565347",
+    "translation_sha256": "19e0f3e4e792938af8833fc57cde0670960ffa77f7e191bc49fbf06001a0b09a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/user-management/in-app-setup.md": {
+    "status": "translated",
+    "source_sha256": "a36bed515f8f31c5947856357b92bde4b1dfff5b9e2e4096e790900257db691e",
+    "translation_sha256": "077a578b9c8c9ebfdc1c80eb38c0f8792eb6349267aaf94700adfe0c45b626a7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/user-management/invite-users.md": {
+    "status": "translated",
+    "source_sha256": "b5146a9d792f50dc9ed28abaa433b9b7dbaae6296553bf0f2db15c68714180d7",
+    "translation_sha256": "823eb3863520c381326c19dbb421c2b25105e32455235cf869797e42f854ad01",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

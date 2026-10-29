@@ -1,5 +1,5 @@
 ---
-description: Configure a self-hosted n8n instance, including database, security, scaling, and license settings.
+description: 配置自托管 n8n 实例，包括数据库、安全、扩展和许可证设置。
 layout:
   width: default
   title:
@@ -19,35 +19,37 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Configure n8n
 
-Configure a self-hosted n8n instance, including database, security, scaling, and license settings.
+# 配置 n8n <a id="configure-n8n"></a>
 
-## In this section
+配置自托管 n8n 实例，包括数据库、安全、扩展和许可证设置。
 
-* [Basic configuration](basic-configuration.md): set environment variables, and browse configuration examples.
-* [Choose n8n's database](choose-n8ns-database.md): SQLite and PostgreSQL configuration.
-* [External hooks](external-hooks.md): run your own code at specific points in n8n's lifecycle.
-* [Use the command line](use-the-command-line.md): the n8n CLI reference.
-* [User management](user-management.md): manage users on a self-hosted instance.
-* [Change instance owner email](change-instance-owner-email.md): update the email address of the instance owner.
-* [Manage settings using environment variables](manage-settings-using-environment-variables.md): configure instance settings without the UI.
-* [Set up task runners](set-up-task-runners.md): run Code node executions in external processes.
-* [Durable scheduler](durable-scheduler.md): make scheduled triggers resilient to restarts.
-* [System tasks](system-tasks.md): the Prometheus metrics n8n's system tasks expose.
-* [Set up n8n Assistant](set-up-n8n-assistant.md): configure AI-assisted building for self-hosted n8n.
-* [Deploy n8n in canvas-only mode](deploy-n8n-in-canvas-only-mode.md): restrict an instance to the workflow canvas.
-* [Manage your license](manage-your-license.md): activate, renew, and manage your n8n license.
-* [Security](security.md): audit, harden, and restrict a self-hosted instance.
-* [Scaling](scaling.md): configure n8n for a large number of users, workflows, or executions.
+## 本节内容 <a id="in-this-section"></a>
 
-## Related resources
+* [基础配置](basic-configuration.md)：设置环境变量，并浏览配置示例。
+* [选择 n8n 的数据库](choose-n8ns-database.md)：配置 SQLite 和 PostgreSQL。
+* [外部钩子](external-hooks.md)：在 n8n 生命周期的特定时点运行自己的代码。
+* [使用命令行](use-the-command-line.md)：n8n CLI 参考。
+* [用户管理](user-management.md)：管理自托管实例中的用户。
+* [更改实例所有者的邮箱](change-instance-owner-email.md)：更新实例所有者的电子邮件地址。
+* [通过环境变量管理设置](manage-settings-using-environment-variables.md)：无需使用界面即可配置实例设置。
+* [设置任务运行器](set-up-task-runners.md)：在外部进程中执行 Code 节点。
+* [持久调度器](durable-scheduler.md)：让定时触发器能够应对重启。
+* [系统任务](system-tasks.md)：n8n 系统任务提供的 Prometheus 指标。
+* [设置 n8n Assistant](set-up-n8n-assistant.md)：为自托管 n8n 配置 AI 辅助构建。
+* [以仅画布模式部署 n8n](deploy-n8n-in-canvas-only-mode.md)：将实例限制为仅提供工作流画布。
+* [管理许可证](manage-your-license.md)：激活、续订和管理 n8n 许可证。
+* [安全](security.md)：审计、加固并限制自托管实例。
+* [扩展](scaling.md)：配置 n8n，以支持大量用户、工作流或执行。
 
-* [Host n8n](../)
-* [Install options](../install-options/README.md)
-* [Keep n8n running](../keep-n8n-running/README.md)
-* [Understand the architecture](../understand-the-architecture/README.md)
-* [Deploy as an OEM integration](../deploy-as-an-oem-integration/README.md)
-* [Deploy with the AI starter kit](../deploy-with-the-ai-starter-kit.md)
-* [Compare editions](../community-edition-features.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [自托管 n8n](../)
+* [安装方式](../install-options/README.md)
+* [保持 n8n 运行](../keep-n8n-running/README.md)
+* [理解架构](../understand-the-architecture/README.md)
+* [作为 OEM 集成部署](../deploy-as-an-oem-integration/README.md)
+* [使用 AI 入门套件部署](../deploy-with-the-ai-starter-kit.md)
+* [比较版本](../community-edition-features.md)

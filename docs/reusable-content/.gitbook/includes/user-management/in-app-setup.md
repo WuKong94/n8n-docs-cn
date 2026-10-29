@@ -1,8 +1,10 @@
 ---
-title: in-app-setup
+title: 应用内设置
 ---
-When you set up user management for the first time, you create an owner account.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-1. Open n8n. The app displays a signup screen.
-2. Enter your details. Your password must be at least eight characters, including at least one number and one capital letter.
-3. Click **Next**. n8n logs you in with your new owner account.
+首次设置用户管理时，需要创建所有者账号。
+
+1. 打开 n8n，应用会显示注册页面。
+2. 输入个人信息。密码至少包含八个字符，其中至少包含一个数字和一个大写字母。
+3. 点击 **Next（下一步）**。n8n 会使用新的所有者账号登录。
