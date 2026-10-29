@@ -14462,5 +14462,27 @@
     "source_correction_ids": [
       "yahoo-smtp-ssl-starttls-source-note"
     ]
+  },
+  "integrations/builtin/credentials/twitter.md": {
+    "status": "translated",
+    "source_sha256": "f13f79f7f2d9307a6dade5ce10b39d5b0ddf3f324cb9de11be1db6707fc7bf4f",
+    "translation_sha256": "483a30149eb2ff892ead861edc995d965fe519df0af72aa737bc2ada4c363049",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/whatsapp.md": {
+    "status": "translated",
+    "source_sha256": "6996a74448f0980951da4278925aef327885882e5d731adf668c88e6d9c08d8d",
+    "translation_sha256": "97eb329714a7ad006fec363af95869bcdbe41efd404a3105bcdab56b72c7d42b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
