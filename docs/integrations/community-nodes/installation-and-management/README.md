@@ -1,25 +1,27 @@
 ---
 contentType: overview
-nodeTitle: Installation and management
+nodeTitle: 安装与管理
 originalFilePath: integrations/community-nodes/installation/index.md
-originalUrl: 'https://docs.n8n.io/integrations/community-nodes/installation'
-url: 'https://docs.n8n.io/integrations/community-nodes/installation-and-management'
+originalUrl: https://docs.n8n.io/integrations/community-nodes/installation
+url: https://docs.n8n.io/integrations/community-nodes/installation-and-management
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Install and manage community nodes <a href="#install-and-manage-community-nodes" id="install-and-manage-community-nodes"></a>
 
-There are four ways to install community nodes:
+# 安装和管理社区节点 <a href="#install-and-manage-community-nodes" id="install-and-manage-community-nodes"></a>
 
-* Within n8n using the [nodes panel](install-verified-community-nodes.md) (for verified community nodes only).
-* Within n8n [using the GUI](gui-installation.md): Use this method to install community nodes from the npm registry.
-* [Manually from the command line](manual-installation.md): use this method to install community nodes from npm if your n8n instance doesn't support installation through the in-app GUI.
-* [From environment variables](environment-variable-installation.md): use this method to bootstrap an instance with a fixed set of community packages, for example through a deployment pipeline.
+社区节点有四种安装方式：
+
+* 在 n8n 中通过[节点面板](install-verified-community-nodes.md)安装，仅适用于经过验证的社区节点。
+* 在 n8n 中[通过图形界面](gui-installation.md)安装：从 npm 注册表安装社区节点。
+* [通过命令行手动安装](manual-installation.md)：如果 n8n 实例不支持通过应用内图形界面安装，可使用此方式从 npm 安装社区节点。
+* [通过环境变量安装](environment-variable-installation.md)：用固定的一组社区软件包初始化实例，例如通过部署流水线进行配置。
 
 {% hint style="info" %}
-**Installing from npm only available on self-hosted instances**
+**仅自托管实例支持从 npm 安装**
 
-Unverified community nodes aren't available on n8n cloud and require [self-hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n) n8n.
+n8n Cloud 不支持未经验证的社区节点，必须[自行托管](../../../deploy/host-n8n/README.md) n8n 才能使用。
 {% endhint %}

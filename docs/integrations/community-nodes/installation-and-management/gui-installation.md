@@ -1,10 +1,9 @@
 ---
 contentType: howto
-nodeTitle: GUI installation
+nodeTitle: 通过图形界面安装
 originalFilePath: integrations/community-nodes/installation/gui-install.md
 originalUrl: https://docs.n8n.io/integrations/community-nodes/installation/gui-install
-url: >-
-  https://docs.n8n.io/integrations/community-nodes/installation-and-management/gui-installation
+url: https://docs.n8n.io/integrations/community-nodes/installation-and-management/gui-installation
 layout:
   width: default
   title:
@@ -24,71 +23,75 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# GUI installation
 
-{% hint style="info" %}
-**Owner and Admin users only**
-
-Only users with an Owner or Admin role can install and manage community nodes from npm on a self-hosted n8n instance. The instance owner is the person who sets up and manages user management.
-{% endhint %}
-
-## Install a community node <a href="#install-a-community-node" id="install-a-community-node"></a>
-
-To install a community node from npm:
-
-1. Go to **Settings** > **Community Nodes**.
-2. Select **Install**.
-3. Find the node you want to install:
-   1. Select **Browse**. n8n takes you to an npm search results page, showing all npm packages tagged with the keyword `n8n-community-node-package`.
-   2. Browse the list of results. You can filter the results or add more keywords.
-   3. Once you find the package you want, make a note of the package name. If you want to install a specific version, make a note of the version number as well.
-   4. Return to n8n.
-4.  Enter the npm package name, and optionally a version number or dist-tag. For example, consider a community node designed to access a weather API called "Storms." The package name is n8n-node-storms, and it has three major versions.<br>
-
-    * To install the latest version of a package called n8n-node-weather: enter `n8n-nodes-storms` in **Enter npm package name**.
-    * To install version 2.3: enter `n8n-node-storms@2.3` in **Enter npm package name**.
-    * To install from a dist-tag such as `beta`: enter `n8n-node-storms@beta` in **Enter npm package name**. You can use any [npm dist-tag](https://docs.npmjs.com/cli/commands/npm-dist-tag) published by the package author, such as `beta`, `next`, or `latest`.
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Dist-tags resolve once at install time</strong></p><p>When you install a package using a dist-tag, n8n resolves the tag to its current version at that moment. Future updates don't follow the dist-tag. For example, if you install <code>n8n-node-storms@beta</code> and <code>beta</code> points to version <code>2.0.0-beta.1</code>, n8n installs that specific version. Later updates compare against the installed semver version, not the <code>beta</code> tag.</p></div>
-5. Agree to the [risks](../risks.md) of using community nodes: select **I understand the risks of installing unverified code from a public source.**
-6. Select **Install**. n8n installs the node, and returns to the **Community Nodes** list in **Settings**.
+# 通过图形界面安装 <a id="gui-installation"></a>
 
 {% hint style="info" %}
-**Nodes on the blocklist**
+**仅限所有者和管理员用户**
 
-n8n maintains a blocklist of community nodes that it prevents you from installing. Refer to [n8n community node blocklist](../blocklist.md) for more information.
+在自托管 n8n 实例中，只有 Owner（所有者）或 Admin（管理员）角色的用户，才能从 npm 安装和管理社区节点。实例所有者是设置和管理用户管理功能的人。
 {% endhint %}
 
-## Uninstall a community node <a href="#uninstall-a-community-node" id="uninstall-a-community-node"></a>
+## 安装社区节点 <a href="#install-a-community-node" id="install-a-community-node"></a>
 
-To uninstall a community node:
+从 npm 安装社区节点：
 
-1. Go to **Settings** > **Community nodes**.
-2. On the node you want to install, select **Options** <img src="../../.gitbook/assets/three-dot-options-menu (2).png" alt="Three dots options menu" data-size="line">.
-3. Select **Uninstall package**.
-4. Select **Uninstall Package** in the confirmation modal.
+1. 进入 **Settings**（设置）> **Community Nodes**（社区节点）。
+2. 选择 **Install**（安装）。
+3. 查找要安装的节点：
+   1. 选择 **Browse**（浏览）。n8n 会打开 npm 搜索结果页，显示所有带有 `n8n-community-node-package` 关键字的软件包。
+   2. 浏览搜索结果，可以筛选结果或添加更多关键字。
+   3. 找到所需软件包后，记下软件包名称。如果要安装指定版本，还需记下版本号。
+   4. 返回 n8n。
+4. 输入 npm 软件包名称，也可以指定版本号或 dist-tag（分发标签）。例如，有一个社区节点用于访问名为 Storms 的天气 API，软件包名为 n8n-node-storms，并且有三个主版本。<br>
 
-## Upgrade a community node <a href="#upgrade-a-community-node" id="upgrade-a-community-node"></a>
+    * 要安装名为 n8n-node-weather 的软件包的最新版本：在 **Enter npm package name**（输入 npm 软件包名称）中输入 `n8n-nodes-storms`。
+
+    > 译注：此示例段落将包名分别写作 n8n-node-storms、n8n-node-weather 和 n8n-nodes-storms，彼此不一致。此处保留原始示例，请使用实际要安装的软件包名称，不要假定这三个名称指向同一软件包。
+    * 要安装版本 2.3：在 **Enter npm package name**（输入 npm 软件包名称）中输入 `n8n-node-storms@2.3`。
+    * 要通过 `beta` 等 dist-tag 安装：在 **Enter npm package name**（输入 npm 软件包名称）中输入 `n8n-node-storms@beta`。可以使用软件包作者发布的任何 [npm dist-tag](https://docs.npmjs.com/cli/commands/npm-dist-tag)，例如 `beta`、`next` 或 `latest`。
+
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>dist-tag 仅在安装时解析一次</strong></p><p>通过 dist-tag 安装软件包时，n8n 会将标签解析为当时对应的版本，后续更新不会继续跟随该标签。例如，安装 <code>n8n-node-storms@beta</code> 时，如果 <code>beta</code> 指向版本 <code>2.0.0-beta.1</code>，n8n 就会安装该具体版本。之后更新时会与已安装的 semver 版本比较，而非跟随 <code>beta</code> 标签。</p></div>
+5. 确认接受使用社区节点的[风险](../risks.md)：勾选 **I understand the risks of installing unverified code from a public source.**（我了解从公共来源安装未经验证代码的风险）。
+6. 选择 **Install**（安装）。n8n 会安装节点，并返回 **Settings**（设置）中的 **Community Nodes**（社区节点）列表。
+
+{% hint style="info" %}
+**屏蔽名单中的节点**
+
+n8n 维护社区节点屏蔽名单，并禁止安装名单中的节点。更多信息请参阅 [n8n 社区节点屏蔽名单](../blocklist.md)。
+{% endhint %}
+
+## 卸载社区节点 <a href="#uninstall-a-community-node" id="uninstall-a-community-node"></a>
+
+卸载社区节点：
+
+1. 进入 **Settings**（设置）> **Community nodes**（社区节点）。
+2. 在要卸载的节点上，选择 **Options**（选项）<img src="../../.gitbook/assets/three-dot-options-menu (2).png" alt="三点选项菜单" data-size="line">。
+3. 选择 **Uninstall package**（卸载软件包）。
+4. 在确认弹窗中选择 **Uninstall Package**（卸载软件包）。
+
+## 升级社区节点 <a href="#upgrade-a-community-node" id="upgrade-a-community-node"></a>
 
 {% hint style="warning" %}
-**Breaking changes in versions**
+**版本中的不兼容变更**
 
-Node developers may introduce breaking changes in new versions of their nodes. A breaking change is an update that breaks previous functionality. Depending on the node versioning approach that a node developer chooses, upgrading to a version with a breaking change could cause all workflows using the node to break. Be careful when upgrading your nodes. If you find that an upgrade causes issues, you can [downgrade](gui-installation.md#downgrade-a-community-node).
+节点开发者可能在新版本中引入不兼容变更，即破坏原有功能的更新。根据开发者采用的节点版本控制方式，升级到含有不兼容变更的版本，可能导致所有使用该节点的工作流无法正常运行。升级时请谨慎；如果升级后出现问题，可以[降级](gui-installation.md#downgrade-a-community-node)。
 {% endhint %}
 
-\### Upgrade to the latest version
+\### 升级到最新版本
 
-You can upgrade community nodes to the latest version from the node list in **Settings** > **community nodes**.
+可以在 **Settings**（设置）> **community nodes**（社区节点）的节点列表中，将社区节点升级到最新版本。
 
-When a new version of a community node is available, n8n displays an **Update** button on the node. Click the button to upgrade to the latest version.
+社区节点有新版本可用时，n8n 会在该节点上显示 **Update**（更新）按钮。单击按钮即可升级到最新版本。
 
-### Upgrade to a specific version <a href="#upgrade-to-a-specific-version" id="upgrade-to-a-specific-version"></a>
+### 升级到指定版本 <a href="#upgrade-to-a-specific-version" id="upgrade-to-a-specific-version"></a>
 
-To upgrade to a specific version (a version other than the latest), uninstall the node, then reinstall it, making sure to specify the target version. Follow the [Installation](gui-installation.md#install-a-community-node) instructions for more guidance.
+要升级到指定版本（而非最新版本），先卸载节点，再重新安装，并指定目标版本。更多说明请参阅[安装](gui-installation.md#install-a-community-node)指南。
 
-## Downgrade a community node <a href="#downgrade-a-community-node" id="downgrade-a-community-node"></a>
+## 降级社区节点 <a href="#downgrade-a-community-node" id="downgrade-a-community-node"></a>
 
-If there is a problem with a particular version of a community node, you may want to roll back to a previous version.
+如果某个版本的社区节点出现问题，可以回滚到之前的版本。
 
-To do this, uninstall the community node, then reinstall it, targeting a specific node version. Follow the [Installation](gui-installation.md#install-a-community-node) instructions for more guidance.
+先卸载社区节点，再重新安装并指定所需版本。更多说明请参阅[安装](gui-installation.md#install-a-community-node)指南。

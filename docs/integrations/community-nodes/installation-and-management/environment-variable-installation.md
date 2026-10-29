@@ -1,61 +1,62 @@
 ---
 contentType: howto
-nodeTitle: Environment variable installation
+nodeTitle: 通过环境变量安装
 originalFilePath: integrations/community-nodes/installation/env-install.md
-originalUrl: 'https://docs.n8n.io/integrations/community-nodes/installation/env-install'
-url: >-
-  https://docs.n8n.io/integrations/community-nodes/installation-and-management/environment-variable-installation
+originalUrl: https://docs.n8n.io/integrations/community-nodes/installation/env-install
+url: https://docs.n8n.io/integrations/community-nodes/installation-and-management/environment-variable-installation
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Manage community packages from environment variables <a href="#manage-community-packages-from-environment-variables" id="manage-community-packages-from-environment-variables"></a>
+
+# 通过环境变量管理社区软件包 <a href="#manage-community-packages-from-environment-variables" id="manage-community-packages-from-environment-variables"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Managing community packages from environment variables is available from n8n 2.21.0.
+从 n8n 2.21.0 起，可以通过环境变量管理社区软件包。
 {% endhint %}
 
-On self-hosted n8n, you can manage the set of installed community packages from environment variables. n8n reconciles the installed packages against the list on every startup, installing missing packages, correcting versions, and uninstalling packages not in the list. Use this method to bootstrap an instance with a fixed set of packages, for example through a deployment pipeline.
+在自托管 n8n 中，可以通过环境变量管理已安装的社区软件包。每次启动时，n8n 都会将已安装软件包与列表进行核对，安装缺失的软件包、调整版本，并卸载不在列表中的软件包。可以用此方式为实例初始化固定的一组软件包，例如通过部署流水线进行配置。
 
 {% hint style="warning" %}
-**Enabling this uninstalls packages that aren't in the list**
+**启用此功能会卸载不在列表中的软件包**
 
-The first time you start n8n with `N8N_COMMUNITY_PACKAGES_MANAGED_BY_ENV=true`, n8n uninstalls any currently-installed community packages that aren't included in `N8N_COMMUNITY_PACKAGES`. If you already manage packages through the UI, review the **Community nodes** settings page and add the packages you want to keep to `N8N_COMMUNITY_PACKAGES` before enabling this variable.
+首次使用 `N8N_COMMUNITY_PACKAGES_MANAGED_BY_ENV=true` 启动 n8n 时，n8n 会卸载当前已安装但未包含在 `N8N_COMMUNITY_PACKAGES` 中的所有社区软件包。如果已经通过界面管理软件包，请先检查 **Community nodes**（社区节点）设置页，并将希望保留的软件包加入 `N8N_COMMUNITY_PACKAGES`，再启用此变量。
 {% endhint %}
 
-## Configure <a href="#configure" id="configure"></a>
+## 配置 <a href="#configure" id="configure"></a>
 
-Set the following environment variables on your n8n instance, then restart:
+在 n8n 实例上设置以下环境变量，然后重启：
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/w3ftfKhp9KdsaTfUFHE8/" %}
+{% include "../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/community-packages.md" %}
 
 {% hint style="info" %}
-**Community packages must be enabled**
+**必须启用社区软件包**
 
-`N8N_COMMUNITY_PACKAGES_ENABLED` must be `true` (the default). If community packages are disabled at the instance level, n8n ignores `N8N_COMMUNITY_PACKAGES_MANAGED_BY_ENV` and logs a warning on startup.
+`N8N_COMMUNITY_PACKAGES_ENABLED` 必须为 `true`（默认值）。如果在实例级别禁用了社区软件包，n8n 会忽略 `N8N_COMMUNITY_PACKAGES_MANAGED_BY_ENV`，并在启动时记录警告。
 {% endhint %}
 
-For example:
+例如：
 
 ```bash
 export N8N_COMMUNITY_PACKAGES_MANAGED_BY_ENV=true
 export N8N_COMMUNITY_PACKAGES='[{"name":"n8n-nodes-foo","version":"1.2.3"}]'
 ```
 
-While `N8N_COMMUNITY_PACKAGES_MANAGED_BY_ENV` is `true`, the **Community nodes** settings page is read-only: you can't install, update, or uninstall packages from the UI.
+当 `N8N_COMMUNITY_PACKAGES_MANAGED_BY_ENV` 为 `true` 时，**Community nodes**（社区节点）设置页为只读，无法通过界面安装、更新或卸载软件包。
 
-### Per-package fields <a href="#per-package-fields" id="per-package-fields"></a>
+### 每个软件包的字段 <a href="#per-package-fields" id="per-package-fields"></a>
 
-| Field | Type | Required | Description |
+| 字段 | 类型 | 必填 | 说明 |
 | :---- | :--- | :------- | :---------- |
-| `name` | string | Yes | npm package name. You can include the version inline as `<package-name>@<version>`. If you do, don't also set the `version` field to a different value, n8n rejects conflicting versions. |
-| `version` | string | No | Version specifier. If omitted, n8n looks the package up in the vetted-packages registry and uses that version; if the package isn't vetted, n8n installs whatever npm resolves and won't reconcile the version across restarts. |
-| `checksum` | string | No | SHA-512 checksum (`sha512-...`) for the resolved tarball. Requires `version` to be set. n8n resolves the checksum automatically from the vetted registry when possible. |
+| `name` | string | 是 | npm 软件包名称。可以使用 `<package-name>@<version>` 在名称中直接指定版本；此时不要再将 `version` 字段设为其他版本，n8n 会拒绝冲突的版本设置。 |
+| `version` | string | 否 | 版本说明符。省略时，n8n 会在审核通过的软件包注册表（vetted-packages registry）中查找并使用对应版本；如果软件包未经审核，则安装 npm 解析出的版本，并且不会在后续重启时核对和调整版本。 |
+| `checksum` | string | 否 | 已解析的软件包压缩文件的 SHA-512 校验和（`sha512-...`）。要求设置 `version`。n8n 会在可能时自动从审核通过的注册表中获取校验和。 |
 
-Example with all three fields:
+包含全部三个字段的示例：
 
 ```json
 [
@@ -66,19 +67,19 @@ Example with all three fields:
 ```
 
 {% hint style="warning" %}
-**Unverified packages need a checksum**
+**未经验证的软件包需要校验和**
 
-If a package isn't in the vetted-packages registry and `N8N_UNVERIFIED_PACKAGES_ENABLED` is `false`, n8n fails to start. Either pin a `checksum` for the package, set `N8N_UNVERIFIED_PACKAGES_ENABLED=true`, or pick a vetted package.
+如果软件包不在审核通过的软件包注册表中，且 `N8N_UNVERIFIED_PACKAGES_ENABLED` 为 `false`，n8n 将无法启动。请为软件包固定一个 `checksum`、设置 `N8N_UNVERIFIED_PACKAGES_ENABLED=true`，或选择已经审核通过的软件包。
 {% endhint %}
 
-For the supported ways to set environment variables, see [Configuration methods](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration).
+支持哪些环境变量设置方式，请参阅[配置方式](../../../deploy/host-n8n/configure-n8n/basic-configuration.md)。
 
-## Manage packages <a href="#manage-packages" id="manage-packages"></a>
+## 管理软件包 <a href="#manage-packages" id="manage-packages"></a>
 
-To add, remove, upgrade, or downgrade a package, edit `N8N_COMMUNITY_PACKAGES` and restart n8n. n8n reconciles to the new list on the next startup.
+要添加、移除、升级或降级软件包，请编辑 `N8N_COMMUNITY_PACKAGES` 并重启 n8n。n8n 会在下次启动时按新列表调整软件包。
 
 {% hint style="warning" %}
-**Breaking changes in versions**
+**版本中的不兼容变更**
 
-Node developers may introduce breaking changes in new versions of their nodes. A breaking change is an update that breaks previous functionality. Be careful when changing versions. If a new version causes issues, set `version` back to the previous value and restart n8n to roll back.
+节点开发者可能在新版本中引入不兼容变更，即破坏原有功能的更新。切换版本时请谨慎。如果新版本导致问题，请将 `version` 设回原值并重启 n8n，以回滚到之前的版本。
 {% endhint %}

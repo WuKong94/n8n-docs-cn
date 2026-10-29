@@ -1,98 +1,99 @@
 ---
 contentType: howto
-nodeTitle: Manual installation
+nodeTitle: 手动安装
 originalFilePath: integrations/community-nodes/installation/manual-install.md
-originalUrl: 'https://docs.n8n.io/integrations/community-nodes/installation/manual-install'
-url: >-
-  https://docs.n8n.io/integrations/community-nodes/installation-and-management/manual-installation
+originalUrl: https://docs.n8n.io/integrations/community-nodes/installation/manual-install
+url: https://docs.n8n.io/integrations/community-nodes/installation-and-management/manual-installation
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Manually install community nodes from npm <a href="#manually-install-community-nodes-from-npm" id="manually-install-community-nodes-from-npm"></a>
 
-You can manually install community nodes from the npm registry on self-hosted n8n.
+# 从 npm 手动安装社区节点 <a href="#manually-install-community-nodes-from-npm" id="manually-install-community-nodes-from-npm"></a>
 
-You need to manually install community nodes in the following circumstances:
+在自托管 n8n 中，可以从 npm 注册表手动安装社区节点。
 
-* Your n8n instance runs in queue mode.
-* You want to install [private packages](https://docs.npmjs.com/creating-and-publishing-private-packages).
+以下情况需要手动安装社区节点：
 
-## Install a community node <a href="#install-a-community-node" id="install-a-community-node"></a>
+* n8n 实例以队列模式运行。
+* 希望安装[私有软件包](https://docs.npmjs.com/creating-and-publishing-private-packages)。
 
-Access your Docker shell:
+## 安装社区节点 <a href="#install-a-community-node" id="install-a-community-node"></a>
+
+进入 Docker 容器的 shell：
 
 ```sh
 docker exec -it n8n sh
 ```
 
-Create `~/.n8n/nodes` if it doesn't already exist, and navigate into it:
+如果 `~/.n8n/nodes` 不存在，请创建该目录，然后进入其中：
 
 ```sh
 mkdir ~/.n8n/nodes
 cd ~/.n8n/nodes
 ```
 
-Install the node:
+安装节点：
 
 ```sh
 npm i n8n-nodes-nodeName
 ```
 
-Then restart n8n.
+然后重启 n8n。
 
-## Uninstall a community node <a href="#uninstall-a-community-node" id="uninstall-a-community-node"></a>
+## 卸载社区节点 <a href="#uninstall-a-community-node" id="uninstall-a-community-node"></a>
 
-Access your Docker shell:
+进入 Docker 容器的 shell：
 
 ```sh
 docker exec -it n8n sh
 ```
 
-Run npm uninstall:
+运行 npm uninstall：
 
 ```sh
 npm uninstall n8n-nodes-nodeName
 ```
 
-## Upgrade a community node <a href="#upgrade-a-community-node" id="upgrade-a-community-node"></a>
+## 升级社区节点 <a href="#upgrade-a-community-node" id="upgrade-a-community-node"></a>
 
 {% hint style="warning" %}
-**Breaking changes in versions**
+**版本中的不兼容变更**
 
-Node developers may introduce breaking changes in new versions of their nodes. A breaking change is an update that breaks previous functionality. Depending on the node versioning approach that a node developer chooses, upgrading to a version with a breaking change could cause all workflows using the node to break. Be careful when upgrading your nodes. If you find that an upgrade causes issues, you can [downgrade](#upgrade-or-downgrade-to-a-specific-version).
+节点开发者可能在新版本中引入不兼容变更，即破坏原有功能的更新。根据开发者采用的节点版本控制方式，升级到含有不兼容变更的版本，可能导致所有使用该节点的工作流无法正常运行。升级时请谨慎；如果升级后出现问题，可以[降级](#upgrade-or-downgrade-to-a-specific-version)。
 {% endhint %}
 
-### Upgrade to the latest version <a href="#upgrade-to-the-latest-version" id="upgrade-to-the-latest-version"></a>
+### 升级到最新版本 <a href="#upgrade-to-the-latest-version" id="upgrade-to-the-latest-version"></a>
 
-Access your Docker shell:
+进入 Docker 容器的 shell：
 
 ```sh
 docker exec -it n8n sh
 ```
 
-Run npm update:
+运行 npm update：
 
 ```sh
 npm update n8n-nodes-nodeName
 ```
 
-### Upgrade or downgrade to a specific version <a href="#upgrade-or-downgrade-to-a-specific-version" id="upgrade-or-downgrade-to-a-specific-version"></a>
+### 升级或降级到指定版本 <a href="#upgrade-or-downgrade-to-a-specific-version" id="upgrade-or-downgrade-to-a-specific-version"></a>
 
-Access your Docker shell:
+进入 Docker 容器的 shell：
 
 ```sh
 docker exec -it n8n sh
 ```
 
-Run npm uninstall to remove the current version:
+运行 npm uninstall，移除当前版本：
 
 ```sh
 npm uninstall n8n-nodes-nodeName
 ```
 
-Run npm install with the version specified:
+运行 npm install，并指定版本：
 
 ```sh
 # Replace 2.1.0 with your version number <a href="#replace-210-with-your-version-number" id="replace-210-with-your-version-number"></a>

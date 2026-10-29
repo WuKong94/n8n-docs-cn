@@ -295,5 +295,32 @@
     "scope": "不修改原始 TypeScript、内联字段值或迁移示例，只添加同页差异译注；未执行请求或验证编码值。",
     "path": "connect/create-nodes/build-your-node/reference/http-request-helpers.md",
     "source_sha256": "2784bf694230646bbb76c8834f090555af1e96a341723f57a1ea8e91e32c3e15"
+  },
+  {
+    "id": "community-uninstall-step-gui-installation",
+    "path": "integrations/community-nodes/installation-and-management/gui-installation.md",
+    "source_sha256": "ebd46cc4c4fced2912e9a123b92e6a939bdad62a201a06dc2ccbf389771371c7",
+    "original_sentence": "2. On the node you want to install, select **Options**",
+    "translated_sentence": "2. 在要卸载的节点上，选择 **Options**（选项）",
+    "evidence": "此句位于同页 Uninstall a community node 小节，后续步骤明确选择 Uninstall package，再在确认弹窗选择 Uninstall Package；原句的 install 为上下文中的动词笔误。",
+    "scope": "仅将卸载步骤中误写的“要安装的节点”改为“要卸载的节点”；保留选项菜单、图片资源和其余安装、卸载、升级步骤。"
+  },
+  {
+    "id": "community-uninstall-step-install-verified-community-nodes",
+    "path": "integrations/community-nodes/installation-and-management/install-verified-community-nodes.md",
+    "source_sha256": "fbc6442284b37f6707ff1c195f3fb451541b650be83fb3fc71f7173adb20ed7a",
+    "original_sentence": "2. On the node you want to install, select **Options**",
+    "translated_sentence": "2. 在要卸载的节点上，选择 **Options**（选项）",
+    "evidence": "此句位于同页 Uninstall a community node 小节，后续步骤明确选择 Uninstall package，再在确认弹窗选择 Uninstall Package；原句的 install 为上下文中的动词笔误。",
+    "scope": "仅将卸载步骤中误写的“要安装的节点”改为“要卸载的节点”；保留选项菜单、图片资源和其余安装、卸载、升级步骤。"
+  },
+  {
+    "id": "community-gui-package-name-example-note",
+    "path": "integrations/community-nodes/installation-and-management/gui-installation.md",
+    "source_sha256": "ebd46cc4c4fced2912e9a123b92e6a939bdad62a201a06dc2ccbf389771371c7",
+    "original_sentence": "* To install the latest version of a package called n8n-node-weather: enter `n8n-nodes-storms` in **Enter npm package name**.",
+    "translated_sentence": "译注：此示例段落将包名分别写作 n8n-node-storms、n8n-node-weather 和 n8n-nodes-storms，彼此不一致。此处保留原始示例，请使用实际要安装的软件包名称，不要假定这三个名称指向同一软件包。",
+    "evidence": "同页安装步骤第 4 步称包名为 n8n-node-storms，紧接的第一个项目又将说明中的包名称为 n8n-node-weather，但内联代码输入值为 n8n-nodes-storms；后续指定版本和 dist-tag 示例使用 n8n-node-storms。",
+    "scope": "保留原始包名、版本号、dist-tag 和全部示例代码，仅添加同页命名差异译注；未查询或安装这些示例软件包。"
   }
 ]

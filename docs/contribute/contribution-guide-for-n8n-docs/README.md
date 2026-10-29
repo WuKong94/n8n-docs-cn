@@ -1,5 +1,5 @@
 ---
-nodeTitle: Contribution guide for n8n Docs
+nodeTitle: n8n 文档贡献指南
 originalFilePath: dummy2.md
 originalUrl: https://docs.n8n.io/dummy2
 url: https://docs.n8n.io/contribute/contribution-guide-for-n8n-docs
@@ -22,212 +22,214 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Contribution guide for n8n Docs
 
-n8n Docs welcomes contributions from everyone. This guide covers the contribution process, and the guidelines to follow.
+# n8n 文档贡献指南 <a id="contribution-guide-for-n8n-docs"></a>
 
-## Introduction
+n8n 文档欢迎所有人贡献内容。本指南介绍贡献流程及应遵循的规范。
 
-n8n Docs is the official documentation for [n8n](https://n8n.io), covering everything from getting started to advanced workflow automation. It's maintained by the n8n team, but community contributions can help by improving explanations, updating content, fixing errors, and more.
+## 简介 <a id="introduction"></a>
 
-All contributions must adhere to our [Code of Conduct](https://github.com/n8n-io/n8n-docs/blob/main/CODE_OF_CONDUCT.md), and follow the standards set out in this contribution guide, as well as the style guide. This ensures quality and consistency across n8n Docs.
+n8n Docs 是 [n8n](https://n8n.io) 的官方文档，涵盖从入门到高级工作流自动化的内容。文档由 n8n 团队维护，社区可以通过完善说明、更新内容、修复错误等方式提供帮助。
 
-n8n Docs content is managed on our [GitHub](https://github.com/n8n-io/n8n-docs) repository. The site is generated with [GitBook](https://www.gitbook.com/). Pages are written in [Markdown](https://commonmark.org/) with GitBook-specific components like callouts, tabs, and structured page elements.
+所有贡献都必须遵守[行为准则](https://github.com/n8n-io/n8n-docs/blob/main/CODE_OF_CONDUCT.md)，以及本贡献指南和风格指南中的标准，以确保 n8n 文档的质量和一致性。
 
-## In this section
+n8n 文档内容在 [GitHub](https://github.com/n8n-io/n8n-docs) 仓库中管理，网站由 [GitBook](https://www.gitbook.com/) 生成。页面使用 [Markdown](https://commonmark.org/) 编写，并使用 GitBook 专用组件，例如提示框、标签页和结构化页面元素。
 
-* [Style guide for n8n Docs](style-guide-for-n8n-docs.md): writing style, formatting, and structure rules to follow.
-* [Terminology and naming](terminology.md): the official n8n terms to use, and the non-official terms to avoid.
-* [Agent-friendly docs](agent-friendly-docs.md): what n8n Docs means by agent-friendly documentation, and how it relates to the style guide.
+## 本节内容 <a id="in-this-section"></a>
 
-## Types of contribution
+* [n8n 文档风格指南](style-guide-for-n8n-docs.md)：应遵循的写作风格、格式和结构规则。
+* [术语与命名](terminology.md)：应使用的 n8n 官方术语，以及应避免的非官方用词。
+* [面向智能体的友好文档](agent-friendly-docs.md)：n8n Docs 如何定义对智能体友好的文档，以及它与风格指南的关系。
 
-Here are the main ways to get involved:
+## 贡献类型 <a id="types-of-contribution"></a>
 
-**Fix typos and small errors** Correct typos, broken links, or minor inaccuracies.
+主要参与方式如下：
 
-**Improve an existing page** If an explanation is unclear, content is outdated, or a page is missing important information, you can suggest modifications and additions.
+**修复拼写和小错误：**修正拼写错误、失效链接或细微的不准确之处。
 
-**Propose new pages** Let us know if you think something is missing entirely from the documentation. Open an issue to describe the required content, before writing anything. This lets the team confirm the content is in scope, and avoids duplicating work that's already in progress. If you'd like to write the content yourself once approved, make sure to mention that in the issue.
+**改进已有页面：**如果说明不清晰、内容过时，或页面缺少重要信息，可以提出修改和补充。
 
-**Update docs alongside a code change** If you're opening a PR on the [main n8n repository](https://github.com/n8n-io/n8n) — for example, to add a node, change a configuration option, or fix a bug that affects documented behaviour — open a docs PR to reflect the change.
+**提议新页面：**如果认为文档完全缺少某项内容，请先创建 issue 描述所需内容，再开始撰写。这样团队可以确认内容属于文档范围，避免与正在进行的工作重复。如果希望在获批后自行撰写，请在 issue 中说明。
 
-**Report a problem** Maybe you've identified a problem in the docs, but you're not able to fix it yourself. Open an issue to describe what's wrong, and the n8n Docs team will handle it.
+**随代码变更更新文档：**如果正在向 [n8n 主仓库](https://github.com/n8n-io/n8n)提交 PR，例如添加节点、更改配置选项，或修复影响文档所述行为的缺陷，请同时提交文档 PR，反映相应变化。
 
-## What not to submit
+**报告问题：**如果发现文档问题，但无法自行修复，可以创建 issue 描述具体问题，由 n8n 文档团队处理。
 
-We don't accept the following types of contributions:
+## 不接受的提交 <a id="what-not-to-submit"></a>
 
-* Modifications to **fully-generated pages**. These pages are automatically generated and kept up to date via n8n workflows. If you spot a problem, open an issue instead of editing the page directly. You can identify fully-generated pages by the `generated: true` field in their frontmatter.
-* **Promotional or commercial content** of any kind, including adding a provider or tool to a curated list of compatible options. Such lists in the doc usually cover only the most widely-used options and are not exhaustive directories — we aim to be vendor-neutral and only expand them when there's a clear reason to do so.
-* **Personal preference changes** — edits that substitute your preferred phrasing or style for content that already follows our style guide.
-* **Contributions that ignore these guidelines.** If it's clear a submission hasn't made any attempt to follow our style guide or contribution guidelines, we may close it without review.
+以下类型的贡献不予接受：
 
-## Writing guidance
+* 修改**完全自动生成的页面**。这些页面通过 n8n 工作流自动生成并更新。如果发现问题，请创建 issue，不要直接编辑页面。可通过 frontmatter 中的 `generated: true` 字段识别完全自动生成的页面。
+* 任何形式的**推广或商业内容**，包括向精选兼容选项列表中添加供应商或工具。文档中的这类列表通常只涵盖最常用的选项，并非完整目录。我们力求保持供应商中立，只在有明确理由时扩充列表。
+* **个人偏好式修改：**对已经符合风格指南的内容，仅为了换成自己偏爱的措辞或风格而进行的编辑。
+* **忽视这些规范的贡献。**如果明显看出提交者没有尝试遵循风格指南或贡献规范，我们可能直接关闭提交而不予审核。
 
-n8n Docs uses plain, direct language in the second person ("you"), present tense, and active voice, following the [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/). Keep sentences short and jargon-free, and use contractions.
+## 写作指导 <a id="writing-guidance"></a>
 
-Refer to the n8n style guide for full details.
+n8n 文档遵循 [Microsoft 写作风格指南](https://learn.microsoft.com/en-us/style-guide/welcome/)，使用通俗直接的语言、第二人称“你”、现在时和主动语态。句子保持简短，避免行话，英文中使用缩略形式。
 
-## Content types
+完整细则请参阅 n8n 风格指南。
 
-n8n Docs uses a few distinct page types. Understanding which type you're working with helps you follow the right structure and use the correct template. Each type has a template in the [`document-templates/`](https://github.com/n8n-io/n8n-docs/tree/main/document-templates) folder:
+## 内容类型 <a id="content-types"></a>
 
-* **Integration nodes**: reference docs for a node. Use the template matching the node type — [app](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/app-nodes.md), [core](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/core-nodes.md), [trigger](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/trigger-nodes.md), or [cluster](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/cluster-nodes.md) node.
-* **Credentials**: how to authenticate an integration ([template](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/credentials.md)).
-* **Common issues**: known problems and fixes for a node ([template](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/common-issues.md)).
-* **Feature**: how-to and reference docs for an n8n feature ([template](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/feature.md)).
-* **Tutorial**: step-by-step guide to build something ([template](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/tutorial.md)).
+n8n 文档使用几种不同的页面类型。明确正在编写的类型，有助于采用正确结构和模板。各类型模板位于 [`document-templates/`](https://github.com/n8n-io/n8n-docs/tree/main/document-templates) 文件夹：
 
-## Using AI to draft contributions
+* **集成节点：**节点参考文档，使用与节点类型匹配的模板：[应用节点](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/app-nodes.md)、[核心节点](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/core-nodes.md)、[触发器节点](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/trigger-nodes.md)或[集群节点](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/cluster-nodes.md)。
+* **凭据：**介绍如何对集成进行身份验证（[模板](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/credentials.md)）。
+* **常见问题：**节点的已知问题和解决办法（[模板](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/common-issues.md)）。
+* **功能：**n8n 功能的操作指南和参考文档（[模板](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/feature.md)）。
+* **教程：**按步骤完成某项构建任务的指南（[模板](https://github.com/n8n-io/n8n-docs/blob/main/document-templates/tutorial.md)）。
 
-Using AI tools to help draft or improve contributions is fine and welcome.
+## 使用 AI 起草贡献内容 <a id="using-ai-to-draft-contributions"></a>
 
-We recommend using the n8n Docs skill file at [`skills/n8n-docs-author/SKILL.md`](https://github.com/n8n-io/n8n-docs/tree/main/skills/n8n-docs-author) alongside your AI tool of choice. It's a distillation of our style guide, providing context for agents about n8n's style and documentation conventions. This produces better output from the start and reduces editing afterwards.
+欢迎使用 AI 工具帮助起草或改进贡献内容。
 
-**How it works**
+建议将你选用的 AI 工具与 [`skills/n8n-docs-author/SKILL.md`](https://github.com/n8n-io/n8n-docs/tree/main/skills/n8n-docs-author) 中的 n8n 文档技能文件配合使用。该文件提炼了风格指南，为智能体提供 n8n 文档风格和写作约定的上下文，有助于从一开始就生成更好的内容，减少后续修改。
 
-If you use an AI coding agent from within a local fork of the n8n Docs GitHub repo, the skill can load automatically. For example, the `CLAUDE.md` file at the repo root points Claude Code at the skill, so you don't need to do anything extra.
+**工作原理**
 
-If you haven't forked the repo, or you're using a tool that doesn't load the skill automatically, you can still use it. Copy the contents of [`SKILL.md`](https://github.com/n8n-io/n8n-docs/blob/main/skills/n8n-docs-author/SKILL.md), [reference.md](https://github.com/n8n-io/n8n-docs/blob/main/skills/n8n-docs-author/reference.md) and the style guide into your agent's context, then ask it to follow that guidance when it writes or reviews your doc contribution.
+如果在 n8n Docs GitHub 仓库的本地 fork 中使用 AI 编程智能体，该技能可以自动加载。例如，仓库根目录的 `CLAUDE.md` 文件会指引 Claude Code 使用该技能，无需额外操作。
 
-**How to use it**
+如果没有 fork 仓库，或使用的工具不会自动加载技能，仍可使用此文件。将 [`SKILL.md`](https://github.com/n8n-io/n8n-docs/blob/main/skills/n8n-docs-author/SKILL.md)、[reference.md](https://github.com/n8n-io/n8n-docs/blob/main/skills/n8n-docs-author/reference.md) 和风格指南的内容复制到智能体上下文中，再要求它在编写或审核文档贡献时遵循这些指导。
 
-Ask your agent to write or review docs as you normally would. To be explicit about the mode:
+**使用方式**
 
-* **Write:** "Write a trigger node page for X."
-* **Edit:** "Edit this page to fix style guide violations."
-* **Review:** "Review this page against the style guide."
+像平时一样请智能体编写或审核文档，也可以明确指定模式：
 
-For a review, the agent returns a table of issues grouped by severity, with suggested fixes.
+* **编写：**“为 X 编写触发器节点页面。”
+* **编辑：**“编辑此页面，修复不符合风格指南的地方。”
+* **审核：**“对照风格指南审核此页面。”
 
-## Contribution methods
+执行审核时，智能体会返回按严重程度分组的问题表格，并给出修改建议。
 
-You can make contributions in a variety of different ways:
+## 贡献方式 <a id="contribution-methods"></a>
 
-### Edit a page in your browser
+可以通过多种方式贡献内容：
 
-This method is best for quick edits to a single page. GitHub will guide you through making your changes and opening a pull request (aka PR - a formal proposal to add your changes to the docs).
+### 在浏览器中编辑页面 <a id="edit-a-page-in-your-browser"></a>
 
-**Prerequisites:** A [GitHub](https://github.com/) account.
+此方式最适合快速修改单个页面。GitHub 会引导你修改并创建拉取请求，也称 PR，即正式提议将更改加入文档。
 
-1. Open the **Copy** dropdown at the top of any n8n Docs page, and select **Edit on GitHub**. This takes you to the page in the [n8n Docs GitHub repository](https://github.com/n8n-io/n8n-docs).
-2. Click the pencil icon to edit the page.
+**前提条件：**拥有 [GitHub](https://github.com/) 账户。
 
-If you're an external contributor, GitHub will prompt you to fork the repository before making changes. Click **Fork this repository** and GitHub automatically creates a fork for you.
+1. 打开任意 n8n 文档页面顶部的 **Copy**（复制）下拉菜单，选择 **Edit on GitHub**（在 GitHub 上编辑），进入 [n8n Docs GitHub 仓库](https://github.com/n8n-io/n8n-docs)中的对应页面。
+2. 单击铅笔图标编辑页面。
 
-3. Make your edits in the text editor, and click **Commit changes** > **Propose changes**.
+如果是外部贡献者，GitHub 会在修改前提示 fork 仓库。单击 **Fork this repository**（派生此仓库），GitHub 就会自动创建 fork。
 
-GitHub prepares a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) for you.
+3. 在文本编辑器中修改，然后单击 **Commit changes**（提交更改）> **Propose changes**（提议更改）。
 
-4. Check the title and description of your pull request, and edit if necessary. When you're happy, click **Create pull request**.
+GitHub 会为你准备一个[拉取请求](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)。
 
-Ensure you've followed the general checklist, and edit your PR as necessary if you missed anything. The n8n Docs team will review your pull request, and merge it (publish your suggested modifications) if it is accepted.
+4. 检查拉取请求的标题和描述，按需修改。确认后，单击 **Create pull request**（创建拉取请求）。
 
-### Fork the repository locally
+确保符合通用检查清单的全部要求；如有遗漏，请修改 PR。n8n 文档团队会审核拉取请求，接受后将其合并，即发布你建议的修改。
 
-This method is suitable for larger changes, new pages, or work that spans multiple files.
+### 在本地 fork 仓库 <a id="fork-the-repository-locally"></a>
 
-**Prerequisites:** A [GitHub account](https://github.com/), [Git](https://git-scm.com/), and a text editor or IDE installed locally.
+此方式适合较大修改、新建页面或涉及多个文件的工作。
 
-1. [Fork the n8n Docs repository](https://github.com/n8n-io/n8n-docs/fork) on GitHub and [clone it locally](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
-2. Create a new branch for your changes.
-3. Make your changes in the relevant page(s). If you add a new page, add it to the space's `SUMMARY.md` file so it appears in the navigation. See the style guide's Page navigation section.
-4.  Lint your prose with [Vale](https://vale.sh). Install it (`brew install vale` on macOS — see the [Vale install guide](https://vale.sh/docs/install) for other systems), then run it from the root of the repository:
+**前提条件：**拥有 [GitHub 账户](https://github.com/)，并在本地安装 [Git](https://git-scm.com/) 及文本编辑器或 IDE。
+
+1. 在 GitHub 上 [fork n8n Docs 仓库](https://github.com/n8n-io/n8n-docs/fork)，并[克隆到本地](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)。
+2. 为修改创建新分支。
+3. 修改相关页面。添加新页面时，将其加入所属空间的 `SUMMARY.md` 文件，使其出现在导航中。请参阅风格指南中的页面导航部分。
+4. 使用 [Vale](https://vale.sh) 检查文字。先安装工具（macOS 上使用 `brew install vale`；其他系统请参阅 [Vale 安装指南](https://vale.sh/docs/install)），再从仓库根目录运行：
 
     ```bash
     vale docs/                 # lint a directory
     vale docs/path/to/file.md  # lint a single file
     ```
 
-    The Vale style rules ship with the repository, so no extra setup is needed. Fix any errors and warnings before continuing.
-5. Commit and push your branch to GitHub.
-6. Open a [pull request](https://github.com/n8n-io/n8n-docs/pulls) from your fork towards `main`.
+    仓库已附带 Vale 风格规则，无需额外配置。继续之前，请修复全部错误和警告。
+5. 提交修改，并将分支推送到 GitHub。
+6. 从你的 fork 向 `main` 创建[拉取请求](https://github.com/n8n-io/n8n-docs/pulls)。
 
-Ensure you've followed the general checklist, and edit your PR as necessary if you missed anything. The n8n Docs team will review your pull request and merge it if accepted.
+确保符合通用检查清单的全部要求；如有遗漏，请修改 PR。n8n 文档团队会审核拉取请求，接受后将其合并。
 
-**Preview your changes**
+**预览更改**
 
-When you open a pull request, GitBook automatically builds a preview of your changes and links it from the PR. On the PR's **Conversation** tab, find the checks section at the bottom and click **Check the live preview on your docs site** for the space you edited:
+创建拉取请求后，GitBook 会自动构建修改预览，并在 PR 中提供链接。在 PR 的 **Conversation**（对话）标签页中，找到底部的检查区域，单击所编辑空间对应的 **Check the live preview on your docs site**（查看文档网站实时预览）：
 
-![GitBook preview link on a pull request](../.gitbook/assets/gitbook-preview-link.png)
+![拉取请求中的 GitBook 预览链接](../.gitbook/assets/gitbook-preview-link.png)
 
-You can then check how your changes render on the docs site.
+然后即可检查修改在文档网站中的渲染效果。
 
-Once the preview finishes building, a bot also posts a **GitBook page previews** comment on your PR with a direct link to each page you changed, so you don't have to find them in the navigation. The comment updates on every push.
+预览构建完成后，机器人还会在 PR 中发布 **GitBook page previews**（GitBook 页面预览）评论，直接链接到每个修改过的页面，无需在导航中查找。每次推送后，该评论都会更新。
 
-![GitBook page previews comment on a pull request](../.gitbook/assets/gitbook-preview-links-comment.png)
+![拉取请求中的 GitBook 页面预览评论](../.gitbook/assets/gitbook-preview-links-comment.png)
 
-It's not possible to build the site locally.
+无法在本地构建该网站。
 
-### Open an issue
+### 创建 issue <a id="open-an-issue"></a>
 
-If you've spotted a problem but don't want to edit the content yourself, or you want to propose new content before writing it, you can open a GitHub issue instead.
+如果发现问题但不想自行编辑，或希望在撰写前提议新内容，可以创建 GitHub issue。
 
-1. Go to the [n8n Docs issues page](https://github.com/n8n-io/n8n-docs/issues).
-2. Check whether the issue already exists by searching the open issues before creating a new one.
-3. Click **New issue** and choose the most relevant issue type.
-4. Fill in the title and description. Include as much detail as you can — the page URL, what's wrong or missing, and any suggestions you have.
-5. Click **Submit new issue**.
+1. 进入 [n8n Docs 的 issues 页面](https://github.com/n8n-io/n8n-docs/issues)。
+2. 创建前先搜索现有未关闭 issue，检查是否已有相同问题。
+3. 单击 **New issue**（新建 issue），选择最相关的问题类型。
+4. 填写标题和描述，尽量提供详细信息，包括页面 URL、错误或缺失之处，以及你的建议。
+5. 单击 **Submit new issue**（提交新 issue）。
 
-The n8n Docs team will triage your issue and follow up if they need more information.
+n8n 文档团队会对 issue 分类处理，如需更多信息会继续联系你。
 
-## General checklist
+## 通用检查清单 <a id="general-checklist"></a>
 
-Before submitting a pull request to modify n8n Docs, make sure your contribution ticks all these boxes:
+提交修改 n8n 文档的拉取请求前，请确保满足以下全部要求：
 
-* All necessary files and images are included.
-* Any new pages are added to the space's `SUMMARY.md` so they appear in the navigation.
-* All formatting follows the style guide.
-* Your changes pass [Vale](https://vale.sh) prose linting with no errors (if you contributed locally — see Fork the repository locally).
-* All links are working and direct to the right location.
-* The PR explains the changes you made and why they're necessary.
-* You haven't made an unaccepted submission type
-* You have read and accepted the [code of conduct](https://github.com/n8n-io/n8n-docs/blob/main/CODE_OF_CONDUCT.md) and [contributor license agreement](https://github.com/n8n-io/n8n-docs/blob/main/CONTRIBUTOR_LICENSE_AGREEMENT.md).
+* 包含所有必要文件和图片。
+* 新页面已加入所属空间的 `SUMMARY.md`，能够出现在导航中。
+* 所有格式符合风格指南。
+* 修改通过 [Vale](https://vale.sh) 文字检查，且没有错误；此项适用于本地贡献，参阅“在本地 fork 仓库”。
+* 所有链接有效，且指向正确位置。
+* PR 说明了做了哪些修改，以及修改的必要性。
+* 未提交不被接受的贡献类型。
+* 已阅读并接受[行为准则](https://github.com/n8n-io/n8n-docs/blob/main/CODE_OF_CONDUCT.md)和[贡献者许可协议](https://github.com/n8n-io/n8n-docs/blob/main/CONTRIBUTOR_LICENSE_AGREEMENT.md)。
 
-## Review process
+## 审核流程 <a id="review-process"></a>
 
-Once you open a pull request, the n8n Docs team will review it and either merge it, request changes, or close it. Here's what to expect:
+创建拉取请求后，n8n 文档团队会审核，并选择合并、要求修改或关闭。流程说明如下：
 
-**Timeline** The team aims to review pull requests as quickly as possible. Complex or large contributions may take longer. Contributions linked to a PR int the main code base will not be reviewed until the main PR Is merged.
+**时间：**团队会尽快审核拉取请求。复杂或大规模贡献可能需要更长时间。与主代码库 PR 关联的贡献，会在主 PR 合并后才开始审核。
 
-**Labels** The team uses labels to communicate the status of your PR:
+**标签：**团队通过标签说明 PR 状态：
 
-| Label                       | Meaning                                                                                                                                                 |
+| 标签 | 含义 |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action:awaiting-author`    | The team has left feedback and is waiting for you to respond or make edits                                                                              |
-| `action:needs-review`       | Your PR is in the queue and waiting for a technical writer to review it                                                                                 |
-| `action:needs-sme`          | Your PR requires review from a subject matter expert before it can be merged                                                                            |
-| `status:pending-dev`        | Your PR is linked to an unmerged code change and will be reviewed once that merges                                                                      |
-| `status:awaiting-release`    | The linked code change has merged, but not yet been released. Your PR will be reviewed shortly                                                                                  |
-| `status:dev-cancelled`      | The code change your PR was linked to has been cancelled — the docs PR will be closed                                                                   |
-| `status:duplicate`          | Your PR covers the same ground as an existing PR or issue - the PR will be closed                                                                       |
-| `status:outdated`           | Your PR has been overtaken by subsequent changes to the docs - the PR will be closed                                                                    |
-| `quality:low-effort-usable` | Your PR is acceptable but only just — consider improving it before it's reviewed                                                                        |
-| `quality:unusable`          | Your PR doesn't meet the contribution guidelines and will be closed. If you make multiple contributions that are given this label, you will be blocked. |
-| `quality:disruptive`        | Your PR introduces changes that would actively damage the docs. You will be immediately blocked from making further contributions.                      |
+| `action:awaiting-author` | 团队已提供反馈，正在等待你回复或修改。 |
+| `action:needs-review` | PR 已进入队列，等待技术文档作者审核。 |
+| `action:needs-sme` | PR 需要由相关领域专家审核后才能合并。 |
+| `status:pending-dev` | PR 关联的代码变更尚未合并，待其合并后再审核。 |
+| `status:awaiting-release` | 关联代码变更已合并但尚未发布，PR 将很快接受审核。 |
+| `status:dev-cancelled` | PR 关联的代码变更已取消，文档 PR 将被关闭。 |
+| `status:duplicate` | PR 与已有 PR 或 issue 重复，将被关闭。 |
+| `status:outdated` | 后续文档变更已使 PR 过时，PR 将被关闭。 |
+| `quality:low-effort-usable` | PR 勉强达到接受标准，建议在审核前进一步改进。 |
+| `quality:unusable` | PR 不符合贡献规范，将被关闭。若多次贡献都被标记为此标签，你将被禁止继续贡献。 |
+| `quality:disruptive` | PR 中的修改会直接损害文档质量，你将立即被禁止继续贡献。 |
 
-See our full label set [on our GitHub repo](https://github.com/n8n-io/n8n-docs/labels)
+完整标签列表见 [GitHub 仓库](https://github.com/n8n-io/n8n-docs/labels)。
 
-**Why a PR might be closed** Pull requests may be closed without merging if the content is out of scope, duplicates existing documentation, doesn't meet the style or contribution guidelines, or hasn't been updated after changes were requested. If you think a PR was closed in error, you're welcome to comment and ask for clarification.
+**PR 可能被关闭的原因：**内容超出范围、与已有文档重复、不符合风格或贡献规范，或在收到修改要求后未更新，都可能导致 PR 不被合并而直接关闭。如果认为 PR 被误关，可以留言请求说明。
 
-By opening a pull request, you agree to the terms described in License.
+创建拉取请求即表示你同意“许可证”部分所述条款。
 
-## License
+## 许可证 <a id="license"></a>
 
-n8n is fair-code licensed. By contributing to n8n Docs, your contributions are made under the same license. For more information, refer to the license documentation.
+n8n 使用 fair-code 许可证。为 n8n 文档贡献内容时，贡献内容也采用相同许可证。更多信息请参阅许可证文档。
 
-## Get help
+## 获取帮助 <a id="get-help"></a>
 
-If you have questions about contributing, there are a few places to get help:
+如果对贡献内容有疑问，可以通过以下渠道求助：
 
-* [**Community forum**](https://community.n8n.io/)**:** Post in the documentation category for questions about content, style, or the contribution process.
-* [**Discord**](https://discord.gg/n8n)**:** Join the `#docs` channel for more informal questions or quick feedback.
+* [**社区论坛**](https://community.n8n.io/)**：**在文档分类中发布关于内容、风格或贡献流程的问题。
+* [**Discord**](https://discord.gg/n8n)**：**加入 `#docs` 频道，提出非正式问题或快速获取反馈。
 
-To get the attention of the docs team specifically, tag `@n8n-io/docs` in your pull request or issue.
+如需特别提醒文档团队，请在拉取请求或 issue 中标记 `@n8n-io/docs`。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Contribute to n8n](../)
-* [Where to get help](../where-to-get-help.md)
+* [为 n8n 作贡献](../)
+* [获取帮助的途径](../where-to-get-help.md)

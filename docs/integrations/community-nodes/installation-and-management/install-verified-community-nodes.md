@@ -1,10 +1,9 @@
 ---
 contentType: howto
-nodeTitle: Install verified community nodes
+nodeTitle: 安装经过验证的社区节点
 originalFilePath: integrations/community-nodes/installation/verified-install.md
 originalUrl: https://docs.n8n.io/integrations/community-nodes/installation/verified-install
-url: >-
-  https://docs.n8n.io/integrations/community-nodes/installation-and-management/install-verified-community-nodes
+url: https://docs.n8n.io/integrations/community-nodes/installation-and-management/install-verified-community-nodes
 layout:
   width: default
   title:
@@ -24,36 +23,38 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Install verified community nodes
 
-{% hint style="info" %}
-**Limited to n8n instance owners and admins**
-
-The n8n instance owner and admin accounts can install and manage verified community nodes. The instance owner is the person who sets up and manages user management. All members of an n8n instance can use already installed community nodes in their workflows.
-{% endhint %}
-
-## Install a community node <a href="#install-a-community-node" id="install-a-community-node"></a>
-
-To install a [verified community node](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/deploy-your-node/submit-community-nodes#submit-your-node-for-verification-by-n8n):
-
-1. Go to the **Canvas** and open the **nodes panel** (either by selecting '+' or pressing ++n++).
-2. **Search** for the node that you're looking for. If there is a matching verified community node, you will see a **More from the community** section at the bottom of the nodes panel.
-3. Select the node you want to install. This takes you to a detailed view of the node, showing all the supported actions.
-4. Select **install**. This will install the node for your instance and enable all members to use it in their workflows.
-5. You can now add the node to your workflows.
+# 安装经过验证的社区节点 <a id="install-verified-community-nodes"></a>
 
 {% hint style="info" %}
-**Enable installation of verified community nodes**
+**仅限 n8n 实例所有者和管理员**
 
-If you don't want verified community nodes to appear in the nodes panel, turn **Verified community nodes** off in **Instance settings** in the [n8n Cloud console](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/use-the-cloud-console). If you're self-hosting, use [environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/nodes) to control the availability of this feature.
+n8n 实例的所有者和管理员账户可以安装和管理经过验证的社区节点。实例所有者是设置和管理用户管理功能的人。实例中的所有成员都可以在自己的工作流中使用已安装的社区节点。
 {% endhint %}
 
-## Uninstall a community node <a href="#uninstall-a-community-node" id="uninstall-a-community-node"></a>
+## 安装社区节点 <a href="#install-a-community-node" id="install-a-community-node"></a>
 
-To uninstall a community node:
+安装[经过验证的社区节点](../../../connect/create-nodes/deploy-your-node/submit-community-nodes.md#submit-your-node-for-verification-by-n8n)：
 
-1. Go to **Settings** > **Community nodes**.
-2. On the node you want to install, select **Options** <img src="../../.gitbook/assets/three-dot-options-menu (2).png" alt="Three dots options menu" data-size="line">.
-3. Select **Uninstall package**.
-4. Select **Uninstall Package** in the confirmation modal.
+1. 进入 **Canvas**（画布），通过选择“+”或按 ++n++ 打开**节点面板**。
+2. **搜索**所需节点。如果有匹配的、经过验证的社区节点，节点面板底部会显示 **More from the community**（更多社区节点）区域。
+3. 选择要安装的节点，进入节点详情视图，查看其支持的全部操作。
+4. 选择 **install**（安装），将节点安装到实例中，所有成员都能在工作流中使用该节点。
+5. 现在可以将节点添加到工作流。
+
+{% hint style="info" %}
+**启用经过验证的社区节点安装功能**
+
+如果不希望节点面板显示经过验证的社区节点，请在 [n8n Cloud 控制台](../../../deploy/use-n8n-cloud/use-the-cloud-console.md)的 **Instance settings**（实例设置）中关闭 **Verified community nodes**（经过验证的社区节点）。自行托管时，可以通过[环境变量](../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/nodes.md)控制此功能是否可用。
+{% endhint %}
+
+## 卸载社区节点 <a href="#uninstall-a-community-node" id="uninstall-a-community-node"></a>
+
+卸载社区节点：
+
+1. 进入 **Settings**（设置）> **Community nodes**（社区节点）。
+2. 在要卸载的节点上，选择 **Options**（选项）<img src="../../.gitbook/assets/three-dot-options-menu (2).png" alt="三点选项菜单" data-size="line">。
+3. 选择 **Uninstall package**（卸载软件包）。
+4. 在确认弹窗中选择 **Uninstall Package**（卸载软件包）。

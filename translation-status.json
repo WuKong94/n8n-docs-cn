@@ -7470,5 +7470,243 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "privacy-and-security/incident-response.md": {
+    "status": "translated",
+    "source_sha256": "ae05250ea3a56df2927b0121e90713dc5fd9d35d2c658b594dfb618a5e9b7ace",
+    "translation_sha256": "6e613f06f9a5a3adced2691c8aa28117ca0b7c4f728138bf266fb3df617932de",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "privacy-and-security/what-you-can-do.md": {
+    "status": "translated",
+    "source_sha256": "9927115fbc578176a1f2fee46ea031aeff4135d01fbf22fcd7302059257e9065",
+    "translation_sha256": "2b82eeff515856bb76b29db247b253bd9f6cd2f0c2bf07dc627c7fb7ecf57e65",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "privacy-and-security/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "3cec28add6f5c80c5dca09770e3c6d999af8f7061d177e1f433fceea7abaa95b",
+    "translation_sha256": "1b5b3610251f155a9b8c9e475a74b82bd65ffd23efa2e0e775bbb1be2c80d037",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/README.md": {
+    "status": "translated",
+    "source_sha256": "9761d7e57109baae437521139dc59ce2996e780d98a527d91f1e0632c0e68d81",
+    "translation_sha256": "a854b2a348222bb63266370e5f27195a344c27417e9edf5292a8af07ac29d27f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/blocklist.md": {
+    "status": "translated",
+    "source_sha256": "cb6104925d40efb4b043d3176c3a6647e42a0c4fc6ea7cd3d57dafd2e01b5dc7",
+    "translation_sha256": "18045822894972157801172c6b3132a93d235001b877718c3281e607a7020189",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/building-community-nodes.md": {
+    "status": "translated",
+    "source_sha256": "a614ec97654c16b02071c26d7957d60e69181768e65287edd32470ab15c5fceb",
+    "translation_sha256": "ad2546b033753801040571068d22e87d0dac5ad35a5ac532ea8ed44501b85b3a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/installation-and-management/README.md": {
+    "status": "translated",
+    "source_sha256": "b078d2f7937874c811010ab2ceb6e20e24e9f7aed4c3c8b66031c706d633fe81",
+    "translation_sha256": "8e42b804639bd53b6053d65be254a105e525205cea4b81d79c0179ce6e048ff2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/risks.md": {
+    "status": "translated",
+    "source_sha256": "02852570d59c24cd4c1724843827171f994c77f9f091c61ecb47c0508be46150",
+    "translation_sha256": "0f97eea8e84dd006cd3a069d091958a7de5a80460426fd9cf3c9b5c857689285",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/troubleshooting.md": {
+    "status": "translated",
+    "source_sha256": "884ce595e5305d3910a67b80b002d40c11f55a2a002f52565905d2b9b62b4ea7",
+    "translation_sha256": "e437d21046be97dedb23aa559fa3180fd68128b1e6903ce7eb77b6b6639cdb94",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/using-community-nodes.md": {
+    "status": "translated",
+    "source_sha256": "5b5c0bdb68cfdbf29cc3aa87e1fa3b599fa4cac26df4f12a239e7835d3b49e89",
+    "translation_sha256": "f12826af635b6644b11b5fad5d67eee6eb936a915087a7e5f63ec628d35f47bc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/installation-and-management/environment-variable-installation.md": {
+    "status": "translated",
+    "source_sha256": "42fa69e0a5782953d0cf56baca83aaa13ad75854b59e25996a683a7fba52cd2d",
+    "translation_sha256": "4289b5a086bb1e03b85eb94fb909e2ef66247146c73a1c75ddbc4d2352b9da0c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/installation-and-management/manual-installation.md": {
+    "status": "translated",
+    "source_sha256": "4729cfcd6b5bd4813ab5377d6a21a9567199ba6aae552dd21a1c1f96eaf633d5",
+    "translation_sha256": "444a659fa19c0b77e6c2b5c964c9f1722fd12ff63c2de13fbbde22de821b5f76",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/community-nodes/installation-and-management/gui-installation.md": {
+    "status": "translated",
+    "source_sha256": "ebd46cc4c4fced2912e9a123b92e6a939bdad62a201a06dc2ccbf389771371c7",
+    "translation_sha256": "1d5ae0b05106ee34abd72f0d856f83b7a7a003cadb781d387784679403c8608f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "community-uninstall-step-gui-installation",
+      "community-gui-package-name-example-note"
+    ]
+  },
+  "integrations/community-nodes/installation-and-management/install-verified-community-nodes.md": {
+    "status": "translated",
+    "source_sha256": "fbc6442284b37f6707ff1c195f3fb451541b650be83fb3fc71f7173adb20ed7a",
+    "translation_sha256": "4a0ce7f80867349cf0bd2e65e5c57796c683f3d2088e30ceebb91d216cdbb6bc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "community-uninstall-step-install-verified-community-nodes"
+    ]
+  },
+  "contribute/README.md": {
+    "status": "translated",
+    "source_sha256": "460a285caa1f4cdf0e2b230a95afd2bf593c9ec70772ed28d5e075f20151ed84",
+    "translation_sha256": "eb94b23f7ebfc1e52e637b722e2e4bb8a7f580607697923ab0cd2641a82f9e9a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "contribute/where-to-get-help.md": {
+    "status": "translated",
+    "source_sha256": "34175b0336ced27ee705fb177f46cfd13bd260ed1943c9d3f022e03758760d3c",
+    "translation_sha256": "7f0c78f3af4735342adbbb4d54948918dc730c663d68b2a69bf5d27beb3f81dc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "contribute/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "89990b3dac2928d3b25b2f3befe2d24039d744c0be20d601c01a64681f6a189a",
+    "translation_sha256": "c3ac3d48c6c76467bf0f5b570a7cac0ef39bf10eb19a7bc985aed039794c8682",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "contribute/contribution-guide-for-n8n-docs/agent-friendly-docs.md": {
+    "status": "translated",
+    "source_sha256": "f8fa8622ae9676acd33ac614f4196fde26d38863daded54a36c497a0f02d7324",
+    "translation_sha256": "89da274cf5c346e082edcea6afa2638f678cdb84fbf6369fe9c0a61584a0eae6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "contribute/contribution-guide-for-n8n-docs/README.md": {
+    "status": "translated",
+    "source_sha256": "ab285b789260e253f23a6f1c4aa6fb8a223bb5206f48c2e89ca271bc0b51b373",
+    "translation_sha256": "0b396f6673d2991b5285e095adfb9dab7f93516456cec1a456a256e9f261d8dd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "contribute/contribution-guide-for-n8n-docs/terminology.md": {
+    "status": "translated",
+    "source_sha256": "c99ba1faef508a87bacfaaf35bec5069040337b39d0669608cd11947dfc67931",
+    "translation_sha256": "4ad935c97d8671a93941e1902e6c4e2d478326671812967ae8b5a6eb88d98c2e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "contribute/contribution-guide-for-n8n-docs/style-guide-for-n8n-docs.md": {
+    "status": "translated",
+    "source_sha256": "1d06f3212ac005d5b608bf9533a042377325ff9f476e4e06a8da4538cf9fac5a",
+    "translation_sha256": "edcffb5ec923285d2b3824e40bba3b8d293d2c7a6db736e7a4871875eceda2c6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }
