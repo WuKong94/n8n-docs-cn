@@ -1,54 +1,54 @@
 ---
-title: Line node documentation
-description: >-
-  Learn how to use the Line node in n8n. Follow technical documentation to
-  integrate Line node into your workflows.
+title: Line 节点文档
+description: 了解如何在 n8n 中使用 Line 节点，并按照技术文档将 Line 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Line node documentation
+nodeTitle: Line 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.line.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.line'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.line'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.line
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.line
 layout:
   description:
     visible: false
 tags:
-  - tag: deprecated
-    primary: true
+- tag: deprecated
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Line node <a href="#line-node" id="line-node"></a>
+
+# Line 节点 <a href="#line-node" id="line-node"></a>
 
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-The Line node is deprecated from n8n 1.64.0. LINE Notify ends its own service on April 1, 2025, after which the node stops working. View LINE Notify's [end of service announcement](https://notify-bot.line.me/closing-announce) for more information.
+Line 节点从 n8n 1.64.0 开始弃用。LINE Notify 于 2025 年 4 月 1 日终止服务，此后该节点将无法使用。更多信息请参阅 LINE Notify 的[服务终止公告](https://notify-bot.line.me/closing-announce)。
 {% endhint %}
 
 
-Use the Line node to automate work in Line, and integrate Line with other applications. n8n has built-in support for a wide range of Line features, including sending notifications. 
+使用 Line 节点自动处理 Line 中的工作，并将其与其他应用集成。n8n 内置支持多种 Line 功能，包括发送通知。
 
-On this page, you'll find a list of operations the Line node supports and links to more resources.
+本页列出了 Line 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Line credentials](../credentials/line.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Line 凭据](../credentials/line.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Notification
-    * Sends notifications to users or groups
+* Notification（通知）
+    * Sends notifications to users or groups（向用户或群组发送通知）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Line node documentation integration templates](https://n8n.io/integrations/line) or [search all templates](https://n8n.io/workflows/)
+[浏览 Line 集成模板](https://n8n.io/integrations/line)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

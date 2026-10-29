@@ -1,44 +1,44 @@
 ---
 contentType: howto
-description: >-
-  Call workflows from other workflows, and split large workflows into smaller
-  components.
-nodeTitle: Break workflows into smaller parts
+description: 从其他工作流调用工作流，并将大型工作流拆分为较小的组件。
+nodeTitle: 将工作流拆分为更小的部分
 originalFilePath: flow-logic/subworkflows.md
-originalUrl: 'https://docs.n8n.io/flow-logic/subworkflows'
-url: 'https://docs.n8n.io/build/flow-logic/break-workflows-into-smaller-parts'
+originalUrl: https://docs.n8n.io/flow-logic/subworkflows
+url: https://docs.n8n.io/build/flow-logic/break-workflows-into-smaller-parts
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Sub-workflows <a href="#sub-workflows" id="sub-workflows"></a>
 
-You can call one workflow from another workflow. This allows you to build modular, microservice-like workflows, as part of your workflow's [flow logic](./). It can also help if your workflow grows large enough to encounter [memory issues](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/scaling/fix-memory-issues). Creating sub-workflows uses the [Execute Workflow](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executeworkflow) and [Execute Sub-workflow Trigger](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger) nodes.
+# 子工作流 <a href="#sub-workflows" id="sub-workflows"></a>
 
-Sub-wokflow executions don't count towards your plan's monthly execution or active workflow limits.
+可以从一个工作流调用另一个工作流，将其作为[流程逻辑](./)的一部分，构建类似微服务的模块化工作流。当工作流过大而遇到[内存问题](../../deploy/host-n8n/configure-n8n/scaling/fix-memory-issues.md)时，这种方式也有帮助。创建子工作流会用到 [Execute Workflow](../../integrations/builtin/core-nodes/n8n-nodes-base.executeworkflow.md) 和 [Execute Sub-workflow Trigger](../../integrations/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger.md) 节点。
 
-## Set up and use a sub-workflow <a href="#set-up-and-use-a-sub-workflow" id="set-up-and-use-a-sub-workflow"></a>
+子工作流执行不计入套餐的每月执行次数限额或活跃工作流数量限额。
 
-This section walks through setting up both the parent workflow and sub-workflow.
+## 设置和使用子工作流 <a href="#set-up-and-use-a-sub-workflow" id="set-up-and-use-a-sub-workflow"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/wlwT5JcWyWTecnDN6aul/" %}
+本节将介绍如何设置父工作流和子工作流。
 
-## How data passes between workflows <a href="#how-data-passes-between-workflows" id="how-data-passes-between-workflows"></a>
+{% include "../../reusable-content/.gitbook/includes/flow-logic/subworkflow-usage.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/edKlUxnfiRMq38CujuFv/" %}
+## 数据如何在工作流之间传递 <a href="#how-data-passes-between-workflows" id="how-data-passes-between-workflows"></a>
 
-## Sub-workflow conversion <a href="#sub-workflow-conversion" id="sub-workflow-conversion"></a>
+{% include "../../reusable-content/.gitbook/includes/flow-logic/subworkflow-data-flow.md" %}
 
-See [sub-workflow conversion](convert-to-sub-workflows.md) for how to divide your existing workflows into sub-workflows.
+## 子工作流转换 <a href="#sub-workflow-conversion" id="sub-workflow-conversion"></a>
 
-## Related resources
+将现有工作流拆分为子工作流的方法，请参阅[子工作流转换](convert-to-sub-workflows.md)。
 
-* [Flow logic](./)
-* [Split with conditionals](split-with-conditionals.md)
-* [Merge data](merge-data.md)
-* [Loop](loop.md)
-* [Wait](wait.md)
-* [Understand execution order](understand-execution-order.md)
-* [Convert to sub-workflows](convert-to-sub-workflows.md)
-* [Handle errors gracefully](handle-errors-gracefully.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [流程逻辑](./)
+* [按条件分支](split-with-conditionals.md)
+* [合并数据](merge-data.md)
+* [循环](loop.md)
+* [等待](wait.md)
+* [理解执行顺序](understand-execution-order.md)
+* [转换为子工作流](convert-to-sub-workflows.md)
+* [妥善处理错误](handle-errors-gracefully.md)

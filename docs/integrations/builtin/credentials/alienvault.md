@@ -1,41 +1,41 @@
 ---
-title: AlienVault credentials
-description: >-
-  Documentation for the AlienVault credentials. Use these credentials to
-  authenticate AlienVault in n8n, a workflow automation platform.
+title: AlienVault 凭据
+description: AlienVault 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 AlienVault 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: AlienVault credentials
+nodeTitle: AlienVault 凭据
 originalFilePath: integrations/builtin/credentials/alienvault.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/alienvault'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/alienvault'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/alienvault
+url: https://docs.n8n.io/integrations/builtin/credentials/alienvault
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AlienVault credentials <a href="#alienvault-credentials" id="alienvault-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# AlienVault 凭据 <a href="#alienvault-credentials" id="alienvault-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create an [AlienVault](https://otx.alienvault.com) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [AlienVault](https://otx.alienvault.com) 账号。
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [AlienVault's documentation](https://otx.alienvault.com/api) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/alienvault/) on n8n's website.
+有关该服务的更多信息，请参阅 [AlienVault 文档](https://otx.alienvault.com/api)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/alienvault/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **OTX Key**: Once you have an AlienVault account, the **OTX Key** displays in your **Settings**.
+配置此凭据需要：
+
+- 一个 **OTX Key（OTX 密钥）**：创建 AlienVault 账号后，可以在 **Settings（设置）** 中查看 **OTX Key**。

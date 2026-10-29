@@ -1,43 +1,43 @@
 ---
-title: xAI credentials
-description: >-
-  Documentation for xAI credentials. Use these credentials to authenticate xAI
-  in n8n, a workflow automation platform.
+title: xAI 凭据
+description: xAI 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 xAI 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: xAI credentials
+nodeTitle: xAI 凭据
 originalFilePath: integrations/builtin/credentials/xai.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/xai'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/xai'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/xai
+url: https://docs.n8n.io/integrations/builtin/credentials/xai
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# xAI credentials <a href="#xai-credentials" id="xai-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# xAI 凭据 <a href="#xai-credentials" id="xai-credentials"></a>
 
-- [Chat xAI Grok](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [Chat xAI Grok（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok.md)
 
-Create an [xAI](https://accounts.x.ai/sign-up) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [xAI](https://accounts.x.ai/sign-up) 账号。
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [xAI's API documentation](https://docs.x.ai/docs/api-reference) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+有关该服务的更多信息，请参阅 [xAI API 文档](https://docs.x.ai/docs/api-reference)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**: You can create a new API key on the [xAI Console API Keys page](https://console.x.ai/team/default/api-keys).
+配置此凭据需要：
 
-Refer to the [The Hitchhiker's Guide to Grok | xAI](https://docs.x.ai/docs/tutorial) for more information.
+- 一个 **API Key（API 密钥）**：可以在 [xAI 控制台的 API Keys（API 密钥）页面](https://console.x.ai/team/default/api-keys)创建新密钥。
+
+更多信息请参阅 [Grok 漫游指南 | xAI](https://docs.x.ai/docs/tutorial)。

@@ -1,40 +1,40 @@
 ---
-title: OpenCTI credentials
-description: >-
-  Documentation for the OpenCTI credentials. Use these credentials to
-  authenticate OpenCTI in n8n, a workflow automation platform.
+title: OpenCTI 凭据
+description: OpenCTI 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 OpenCTI 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: OpenCTI credentials
+- integration
+- reference
+nodeTitle: OpenCTI 凭据
 originalFilePath: integrations/builtin/credentials/opencti.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/opencti'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/opencti'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/opencti
+url: https://docs.n8n.io/integrations/builtin/credentials/opencti
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenCTI credentials <a href="#opencti-credentials" id="opencti-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# OpenCTI 凭据 <a href="#opencti-credentials" id="opencti-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create an [OpenCTI](https://filigran.io/solutions/open-cti/) developer account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Authentication methods <a href="#authentication-methods" id="authentication-methods"></a>
+创建一个 [OpenCTI](https://filigran.io/solutions/open-cti/) 开发者账号。
 
-- API key
+## 身份验证方式 <a href="#authentication-methods" id="authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [OpenCTI's documentation](https://docs.opencti.io/latest/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/opencti/) on n8n's website.
+有关该服务的更多信息，请参阅 [OpenCTI 文档](https://docs.opencti.io/latest/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/opencti/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**: To get your API key, go to your **Profile > API access**. Refer to the OpenCTI [Integrations Authentication documentation](https://docs.opencti.io/latest/deployment/integrations/#authentication) for more information.
+配置此凭据需要：
+
+- 一个 **API Key（API 密钥）**：进入 **Profile > API access（个人资料 > API 访问）** 获取密钥。更多信息请参阅 OpenCTI 的[集成身份验证文档](https://docs.opencti.io/latest/deployment/integrations/#authentication)。

@@ -1,48 +1,48 @@
 ---
-title: Serp credentials
-description: >-
-  Documentation for the Serp credentials. Use these credentials to authenticate
-  Serp in n8n, a workflow automation platform.
+title: Serp 凭据
+description: Serp 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Serp 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Serp credentials
+nodeTitle: Serp 凭据
 originalFilePath: integrations/builtin/credentials/serp.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/serp'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/serp'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/serp
+url: https://docs.n8n.io/integrations/builtin/credentials/serp
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Serp credentials <a href="#serp-credentials" id="serp-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Serp 凭据 <a href="#serp-credentials" id="serp-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [Serp](../cluster-nodes/sub-nodes/n8n-nodes-langchain.toolserpapi.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [SerpApi](https://serpapi.com/) account.
+创建一个 [SerpApi](https://serpapi.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Serp's API documentation](https://serpapi.com/search-api) for more information about the service.
+有关该服务的更多信息，请参阅 [Serp API 文档](https://serpapi.com/search-api)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**
+- 一个 **API Key（API 密钥）**
 
-To get your API key:
+获取 API 密钥的步骤如下：
 
-1. Go to **Your Account >** [**API Key**](https://serpapi.com/manage-api-key).
-2. Copy **Your Private API Key** and enter it as the **API Key** in your n8n credential.
+1. 进入 **Your Account（你的账号）>** [**API Key（API 密钥）**](https://serpapi.com/manage-api-key)。
+2. 复制 **Your Private API Key（你的私有 API 密钥）**，填入 n8n 凭据的 **API Key** 字段。

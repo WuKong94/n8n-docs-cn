@@ -1,40 +1,40 @@
 ---
-title: Brandfetch credentials
-description: >-
-  Documentation for Brandfetch credentials. Use these credentials to
-  authenticate Brandfetch in n8n, a workflow automation platform.
+title: Brandfetch 凭据
+description: Brandfetch 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Brandfetch 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Brandfetch credentials
+- integration
+- reference
+nodeTitle: Brandfetch 凭据
 originalFilePath: integrations/builtin/credentials/brandfetch.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/brandfetch'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/brandfetch'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/brandfetch
+url: https://docs.n8n.io/integrations/builtin/credentials/brandfetch
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Brandfetch credentials <a href="#brandfetch-credentials" id="brandfetch-credentials"></a>
 
-You can use these credentials to authenticate the following node:
+# Brandfetch 凭据 <a href="#brandfetch-credentials" id="brandfetch-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Brandfetch](../app-nodes/n8n-nodes-base.brandfetch.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Brandfetch developer](https://developers.brandfetch.com) developer account.
+创建一个 [Brandfetch 开发者](https://developers.brandfetch.com)账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Brandfetch's API documentation](https://docs.brandfetch.com/get-started) for more information about the service.
+有关该服务的更多信息，请参阅 [Brandfetch API 文档](https://docs.brandfetch.com/get-started)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: [Create an account](https://developers.brandfetch.com/dashboard/keys) to generate an API key.
+- 一个 **API Key（API 密钥）**：[创建账号](https://developers.brandfetch.com/dashboard/keys)以生成 API 密钥。

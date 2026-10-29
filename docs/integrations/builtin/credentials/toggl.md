@@ -1,44 +1,44 @@
 ---
-title: Toggl credentials
-description: >-
-  Documentation for Toggl credentials. Use these credentials to authenticate
-  Toggl in n8n, a workflow automation platform.
+title: Toggl 凭据
+description: Toggl 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Toggl 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Toggl credentials
+- integration
+- reference
+nodeTitle: Toggl 凭据
 originalFilePath: integrations/builtin/credentials/toggl.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/toggl'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/toggl'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/toggl
+url: https://docs.n8n.io/integrations/builtin/credentials/toggl
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Toggl credentials <a href="#toggl-credentials" id="toggl-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Toggl 凭据 <a href="#toggl-credentials" id="toggl-credentials"></a>
 
-- [Toggl Trigger](../trigger-nodes/n8n-nodes-base.toggltrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [Toggl Trigger（触发器）](../trigger-nodes/n8n-nodes-base.toggltrigger.md)
 
-Create a [Toggl](https://toggl.com/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Toggl](https://toggl.com/) 账号。
 
-- Basic auth
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- Basic auth（基本身份验证）
 
-Refer to [Toggl's API documentation](https://engineering.toggl.com/docs/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+有关该服务的更多信息，请参阅 [Toggl API 文档](https://engineering.toggl.com/docs/)。
 
-To configure this credential, you'll need:
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-- A **Username**: Enter your user email address.
-- A **Password**: Enter your user password.
+配置此凭据需要：
 
-Refer to [Authentication](https://engineering.toggl.com/docs/authentication) for more information.
+- 一个 **Username（用户名）**：输入用户邮箱地址。
+- 一个 **Password（密码）**：输入用户密码。
+
+更多信息请参阅[身份验证](https://engineering.toggl.com/docs/authentication)。
 

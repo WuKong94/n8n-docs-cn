@@ -1,66 +1,64 @@
 ---
-title: Microsoft To Do node documentation
-description: >-
-  Learn how to use the Microsoft To Do node in n8n. Follow technical
-  documentation to integrate Microsoft To Do node into your workflows.
+title: Microsoft To Do 节点文档
+description: 了解如何在 n8n 中使用 Microsoft To Do 节点，并按照技术文档将 Microsoft To Do 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Microsoft To Do node documentation
+- integration
+- reference
+nodeTitle: Microsoft To Do 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft To Do node <a href="#microsoft-to-do-node" id="microsoft-to-do-node"></a>
 
-Use the Microsoft To Do node to automate work in Microsoft To Do, and integrate Microsoft To Do with other applications. n8n has built-in support for a wide range of Microsoft To Do features, including creating, updating, deleting, and getting linked resources, lists, and tasks. 
+# Microsoft To Do 节点 <a href="#microsoft-to-do-node" id="microsoft-to-do-node"></a>
 
-On this page, you'll find a list of operations the Microsoft To Do node supports and links to more resources.
+使用 Microsoft To Do 节点自动处理 Microsoft To Do 中的工作，并将其与其他应用集成。n8n 内置支持多种 Microsoft To Do 功能，包括创建、更新、删除和获取关联资源、列表和任务。
+
+本页列出了 Microsoft To Do 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Microsoft credentials](../credentials/microsoft.md) for guidance on setting up authentication. This node also supports the [Microsoft Entra Service Principal credentials](../credentials/microsoftentraserviceprincipal.md) for app-only access with no signed-in user: select **Microsoft Entra Service Principal (App-Only)** in the **Authentication** dropdown.
+有关身份验证设置，请参阅 [Microsoft 凭据](../credentials/microsoft.md)。该节点也支持通过 [Microsoft Entra 服务主体凭据](../credentials/microsoftentraserviceprincipal.md)进行无需用户登录的仅应用访问：在 **Authentication（身份验证）** 下拉列表中选择 **Microsoft Entra Service Principal (App-Only)**。
 {% endhint %}
 
 {% hint style="info" %}
-**Government Cloud Support**
+**政府云支持**
 
-If you're using a government cloud tenant (US Government, US Government DOD, or China), make sure to select the appropriate **Microsoft Graph API Base URL** in your Microsoft credentials configuration.
+如果使用政府云租户（美国政府、美国国防部或中国），请确保在 Microsoft 凭据配置中选择正确的 **Microsoft Graph API Base URL（Microsoft Graph API 基础 URL）**。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Linked Resource
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Update
-* List
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Update
-* Task
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Update
+* Linked Resource（关联资源）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
+* List（列出）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
+* Task（任务）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Microsoft To Do node documentation integration templates](https://n8n.io/integrations/microsoft-to-do) or [search all templates](https://n8n.io/workflows/)
+[浏览 Microsoft To Do 集成模板](https://n8n.io/integrations/microsoft-to-do)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

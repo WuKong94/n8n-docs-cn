@@ -1,42 +1,42 @@
 ---
-title: Sendy credentials
-description: >-
-  Documentation for Sendy credentials. Use these credentials to authenticate
-  Sendy in n8n, a workflow automation platform.
+title: Sendy 凭据
+description: Sendy 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Sendy 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Sendy credentials
+- integration
+- reference
+nodeTitle: Sendy 凭据
 originalFilePath: integrations/builtin/credentials/sendy.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/sendy'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/sendy'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/sendy
+url: https://docs.n8n.io/integrations/builtin/credentials/sendy
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Sendy credentials <a href="#sendy-credentials" id="sendy-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Sendy 凭据 <a href="#sendy-credentials" id="sendy-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Sendy](../app-nodes/n8n-nodes-base.sendy.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Host a [Sendy](https://sendy.co/get-started) application.
+部署一个 [Sendy](https://sendy.co/get-started) 应用。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Sendy's API documentation](https://sendy.co/api) for more information about the service.
+有关该服务的更多信息，请参阅 [Sendy API 文档](https://sendy.co/api)。
 
-## Using API Key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **URL**: The URL of your Sendy application.
-- An **API Key**: Get your API key from your user profile > **Settings > Your API Key**.
+- 一个 **URL**：即 Sendy 应用的 URL。
+- 一个 **API Key（API 密钥）**：从用户个人资料 > **Settings > Your API Key（设置 > 你的 API 密钥）** 中获取。
 

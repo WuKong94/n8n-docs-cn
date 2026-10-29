@@ -1,49 +1,49 @@
 ---
-title: Todoist node documentation
-description: >-
-  Learn how to use the Todoist node in n8n. Follow technical documentation to
-  integrate Todoist node into your workflows.
+title: Todoist 节点文档
+description: 了解如何在 n8n 中使用 Todoist 节点，并按照技术文档将 Todoist 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Todoist node documentation
+nodeTitle: Todoist 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.todoist.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.todoist'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.todoist'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.todoist
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.todoist
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Todoist node <a href="#todoist-node" id="todoist-node"></a>
 
-Use the Todoist node to automate work in Todoist, and integrate Todoist with other applications. n8n has built-in support for a wide range of Todoist features, including creating, updating, deleting, and getting tasks. 
+# Todoist 节点 <a href="#todoist-node" id="todoist-node"></a>
 
-On this page, you'll find a list of operations the Todoist node supports and links to more resources.
+使用 Todoist 节点自动处理 Todoist 中的工作，并将其与其他应用集成。n8n 内置支持多种 Todoist 功能，包括创建、更新、删除和获取任务。
+
+本页列出了 Todoist 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Todoist credentials](../credentials/todoist.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Todoist 凭据](../credentials/todoist.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Task
-    * Create a new task
-    * Close a task
-    * Delete a task
-    * Get a task
-    * Get all tasks
-    * Reopen a task
-    * Update a task
+* Task（任务）
+    * Create a new task（创建新任务）
+    * Close a task（关闭任务）
+    * Delete a task（删除任务）
+    * Get a task（获取任务）
+    * Get all tasks（获取全部任务）
+    * Reopen a task（重新打开任务）
+    * Update a task（更新任务）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Todoist node documentation integration templates](https://n8n.io/integrations/todoist) or [search all templates](https://n8n.io/workflows/)
+[浏览 Todoist 集成模板](https://n8n.io/integrations/todoist)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

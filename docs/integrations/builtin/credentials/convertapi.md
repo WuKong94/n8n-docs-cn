@@ -1,38 +1,38 @@
 ---
-title: ConvertAPI credentials
-description: >-
-  Documentation for the ConvertAPI credentials. Use these credentials to
-  authenticate ConvertAPI in n8n, a workflow automation platform.
+title: ConvertAPI 凭据
+description: ConvertAPI 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 ConvertAPI 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: ConvertAPI credentials
+- integration
+- reference
+nodeTitle: ConvertAPI 凭据
 originalFilePath: integrations/builtin/credentials/convertapi.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/convertapi'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/convertapi'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/convertapi
+url: https://docs.n8n.io/integrations/builtin/credentials/convertapi
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# ConvertAPI credentials <a href="#convertapi-credentials" id="convertapi-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# ConvertAPI 凭据 <a href="#convertapi-credentials" id="convertapi-credentials"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-* API Token
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+* API Token（API 令牌）
 
-Refer to [ConvertAPI's API documentation](https://docs.convertapi.com/docs/getting-started) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/convertapi/) on n8n's website.
+有关该服务的更多信息，请参阅 [ConvertAPI API 文档](https://docs.convertapi.com/docs/getting-started)。
 
-## Using API Token <a href="#using-api-token" id="using-api-token"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/convertapi/)。
 
-To configure this credential, you'll need a [ConvertAPI](https://www.convertapi.com/a/signin) account and:
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-- An [**API Token**](https://docs.convertapi.com/docs/api-tokens) to authenticate requests to the service.
+配置此凭据需要一个 [ConvertAPI](https://www.convertapi.com/a/signin) 账号，以及：
 
-Refer to [ConvertAPI's API documentation](https://docs.convertapi.com/docs/authentication) for more information about authenticating to the service.
+- 一个 [**API Token（API 令牌）**](https://docs.convertapi.com/docs/api-tokens)，用于对发送至该服务的请求进行身份验证。
+
+有关该服务身份验证的更多信息，请参阅 [ConvertAPI API 文档](https://docs.convertapi.com/docs/authentication)。

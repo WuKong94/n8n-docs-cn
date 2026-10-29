@@ -1,42 +1,42 @@
 ---
-title: Freshworks CRM credentials
-description: >-
-  Documentation for Freshworks CRM credentials. Use these credentials to
-  authenticate Freshworks CRM in n8n, a workflow automation platform.
+title: Freshworks CRM 凭据
+description: Freshworks CRM 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Freshworks CRM 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Freshworks CRM credentials
+- integration
+- reference
+nodeTitle: Freshworks CRM 凭据
 originalFilePath: integrations/builtin/credentials/freshworkscrm.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/freshworkscrm'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/freshworkscrm'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/freshworkscrm
+url: https://docs.n8n.io/integrations/builtin/credentials/freshworkscrm
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Freshworks CRM credentials <a href="#freshworks-crm-credentials" id="freshworks-crm-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Freshworks CRM 凭据 <a href="#freshworks-crm-credentials" id="freshworks-crm-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Freshworks CRM](../app-nodes/n8n-nodes-base.freshworkscrm.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Freshworks CRM](https://www.freshworks.com/crm/sales/) account.
+创建一个 [Freshworks CRM](https://www.freshworks.com/crm/sales/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Freshworks CRM's API documentation](https://developers.freshworks.com/crm/api/) for more information about the service.
+有关该服务的更多信息，请参阅 [Freshworks CRM API 文档](https://developers.freshworks.com/crm/api/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Refer to the [Freshworks CRM API authenticaton documentation](https://developers.freshworks.com/crm/api/#authentication) for detailed instructions on getting your API key.
-- Your Freshworks CRM **Domain**: Use the subdomain of your Freshworks CRM account. This is part of the URL, for example `https://<subdomain>.myfreshworks.com`. So if you access Freshworks CRM through `https://n8n.myfreshworks.com`, enter `n8n` as your **Domain**.
+- 一个 **API Key（API 密钥）**：获取密钥的详细步骤，请参阅 [Freshworks CRM API 身份验证文档](https://developers.freshworks.com/crm/api/#authentication)。
+- 你的 Freshworks CRM **Domain（域名）**：使用账号的子域名，即 URL 中的一部分，例如 `https://<subdomain>.myfreshworks.com`。如果通过 `https://n8n.myfreshworks.com` 访问 Freshworks CRM，请将 **Domain** 填为 `n8n`。
 

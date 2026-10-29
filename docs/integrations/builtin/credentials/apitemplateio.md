@@ -1,42 +1,42 @@
 ---
-title: APITemplate.io credentials
-description: >-
-  Documentation for APITemplate.io credentials. Use these credentials to
-  authenticate APITemplate.io in n8n, a workflow automation platform.
+title: APITemplate.io 凭据
+description: APITemplate.io 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 APITemplate.io 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: APITemplate.io credentials
+nodeTitle: APITemplate.io 凭据
 originalFilePath: integrations/builtin/credentials/apitemplateio.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/apitemplateio'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/apitemplateio'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/apitemplateio
+url: https://docs.n8n.io/integrations/builtin/credentials/apitemplateio
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# APITemplate.io credentials <a href="#apitemplateio-credentials" id="apitemplateio-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# APITemplate.io 凭据 <a href="#apitemplateio-credentials" id="apitemplateio-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [APITemplate.io](../app-nodes/n8n-nodes-base.apitemplateio.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [APITemplate.io](https://apitemplate.io/) account.
+创建一个 [APITemplate.io](https://apitemplate.io/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [APITemplate.io's API documentation](https://apitemplate.io/apiv2/) for more information about the service.
+有关该服务的更多信息，请参阅 [APITemplate.io API 文档](https://apitemplate.io/apiv2/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Once you've created an APITemplate.io account, go to **API Integration** to copy the **API Key**.
+- 一个 **API Key（API 密钥）**：创建 APITemplate.io 账号后，进入 **API Integration（API 集成）**，复制 **API Key**。
 

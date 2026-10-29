@@ -1,41 +1,41 @@
 ---
-title: seven credentials
-description: >-
-  Documentation for seven credentials. Use these credentials to authenticate
-  seven in n8n, a workflow automation platform.
+title: seven 凭据
+description: seven 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 seven 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: seven credentials
+- integration
+- reference
+nodeTitle: seven 凭据
 originalFilePath: integrations/builtin/credentials/sms77.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/sms77'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/sms77'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/sms77
+url: https://docs.n8n.io/integrations/builtin/credentials/sms77
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# seven credentials <a href="#seven-credentials" id="seven-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# seven 凭据 <a href="#seven-credentials" id="seven-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [seven](../app-nodes/n8n-nodes-base.sms77.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [seven](https://www.seven.io/en) developer account.
+创建一个 [seven](https://www.seven.io/en) 开发者账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [seven's API documentation](https://docs.seven.io/en) for more information about the service.
+有关该服务的更多信息，请参阅 [seven API 文档](https://docs.seven.io/en)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API key**: Go to **Account > Developer >** [**API Keys**](https://app.seven.io/developer#create-api-key) to create an API key. Refer to [API First Steps](https://docs.seven.io/en/rest-api/first-steps) for more information.
+- 一个 **API key（API 密钥）**：进入 **Account > Developer（账号 > 开发者）>** [**API Keys（API 密钥）**](https://app.seven.io/developer#create-api-key)创建密钥。更多信息请参阅 [API 入门步骤](https://docs.seven.io/en/rest-api/first-steps)。
 

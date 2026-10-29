@@ -1,44 +1,44 @@
 ---
-title: Agile CRM credentials
-description: >-
-  Documentation for Agile CRM credentials. Use these credentials to authenticate
-  Agile CRM in n8n, a workflow automation platform.
+title: Agile CRM 凭据
+description: Agile CRM 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Agile CRM 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Agile CRM credentials
+nodeTitle: Agile CRM 凭据
 originalFilePath: integrations/builtin/credentials/agilecrm.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/agilecrm'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/agilecrm'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/agilecrm
+url: https://docs.n8n.io/integrations/builtin/credentials/agilecrm
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Agile CRM credentials <a href="#agile-crm-credentials" id="agile-crm-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Agile CRM 凭据 <a href="#agile-crm-credentials" id="agile-crm-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Agile CRM](../app-nodes/n8n-nodes-base.agilecrm.md)
 
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [Agile CRM](https://www.agilecrm.com/) account.
+创建一个 [Agile CRM](https://www.agilecrm.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Agile CRM's API documentation](https://www.agilecrm.com/api) for more information about working with the service.
+有关如何使用该服务的更多信息，请参阅 [Agile CRM API 文档](https://www.agilecrm.com/api)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Email Address** registered with AgileCRM
-- A REST **API Key**: Access your Agile CRM API key through **Admin Settings > Developers & API >** [**REST API key**](https://github.com/agilecrm/rest-api?tab=readme-ov-file#api-key).
-- An Agile CRM **Subdomain** (for example, `n8n`)
+- 一个已在 AgileCRM 注册的 **Email Address（电子邮件地址）**
+- 一个 REST **API Key（API 密钥）**：通过 **Admin Settings > Developers & API（管理设置 > 开发者与 API）>** [**REST API key（REST API 密钥）**](https://github.com/agilecrm/rest-api?tab=readme-ov-file#api-key)获取 Agile CRM API 密钥。
+- 一个 Agile CRM **Subdomain（子域名）**，例如 `n8n`

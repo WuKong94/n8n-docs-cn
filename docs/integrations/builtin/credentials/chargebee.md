@@ -1,45 +1,45 @@
 ---
-title: Chargebee credentials
-description: >-
-  Documentation for Chargebee credentials. Use these credentials to authenticate
-  Chargebee in n8n, a workflow automation platform.
+title: Chargebee 凭据
+description: Chargebee 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Chargebee 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Chargebee credentials
+- integration
+- reference
+nodeTitle: Chargebee 凭据
 originalFilePath: integrations/builtin/credentials/chargebee.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/chargebee'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/chargebee'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/chargebee
+url: https://docs.n8n.io/integrations/builtin/credentials/chargebee
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Chargebee credentials <a href="#chargebee-credentials" id="chargebee-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Chargebee 凭据 <a href="#chargebee-credentials" id="chargebee-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Chargebee](../app-nodes/n8n-nodes-base.chargebee.md)
-- [Chargebee Trigger](../trigger-nodes/n8n-nodes-base.chargebeetrigger.md)
+- [Chargebee Trigger（触发器）](../trigger-nodes/n8n-nodes-base.chargebeetrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Chargebee](https://www.chargebee.com/) account.
+创建一个 [Chargebee](https://www.chargebee.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Chargebee's API documentation](https://apidocs.chargebee.com/docs/api/) for more information about the service.
+有关该服务的更多信息，请参阅 [Chargebee API 文档](https://apidocs.chargebee.com/docs/api/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Account Name**: This is your Chargebee Site Name or subdomain, for example if `https://n8n.chargebee.com` is the full site name, the Account Name is `n8n`.
-- An **API Key**: Refer to the [Chargebee Creating an API key documentation](https://www.chargebee.com/docs/api_keys.html#creating-an-api-key) for steps on how to generate an API key. 
+- 一个 **Account Name（账号名称）**：即 Chargebee 站点名称或子域名。例如，完整站点名称为 `https://n8n.chargebee.com` 时，Account Name 为 `n8n`。
+- 一个 **API Key（API 密钥）**：生成步骤请参阅 [Chargebee 的创建 API 密钥文档](https://www.chargebee.com/docs/api_keys.html#creating-an-api-key)。
 
-Refer to their more general [API authentication documentation](https://apidocs.chargebee.com/docs/api/auth?lang=curl) for further clarification.
+如需进一步了解，请参阅其通用 [API 身份验证文档](https://apidocs.chargebee.com/docs/api/auth?lang=curl)。
 

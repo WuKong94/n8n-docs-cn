@@ -1,37 +1,37 @@
 ---
-title: DFIR-IRIS credentials
-description: >-
-  Documentation for the DFIR-IRIS credentials. Use these credentials to
-  authenticate DFIR-IRIS in n8n, a workflow automation platform.
+title: DFIR-IRIS 凭据
+description: DFIR-IRIS 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 DFIR-IRIS 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: DFIR-IRIS credentials
+- integration
+- reference
+nodeTitle: DFIR-IRIS 凭据
 originalFilePath: integrations/builtin/credentials/dfiriris.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/dfiriris'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/dfiriris'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/dfiriris
+url: https://docs.n8n.io/integrations/builtin/credentials/dfiriris
 layout:
   description:
     visible: false
 ---
-# DFIR-IRIS credentials <a href="#dfir-iris-credentials" id="dfir-iris-credentials"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# DFIR-IRIS 凭据 <a href="#dfir-iris-credentials" id="dfir-iris-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-An accessible instance of [DFIR-IRIS](https://docs.dfir-iris.org/latest/getting_started/).
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+一个可访问的 [DFIR-IRIS](https://docs.dfir-iris.org/latest/getting_started/) 实例。
 
-Refer to [DFIR-IRIS's API documentation](https://docs.dfir-iris.org/operations/api/) for more information about authenticating with the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/iris-dfir/) on n8n's website.
+有关该服务身份验证的更多信息，请参阅 [DFIR-IRIS API 文档](https://docs.dfir-iris.org/operations/api/)。
+
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/iris-dfir/)。
 
 
-## Using API Key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Refer to [DFIR-IRIS's API documentation](https://docs.dfir-iris.org/operations/api/) for instructions on getting your API key.
-- The **Base URL** of your DFIR-IRIS instance.
+- 一个 **API Key（API 密钥）**：获取方法请参阅 [DFIR-IRIS API 文档](https://docs.dfir-iris.org/operations/api/)。
+- DFIR-IRIS 实例的 **Base URL（基础 URL）**。

@@ -1,4 +1,6 @@
 ---
-title: langchain-doc-loaders-link
+title: LangChain 文档加载器参考
 ---
-Refer to [LangChain's documentation on document loaders](https://docs.langchain.com/oss/javascript/integrations/document_loaders/file_loaders) for more information about the service.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+有关该服务的更多信息，请参阅 [LangChain 的文档加载器说明](https://docs.langchain.com/oss/javascript/integrations/document_loaders/file_loaders)。

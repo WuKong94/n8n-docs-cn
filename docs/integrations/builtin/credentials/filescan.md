@@ -1,39 +1,39 @@
 ---
-title: Filescan credentials
-description: >-
-  Documentation for the Filescan credentials. Use these credentials to
-  authenticate Filescan in n8n, a workflow automation platform.
+title: Filescan 凭据
+description: Filescan 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Filescan 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Filescan credentials
+- integration
+- reference
+nodeTitle: Filescan 凭据
 originalFilePath: integrations/builtin/credentials/filescan.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/filescan'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/filescan'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/filescan
+url: https://docs.n8n.io/integrations/builtin/credentials/filescan
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-# Filescan credentials <a href="#filescan-credentials" id="filescan-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Filescan 凭据 <a href="#filescan-credentials" id="filescan-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Filescan](https://www.filescan.io/auth/signup/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+创建一个 [Filescan](https://www.filescan.io/auth/signup/) 账号。
 
-Refer to [Filescan's API documentation](https://www.filescan.io/api/docs) for more information about authenticating with the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/filescan/) on n8n's website.
+有关该服务身份验证的更多信息，请参阅 [Filescan API 文档](https://www.filescan.io/api/docs)。
+
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/filescan/)。
 
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Generate your API key from your [**profile settings**](https://www.filescan.io/users/profile) **> API Key**. Refer to the [Filescan FAQ](https://www.filescan.io/help/faq) for more information.
+- 一个 **API Key（API 密钥）**：进入 [**profile settings（个人资料设置）**](https://www.filescan.io/users/profile) **> API Key（API 密钥）**，生成密钥。更多信息请参阅 [Filescan 常见问题](https://www.filescan.io/help/faq)。
 

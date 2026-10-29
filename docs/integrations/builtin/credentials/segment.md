@@ -1,43 +1,43 @@
 ---
-title: Segment credentials
-description: >-
-  Documentation for Segment credentials. Use these credentials to authenticate
-  Segment in n8n, a workflow automation platform.
+title: Segment 凭据
+description: Segment 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Segment 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Segment credentials
+- integration
+- reference
+nodeTitle: Segment 凭据
 originalFilePath: integrations/builtin/credentials/segment.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/segment'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/segment'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/segment
+url: https://docs.n8n.io/integrations/builtin/credentials/segment
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Segment credentials <a href="#segment-credentials" id="segment-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Segment 凭据 <a href="#segment-credentials" id="segment-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Segment](../app-nodes/n8n-nodes-base.segment.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Segment](https://segment.com/) account.
+创建一个 [Segment](https://segment.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Segment's Sources documentation](https://segment.com/docs/connections/sources/) for more information about the service.
+有关该服务的更多信息，请参阅 [Segment 数据源文档](https://segment.com/docs/connections/sources/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Write Key**: To get a Write Key, go to **Sources > Add Source**. Add a **Node.js** source and copy that write key to add to your n8n credential.
+- 一个 **Write Key（写入密钥）**：进入 **Sources > Add Source（数据源 > 添加数据源）**，添加 **Node.js** 数据源，再复制其写入密钥，填入 n8n 凭据。
 
-Refer to [Locate your Write Key](https://segment.com/docs/connections/find-writekey/) for more information.
+更多信息请参阅[查找写入密钥](https://segment.com/docs/connections/find-writekey/)。
 

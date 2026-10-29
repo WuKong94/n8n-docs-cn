@@ -1,40 +1,40 @@
 ---
-title: Postmark credentials
-description: >-
-  Documentation for Postmark credentials. Use these credentials to authenticate
-  Postmark in n8n, a workflow automation platform.
+title: Postmark 凭据
+description: Postmark 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Postmark 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Postmark credentials
+- integration
+- reference
+nodeTitle: Postmark 凭据
 originalFilePath: integrations/builtin/credentials/postmark.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/postmark'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/postmark'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/postmark
+url: https://docs.n8n.io/integrations/builtin/credentials/postmark
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Postmark credentials <a href="#postmark-credentials" id="postmark-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Postmark 凭据 <a href="#postmark-credentials" id="postmark-credentials"></a>
 
-- [Postmark Trigger](../trigger-nodes/n8n-nodes-base.postmarktrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [Postmark Trigger（触发器）](../trigger-nodes/n8n-nodes-base.postmarktrigger.md)
 
-Create a [Postmark](https://postmarkapp.com/) account on a Postmark server.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+在 Postmark 服务器上创建一个 [Postmark](https://postmarkapp.com/) 账号。
 
-- API token
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API token（API 令牌）
 
-Refer to [Postmark's API documentation](https://postmarkapp.com/developer/api/overview) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
+有关该服务的更多信息，请参阅 [Postmark API 文档](https://postmarkapp.com/developer/api/overview)。
 
-To configure this credential, you'll need:
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-- A **Server API Token**: The Server API token is accessible by Account Owners, Account Admins, and users who have Server Admin privileges on a server. Get yours from the [**API Tokens**](https://account.postmarkapp.com/api_tokens) tab under your Postmark server. Refer to [API Authentication](https://postmarkapp.com/developer/api/overview#authentication) for more information.
+配置此凭据需要：
+
+- 一个 **Server API Token（服务器 API 令牌）**：账号所有者、账号管理员，以及拥有该服务器管理权限的用户可以访问此令牌。在 Postmark 服务器下的 [**API Tokens（API 令牌）**](https://account.postmarkapp.com/api_tokens) 标签页获取。更多信息请参阅 [API 身份验证](https://postmarkapp.com/developer/api/overview#authentication)。

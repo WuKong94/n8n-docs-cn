@@ -1,42 +1,42 @@
 ---
-title: Git credentials
-description: >-
-  Documentation for Git credentials. Use these credentials to authenticate Git
-  in n8n, a workflow automation platform.
+title: Git 凭据
+description: Git 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Git 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Git credentials
+- integration
+- reference
+nodeTitle: Git 凭据
 originalFilePath: integrations/builtin/credentials/git.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/git'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/git'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/git
+url: https://docs.n8n.io/integrations/builtin/credentials/git
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Git credentials <a href="#git-credentials" id="git-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Git 凭据 <a href="#git-credentials" id="git-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Git](../core-nodes/n8n-nodes-base.git.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an account on [GitHub](https://github.com), [GitLab](https://about.gitlab.com/), or similar platforms for use with [Git](https://git-scm.com).
+在 [GitHub](https://github.com)、[GitLab](https://about.gitlab.com/) 或类似平台创建账号，用于 [Git](https://git-scm.com)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Basic auth
+- Basic auth（基本身份验证）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Git's documentation](https://git-scm.com/doc) for more information about the service.
+有关该服务的更多信息，请参阅 [Git 文档](https://git-scm.com/doc)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Username** for GitHub, GitLab, or a similar platform
-- A **Password** for GitHub, GitLab, or a similar platform
+- 一个 GitHub、GitLab 或类似平台的 **Username（用户名）**
+- 一个 GitHub、GitLab 或类似平台的 **Password（密码）**
 

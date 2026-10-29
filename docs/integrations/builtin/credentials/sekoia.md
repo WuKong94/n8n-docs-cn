@@ -1,41 +1,41 @@
 ---
-title: Sekoia credentials
-description: >-
-  Documentation for the Sekoia credentials. Use these credentials to
-  authenticate Sekoia in n8n, a workflow automation platform.
+title: Sekoia 凭据
+description: Sekoia 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Sekoia 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Sekoia credentials
+nodeTitle: Sekoia 凭据
 originalFilePath: integrations/builtin/credentials/sekoia.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/sekoia'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/sekoia'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/sekoia
+url: https://docs.n8n.io/integrations/builtin/credentials/sekoia
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Sekoia credentials <a href="#sekoia-credentials" id="sekoia-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Sekoia 凭据 <a href="#sekoia-credentials" id="sekoia-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Sekoia SOC platform](https://www.sekoia.io/en/homepage/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Sekoia SOC 平台](https://www.sekoia.io/en/homepage/)账号。
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Sekoia's documentation](https://docs.sekoia.io/getting_started/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/sekoia/) on n8n's website.
+有关该服务的更多信息，请参阅 [Sekoia 文档](https://docs.sekoia.io/getting_started/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/sekoia/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**: To generate an API key, select **+ API Key**. Refer to [Create an API key](https://docs.sekoia.io/getting_started/manage_api_keys/#create-an-api-key) for more information.
+配置此凭据需要：
+
+- 一个 **API Key（API 密钥）**：选择 **+ API Key（添加 API 密钥）**，生成密钥。更多信息请参阅[创建 API 密钥](https://docs.sekoia.io/getting_started/manage_api_keys/#create-an-api-key)。

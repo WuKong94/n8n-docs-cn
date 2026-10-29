@@ -1,42 +1,42 @@
 ---
-title: Recorded Future credentials
-description: >-
-  Documentation for the Recorded Future credentials. Use these credentials to
-  authenticate Recorded Future in n8n, a workflow automation platform.
+title: Recorded Future 凭据
+description: Recorded Future 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Recorded Future 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Recorded Future credentials
+- integration
+- reference
+nodeTitle: Recorded Future 凭据
 originalFilePath: integrations/builtin/credentials/recordedfuture.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/recordedfuture'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/recordedfuture'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/recordedfuture
+url: https://docs.n8n.io/integrations/builtin/credentials/recordedfuture
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Recorded Future credentials <a href="#recorded-future-credentials" id="recorded-future-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Recorded Future 凭据 <a href="#recorded-future-credentials" id="recorded-future-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Recorded Future](https://www.recordedfuture.com) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Recorded Future](https://www.recordedfuture.com) 账号。
 
-- API access token
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API access token（API 访问令牌）
 
-Refer to [Recorded Future's documentation](https://api.recordedfuture.com/index.html) for more information about the service. The rest of Recorded Future's help center requires a paid account.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/recorded-future/) on n8n's website.
+有关该服务的更多信息，请参阅 [Recorded Future 文档](https://api.recordedfuture.com/index.html)。Recorded Future 帮助中心的其余内容需要付费账号才能访问。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/recorded-future/)。
 
-To configure this credential, you'll need:
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-- An API **Access Token**
+配置此凭据需要：
 
-Refer to the [Recorded Future APIs documentation](https://support.recordedfuture.com/hc/en-us/categories/16372120363539-Recorded-Future-APIs) for more information on getting your API access token.
+- 一个 API **Access Token（访问令牌）**
+
+获取 API 访问令牌的更多信息，请参阅 [Recorded Future API 文档](https://support.recordedfuture.com/hc/en-us/categories/16372120363539-Recorded-Future-APIs)。

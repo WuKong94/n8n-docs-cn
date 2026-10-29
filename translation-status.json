@@ -1283,5 +1283,1908 @@
     "source_correction_ids": [
       "magento-product-resource"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.actionnetwork.md": {
+    "status": "translated",
+    "source_sha256": "29d6db04dc18f96895d7e50998b18142b9c6af593e8167b077556f1a337d17a3",
+    "translation_sha256": "df171365d538068810aa107611af7dc997ebd64ccd0f1bdd76ff92a0a6881d6b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.affinity.md": {
+    "status": "translated",
+    "source_sha256": "13e6402d36ecbaca41dc5793f68338eb8a92e21aaec1620bc7d33b2443303782",
+    "translation_sha256": "3e60a1278c93511cc99d8f2c41248d3f62cf29518d542be3bdf113a873defc13",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.bitly.md": {
+    "status": "translated",
+    "source_sha256": "a7bb548f43cced18828e95c70fba269e4c63a51ff2548d271959297c1665c857",
+    "translation_sha256": "9f8924dad558adb7d979a25e04b76d9787e1f3aee002067d1d28f0ca643b17e1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.circleci.md": {
+    "status": "translated",
+    "source_sha256": "9628e67c3e6478c9a2526c1ee992aca82a9bfdeca02bf806fb5dcd5dfe63c769",
+    "translation_sha256": "80f3f8c5990bfec49944e3c421461f29bb0978937764c9dfc7d449b2b97ffbfa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.clockify.md": {
+    "status": "translated",
+    "source_sha256": "72f307749e4b2cabe2ea44a684501810a9a1ead792f08894ce6ccc7773278600",
+    "translation_sha256": "811c433e04e675eeb6e6f6736471f83e4d2dfffbfa59a70befd503c7bf74c698",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.dropbox.md": {
+    "status": "translated",
+    "source_sha256": "c8baefad895ed768c77c56f56f15f95460e516556192a9373a92aed5183778e1",
+    "translation_sha256": "fc39fc9a55207ae85773da0f0b8e060f665258dcf188cd93f809d04568cd8dff",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlebigquery.md": {
+    "status": "translated",
+    "source_sha256": "ede6095c39550b91d963b92c78a2a013e7b2dc670c4238d7db7239664f092160",
+    "translation_sha256": "595d05b0d4d4ba06135ef3a1595aa3795b163a78f499222fd580ae5d682519bb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.humanticai.md": {
+    "status": "translated",
+    "source_sha256": "e83f432709b6cded4ea93c656edbebc550a352f0bffd7563bd0a573dad94e408",
+    "translation_sha256": "56ab88841eaa2c8e9fa529587899e6648ed1121ac275d673c4dd78eb34f12155",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.hunter.md": {
+    "status": "translated",
+    "source_sha256": "0e84ccc7ad37d982cf7e8429597efb3f224070eb11f388fdddef5fd3c305c3f6",
+    "translation_sha256": "962b3036a81529a4533f9544498852f7631e8bb0285d0c8bd1ab8772c5eaf434",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.line.md": {
+    "status": "translated",
+    "source_sha256": "f7e3b8bf39e618920d54b529942e60dc24d760c2b5beacf6d941ff9c8fe37828",
+    "translation_sha256": "5f360642367aa3b6ea6bfe69c9e9364c74617f080a979b5fc423e6cd7a138cd7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.mailjet.md": {
+    "status": "translated",
+    "source_sha256": "740c055dff781af833be76526b78deff6ea8aaba950bb7ac52a9b377f5e005eb",
+    "translation_sha256": "e1c6f60cc63530ef2fe70a24aa75467dd3a1af30c7bcc98fd23e9479f8a37767",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.mandrill.md": {
+    "status": "translated",
+    "source_sha256": "a884c8d47276f72e67fbc7162ba080aefbde3f998daaa4b31cc1796139cd7b96",
+    "translation_sha256": "31df2ee48b59fe28d6ef812f0540e72a6041a7572939d1dc35aab1bf6aa2b4aa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.marketstack.md": {
+    "status": "translated",
+    "source_sha256": "2864a6660e567a4ea8f014aa1afe4e5c50ae78a04f3b5d1cbe762fb32ca8d326",
+    "translation_sha256": "5c007ecda1be5024af8b899ab7cec41be5d7cff689954ccfcb05891d7bdb0c54",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.messagebird.md": {
+    "status": "translated",
+    "source_sha256": "8c12c6361486e846898380c9e4f503c7b2a6066f89132cf66fe9e74c9115b425",
+    "translation_sha256": "046d6efaa5bf6451880a8f0c4789c14d36d1c4bed2a7637f7461a55118e5a76f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.microsoftgraphsecurity.md": {
+    "status": "translated",
+    "source_sha256": "43c324a6a45ae7ec98ef48f75da45ef087a3916cbb60528732ee7213f6dc0c93",
+    "translation_sha256": "65e3c184f0b62c6175c9c5e25b948e10f22b06ec5333fcca98dad338b273460b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.microsofttodo.md": {
+    "status": "translated",
+    "source_sha256": "c481f2e582150f45080cc29809d08e0106c9705313f8fb467e21dc7450edbaa4",
+    "translation_sha256": "e6f43e395b741ff5a2814c62b09d0aeea11c39977fd5eeea7a57db027e36fb5a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.mocean.md": {
+    "status": "translated",
+    "source_sha256": "9bff55e39193b35ab167fed96a9306a86187669cc6ceaab6b55677393077357e",
+    "translation_sha256": "b8df6d84408a7c96c5c0ad74664e09bf0249f4653a76d488ce65a6c2345167e4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.netscaleradc.md": {
+    "status": "translated",
+    "source_sha256": "35b56209eb9f160b3270924c8180fbf1773f8fdb81ea6a554b3f41a888d43517",
+    "translation_sha256": "62140541e756cbfac494c9e8042ed8a9de9aa5dac852fdd13801ff2a6db1be73",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.okta.md": {
+    "status": "translated",
+    "source_sha256": "23a1fff67f9bc4b6ab623f444176d9d48d90428ba53cc8a9dfd4058ce718a816",
+    "translation_sha256": "a9ff0e0a238af3b95ef10731e555f1bea39b58cc17b19e31fcd9fadfe5f2133b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.openthesaurus.md": {
+    "status": "translated",
+    "source_sha256": "adeb5ba9ef2a8738c1c42a65815879159f24fee2629ec8ed524ef0731705181c",
+    "translation_sha256": "ea3fa0d8e1c0edff6fc7f934a74140cbb0c6e2cfd8469f5c765c2aa62a3c0415",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.openweathermap.md": {
+    "status": "translated",
+    "source_sha256": "2a3bf6266d4114651c860e05ef0f66ae565036c41856b1d9f5a4816ddf85bb26",
+    "translation_sha256": "60c5ee14423cc2d6c2d3578eaf4cc45d5cc6a685558b7f0b99a35d1dfc9ef179",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.peekalink.md": {
+    "status": "translated",
+    "source_sha256": "b5f1bc81c76c0e616fe5bde2362bc1efeec045bd7df6e6e53047b6676d712a59",
+    "translation_sha256": "39d07232ba7694249344bcb88892de70817ea350884d7b3542d8492e32d18cc9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.profitwell.md": {
+    "status": "translated",
+    "source_sha256": "8fff9c7fb57ab1078b603ff942f7a12616550efa8c70b8c50c2ad547346981fd",
+    "translation_sha256": "5217f90b2be6d4c8a85fa9411cc2dcd4a75fea5659ad0f603d92bf768ffd8c77",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.rabbitmq.md": {
+    "status": "translated",
+    "source_sha256": "3cd089bc2760863867443516e0ab3b41f6a382caa2d587d0cf533a2bd8aa92ba",
+    "translation_sha256": "b75b2ce59ad4e616f41c9b3930e41e1e9066a3ca652aa5bedcbaec19b92b75fc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.rocketchat.md": {
+    "status": "translated",
+    "source_sha256": "4cdd6a1d4f80f5670ac4284cd6b02626dfaff8dcbeea29d6a7f15277ef356f0e",
+    "translation_sha256": "f55ff4ed087ac13872a2193f2e4d3adb87dcd772f06f5ec048cad1ffd72e4cdd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.stackby.md": {
+    "status": "translated",
+    "source_sha256": "413124a954ffb0272ffdff28789ff37a153f30860866525ad640ee3ee3e2947c",
+    "translation_sha256": "0b9946579f049bff05347c185e5ab495ed7e0418f45428e0d99c4c94b1cfa404",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.timescaledb.md": {
+    "status": "translated",
+    "source_sha256": "a266eded5102019cbcf4d2b149fcf5e8245034011fedcaa4d121e791aaa9b27d",
+    "translation_sha256": "3087d0f455e74696741d460e9860e9460a921b9f3fd3f6463110848df651131f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.todoist.md": {
+    "status": "translated",
+    "source_sha256": "f742f52dcdc50d9aef78ec0a085936f58b3db9631500dd199392c086b56042a6",
+    "translation_sha256": "e897cf56fdc6feb7123923a60e6eacefb68e596373dd8cbbda396fb4159b0444",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.twilio.md": {
+    "status": "translated",
+    "source_sha256": "061d22b2980b27900141dbc54f6c45d5a9a7ca19ee1788e46bf242e083aeeb41",
+    "translation_sha256": "abaec6f8e86bf2bd657774f1d314ddec2c7cd01ad0f4159fae2986cc2aa62672",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.urlscanio.md": {
+    "status": "translated",
+    "source_sha256": "2a9c133436bd7a15e4a4e929d317d6cab5c9722a3a855a76998648ce3350bdf8",
+    "translation_sha256": "bdca768cb8286b870f7cc42081792cf79a9f224d0d3bd1297ad0d5ca5b13b42d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/apitemplateio.md": {
+    "status": "translated",
+    "source_sha256": "434c602a39245cdd099705107d9b9b56aa48a3fc832e7911645bceeb40c1bbf5",
+    "translation_sha256": "8d140828a12f079a78b3f2682a41c19e9cecdba47abaceb14f0e80938755c843",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/bannerbear.md": {
+    "status": "translated",
+    "source_sha256": "fc87511a3bcfeba3c490713bb32fbd1caa56bb05ee843bc02eabbedff1f2bb2b",
+    "translation_sha256": "adce5e56a4c34c4b88c11b7e6c848f0ed244a8f44e793e45ef2ebdbcb3751a43",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/box.md": {
+    "status": "translated",
+    "source_sha256": "f06484364d86cedd0c19ceb1797fd4a6f0275c448cfbde7aa68e7d4d7617abed",
+    "translation_sha256": "dbec7093de0b988a47c55dbb2a7418e3548db91797062359e1c7f8c7c263b4ca",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/clockify.md": {
+    "status": "translated",
+    "source_sha256": "44928bdcb804965a1dd9302627c32cde90fd55fcea15b5bc835d22d6f25e1dbc",
+    "translation_sha256": "65fa110081e1047c72630a7e4743f33ed5ffc142e3381a8fdc4ab2d0ac756752",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/convertkit.md": {
+    "status": "translated",
+    "source_sha256": "067f50a7e3d9b864e96036a3bbfbbb427da4aa1b7a29d64b42df3a55544c3ba8",
+    "translation_sha256": "a0d1580c4272219f40b95eb9fcb58c042842158296480c27b27dbc5935529a66",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/egoi.md": {
+    "status": "translated",
+    "source_sha256": "133ccada25915460cc32009b4dfae8671d6deb35a2a20d7d421c5c915ff03dfa",
+    "translation_sha256": "4830f9952afb94c432dabd28bf86bce06d031ac6d6a8184ff1f0b4597ff52627",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/emelia.md": {
+    "status": "translated",
+    "source_sha256": "af2b53dc241f884be70820e6d2749174b5aee81719b95b23388b5920bb0efc10",
+    "translation_sha256": "94c671c02d72cd5675b6b540272f6570b78f84be90a82e31273f6feb0745f4a3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/helpscout.md": {
+    "status": "translated",
+    "source_sha256": "5b6b4e44b326ed71d2383eb9014a3b0cacaaf2189fd3716a42343781546e3eb5",
+    "translation_sha256": "c91ba662a9f0737f0f533bd0621ad16f4ae57ed721f248aac2748ea5a09620a9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/hunter.md": {
+    "status": "translated",
+    "source_sha256": "bca2e494d3784d0ea186143882cdb1d22bc0775a999f1f86c526b00e318ac804",
+    "translation_sha256": "05b8d37681119b87f68cd81e67c7138a82247ab59dffc1d25d1252596fcfc544",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/lonescale.md": {
+    "status": "translated",
+    "source_sha256": "8cfd94602771a0260be262f6baea532cdc8f7936dcb4ffdc1b902336d31bdc7b",
+    "translation_sha256": "2208582ada54b3f377d48415fb5552ed68626cc4d04bb6a42bd3c7c5d2407038",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/peekalink.md": {
+    "status": "translated",
+    "source_sha256": "277b16361b6990675b12f420c57b0d81b045a885dce75ce416d0c1f161395292",
+    "translation_sha256": "1ad77efa6973044c574706aa4b3ddced42eab7c3eea76875c2eab26b2c951c46",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/phantombuster.md": {
+    "status": "translated",
+    "source_sha256": "29fd886c14536d59ebc2b5f21cc52bc3ea01eb6dec642928394221bc3ca50080",
+    "translation_sha256": "ceb2e9ec858b76391756f17ff72d4708b041a1585d264ceceed1dbc2f2715adc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/stackby.md": {
+    "status": "translated",
+    "source_sha256": "a18595a903c4aae880239f2519a088fddc25c8fcd44152ea4ecb00b3e08b7372",
+    "translation_sha256": "8ef79dfd3ae4f8064c1c31229fd7f2a1ea22994b4816b3516333cb1b6664dada",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/travisci.md": {
+    "status": "translated",
+    "source_sha256": "7762b3e1ff3941f3f70bf1cf75f3f43dd3d4b31634ab53fd8ae043d15e0fa050",
+    "translation_sha256": "9cbc9f40ce2200baeaa69dae2350fc6d4c3e08dd9b348f3312724d6b81689804",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/uplead.md": {
+    "status": "translated",
+    "source_sha256": "e14c47fe78a6a06032ef0693fcb84e787e6ce14b8c5b5042359f39d67b869513",
+    "translation_sha256": "3b5eb89c56d869397aa6a91ef39d10375b6057b8d601fec1f326033d1deb01a3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/affinity.md": {
+    "status": "translated",
+    "source_sha256": "dc98beaddacdd4b264d2cb56623d072dd179eebfaed0767c70c10e119ad6c697",
+    "translation_sha256": "b32a6c3627c73ba1aa45923c52bfe2016738628482b6a8b73ea43eacd10730ef",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/alienvault.md": {
+    "status": "translated",
+    "source_sha256": "15f9b067c10911cf97762528ade99f98d92f149a7fff4036e75deed7bee06461",
+    "translation_sha256": "f44213dfba5c3cd2d71ec72d18b3b8cb9168bdfb1c3f617e7d9edfae55e079e9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/bamboohr.md": {
+    "status": "translated",
+    "source_sha256": "ca19ca934c37f027aaca4b2d85cb83581c96a4409234da11d423f3e12fd897dd",
+    "translation_sha256": "e1d323dbd821802caa0e092d81507a5fe762a69066795fb94111fd997f0a2b2d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/bitly.md": {
+    "status": "translated",
+    "source_sha256": "38a0a03225f6705801100edefafbfeb83a6cf5bc8537f6701fe0e916812e0beb",
+    "translation_sha256": "d9e564a0e2974003002f50caaa4039ec8e4ac3cb2aa9c5ffc6ebbca0e586bdfa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/brandfetch.md": {
+    "status": "translated",
+    "source_sha256": "3874cc732a7d9aaf712a705b1164aa17281e7781975e2edf6f64e5f6eda55915",
+    "translation_sha256": "d1ff7d12422df1f067eb8209bb075f59a5fb1367c1fcb22b1ceb28ba499d89f0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/cal.md": {
+    "status": "translated",
+    "source_sha256": "ddf726712508db4b2cd8af2640c23d100ab572fa2706b737c6681003bfc1a7a3",
+    "translation_sha256": "3d3e0154da430049c9c01cde925129db811047b4ecb1ae016a6ab6f7179f7d61",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/clearbit.md": {
+    "status": "translated",
+    "source_sha256": "964a4eb77ea9b0ff4221d6d8b20c2e79e8676eab97b7ba57258d52705fce8a85",
+    "translation_sha256": "eb8c5788b2a5109d396928500289986430bfddac791727d1f149238d20332d62",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/coda.md": {
+    "status": "translated",
+    "source_sha256": "14504eacb8da2b55f6f849de5cfb9dbf2a59ddef11f1f3e762283509e9c8dfb6",
+    "translation_sha256": "97608fd5aa9f6f5163f58cb663d2b78e0fe2e80f8f804f291f7686673a124d23",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/cortex.md": {
+    "status": "translated",
+    "source_sha256": "1b0369b584a61e0222c7b76a3b56f8e078e5ef90d0345c7d9b471536e8f96583",
+    "translation_sha256": "f8acf134023bdaabe4a370898567d1c469f12aaa3175b4951f0c928180ed942d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/demio.md": {
+    "status": "translated",
+    "source_sha256": "8f6470fcffb3fdb4f210dcefd399a837e43b8de384eaf0f391ed7497f578dd74",
+    "translation_sha256": "66702328e6191355d5b7dc7f9cd581f5615f0d68eff4331bbb417d8b49e8b558",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/disqus.md": {
+    "status": "translated",
+    "source_sha256": "44b0780787b5721bf927dfaa8200734686ba5a86339910e27e5f7b72fef4f4d3",
+    "translation_sha256": "9377bd3eb475859abd6f6bb852b3afcd84f3df65da9620ccb0a32c6d6994d6ba",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/dropcontact.md": {
+    "status": "translated",
+    "source_sha256": "cbc22619c3efa216385264899cb3bf39745d612d120cb46bc55d79ef84eeb20a",
+    "translation_sha256": "f659c457ca6a43231a989672d309e9e87e5822e800540a8a1f1250ecb704a0ef",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/dynatrace.md": {
+    "status": "translated",
+    "source_sha256": "28c019e1302d7356b89025f67ddde3d2aad85573676fe0a9573fd2ea24599836",
+    "translation_sha256": "065297d506b8354185c31aca5bcbe6aece77ed4024d8b71eefa86f91e257ab50",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/filescan.md": {
+    "status": "translated",
+    "source_sha256": "17fa38a1f9b5708cdade89cd3a9e979dd736169cb0eee3b4247ade0aa4b9f22a",
+    "translation_sha256": "f9c97c7bfed339c11048e6ac6c3651fb357de212b385b0024177bc8cce66a0a0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/fortigate.md": {
+    "status": "translated",
+    "source_sha256": "172ceb8e06a428ed647a6600d6ea65a41a8626d919bd89f10efce45b4dc83626",
+    "translation_sha256": "152540030f2008369c812150877f5ae08fd0b97609a4c1d9d089d3e2ca9babb0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/freshdesk.md": {
+    "status": "translated",
+    "source_sha256": "1ff2acb92cdb45f90cccfe183f2a434a125a475df32bb562019aa268b6afdc52",
+    "translation_sha256": "4c6276039368ffc9ebbdd43651cc3b2dddb2446ffa6a3248834f4157ff23b6e1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/freshservice.md": {
+    "status": "translated",
+    "source_sha256": "eff11b5cb0246a0c81b40fc909a5d83719cd3ca9ee7309b34666df4bf6f232d3",
+    "translation_sha256": "c97382817c642fdd47e78ff0ed38bf2fd40123a8d009f972790eec51601839ce",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/freshworkscrm.md": {
+    "status": "translated",
+    "source_sha256": "fce5750ba799020c0b03f7ccca30204eb321ef447a46659092176d4d8399324d",
+    "translation_sha256": "6a30134cf5a4a303e42bfb049ebcaf98714b4b03e034406962ed4c91149fab76",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/kitemaker.md": {
+    "status": "translated",
+    "source_sha256": "a7ce9a4fb0073987d52a6ddf9540314a560c5a09a0b055e0d3d2492064a40e0b",
+    "translation_sha256": "3e07aa43f2a4caa8e7eeb4735e8bddc5bac8d1d49de20f91f6e2a3f32aa71854",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/mailcheck.md": {
+    "status": "translated",
+    "source_sha256": "d1e46b87f20f1d57fbf05178b3061910b3c2949be8d5f6155d30e59585d72b64",
+    "translation_sha256": "4954a9b2cbe2ad07d2c8198e638b56abe0389274e038fed1ea7a00105aca4798",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/netlify.md": {
+    "status": "translated",
+    "source_sha256": "5dd81ebbdfd61fac386aa6a4fb4e24b1b85d77c3cb4e6d50ac49736c1fd7b2dd",
+    "translation_sha256": "22cd833aa0fbc195f9d13d524faa7735e07cfd0775d9754f32f58f05ec4253e2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/pushover.md": {
+    "status": "translated",
+    "source_sha256": "40224d9e75ae4cfed3b8b4cf93e1a6aba304bc68e26fc987dd4798106227439b",
+    "translation_sha256": "cde79bf44febb9cffb6056b63c15cca058e839fd9948f165d2ac446c7bc72acc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/sms77.md": {
+    "status": "translated",
+    "source_sha256": "32eb8e24ef2de9ecd52c4387456dcc863115b3ae2b6423f9b9b4a0e4f218c570",
+    "translation_sha256": "6ce64fb3b550d79d380012fd75e298245a15b8f44124cf4dc97482b87d9b4703",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/urlscanio.md": {
+    "status": "translated",
+    "source_sha256": "a752cd130cd053af9ad8a54356eb6929ff3a081b2ad17653678d175c987f1365",
+    "translation_sha256": "e2233f4605ed5e911e1864f3f49b60f7f8b82374ef5827aca0452cec5ac21d79",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/virustotal.md": {
+    "status": "translated",
+    "source_sha256": "e1afffc9b4d027b00875eab08b9673bd813af792c8040e9266fc8015cd05722b",
+    "translation_sha256": "20dc20d89d5e8b61914993ecaa44361713d936605474d47ad5caaa1318a01bf9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/grafana.md": {
+    "status": "translated",
+    "source_sha256": "c209f904c0ec7ea9af75a5b2bd898631c7a96c12a8e0d192173491ca0a3ca747",
+    "translation_sha256": "e6a806486bddff4fdbe4b7d7f4de7b80f38ffe159264ca1ef38a03348673efe0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/humanticai.md": {
+    "status": "translated",
+    "source_sha256": "55329d1dd32cb1929ec7d319789b2e6ae8ed670918bb08af8270ace1a380eb2c",
+    "translation_sha256": "33f0597a837cd4529abaefbc5242bf6aff496804eccbd33ec1aed6bb08fd5649",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/hybridanalysis.md": {
+    "status": "translated",
+    "source_sha256": "216d69fb1360aee5ba0c29d8f50a3b4dca81ee705e885ca9a33168ca35dea81f",
+    "translation_sha256": "6eaf8b3bec9e6050eb09410811c95201a726df7b2c08e26881720bac7196d652",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/impervawaf.md": {
+    "status": "translated",
+    "source_sha256": "c0fed215474068db522fba57f1f7fb724e6c5d8157e1947e688aa11752e702bc",
+    "translation_sha256": "9c102dab196a15f87881538664237d760671616c80e558657a86156efe69c8aa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/keap.md": {
+    "status": "translated",
+    "source_sha256": "5a82527657879e0223327eed300caf882e3369f98d10af0a6e700a6b94b8864b",
+    "translation_sha256": "b789645f0d54af60a2ff79778f83b7ca14f4b7f39294ec562c5f1c8f4808f3a1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/lemlist.md": {
+    "status": "translated",
+    "source_sha256": "7df87b573251208dc52c68d051d939a7f412cd906a54a22810e4a4cad957ef37",
+    "translation_sha256": "bf4d5fc3e70c15ad40c3f4c62ff07f3e9871b988e815d9791a7336ddf4142504",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/lingvanex.md": {
+    "status": "translated",
+    "source_sha256": "5f28336e0f2505bea0885a718f62df35ebbed5134eae6dfe9a4a072beb9ed15a",
+    "translation_sha256": "234e1739cf71491a541cd25ad1ecaec88af6b63e2316392bafdca20caa627174",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/malcore.md": {
+    "status": "translated",
+    "source_sha256": "a3cdae27f4c0eac98e234062651e89cad6f5b5d8eac3cedbaf631e0880372dad",
+    "translation_sha256": "0e67bc76942d238cf25af292f5470646f37d14e86eaa0661da488307646c38f1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/messagebird.md": {
+    "status": "translated",
+    "source_sha256": "1e9c495f14787e5e8bdd9f85077156390e15d37a984b4df463949dd311787f3c",
+    "translation_sha256": "fa34f2a89eef60d65e9f01fc2d6bb225e9412f2fd87cb2c1dddcbcceef21c202",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/mocean.md": {
+    "status": "translated",
+    "source_sha256": "4046324c282288e178f12558e828e50d76b8d1fa994cb47098ac7f4319451599",
+    "translation_sha256": "52853cecc640ba661c5998d20040d19c8c77cc1de097cbb836da0d47d4a0e64f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/onesimpleapi.md": {
+    "status": "translated",
+    "source_sha256": "a1107ea24e048b9b823d8ed36797a00572e921f5ee092e2663838426e2fc76a5",
+    "translation_sha256": "2d8cb6bc6e174370486559cf4294fa8098e08d5a8fe1096dcdff66ada14e6988",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/onfleet.md": {
+    "status": "translated",
+    "source_sha256": "be40f73890439898813841df63ab49f2888daa7d0a2b249c4124224d850e1076",
+    "translation_sha256": "b786d7a7ac57576c0d446948d2a7c2dd41b5bddcf27e981082c38e4d15ed5e50",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/opencti.md": {
+    "status": "translated",
+    "source_sha256": "09121da9f129962a1491a9048303b7134b74557b73cdebb094899c7006910591",
+    "translation_sha256": "6a2410f448db1448e509509399c0c5894612102f53b417e19477d0498f4770ef",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/oura.md": {
+    "status": "translated",
+    "source_sha256": "b4d8bd56c48b722132abedc31ca3b5d9e367aa137d23ac1b7d998dc26a87fd36",
+    "translation_sha256": "1ee36432248e2fa5f98ecdf59f99c9a9f7e9b0d3c42c05c85562500fab1c6ee8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/perplexity.md": {
+    "status": "translated",
+    "source_sha256": "4098ea2912026a110b2993de0a458c6da203eb5a41bb22ce17aedf28e152fa1b",
+    "translation_sha256": "f99c5bb65b18c9e836371c1e0666a42b7efe08979672a653915c3f610fbb80fa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/postmark.md": {
+    "status": "translated",
+    "source_sha256": "8d2afb607950c8ee23d9917171e2f2e8fb3aae415306b68523fbaf5c1c951dfa",
+    "translation_sha256": "2cdde2159f3acadc349a9c7967546af7bfa91267654a1927313a5016d1593310",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/profitwell.md": {
+    "status": "translated",
+    "source_sha256": "b550c5c299eb9efaaef430e7855bd5771e79abb73e02c401e642525c4661f9b5",
+    "translation_sha256": "d16c0829af9f6ace637197471424a28762445d181af419de6b4d87e6ea70f912",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/qradar.md": {
+    "status": "translated",
+    "source_sha256": "cec7d1016aa195d6fcfe6b8723ed4014896c6195e985c4cb89cf857df7842e5f",
+    "translation_sha256": "1154c76e4ce004164273a0509b0f7a807ab9289c139ab700872fdc06ae6e0243",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/qualys.md": {
+    "status": "translated",
+    "source_sha256": "c2ccd107146da83153860d46473aea7c79075ae317135b93362a8ec26b0f09bd",
+    "translation_sha256": "60f24278f3aa97c575ee5d64333c67a0a1f2ed6adfe369c1edd059c96de46309",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/quickbase.md": {
+    "status": "translated",
+    "source_sha256": "8bb4aa8978406f1125f761ce49ecde8cc5f8e7877ae7fcb5d39554c39ba8f289",
+    "translation_sha256": "b18c9395efd82d9d198af999ad5b9f7b4f6fdd8c045d9bca046dcb6713fc88a0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/salesmate.md": {
+    "status": "translated",
+    "source_sha256": "225bb0f53300f7e77c1c7ea75d5d03ccae2f01ced4dbb5939a6d635a46e33a20",
+    "translation_sha256": "d98eb7601b2eb079addb4e9af4c163146d9797b216f3e6064ac2f0fb2f73553b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/sekoia.md": {
+    "status": "translated",
+    "source_sha256": "224326f0c12f5a7deb9a4ffadf697f97251bb7d0c05841610a898beff639f4c8",
+    "translation_sha256": "91919a70f76fcc9eac2009d3caa66c0efb62cd9b8e3c53255009f9713c5a2737",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/tapfiliate.md": {
+    "status": "translated",
+    "source_sha256": "e32aca0dbd7da4a779f74800d40a731b4c5bfc19e5d0f1a718bb172f747752da",
+    "translation_sha256": "fb6a2d01e4a23a46a0f65ae64f355a457b7f9d09aa0692f67af2ba5c92b637b6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/uproc.md": {
+    "status": "translated",
+    "source_sha256": "530c91f836a131f8c83eef0ec08454a81cd6e10ce829a377a450e44a84edd949",
+    "translation_sha256": "f0c34d8c8d8dc0472711740153e5cae3334daf244da409a628866f0f457cbb44",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/wekan.md": {
+    "status": "translated",
+    "source_sha256": "37f91c165f27b0f88fd47b7d0f3a7592651d9f4a7d379301f8ec75606d991400",
+    "translation_sha256": "687ade0a67dc06a23c15ced19f94dc87adf2713ee7979fde730f1e1166dafcae",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/agilecrm.md": {
+    "status": "translated",
+    "source_sha256": "57c30bede9fabbea1852cd7cd1c2da7fb9d82f472bbc6c015086497d3f50b3e7",
+    "translation_sha256": "071b1a3cf9ee6684c0d6289583078062347bf8f42515746dc889e977b1c50b3d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/autopilot.md": {
+    "status": "translated",
+    "source_sha256": "8f30f2cd4179fdeb6500c605f2f3ee7d3a454655293554112f9083b6250a5418",
+    "translation_sha256": "e22387f0f673f68818737465b023278de011907841c9206551a723eeefa72c82",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/brevo.md": {
+    "status": "translated",
+    "source_sha256": "aa0bdbc3f825fd065146567cf721a8fad22881ac72f2b6f8e8823bf5299f0461",
+    "translation_sha256": "b476bd43b8aa6bc8e0b3adc70f2d474402592e584d1d8439de586f540de5b8e4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/chargebee.md": {
+    "status": "translated",
+    "source_sha256": "80b8ac6c6a5f11d88bc5a88342ac84a8e1e51a4f59411c47ba22bf2728c43524",
+    "translation_sha256": "324667adcbd405ddfaa3a71cec13376f50cece2129f5454d3c31ec99eba48084",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/circleci.md": {
+    "status": "translated",
+    "source_sha256": "093ff9213a9a1a631aef66c3909e40574848235dc3fbba3efc26f1a0bc981bd0",
+    "translation_sha256": "597ff5146d995f936b807d4f0b2cb54fc389dfd47cefd20d3b10e4879cc913c8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/ciscomeraki.md": {
+    "status": "translated",
+    "source_sha256": "0ef71d55ff8602526f3fd5d0284439b4e1eb1c934deb1b5a0de650fa67058019",
+    "translation_sha256": "981d65afdfe97f9f5a9c958abe12866c293c3ac28387c70f46e5678dbfe54b03",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/cloudflare.md": {
+    "status": "translated",
+    "source_sha256": "ac001e561ed8dd45a58c62b6976c4ef6a0b51ee213cc07843a4e4e183128e0e2",
+    "translation_sha256": "e2f2b9f7d2053c4e1ac09f8c37cd2db765cec4e42041eb1d139036a7faf7ef8f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/cockpit.md": {
+    "status": "translated",
+    "source_sha256": "b4622f19a83a5e46f5cf55a5bb43250dc7a9403c617dd8bc4f5f2955c83dd719",
+    "translation_sha256": "cfdc1c2772908679e3918be4ff77db656ded5ae11474afc31cbd2eed983a496a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/convertapi.md": {
+    "status": "translated",
+    "source_sha256": "20bd56a5072e1318a8c79d4ed6aab0337d93592238b27323425cad770957c1bb",
+    "translation_sha256": "5ce2f3b7cef5b69f606a822b4626cf284cdf4f5bc13fc69b2f4feb13ea2de4df",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/copper.md": {
+    "status": "translated",
+    "source_sha256": "0d0ce2e0f775a27adf5d2e95ff99292dadca8c64a226e1cda4a39bc1f67b6d43",
+    "translation_sha256": "686288d7202e9601ca02f5c4c9e076d073f3872a88187627932bcdaaf85a8ebd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/datadog.md": {
+    "status": "translated",
+    "source_sha256": "85696afdc785bfe741b1a8dcdeaa3d4b18e29bd4afd2c26a32ad4c695a1dd76c",
+    "translation_sha256": "4c6b698fd9d16440ec51ec4faa166021ed6509a75beb59b8dbf517e2465339a7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/dfiriris.md": {
+    "status": "translated",
+    "source_sha256": "8ea02dc6694e0bc7299cea241a089621deb71bba3ebc574c715c722f5ab5e371",
+    "translation_sha256": "7845c3a94b9b369b206a6eb62134d46c08940a0799ba8440a975b3d18e2deb00",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/flow.md": {
+    "status": "translated",
+    "source_sha256": "8960b76c114da49058060387bb2045b24081b2181a4eed26986bffd4412757c0",
+    "translation_sha256": "6f08ff241490740bcb02473a69f8576c60df3843b76f583ea58fdf69c74e04aa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/git.md": {
+    "status": "translated",
+    "source_sha256": "a108723cf60a4c8a3763be93451895920eddaae72c5a6b2b3d626a5392ad7619",
+    "translation_sha256": "18ee7792f0d379a9e77fb5c7dd44d00a67385650cab6ce2bd0f74dc1ce12b248",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/gotify.md": {
+    "status": "translated",
+    "source_sha256": "d521291c94469094e070eb18b3d05fcdeb3d61c4a87eb9e73a0e4e73875cc77a",
+    "translation_sha256": "0a0f866104920ad33ef8fafde853e47fbb7fdbb7d766a0c48d31caf7a66b3a9d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/harvest.md": {
+    "status": "translated",
+    "source_sha256": "cc2540a33251c956193e57986f50b22b5ba66c050f0855c7799362bc3a990166",
+    "translation_sha256": "9644be80b27d08605f2af56830aeb65514ea20e38494b6cebbf68dc96220d951",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/intercom.md": {
+    "status": "translated",
+    "source_sha256": "389d431d3d9e660f6989b5f5fe931571ccc5e7f656d047d2eca7408f2d4e10a5",
+    "translation_sha256": "4171edcec31df2cea4d60742b96cdac7a8a0f85f9875faa9661cc37b3d7a7a9f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/wufoo.md": {
+    "status": "translated",
+    "source_sha256": "0b08b3700573eb5cc16420d64427a2194d9532880a70fef37a05866806134ecc",
+    "translation_sha256": "ed581b157183d8999e7503f9791d3ba2e60d931040196d845758d9a68fb9104e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md": {
+    "status": "translated",
+    "source_sha256": "592eae2cfde8c052f7952342c99c097e0f322cdc15604191bc961c98faaef17d",
+    "translation_sha256": "839ec875fbc18f45b5b0b210b035a238d6c10ee8f0f7fd4504aa10553ffaef9c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md": {
+    "status": "translated",
+    "source_sha256": "7ebb484c5a25634642fba14b5ac2284fc465a8133004ad18a057eed55bc874d3",
+    "translation_sha256": "0438b29b2e682f1af69e39115a2b4918707dcf827e13ed94d7f32615b9d0d26b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/acuityscheduling.md": {
+    "status": "translated",
+    "source_sha256": "b0878e2e08b0fbcc1ab6cdb0665df82276c67834e79820c2ca1d38f92168dcfc",
+    "translation_sha256": "0f967dc536ee4f27625df75a48f034b9cc4a33ac6a886c79448fb8aa3483fb77",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/carbonblack.md": {
+    "status": "translated",
+    "source_sha256": "2e118e5dae4c54d7abf21a45b0b9258d0f27e692af71f045b6f5f1dd992718d4",
+    "translation_sha256": "19d49ee231134b4a1eefb5438ba1db9e6ac4ff6074869fe4bd79baf737919256",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/ciscoumbrella.md": {
+    "status": "translated",
+    "source_sha256": "ee82ebca954d7b25914d91667047ecece173291f01d80d2206137dde6e7a35ed",
+    "translation_sha256": "c253619ad17287ae272df8a04f8b869743ddc3d8943043cb60abd89b1aa96088",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/kobotoolbox.md": {
+    "status": "translated",
+    "source_sha256": "94c9bb6ec2634bd38c2fe46c156f3a14c42e7cbf3e2f48c7bdd1931d19dcf370",
+    "translation_sha256": "f580206283b8a778bd1c9fe610237e99de5bf0c7a8389b12fb99790a961af676",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/mailerlite.md": {
+    "status": "translated",
+    "source_sha256": "e7bed57d35626dce7c13113ce82b2ce3a0240ae76f87e8d8b473fc096a4594db",
+    "translation_sha256": "2405c31b8d716f7f17a39017f0910b6380f44e19d07a20bd424521e97c92ff3d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/metabase.md": {
+    "status": "translated",
+    "source_sha256": "2951cd1960fa27221abcf527e7ef3dd65c6af0be760c7dd8233a636d3dae15c4",
+    "translation_sha256": "ecec527a40f832265ee11727b5fd66d74531292338a7cacadd0d205e95960005",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/npm.md": {
+    "status": "translated",
+    "source_sha256": "b675ed34a49dc27de0c191e225bf80569d4f44b12c05a9a756ea9bbbcabe4f59",
+    "translation_sha256": "ab4df9dce08e089734a797051a73b79d467d88c617347f511a65d0f8f841ace1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/plivo.md": {
+    "status": "translated",
+    "source_sha256": "637c8b5d4e46c11abbaf8b9831d02dd94f75d620838a4c063e5a8e4c89c82eda",
+    "translation_sha256": "8e27c0477b76a70a3ae2bb192dad4fb3085883b1e624074d079baa11cb654324",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/pushcut.md": {
+    "status": "translated",
+    "source_sha256": "0568b97610fd05643d95611e1531274f820037ca0485a770501fe7eac4d1b429",
+    "translation_sha256": "a5f296449380be0d4d14bf68c3da2be730350d058a793aec8ceeaac5e052389a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/recordedfuture.md": {
+    "status": "translated",
+    "source_sha256": "e80c9a6d5538e1e17b58453ea9f13708d4bcddf8fe190420f9c4f98ebd85a73a",
+    "translation_sha256": "2a3fbaf4a27fbe934c13dd3c6e303078c3b54868a8b7bc06ba8044a01b774adc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/rundeck.md": {
+    "status": "translated",
+    "source_sha256": "888cac3e146d91883866af66e013806437daea1230e0222bcd3aab45c64d6a13",
+    "translation_sha256": "e319cedf88a7f8f616fd2c17e6b6795829ed058f1bb442ee7b4f0879fc52a2f1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/segment.md": {
+    "status": "translated",
+    "source_sha256": "68bb809654ecfb79ddf819c87516bb729370b16390fb9d9d3e175796a8f573ca",
+    "translation_sha256": "15010932d8a8c6b9f0ee82389a56568401cb9fe767c593386b78307ba4f775fe",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/sendy.md": {
+    "status": "translated",
+    "source_sha256": "4df056d8a34868b0e1fec3f4f78811065511c431fed3eadb2523b39128cfc7c4",
+    "translation_sha256": "6b7961b733ef1555c7ee23c4b16796a7e9c84982014d7e3edd7a49ff12aaf4de",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/serp.md": {
+    "status": "translated",
+    "source_sha256": "98b172e971d66cff170e2444028a2ba09ae65f08c222f36654f897f88f205590",
+    "translation_sha256": "311eaf8219e51c4ce52d4b635d5f86b3b45c34b0bbbdafc90632b5887faf22ea",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/syncromsp.md": {
+    "status": "translated",
+    "source_sha256": "6baada6d0fe3261981cf415e1c4712bdb1904119cd63417e188a7de9e667258b",
+    "translation_sha256": "b69104826ff874c63339086fb37e3bf9e2d00489dd7425c036ea8c13ae8a73f5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/toggl.md": {
+    "status": "translated",
+    "source_sha256": "d4999f925c7004f596506eaeba3ece5e04cee9222c0635d6518b76b28281780e",
+    "translation_sha256": "9294c91bcea80b428a12390311b32208b8fb2c363000853086ba7556ed01213b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/venafitlsprotectcloud.md": {
+    "status": "translated",
+    "source_sha256": "c67c20dd0a5177b54876afdb10cc230b4455ebf545a63f18d34cd479fd797f04",
+    "translation_sha256": "210146fc560c517c995abaf9c2f5aca00c5f6f3a93671310b89d53a13eb0022c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/vero.md": {
+    "status": "translated",
+    "source_sha256": "9cd3c8e4d4d667c4041ee25d82881a5c3ed6c99a42a963018eb85c457a3fde98",
+    "translation_sha256": "472d5d1dabe0a8102b136d623094c52b8f2ff8506639faf4c73de1a4955f2d70",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/vonage.md": {
+    "status": "translated",
+    "source_sha256": "2f68cc1c057cc9fe564afa31338ad863feb9f5e2217b96cffba825a042bb9504",
+    "translation_sha256": "2d6dfdc9dad86170ebd020a5da0538585721f21e7868704923a9f2d2406c7557",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/workable.md": {
+    "status": "translated",
+    "source_sha256": "d8cfc4727f4d01dd711d717fe6ccb2ea54447e1576c7e19d08fbe1d49991de45",
+    "translation_sha256": "d81ab96fa20343ab0032cf5aeea839cb00e960d38515baad1ec0e43df069183a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/xai.md": {
+    "status": "translated",
+    "source_sha256": "a9fb3bfc588906d063ffc6f4a4bb520ecddc306b0dbb602b9c4151a73a1b170f",
+    "translation_sha256": "15dbebb7677bd5cdb5308763cb09abb61b2bd088b955576963736f99f1ceb5a3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/yourls.md": {
+    "status": "translated",
+    "source_sha256": "c9fb2d247346444740ad8d7a7f0cca7ee33f116cc18cb4dd76736b04bbae34af",
+    "translation_sha256": "c6e24f8b4725653ceee47d3f193628f52d2002b67325df23c9cc7932569de280",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/zabbix.md": {
+    "status": "translated",
+    "source_sha256": "6381f5610667e3acad00567e2c588dc03fc0c0db0f0c5d2d791e7a76f569d896",
+    "translation_sha256": "05c2c7efd8176d0507d25991e78e94d190c788b8e470568181174013265dc541",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/zulip.md": {
+    "status": "translated",
+    "source_sha256": "0e2e5ddeca089c0f0c42f82ac926a7c49d247a45b3c5b4522f6630d5774eb6ca",
+    "translation_sha256": "45bd5dc8fe3dbcba89f992edbb40b23f089057f6db8ca641b06f6efae0e4f445",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-doc-loaders-link.md": {
+    "status": "translated",
+    "source_sha256": "28fa115276da048b13202e81c8a318439fa09d5833537f8a992704cc5b0cf554",
+    "translation_sha256": "a1bfe70372cf71811d5a5d169b572f9a6d412d8eff5c9d5f16f38f78229adb5e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md": {
+    "status": "translated",
+    "source_sha256": "3f0273be5f837c646359d59757ee651232c4bdd67ed4308e02df1ddf454a36c5",
+    "translation_sha256": "494e0e1fc85dc7cef2874c5eb5d019048cefc0d99e21b203e3f72142bdc05f68",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/tools-link.md": {
+    "status": "translated",
+    "source_sha256": "1c10939d5d1aa38c7bc6156d4c4d7952c1aa7439180aa16f756807f4dffd5e90",
+    "translation_sha256": "2cedcbd0ddc29ae7c6ea90caf8706ec06870532392533ea4435097009c6e44bf",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/use-with-chat-trigger.md": {
+    "status": "translated",
+    "source_sha256": "0679ae6634cb5384666a8384df0c23ea0994df518528a6c3ebd91c0a6a26b906",
+    "translation_sha256": "c31574b568fcd071f60bd618619dbb45fe883e06448ed33c786274f261ee9d3c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/email/gmail-app-password.md": {
+    "status": "translated",
+    "source_sha256": "4ddde3b6b0ecc03902c9195bca5f2a079df8af1c6b6f39ca36b1201e996a9e5d",
+    "translation_sha256": "8d54ea241e404fe65af226f03ed60d37253b0f2cc14fc78831fe25bc46e8901b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/email/gmail-two-step-verification.md": {
+    "status": "translated",
+    "source_sha256": "9230752b88ddc9b89317225d61f9a6aa70af8464a005efadb63b6c80479c9b1a",
+    "translation_sha256": "4ce57486f268a849045abe4596bde3bba569ef74dedb525ff69a046ccbd29117",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/email/outlook-app-password.md": {
+    "status": "translated",
+    "source_sha256": "1b3371735cd59c200f5505f572869cee1f23e60037aeb4d527246bdf435de64b",
+    "translation_sha256": "a10f5fa3eb05e280e637e08da9896d365cf05cad84de827531f1fef2c74d1d93",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/email/yahoo-app-password.md": {
+    "status": "translated",
+    "source_sha256": "ede627826a26e607c864cac2d216e214477eca4bcb5e477bc01967267ed82747",
+    "translation_sha256": "b9d0932f62dfda6f88d5bd2d0125690b89891396882e3ee12415b79ed9a44019",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/basic-auth.md": {
+    "status": "translated",
+    "source_sha256": "77023f767acb01f4fc974650fef44bbe9e900c07547fa727e65e432c8828f495",
+    "translation_sha256": "0e751210e1818b27c2cde9afa0c8b77c2da3591eb8533402518b498fba6ceac8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/bearer-auth.md": {
+    "status": "translated",
+    "source_sha256": "ae84c703b230f050022d62e9423bdf84c997e448113203285676a885da51b91d",
+    "translation_sha256": "0bcb19429e8145e8730703a9c03bb19b8088f77ade7519b6ace46f73eb2ff62d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/digest-auth.md": {
+    "status": "translated",
+    "source_sha256": "c60238f22f06655f2ebef5702b038d45efc832e6e046cb8d60a6e19f1562fdc4",
+    "translation_sha256": "fbaff7d0f4b9f22fa1715ff1fb8dbf9ff37747e9bdb9ac1cbc31caddf394e390",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/header-auth.md": {
+    "status": "translated",
+    "source_sha256": "66bc398b986c08e210ec623b05096052e3c98ecf7695f65af2715057dcdcb4a6",
+    "translation_sha256": "4dd36d7948a926c441758fabef84845690c50708f0e305020b261bfb314362fb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/google/app-becoming-unauthorized.md": {
+    "status": "translated",
+    "source_sha256": "c5856df320cf7030e4acfcddab26e4d0f5e9123c16f7bf4546cb236259a47a6b",
+    "translation_sha256": "e73652f3f8564680d6e7d9e0a0756ae590c42948cf2d64bb63e4245e17f37ca1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/google/create-google-cloud-project.md": {
+    "status": "translated",
+    "source_sha256": "0fbe1f90c8e7069292c26e5e190387e6adc8ba6355644551e8575fd5c81fb3ee",
+    "translation_sha256": "3880ce8d3612ec12b8f0b2dd3433802d3d7a1d7f9197462686ade68be257d192",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/google/enable-apis.md": {
+    "status": "translated",
+    "source_sha256": "f71502782ff77ed97db124d16fc6744b4f3a77d7cffaf8dabd9a8c89addfa523",
+    "translation_sha256": "e67cfe7e5e896fce43da1d73f8a8771cd2e71c50c074a5fad2b6a621e59ca65b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/google/unverified-app.md": {
+    "status": "translated",
+    "source_sha256": "dec5d0a51d98acca7ce7d166465fb854d00edb89fb8fb7e648edf0bcfe3df1c7",
+    "translation_sha256": "ac7a285554df92071eb27f04c6321086fc0adfa72a7054866ff030c3f902bb6d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/microsoft-need-admin-approval.md": {
+    "status": "translated",
+    "source_sha256": "ca0082d120681a0455c333bbf7448902b4dce7cbae6cf3e9658b00d6edd0a6f6",
+    "translation_sha256": "e1ffeb4e136290eeb8f835100bfc3f02634e58063023b96d62a8215515f178f2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/credentials/slack/token-rotation.md": {
+    "status": "translated",
+    "source_sha256": "50c094ac84bd44776c3fb9fef63e79d42314a652c6bfc6697ed789215f275366",
+    "translation_sha256": "91bda6b9ff0a3d89ea772d755e0512ac064b3ea89e75b83b43f0d2dd9598b364",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/README.md": {
+    "status": "translated",
+    "source_sha256": "5dfd9de7711f3507e5c7a781c198b60fb3ae597869b22ce83e4a36e6572bdd28",
+    "translation_sha256": "9eb035cc030c5910780e00613db59cce35972f75a94e414952770ec103d216ce",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/README.md": {
+    "status": "translated",
+    "source_sha256": "7a9bd02b66bbf5a5175b498d6e34f582f80bd2523aa7381ca7e43819a65692ea",
+    "translation_sha256": "46ecec0cf8e3dbd45c5ddea67e94bbc48a3123e3de1c627fcda021b379873936",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/README.md": {
+    "status": "translated",
+    "source_sha256": "23b8976207135308832f288678b5ffb17c6f7af5037a96d076efe1d120f53062",
+    "translation_sha256": "bc8006a723741e35cf9aa1f6398b4169c70ea9d03e8c3991ff4d42178609c7b5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/README.md": {
+    "status": "translated",
+    "source_sha256": "3a627aa7d24b44fa94277a38d27aa8ee5169e6321d713186a9577f1cfe3a58ba",
+    "translation_sha256": "a370acd20aabc5d0b287548fea9b08837288edebd8c510226d5e5e80dd5b9d87",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/split-with-conditionals.md": {
+    "status": "translated",
+    "source_sha256": "f0929b988979f80d8f7125beafc428ec747a7e467bf3237b15358c803bddd56b",
+    "translation_sha256": "caf9083aa18c0cc510e62db21e2bd09cb0a42294f818ef2ec8a34b0a9acf7a81",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/understand-execution-order.md": {
+    "status": "translated",
+    "source_sha256": "46ca71ed7b58442fe5df52a555e015c454bd32bb653c0c21b8b8570a5ec89ad6",
+    "translation_sha256": "f2b6663bbb828b1d77edcf57f9f550dd91281c11452cd2a9776eb7868dec54fb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/wait.md": {
+    "status": "translated",
+    "source_sha256": "64c3dfb464a2b37a5ca8f691f2f7d799b6ffa04a8509207859551a46bc34f0f2",
+    "translation_sha256": "79bb5424a98013905e46b837d8e40e559ab82494843eb02d075d81719f8bee8d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/break-workflows-into-smaller-parts.md": {
+    "status": "translated",
+    "source_sha256": "aaa8d643a6389b08d918f22eb3427cf76bde4da30a6992f9df3aa36247ef3912",
+    "translation_sha256": "5a7a527e7153c266972bcdc35d6122b3fee9a2f3fc14795f70110a2d91d821e2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/convert-to-sub-workflows.md": {
+    "status": "translated",
+    "source_sha256": "81daf385208781d0ae87d048b3f7af96ff6abe6ec73eeac01b71c7b6e4a574fb",
+    "translation_sha256": "bb5d9edf03247e038453dcdb6b41229aeaa17ca954557a9699aa258e49aea109",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/handle-errors-gracefully.md": {
+    "status": "translated",
+    "source_sha256": "6a84ea8b952a04fdc7a0ef1dc79e87b2428fc14d955e007a7a3251e10b96379c",
+    "translation_sha256": "21207e053a829193ea32095d9b900f8b6259ffa78749700c342a5f02c153c8a1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/merge-data.md": {
+    "status": "translated",
+    "source_sha256": "e3d87e23c00c9620934a66dff9a0e825b1441c28b01b728ad56314fefd5f5a26",
+    "translation_sha256": "4d440240a31a3b1f32b93554fa9ae45d156d117a695a3d2a9eed6fb9bf6ce022",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/flow-logic/loop.md": {
+    "status": "translated",
+    "source_sha256": "151da0fb57d535ab3197dec3b5566742762a9d570796a8b68f643ef769e5f41e",
+    "translation_sha256": "058a173418cdfcb385a0d030055fd5a064640256d6b7c2aa8782bb8511b877da",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/flow-logic/create-set-error-workflow.md": {
+    "status": "translated",
+    "source_sha256": "c3f50f9ddb2c6bc4711339d048a2627281f23e36cfe7033983ffbc4092eb1cba",
+    "translation_sha256": "379697118f82bb9d3dcf32c7a93f03baf92b2e5aedf502205a15e006864d3151",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/flow-logic/subworkflow-data-flow.md": {
+    "status": "translated",
+    "source_sha256": "196a00fec4e934b897a970c8a28dd2815d638ab636405afe8731a2a13a1b653d",
+    "translation_sha256": "a510b774151af41f43af4b214223ddf51b21d6ab75c52e4c8442f6d7d215c288",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/flow-logic/subworkflow-usage.md": {
+    "status": "translated",
+    "source_sha256": "7676836141652bef2dc7cab830f31039e60bf4e150b20d3b662f9a23abfb744e",
+    "translation_sha256": "45ae3c277db01ed2715e61033421144b9bb44c43996abf7d32dfb239ff739831",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/core-nodes/error-trigger/error-data.md": {
+    "status": "translated",
+    "source_sha256": "aac78723f3e2a4aa8b370111d2b15793e5e9aeb7a48293b87af35644ac5b914b",
+    "translation_sha256": "ae1b9565e4cf2ece1c87d278d211047977b2399571b3b2ed5c1096aaf372b5f7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

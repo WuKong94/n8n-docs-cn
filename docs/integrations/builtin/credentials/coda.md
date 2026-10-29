@@ -1,41 +1,41 @@
 ---
-title: Coda credentials
-description: >-
-  Documentation for Coda credentials. Use these credentials to authenticate Coda
-  in n8n, a workflow automation platform.
+title: Coda 凭据
+description: Coda 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Coda 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Coda credentials
+- integration
+- reference
+nodeTitle: Coda 凭据
 originalFilePath: integrations/builtin/credentials/coda.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/coda'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/coda'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/coda
+url: https://docs.n8n.io/integrations/builtin/credentials/coda
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Coda credentials <a href="#coda-credentials" id="coda-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Coda 凭据 <a href="#coda-credentials" id="coda-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Coda](../app-nodes/n8n-nodes-base.coda.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Coda](https://www.coda.io/) account.
+创建一个 [Coda](https://www.coda.io/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
+- API access token（API 访问令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Coda's API documentation](https://coda.io/developers/apis/v1) for more information about the service.
+有关该服务的更多信息，请参阅 [Coda API 文档](https://coda.io/developers/apis/v1)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An API **Access Token**: Generate an API access token in your Coda [**Account settings**](https://coda.io/@oleg/getting-started-guide-coda-api/start-here-5#_luxC4).
+- 一个 API **Access Token（访问令牌）**：在 Coda 的 [**Account settings（账号设置）**](https://coda.io/@oleg/getting-started-guide-coda-api/start-here-5#_luxC4)中生成 API 访问令牌。
 

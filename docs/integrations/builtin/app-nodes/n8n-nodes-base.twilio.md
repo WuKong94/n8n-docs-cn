@@ -1,49 +1,49 @@
 ---
-title: Twilio node documentation
-description: >-
-  Learn how to use the Twilio node in n8n. Follow technical documentation to
-  integrate Twilio node into your workflows.
+title: Twilio 节点文档
+description: 了解如何在 n8n 中使用 Twilio 节点，并按照技术文档将 Twilio 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Twilio node documentation
+nodeTitle: Twilio 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.twilio.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.twilio
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Twilio node <a href="#twilio-node" id="twilio-node"></a>
 
-Use the Twilio node to automate work in Twilio, and integrate Twilio with other applications. n8n supports sending MMS/SMS and WhatsApp messages with Twilio. 
+# Twilio 节点 <a href="#twilio-node" id="twilio-node"></a>
 
-On this page, you'll find a list of operations the Twilio node supports and links to more resources.
+使用 Twilio 节点自动处理 Twilio 中的工作，并将其与其他应用集成。n8n 支持通过 Twilio 发送彩信、短信和 WhatsApp 消息。
+
+本页列出了 Twilio 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Twilio credentials](../credentials/twilio.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Twilio 凭据](../credentials/twilio.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* SMS
-    * Send SMS/MMS/WhatsApp message
-* Call
-    * Make a phone call using text-to-speech to say a message
+* SMS（短信）
+    * Send SMS/MMS/WhatsApp message（发送短信、彩信或 WhatsApp 消息）
+* Call（通话）
+    * Make a phone call using text-to-speech to say a message（拨打电话并通过文本转语音播放消息）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Twilio node documentation integration templates](https://n8n.io/integrations/twilio) or [search all templates](https://n8n.io/workflows/)
+[浏览 Twilio 集成模板](https://n8n.io/integrations/twilio)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Twilio's documentation](https://www.twilio.com/docs/usage/api) for more information about the service.
+有关该服务的更多信息，请参阅 [Twilio 文档](https://www.twilio.com/docs/usage/api)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

@@ -1,40 +1,40 @@
 ---
-title: Peekalink credentials
-description: >-
-  Documentation for Peekalink credentials. Use these credentials to authenticate
-  Peekalink in n8n, a workflow automation platform.
+title: Peekalink 凭据
+description: Peekalink 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Peekalink 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Peekalink credentials
+- integration
+- reference
+nodeTitle: Peekalink 凭据
 originalFilePath: integrations/builtin/credentials/peekalink.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/peekalink'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/peekalink'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/peekalink
+url: https://docs.n8n.io/integrations/builtin/credentials/peekalink
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Peekalink credentials <a href="#peekalink-credentials" id="peekalink-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Peekalink 凭据 <a href="#peekalink-credentials" id="peekalink-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Peekalink](../app-nodes/n8n-nodes-base.peekalink.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Peekalink](https://www.peekalink.io/) account.
+创建一个 [Peekalink](https://www.peekalink.io/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Peekalink's API documentation](https://docs.peekalink.io/) for more information about the service.
+有关该服务的更多信息，请参阅 [Peekalink API 文档](https://docs.peekalink.io/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: To get your API key, access your Peekalink [dashboard](https://peekalink.io/app) and copy the key in the **Your API Key** section. Refer to [Get your API key](https://docs.peekalink.io/quickstart#1-get-your-api-key) for more information.
+- 一个 **API Key（API 密钥）**：进入 Peekalink [控制台](https://peekalink.io/app)，复制 **Your API Key（你的 API 密钥）** 部分的密钥。更多信息请参阅[获取 API 密钥](https://docs.peekalink.io/quickstart#1-get-your-api-key)。

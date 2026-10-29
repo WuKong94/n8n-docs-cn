@@ -1,31 +1,33 @@
 ---
-title: Waiting
-description: How to make your workflow execution wait.
+title: 等待
+description: 如何让工作流执行进入等待状态。
 contentType: howto
-nodeTitle: Wait
+nodeTitle: 等待
 originalFilePath: flow-logic/waiting.md
-originalUrl: 'https://docs.n8n.io/flow-logic/waiting'
-url: 'https://docs.n8n.io/build/flow-logic/wait'
+originalUrl: https://docs.n8n.io/flow-logic/waiting
+url: https://docs.n8n.io/build/flow-logic/wait
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Waiting <a href="#waiting" id="waiting"></a>
 
-Waiting allows you to pause a workflow mid-execution, then resume where the workflow left off, with the same data. This is useful if you need to rate limit your calls to a service, or wait for an external event to complete. You can wait for a specified duration, or until a webhook fires. Waiting is one part of n8n's [flow logic](./), and works well alongside [loops](loop.md) when you need to slow down batch processing, or as part of a [merge](merge-data.md) across multiple node executions.
+# 等待 <a href="#waiting" id="waiting"></a>
 
-Making a workflow wait uses the [Wait](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait) node. Refer to the node documentation for usage details.
+等待功能可以在工作流执行过程中暂停，之后携带相同数据，从暂停处继续执行。如果需要限制服务调用频率，或等待外部事件完成，这会很有用。可以等待指定时长，也可以等待 Webhook 被触发。等待是 n8n [流程逻辑](./)的一部分：需要降低批处理速度时，可与[循环](loop.md)配合使用；也可以用于多次节点执行之间的数据[合并](merge-data.md)。
 
-n8n provides a workflow template with a basic example of [Rate limiting and waiting for external events](https://n8n.io/workflows/1749-rate-limiting-and-waiting-for-external-events/).
+使用 [Wait](../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md) 节点让工作流等待。使用详情请参阅该节点文档。
 
-## Related resources
+n8n 提供了一个工作流模板，演示[限制调用频率和等待外部事件](https://n8n.io/workflows/1749-rate-limiting-and-waiting-for-external-events/)的基本用法。
 
-* [Flow logic](./)
-* [Split with conditionals](split-with-conditionals.md)
-* [Merge data](merge-data.md)
-* [Loop](loop.md)
-* [Understand execution order](understand-execution-order.md)
-* [Break workflows into smaller parts](break-workflows-into-smaller-parts.md)
-* [Convert to sub-workflows](convert-to-sub-workflows.md)
-* [Handle errors gracefully](handle-errors-gracefully.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [流程逻辑](./)
+* [按条件分支](split-with-conditionals.md)
+* [合并数据](merge-data.md)
+* [循环](loop.md)
+* [理解执行顺序](understand-execution-order.md)
+* [将工作流拆分为更小的部分](break-workflows-into-smaller-parts.md)
+* [转换为子工作流](convert-to-sub-workflows.md)
+* [妥善处理错误](handle-errors-gracefully.md)

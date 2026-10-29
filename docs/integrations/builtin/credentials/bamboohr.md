@@ -1,43 +1,43 @@
 ---
-title: BambooHR credentials
-description: >-
-  Documentation for BambooHR credentials. Use these credentials to authenticate
-  BambooHR in n8n, a workflow automation platform.
+title: BambooHR 凭据
+description: BambooHR 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 BambooHR 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: BambooHR credentials
+nodeTitle: BambooHR 凭据
 originalFilePath: integrations/builtin/credentials/bamboohr.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/bamboohr'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/bamboohr'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/bamboohr
+url: https://docs.n8n.io/integrations/builtin/credentials/bamboohr
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# BambooHR credentials <a href="#bamboohr-credentials" id="bamboohr-credentials"></a>
 
-You can use these credentials to authenticate the following node:
+# BambooHR 凭据 <a href="#bamboohr-credentials" id="bamboohr-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [BambooHR](../app-nodes/n8n-nodes-base.bamboohr.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [BambooHR](https://www.bamboohr.com/) account.
+创建一个 [BambooHR](https://www.bamboohr.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [BambooHR's API documentation](https://documentation.bamboohr.com/docs/getting-started) for more information about the service.
+有关该服务的更多信息，请参阅 [BambooHR API 文档](https://documentation.bamboohr.com/docs/getting-started)。
 
-## Using API Key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- Your BambooHR **Subdomain**: the part between `https://` and `.bamboohr.com`
-- A BambooHR **API Key**: Refer to the [Authentication section of BambooHR's Getting Started API documentation](https://documentation.bamboohr.com/docs/getting-started#authentication) for instructions on generating an API key.
+- 你的 BambooHR **Subdomain（子域名）**：即 `https://` 与 `.bamboohr.com` 之间的部分。
+- 一个 BambooHR **API Key（API 密钥）**：生成方法请参阅 [BambooHR API 入门文档的身份验证部分](https://documentation.bamboohr.com/docs/getting-started#authentication)。
 

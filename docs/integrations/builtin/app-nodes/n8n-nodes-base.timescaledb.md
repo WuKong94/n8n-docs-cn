@@ -1,44 +1,44 @@
 ---
-title: TimescaleDB node documentation
-description: >-
-  Learn how to use the TimescaleDB node in n8n. Follow technical documentation
-  to integrate TimescaleDB node into your workflows.
+title: TimescaleDB 节点文档
+description: 了解如何在 n8n 中使用 TimescaleDB 节点，并按照技术文档将 TimescaleDB 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: TimescaleDB node documentation
+- integration
+- reference
+nodeTitle: TimescaleDB 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.timescaledb.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.timescaledb'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.timescaledb'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.timescaledb
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.timescaledb
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# TimescaleDB node <a href="#timescaledb-node" id="timescaledb-node"></a>
 
-Use the TimescaleDB node to automate work in TimescaleDB, and integrate TimescaleDB with other applications. n8n has built-in support for a wide range of TimescaleDB features, including executing an SQL query, as well as inserting and updating rows in a database. 
+# TimescaleDB 节点 <a href="#timescaledb-node" id="timescaledb-node"></a>
 
-On this page, you'll find a list of operations the TimescaleDB node supports and links to more resources.
+使用 TimescaleDB 节点自动处理 TimescaleDB 中的工作，并将其与其他应用集成。n8n 内置支持多种 TimescaleDB 功能，包括执行 SQL 查询，以及在数据库中插入和更新行。
+
+本页列出了 TimescaleDB 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [TimescaleDB credentials](../credentials/timescaledb.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [TimescaleDB 凭据](../credentials/timescaledb.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Execute an SQL query
-* Insert rows in database
-* Update rows in database
+* Execute an SQL query（执行 SQL 查询）
+* Insert rows in database（向数据库插入行）
+* Update rows in database（更新数据库中的行）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse TimescaleDB node documentation integration templates](https://n8n.io/integrations/timescaledb) or [search all templates](https://n8n.io/workflows/)
+[浏览 TimescaleDB 集成模板](https://n8n.io/integrations/timescaledb)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Specify a column's data type <a href="#specify-a-columns-data-type" id="specify-a-columns-data-type"></a>
+## 指定列的数据类型 <a href="#specify-a-columns-data-type" id="specify-a-columns-data-type"></a>
 
-To specify a column's data type, append the column name with `:type`, where `type` is the data type you want for the column. For example, if you want to specify the type `int` for the column **id** and type `text` for the column **name**, you can use the following snippet in the **Columns** field: `id:int,name:text`.
+要指定列的数据类型，请在列名后附加 `:type`，其中 `type` 为所需的数据类型。例如，要将 **id** 列指定为 `int` 类型，将 **name** 列指定为 `text` 类型，可以在 **Columns（列）** 字段中填写：`id:int,name:text`。
 

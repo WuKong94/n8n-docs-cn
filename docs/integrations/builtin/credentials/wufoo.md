@@ -1,42 +1,42 @@
 ---
-title: Wufoo credentials
-description: >-
-  Documentation for Wufoo credentials. Use these credentials to authenticate
-  Wufoo in n8n, a workflow automation platform.
+title: Wufoo 凭据
+description: Wufoo 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Wufoo 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Wufoo credentials
+- integration
+- reference
+nodeTitle: Wufoo 凭据
 originalFilePath: integrations/builtin/credentials/wufoo.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/wufoo'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/wufoo'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/wufoo
+url: https://docs.n8n.io/integrations/builtin/credentials/wufoo
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Wufoo credentials <a href="#wufoo-credentials" id="wufoo-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Wufoo 凭据 <a href="#wufoo-credentials" id="wufoo-credentials"></a>
 
-- [Wufoo Trigger](../trigger-nodes/n8n-nodes-base.wufootrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [Wufoo Trigger（触发器）](../trigger-nodes/n8n-nodes-base.wufootrigger.md)
 
-Create a [Wufoo](https://wufoo.com) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Wufoo](https://wufoo.com) 账号。
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Wufoo's API documentation](https://wufoo.github.io/docs/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+有关该服务的更多信息，请参阅 [Wufoo API 文档](https://wufoo.github.io/docs/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**: Get your API key from the [Wufoo Form Manager](https://app.wufoo.com/#/form-manager). To the right of a form, select **More > API Information**. Refer to [Using API Information and Webhooks](https://help.surveymonkey.com/en/wufoo/integrations/wufoo-api/) for more information.
-- A **Subdomain**: Your subdomain is the part of your Wufoo URL that comes after `https://` and before `wufoo.com`. So if the full domain is `https://n8n.wufoo.com`, the subdomain is `n8n`. Admins can view the subdomain in the [**Account Manager**](https://help.surveymonkey.com/en/wufoo/account/account-manager/). Refer to [Your Subdomain](https://help.surveymonkey.com/en/wufoo/account/your-subdomain/) for more information.
+配置此凭据需要：
+
+- 一个 **API Key（API 密钥）**：从 [Wufoo Form Manager（表单管理器）](https://app.wufoo.com/#/form-manager)获取密钥。在表单右侧选择 **More > API Information（更多 > API 信息）**。更多信息请参阅[使用 API 信息和 Webhook](https://help.surveymonkey.com/en/wufoo/integrations/wufoo-api/)。
+- 一个 **Subdomain（子域名）**：即 Wufoo URL 中位于 `https://` 之后、`wufoo.com` 之前的部分。例如，完整域名为 `https://n8n.wufoo.com` 时，子域名为 `n8n`。管理员可以在 [**Account Manager（账号管理器）**](https://help.surveymonkey.com/en/wufoo/account/account-manager/)中查看子域名。更多信息请参阅[你的子域名](https://help.surveymonkey.com/en/wufoo/account/your-subdomain/)。
 

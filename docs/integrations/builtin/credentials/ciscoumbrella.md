@@ -1,45 +1,45 @@
 ---
-title: Cisco Umbrella credentials
-description: >-
-  Documentation for the Cisco Umbrella credentials. Use these credentials to
-  authenticate Cisco Umbrella in n8n, a workflow automation platform.
+title: Cisco Umbrella 凭据
+description: Cisco Umbrella 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Cisco Umbrella 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Cisco Umbrella credentials
+nodeTitle: Cisco Umbrella 凭据
 originalFilePath: integrations/builtin/credentials/ciscoumbrella.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/ciscoumbrella'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/ciscoumbrella'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/ciscoumbrella
+url: https://docs.n8n.io/integrations/builtin/credentials/ciscoumbrella
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Cisco Umbrella credentials <a href="#cisco-umbrella-credentials" id="cisco-umbrella-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Cisco Umbrella 凭据 <a href="#cisco-umbrella-credentials" id="cisco-umbrella-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-- Create a [Cisco DevNet developer account](https://developer.cisco.com).
-- A [Cisco Umbrella user account](https://umbrella.cisco.com/) with **Full Admin** role.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Authentication methods <a href="#authentication-methods" id="authentication-methods"></a>
+- 创建一个 [Cisco DevNet 开发者账号](https://developer.cisco.com)。
+- 一个具有 **Full Admin（完全管理员）** 角色的 [Cisco Umbrella 用户账号](https://umbrella.cisco.com/)。
 
-- API key
+## 身份验证方式 <a href="#authentication-methods" id="authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Cisco Umbrella's API documentation](https://developer.cisco.com/docs/cloud-security/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/cisco-umbrella/) on n8n's website.
+有关该服务的更多信息，请参阅 [Cisco Umbrella API 文档](https://developer.cisco.com/docs/cloud-security/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/cisco-umbrella/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**
-- A **Secret**: Provided when you generate an API key
+配置此凭据需要：
 
-Refer to the [Cisco Umbrella Manage API Keys documentation](https://developer.cisco.com/docs/cloud-security/authentication/#manage-api-keys) for instructions on creating an Umbrella API key.
+- 一个 **API Key（API 密钥）**
+- 一个 **Secret（密钥机密值）**：生成 API 密钥时提供
+
+创建 Umbrella API 密钥的方法，请参阅 [Cisco Umbrella 的管理 API 密钥文档](https://developer.cisco.com/docs/cloud-security/authentication/#manage-api-keys)。

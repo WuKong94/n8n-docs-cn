@@ -1,42 +1,42 @@
 ---
-title: Quick Base credentials
-description: >-
-  Documentation for Quick Base credentials. Use these credentials to
-  authenticate Quick Base in n8n, a workflow automation platform.
+title: Quick Base 凭据
+description: Quick Base 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Quick Base 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Quick Base credentials
+- integration
+- reference
+nodeTitle: Quick Base 凭据
 originalFilePath: integrations/builtin/credentials/quickbase.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/quickbase'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/quickbase'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/quickbase
+url: https://docs.n8n.io/integrations/builtin/credentials/quickbase
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Quick Base credentials <a href="#quick-base-credentials" id="quick-base-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Quick Base 凭据 <a href="#quick-base-credentials" id="quick-base-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Quick Base](../app-nodes/n8n-nodes-base.quickbase.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Quick Base](https://www.quickbase.com/) account.
+创建一个 [Quick Base](https://www.quickbase.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Quick Base's API documentation](https://developer.quickbase.com/auth/) for more information about the service.
+有关该服务的更多信息，请参阅 [Quick Base API 文档](https://developer.quickbase.com/auth/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Hostname**: The string of characters located between `https://` and `/db` in your Quick Base URL.
-- A **User Token**: To generate a token, select your **Profile > My preferences > My User Information > Manage my user tokens**. Refer to [Create and use user tokens](https://help.quickbase.com/docs/create-and-use-user-tokens) for detailed instructions.
+- 一个 **Hostname（主机名）**：即 Quick Base URL 中位于 `https://` 与 `/db` 之间的字符串。
+- 一个 **User Token（用户令牌）**：选择 **Profile > My preferences > My User Information > Manage my user tokens（个人资料 > 我的偏好设置 > 我的用户信息 > 管理我的用户令牌）**，生成令牌。详细说明请参阅[创建和使用用户令牌](https://help.quickbase.com/docs/create-and-use-user-tokens)。
 

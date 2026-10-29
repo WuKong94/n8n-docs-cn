@@ -1,39 +1,39 @@
 ---
-title: Hunter node documentation
-description: >-
-  Learn how to use the Hunter node in n8n. Follow technical documentation to
-  integrate Hunter node into your workflows.
+title: Hunter 节点文档
+description: 了解如何在 n8n 中使用 Hunter 节点，并按照技术文档将 Hunter 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Hunter node documentation
+- integration
+- reference
+nodeTitle: Hunter 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.hunter.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hunter'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hunter'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hunter
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hunter
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Hunter node <a href="#hunter-node" id="hunter-node"></a>
 
-Use the Hunter node to automate work in Hunter, and integrate Hunter with other applications. n8n has built-in support for a wide range of Hunter features, including getting, generating, and verifying email addresses. 
+# Hunter 节点 <a href="#hunter-node" id="hunter-node"></a>
 
-On this page, you'll find a list of operations the Hunter node supports and links to more resources.
+使用 Hunter 节点自动处理 Hunter 中的工作，并将其与其他应用集成。n8n 内置支持多种 Hunter 功能，包括获取、生成和验证电子邮件地址。
+
+本页列出了 Hunter 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Hunter credentials](../credentials/hunter.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Hunter 凭据](../credentials/hunter.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Get every email address found on the internet using a given domain name, with sources
-* Generate or retrieve the most likely email address from a domain name, a first name and a last name
-* Verify the deliverability of an email address
+* Get every email address found on the internet using a given domain name, with sources（获取互联网上找到的使用给定域名的全部电子邮件地址及来源）
+* Generate or retrieve the most likely email address from a domain name, a first name and a last name（根据域名、名和姓生成或获取最可能的电子邮件地址）
+* Verify the deliverability of an email address（验证电子邮件地址是否可投递）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Hunter node documentation integration templates](https://n8n.io/integrations/hunter) or [search all templates](https://n8n.io/workflows/)
+[浏览 Hunter 集成模板](https://n8n.io/integrations/hunter)，或[搜索所有模板](https://n8n.io/workflows/)

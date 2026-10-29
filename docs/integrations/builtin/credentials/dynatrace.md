@@ -1,38 +1,38 @@
 ---
-title: Dynatrace credentials
-description: >-
-  Documentation for the Dynatrace credentials. Use these credentials to
-  authenticate Dynatrace in n8n, a workflow automation platform.
+title: Dynatrace 凭据
+description: Dynatrace 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Dynatrace 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Dynatrace credentials
+- integration
+- reference
+nodeTitle: Dynatrace 凭据
 originalFilePath: integrations/builtin/credentials/dynatrace.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/dynatrace'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/dynatrace'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/dynatrace
+url: https://docs.n8n.io/integrations/builtin/credentials/dynatrace
 layout:
   description:
     visible: false
 ---
-# Dynatrace credentials <a href="#dynatrace-credentials" id="dynatrace-credentials"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Dynatrace 凭据 <a href="#dynatrace-credentials" id="dynatrace-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Dynatrace](https://www.dynatrace.com/signup/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+创建一个 [Dynatrace](https://www.dynatrace.com/signup/) 账号。
 
-Refer to [Dynatrace's API documentation](https://docs.dynatrace.com/docs/dynatrace-api) for more information about authenticating with the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/dynatrace-api/) on n8n's website.
+有关该服务身份验证的更多信息，请参阅 [Dynatrace API 文档](https://docs.dynatrace.com/docs/dynatrace-api)。
+
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/dynatrace-api/)。
 
 
-## Using Access Token <a href="#using-access-token" id="using-access-token"></a>
+## 使用访问令牌 <a href="#using-access-token" id="using-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Access Token**
+- 一个 **Access Token（访问令牌）**
 	
-Refer to [Access Tokens](https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/access-tokens) on Dynatrace's website for more information.
+更多信息请参阅 Dynatrace 网站上的[访问令牌](https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/access-tokens)文档。

@@ -1,41 +1,41 @@
 ---
-title: Travis CI credentials
-description: >-
-  Documentation for Travis CI credentials. Use these credentials to authenticate
-  Travis CI in n8n, a workflow automation platform.
+title: Travis CI 凭据
+description: Travis CI 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Travis CI 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Travis CI credentials
+- integration
+- reference
+nodeTitle: Travis CI 凭据
 originalFilePath: integrations/builtin/credentials/travisci.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/travisci'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/travisci'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/travisci
+url: https://docs.n8n.io/integrations/builtin/credentials/travisci
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Travis CI credentials <a href="#travis-ci-credentials" id="travis-ci-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Travis CI 凭据 <a href="#travis-ci-credentials" id="travis-ci-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Travis CI](../app-nodes/n8n-nodes-base.travisci.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Travis CI](https://travis-ci.com/) account.
+创建一个 [Travis CI](https://travis-ci.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API token
+- API token（API 令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Travis CI's API documentation](https://docs.travis-ci.com/user/developer/) for more information about the service.
+有关该服务的更多信息，请参阅 [Travis CI API 文档](https://docs.travis-ci.com/user/developer/)。
 
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Token**: Get your API token from **Account Settings >** [**API Token**](https://packagecloud.io/api_token) or generate one through the Travis CI [command line client](https://github.com/travis-ci/travis.rb#installation) .
+- 一个 **API Token（API 令牌）**：从 **Account Settings（账号设置）>** [**API Token（API 令牌）**](https://packagecloud.io/api_token) 获取令牌，或通过 Travis CI [命令行客户端](https://github.com/travis-ci/travis.rb#installation)生成。
 

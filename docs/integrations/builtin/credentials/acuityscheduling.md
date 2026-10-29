@@ -1,51 +1,51 @@
 ---
-title: Acuity Scheduling credentials
-description: >-
-  Documentation for Acuity Scheduling credentials. Use these credentials to
-  authenticate Acuity Scheduling in n8n, a workflow automation platform.
+title: Acuity Scheduling 凭据
+description: Acuity Scheduling 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Acuity Scheduling 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Acuity Scheduling credentials
+nodeTitle: Acuity Scheduling 凭据
 originalFilePath: integrations/builtin/credentials/acuityscheduling.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/acuityscheduling'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/acuityscheduling'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/acuityscheduling
+url: https://docs.n8n.io/integrations/builtin/credentials/acuityscheduling
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Acuity Scheduling credentials <a href="#acuity-scheduling-credentials" id="acuity-scheduling-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Acuity Scheduling 凭据 <a href="#acuity-scheduling-credentials" id="acuity-scheduling-credentials"></a>
 
-- [Acuity Scheduling Trigger](../trigger-nodes/n8n-nodes-base.acuityschedulingtrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [Acuity Scheduling Trigger（触发器）](../trigger-nodes/n8n-nodes-base.acuityschedulingtrigger.md)
 
-Create an [Acuity Scheduling](https://acuityscheduling.com/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Acuity Scheduling](https://acuityscheduling.com/) 账号。
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+
+- API key（API 密钥）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Acuity's API documentation](https://developers.acuityscheduling.com/reference/quick-start) for more information about working with the service.
+有关如何使用该服务的更多信息，请参阅 [Acuity API 文档](https://developers.acuityscheduling.com/reference/quick-start)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A numeric **User ID**
-- An **API Key**
+- 一个数字形式的 **User ID（用户 ID）**
+- 一个 **API Key（API 密钥）**
 
-Refer to the [Acuity API Quick Start authentication instructions](https://developers.acuityscheduling.com/reference/quick-start#authentication) to generate an API key and view your User ID.
+生成 API 密钥和查看用户 ID 的方法，请参阅 [Acuity API 快速入门中的身份验证说明](https://developers.acuityscheduling.com/reference/quick-start#authentication)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you need to set this up from scratch, complete the [Acuity OAuth2 Account Registration page](https://acuityscheduling.com/oauth2/register). Use the **Client ID** and **Client Secret** provided from that registration.
+如果需要从头设置，请填写 [Acuity OAuth2 账号注册页面](https://acuityscheduling.com/oauth2/register)，并使用注册后提供的 **Client ID（客户端 ID）** 和 **Client Secret（客户端密钥）**。

@@ -1,40 +1,40 @@
 ---
-title: CircleCI node documentation
-description: >-
-  Learn how to use the CircleCI node in n8n. Follow technical documentation to
-  integrate CircleCI node into your workflows.
+title: CircleCI 节点文档
+description: 了解如何在 n8n 中使用 CircleCI 节点，并按照技术文档将 CircleCI 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: CircleCI node documentation
+- integration
+- reference
+nodeTitle: CircleCI 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.circleci.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.circleci'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.circleci'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.circleci
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.circleci
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# CircleCI node <a href="#circleci-node" id="circleci-node"></a>
 
-Use the CircleCI node to automate work in CircleCI, and integrate CircleCI with other applications. n8n has built-in support for a wide range of CircleCI features, including getting and triggering pipelines.
+# CircleCI 节点 <a href="#circleci-node" id="circleci-node"></a>
 
-On this page, you'll find a list of operations the CircleCI node supports and links to more resources.
+使用 CircleCI 节点自动处理 CircleCI 中的工作，并将其与其他应用集成。n8n 内置支持多种 CircleCI 功能，包括获取和触发流水线。
+
+本页列出了 CircleCI 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [CircleCI credentials](../credentials/circleci.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [CircleCI 凭据](../credentials/circleci.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Pipeline
-    * Get a pipeline
-    * Get all pipelines
-    * Trigger a pipeline
+* Pipeline（流水线）
+    * Get a pipeline（获取流水线）
+    * Get all pipelines（获取全部流水线）
+    * Trigger a pipeline（触发流水线）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse CircleCI node documentation integration templates](https://n8n.io/integrations/circleci) or [search all templates](https://n8n.io/workflows/)
+[浏览 CircleCI 集成模板](https://n8n.io/integrations/circleci)，或[搜索所有模板](https://n8n.io/workflows/)

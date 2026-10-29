@@ -1,42 +1,42 @@
 ---
-title: Clockify credentials
-description: >-
-  Documentation for Clockify credentials. Use these credentials to authenticate
-  Clockify in n8n, a workflow automation platform.
+title: Clockify 凭据
+description: Clockify 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Clockify 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Clockify credentials
+- integration
+- reference
+nodeTitle: Clockify 凭据
 originalFilePath: integrations/builtin/credentials/clockify.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/clockify'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/clockify'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/clockify
+url: https://docs.n8n.io/integrations/builtin/credentials/clockify
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Clockify credentials <a href="#clockify-credentials" id="clockify-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Clockify 凭据 <a href="#clockify-credentials" id="clockify-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Clockify](../app-nodes/n8n-nodes-base.clockify.md)
-- [Clockify Trigger](../trigger-nodes/n8n-nodes-base.clockifytrigger.md)
+- [Clockify Trigger（触发器）](../trigger-nodes/n8n-nodes-base.clockifytrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Clockify](https://www.clockify.com/) account.
+创建一个 [Clockify](https://www.clockify.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Clockify's API documentation](https://docs.developer.clockify.me/) for more information about the service.
+有关该服务的更多信息，请参阅 [Clockify API 文档](https://docs.developer.clockify.me/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Access your API key from your [Clockify Profile Settings](https://clockify.me/help/users/profile-settings).
+- 一个 **API Key（API 密钥）**：在 [Clockify 个人资料设置](https://clockify.me/help/users/profile-settings)中获取 API 密钥。
 

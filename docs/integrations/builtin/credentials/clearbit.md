@@ -1,40 +1,40 @@
 ---
-title: Clearbit credentials
-description: >-
-  Documentation for Clearbit credentials. Use these credentials to authenticate
-  Clearbit in n8n, a workflow automation platform.
+title: Clearbit 凭据
+description: Clearbit 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Clearbit 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Clearbit credentials
+- integration
+- reference
+nodeTitle: Clearbit 凭据
 originalFilePath: integrations/builtin/credentials/clearbit.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/clearbit'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/clearbit'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/clearbit
+url: https://docs.n8n.io/integrations/builtin/credentials/clearbit
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Clearbit credentials <a href="#clearbit-credentials" id="clearbit-credentials"></a>
 
-You can use these credentials to authenticate the following node:
+# Clearbit 凭据 <a href="#clearbit-credentials" id="clearbit-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Clearbit](../app-nodes/n8n-nodes-base.clearbit.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Clearbit](https://www.clearbit.com/) account.
+创建一个 [Clearbit](https://www.clearbit.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Clearbit's API documentation](https://dashboard.clearbit.com/docs) for more information about authenticating with the service.
+有关该服务身份验证的更多信息，请参阅 [Clearbit API 文档](https://dashboard.clearbit.com/docs)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Refer to [Clearbit's API Authentication documentation](https://dashboard.clearbit.com/docs#authentication) for more information on creating and viewing API keys.
+- 一个 **API Key（API 密钥）**：创建和查看 API 密钥的方法，请参阅 [Clearbit API 身份验证文档](https://dashboard.clearbit.com/docs#authentication)。

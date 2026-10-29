@@ -1,69 +1,71 @@
 ---
-title: Sub-workflow conversion
-description: Select nodes in your workflow and convert them into a sub-workflow.
+title: 子工作流转换
+description: 选择工作流中的节点，将其转换为子工作流。
 contentType: howto
-nodeTitle: Convert to sub-workflows
+nodeTitle: 转换为子工作流
 originalFilePath: workflows/subworkflow-conversion.md
-originalUrl: 'https://docs.n8n.io/workflows/subworkflow-conversion'
-url: 'https://docs.n8n.io/build/flow-logic/convert-to-sub-workflows'
+originalUrl: https://docs.n8n.io/workflows/subworkflow-conversion
+url: https://docs.n8n.io/build/flow-logic/convert-to-sub-workflows
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Sub-workflow conversion <a href="#sub-workflow-conversion" id="sub-workflow-conversion"></a>
+
+# 子工作流转换 <a href="#sub-workflow-conversion" id="sub-workflow-conversion"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Sub-workflow conversion is available from n8n 1.97.0.
+从 n8n 1.97.0 起提供子工作流转换功能。
 {% endhint %}
 
-Use sub-workflow conversion to refactor your workflows into reusable parts, as part of your workflow's [flow logic](./). Expressions referencing other nodes are automatically updated and added as parameters in the [Execute Workflow Trigger](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger) node.
+使用子工作流转换，将工作流重构为可复用的部分，作为[流程逻辑](./)的一部分。引用其他节点的表达式会自动更新，并作为参数添加到 [Execute Workflow Trigger](../../integrations/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger.md) 节点中。
 
-See [sub-workflows](break-workflows-into-smaller-parts.md) for a general introduction to the concept.
+有关这一概念的概述，请参阅[子工作流](break-workflows-into-smaller-parts.md)。
 
-## Selecting nodes for a sub-workflow <a href="#selecting-nodes-for-a-sub-workflow" id="selecting-nodes-for-a-sub-workflow"></a>
+## 选择用于子工作流的节点 <a href="#selecting-nodes-for-a-sub-workflow" id="selecting-nodes-for-a-sub-workflow"></a>
 
-To convert part of a workflow to a sub-workflow, you must select the nodes in the original workflow that you want to convert.
+要将工作流的一部分转为子工作流，必须在原工作流中选择要转换的节点。
 
-Do this by selecting a group of valid nodes. The selection must be continuous and must connect to the rest of the workflow from at most one start node and one end node. The selection must fulfill these conditions:
+选择一组符合条件的节点即可。所选节点必须连续，并且最多通过一个起始节点和一个结束节点与工作流其余部分连接。所选节点必须满足以下条件：
 
-- Must not include trigger nodes.
-- Only a single node in the selection can have incoming connections from nodes *outside* of the selection.
-	- That node can have multiple incoming connections, but only a single input *branch* (which means it can't be a [Merge node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.merge) for example).
-	- That node can't have incoming connections from other nodes in the selection.
-- Only a single node in the selection can have outgoing connections to nodes *outside* of the selection.
-	- That node can have multiple outgoing connections, but only a single output branch (it can't be an [If node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.if) for example).
-	- That node can't have outgoing connections to other nodes in the selection.
-- The selection must include all nodes between the input and output nodes.
+- 不得包含触发器节点。
+- 所选节点中，只有一个节点可以接收来自所选范围*之外*节点的连接。
+	- 该节点可以有多条传入连接，但只能有一个输入*分支*（因此不能是 [Merge 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.merge.md)等节点）。
+	- 该节点不能接收来自所选范围内其他节点的连接。
+- 所选节点中，只有一个节点可以向所选范围*之外*的节点发出连接。
+	- 该节点可以有多条传出连接，但只能有一个输出分支（因此不能是 [If 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.if.md)等节点）。
+	- 该节点不能向所选范围内的其他节点发出连接。
+- 必须选中输入节点与输出节点之间的所有节点。
 
-## How to convert part of a workflow to a sub-workflow <a href="#how-to-convert-part-of-a-workflow-to-a-sub-workflow" id="how-to-convert-part-of-a-workflow-to-a-sub-workflow"></a>
+## 如何将工作流的一部分转换为子工作流 <a href="#how-to-convert-part-of-a-workflow-to-a-sub-workflow" id="how-to-convert-part-of-a-workflow-to-a-sub-workflow"></a>
 
-Select the desired nodes on the canvas. Right-click the canvas background and select **Convert to sub-workflow**.
+在画布上选择所需节点。右键点击画布背景，选择 **Convert to sub-workflow（转换为子工作流）**。
 
-## Things to keep in mind <a href="#things-to-keep-in-mind" id="things-to-keep-in-mind"></a>
+## 注意事项 <a href="#things-to-keep-in-mind" id="things-to-keep-in-mind"></a>
 
-Most sub-workflow conversions work without issues, but there are some caveats and limitations to keep in mind:
+大多数子工作流转换都能顺利完成，但仍需注意以下限制：
 
-* **You must set type constraints for input and output manually**: By default, sub-workflow input and output allow all types. You can set expected types in sub-workflow's [Execute Sub-workflow Trigger node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger) and [Edit Fields (set) node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.set) (labeled as **Return** and only included if the sub-workflow has outputs).
-* **Limited support for AI nodes**: When dealing with sub-nodes like AI tools, you must select them all and may need to duplicate any nodes shared with other AI Agents before conversion.
-- **Uses v1 execution ordering:** New workflows use [`v1` execution ordering](understand-execution-order.md) regardless of the parent workflow's settings - you can change this back in the settings.
-* **Accessor functions like `first()`, `last()`, and `all()` require extra care**: Expressions using these functions don't always translate cleanly to a sub-workflow context. n8n may transform them to try to preserve their functionality, but you should check that they work as intended in their new context.<br>
+* **必须手动设置输入和输出的类型约束**：默认情况下，子工作流的输入和输出允许所有类型。可以在子工作流的 [Execute Sub-workflow Trigger 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger.md)和 [Edit Fields (set) 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.set.md)中设置预期类型（后者标记为 **Return**，仅在子工作流有输出时添加）。
+* **对 AI 节点的支持有限**：处理 AI 工具等子节点时，必须选中所有这些子节点；转换前还可能需要复制与其他 AI 智能体共用的节点。
+- **使用 v1 执行顺序：** 无论父工作流如何设置，新工作流都使用 [`v1` 执行顺序](understand-execution-order.md)；可以在设置中将其改回。
+* **使用 `first()`、`last()` 和 `all()` 等访问函数时需格外注意**：使用这些函数的表达式不一定能直接适用于子工作流上下文。n8n 可能会转换表达式以尽量保留其功能，但你仍应检查它们在新上下文中是否按预期工作。<br>
 
-	<div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Sub-node parameter suffixes</strong></p><p>n8n adds suffixes like <code>_firstItem</code>, <code>_lastItem</code>, and <code>_allItems</code> to variable names accessed by these functions. This helps preserve information about the original expression, since item ordering may be different in the sub-workflow context.</p></div>
+	<div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>子节点参数后缀</strong></p><p>n8n 会为这些函数访问的变量名添加 <code>_firstItem</code>、<code>_lastItem</code> 和 <code>_allItems</code> 等后缀。这有助于保留原始表达式的信息，因为子工作流上下文中的数据项顺序可能不同。</p></div>
 
 
-* **The `itemMatching` function requires a fixed index**: You can't use expressions for the index value when using the [`itemMatching` function](../work-with-data/reference-data/reference-previous-nodes.md). You must pass it a fixed number.
+* **`itemMatching` 函数需要固定索引**：使用 [`itemMatching` 函数](../work-with-data/reference-data/reference-previous-nodes.md)时，索引值不能使用表达式，必须传入固定数字。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Flow logic](./)
-* [Split with conditionals](split-with-conditionals.md)
-* [Merge data](merge-data.md)
-* [Loop](loop.md)
-* [Wait](wait.md)
-* [Understand execution order](understand-execution-order.md)
-* [Break workflows into smaller parts](break-workflows-into-smaller-parts.md)
-* [Handle errors gracefully](handle-errors-gracefully.md)
+* [流程逻辑](./)
+* [按条件分支](split-with-conditionals.md)
+* [合并数据](merge-data.md)
+* [循环](loop.md)
+* [等待](wait.md)
+* [理解执行顺序](understand-execution-order.md)
+* [将工作流拆分为更小的部分](break-workflows-into-smaller-parts.md)
+* [妥善处理错误](handle-errors-gracefully.md)
 

@@ -1,43 +1,43 @@
 ---
-title: Onfleet credentials
-description: >-
-  Documentation for Onfleet credentials. Use these credentials to authenticate
-  Onfleet in n8n, a workflow automation platform.
+title: Onfleet 凭据
+description: Onfleet 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Onfleet 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Onfleet credentials
+- integration
+- reference
+nodeTitle: Onfleet 凭据
 originalFilePath: integrations/builtin/credentials/onfleet.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/onfleet'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/onfleet'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/onfleet
+url: https://docs.n8n.io/integrations/builtin/credentials/onfleet
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Onfleet credentials <a href="#onfleet-credentials" id="onfleet-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Onfleet 凭据 <a href="#onfleet-credentials" id="onfleet-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Onfleet](../app-nodes/n8n-nodes-base.onfleet.md)
-- [Onfleet Trigger](../trigger-nodes/n8n-nodes-base.onfleettrigger.md)
+- [Onfleet Trigger（触发器）](../trigger-nodes/n8n-nodes-base.onfleettrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [Onfleet](https://onfleet.com/) administrator account.
+创建一个 [Onfleet](https://onfleet.com/) 管理员账号。
 
-# Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+# 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Onfleet's API documentation](https://docs.onfleet.com/reference/introduction) for more information about the service.
+有关该服务的更多信息，请参阅 [Onfleet API 文档](https://docs.onfleet.com/reference/introduction)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API key**: To create an API key, log into your organization's administrator account. Select **Settings > API & Webhooks**, then select **+** to create a new key. Refer to Onfleet's [Creating an API key documentation](https://support.onfleet.com/hc/en-us/articles/360045763292-API) for more information.
+- 一个 **API key（API 密钥）**：登录组织的管理员账号，选择 **Settings > API & Webhooks（设置 > API 与 Webhook）**，再选择 **+** 创建新密钥。更多信息请参阅 Onfleet 的[创建 API 密钥文档](https://support.onfleet.com/hc/en-us/articles/360045763292-API)。
 
 

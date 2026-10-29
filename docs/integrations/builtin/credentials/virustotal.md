@@ -1,42 +1,42 @@
 ---
-title: VirusTotal credentials
-description: >-
-  Documentation for the VirusTotal credentials. Use these credentials to
-  authenticate VirusTotal in n8n, a workflow automation platform.
+title: VirusTotal 凭据
+description: VirusTotal 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 VirusTotal 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: VirusTotal credentials
+nodeTitle: VirusTotal 凭据
 originalFilePath: integrations/builtin/credentials/virustotal.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/virustotal'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/virustotal'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/virustotal
+url: https://docs.n8n.io/integrations/builtin/credentials/virustotal
 layout:
   description:
     visible: false
 ---
-
-# VirusTotal credentials <a href="#virustotal-credentials" id="virustotal-credentials"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
-
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
-
-Create a [VirusTotal](https://www.virustotal.com) account.
-
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
-
-- API key
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-Refer to [VirusTotal's documentation](https://docs.virustotal.com/reference/overview) for more information about the service.
-
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/virustotal/) on n8n's website.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+# VirusTotal 凭据 <a href="#virustotal-credentials" id="virustotal-credentials"></a>
 
-To configure this credential, you'll need:
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-- An **API Token**: Go to your **user account menu > API key** to get your API key. Enter this as the **API Token** in your n8n credential. Refer to [API authentication](https://docs.virustotal.com/reference/authentication) for more information.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
+
+创建一个 [VirusTotal](https://www.virustotal.com) 账号。
+
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+
+- API key（API 密钥）
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+有关该服务的更多信息，请参阅 [VirusTotal 文档](https://docs.virustotal.com/reference/overview)。
+
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/virustotal/)。
+
+
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
+
+配置此凭据需要：
+
+- 一个 **API Token（API 令牌）**：进入 **user account menu > API key（用户账号菜单 > API 密钥）** 获取密钥，并填入 n8n 凭据的 **API Token** 字段。更多信息请参阅 [API 身份验证](https://docs.virustotal.com/reference/authentication)。

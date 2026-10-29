@@ -1,44 +1,44 @@
 ---
-title: urlscan.io node documentation
-description: >-
-  Learn how to use the urlscan.io node in n8n. Follow technical documentation to
-  integrate urlscan.io node into your workflows.
+title: urlscan.io 节点文档
+description: 了解如何在 n8n 中使用 urlscan.io 节点，并按照技术文档将 urlscan.io 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: urlscan.io node documentation
+- integration
+- reference
+nodeTitle: urlscan.io 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.urlscanio.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.urlscanio'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.urlscanio'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.urlscanio
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.urlscanio
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# urlscan.io node <a href="#urlscanio-node" id="urlscanio-node"></a>
 
-Use the urlscan.io node to automate work in urlscan.io, and integrate urlscan.io with other applications. n8n has built-in support for a wide range of urlscan.io features, including getting and performing scans. 
+# urlscan.io 节点 <a href="#urlscanio-node" id="urlscanio-node"></a>
 
-On this page, you'll find a list of operations the urlscan.io node supports and links to more resources.
+使用 urlscan.io 节点自动处理 urlscan.io 中的工作，并将其与其他应用集成。n8n 内置支持多种 urlscan.io 功能，包括获取和执行扫描。
+
+本页列出了 urlscan.io 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [urlscan.io credentials](../credentials/urlscanio.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [urlscan.io 凭据](../credentials/urlscanio.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Scan
-    * Get
-    * Get All
-    * Perform
+* Scan（扫描）
+    * Get（获取）
+    * Get All（获取全部）
+    * Perform（执行）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse urlscan.io node documentation integration templates](https://n8n.io/integrations/urlscanio) or [search all templates](https://n8n.io/workflows/)
+[浏览 urlscan.io 集成模板](https://n8n.io/integrations/urlscanio)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

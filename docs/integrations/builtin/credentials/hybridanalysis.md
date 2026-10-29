@@ -1,41 +1,41 @@
 ---
-title: Hybrid Analysis credentials
-description: >-
-  Documentation for the Hybrid Analysis credentials. Use these credentials to
-  authenticate Hybrid Analysis in n8n, a workflow automation platform.
+title: Hybrid Analysis 凭据
+description: Hybrid Analysis 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Hybrid Analysis 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Hybrid Analysis credentials
+nodeTitle: Hybrid Analysis 凭据
 originalFilePath: integrations/builtin/credentials/hybridanalysis.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/hybridanalysis'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/hybridanalysis'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/hybridanalysis
+url: https://docs.n8n.io/integrations/builtin/credentials/hybridanalysis
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Hybrid Analysis credentials <a href="#hybrid-analysis-credentials" id="hybrid-analysis-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Hybrid Analysis 凭据 <a href="#hybrid-analysis-credentials" id="hybrid-analysis-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Hybrid Analysis](https://www.hybrid-analysis.com/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Hybrid Analysis](https://www.hybrid-analysis.com/) 账号。
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Hybrid Analysis' API documentation](https://www.hybrid-analysis.com/docs/api/v2) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/hybrid-analysis/) on n8n's website.
+有关该服务的更多信息，请参阅 [Hybrid Analysis API 文档](https://www.hybrid-analysis.com/docs/api/v2)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/hybrid-analysis/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**: Refer to the [Hybrid Analysis' API documentation](https://www.hybrid-analysis.com/docs/api/v2) for instructions on generating an API key.
+配置此凭据需要：
+
+- 一个 **API Key（API 密钥）**：生成方法请参阅 [Hybrid Analysis API 文档](https://www.hybrid-analysis.com/docs/api/v2)。

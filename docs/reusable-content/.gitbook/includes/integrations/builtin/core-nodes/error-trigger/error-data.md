@@ -1,7 +1,9 @@
 ---
-title: error-data
+title: 错误触发器的数据
 ---
-The default error data received by the Error Trigger is:
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+Error Trigger 默认收到的错误数据如下：
 
 ```json
 [
@@ -26,13 +28,13 @@ The default error data received by the Error Trigger is:
 
 ```
 
-All information is always present, except:
+除以下字段外，其他信息始终存在：
 
-- `execution.id`: requires the execution to be saved in the database. Not present if the error is in the trigger node of the main workflow, as the workflow doesn't execute.
-- `execution.url`: requires the execution to be saved in the database. Not present if the error is in the trigger node of the main workflow, as the workflow doesn't execute.
-- `execution.retryOf`: only present when the execution is a retry of a failed execution.
+- `execution.id`：要求执行记录已保存到数据库。如果错误发生在主工作流的触发器节点中，则不会出现此字段，因为工作流尚未执行。
+- `execution.url`：要求执行记录已保存到数据库。如果错误发生在主工作流的触发器节点中，则不会出现此字段，因为工作流尚未执行。
+- `execution.retryOf`：仅在本次执行是对失败执行的重试时存在。
 
-If the error is caused by the trigger node of the main workflow, rather than a later stage, the data sent to the error workflow is different. There's less information in `execution{}` and more in `trigger{}`:
+如果错误由主工作流的触发器节点引起，而不是发生在后续阶段，发送给错误工作流的数据会有所不同。`execution{}` 中的信息会更少，而 `trigger{}` 中的信息会更多：
 
 ```json
 {

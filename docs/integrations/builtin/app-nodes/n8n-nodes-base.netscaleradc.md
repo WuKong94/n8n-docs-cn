@@ -1,50 +1,50 @@
 ---
-title: Netscaler ADC node documentation
-description: >-
-  Learn how to use the Netscaler ADC node in n8n. Follow technical documentation
-  to integrate Netscaler ADC node into your workflows.
+title: Netscaler ADC 节点文档
+description: 了解如何在 n8n 中使用 Netscaler ADC 节点，并按照技术文档将 Netscaler ADC 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Netscaler ADC node documentation
+- integration
+- reference
+nodeTitle: Netscaler ADC 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.netscaleradc.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.netscaleradc'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.netscaleradc'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.netscaleradc
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.netscaleradc
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Netscaler ADC node <a href="#netscaler-adc-node" id="netscaler-adc-node"></a>
 
-Use the Netscaler ADC node to automate work in Netscaler ADC, and integrate Netscaler ADC with other applications. n8n has built-in support for a wide range of Netscaler ADC features, including creating and installing certificates and files.
+# Netscaler ADC 节点 <a href="#netscaler-adc-node" id="netscaler-adc-node"></a>
 
-On this page, you'll find a list of operations the Netscaler ADC node supports and links to more resources.
+使用 Netscaler ADC 节点自动处理 Netscaler ADC 中的工作，并将其与其他应用集成。n8n 内置支持多种 Netscaler ADC 功能，包括创建和安装证书及文件。
+
+本页列出了 Netscaler ADC 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Netscaler ADC credentials](../credentials/netscaleradc.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Netscaler ADC 凭据](../credentials/netscaleradc.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Certificate
-	* Create
-	* Install
-* File
-	* Delete
-	* Download
-	* Upload
+* Certificate（证书）
+	* Create（创建）
+	* Install（安装）
+* File（文件）
+	* Delete（删除）
+	* Download（下载）
+	* Upload（上传）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Netscaler ADC node documentation integration templates](https://n8n.io/integrations/citrix-adc/) or [search all templates](https://n8n.io/workflows/)
+[浏览 Netscaler ADC 集成模板](https://n8n.io/integrations/citrix-adc/)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to the [Netscaler ADC documentation](https://docs.netscaler.com/en-us/citrix-adc/current-release) for more information about the service.
+有关该服务的更多信息，请参阅 [Netscaler ADC 文档](https://docs.netscaler.com/en-us/citrix-adc/current-release)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 

@@ -1,42 +1,42 @@
 ---
-title: Cloudflare credentials
-description: >-
-  Documentation for Cloudflare credentials. Use these credentials to
-  authenticate Cloudflare in n8n, a workflow automation platform.
+title: Cloudflare 凭据
+description: Cloudflare 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Cloudflare 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Cloudflare credentials
+- integration
+- reference
+nodeTitle: Cloudflare 凭据
 originalFilePath: integrations/builtin/credentials/cloudflare.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/cloudflare'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/cloudflare'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/cloudflare
+url: https://docs.n8n.io/integrations/builtin/credentials/cloudflare
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Cloudflare credentials <a href="#cloudflare-credentials" id="cloudflare-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Cloudflare 凭据 <a href="#cloudflare-credentials" id="cloudflare-credentials"></a>
 
-* [Cloudflare node](../app-nodes/n8n-nodes-base.cloudflare.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+* [Cloudflare 节点](../app-nodes/n8n-nodes-base.cloudflare.md)
 
-- Create a [Cloudflare account](https://developers.cloudflare.com/fundamentals/setup/account/).
-- [Add a domain](https://developers.cloudflare.com/fundamentals/setup/manage-domains/add-site/).
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- 创建一个 [Cloudflare 账号](https://developers.cloudflare.com/fundamentals/setup/account/)。
+- [添加域名](https://developers.cloudflare.com/fundamentals/setup/manage-domains/add-site/)。
 
-- API token
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API token（API 令牌）
 
-Refer to [Cloudflare's API documentation](https://developers.cloudflare.com/fundamentals/api/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
+有关该服务的更多信息，请参阅 [Cloudflare API 文档](https://developers.cloudflare.com/fundamentals/api/)。
 
-To configure this credential, you'll need:
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-- An **API token**: Follow the [Cloudflare documentation to create an API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/).
+配置此凭据需要：
+
+- 一个 **API token（API 令牌）**：按照 [Cloudflare 文档创建 API 令牌](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)。
 

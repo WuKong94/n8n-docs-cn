@@ -1,5 +1,5 @@
 ---
-description: Build workflows in n8n, from first draft to production.
+description: 在 n8n 中构建工作流，从初步设计到投入生产。
 layout:
   width: default
   title:
@@ -21,81 +21,83 @@ layout:
   anchors:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Build
 
-Build workflows in n8n, from first draft to production.
+# 构建 <a id="build"></a>
 
-Use this space to learn workflow basics, data handling, logic, code, and AI.
+在 n8n 中构建工作流，从初步设计到投入生产。
 
-### Explore this space
+通过本分区学习工作流基础、数据处理、逻辑、代码和 AI。
+
+### 探索本分区 <a id="explore-this-space"></a>
 
 {% columns %}
 {% column %}
-#### Foundations
+#### 基础知识 <a id="foundations"></a>
 
-[**Understand workflows**](understand-workflows/)
+[**理解工作流**](understand-workflows/)
 
-Learn the core building blocks, editor concepts, and workflow anatomy.
+了解核心构建模块、编辑器概念和工作流结构。
 
-<a href="understand-workflows/" class="button secondary">Open</a>
+<a href="understand-workflows/" class="button secondary">打开</a>
 
-[**Build and manage agents**](build-and-manage-agents/)
+[**构建和管理智能体**](build-and-manage-agents/)
 
-Build agents alongside your workflows, then publish them for people to reach through chat, channels, and schedules.
+在构建工作流的同时构建智能体，再发布它们，让用户可以通过聊天、频道和计划任务与之交互。
 
-<a href="build-and-manage-agents/" class="button secondary">Open</a>
+<a href="build-and-manage-agents/" class="button secondary">打开</a>
 
-[**Ways of building workflows**](ways-of-building-workflows/)
+[**构建工作流的方式**](ways-of-building-workflows/)
 
-Choose the fastest path with templates, AI, MCP, or manual building.
+通过模板、AI、MCP 或手动构建，选择最快的实现方式。
 
-<a href="ways-of-building-workflows/" class="button secondary">Open</a>
+<a href="ways-of-building-workflows/" class="button secondary">打开</a>
 
-[**Work with data**](work-with-data/)
+[**处理数据**](work-with-data/)
 
-Reference, transform, structure, and test the data moving through workflows.
+引用、转换、组织和测试工作流中流转的数据。
 
-<a href="work-with-data/" class="button secondary">Open</a>
+<a href="work-with-data/" class="button secondary">打开</a>
 
-[**Code in n8n**](code-in-n8n/)
+[**在 n8n 中编写代码**](code-in-n8n/)
 
-Use expressions, the Code node, and developer tools when low-code isn't enough.
+当低代码能力无法满足需求时，使用表达式、Code 节点和开发者工具。
 
-<a href="code-in-n8n/" class="button secondary">Open</a>
+<a href="code-in-n8n/" class="button secondary">打开</a>
 {% endcolumn %}
 
 {% column %}
-#### Build and optimize
+#### 构建与优化 <a id="build-and-optimize"></a>
 
-[**Manage workflows**](manage-workflows/)
+[**管理工作流**](manage-workflows/)
 
-Configure, tag, share, export, and maintain workflows as they grow.
+随着工作流不断发展，对其进行配置、添加标签、共享、导出和维护。
 
-<a href="manage-workflows/" class="button secondary">Open</a>
+<a href="manage-workflows/" class="button secondary">打开</a>
 
-[**Flow logic**](flow-logic/)
+[**流程逻辑**](flow-logic/)
 
-Branch, merge, loop, wait, and handle errors with clear workflow logic.
+通过清晰的工作流逻辑，实现分支、合并、循环、等待和错误处理。
 
-<a href="flow-logic/" class="button secondary">Open</a>
+<a href="flow-logic/" class="button secondary">打开</a>
 
-[**Integrate AI**](integrate-ai/)
+[**集成 AI**](integrate-ai/)
 
-Build AI-powered workflows with models, tools, evaluations, and prompts.
+借助模型、工具、评估和提示词，构建 AI 工作流。
 
-<a href="integrate-ai/" class="button secondary">Open</a>
+<a href="integrate-ai/" class="button secondary">打开</a>
 
-[**Agentic context management**](agentic-context-management/)
+[**智能体上下文管理**](agentic-context-management/)
 
-Give n8n Assistant and MCP clients reusable context, such as your preferences.
+为 n8n Assistant 和 MCP 客户端提供可复用的上下文，例如你的偏好设置。
 
-<a href="agentic-context-management/" class="button secondary">Open</a>
+<a href="agentic-context-management/" class="button secondary">打开</a>
 
-[**Keyboard shortcuts**](keyboard-shortcuts.md)
+[**键盘快捷键**](keyboard-shortcuts.md)
 
-Move faster in the editor with workflow, canvas, and node shortcuts.
+使用工作流、画布和节点快捷键，在编辑器中更高效地操作。
 
-<a href="keyboard-shortcuts.md" class="button secondary">Open</a>
+<a href="keyboard-shortcuts.md" class="button secondary">打开</a>
 {% endcolumn %}
 {% endcolumns %}

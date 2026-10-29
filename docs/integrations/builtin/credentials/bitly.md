@@ -1,49 +1,49 @@
 ---
-title: Bitly credentials
-description: >-
-  Documentation for Bitly credentials. Use these credentials to authenticate
-  Bitly in n8n, a workflow automation platform.
+title: Bitly 凭据
+description: Bitly 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Bitly 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Bitly credentials
+- integration
+- reference
+nodeTitle: Bitly 凭据
 originalFilePath: integrations/builtin/credentials/bitly.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/bitly'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/bitly'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/bitly
+url: https://docs.n8n.io/integrations/builtin/credentials/bitly
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Bitly credentials <a href="#bitly-credentials" id="bitly-credentials"></a>
 
-You can use these credentials to authenticate the following node:
+# Bitly 凭据 <a href="#bitly-credentials" id="bitly-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Bitly](../app-nodes/n8n-nodes-base.bitly.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Bitly](https://www.bitly.com/) account.
+创建一个 [Bitly](https://www.bitly.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API token
+- API token（API 令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Bitly's API documentation](https://dev.bitly.com/) for more information about the service.
+有关该服务的更多信息，请参阅 [Bitly API 文档](https://dev.bitly.com/)。
 
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Access Token**: Once logged in, visit [Settings > Developer Settings > API](https://app.bitly.com/settings/api/) to generate an Access Token.
+- 一个 **Access Token（访问令牌）**：登录后，进入 [Settings > Developer Settings > API（设置 > 开发者设置 > API）](https://app.bitly.com/settings/api/)生成令牌。
 
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you need to configure OAuth2 from scratch or need more detail on what's happening in the OAuth web flow, refer to the [Bitly API Authentication documentation](https://dev.bitly.com/docs/getting-started/authentication/) for more information.
+如果需要从头配置 OAuth2，或希望进一步了解 OAuth 网页授权流程，请参阅 [Bitly API 身份验证文档](https://dev.bitly.com/docs/getting-started/authentication/)。
 

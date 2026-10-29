@@ -1,42 +1,42 @@
 ---
-title: Keap credentials
-description: >-
-  Documentation for Keap credentials. Use these credentials to authenticate Keap
-  in n8n, a workflow automation platform.
+title: Keap 凭据
+description: Keap 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Keap 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Keap credentials
+- integration
+- reference
+nodeTitle: Keap 凭据
 originalFilePath: integrations/builtin/credentials/keap.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/keap'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/keap'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/keap
+url: https://docs.n8n.io/integrations/builtin/credentials/keap
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Keap credentials <a href="#keap-credentials" id="keap-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Keap 凭据 <a href="#keap-credentials" id="keap-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Keap](../app-nodes/n8n-nodes-base.keap.md)
-- [Keap Trigger](../trigger-nodes/n8n-nodes-base.keaptrigger.md)
+- [Keap Trigger（触发器）](../trigger-nodes/n8n-nodes-base.keaptrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Keap](https://developer.keap.com/) developer account.
+创建一个 [Keap](https://developer.keap.com/) 开发者账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to Keap's [REST API documentation](https://developer.keap.com/docs/restv2/) for more information about the service.
+有关该服务的更多信息，请参阅 Keap 的 [REST API 文档](https://developer.keap.com/docs/restv2/)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you need to configure OAuth2 from scratch or need more detail on what's happening in the OAuth web flow, refer to the instructions in the [Getting Started with OAuth2 documentation](https://developer.keap.com/getting-started-oauth-keys/).
+如果需要从头配置 OAuth2，或希望进一步了解 OAuth 网页授权流程，请参阅 [OAuth2 入门文档](https://developer.keap.com/getting-started-oauth-keys/)中的说明。
 

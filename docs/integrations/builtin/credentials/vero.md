@@ -1,41 +1,41 @@
 ---
-title: Vero credentials
-description: >-
-  Documentation for Vero credentials. Use these credentials to authenticate Vero
-  in n8n, a workflow automation platform.
+title: Vero 凭据
+description: Vero 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Vero 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Vero credentials
+- integration
+- reference
+nodeTitle: Vero 凭据
 originalFilePath: integrations/builtin/credentials/vero.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/vero'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/vero'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/vero
+url: https://docs.n8n.io/integrations/builtin/credentials/vero
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Vero credentials <a href="#vero-credentials" id="vero-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Vero 凭据 <a href="#vero-credentials" id="vero-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Vero](../app-nodes/n8n-nodes-base.vero.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Vero](https://getvero.com/) account.
+创建一个 [Vero](https://getvero.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API auth token
+- API auth token（API 身份验证令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Vero's API documentation](https://developers.getvero.com/track-api-reference/#/) for more information about the service.
+有关该服务的更多信息，请参阅 [Vero API 文档](https://developers.getvero.com/track-api-reference/#/)。
 
-## Using API auth token <a href="#using-api-auth-token" id="using-api-auth-token"></a>
+## 使用 API 身份验证令牌 <a href="#using-api-auth-token" id="using-api-auth-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Auth Token**: Get your auth token from your Vero account [settings](https://app.getvero.com/settings/project). Refer to [API authentication](https://developers.getvero.com/track-api-reference/#/#authentication) for more information.
+- 一个 **Auth Token（身份验证令牌）**：在 Vero 账号的[设置](https://app.getvero.com/settings/project)中获取。更多信息请参阅 [API 身份验证](https://developers.getvero.com/track-api-reference/#/#authentication)。
 

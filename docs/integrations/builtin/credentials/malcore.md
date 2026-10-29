@@ -1,38 +1,38 @@
 ---
-title: Malcore credentials
-description: >-
-  Documentation for the Malcore credentials. Use these credentials to
-  authenticate Malcore in n8n, a workflow automation platform.
+title: Malcore 凭据
+description: Malcore 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Malcore 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Malcore credentials
+- integration
+- reference
+nodeTitle: Malcore 凭据
 originalFilePath: integrations/builtin/credentials/malcore.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/malcore'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/malcore'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/malcore
+url: https://docs.n8n.io/integrations/builtin/credentials/malcore
 layout:
   description:
     visible: false
 ---
-# Malcore credentials <a href="#malcore-credentials" id="malcore-credentials"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Malcore 凭据 <a href="#malcore-credentials" id="malcore-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Malcore](https://app.malcore.io/register) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+创建一个 [Malcore](https://app.malcore.io/register) 账号。
 
-Refer to [Malcore's API documentation](https://malcore.readme.io/reference/) for more information about authenticating with the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/malcore/) on n8n's website.
+有关该服务身份验证的更多信息，请参阅 [Malcore API 文档](https://malcore.readme.io/reference/)。
+
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/malcore/)。
 
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Get an API Key from your **Account > API**.
+- 一个 **API Key（API 密钥）**：在 **Account > API（账号 > API）** 中获取。
 
-Refer to [Using the Malcore API](https://support.malcore.io/hc/en-au/articles/17711707070617-Using-the-Malcore-API) for more information.
+更多信息请参阅[使用 Malcore API](https://support.malcore.io/hc/en-au/articles/17711707070617-Using-the-Malcore-API)。

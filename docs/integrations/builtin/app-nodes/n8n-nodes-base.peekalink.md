@@ -1,39 +1,39 @@
 ---
-title: Peekalink node documentation
-description: >-
-  Learn how to use the Peekalink node in n8n. Follow technical documentation to
-  integrate Peekalink node into your workflows.
+title: Peekalink 节点文档
+description: 了解如何在 n8n 中使用 Peekalink 节点，并按照技术文档将 Peekalink 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Peekalink node documentation
+- integration
+- reference
+nodeTitle: Peekalink 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.peekalink.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.peekalink'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.peekalink'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.peekalink
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.peekalink
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Peekalink node <a href="#peekalink-node" id="peekalink-node"></a>
 
-Use the Peekalink node to automate work in Peekalink, and integrate Peekalink with other applications. n8n supports checking, and reviewing links with Peekalink.
+# Peekalink 节点 <a href="#peekalink-node" id="peekalink-node"></a>
 
-On this page, you'll find a list of operations the Peekalink node supports and links to more resources.
+使用 Peekalink 节点自动处理 Peekalink 中的工作，并将其与其他应用集成。n8n 支持通过 Peekalink 检查和预览链接。
+
+本页列出了 Peekalink 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Peekalink credentials](../credentials/peekalink.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Peekalink 凭据](../credentials/peekalink.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Check whether preview for a given link is available
-* Return the preview for a link
+* Check whether preview for a given link is available（检查给定链接是否有可用预览）
+* Return the preview for a link（返回链接预览）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Peekalink node documentation integration templates](https://n8n.io/integrations/peekalink) or [search all templates](https://n8n.io/workflows/)
+[浏览 Peekalink 集成模板](https://n8n.io/integrations/peekalink)，或[搜索所有模板](https://n8n.io/workflows/)
 

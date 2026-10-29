@@ -1,42 +1,42 @@
 ---
-title: Pushcut credentials
-description: >-
-  Documentation for Pushcut credentials. Use these credentials to authenticate
-  Pushcut in n8n, a workflow automation platform.
+title: Pushcut 凭据
+description: Pushcut 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Pushcut 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Pushcut credentials
+- integration
+- reference
+nodeTitle: Pushcut 凭据
 originalFilePath: integrations/builtin/credentials/pushcut.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/pushcut'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/pushcut'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/pushcut
+url: https://docs.n8n.io/integrations/builtin/credentials/pushcut
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Pushcut credentials <a href="#pushcut-credentials" id="pushcut-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Pushcut 凭据 <a href="#pushcut-credentials" id="pushcut-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Pushcut](../app-nodes/n8n-nodes-base.pushcut.md)
-- [Pushcut Trigger](../trigger-nodes/n8n-nodes-base.pushcuttrigger.md)
+- [Pushcut Trigger（触发器）](../trigger-nodes/n8n-nodes-base.pushcuttrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Download the [Pushcut](https://www.pushcut.io) app.
+下载 [Pushcut](https://www.pushcut.io) 应用。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Pushcut's Guides documentation](https://www.pushcut.io/guides) for more information about the service.
+有关该服务的更多信息，请参阅 [Pushcut 使用指南](https://www.pushcut.io/guides)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: To generate an API key, go to **Account > Integrations > Add API Key**. Refer to [Create an API key](https://www.pushcut.io/guides/homekit-api-schedule-cancel#step_2) for more information.
+- 一个 **API Key（API 密钥）**：进入 **Account > Integrations > Add API Key（账号 > 集成 > 添加 API 密钥）**，生成密钥。更多信息请参阅[创建 API 密钥](https://www.pushcut.io/guides/homekit-api-schedule-cancel#step_2)。
 

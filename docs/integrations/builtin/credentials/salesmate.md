@@ -1,43 +1,43 @@
 ---
-title: Salesmate credentials
-description: >-
-  Documentation for Salesmate credentials. Use these credentials to authenticate
-  Salesmate in n8n, a workflow automation platform.
+title: Salesmate 凭据
+description: Salesmate 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Salesmate 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Salesmate credentials
+- integration
+- reference
+nodeTitle: Salesmate 凭据
 originalFilePath: integrations/builtin/credentials/salesmate.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/salesmate'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/salesmate'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/salesmate
+url: https://docs.n8n.io/integrations/builtin/credentials/salesmate
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Salesmate credentials <a href="#salesmate-credentials" id="salesmate-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Salesmate 凭据 <a href="#salesmate-credentials" id="salesmate-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Salesmate](../app-nodes/n8n-nodes-base.salesmate.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Salesmate](https://salesmate.io/) account.
+创建一个 [Salesmate](https://salesmate.io/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API token
+- API token（API 令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Salesmate's API documentation](https://apidocs.salesmate.io/?version=latest) for more information about the service.
+有关该服务的更多信息，请参阅 [Salesmate API 文档](https://apidocs.salesmate.io/?version=latest)。
 
 
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Session Token**: An **Access Key**. Generate an access key in **My Account > Access Key**. Refer to [Access Rights and Keys](https://apidocs.salesmate.io/?version=latest#ac8296ec-cb44-4937-a860-5ae032397ca0) for more information.
-- A **URL**: Your Salesmate domain name/base URL, for example `n8n.salesmate.io`.
+- 一个 **Session Token（会话令牌）**，即 **Access Key（访问密钥）**。在 **My Account > Access Key（我的账号 > 访问密钥）** 中生成。更多信息请参阅[访问权限和密钥](https://apidocs.salesmate.io/?version=latest#ac8296ec-cb44-4937-a860-5ae032397ca0)。
+- 一个 **URL**：即 Salesmate 的域名／基础 URL，例如 `n8n.salesmate.io`。
 

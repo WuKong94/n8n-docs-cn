@@ -1,40 +1,40 @@
 ---
-title: ProfitWell node documentation
-description: >-
-  Learn how to use the ProfitWell node in n8n. Follow technical documentation to
-  integrate ProfitWell node into your workflows.
+title: ProfitWell 节点文档
+description: 了解如何在 n8n 中使用 ProfitWell 节点，并按照技术文档将 ProfitWell 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: ProfitWell node documentation
+- integration
+- reference
+nodeTitle: ProfitWell 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.profitwell.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.profitwell'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.profitwell'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.profitwell
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.profitwell
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# ProfitWell node <a href="#profitwell-node" id="profitwell-node"></a>
 
-Use the ProfitWell node to automate work in ProfitWell, and integrate ProfitWell with other applications. n8n supports getting your company's account settings and retrieving financial metrics from ProfitWell.
+# ProfitWell 节点 <a href="#profitwell-node" id="profitwell-node"></a>
 
-On this page, you'll find a list of operations the ProfitWell node supports and links to more resources.
+使用 ProfitWell 节点自动处理 ProfitWell 中的工作，并将其与其他应用集成。n8n 支持从 ProfitWell 获取公司的账户设置和财务指标。
+
+本页列出了 ProfitWell 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [ProfitWell credentials](../credentials/profitwell.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [ProfitWell 凭据](../credentials/profitwell.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Company
-    * Get your company's ProfitWell account settings
-* Metric
-    * Retrieve financial metric broken down by day for either the current month or the last
+* Company（公司）
+    * Get your company's ProfitWell account settings（获取公司的 ProfitWell 账户设置）
+* Metric（指标）
+    * Retrieve financial metric broken down by day for either the current month or the last（按天获取本月或上个月的财务指标）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse ProfitWell node documentation integration templates](https://n8n.io/integrations/profitwell) or [search all templates](https://n8n.io/workflows/)
+[浏览 ProfitWell 集成模板](https://n8n.io/integrations/profitwell)，或[搜索所有模板](https://n8n.io/workflows/)

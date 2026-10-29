@@ -1,53 +1,52 @@
 ---
-title: Microsoft Graph Security node documentation
-description: >-
-  Learn how to use the Microsoft Graph Security node in n8n. Follow technical
-  documentation to integrate Microsoft Graph Security node into your workflows.
+title: Microsoft Graph Security 节点文档
+description: 了解如何在 n8n 中使用 Microsoft Graph Security 节点，并按照技术文档将 Microsoft Graph Security
+  节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Microsoft Graph Security node documentation
+- integration
+- reference
+nodeTitle: Microsoft Graph Security 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.microsoftgraphsecurity.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftgraphsecurity
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftgraphsecurity
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftgraphsecurity
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftgraphsecurity
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Graph Security node <a href="#microsoft-graph-security-node" id="microsoft-graph-security-node"></a>
 
-Use the Microsoft Graph Security node to automate work in Microsoft Graph Security, and integrate Microsoft Graph Security with other applications. n8n has built-in support for a wide range of Microsoft Graph Security features, including getting, and updating scores, and profiles. 
+# Microsoft Graph Security 节点 <a href="#microsoft-graph-security-node" id="microsoft-graph-security-node"></a>
 
-On this page, you'll find a list of operations the Microsoft Graph Security node supports and links to more resources.
+使用 Microsoft Graph Security 节点自动处理 Microsoft Graph Security 中的工作，并将其与其他应用集成。n8n 内置支持多种 Microsoft Graph Security 功能，包括获取和更新评分及配置文件。
+
+本页列出了 Microsoft Graph Security 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Microsoft credentials](../credentials/microsoft.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Microsoft 凭据](../credentials/microsoft.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Government Cloud Support**
+**政府云支持**
 
-If you're using a government cloud tenant (US Government, US Government DOD, or China), make sure to select the appropriate **Microsoft Graph API Base URL** in your Microsoft credentials configuration.
+如果使用政府云租户（美国政府、美国国防部或中国），请确保在 Microsoft 凭据配置中选择正确的 **Microsoft Graph API Base URL（Microsoft Graph API 基础 URL）**。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Secure Score
-    * Get
-    * Get All
-* Secure Score Control Profile
-    * Get
-    * Get All
-    * Update
+* Secure Score（安全评分）
+    * Get（获取）
+    * Get All（获取全部）
+* Secure Score Control Profile（安全评分控制配置文件）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Microsoft Graph Security node documentation integration templates](https://n8n.io/integrations/microsoft-graph-security) or [search all templates](https://n8n.io/workflows/)
+[浏览 Microsoft Graph Security 集成模板](https://n8n.io/integrations/microsoft-graph-security)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

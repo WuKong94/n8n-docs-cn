@@ -1,25 +1,27 @@
 ---
-title: outlook-app-password
+title: 生成 Outlook 应用密码
 ---
-If you'd prefer to use an app password instead of your email account password:
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-1. Log into the [My Account](https://myaccount.microsoft.com/) page.
-2. If you have a left navigation option for **Security Info**, jump to [Security Info app password](#security-info-app-password). If you don't have an option for **Security Info**, continue with these instructions.
-3. Go to the [Additional security verification page](https://account.activedirectory.windowsazure.com/Proofup.aspx).
-4. Select **App passwords** and **Create**.
-5. Enter a **Name** for your app password, like `n8n credential`.
-6. Use the option to **copy password to clipboard** and enter this as the **Password** in n8n instead of your email account password.
+如果希望使用应用密码代替邮箱账号密码：
 
-Refer to Outlook's [Manage app passwords for 2-step verification](https://support.microsoft.com/en-us/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9) page for more information.
+1. 登录 [My Account（我的账号）](https://myaccount.microsoft.com/)页面。
+2. 如果左侧导航中有 **Security Info（安全信息）** 选项，请跳至[安全信息中的应用密码](#security-info-app-password)；如果没有，请继续执行以下步骤。
+3. 进入[其他安全验证页面](https://account.activedirectory.windowsazure.com/Proofup.aspx)。
+4. 选择 **App passwords（应用密码）**，再选择 **Create（创建）**。
+5. 为应用密码输入 **Name（名称）**，例如 `n8n credential`。
+6. 使用 **copy password to clipboard（将密码复制到剪贴板）** 选项，将其填入 n8n 的 **Password（密码）** 字段，替代邮箱账号密码。
 
-### Security Info app password <a href="#security-info-app-password" id="security-info-app-password"></a>
+更多信息请参阅 Outlook 的[管理两步验证的应用密码](https://support.microsoft.com/en-us/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9)页面。
 
-If you have a left navigation option for **Security Info**:
+### 安全信息中的应用密码 <a href="#security-info-app-password" id="security-info-app-password"></a>
 
-1. Select **Security Info**. The Security Info page opens.
-2. Select **+ Add method**.
-3. On the **Add a method** page, select **App password** and then select **Add**.
-4. Enter a **Name** for your app password, like `n8n credential`.
-5. Copy the **Password** and enter this as the **Password** in n8n instead of your email account password.
+如果左侧导航中有 **Security Info（安全信息）** 选项：
 
-Refer to Outlook's [Create app passwords from the Security info (preview)](https://support.microsoft.com/en-us/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137) page for more information.
+1. 选择 **Security Info（安全信息）**，打开安全信息页面。
+2. 选择 **+ Add method（添加方法）**。
+3. 在 **Add a method（添加方法）** 页面上，选择 **App password（应用密码）**，再选择 **Add（添加）**。
+4. 为应用密码输入 **Name（名称）**，例如 `n8n credential`。
+5. 复制 **Password（密码）**，填入 n8n 的 **Password** 字段，替代邮箱账号密码。
+
+更多信息请参阅 Outlook 的[从安全信息创建应用密码（预览版）](https://support.microsoft.com/en-us/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137)页面。

@@ -1,42 +1,42 @@
 ---
-title: Rocket.Chat node documentation
-description: >-
-  Learn how to use the Rocket.Chat node in n8n. Follow technical documentation
-  to integrate Rocket.Chat node into your workflows.
+title: Rocket.Chat 节点文档
+description: 了解如何在 n8n 中使用 Rocket.Chat 节点，并按照技术文档将 Rocket.Chat 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Rocket.Chat node documentation
+- integration
+- reference
+nodeTitle: Rocket.Chat 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.rocketchat.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rocketchat'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rocketchat'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rocketchat
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rocketchat
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Rocket.Chat node <a href="#rocketchat-node" id="rocketchat-node"></a>
 
-Use the Rocket.Chat node to automate work in Rocket.Chat, and integrate Rocket.Chat with other applications. n8n supports posting messages to channels, and sending direct messages, with Rocket.Chat. 
+# Rocket.Chat 节点 <a href="#rocketchat-node" id="rocketchat-node"></a>
 
-On this page, you'll find a list of operations the Rocket.Chat node supports and links to more resources.
+使用 Rocket.Chat 节点自动处理 Rocket.Chat 中的工作，并将其与其他应用集成。n8n 支持通过 Rocket.Chat 向频道发布消息及发送私信。
+
+本页列出了 Rocket.Chat 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Rocket.Chat credentials](../credentials/rocketchat.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Rocket.Chat 凭据](../credentials/rocketchat.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Chat
-    * Post a message to a channel or a direct message
+* Chat（聊天）
+    * Post a message to a channel or a direct message（向频道发布消息或发送私信）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Rocket.Chat node documentation integration templates](https://n8n.io/integrations/rocketchat) or [search all templates](https://n8n.io/workflows/)
+[浏览 Rocket.Chat 集成模板](https://n8n.io/integrations/rocketchat)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

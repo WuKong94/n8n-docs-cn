@@ -1,43 +1,43 @@
 ---
-title: Wekan credentials
-description: >-
-  Documentation for Wekan credentials. Use these credentials to authenticate
-  Wekan in n8n, a workflow automation platform.
+title: Wekan 凭据
+description: Wekan 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Wekan 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Wekan credentials
+- integration
+- reference
+nodeTitle: Wekan 凭据
 originalFilePath: integrations/builtin/credentials/wekan.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/wekan'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/wekan'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/wekan
+url: https://docs.n8n.io/integrations/builtin/credentials/wekan
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Wekan credentials <a href="#wekan-credentials" id="wekan-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Wekan 凭据 <a href="#wekan-credentials" id="wekan-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Wekan](../app-nodes/n8n-nodes-base.wekan.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Install [Wekan](https://github.com/wekan/wekan/wiki) on your server.
+在服务器上安装 [Wekan](https://github.com/wekan/wekan/wiki)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Basic auth
+- Basic auth（基本身份验证）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Wekan's API documentation](https://github.com/wekan/wekan/wiki/REST-API) for more information about authenticating with the service.
+有关该服务身份验证的更多信息，请参阅 [Wekan API 文档](https://github.com/wekan/wekan/wiki/REST-API)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Username**: Enter your Wekan username.
-- A **Password**: Enter your Wekan password.
-- A **URL**: Enter your Wekan domain.
+- 一个 **Username（用户名）**：输入 Wekan 用户名。
+- 一个 **Password（密码）**：输入 Wekan 密码。
+- 一个 **URL**：输入 Wekan 域名。
 

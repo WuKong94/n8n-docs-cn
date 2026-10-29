@@ -1,40 +1,40 @@
 ---
-title: Stackby node documentation
-description: >-
-  Learn how to use the Stackby node in n8n. Follow technical documentation to
-  integrate Stackby node into your workflows.
+title: Stackby 节点文档
+description: 了解如何在 n8n 中使用 Stackby 节点，并按照技术文档将 Stackby 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Stackby node documentation
+- integration
+- reference
+nodeTitle: Stackby 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.stackby.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stackby'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stackby'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stackby
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.stackby
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Stackby node <a href="#stackby-node" id="stackby-node"></a>
 
-Use the Stackby node to automate work in Stackby, and integrate Stackby with other applications. n8n has built-in support for a wide range of Stackby features, including appending, deleting, listing and reading. 
+# Stackby 节点 <a href="#stackby-node" id="stackby-node"></a>
 
-On this page, you'll find a list of operations the Stackby node supports and links to more resources.
+使用 Stackby 节点自动处理 Stackby 中的工作，并将其与其他应用集成。n8n 内置支持多种 Stackby 功能，包括追加、删除、列出和读取。
+
+本页列出了 Stackby 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Stackby credentials](../credentials/stackby.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Stackby 凭据](../credentials/stackby.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-- Append
-- Delete
-- List
-- Read
+- Append（追加）
+- Delete（删除）
+- List（列出）
+- Read（读取）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Stackby node documentation integration templates](https://n8n.io/integrations/stackby) or [search all templates](https://n8n.io/workflows/)
+[浏览 Stackby 集成模板](https://n8n.io/integrations/stackby)，或[搜索所有模板](https://n8n.io/workflows/)

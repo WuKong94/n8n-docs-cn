@@ -1,41 +1,41 @@
 ---
-title: Bannerbear credentials
-description: >-
-  Documentation for Bannerbear credentials. Use these credentials to
-  authenticate Bannerbear in n8n, a workflow automation platform.
+title: Bannerbear 凭据
+description: Bannerbear 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Bannerbear 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Bannerbear credentials
+- integration
+- reference
+nodeTitle: Bannerbear 凭据
 originalFilePath: integrations/builtin/credentials/bannerbear.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/bannerbear'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/bannerbear'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/bannerbear
+url: https://docs.n8n.io/integrations/builtin/credentials/bannerbear
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Bannerbear credentials <a href="#bannerbear-credentials" id="bannerbear-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Bannerbear 凭据 <a href="#bannerbear-credentials" id="bannerbear-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Bannerbear](../app-nodes/n8n-nodes-base.bannerbear.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Bannerbear](https://www.BannerBear.com/) account.
+创建一个 [Bannerbear](https://www.BannerBear.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Bannerbear's API documentation](https://developers.bannerbear.com/) for more information about the service.
+有关该服务的更多信息，请参阅 [Bannerbear API 文档](https://developers.bannerbear.com/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Project API Key**: To generate an API key, first create a Bannerbear project. Go to **Settings > API Key** to view the API key. Refer to the [Bannerbear API Authentication documentation](https://developers.bannerbear.com/#authentication) for more detailed steps.
+- 一个 **Project API Key（项目 API 密钥）**：先创建 Bannerbear 项目以生成 API 密钥，再进入 **Settings > API Key（设置 > API 密钥）** 查看。详细步骤请参阅 [Bannerbear API 身份验证文档](https://developers.bannerbear.com/#authentication)。
 
