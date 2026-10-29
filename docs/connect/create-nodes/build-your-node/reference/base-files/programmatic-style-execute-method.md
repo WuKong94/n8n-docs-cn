@@ -1,37 +1,34 @@
 ---
-title: Programmatic-style execute() method
-description: >-
-  A reference document for the programmatic-style execute() method of the node
-  base file.
+title: 编程式 execute() 方法
+description: 介绍节点基础文件中编程式 execute() 方法的参考文档。
 contentType: reference
-nodeTitle: Programmatic-style execute method
-originalFilePath: >-
-  integrations/creating-nodes/build/reference/node-base-files/programmatic-style-execute-method.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/programmatic-style-execute-method
-url: >-
-  https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/programmatic-style-execute-method
+nodeTitle: 编程式 execute 方法
+originalFilePath: integrations/creating-nodes/build/reference/node-base-files/programmatic-style-execute-method.md
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/programmatic-style-execute-method
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/programmatic-style-execute-method
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Programmatic-style execute() method <a href="#programmatic-style-execute-method" id="programmatic-style-execute-method"></a>
 
-The main difference between the declarative and programmatic styles is how they handle incoming data and build API requests. The programmatic style requires an `execute()` method, which reads incoming data and parameters, then builds a request. The declarative style handles requests using the `routing` key in the `operations` object.
+# 编程式 execute() 方法 <a href="#programmatic-style-execute-method" id="programmatic-style-execute-method"></a>
 
-The `execute()` method creates and returns an instance of `INodeExecutionData`.
+声明式与编程式的主要区别，在于如何处理传入数据和构建 API 请求。编程式需要 `execute()` 方法，读取传入数据和参数后构建请求；声明式则通过 `routing` 键处理请求，该键位于 `operations` 对象中。
+
+`execute()` 方法创建并返回 `INodeExecutionData` 的实例。
 
 {% hint style="warning" %}
-**Paired items**
+**配对数据项**
 
-You must include input and output item pairing information in the data you return. For more information, refer to [Paired items](../item-linking.md).
+返回的数据中必须包含输入数据项与输出数据项的配对信息。更多信息请参阅[配对数据项](../item-linking.md)。
 {% endhint %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Base files](./)
-* [Structure](structure.md)
-* [Standard parameters](standard-parameters.md)
-* [Declarative-style parameters](declarative-style-parameters.md)
-* [Programmatic-style parameters](programmatic-style-parameters.md)
+* [基础文件](./)
+* [结构](structure.md)
+* [标准参数](standard-parameters.md)
+* [声明式参数](declarative-style-parameters.md)
+* [编程式参数](programmatic-style-parameters.md)

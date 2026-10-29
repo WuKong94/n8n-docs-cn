@@ -268,5 +268,32 @@
     "evidence": "同页紧接的 TypeScript 示例明确使用 export class FriendGrid implements INodeType，并在类中定义 description: INodeTypeDescription 配置对象及其 properties 数组；原文误将导出的类及配置对象称为 interface。",
     "scope": "依据同页示例修正文中类与配置对象的称谓；不修改 TypeScript、接口名、属性名或任何示例代码，不测试节点运行。",
     "source_sha256": "3f9c79195426052844af25ef40baf7f6e79c3dd52e2b762ffd2e07bf5390b104"
+  },
+  {
+    "id": "node-standard-operation-field-names-note",
+    "original_sentence": "* `displayName`: String. This should always be `Options`.\n* `name`: String. This should always be `option`.",
+    "translated_sentence": "译注：本节原文将操作字段的显示名称写为 Options、内部名称写为 option，并以 dateTime 举例；同一版本“代码标准”和节点构建教程的操作选择字段示例使用 Operation、operation 和 options。此处保留原文并提示差异，请对照完整节点示例理解，不将这两行作为操作字段命名的唯一依据。",
+    "evidence": "同版本 code-standards.md 的 Resources and operations 示例，以及声明式节点教程的操作参数示例，均使用 displayName: Operation、name: operation、type: options。对照代码标准来源哈希：f50dc446c8ae5b22d0d11c50d444f4f9dde382b505bb188bbd9ce923c303a890；声明式教程来源哈希：e177dd522b53d9037bc4adb106769cfe945f045d30d3d73f1bf45f9269e573d8。",
+    "scope": "保留标准参数原文和全部代码，仅添加同版本示例对照译注；不替换字段值，也不执行节点。",
+    "path": "connect/create-nodes/build-your-node/reference/base-files/standard-parameters.md",
+    "source_sha256": "ee7157d0eb920238ab1aa8d56647cc6466f5d6f1bea89f98e8ab398baa803960"
+  },
+  {
+    "id": "node-code-standards-parameter-naming-note",
+    "original_sentence": "All resource and operation fields in an n8n node have two settings: a display name, set using the `name` parameter, and an internal name, set using the `value` parameter. Reusing the internal name for fields allows n8n to preserve user-entered data if a user switches operations. ",
+    "translated_sentence": "译注：此段原文使用 name/value 描述显示名称和内部名称。需区分字段对象与 options 选项对象：同页示例中的字段对象使用 displayName/name，而选项对象使用 name/value；“节点界面元素”的字符串字段示例也使用 displayName/name。此处保留原文并标注这一区别，避免把选项对象的命名规则套用于所有输入字段。",
+    "evidence": "同页 Resources and operations 示例同时包含字段对象 displayName/name 和 options 选项对象 name/value；同版本 node-ui-elements.md 的 String 基本配置包含 displayName: Name 和 name: name，来源哈希：f755aa502f7618ff174607361ce7b139a94c858a622ee20215b4cebb6d64ca2c。",
+    "scope": "保留原段和示例，只添加同页及同版本字段结构差异说明；不修改参数名或代码，不推断运行兼容性。",
+    "path": "connect/create-nodes/build-your-node/reference/code-standards.md",
+    "source_sha256": "f50dc446c8ae5b22d0d11c50d444f4f9dde382b505bb188bbd9ce923c303a890"
+  },
+  {
+    "id": "node-http-helper-encoding-case-note",
+    "original_sentence": "- `encoding`: n8n can detect the content type, but you can specify `arrayBuffer` to receive a Buffer you can read from and interact with.",
+    "translated_sentence": "译注：本页说明和迁移条目写作 arrayBuffer，但上方 options 类型示例列出的值是 arraybuffer，大小写不一致。此处保留原始说明和代码，请结合所用 n8n 版本的类型定义核对实际取值，不据此假定两种写法都受支持。",
+    "evidence": "同页 options TypeScript 示例的 encoding 联合类型包含小写 arraybuffer；字段说明和迁移条目则使用 arrayBuffer。本记录仅提示同页大小写差异。",
+    "scope": "不修改原始 TypeScript、内联字段值或迁移示例，只添加同页差异译注；未执行请求或验证编码值。",
+    "path": "connect/create-nodes/build-your-node/reference/http-request-helpers.md",
+    "source_sha256": "2784bf694230646bbb76c8834f090555af1e96a341723f57a1ea8e91e32c3e15"
   }
 ]

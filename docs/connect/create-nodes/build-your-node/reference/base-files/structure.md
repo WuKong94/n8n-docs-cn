@@ -1,31 +1,31 @@
 ---
-title: Structure of the node base file
-description: A reference document detailing the basic structure of the node base file.
+title: 节点基础文件的结构
+description: 介绍节点基础文件基本结构的参考文档。
 contentType: reference
-nodeTitle: Structure
+nodeTitle: 结构
 originalFilePath: integrations/creating-nodes/build/reference/node-base-files/structure.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/structure
-url: >-
-  https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/structure
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/structure
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/structure
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Structure of the node base file <a href="#structure-of-the-node-base-file" id="structure-of-the-node-base-file"></a>
 
-The node base file follows this basic structure:
+# 节点基础文件的结构 <a href="#structure-of-the-node-base-file" id="structure-of-the-node-base-file"></a>
 
-1. Add import statements.
-2. Create a class for the node.
-3. Within the node class, create a `description` object, which defines the node.
+节点基础文件遵循以下基本结构：
 
-A programmatic-style node also has an `execute()` method, which reads incoming data and parameters, then builds a request. The declarative style handles this using the `routing` key in the `properties` object, within `descriptions`.
+1. 添加导入语句。
+2. 为节点创建类。
+3. 在节点类中创建用于定义节点的 `description` 对象。
 
-## Outline structure for a declarative-style node <a href="#outline-structure-for-a-declarative-style-node" id="outline-structure-for-a-declarative-style-node"></a>
+编程式节点还具有 `execute()` 方法，用于读取传入的数据和参数，然后构建请求。声明式节点则通过 `routing` 键处理请求，该键位于 `properties` 对象中，而此对象位于 `descriptions` 内。
 
-This code snippet gives an outline of the node structure. 
+## 声明式节点的结构概览 <a href="#outline-structure-for-a-declarative-style-node" id="outline-structure-for-a-declarative-style-node"></a>
+
+以下代码片段展示了节点的大体结构。
 
 ```js
 import { INodeType, INodeTypeDescription } from 'n8n-workflow';
@@ -39,11 +39,11 @@ export class ExampleNode implements INodeType {
 	};
 }
 ```
-Refer to [Standard parameters](standard-parameters.md) for information on parameters available to all node types. Refer to [Declarative-style parameters](declarative-style-parameters.md) for the parameters available for declarative-style nodes.
+适用于所有节点类型的参数，请参阅[标准参数](standard-parameters.md)。适用于声明式节点的参数，请参阅[声明式参数](declarative-style-parameters.md)。
 
-## Outline structure for a programmatic-style node <a href="#outline-structure-for-a-programmatic-style-node" id="outline-structure-for-a-programmatic-style-node"></a>
+## 编程式节点的结构概览 <a href="#outline-structure-for-a-programmatic-style-node" id="outline-structure-for-a-programmatic-style-node"></a>
 
-This code snippet gives an outline of the node structure. 
+以下代码片段展示了节点的大体结构。
 
 ```js
 import { IExecuteFunctions, INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
@@ -62,12 +62,12 @@ export class ExampleNode implements INodeType {
 };
 ```
 
-Refer to [Standard parameters](standard-parameters.md) for information on parameters available to all node types. Refer to [Programmatic-style parameters](programmatic-style-parameters.md) and [Programmatic-style execute method](programmatic-style-execute-method.md) for more information on working with programmatic-style nodes.
+适用于所有节点类型的参数，请参阅[标准参数](standard-parameters.md)。有关编程式节点的更多信息，请参阅[编程式参数](programmatic-style-parameters.md)和[编程式 execute 方法](programmatic-style-execute-method.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Base files](./)
-* [Standard parameters](standard-parameters.md)
-* [Declarative-style parameters](declarative-style-parameters.md)
-* [Programmatic-style parameters](programmatic-style-parameters.md)
-* [Programmatic-style execute method](programmatic-style-execute-method.md)
+* [基础文件](./)
+* [标准参数](standard-parameters.md)
+* [声明式参数](declarative-style-parameters.md)
+* [编程式参数](programmatic-style-parameters.md)
+* [编程式 execute 方法](programmatic-style-execute-method.md)

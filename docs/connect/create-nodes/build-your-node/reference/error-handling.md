@@ -1,41 +1,42 @@
 ---
 contentType: reference
-nodeTitle: Error handling
+nodeTitle: 错误处理
 originalFilePath: integrations/creating-nodes/build/reference/error-handling.md
-originalUrl: 'https://docs.n8n.io/integrations/creating-nodes/build/reference/error-handling'
-url: >-
-  https://docs.n8n.io/connect/create-nodes/build-your-node/reference/error-handling
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/error-handling
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/reference/error-handling
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Error handling in n8n nodes <a href="#error-handling-in-n8n-nodes" id="error-handling-in-n8n-nodes"></a>
 
-Proper error handling is crucial for creating robust n8n nodes that provide clear feedback to users when things go wrong. n8n provides two specialized error classes to handle different types of failures in node implementations:
+# n8n 节点中的错误处理 <a href="#error-handling-in-n8n-nodes" id="error-handling-in-n8n-nodes"></a>
 
-- [**`NodeApiError`**](#nodeapierror): For API-related errors and external service failures
-- [**`NodeOperationError`**](#nodeoperationerror): For operational errors, validation failures, and configuration issues
+正确处理错误，是构建稳定 n8n 节点的关键，能在发生问题时向用户提供清晰反馈。n8n 提供两个专门的错误类，用于处理节点实现中的不同故障：
+
+- [**`NodeApiError`**](#nodeapierror)：用于 API 相关错误和外部服务故障。
+- [**`NodeOperationError`**](#nodeoperationerror)：用于操作错误、验证失败和配置问题。
 
 ## NodeApiError <a href="#nodeapierror" id="nodeapierror"></a>
 
-Use `NodeApiError` when dealing with external API calls and HTTP requests. This error class is specifically designed to handle API response errors and provides enhanced features for parsing and presenting API-related failures such as:
+处理外部 API 调用和 HTTP 请求时，请使用 `NodeApiError`。此错误类专用于处理 API 响应错误，并增强了解析和展示以下 API 相关故障的能力：
 
- * HTTP request failures
- * external API errors
- * authentication/authorization failures
- * rate limiting errors
- * service unavailable errors
+ * HTTP 请求失败
+ * 外部 API 错误
+ * 身份验证或授权失败
+ * 请求速率限制错误
+ * 服务不可用错误
  
-Initialize new `NodeApiError` instances using the following pattern:
+使用以下方式初始化新的 `NodeApiError` 实例：
 
 ```typescript
 new NodeApiError(node: INode, errorResponse: JsonObject, options?: NodeApiErrorOptions)
 ```
 
-### Common usage patterns <a href="#common-usage-patterns" id="common-usage-patterns"></a>
+### 常见用法 <a href="#common-usage-patterns" id="common-usage-patterns"></a>
 
-For basic API request failures, catch the error and wrap it in `NodeApiError`:
+对于基本的 API 请求失败，捕获错误并将其包装为 `NodeApiError`：
 
 ```typescript
 try {
@@ -50,7 +51,7 @@ try {
 }
 ```
 
-Handle specific HTTP status codes with custom messages:
+针对特定 HTTP 状态码提供自定义消息：
 
 ```typescript
 try {
@@ -90,25 +91,25 @@ try {
 
 ## NodeOperationError <a href="#nodeoperationerror" id="nodeoperationerror"></a>
 
-Use `NodeOperationError` for:
+以下情况请使用 `NodeOperationError`：
 
- * operational errors
- * validation failures
- * configuration issues that aren't related to external API calls
- * input validation errors
- * missing required parameters
- * data transformation errors
- * workflow logic errors
+ * 操作错误
+ * 验证失败
+ * 与外部 API 调用无关的配置问题
+ * 输入验证错误
+ * 缺少必填参数
+ * 数据转换错误
+ * 工作流逻辑错误
  
- Initialize new `NodeOperationError` instances using the following pattern:
+ 使用以下方式初始化新的 `NodeOperationError` 实例：
 
 ```typescript
 new NodeOperationError(node: INode, error: Error | string | JsonObject, options?: NodeOperationErrorOptions)
 ```
 
-### Common usage patterns <a href="#common-usage-patterns" id="common-usage-patterns"></a>
+### 常见用法 <a href="#common-usage-patterns" id="common-usage-patterns"></a>
 
-Use `NodeOperationError` for validating user inputs:
+使用 `NodeOperationError` 验证用户输入：
 
 ```typescript
 const email = this.getNodeParameter("email", itemIndex);
@@ -122,7 +123,7 @@ if (email.indexOf("@") === -1) {
 }
 ```
 
-When processing multiple items, include the item index for better error context:
+处理多个数据项时，请包含数据项索引，以提供更完整的错误上下文：
 
 ```typescript
 for (let i = 0; i < items.length; i++) {
@@ -147,17 +148,17 @@ for (let i = 0; i < items.length; i++) {
 }
 ```
 
-## Declaring why an operation failed
+## 声明操作失败的原因 <a id="declaring-why-an-operation-failed"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Failure declarations are available from n8n 3.37.
+从 n8n 3.37 起可使用失败声明。
 {% endhint %}
 
-Both `NodeApiError` and `NodeOperationError` accept a `failure` option that states why the operation failed. Use it when the node can tell from the response what went wrong, such as a used-up quota or a credential that no longer works. The declaration lands on the error's `failure` property as plain data. The node states the cause, never what to do about it: n8n owns any behavior derived from the declaration, such as how a polling trigger backs off after a failed poll.
+`NodeApiError` 和 `NodeOperationError` 都接受 `failure` 选项，用于说明操作失败的原因。当节点能根据响应确定具体问题时，例如配额耗尽或凭据失效，可以使用此选项。该声明作为普通数据存储在错误的 `failure` 属性中。节点只声明原因，不决定处理措施；所有根据声明采取的行为由 n8n 决定，例如轮询触发器在轮询失败后如何退避。
 
-Pass the declaration when you construct the error:
+构造错误时传入声明：
 
 ```typescript
 throw new NodeApiError(this.getNode(), error as JsonObject, {
@@ -165,29 +166,29 @@ throw new NodeApiError(this.getNode(), error as JsonObject, {
 });
 ```
 
-### Failure causes
+### 失败原因 <a id="failure-causes"></a>
 
-The `cause` field takes one of six values. The first three describe failures that resolve on their own. The other three need someone to act before the operation can succeed.
+`cause` 字段接受六个值之一。前三个值描述可自行恢复的故障，后三个值需要有人采取措施，操作才能成功。
 
-| `cause` | Meaning |
+| `cause` | 含义 |
 |---------|---------|
-| `rate-limited` | The service is throttling requests. |
-| `quota-exhausted` | A usage quota ran out and the operation fails until the quota resets. |
-| `temporarily-unavailable` | The service is down or degraded right now. |
-| `credential-invalid` | The credential no longer works. The user has to reconnect it. |
-| `configuration-invalid` | The node points at something that no longer exists or is no longer allowed. |
-| `node-defect` | A bug in the node itself. Neither the credential nor the configuration is to blame. |
+| `rate-limited` | 服务正在限制请求速率。 |
+| `quota-exhausted` | 用量配额已耗尽，配额重置前操作都会失败。 |
+| `temporarily-unavailable` | 服务当前不可用或处于降级状态。 |
+| `credential-invalid` | 凭据已失效，用户需要重新连接。 |
+| `configuration-invalid` | 节点指向的对象已不存在，或已不再允许访问。 |
+| `node-defect` | 节点自身存在缺陷，与凭据和配置无关。 |
 
-### Wait hints
+### 等待提示 <a id="wait-hints"></a>
 
-On `rate-limited`, `quota-exhausted`, and `temporarily-unavailable`, you can add optional hints about when the operation may work again. The other causes don't accept them, since there's nothing to wait for.
+对于 `rate-limited`、`quota-exhausted` 和 `temporarily-unavailable`，可以添加可选提示，说明操作何时可能恢复。其他原因没有可等待的恢复条件，因此不接受这些提示。
 
-| Field | Meaning |
+| 字段 | 含义 |
 |-------|---------|
-| `retryAfterMs` | Minimum wait the service asked for, in milliseconds. |
-| `resetsAtEpochMs` | When the service says the operation works again, as Unix epoch milliseconds. |
+| `retryAfterMs` | 服务要求的最短等待时间，单位为毫秒。 |
+| `resetsAtEpochMs` | 服务声明操作恢复的时间，使用 Unix 纪元毫秒数表示。 |
 
-For example, a quota that resets at a known time declares when it comes back:
+例如，对于已知重置时间的配额，可以声明其恢复时间：
 
 ```typescript
 throw new NodeApiError(this.getNode(), error as JsonObject, {
@@ -195,9 +196,9 @@ throw new NodeApiError(this.getNode(), error as JsonObject, {
 });
 ```
 
-### Classifying API errors
+### 对 API 错误进行分类 <a id="classifying-api-errors"></a>
 
-Only declare a cause the response proves. If you can't classify an error with confidence, throw it unchanged: an error without a declaration is still valid.
+只声明响应能够证明的原因。如果无法确定错误类别，请原样抛出错误；没有声明的错误仍然有效。
 
 ```typescript
 try {
@@ -223,6 +224,6 @@ try {
 }
 ```
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Node building reference](./)
+* [节点构建参考](./)

@@ -7263,5 +7263,212 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "connect/create-nodes/build-your-node/reference/README.md": {
+    "status": "translated",
+    "source_sha256": "469c65e2af28d7f6cffb174e1ab870505c868fca163a92cb1ced10bc3e8a8d49",
+    "translation_sha256": "62eb1a2c1094e03ff93bf29da4883349b3a42be966734076d36980e874ee9147",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/base-files/README.md": {
+    "status": "translated",
+    "source_sha256": "55d9e50175ef090f927fd15fa858a3cdaf5580a9026df4425e0b3da9cbd0a963",
+    "translation_sha256": "6f81b330013534d563b6a5cefee86e90cb081764b7ab15fc61b34f93ab849b67",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/base-files/structure.md": {
+    "status": "translated",
+    "source_sha256": "a728a902f676994146e8c709323f50c4623d6206864ffd6d404a1bdd80528464",
+    "translation_sha256": "27182d9bd63fb31ad6f53bebb947da3138ad41a7194c5438cafccce2ea82e904",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/base-files/standard-parameters.md": {
+    "status": "translated",
+    "source_sha256": "ee7157d0eb920238ab1aa8d56647cc6466f5d6f1bea89f98e8ab398baa803960",
+    "translation_sha256": "c72a10063c4a5df452de7fe56c95a05de6881211c5545597551125fcaafa6fa2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "node-standard-operation-field-names-note"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/base-files/declarative-style-parameters.md": {
+    "status": "translated",
+    "source_sha256": "46082c35334b120fc764f88919aa6193013c6de4b7cbd0da1e381c70ee33b18a",
+    "translation_sha256": "58f08e5f8da9ccd245f68356e1f5c2e99ce9145acee393929621ff4a4166ed76",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/base-files/programmatic-style-parameters.md": {
+    "status": "translated",
+    "source_sha256": "bdbbce3b32c7f8057e479b4050fc50e015ef3479366115d7fde87d8b3e04fd2c",
+    "translation_sha256": "dba957aef9ed5086f232456618239a172388df76d77364c0c484b4394259681e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/base-files/programmatic-style-execute-method.md": {
+    "status": "translated",
+    "source_sha256": "17e5ed5260baa653d10cf2e4d4730a55099ba0e7ad3e1217753ebc92b8222f8a",
+    "translation_sha256": "b87ce50f29e7b604f2ce6570cc883b25fe8defb4c7ef2c794572199855d54111",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/credentials-files.md": {
+    "status": "translated",
+    "source_sha256": "b9ef27c6ab35e13631dd2df54a81b1d74ac7882d29d14bbcf68ac22d852c238a",
+    "translation_sha256": "7ccaa4793b95b2e8b392c743d37aa5acbe4225c51ae2de82a329e9679cd0f373",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/codex-files.md": {
+    "status": "translated",
+    "source_sha256": "a4a71da073c97c18adcead76b2c1b835c0b3a38ae12964642d4383f58d5094b4",
+    "translation_sha256": "e3ffa3e4dea862c6a360d798c36d22590c7f162a42d1ec07d783ea7ddac762c3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/code-standards.md": {
+    "status": "translated",
+    "source_sha256": "f50dc446c8ae5b22d0d11c50d444f4f9dde382b505bb188bbd9ce923c303a890",
+    "translation_sha256": "5cf5e29131d8e7c938411d533e69b816bf6bb3b77f7049ed3034fb38dabc2e4c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "node-code-standards-parameter-naming-note"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/error-handling.md": {
+    "status": "translated",
+    "source_sha256": "9ff4a81c92046434420ec6c3bf65ee08046189b4ee7ca335956225c5e7cfbaa6",
+    "translation_sha256": "be2eb200ce0afd28601df2790797278e2536c11f947f5a8f74c65b7965428d2a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/http-request-helpers.md": {
+    "status": "translated",
+    "source_sha256": "2784bf694230646bbb76c8834f090555af1e96a341723f57a1ea8e91e32c3e15",
+    "translation_sha256": "7a537b593dbee5417d2632fe8f455ab03a200e4ba792d539a74dc5ff83438e60",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "node-http-helper-encoding-case-note"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/item-linking.md": {
+    "status": "translated",
+    "source_sha256": "96adab491b584bb87ed7108c00e6a72467fc6f59396f78b9fa31802ae95df0d0",
+    "translation_sha256": "0aa794e546b8ca5bc1159d02eb816a13077767ef3478a1ccc122fd06de98acae",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/versioning.md": {
+    "status": "translated",
+    "source_sha256": "419d95bc6dc040811f6b41b8484c4074a87d898daa70832eaad4f08e5a10e323",
+    "translation_sha256": "492036c184270731202e51b7c4d063da9749d7f4bc82fca03e7545852f21a891",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/verification-guidelines.md": {
+    "status": "translated",
+    "source_sha256": "3799cb0ca8a58003d1dd73547e168954f297ddd31fca5422404fc2a9121d8110",
+    "translation_sha256": "83fe9bc7c6db55ab5177a2b001c487eada4dd2c878d5caba15c06bfb64cf7d90",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/node-ui-elements.md": {
+    "status": "translated",
+    "source_sha256": "f755aa502f7618ff174607361ce7b139a94c858a622ee20215b4cebb6d64ca2c",
+    "translation_sha256": "d857d574def42611e5ff86678448342731466311e09660dde809db6f6dc2d64a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/create-nodes/build-your-node/reference/ux-guidelines.md": {
+    "status": "translated",
+    "source_sha256": "f6c07528d4bf498fbab9e5a0a04e4b9e5dc78054f1ebcd362bb4030e54459329",
+    "translation_sha256": "321ebc35b7867526bd3f88e2d79fed368645e494263418dc0207def46b024c35",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "353dc4f267af728d83c755d01320233532cbbe0bcddbbd2410ac038394f10b6f",
+    "translation_sha256": "df8a1cf04d61b545a66a380f86efc5065900e1825131bd5247b9cce497e5d641",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

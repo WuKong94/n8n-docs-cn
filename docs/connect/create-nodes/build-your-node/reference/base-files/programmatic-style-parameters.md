@@ -1,46 +1,43 @@
 ---
-title: Programmatic-style parameters
-description: >-
-  A reference document listing the programmatic-style parameters of the node
-  base file.
+title: 编程式参数
+description: 列出节点基础文件编程式参数的参考文档。
 contentType: reference
-nodeTitle: Programmatic-style parameters
-originalFilePath: >-
-  integrations/creating-nodes/build/reference/node-base-files/programmatic-style-parameters.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/programmatic-style-parameters
-url: >-
-  https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/programmatic-style-parameters
+nodeTitle: 编程式参数
+originalFilePath: integrations/creating-nodes/build/reference/node-base-files/programmatic-style-parameters.md
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/programmatic-style-parameters
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/programmatic-style-parameters
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Programmatic-style parameters <a href="#programmatic-style-parameters" id="programmatic-style-parameters"></a>
 
-These are the parameters available for [node base file](README.md) of programmatic-style nodes.
+# 编程式参数 <a href="#programmatic-style-parameters" id="programmatic-style-parameters"></a>
 
-This document gives short code snippets to help understand the code structure and concepts. For a full walk-through of building a node, including real-world code examples, refer to [Build a programmatic-style node](../../tutorial-build-a-programmatic-style-node.md).
+以下参数适用于编程式节点的[节点基础文件](README.md)。
 
-Programmatic-style nodes also use the `execute()` method. Refer to [Programmatic-style execute method](programmatic-style-execute-method.md) for more information.
+本文通过简短代码片段介绍代码结构和概念。包含实际代码示例的完整节点构建教程，请参阅[构建编程式节点](../../tutorial-build-a-programmatic-style-node.md)。
 
-Refer to [Standard parameters](standard-parameters.md) for parameters available to all nodes.
+编程式节点还使用 `execute()` 方法。更多信息请参阅[编程式 execute 方法](programmatic-style-execute-method.md)。
+
+适用于所有节点的参数，请参阅[标准参数](standard-parameters.md)。
 
 ## `defaultVersion` <a href="#defaultversion" id="defaultversion"></a>
 
-_Number_ | _Optional_
+_数字_ | _可选_
 
-Use `defaultVersion` when using the full versioning approach.
+采用完整版本控制方式时，使用 `defaultVersion`。
 
-n8n support two methods of node versioning. Refer to [Node versioning](../versioning.md) for more information.
+n8n 支持两种节点版本控制方式。更多信息请参阅[节点版本控制](../versioning.md)。
 
-## `methods` and `loadOptions` <a href="#methods-and-loadoptions" id="methods-and-loadoptions"></a>
+## `methods` 与 `loadOptions` <a href="#methods-and-loadoptions" id="methods-and-loadoptions"></a>
 
-_Object_ | _Optional_
+_对象_ | _可选_
 
-Contains the `loadOptions` method for programmatic-style nodes. You can use this method to query the service to get user-specific settings (such as getting a user's email labels from Gmail), then return them and render them in the GUI so the user can include them in subsequent queries.
+包含编程式节点的 `loadOptions` 方法。你可以用此方法查询服务，获取用户专属设置（例如获取用户的 Gmail 邮件标签），再返回这些设置并显示在图形界面中，供用户在后续查询中选用。
 
-For example, n8n's [Gmail node](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Google/Gmail/Gmail.node.ts) uses `loadOptions` to get all email labels:
+例如，n8n 的 [Gmail 节点](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Google/Gmail/Gmail.node.ts)通过 `loadOptions` 获取所有邮件标签：
 
 ```js
 	methods = {
@@ -72,26 +69,26 @@ For example, n8n's [Gmail node](https://github.com/n8n-io/n8n/blob/master/packag
 
 ## `version` <a href="#version" id="version"></a>
 
-_Number_ or _Array_ | _Optional_
+_数字_ 或 _数组_ | _可选_
 
-Use `version` when using the light versioning approach.
+采用轻量版本控制方式时，使用 `version`。
 
-If you have one version of your node, this can be a number. If you want to support multiple versions, turn this into an array, containing numbers for each node version.
+如果节点只有一个版本，可以使用数字。如果要支持多个版本，请改用数组，并在其中填写每个节点版本的编号。
 
-n8n support two methods of node versioning. Programmatic-style nodes can use either. Refer to [Node versioning](../versioning.md) for more information.
+n8n 支持两种节点版本控制方式，编程式节点可以任选一种。更多信息请参阅[节点版本控制](../versioning.md)。
 
 ## `features` <a href="#features" id="features"></a>
 
-_Object_ | _Optional_
+_对象_ | _可选_
 
-Define named feature flags evaluated against the node version. Use features to control parameter visibility with `@feature` in `displayOptions`, or check them in code with `this.isNodeFeatureEnabled()`.
+定义具名功能标志，并根据节点版本进行判断。可以使用 `@feature` 在 `displayOptions` 中控制参数是否显示，也可以在代码中通过 `this.isNodeFeatureEnabled()` 检查这些标志。
 
-Refer to [Feature-based versioning](../versioning.md#feature-based-versioning) for more information.
+更多信息请参阅[基于功能的版本控制](../versioning.md#feature-based-versioning)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Base files](./)
-* [Structure](structure.md)
-* [Standard parameters](standard-parameters.md)
-* [Declarative-style parameters](declarative-style-parameters.md)
-* [Programmatic-style execute method](programmatic-style-execute-method.md)
+* [基础文件](./)
+* [结构](structure.md)
+* [标准参数](standard-parameters.md)
+* [声明式参数](declarative-style-parameters.md)
+* [编程式 execute 方法](programmatic-style-execute-method.md)

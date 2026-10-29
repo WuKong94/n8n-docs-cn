@@ -1,31 +1,31 @@
 ---
 contentType: reference
-nodeTitle: Credentials files
+nodeTitle: 凭据文件
 originalFilePath: integrations/creating-nodes/build/reference/credentials-files.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/creating-nodes/build/reference/credentials-files
-url: >-
-  https://docs.n8n.io/connect/create-nodes/build-your-node/reference/credentials-files
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/credentials-files
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/reference/credentials-files
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Credentials file <a href="#credentials-file" id="credentials-file"></a>
 
-The credentials file defines the authorization methods for the node. The settings in this file affect what n8n displays in the **Credentials** modal, and must reflect the authentication requirements of the service you're connecting to.
+# 凭据文件 <a href="#credentials-file" id="credentials-file"></a>
 
-In the credentials file, you can use all the [n8n UI elements](node-ui-elements.md). n8n encrypts the data that's stored using credentials using an encryption key.
+凭据文件定义节点的授权方式。此文件中的设置决定 n8n 在 **Credentials**（凭据）弹窗中显示的内容，必须符合所连接服务的身份验证要求。
 
-## Structure of the credentials file <a href="#structure-of-the-credentials-file" id="structure-of-the-credentials-file"></a>
+凭据文件支持所有 [n8n 界面元素](node-ui-elements.md)。n8n 使用加密密钥对凭据中存储的数据进行加密。
 
-The credentials file follows this basic structure:
+## 凭据文件的结构 <a href="#structure-of-the-credentials-file" id="structure-of-the-credentials-file"></a>
 
-1. Import statements
-2. Create a class for the credentials
-3. Within the class, define the properties that control authentication for the node.
+凭据文件遵循以下基本结构：
 
-### Outline structure <a href="#outline-structure" id="outline-structure"></a>
+1. 添加导入语句。
+2. 为凭据创建类。
+3. 在类中定义控制节点身份验证的属性。
+
+### 结构概览 <a href="#outline-structure" id="outline-structure"></a>
 
 ```js
 import {
@@ -68,42 +68,42 @@ export class ExampleNode implements ICredentialType {
 ```
 
 
-## Parameters <a href="#parameters" id="parameters"></a>
+## 参数 <a href="#parameters" id="parameters"></a>
 
 ### `name` <a href="#name" id="name"></a>
 
-String. The internal name of the object. Used to reference it from other places in the node.
+字符串。对象的内部名称，用于在节点的其他位置引用该对象。
 
 ### `displayName` <a href="#displayname" id="displayname"></a>
 
-String. The name n8n uses in the GUI.
+字符串。n8n 在图形界面中使用的名称。
 
 ### `documentationUrl` <a href="#documentationurl" id="documentationurl"></a>
 
-String. URL to your credentials documentation.
+字符串。凭据文档的 URL。
 
 ### `properties` <a href="#properties" id="properties"></a>
 
-Each object contains:
+每个对象包含：
 
-* `displayName`: the name n8n uses in the GUI.
-* `name`: the internal name of the object. Used to reference it from other places in the node.
-* `type`: the data type expected, such as `string`.
-* `default`: the URL that n8n should use to test credentials.
+* `displayName`：n8n 在图形界面中使用的名称。
+* `name`：对象的内部名称，用于在节点的其他位置引用该对象。
+* `type`：预期的数据类型，例如 `string`。
+* `default`：n8n 测试凭据时应使用的 URL。
 
 ### `authenticate` <a href="#authenticate" id="authenticate"></a>
 
-* `authenticate`: Object. Contains objects that tell n8n how to inject the authentication data as part of the API request. 
+* `authenticate`：对象。包含用于告诉 n8n 如何在 API 请求中注入身份验证数据的对象。
 
 #### `type` <a href="#type" id="type"></a>
 
-String. If you're using an authentication method that sends data in the header, body, or query string, set this to `'generic'`. 
+字符串。如果身份验证方式在请求头、请求体或查询字符串中发送数据，请将此值设为 `'generic'`。
 
 #### `properties` <a href="#properties" id="properties"></a>
 
-Object. Defines the authentication methods. Options are:
+对象。定义身份验证方式，可选项：
 
-* `body`: Object. Sends authentication data in the request body. Can contain nested objects.
+* `body`：对象。在请求体中发送身份验证数据，可包含嵌套对象。
 ```typescript
 authenticate: IAuthenticateGeneric = {
 	type: 'generic',
@@ -116,7 +116,7 @@ authenticate: IAuthenticateGeneric = {
 };
 ``` 
 
-* `header`: Object. Send authentication data in the request header.
+* `header`：对象。在请求头中发送身份验证数据。
 ```typescript
 authenticate: IAuthenticateGeneric = {
 	type: 'generic',
@@ -128,7 +128,7 @@ authenticate: IAuthenticateGeneric = {
 };
 ``` 
 
-* `qs`: Object. Stands for "query string." Send authentication data in the request query string.
+* `qs`：对象，表示“查询字符串”（query string）。在请求的查询字符串中发送身份验证数据。
 ```typescript
 authenticate: IAuthenticateGeneric = {
 	type: 'generic',
@@ -140,7 +140,7 @@ authenticate: IAuthenticateGeneric = {
 };
 ``` 
 
-* `auth`: Object. Used for Basic Auth. Requires `username` and `password` as the key names.
+* `auth`：对象。用于 Basic Auth，要求以 `username` 和 `password` 作为键名。
 ```typescript
 authenticate: IAuthenticateGeneric = {
 	type: 'generic',
@@ -155,7 +155,7 @@ authenticate: IAuthenticateGeneric = {
 
 ### `test` <a href="#test" id="test"></a>
 
-Provide a `request` object containing a URL and authentication type that n8n can use to test the credential.
+提供一个包含 URL 和身份验证类型的 `request` 对象，供 n8n 测试凭据。
 
 ```typescript
 test: ICredentialTestRequest = {
@@ -166,6 +166,6 @@ test: ICredentialTestRequest = {
 	};
 ```
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Node building reference](./)
+* [节点构建参考](./)

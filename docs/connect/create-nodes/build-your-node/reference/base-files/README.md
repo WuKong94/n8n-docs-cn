@@ -1,39 +1,40 @@
 ---
 contentType: overview
-nodeTitle: Base files
+nodeTitle: 基础文件
 originalFilePath: integrations/creating-nodes/build/reference/node-base-files/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files
-url: 'https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files'
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Node base file <a href="#node-base-file" id="node-base-file"></a>
 
-The node base file contains the core code of your node. All nodes must have a base file. The contents of this file are different depending on whether you're building a declarative-style or programmatic-style node. For guidance on which style to use, refer to [Choose your node building approach](../../../plan-your-node/choose-a-node-building-style.md).
+# 节点基础文件 <a href="#node-base-file" id="node-base-file"></a>
 
-These documents give short code snippets to help understand the code structure and concepts. For full walk-throughs of building a node, including real-world code examples, refer to [Build a declarative-style node](../../tutorial-build-a-declarative-style-node.md) or [Build a programmatic-style node](../../tutorial-build-a-programmatic-style-node.md).
+节点基础文件包含节点的核心代码，每个节点都必须有此文件。根据使用声明式还是编程式构建节点，文件内容有所不同。关于如何选择，请参阅[选择节点构建方式](../../../plan-your-node/choose-a-node-building-style.md)。
 
-You can also explore the [n8n-nodes-starter](https://github.com/n8n-io/n8n-nodes-starter) and n8n's own [nodes](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes) for a wider range of examples. The starter contains basic examples that you can build on. The n8n [Mattermost node](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Mattermost) is a good example of a more complex programmatic-style node, including versioning.
+这些文档通过简短代码片段介绍代码结构和概念。包含实际代码示例的完整节点构建教程，请参阅[构建声明式节点](../../tutorial-build-a-declarative-style-node.md)或[构建编程式节点](../../tutorial-build-a-programmatic-style-node.md)。
 
-## In this section
+还可以查看 [n8n-nodes-starter](https://github.com/n8n-io/n8n-nodes-starter) 和 n8n 自带的[节点](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes)，了解更多示例。入门项目提供可供扩展的基础示例。n8n 的 [Mattermost 节点](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes/Mattermost)则展示了更复杂的编程式节点，包括版本控制。
 
-For all nodes, refer to the:
+## 本节内容 <a id="in-this-section"></a>
 
-* [Structure of the node base file](structure.md)
-* [Standard parameters](standard-parameters.md)
+适用于所有节点的内容：
 
-For declarative-style nodes, refer to the:
+* [节点基础文件的结构](structure.md)
+* [标准参数](standard-parameters.md)
 
-* [Declarative-style parameters](declarative-style-parameters.md)
+声明式节点请参阅：
 
-For programmatic-style nodes, refer to the:
+* [声明式参数](declarative-style-parameters.md)
 
-* [Programmatic-style parameters](programmatic-style-parameters.md)
-* [Programmatic-style execute() method](programmatic-style-execute-method.md)
+编程式节点请参阅：
 
-## Related resources
+* [编程式参数](programmatic-style-parameters.md)
+* [编程式 execute() 方法](programmatic-style-execute-method.md)
 
-* [Node building reference](../)
+## 相关资源 <a id="related-resources"></a>
+
+* [节点构建参考](../)

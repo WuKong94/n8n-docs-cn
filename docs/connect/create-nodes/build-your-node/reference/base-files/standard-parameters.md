@@ -1,48 +1,47 @@
 ---
-title: Standard parameters
-description: A reference document listing the standard parameters of the node base file.
+title: 标准参数
+description: 列出节点基础文件标准参数的参考文档。
 contentType: reference
-nodeTitle: Standard parameters
-originalFilePath: >-
-  integrations/creating-nodes/build/reference/node-base-files/standard-parameters.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/standard-parameters
-url: >-
-  https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/standard-parameters
+nodeTitle: 标准参数
+originalFilePath: integrations/creating-nodes/build/reference/node-base-files/standard-parameters.md
+originalUrl: https://docs.n8n.io/integrations/creating-nodes/build/reference/node-base-files/standard-parameters
+url: https://docs.n8n.io/connect/create-nodes/build-your-node/reference/base-files/standard-parameters
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Standard parameters <a href="#standard-parameters" id="standard-parameters"></a>
 
-These are the standard parameters for the [node base file](README.md). They're the same for all node types.
+# 标准参数 <a href="#standard-parameters" id="standard-parameters"></a>
+
+以下是[节点基础文件](README.md)的标准参数，适用于所有节点类型。
 
 ## `displayName` <a href="#displayname" id="displayname"></a>
 
-_String_ | _Required_
+_字符串_ | _必填_
 
-This is the name users see in the n8n GUI.
+用户在 n8n 图形界面中看到的名称。
 
 ## `name` <a href="#name" id="name"></a>
 
-_String_ | _Required_
+_字符串_ | _必填_
 
-The internal name of the object. Used to reference it from other places in the node.
+对象的内部名称，用于在节点的其他位置引用该对象。
 
 ## `icon` <a href="#icon" id="icon"></a>
 
-_String_ or _Object_ | _Required_
+_字符串_ 或 _对象_ | _必填_
 
-Specifies an icon for a particular node. n8n recommends uploading your own image file. 
+指定节点的图标。n8n 建议上传自己的图片文件。
 
-You can provide the icon file name as a string, or as an object to handle different icons for light and dark modes.
-If the icon works in both light and dark modes, use a string that starts with `file:`, indicating the path to the icon file. For example:
+可以用字符串提供图标文件名，也可以用对象分别指定浅色和深色模式的图标。
+如果同一个图标适用于浅色和深色模式，请使用以 `file:` 开头的字符串指定图标文件路径。例如：
 
 ```
 icon: 'file:exampleNodeIcon.svg'
 ```
-To provide different icons for light and dark modes, use an object with `light` and `dark` properties. For example:
+要为浅色和深色模式提供不同图标，请使用包含 `light` 和 `dark` 属性的对象。例如：
 ```
 icon: { 
   light: 'file:exampleNodeIcon.svg', 
@@ -50,124 +49,126 @@ icon: {
 }
 ```
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dGOXJYk0OQgOLlRpyJnn/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/creating-nodes/node-icons.md" %}
 
 ## `group` <a href="#group" id="group"></a>
 
-_Array of strings_ | _Required_
+_字符串数组_ | _必填_
 
-Tells n8n how the node behaves when the workflow runs. Options are:
+告诉 n8n 节点在工作流运行时如何行动。可选值：
 
-* `trigger`: node waits for a trigger.
-* `schedule`: node waits for a timer to expire.
-* `input`, `output`, `transform`: these currently have no effect.
-* An empty array, `[]`. Use this as the default option if you don't need `trigger` or `schedule`.
+* `trigger`：节点等待触发。
+* `schedule`：节点等待计时结束。
+* `input`、`output`、`transform`：目前没有作用。
+* 空数组 `[]`：如果不需要 `trigger` 或 `schedule`，请将其用作默认选项。
 
 ## `description` <a href="#description" id="description"></a>
 
-_String_ | _Required_
+_字符串_ | _必填_
 
-A short description of the node. n8n uses this in the GUI.
+节点的简短描述，供 n8n 在图形界面中使用。
 
 ## `defaults` <a href="#defaults" id="defaults"></a>
 
-_Object_ | _Required_
+_对象_ | _必填_
 
-Contains essential brand and name settings.
+包含基本的品牌和名称设置。
 
-The object can include:
+此对象可包含：
 
-* `name`: String. Used as the node name on the canvas if the `displayName` is too long.
-* `color`: String. Deprecated since n8n 1.52.0 and removed in n8n 3.0. It only tinted Font Awesome icons. Use a file [icon](#icon) instead.
+* `name`：字符串。如果 `displayName` 太长，则将此值用作画布上的节点名称。
+* `color`：字符串。自 n8n 1.52.0 起弃用，并在 n8n 3.0 中移除。此字段仅用于为 Font Awesome 图标着色。请改用文件形式的[图标](#icon)。
 
 ## `forceInputNodeExecution` <a href="#forceinputnodeexecution" id="forceinputnodeexecution"></a>
 
-_Boolean_ | _Optional_
+_布尔值_ | _可选_
 
-When building a multi-input node, you can choose to force all preceding nodes on all branches to execute before the node runs. The default is `false` (requiring only one input branch to run).
+构建多输入节点时，可以选择在该节点运行前，强制执行所有分支上的全部上游节点。默认值为 `false`，即只要求其中一个输入分支运行。
 
 ## `inputs` <a href="#inputs" id="inputs"></a>
 
-_Array of strings_ | _Required_
+_字符串数组_ | _必填_
 
-Names the input connectors. Controls the number of connectors the node has on the input side. If you need only one connector, use `inputs: [NodeConnectionTypes.Main]`.
+为输入连接器命名，并控制节点输入侧的连接器数量。如果只需要一个连接器，请使用 `inputs: [NodeConnectionTypes.Main]`。
 
 
 ## `outputs` <a href="#outputs" id="outputs"></a>
 
-_Array of strings_ | _Required_ 
+_字符串数组_ | _必填_
 
-Names the output connectors. Controls the number of connectors the node has on the output side. If you need only one connector, use `outputs: [NodeConnectionTypes.Main]`.
+为输出连接器命名，并控制节点输出侧的连接器数量。如果只需要一个连接器，请使用 `outputs: [NodeConnectionTypes.Main]`。
 
 ## `requiredInputs` <a href="#requiredinputs" id="requiredinputs"></a>
 
-_Integer_ or _Array_ | _Optional_
+_整数_ 或 _数组_ | _可选_
 
-Used for multi-input nodes. Specify inputs by number that must have data (their branches must run) before the node can execute.
+用于多输入节点。按编号指定哪些输入必须有数据（对应分支必须运行），节点才能执行。
 
 ## `credentials` <a href="#credentials" id="credentials"></a>
 
-_Array of objects_ | _Required_  
+_对象数组_ | _必填_
 
-This parameter tells n8n the credential options. Each object defines an authentication type.
+此参数指定 n8n 的凭据选项，每个对象定义一种身份验证类型。
 
-The object must include:
+此对象必须包含：
 
 
-* `name`: the credential name. Must match the `name` property in the credential file. For example, `name: 'asanaApi'`  in [`Asana.node.ts`](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Asana/Asana.node.ts) links to `name = 'asanaApi'` in [`AsanaApi.credential.ts`](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/credentials/AsanaApi.credentials.ts).
-* `required`: Boolean. Specify whether authentication is required to use this node.
+* `name`：凭据名称，必须与凭据文件中的 `name` 属性匹配。例如，`name: 'asanaApi'`（位于 [`Asana.node.ts`](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Asana/Asana.node.ts)）对应 `name = 'asanaApi'`（位于 [`AsanaApi.credential.ts`](https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/credentials/AsanaApi.credentials.ts)）。
+* `required`：布尔值，指定使用此节点是否需要身份验证。
 
 
 ## `requestDefaults` <a href="#requestdefaults" id="requestdefaults"></a>
 
-_Object_ | _Required_  
+_对象_ | _必填_
 
-Set up the basic information for the API calls the node makes.
+设置节点调用 API 时的基本信息。
 
-This object must include:
+此对象必须包含：
 
-* `baseURL`: The API base URL.
+* `baseURL`：API 的基础 URL。
 
-You can also add:
+还可以添加：
 
-* `headers`: an object describing the API call headers, such as content type.
-* `url`: string. Appended to the `baseURL`. You can usually leave this out. It's more common to provide this in the `operations`.
+* `headers`：描述 API 调用请求头的对象，例如内容类型。
+* `url`：字符串，附加在 `baseURL` 之后。通常可以省略，更常见的做法是在 `operations` 中提供此值。
 
 ## `properties` <a href="#properties" id="properties"></a>
 
-_Array of objects_ | _Required_  
+_对象数组_ | _必填_
 
-This contains the resource and operations objects that define node behaviors, as well as objects to set up mandatory and optional fields that can receive user input.
+包含定义节点行为的资源对象和操作对象，以及用于配置必填和可选用户输入字段的对象。
 
-### Resource objects <a href="#resource-objects" id="resource-objects"></a>
+### 资源对象 <a href="#resource-objects" id="resource-objects"></a>
 
-A resource object includes the following parameters:
+资源对象包含以下参数：
 
-* `displayName`: String. This should always be `Resource`.
-* `name`: String. This should always be `resource`.
-* `type`: String. Tells n8n which UI element to use, and what input type to expect. For example, `options` results in n8n adding a dropdown that allows users to choose one option. Refer to [Node UI elements](../node-ui-elements.md) for more information.
-* `noDataExpression`: Boolean. Prevents using an expression for the parameter. Must always be `true` for `resource`. 
+* `displayName`：字符串，必须始终为 `Resource`。
+* `name`：字符串，必须始终为 `resource`。
+* `type`：字符串，告诉 n8n 使用哪种界面元素，以及预期的输入类型。例如，`options` 会添加一个供用户单选的下拉菜单。更多信息请参阅[节点界面元素](../node-ui-elements.md)。
+* `noDataExpression`：布尔值，禁止对此参数使用表达式。此值必须始终为 `true`（适用于 `resource`）。
 
-### Operations objects <a href="#operations-objects" id="operations-objects"></a>
+### 操作对象 <a href="#operations-objects" id="operations-objects"></a>
 
-The operations object defines the available operations on a resource.
+操作对象定义可对资源执行的操作。
 
-* `displayName`: String. This should always be `Options`.
-* `name`: String. This should always be `option`.
-* `type`: String. Tells n8n which UI element to use, and what input type to expect. For example, `dateTime` results in n8n adding a date picker. Refer to [Node UI elements](../node-ui-elements.md) for more information.
-* `noDataExpression`: Boolean. Prevents using an expression for the parameter. Must always be `true` for `operation`.
-* `options`: Array of objects. Each objects describes an operation's behavior, such as its routing, the REST verb it uses, and so on. An `options` object includes:
-	* `name`. String.
-	* `value`. String.
-	* `action`: String. This parameter combines the resource and operation. You should always include it, as n8n will use it in future versions. For example, given a resource called `"Card"` and an operation `"Get all"`, your action is `"Get all cards"`.
-	* `description`: String.
-	* `routing`: Object containing request details.
+> 译注：本节原文将操作字段的显示名称写为 Options、内部名称写为 option，并以 dateTime 举例；同一版本“代码标准”和节点构建教程的操作选择字段示例使用 Operation、operation 和 options。此处保留原文并提示差异，请对照完整节点示例理解，不将这两行作为操作字段命名的唯一依据。
 
-### Additional fields objects <a href="#additional-fields-objects" id="additional-fields-objects"></a>
+* `displayName`：字符串，必须始终为 `Options`。
+* `name`：字符串，必须始终为 `option`。
+* `type`：字符串，告诉 n8n 使用哪种界面元素，以及预期的输入类型。例如，`dateTime` 会添加日期选择器。更多信息请参阅[节点界面元素](../node-ui-elements.md)。
+* `noDataExpression`：布尔值，禁止对此参数使用表达式。此值必须始终为 `true`（适用于 `operation`）。
+* `options`：对象数组。每个对象描述某项操作的行为，例如路由和所用的 REST 动词。`options` 对象包含：
+	* `name`：字符串。
+	* `value`：字符串。
+	* `action`：字符串，将资源和操作组合在一起。应始终包含此参数，因为 n8n 会在后续版本中使用它。例如，资源名为 `"Card"`、操作为 `"Get all"` 时，action 应为 `"Get all cards"`。
+	* `description`：字符串。
+	* `routing`：包含请求详细信息的对象。
 
-These objects define optional parameters. n8n displays them under **Additional Fields** in the GUI. Users can choose which parameters to set.
+### 附加字段对象 <a href="#additional-fields-objects" id="additional-fields-objects"></a>
 
-The objects must include:
+这些对象定义可选参数。n8n 会将它们放在图形界面的 **Additional Fields**（附加字段）中，供用户选择需要设置的参数。
+
+这些对象必须包含：
 
 ```js
 displayName: 'Additional Fields',
@@ -189,12 +190,12 @@ displayOptions: {
 }
 ```
 
-For more information about UI element types, refer to [UI elements](../node-ui-elements.md).
+界面元素类型的更多信息，请参阅[界面元素](../node-ui-elements.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Base files](./)
-* [Structure](structure.md)
-* [Declarative-style parameters](declarative-style-parameters.md)
-* [Programmatic-style parameters](programmatic-style-parameters.md)
-* [Programmatic-style execute method](programmatic-style-execute-method.md)
+* [基础文件](./)
+* [结构](structure.md)
+* [声明式参数](declarative-style-parameters.md)
+* [编程式参数](programmatic-style-parameters.md)
+* [编程式 execute 方法](programmatic-style-execute-method.md)
