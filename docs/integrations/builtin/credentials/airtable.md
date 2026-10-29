@@ -1,16 +1,14 @@
 ---
-title: Airtable credentials
+title: Airtable 凭据
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Airtable credentials
+nodeTitle: Airtable 凭据
 originalFilePath: integrations/builtin/credentials/airtable.md
 originalUrl: https://docs.n8n.io/integrations/builtin/credentials/airtable
 url: https://docs.n8n.io/integrations/builtin/credentials/airtable
-description: >-
-  Documentation for Airtable credentials. Use these credentials to authenticate
-  Airtable in n8n, a workflow automation platform.
+description: Airtable 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Airtable 的身份验证。
 layout:
   width: default
   title:
@@ -30,82 +28,84 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Airtable credentials
 
-You can use these credentials to authenticate the following nodes:
+# Airtable 凭据 <a id="airtable-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [Airtable](../app-nodes/n8n-nodes-base.airtable/README.md)
-* [Airtable Trigger](../trigger-nodes/n8n-nodes-base.airtabletrigger.md)
+* [Airtable Trigger（触发器）](../trigger-nodes/n8n-nodes-base.airtabletrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [Airtable](https://airtable.com/) account.
+创建一个 [Airtable](https://airtable.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-* Personal Access Token (PAT)
+* Personal Access Token（个人访问令牌，PAT）
 * OAuth2
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-The API key authentication method that n8n used to offer with Airtable is deprecated. Airtable [fully deprecated these keys](https://support.airtable.com/v1/docs/airtable-api-deprecation-guidelines) as of February 2024. If you were using an Airtable API credential, replace it with an Airtable Personal Access Token or Airtable OAuth2 credential. n8n recommends using Personal Access Token instead.
+n8n 此前为 Airtable 提供的 API 密钥身份验证方式已弃用。Airtable 于 2024 年 2 月[完全弃用了这些密钥](https://support.airtable.com/v1/docs/airtable-api-deprecation-guidelines)。如果此前使用 Airtable API 凭据，请替换为 Airtable Personal Access Token 或 Airtable OAuth2 凭据。n8n 建议使用个人访问令牌。
 {% endhint %}
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Airtable's API documentation](https://airtable.com/developers/web/api/authentication) for more information about the service.
+有关该服务的更多信息，请参阅 [Airtable API 文档](https://airtable.com/developers/web/api/authentication)。
 
-## Using personal access token <a href="#using-personal-access-token" id="using-personal-access-token"></a>
+## 使用个人访问令牌 <a href="#using-personal-access-token" id="using-personal-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-* A Personal **Access Token** (PAT)
+* 个人 **Access Token**（访问令牌，PAT）
 
-To create your PAT:
+创建 PAT 的步骤如下：
 
-1. Go to the Airtable Builder Hub [Personal access tokens](https://airtable.com/create/tokens) page.
-2. Select **+ Create new token**. Airtable opens the **Create personal access token** page.
-3. Enter a **Name** for your token, like `n8n credential`.
-4. Add **Scopes** to your token. Refer to Airtable's [Scopes](https://airtable.com/developers/web/api/scopes) guide for more information. n8n recommends using these scopes:
+1. 打开 Airtable Builder Hub 的[个人访问令牌](https://airtable.com/create/tokens)页面。
+2. 选择 **+ Create new token**（创建新令牌），Airtable 会打开 **Create personal access token**（创建个人访问令牌）页面。
+3. 输入令牌的 **Name**（名称），例如 `n8n credential`。
+4. 为令牌添加 **Scopes**（作用域）。更多信息，请参阅 Airtable 的[作用域](https://airtable.com/developers/web/api/scopes)指南。n8n 建议使用以下作用域：
    * `data.records:read`
    * `data.records:write`
    * `schema.bases:read`
-5. Select the **Access** for your token. Choose from a single base, multiple bases (even bases from different workspaces), all of the current and future bases in a workspace you own, or all of the bases from any workspace that you own including bases/workspace added in the future.
-6. Select **Create token**.
-7. Airtable opens a modal with your token displayed. Copy this token and enter it in your n8n credential as the **Access Token**.
+5. 选择令牌的 **Access**（访问范围）。可选择单个数据库、多个数据库（可跨工作区）、你拥有的某个工作区内当前及未来的所有数据库，或你拥有的任意工作区中的所有数据库，包括未来新增的数据库和工作区。
+6. 选择 **Create token**（创建令牌）。
+7. Airtable 打开显示令牌的弹窗。复制此令牌，填入 n8n 凭据的 **Access Token**（访问令牌）。
 
-Refer to Airtable's [Find/create PATs documentation](https://support.airtable.com/v1/docs/creating-personal-access-tokens) for more information.
+更多信息，请参阅 Airtable 的[查找和创建 PAT 文档](https://support.airtable.com/v1/docs/creating-personal-access-tokens)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're [self-hosting n8n](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n), you'll need:
+如果[自行托管 n8n](../../../deploy/host-n8n/README.md)，你需要：
 
-* An **OAuth Redirect URL**
-* A **Client ID**
-* A **Client Secret**
+* **OAuth Redirect URL**（OAuth 重定向 URL）
+* **Client ID**（客户端 ID）
+* **Client Secret**（客户端密钥）
 
-To generate all this information, register a new Airtable integration:
+如需生成这些信息，请注册新的 Airtable 集成：
 
-1. Open your Airtable Builder Hub [**OAuth integrations**](https://airtable.com/create/oauth) page.
-2. Select the **Register new OAuth integration** button.
-3. Enter a name for your OAuth integration.
-4. Copy the **OAuth Redirect URL** from your n8n credential.
-5. Paste that redirect URL in Airtable as the **OAuth redirect URL**.
-6. Select **Register integration**.
-7. On the following page, copy the **Client ID** from Airtable and paste it into the **Client ID** in your n8n credential.
-8. In Airtable, select **Generate client secret**.
-9. Copy the client secret and paste it into the **Client Secret** in your n8n credential.
-10. Select the following scopes in Airtable:
+1. 打开 Airtable Builder Hub 的 [**OAuth integrations**（OAuth 集成）](https://airtable.com/create/oauth)页面。
+2. 选择 **Register new OAuth integration**（注册新 OAuth 集成）按钮。
+3. 输入 OAuth 集成的名称。
+4. 从 n8n 凭据复制 **OAuth Redirect URL**（OAuth 重定向 URL）。
+5. 在 Airtable 中，将该重定向 URL 填入 **OAuth redirect URL**（OAuth 重定向 URL）。
+6. 选择 **Register integration**（注册集成）。
+7. 在下一页，从 Airtable 复制 **Client ID**（客户端 ID），粘贴到 n8n 凭据的 **Client ID**（客户端 ID）。
+8. 在 Airtable 中选择 **Generate client secret**（生成客户端密钥）。
+9. 复制客户端密钥，粘贴到 n8n 凭据的 **Client Secret**（客户端密钥）。
+10. 在 Airtable 中选择以下作用域：
     * `data.records:read`
     * `data.records:write`
     * `schema.bases:read`
-11. Select **Save changes** in Airtable.
-12. In your n8n credential, select the **Connect my account**. A **Grant access** modal opens.
-13. Follow the instructions and select the base you want to work on (or all bases).
-14. Select **Grant access** to complete the connection.
+11. 在 Airtable 中选择 **Save changes**（保存更改）。
+12. 在 n8n 凭据中选择 **Connect my account**（连接我的账户），随后打开 **Grant access**（授予访问权限）弹窗。
+13. 按照说明，选择要操作的数据库（或全部数据库）。
+14. 选择 **Grant access**（授予访问权限），完成连接。
 
-Refer to the [Airtable Register a new integration documentation](https://airtable.com/developers/web/guides/oauth-integrations) for steps on registering a new Oauth integration.
+注册新 OAuth 集成的步骤，请参阅 [Airtable 注册新集成文档](https://airtable.com/developers/web/guides/oauth-integrations)。

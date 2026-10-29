@@ -1,89 +1,89 @@
 ---
-title: Odoo credentials
-description: >-
-  Documentation for Odoo credentials. Use these credentials to authenticate Odoo
-  in n8n, a workflow automation platform.
+title: Odoo 凭据
+description: Odoo 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Odoo 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Odoo credentials
+nodeTitle: Odoo 凭据
 originalFilePath: integrations/builtin/credentials/odoo.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/odoo'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/odoo'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/odoo
+url: https://docs.n8n.io/integrations/builtin/credentials/odoo
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Odoo credentials <a href="#odoo-credentials" id="odoo-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Odoo 凭据 <a href="#odoo-credentials" id="odoo-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Odoo](../app-nodes/n8n-nodes-base.odoo.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key (Recommended)
-- Password
+- API key（API 密钥，推荐）
+- Password（密码）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Odoo's External API documentation](https://www.odoo.com/documentation/17.0/developer/reference/external_api.html) for more information about the service.
+有关该服务的更多信息，请参阅 [Odoo 外部 API 文档](https://www.odoo.com/documentation/17.0/developer/reference/external_api.html)。
 
-Refer to the Odoo [Getting Started tutorial](https://www.odoo.com/slides/getting-started-15) if you're new to Odoo.
+如果初次接触 Odoo，请参阅 Odoo 的[入门教程](https://www.odoo.com/slides/getting-started-15)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need a user account on an [Odoo](https://www.odoo.com/) database and:
+配置此凭据需要一个 [Odoo](https://www.odoo.com/) 数据库上的用户账户，以及：
 
-- Your **Site URL**
-- Your **Username**
-- An **API key**
-- Your **Database name**
+- **Site URL**（站点 URL）
+- **Username**（用户名）
+- **API key**（API 密钥）
+- **Database name**（数据库名称）
 
-To set up the credential with an API key:
+使用 API 密钥设置凭据的步骤如下：
 
-1. Enter your Odoo server or site URL as the **Site URL**.
-2. Enter your **Username** as it's displayed on your **Change password** screen in Odoo.
-4. To use an API key, go to **Your Profile > Preferences > Account Security > Developer API Keys**.
-    - If you don't have this option, you may need to upgrade your Odoo plan. Refer to [Required plan type](#required-plan-type) for more information.
-5. Select **New API Key**.
-6. Enter a **Description** for the key, like `n8n integration`.
-7. Select **Generate Key**.
-8. Copy the key and enter it as the **Password or API key** in your n8n credential.
-9. Enter your Odoo **Database name**, also known as the instance name.
+1. 将 Odoo 服务器或站点的 URL 填入 **Site URL**（站点 URL）。
+2. 输入 Odoo 的 **Change password**（更改密码）页面显示的 **Username**（用户名）。
+4. 如需使用 API 密钥，进入 **Your Profile > Preferences > Account Security > Developer API Keys**（你的个人资料 > 偏好设置 > 账户安全 > 开发者 API 密钥）。
+    - 如果没有此选项，可能需要升级 Odoo 方案。更多信息，请参阅[所需方案类型](#required-plan-type)。
+5. 选择 **New API Key**（新建 API 密钥）。
+6. 输入密钥的 **Description**（描述），例如 `n8n integration`。
+7. 选择 **Generate Key**（生成密钥）。
+8. 复制密钥，填入 n8n 凭据的 **Password or API key**（密码或 API 密钥）。
+9. 输入 Odoo 的 **Database name**（数据库名称），也称为实例名称。
 
-Refer to [Odoo API Keys](https://www.odoo.com/documentation/15.0/developer/reference/external_api.html?#api-keys) for more information.
+更多信息，请参阅 [Odoo API 密钥](https://www.odoo.com/documentation/15.0/developer/reference/external_api.html?#api-keys)。
 
-## Using password <a href="#using-password" id="using-password"></a>
+## 使用密码 <a href="#using-password" id="using-password"></a>
 
-To configure this credential, you'll need a user account on an [Odoo](https://www.odoo.com/) database and:
+配置此凭据需要一个 [Odoo](https://www.odoo.com/) 数据库上的用户账户，以及：
 
-- Your **Site URL**
-- Your **Username**
-- Your **Password**
-- Your **Database name**
+- **Site URL**（站点 URL）
+- **Username**（用户名）
+- 你的 **Password**（密码）
+- **Database name**（数据库名称）
 
-To set up the credential with a password:
+使用密码设置凭据的步骤如下：
 
-1. Enter your Odoo server or site URL as the **Site URL**.
-2. Enter your **Username** as it's displayed on your **Change password** screen in Odoo.
-3. To use a password, enter your user password in the **Password or API key** field.
-4. Enter your Odoo **Database name**, also known as the instance name.
+1. 将 Odoo 服务器或站点的 URL 填入 **Site URL**（站点 URL）。
+2. 输入 Odoo 的 **Change password**（更改密码）页面显示的 **Username**（用户名）。
+3. 如需使用密码，将用户密码填入 **Password or API key**（密码或 API 密钥）字段。
+4. 输入 Odoo 的 **Database name**（数据库名称），也称为实例名称。
 
 {% hint style="info" %}
-**Password compatibility**
+**密码兼容性**
 
-If you try a password credential and it doesn't work for a specific node function, try switching to an API key. Odoo requires an API key for certain modules or based on certain settings.
+如果使用密码凭据时，某个节点功能无法正常工作，可尝试切换为 API 密钥。Odoo 的某些模块或设置要求使用 API 密钥。
 {% endhint %}
 
-## Required plan type <a href="#required-plan-type" id="required-plan-type"></a>
+## 所需方案类型 <a href="#required-plan-type" id="required-plan-type"></a>
 
 {% hint style="info" %}
-**Required plan type**
+**所需方案类型**
 
-Access to the external API is only available on a **Custom** Odoo plan. (The One App Free or Standard plans won't give you access.)
+只有 **Custom**（自定义）Odoo 方案提供外部 API 访问权限。One App Free 或 Standard 方案不提供此权限。
 
-Refer to [Odoo Pricing Plans](https://www.odoo.com/pricing-plan) for more information.
+更多信息，请参阅 [Odoo 价格方案](https://www.odoo.com/pricing-plan)。
 {% endhint %}

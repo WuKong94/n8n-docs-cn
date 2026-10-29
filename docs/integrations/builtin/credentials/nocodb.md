@@ -1,82 +1,82 @@
 ---
-title: NocoDB credentials
-description: >-
-  Documentation for NocoDB credentials. Use these credentials to authenticate
-  NocoDB in n8n, a workflow automation platform.
+title: NocoDB 凭据
+description: NocoDB 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 NocoDB 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: NocoDB credentials
+nodeTitle: NocoDB 凭据
 originalFilePath: integrations/builtin/credentials/nocodb.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/nocodb'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/nocodb'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/nocodb
+url: https://docs.n8n.io/integrations/builtin/credentials/nocodb
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# NocoDB credentials <a href="#nocodb-credentials" id="nocodb-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# NocoDB 凭据 <a href="#nocodb-credentials" id="nocodb-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [NocoDB](../app-nodes/n8n-nodes-base.nocodb.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API token (recommended)
-- User auth token
-
-{% hint style="warning" %}
-**Feature availability**
-
-NocoDB deprecated user auth tokens in v0.205.1. Use [API tokens](#using-api-token) instead.
-{% endhint %}
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-Refer to [NocoDB's API documentation](https://data-apis-v2.nocodb.com/) for more information about the service.
-
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
-
-To configure this credential, you'll need a [NocoDB](https://www.nocodb.com/) instance and:
-
-- An **API Token**
-- Your database **Host**
-
-To generate an API token:
-
-1. Log into NocoDB and select the **User menu** in the bottom left sidebar.
-2. Select **Account Settings**.
-3. Open the **Tokens** tab.
-4. Select **Add new API token**.
-5. Enter a **Name** for your token, like `n8n integration`.
-6. Select **Save**.
-7. Copy the **API Token** and enter it in your n8n credential.
-8. Enter the **Host** of your NocoDB instance in your n8n credential, for example `http://localhost:8080`.
-
-Refer to the NocoDB [API Tokens documentation](https://docs.nocodb.com/account-settings/api-tokens/) for more detailed instructions.
-
-## Using user auth token <a href="#using-user-auth-token" id="using-user-auth-token"></a>
-
-Before NocoDB deprecated it, user auth token was a temporary token designed for quick experiments with the API, valid for a session until the user logs out or for 10 hours.
+- API token（API 令牌，推荐）
+- User auth token（用户身份验证令牌）
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-NocoDB deprecated user auth tokens in v0.205.1. Use [API tokens](#using-api-token) instead.
+NocoDB 从 v0.205.1 起弃用用户身份验证令牌，请改用 [API 令牌](#using-api-token)。
 {% endhint %}
 
-To configure this credential, you'll need a [NocoDB](https://www.nocodb.com/) instance and:
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-- A **User Token**
-- Your database **Host**
+有关该服务的更多信息，请参阅 [NocoDB API 文档](https://data-apis-v2.nocodb.com/)。
 
-To generate a user auth token:
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-1. Log into NocoDB and select the **User menu** in the bottom left sidebar.
-2. Select **Copy Auth token**.
-3. Enter that auth token as the **User Token** in n8n. 
-4. Enter the **Host** of your NocoDB instance, for example `http://localhost:8080`.
+配置此凭据需要一个 [NocoDB](https://www.nocodb.com/) 实例，以及：
 
-Refer to the NocoDB [Auth Tokens documentation](https://docs.nocodb.com/account-settings/api-tokens/#auth-tokens) for more information.
+- 一个 **API Token（API 令牌）**
+- 数据库的 **Host**（主机）
+
+生成 API 令牌的步骤如下：
+
+1. 登录 NocoDB，选择左侧边栏底部的 **User menu**（用户菜单）。
+2. 选择 **Account Settings**（账户设置）。
+3. 打开 **Tokens**（令牌）选项卡。
+4. 选择 **Add new API token**（添加新的 API 令牌）。
+5. 输入令牌的 **Name**（名称），例如 `n8n integration`。
+6. 选择 **Save**（保存）。
+7. 复制 **API Token**（API 令牌），填入 n8n 凭据。
+8. 将 NocoDB 实例的 **Host**（主机）填入 n8n 凭据，例如 `http://localhost:8080`。
+
+更详细的说明，请参阅 NocoDB 的 [API 令牌文档](https://docs.nocodb.com/account-settings/api-tokens/)。
+
+## 使用用户身份验证令牌 <a href="#using-user-auth-token" id="using-user-auth-token"></a>
+
+在被 NocoDB 弃用前，用户身份验证令牌是一种用于快速试用 API 的临时令牌，在用户注销前的会话期间有效，或有效期为 10 小时。
+
+{% hint style="warning" %}
+**功能可用范围**
+
+NocoDB 从 v0.205.1 起弃用用户身份验证令牌，请改用 [API 令牌](#using-api-token)。
+{% endhint %}
+
+配置此凭据需要一个 [NocoDB](https://www.nocodb.com/) 实例，以及：
+
+- **User Token**（用户令牌）
+- 数据库的 **Host**（主机）
+
+生成用户身份验证令牌的步骤如下：
+
+1. 登录 NocoDB，选择左侧边栏底部的 **User menu**（用户菜单）。
+2. 选择 **Copy Auth token**（复制身份验证令牌）。
+3. 将该身份验证令牌填入 n8n 的 **User Token**（用户令牌）。
+4. 输入 NocoDB 实例的 **Host**（主机），例如 `http://localhost:8080`。
+
+更多信息，请参阅 NocoDB 的 [Auth Tokens（身份验证令牌）文档](https://docs.nocodb.com/account-settings/api-tokens/#auth-tokens)。

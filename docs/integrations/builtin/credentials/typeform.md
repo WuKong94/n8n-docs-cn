@@ -1,87 +1,87 @@
 ---
-title: Typeform credentials
-description: >-
-  Documentation for Typeform credentials. Use these credentials to authenticate
-  Typeform in n8n, a workflow automation platform.
+title: Typeform 凭据
+description: Typeform 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Typeform 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Typeform credentials
+nodeTitle: Typeform 凭据
 originalFilePath: integrations/builtin/credentials/typeform.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/typeform'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/typeform'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/typeform
+url: https://docs.n8n.io/integrations/builtin/credentials/typeform
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Typeform credentials <a href="#typeform-credentials" id="typeform-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Typeform 凭据 <a href="#typeform-credentials" id="typeform-credentials"></a>
 
-- [Typeform Trigger](../trigger-nodes/n8n-nodes-base.typeformtrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- [Typeform Trigger（触发器）](../trigger-nodes/n8n-nodes-base.typeformtrigger.md)
 
-- API token
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+
+- API token（API 令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Typeform's API documentation](https://www.typeform.com/developers/get-started/) for more information about the service.
+有关该服务的更多信息，请参阅 [Typeform API 文档](https://www.typeform.com/developers/get-started/)。
 
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-To configure this credential, you'll need a [Typeform](https://typeform.com/) account and:
+配置此凭据需要一个 [Typeform](https://typeform.com/) 账号，以及：
 
-- A personal **Access Token**
+- 个人 **Access Token**（访问令牌）
 
-To get your personal access token:
+获取个人访问令牌的步骤如下：
 
-1. Log into your Typeform account.
-2. Select your profile avatar in the upper right and go to **Account > Your settings >** [**Personal Tokens**](https://admin.typeform.com/user/tokens).
-3. Select **Generate a new token**.
-4. Give your token a **Name**, like `n8n integration`.
-5. For **Scopes**, select **Custom scopes**. Select these scopes:
-    - Forms: Read
-    - Webhooks: Read, Write
-6. Select **Generate token**.
-7. Copy the token and enter it in your n8n credential.
+1. 登录 Typeform 账户。
+2. 选择右上角的个人头像，进入 **Account > Your settings >** [**Personal Tokens**](https://admin.typeform.com/user/tokens)（账户 > 你的设置 > 个人令牌）。
+3. 选择 **Generate a new token**（生成新令牌）。
+4. 为令牌设置 **Name**（名称），例如 `n8n integration`。
+5. 在 **Scopes**（作用域）中选择 **Custom scopes**（自定义作用域），并选择以下作用域：
+    - Forms: Read（表单：读取）
+    - Webhooks: Read, Write（Webhook：读取、写入）
+6. 选择 **Generate token**（生成令牌）。
+7. 复制令牌，填入 n8n 凭据。
 
-Refer to Typeform's [Personal access token documentation](https://www.typeform.com/developers/get-started/personal-access-token/) for more information.
+更多信息，请参阅 Typeform 的[个人访问令牌文档](https://www.typeform.com/developers/get-started/personal-access-token/)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need a [Typeform](https://typeform.com/) account and:
+配置此凭据需要一个 [Typeform](https://typeform.com/) 账号，以及：
 
-- A **Client ID**: Generated when you register an app.
-- A **Client Secret**: Generated when you register an app.
+- **Client ID**（客户端 ID）：注册应用时生成。
+- **Client Secret**（客户端密钥）：注册应用时生成。
 
-To get your Client ID and Client Secret, register a new Typeform app:
+如需获取 Client ID 和 Client Secret，请注册新的 Typeform 应用：
 
-1. Log into your Typeform account.
-2. In the upper left, select the dropdown for your organization and select **Developer apps**.
-3. Select **Register a new app**.
-4. Enter an **App Name** that makes sense, like `n8n OAuth2 integration`.
-5. Enter your n8n base URL as the **App website**, for example `https://n8n-sample.app.n8n.cloud/`.
-6. From n8n, copy the **OAuth Redirect URL**. Enter this in Typeform as the **Redirect URI(s)**.
-7. Select **Register app**.
-8. Copy the **Client Secret** and enter it in your n8n credential.
-9. In Typeform, select **Got it** to close the Client Secret modal.
-10. The **Developer apps** panel displays your new app. Copy the **Client ID** and enter it in your n8n credential.
-11. Once you enter both the **Client ID** and **Client Secret** in n8n, select **Connect my account** and follow the on-screen prompts to finish authorizing the app.
+1. 登录 Typeform 账户。
+2. 在左上角选择组织的下拉列表，再选择 **Developer apps**（开发者应用）。
+3. 选择 **Register a new app**（注册新应用）。
+4. 输入适当的 **App Name**（应用名称），例如 `n8n OAuth2 integration`。
+5. 将 n8n 基础 URL 填入 **App website**（应用网站），例如 `https://n8n-sample.app.n8n.cloud/`。
+6. 从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL），填入 Typeform 的 **Redirect URI(s)**（重定向 URI）。
+7. 选择 **Register app**（注册应用）。
+8. 复制 **Client Secret**（客户端密钥），填入 n8n 凭据。
+9. 在 Typeform 中选择 **Got it**（知道了），关闭客户端密钥弹窗。
+10. **Developer apps**（开发者应用）面板会显示新应用。复制 **Client ID**（客户端 ID），填入 n8n 凭据。
+11. 在 n8n 中输入 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）后，选择 **Connect my account**（连接我的账户），按照屏幕提示完成应用授权。
 
-Refer to [Create applications that integrate with Typeform's APIs](https://www.typeform.com/developers/get-started/applications/#1-create-an-application-in-the-typeform-admin-panel) for more information.
+更多信息，请参阅[创建与 Typeform API 集成的应用](https://www.typeform.com/developers/get-started/applications/#1-create-an-application-in-the-typeform-admin-panel)。
 
-## Setting custom scopes <a href="#setting-custom-scopes" id="setting-custom-scopes"></a>
+## 设置自定义权限范围 <a href="#setting-custom-scopes" id="setting-custom-scopes"></a>
 
-Typeform OAuth2 credentials use the following scopes by default:
+Typeform OAuth2 凭据默认使用以下作用域：
 
 - `forms:read`
 - `webhooks:read`
 - `webhooks:write`
 
-To select different scopes for your credentials, enable the **Custom Scopes** toggle and edit the **Enabled Scopes** field. Take care when removing a default scope, as this can stop the [Typeform Trigger](../trigger-nodes/n8n-nodes-base.typeformtrigger.md) node from working.
+如需为凭据选择其他作用域，请启用 **Custom Scopes**（自定义作用域）开关，编辑 **Enabled Scopes**（已启用的作用域）字段。移除默认作用域时请谨慎，这可能使 [Typeform Trigger（触发器）](../trigger-nodes/n8n-nodes-base.typeformtrigger.md)节点停止工作。
 
-Refer to Typeform's [Scopes documentation](https://www.typeform.com/developers/get-started/scopes/) for the full list of available scopes.
+全部可用作用域，请参阅 Typeform 的[作用域文档](https://www.typeform.com/developers/get-started/scopes/)。

@@ -1,73 +1,73 @@
 ---
-title: Azure AI Search credentials
-description: >-
-  Documentation for Azure AI Search credentials. Use these credentials to
-  authenticate Azure AI Search in n8n, a workflow automation platform.
+title: Azure AI Search 凭据
+description: Azure AI Search 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Azure AI Search 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Azure AI Search credentials
+nodeTitle: Azure AI Search 凭据
 originalFilePath: integrations/builtin/credentials/azureaisearch.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/azureaisearch'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/azureaisearch'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/azureaisearch
+url: https://docs.n8n.io/integrations/builtin/credentials/azureaisearch
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Azure AI Search credentials <a href="#azure-ai-search-credentials" id="azure-ai-search-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Azure AI Search 凭据 <a href="#azure-ai-search-credentials" id="azure-ai-search-credentials"></a>
 
-- [Azure AI Search Vector Store](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+- [Azure AI Search Vector Store（向量存储）](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreazureaisearch.md)
 
-- An [Azure subscription](https://azure.microsoft.com)
-- An Azure AI Search service created in the [Azure Portal](https://portal.azure.com/)
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- [Azure 订阅](https://azure.microsoft.com)
+- 在 [Azure Portal](https://portal.azure.com/) 中创建的 Azure AI Search 服务
 
-This node uses API key authentication.
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+此节点使用 API 密钥身份验证。
 
-Refer to [Azure AI Search documentation](https://learn.microsoft.com/azure/search/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+有关该服务的更多信息，请参阅 [Azure AI Search 文档](https://learn.microsoft.com/azure/search/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- **Endpoint**: Your Azure AI Search service URL (format: `https://your-service.search.windows.net`)
-- **API Key**: Admin key (read-write) or query key (read-only)
+配置此凭据需要：
 
-To get these values:
+- **Endpoint**（端点）：Azure AI Search 服务的 URL（格式：`https://your-service.search.windows.net`）
+- **API Key**（API 密钥）：管理员密钥（读写）或查询密钥（只读）
 
-1. Navigate to your Azure AI Search service in the [Azure Portal](https://portal.azure.com/)
-2. Copy the **URL** from the **Overview** section
-3. Go to **Settings** > **Keys** and copy:
-   - **Admin key** for full read-write access, or
-   - **Query key** for read-only querying
-4. Enter these values in n8n
+获取这些值的步骤如下：
+
+1. 在 [Azure Portal](https://portal.azure.com/) 中打开 Azure AI Search 服务。
+2. 从 **Overview**（概览）部分复制 **URL**。
+3. 进入 **Settings**（设置）> **Keys**（密钥），复制以下任一密钥：
+   - **Admin key**（管理员密钥）：提供完整读写权限，或
+   - **Query key**（查询密钥）：仅用于只读查询
+4. 将这些值填入 n8n。
 
 {% hint style="info" %}
-**API key permissions**
+**API 密钥权限**
 
-Admin keys provide full access including index creation and deletion. Query keys provide read-only access. Choose based on your workflow requirements.
+管理员密钥提供完整访问权限，包括创建和删除索引；查询密钥提供只读权限。请根据工作流需求选择。
 {% endhint %}
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排查 <a href="#troubleshooting" id="troubleshooting"></a>
 
-### Authentication errors <a href="#authentication-errors" id="authentication-errors"></a>
+### 身份验证错误 <a href="#authentication-errors" id="authentication-errors"></a>
 
-**API key authentication fails**:
-- Verify the API key is correct and hasn't been regenerated in Azure Portal
-- Confirm you're using an admin key for write operations (insert/update)
-- Check that the key hasn't expired or been rotated
+**API 密钥身份验证失败**：
+- 确认 API 密钥正确，且未在 Azure Portal 中重新生成
+- 确认写入操作（插入或更新）使用管理员密钥
+- 检查密钥是否已过期或轮换
 
-### Connection issues <a href="#connection-issues" id="connection-issues"></a>
+### 连接问题 <a href="#connection-issues" id="connection-issues"></a>
 
-- Verify endpoint URL format: `https://your-service.search.windows.net`
-- Confirm your Azure AI Search service is running
-- Check network security rules and firewall settings allow access from your n8n instance
+- 验证端点 URL 格式：`https://your-service.search.windows.net`
+- 确认 Azure AI Search 服务正在运行
+- 检查网络安全规则和防火墙设置是否允许 n8n 实例访问

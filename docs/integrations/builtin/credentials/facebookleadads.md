@@ -1,75 +1,75 @@
 ---
-title: Facebook Lead Ads credentials
-description: >-
-  Documentation for the Facebook Lead Ads credentials. Use these credentials to
-  authenticate Facebook Lead Ads in n8n, a workflow automation platform.
+title: Facebook Lead Ads 凭据
+description: Facebook Lead Ads 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Facebook Lead Ads 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Facebook Lead Ads credentials
+nodeTitle: Facebook Lead Ads 凭据
 originalFilePath: integrations/builtin/credentials/facebookleadads.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/facebookleadads'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/facebookleadads'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/facebookleadads
+url: https://docs.n8n.io/integrations/builtin/credentials/facebookleadads
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Facebook Lead Ads credentials <a href="#facebook-lead-ads-credentials" id="facebook-lead-ads-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Facebook Lead Ads 凭据 <a href="#facebook-lead-ads-credentials" id="facebook-lead-ads-credentials"></a>
 
-* [Facebook Lead Ads trigger](../trigger-nodes/n8n-nodes-base.facebookleadadstrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+* [Facebook Lead Ads 触发器](../trigger-nodes/n8n-nodes-base.facebookleadadstrigger.md)
+
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Facebook Lead Ads' documentation](https://developers.facebook.com/docs/marketing-api/guides/lead-ads/) for more information about the service.
+有关该服务的更多信息，请参阅 [Facebook Lead Ads 文档](https://developers.facebook.com/docs/marketing-api/guides/lead-ads/)。
 
-View [example workflows and related content](https://n8n.io/integrations/facebook-lead-ads-trigger/) on n8n's website.
+查看 n8n 网站上的[工作流示例和相关内容](https://n8n.io/integrations/facebook-lead-ads-trigger/)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need a [Meta for Developers](https://developers.facebook.com/) account and:
+配置此凭据需要一个 [Meta for Developers](https://developers.facebook.com/) 账号，以及：
 
-- A **Client ID**
-- A **Client Secret**
+- 一个 **Client ID（客户端 ID）**
+- 一个 **Client Secret（客户端密钥）**
 
-To get both, [create a Meta app](https://developers.facebook.com/docs/development/create-an-app) with either the Facebook Login product or the Facebook Login for Business product.
+如需获取这两项，请[创建 Meta 应用](https://developers.facebook.com/docs/development/create-an-app)，使用 Facebook Login 或 Facebook Login for Business 产品。
 
-To create your app and set up the credential with **Facebook Login for Business**:
+使用 **Facebook Login for Business** 创建应用并设置凭据的步骤如下：
 
-1. Go to the Meta Developer [App Dashboard](https://developers.facebook.com/apps) and select **Create App**.
-2. If you have a business portfolio and you're ready to connect the app to it, select the business portfolio. If you don't have a business portfolio or you're not ready to connect the app to the portfolio, select **I don’t want to connect a business portfolio yet** and select **Next**. The **Use cases** page opens.
-3. Select **Other**, then select **Next**.
-4. Select **Business** and **Next**.
-5. Complete the essential information:
-    * Add an **App name**.
-    * Add an **App contact email**.
-    * Here again you can connect to a business portfolio or skip it.
-1. Select **Create app**. The **Add products to your app** page opens.
-1. Select **Facebook Login for Business**. The **Settings** page for this product opens.
-1. Copy the **OAuth Redirect URL** from your n8n credential.
-1. In your Meta app settings in **Client OAuth settings**, paste that URL as the **Valid OAuth Redirect URIs**.
-1. Select **App settings > Basic** from the left menu.
-1. Copy the **App ID** and enter it as the **Client ID** within your n8n credential.
-1. Copy the **App Secret** and enter it as the **Client Secret** within your n8n credential.
+1. 打开 Meta Developer 的[应用控制台](https://developers.facebook.com/apps)，选择 **Create App**（创建应用）。
+2. 如果你有业务资产组合，且已准备好将应用关联到它，请选择该业务资产组合。如果没有或暂未准备好关联，选择 **I don’t want to connect a business portfolio yet**（暂不关联业务资产组合），再选择 **Next**（下一步）。随后打开 **Use cases**（使用场景）页面。
+3. 选择 **Other**（其他），再选择 **Next**（下一步）。
+4. 选择 **Business**（业务）和 **Next**（下一步）。
+5. 填写必要信息：
+    * 添加 **App name**（应用名称）。
+    * 添加 **App contact email**（应用联系邮箱）。
+    * 此处也可关联业务资产组合，或跳过。
+1. 选择 **Create app**（创建应用），随后打开 **Add products to your app**（为应用添加产品）页面。
+1. 选择 **Facebook Login for Business**，随后打开该产品的 **Settings**（设置）页面。
+1. 从 n8n 凭据复制 **OAuth Redirect URL**（OAuth 重定向 URL）。
+1. 在 Meta 应用设置的 **Client OAuth settings**（客户端 OAuth 设置）中，将该 URL 粘贴到 **Valid OAuth Redirect URIs**（有效的 OAuth 重定向 URI）。
+1. 从左侧菜单选择 **App settings > Basic**（应用设置 > 基本）。
+1. 复制 **App ID**（应用 ID），填入 n8n 凭据的 **Client ID**（客户端 ID）。
+1. 复制 **App Secret**（应用密钥），填入 n8n 凭据的 **Client Secret**（客户端密钥）。
 
-Your credential should successfully connect now, but you'll need to go through the steps to take your Meta app live before you can use it with the [Facebook Lead Ads trigger](../trigger-nodes/n8n-nodes-base.facebookleadadstrigger.md). Here's a summary of what you'll need to do:
+此时凭据应能成功连接，但在与 [Facebook Lead Ads 触发器](../trigger-nodes/n8n-nodes-base.facebookleadadstrigger.md)配合使用前，还需要完成 Meta 应用上线步骤，概括如下：
 
-1. In your Meta app, select **App settings > Basic** from the left menu.
-1. Enter a **Privacy Policy URL**. (Required to take the app "Live.")
-1. Select **Save changes**.
-1. At the top of the page, toggle the **App Mode** from **Development** to **Live**.
-1. Facebook Login for Business requires Advanced Access for `public_profile`. To add it, go to **App Review > Permissions and Features**.
-1. Search for `public_profile` and select **Request advanced access**.
-1. Complete the steps for [business verification](https://www.facebook.com/business/tools/meta-verified-for-business/).
-1. Use the [Lead Ads Testing Tool](https://developers.facebook.com/tools/lead-ads-testing) to trigger some demo form submissions and test your workflow.
+1. 在 Meta 应用的左侧菜单选择 **App settings > Basic**（应用设置 > 基本）。
+1. 输入 **Privacy Policy URL**（隐私政策 URL），这是将应用切换为 Live（正式）状态的必填项。
+1. 选择 **Save changes**（保存更改）。
+1. 在页面顶部，将 **App Mode**（应用模式）从 **Development**（开发）切换为 **Live**（正式）。
+1. Facebook Login for Business 要求 `public_profile` 的高级访问权限。添加方法是进入 **App Review > Permissions and Features**（应用审核 > 权限与功能）。
+1. 搜索 `public_profile`，选择 **Request advanced access**（申请高级访问权限）。
+1. 完成[业务验证](https://www.facebook.com/business/tools/meta-verified-for-business/)步骤。
+1. 使用 [Lead Ads Testing Tool](https://developers.facebook.com/tools/lead-ads-testing) 触发一些演示表单提交，测试工作流。
 
-Refer to Meta's [Create an app](https://developers.facebook.com/docs/development/create-an-app) documentation for more information on creating an app, required fields like the Privacy Policy URL, and adding products.
+创建应用、填写隐私政策 URL 等必需字段及添加产品的更多信息，请参阅 Meta 的[创建应用](https://developers.facebook.com/docs/development/create-an-app)文档。
 
-For more information on the app modes and switching to **Live** mode, refer to [App Modes](https://developers.facebook.com/docs/development/build-and-test/app-modes) and [Publish | App Types](https://developers.facebook.com/docs/development/release#app-types).
+应用模式和切换为 **Live**（正式）模式的更多信息，请参阅[应用模式](https://developers.facebook.com/docs/development/build-and-test/app-modes)和[发布 | 应用类型](https://developers.facebook.com/docs/development/release#app-types)。

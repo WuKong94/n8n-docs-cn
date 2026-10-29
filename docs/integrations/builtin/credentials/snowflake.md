@@ -1,77 +1,77 @@
 ---
-title: Snowflake credentials
-description: >-
-  Documentation for Snowflake credentials. Use these credentials to authenticate
-  Snowflake in n8n, a workflow automation platform.
+title: Snowflake 凭据
+description: Snowflake 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Snowflake 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Snowflake credentials
+- integration
+- reference
+nodeTitle: Snowflake 凭据
 originalFilePath: integrations/builtin/credentials/snowflake.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/snowflake'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/snowflake'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/snowflake
+url: https://docs.n8n.io/integrations/builtin/credentials/snowflake
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Snowflake credentials <a href="#snowflake-credentials" id="snowflake-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Snowflake 凭据 <a href="#snowflake-credentials" id="snowflake-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Snowflake](../app-nodes/n8n-nodes-base.snowflake.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Snowflake](https://www.snowflake.com/en/) account.
+创建一个 [Snowflake](https://www.snowflake.com/en/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- [Password](#using-password-authentication)
-- [Key-pair](#using-key-pair-authentication)
+- [Password（密码）](#using-password-authentication)
+- [Key-pair（密钥对）](#using-key-pair-authentication)
 - [OAuth2](#using-oauth2-authentication)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Snowflake's API documentation](https://docs.snowflake.com/en/api-reference) and [SQL Command Reference](https://docs.snowflake.com/en/sql-reference-commands) for more information about the service.
+有关该服务的更多信息，请参阅 [Snowflake API 文档](https://docs.snowflake.com/en/api-reference)和 [SQL 命令参考](https://docs.snowflake.com/en/sql-reference-commands)。
 
-## Common configuration fields <a href="#common-configuration-fields" id="common-configuration-fields"></a>
+## 通用配置字段 <a href="#common-configuration-fields" id="common-configuration-fields"></a>
 
-Both authentication methods require the following fields:
+两种身份验证方式都需要以下字段：
 
-- An **Account** name: Your account name is the string of characters located between `https://` and `snowflakecomputing.com` in your Snowflake URL. For example, if the URL of your Snowflake account is `https://abc.eu-central-1.snowflakecomputing.com` then the name of your account is `abc.eu-central-1`.
-- A **Database**: Enter the name of the [database](https://docs.snowflake.com/en/sql-reference/sql/use-database) the credential should connect to.
-- A **Warehouse**: Enter the name of the default virtual [warehouse](https://docs.snowflake.com/en/sql-reference/sql/use-warehouse) to use for the session after connecting. n8n uses this warehouse for performing queries, loading data, and so on.
-- A **Schema**: Enter the [schema](https://docs.snowflake.com/en/sql-reference/sql/use-schema) you want to use after connecting.
-- A **Role**: Enter the security [role](https://docs.snowflake.com/en/sql-reference/sql/use-role) you want to use after connecting.
-- **Client Session Keep Alive**: By default, client connections typically time out three or four hours after the most recent query execution. Turning this setting on sets the `clientSessionKeepAlive` parameter to true: the server will keep the client's connection alive indefinitely, even if the connection doesn't execute any queries.
+- **Account**（账户）名称：Snowflake URL 中位于 `https://` 与 `snowflakecomputing.com` 之间的字符串。例如，Snowflake 账户 URL 为 `https://abc.eu-central-1.snowflakecomputing.com` 时，账户名称为 `abc.eu-central-1`。
+- **Database**（数据库）：输入此凭据应连接的[数据库](https://docs.snowflake.com/en/sql-reference/sql/use-database)名称。
+- **Warehouse**（仓库）：输入连接后会话使用的默认虚拟[仓库](https://docs.snowflake.com/en/sql-reference/sql/use-warehouse)名称。n8n 使用此仓库执行查询、加载数据等操作。
+- **Schema**（架构）：输入连接后使用的[架构](https://docs.snowflake.com/en/sql-reference/sql/use-schema)。
+- **Role**（角色）：输入连接后使用的安全[角色](https://docs.snowflake.com/en/sql-reference/sql/use-role)。
+- **Client Session Keep Alive**（客户端会话保活）：默认情况下，客户端连接通常在最近一次执行查询的三到四小时后超时。开启此设置会将 `clientSessionKeepAlive` 参数设为 true：即使不执行查询，服务器也会无限期保持客户端连接。
 
-Refer to [Session Commands](https://docs.snowflake.com/en/sql-reference/commands-session) for more information on these settings.
+这些设置的更多信息，请参阅[会话命令](https://docs.snowflake.com/en/sql-reference/commands-session)。
 
-## Using password authentication <a href="#using-password-authentication" id="using-password-authentication"></a>
+## 使用密码身份验证 <a href="#using-password-authentication" id="using-password-authentication"></a>
 
-In addition to the [common configuration fields](#common-configuration-fields), password authentication requires:
+除[通用配置字段](#common-configuration-fields)外，密码身份验证还需要：
 
-- A **Username**
-- A **Password**
+- 一个 **Username（用户名）**
+- 一个 **Password（密码）**
 
-## Using key-pair authentication <a href="#using-key-pair-authentication" id="using-key-pair-authentication"></a>
+## 使用密钥对身份验证 <a href="#using-key-pair-authentication" id="using-key-pair-authentication"></a>
 
-Key-pair authentication provides enhanced security as an alternative to password-based authentication. This method uses a public-private key pair for authentication.
+密钥对身份验证可替代基于密码的身份验证，提供更高安全性，使用公钥和私钥对进行验证。
 
-In addition to the [common configuration fields](#common-configuration-fields), key-pair authentication requires:
+除[通用配置字段](#common-configuration-fields)外，密钥对身份验证还需要：
 
-- A **Username**: The Snowflake user that has the public key assigned to it.
-- A **Private Key**: The private key in PEM format (PKCS#8). This should be the full content of your private key file, including the `-----BEGIN ENCRYPTED PRIVATE KEY-----` and `-----END ENCRYPTED PRIVATE KEY-----` delimiters (or `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` for unencrypted keys).
-- A **Passphrase** (optional): If your private key is encrypted, enter the passphrase used to encrypt it. Leave this field empty if you're using an unencrypted private key.
+- **Username**（用户名）：已为其分配公钥的 Snowflake 用户。
+- **Private Key**（私钥）：PEM 格式（PKCS#8）的私钥。应包含私钥文件的完整内容，包括 `-----BEGIN ENCRYPTED PRIVATE KEY-----` 和 `-----END ENCRYPTED PRIVATE KEY-----` 分隔标记（未加密密钥则为 `-----BEGIN PRIVATE KEY-----` 和 `-----END PRIVATE KEY-----`）。
+- **Passphrase**（口令，可选）：私钥已加密时，输入用于加密的口令；使用未加密私钥时，将此字段留空。
 
-Refer to [Snowflake's key-pair authentication documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth) for more information about generating and configuring key pairs.
+生成和配置密钥对的更多信息，请参阅 [Snowflake 密钥对身份验证文档](https://docs.snowflake.com/en/user-guide/key-pair-auth)。
 
-## Using OAuth2 authentication
+## 使用 OAuth2 身份验证 <a id="using-oauth2-authentication"></a>
 
-OAuth2 authentication uses a separate **Snowflake OAuth2 API** credential, and needs an OAuth security integration set up in Snowflake first.
+OAuth2 身份验证使用独立的 **Snowflake OAuth2 API** 凭据，需要先在 Snowflake 中设置 OAuth 安全集成。
 
-Using the `ACCOUNTADMIN` role, or a role with the `CREATE INTEGRATION` privilege, run the following in Snowflake:
+使用 `ACCOUNTADMIN` 角色，或具有 `CREATE INTEGRATION` 权限的角色，在 Snowflake 中运行以下命令：
 
 ```sql
 CREATE SECURITY INTEGRATION n8n_oauth_integration
@@ -87,22 +87,22 @@ CREATE SECURITY INTEGRATION n8n_oauth_integration
   OAUTH_ENFORCE_PKCE = TRUE;
 ```
 
-Replace `<your-redirect-url>` with the **OAuth Redirect URL** shown on the n8n credential. If you're connecting over HTTPS, you can remove the `OAUTH_ALLOW_NON_TLS_REDIRECT_URI` line.
+将 `<your-redirect-url>` 替换为 n8n 凭据显示的 **OAuth Redirect URL**（OAuth 重定向 URL）。通过 HTTPS 连接时，可移除 `OAUTH_ALLOW_NON_TLS_REDIRECT_URI` 行。
 
-Then retrieve the client ID and secret:
+然后获取客户端 ID 和密钥：
 
 ```sql
 SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('N8N_OAUTH_INTEGRATION');
 ```
 
-Refer to Snowflake's [OAuth for custom clients](https://docs.snowflake.com/en/user-guide/oauth-custom) documentation for more information.
+更多信息，请参阅 Snowflake 的[自定义客户端 OAuth](https://docs.snowflake.com/en/user-guide/oauth-custom)文档。
 
-In addition to the common configuration fields, except for **Role**, OAuth2 authentication requires:
+除 **Role**（角色）以外的通用配置字段外，OAuth2 身份验证还需要：
 
-- A **Client ID** and **Client Secret**: from the security integration you created above.
+- **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）：来自上方创建的安全集成。
 
-To quickly find your Account, Warehouse, and Schema values, select your username in Snowflake, go to **Account**, then select **View Account Details** for the account you want to use. Select **Config File** and pick your **Warehouse** and **Schema** to see the connection details you need.
+如需快速查找 Account、Warehouse 和 Schema 的值，在 Snowflake 中选择用户名，进入 **Account**（账户），为目标账户选择 **View Account Details**（查看账户详情）。选择 **Config File**（配置文件），再选择 **Warehouse**（仓库）和 **Schema**（架构），即可查看所需连接详情。
 
-Select **Connect my account** in n8n to start the OAuth2 flow. n8n redirects you to Snowflake to sign in and authorize the app, then redirects back with a token.
+在 n8n 中选择 **Connect my account**（连接我的账户），开始 OAuth2 流程。n8n 会重定向到 Snowflake，供你登录并授权应用，然后携带令牌重定向回 n8n。
 
-The OAuth2 credential doesn't have a separate **Role** field. Instead, n8n requests the role as part of the OAuth scope. The default scope is `refresh_token session:role:SYSADMIN`, so the Snowflake user must have the `SYSADMIN` role granted. If the user has a different role, or you need additional scopes, turn on **Custom Scopes** before connecting and edit **Enabled Scopes**, replacing `session:role:SYSADMIN` with `session:role:<your-role>` for a role granted to the user. Keep in mind that removing the default scopes may cause the node to stop working correctly.
+OAuth2 凭据没有独立的 **Role**（角色）字段，n8n 会在 OAuth 作用域中请求角色。默认作用域为 `refresh_token session:role:SYSADMIN`，因此 Snowflake 用户必须获授 `SYSADMIN` 角色。如果用户具有其他角色，或需要额外作用域，请在连接前开启 **Custom Scopes**（自定义作用域），编辑 **Enabled Scopes**（已启用的作用域），将 `session:role:SYSADMIN` 替换为该用户获授角色对应的 `session:role:<your-role>`。移除默认作用域可能导致节点无法正常工作。

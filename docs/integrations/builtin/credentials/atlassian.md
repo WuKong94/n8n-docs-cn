@@ -1,61 +1,61 @@
 ---
-title: Atlassian credentials
-description: >-
-  Documentation for Atlassian credentials. Use these credentials to
-  authenticate Atlassian in n8n, a workflow automation platform.
+title: Atlassian 凭据
+description: Atlassian 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Atlassian 的身份验证。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Atlassian credentials
 
-The **Atlassian OAuth2 API** credential is a generic OAuth2 credential for [Atlassian Cloud](https://www.atlassian.com/).
+# Atlassian 凭据 <a id="atlassian-credentials"></a>
+
+**Atlassian OAuth2 API** 凭据是适用于 [Atlassian Cloud](https://www.atlassian.com/) 的通用 OAuth2 凭据。
 
 {% hint style="info" %}
-**Choosing a credential type**
+**选择凭据类型**
 
-The product-specific credentials, [Jira SW Cloud OAuth2 API](jira.md) and [Confluence Cloud OAuth2 API](confluence.md), build on this credential and are the right choice for the Jira and Confluence nodes: they request the scopes those nodes need. Use the generic **Atlassian OAuth2 API** credential for advanced cases, for example with the HTTP Request node, where you define the scopes yourself.
+产品专用凭据 [Jira SW Cloud OAuth2 API](jira.md) 和 [Confluence Cloud OAuth2 API](confluence.md) 基于此凭据构建，适合 Jira 和 Confluence 节点，会请求这些节点所需的作用域。通用 **Atlassian OAuth2 API** 凭据适用于高级场景，例如在 HTTP Request 节点中自行定义作用域。
 {% endhint %}
 
-## Prerequisites
+## 前置条件 <a id="prerequisites"></a>
 
-- An [Atlassian Cloud](https://www.atlassian.com/) site for the product you want to access, such as Jira or Confluence.
-- Access to the [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/).
+- 要访问的产品（例如 Jira 或 Confluence）的 [Atlassian Cloud](https://www.atlassian.com/) 站点。
+- [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/) 的访问权限。
 
-## Supported authentication methods
+## 支持的身份验证方式 <a id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-Refer to [OAuth 2.0 (3LO) apps](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/) in Atlassian's documentation for more information about the service.
+有关该服务的更多信息，请参阅 Atlassian 文档中的 [OAuth 2.0（3LO）应用](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/)。
 
-## Using OAuth2
+## 使用 OAuth2 <a id="using-oauth2"></a>
 
-To configure this credential, you'll need an [Atlassian Cloud](https://www.atlassian.com/) site and access to the [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/).
+配置此凭据需要一个 [Atlassian Cloud](https://www.atlassian.com/) 站点，以及 [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/) 的访问权限。
 
-Then:
+然后：
 
-1. Open the [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/) and select **Create** > **OAuth 2.0 integration**.
-2. Enter a **Name** for your app and agree to the terms, then select **Create**.
-3. Select **Authorization** in the left sidebar.
-4. Next to **OAuth 2.0 (3LO)**, select **Add**.
-5. In n8n, copy the **OAuth Redirect URL**.
-6. Paste the URL into the **Callback URL** field in the Atlassian Developer Console.
-7. Select **Save changes**.
-8. Select **Permissions** in the left sidebar, then select **Add** next to the API of each product you want to access, such as **Jira API** or **Confluence API**.
-9. Select **Configure** next to each API you added, then select **Edit Scopes** and enable the scopes you plan to request.
-10. Select **Settings** in the left sidebar.
-11. Copy the **Client ID** and paste it into n8n.
-12. Copy the **Secret** and paste it as the **Client Secret** in n8n.
-13. Enter the **Scope** as a space-separated list of scopes to request, for example `read:jira-work read:page:confluence offline_access`.
-14. Select **Connect my account** and follow the prompts to complete the OAuth2 flow.
+1. 打开 [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/)，选择 **Create**（创建）> **OAuth 2.0 integration**（OAuth 2.0 集成）。
+2. 输入应用的 **Name**（名称），同意条款，再选择 **Create**（创建）。
+3. 在左侧边栏选择 **Authorization**（授权）。
+4. 在 **OAuth 2.0 (3LO)** 旁选择 **Add**（添加）。
+5. 在 n8n 中复制 **OAuth Redirect URL**（OAuth 重定向 URL）。
+6. 将该 URL 粘贴到 Atlassian Developer Console 的 **Callback URL**（回调 URL）字段。
+7. 选择 **Save changes**（保存更改）。
+8. 在左侧边栏选择 **Permissions**（权限），再选择要访问的各产品 API（例如 **Jira API** 或 **Confluence API**）旁的 **Add**（添加）。
+9. 在每个已添加的 API 旁选择 **Configure**（配置），再选择 **Edit Scopes**（编辑作用域），启用计划请求的作用域。
+10. 在左侧边栏选择 **Settings**（设置）。
+11. 复制 **Client ID**（客户端 ID），粘贴到 n8n。
+12. 复制 **Secret**（秘密值），粘贴到 n8n 的 **Client Secret**（客户端密钥）。
+13. 在 **Scope**（作用域）中输入以空格分隔的待请求作用域列表，例如 `read:jira-work read:page:confluence offline_access`。
+14. 选择 **Connect my account**（连接我的账户），按照提示完成 OAuth2 流程。
 
 {% hint style="warning" %}
-**Enable every requested scope on your app**
+**在应用中启用每个请求的作用域**
 
-Atlassian rejects the authorization request if the credential requests a scope that isn't enabled on your OAuth app. You must enable every scope you enter in n8n's **Scope** field on the app too, under **Permissions** > **Edit Scopes** in the Atlassian Developer Console. `offline_access` is the exception: Atlassian grants it automatically when requested, so it only needs to go in the **Scope** field. It's needed to refresh tokens, so the connection keeps working without you signing in again.
+如果凭据请求了 OAuth 应用未启用的作用域，Atlassian 会拒绝授权请求。必须在 Atlassian Developer Console 的 **Permissions**（权限）> **Edit Scopes**（编辑作用域）中，同样启用你在 n8n 的 **Scope**（作用域）字段填写的每个作用域。`offline_access` 是例外：Atlassian 会在请求时自动授予它，因此只需填入 **Scope** 字段。此作用域用于刷新令牌，让连接无需你再次登录即可持续工作。
 {% endhint %}
 
-Refer to [Jira scopes](https://developer.atlassian.com/cloud/jira/platform/scopes-for-oauth-2-3LO-and-forge-apps/) and [Confluence scopes](https://developer.atlassian.com/cloud/confluence/scopes-for-oauth-2-3LO-and-forge-apps/) in Atlassian's documentation for the available scopes.
+可用作用域，请参阅 Atlassian 文档中的 [Jira 作用域](https://developer.atlassian.com/cloud/jira/platform/scopes-for-oauth-2-3LO-and-forge-apps/)和 [Confluence 作用域](https://developer.atlassian.com/cloud/confluence/scopes-for-oauth-2-3LO-and-forge-apps/)。

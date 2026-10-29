@@ -1,45 +1,45 @@
 ---
-title: Confluence credentials
-description: >-
-  Documentation for Confluence credentials. Use these credentials to
-  authenticate Confluence in n8n, a workflow automation platform.
+title: Confluence 凭据
+description: Confluence 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Confluence 的身份验证。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Confluence credentials
 
-Use the **Confluence Cloud OAuth2 API** credential to authenticate with [Confluence Cloud](https://www.atlassian.com/software/confluence) in n8n.
+# Confluence 凭据 <a id="confluence-credentials"></a>
 
-## Prerequisites
+使用 **Confluence Cloud OAuth2 API** 凭据，在 n8n 中完成 [Confluence Cloud](https://www.atlassian.com/software/confluence) 的身份验证。
 
-- A [Confluence Cloud](https://www.atlassian.com/software/confluence) site.
-- Access to the [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/).
+## 前置条件 <a id="prerequisites"></a>
 
-## Supported authentication methods
+- [Confluence Cloud](https://www.atlassian.com/software/confluence) 站点。
+- [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/) 的访问权限。
+
+## 支持的身份验证方式 <a id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-Refer to [OAuth 2.0 (3LO) apps](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/) and [Confluence scopes for OAuth 2.0 (3LO) and Forge apps](https://developer.atlassian.com/cloud/confluence/scopes-for-oauth-2-3LO-and-forge-apps/) in Atlassian's documentation for more information about the service.
+有关该服务的更多信息，请参阅 Atlassian 文档中的 [OAuth 2.0（3LO）应用](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/)和[适用于 OAuth 2.0（3LO）与 Forge 应用的 Confluence 作用域](https://developer.atlassian.com/cloud/confluence/scopes-for-oauth-2-3LO-and-forge-apps/)。
 
-## Using OAuth2
+## 使用 OAuth2 <a id="using-oauth2"></a>
 
-To configure this credential, you'll need a [Confluence Cloud](https://www.atlassian.com/software/confluence) site and access to the [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/).
+配置此凭据需要一个 [Confluence Cloud](https://www.atlassian.com/software/confluence) 站点，以及 [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/) 的访问权限。
 
-Then:
+然后：
 
-1. Open the [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/) and select **Create** > **OAuth 2.0 integration**.
-2. Enter a **Name** for your app and agree to the terms, then select **Create**.
-3. Select **Authorization** in the left sidebar.
-4. Next to **OAuth 2.0 (3LO)**, select **Add**.
-5. In n8n, copy the **OAuth Redirect URL**.
-6. Paste the URL into the **Callback URL** field in the Atlassian Developer Console.
-7. Select **Save changes**.
-8. Select **Permissions** in the left sidebar, then select **Add** next to **Confluence API**.
-9. Select **Configure** next to **Confluence API** > **Edit Scopes**. Under the granular scopes, enable these scopes, then save your edits:
+1. 打开 [Atlassian Developer Console](https://developer.atlassian.com/console/myapps/)，选择 **Create**（创建）> **OAuth 2.0 integration**（OAuth 2.0 集成）。
+2. 输入应用的 **Name**（名称），同意条款，再选择 **Create**（创建）。
+3. 在左侧边栏选择 **Authorization**（授权）。
+4. 在 **OAuth 2.0 (3LO)** 旁选择 **Add**（添加）。
+5. 在 n8n 中复制 **OAuth Redirect URL**（OAuth 重定向 URL）。
+6. 将该 URL 粘贴到 Atlassian Developer Console 的 **Callback URL**（回调 URL）字段。
+7. 选择 **Save changes**（保存更改）。
+8. 在左侧边栏选择 **Permissions**（权限），再选择 **Confluence API** 旁的 **Add**（添加）。
+9. 在 **Confluence API** 旁选择 **Configure**（配置）> **Edit Scopes**（编辑作用域）。在细粒度作用域中启用以下作用域，再保存修改：
 	- `read:page:confluence`
 	- `write:page:confluence`
 	- `read:hierarchical-content:confluence`
@@ -54,25 +54,25 @@ Then:
 	- `delete:comment:confluence`
 	- `write:label:confluence`
 	- `delete:page:confluence`
-10. Select **Settings** in the left sidebar.
-11. Copy the **Client ID** and paste it into n8n.
-12. Copy the **Secret** and paste it as the **Client Secret** in n8n.
-13. Select **Connect my account** and follow the prompts to complete the OAuth2 flow.
+10. 在左侧边栏选择 **Settings**（设置）。
+11. 复制 **Client ID**（客户端 ID），粘贴到 n8n。
+12. 复制 **Secret**（秘密值），粘贴到 n8n 的 **Client Secret**（客户端密钥）。
+13. 选择 **Connect my account**（连接我的账户），按照提示完成 OAuth2 流程。
 
 {% hint style="info" %}
-**Selecting a site**
+**选择站点**
 
-The credential doesn't store a Confluence site. You choose the site in the Confluence node's **Site** parameter instead: pick it from the list of sites the connection can access, or paste the site URL. If the connection has access to exactly one site, you can leave **Site** empty and the node uses it automatically.
+凭据不存储 Confluence 站点。请在 Confluence 节点的 **Site**（站点）参数中选择站点：从连接可访问的站点列表中选择，或粘贴站点 URL。如果连接只可访问一个站点，可将 **Site** 留空，节点会自动使用该站点。
 {% endhint %}
 
 {% hint style="warning" %}
-**Enable every requested scope on your app**
+**在应用中启用每个请求的作用域**
 
-Atlassian rejects the authorization request if the credential requests a scope that isn't enabled on your OAuth app. Make sure you enable all the scopes listed above in the Atlassian Developer Console. The credential also requests `offline_access`, which Atlassian grants automatically when requested. It's needed to refresh tokens, so the connection keeps working without you signing in again.
+如果凭据请求了 OAuth 应用未启用的作用域，Atlassian 会拒绝授权请求。请确保在 Atlassian Developer Console 中启用上述全部作用域。凭据还会请求 `offline_access`，Atlassian 会在请求时自动授予它。此作用域用于刷新令牌，让连接无需你再次登录即可持续工作。
 {% endhint %}
 
-### Custom Scopes
+### Custom Scopes（自定义作用域） <a id="custom-scopes"></a>
 
-By default, the credential requests the scopes listed above. To change which scopes it requests, turn on **Custom Scopes** and edit the space-separated scope list. You must enable every scope you request on your OAuth app in the Atlassian Developer Console.
+默认情况下，凭据请求上述作用域。如需修改，开启 **Custom Scopes**（自定义作用域），编辑以空格分隔的作用域列表。必须在 Atlassian Developer Console 的 OAuth 应用中，启用每个请求的作用域。
 
-Refer to [OAuth 2.0 (3LO) apps](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/) in Atlassian's documentation for more information.
+更多信息，请参阅 Atlassian 文档中的 [OAuth 2.0（3LO）应用](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/)。

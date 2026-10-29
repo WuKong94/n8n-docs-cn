@@ -1,96 +1,96 @@
 ---
-title: Azure Storage credentials
-description: >-
-  Documentation for the Azure Storage credentials. Use these credentials to
-  authenticate Azure Storage in n8n, a workflow automation platform.
+title: Azure Storage 凭据
+description: Azure Storage 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Azure Storage 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Azure Storage credentials
+- integration
+- reference
+nodeTitle: Azure Storage 凭据
 originalFilePath: integrations/builtin/credentials/azurestorage.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/azurestorage'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/azurestorage'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/azurestorage
+url: https://docs.n8n.io/integrations/builtin/credentials/azurestorage
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Azure Storage credentials <a href="#azure-storage-credentials" id="azure-storage-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Azure Storage 凭据 <a href="#azure-storage-credentials" id="azure-storage-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [Azure Storage](../app-nodes/n8n-nodes-base.azurestorage.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-* Create an [Azure](https://azure.microsoft.com) subscription.
-* Create an [Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create).
+* 创建一个 [Azure](https://azure.microsoft.com) 订阅。
+* 创建 [Azure 存储账户](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 * OAuth2
-* Shared Key
+* Shared Key（共享密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Azure Storage's API documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/) for more information about the service.
+有关该服务的更多信息，请参阅 [Azure Storage API 文档](https://learn.microsoft.com/en-us/rest/api/storageservices/)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-For self-hosted users, there are two main steps to configure OAuth2 from scratch:
+自托管用户从头配置 OAuth2，主要需要两个步骤：
 
-1. [Register an application](#register-an-application) with the Microsoft Identity Platform.
-2. [Generate a client secret](#generate-a-client-secret) for that application.
+1. 向 Microsoft 标识平台注册[应用](#register-an-application)。
+2. 为该应用[生成客户端密钥](#generate-a-client-secret)。
 
-Follow the detailed instructions for each step below. For more detail on the Microsoft OAuth2 web flow, refer to [Microsoft authentication and authorization basics](https://learn.microsoft.com/en-us/graph/auth/auth-concepts). 
+请按照下方各步骤的详细说明操作。Microsoft OAuth2 Web 流程的更多信息，请参阅 [Microsoft 身份验证与授权基础知识](https://learn.microsoft.com/en-us/graph/auth/auth-concepts)。
 
-### Register an application <a href="#register-an-application" id="register-an-application"></a>
+### 注册应用 <a href="#register-an-application" id="register-an-application"></a>
 
-Register an application with the Microsoft Identity Platform:
+向 Microsoft 标识平台注册应用：
 
-1. Open the [Microsoft Application Registration Portal](https://aka.ms/appregistrations).
-2. Select **Register an application**.
-3. Enter a **Name** for your app.
-4. In **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multi-tenant) and personal Microsoft accounts (for example, Skype, Xbox)**.
-5. In **Register an application**:
-    1. Copy the **OAuth Callback URL** from your n8n credential.
-    2. Paste it into the **Redirect URI (optional)** field.
-    3. Select **Select a platform** > **Web**.
-6. Select **Register** to finish creating your application.
-7. Copy the **Application (client) ID** and paste it into n8n as the **Client ID**.
+1. 打开 [Microsoft 应用注册门户](https://aka.ms/appregistrations)。
+2. 选择 **Register an application**（注册应用）。
+3. 输入应用的 **Name**（名称）。
+4. 在 **Supported account types**（支持的账户类型）中，选择 **Accounts in any organizational directory (Any Azure AD directory - Multi-tenant) and personal Microsoft accounts (for example, Skype, Xbox)**（任何组织目录中的账户，任何 Azure AD 目录、多租户，以及个人 Microsoft 账户，例如 Skype、Xbox）。
+5. 在 **Register an application**（注册应用）中：
+    1. 从 n8n 凭据复制 **OAuth Callback URL**（OAuth 回调 URL）。
+    2. 将其粘贴到 **Redirect URI (optional)**（重定向 URI，可选）字段。
+    3. 选择 **Select a platform**（选择平台）> **Web**。
+6. 选择 **Register**（注册），完成应用创建。
+7. 复制 **Application (client) ID**（应用程序，客户端 ID），填入 n8n 的 **Client ID**（客户端 ID）。
 
-Refer to [Register an application with the Microsoft Identity Platform](https://learn.microsoft.com/en-us/graph/auth-register-app-v2) for more information.
+更多信息，请参阅[向 Microsoft 标识平台注册应用](https://learn.microsoft.com/en-us/graph/auth-register-app-v2)。
 
-### Generate a client secret <a href="#generate-a-client-secret" id="generate-a-client-secret"></a>
+### 生成客户端密钥 <a href="#generate-a-client-secret" id="generate-a-client-secret"></a>
 
-With your application created, generate a client secret for it:
+应用创建完成后，为其生成客户端密钥：
 
-1. On your Microsoft application page, select **Certificates & secrets** in the left navigation.
-1. In **Client secrets**, select **+ New client secret**.
-1. Enter a **Description** for your client secret, such as `n8n credential`.
-1. Select **Add**.
-1. Copy the **Secret** in the **Value** column.
-1. Paste it into n8n as the **Client Secret**.
-1. Select **Connect my account** in n8n to finish setting up the connection.
-1. Log in to your Microsoft account and allow the app to access your info.
+1. 在 Microsoft 应用页面的左侧导航栏，选择 **Certificates & secrets**（证书与秘密）。
+1. 在 **Client secrets**（客户端密钥）中，选择 **+ New client secret**（新建客户端密钥）。
+1. 输入客户端密钥的 **Description**（描述），例如 `n8n credential`。
+1. 选择 **Add**（添加）。
+1. 复制 **Value**（值）列中的 **Secret**（秘密值）。
+1. 将其粘贴到 n8n 的 **Client Secret**（客户端密钥）。
+1. 在 n8n 中选择 **Connect my account**（连接我的账户），完成连接设置。
+1. 登录 Microsoft 账户，允许应用访问你的信息。
 
-Refer to Microsoft's [Add credentials](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials) for more information on adding a client secret.
+添加客户端密钥的更多信息，请参阅 Microsoft 的[添加凭据](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials)。
 
-You can also authenticate this credential with a certificate (`private_key_jwt`) instead of a client secret. Set **Authentication** to **Certificate** and provide a private key and certificate. Refer to [Authenticate with a certificate](microsoft.md#authenticate-with-a-certificate) for the full steps.
+也可使用证书（`private_key_jwt`）代替客户端密钥进行身份验证。将 **Authentication**（身份验证）设为 **Certificate**（证书），并提供私钥和证书。完整步骤，请参阅[使用证书进行身份验证](microsoft.md#authenticate-with-a-certificate)。
 
-## Using Shared Key <a href="#using-shared-key" id="using-shared-key"></a>
+## 使用共享密钥 <a href="#using-shared-key" id="using-shared-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-* An **Account**: The name of your Azure Storage account.
-* A **Key**: A shared key for your Azure Storage account. Select **Security + networking** and then **Access keys**. You can use either of the two account keys for this purpose.
+* **Account**（账户）：Azure Storage 账户的名称。
+* **Key**（密钥）：Azure Storage 账户的共享密钥。选择 **Security + networking**（安全性 + 网络），再选择 **Access keys**（访问密钥）。两个账户密钥均可使用。
 
-Refer to [Manage storage account access keys | Microsoft](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage) for more detailed steps.
+更详细的步骤，请参阅[管理存储账户访问密钥 | Microsoft](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-Here are the known common errors and issues with Azure Storage credentials.
+以下列出 Azure Storage 凭据的已知常见错误和问题。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/fXYywkPyzPTxeGOEnYgb/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/microsoft-need-admin-approval.md" %}

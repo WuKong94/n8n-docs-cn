@@ -1,73 +1,73 @@
 ---
-title: GitLab credentials
-description: >-
-  Documentation for GitLab credentials. Use these credentials to authenticate
-  GitLab in n8n, a workflow automation platform.
+title: GitLab 凭据
+description: GitLab 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 GitLab 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: GitLab credentials
+nodeTitle: GitLab 凭据
 originalFilePath: integrations/builtin/credentials/gitlab.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/gitlab'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/gitlab'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/gitlab
+url: https://docs.n8n.io/integrations/builtin/credentials/gitlab
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# GitLab credentials <a href="#gitlab-credentials" id="gitlab-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# GitLab 凭据 <a href="#gitlab-credentials" id="gitlab-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [GitLab](../app-nodes/n8n-nodes-base.gitlab.md)
-- [GitLab Trigger](../trigger-nodes/n8n-nodes-base.gitlabtrigger.md)
+- [GitLab Trigger（触发器）](../trigger-nodes/n8n-nodes-base.gitlabtrigger.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
-- OAuth2 (Recommended)
+- API access token（API 访问令牌）
+- OAuth2（推荐）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [GitLab's API documentation](https://docs.gitlab.com/ee/api/rest/) for more information about the service.
+有关该服务的更多信息，请参阅 [GitLab API 文档](https://docs.gitlab.com/ee/api/rest/)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need a [GitLab](https://gitlab.com/) account and:
+配置此凭据需要一个 [GitLab](https://gitlab.com/) 账号，以及：
 
-- The URL of your **GitLab Server**
-- An **Access Token**
+- **GitLab Server**（GitLab 服务器）的 URL
+- 一个 **Access Token（访问令牌）**
 
-To set up the credential:
+设置凭据的步骤如下：
 
-1. In GitLab, select your avatar, then select **Edit profile**.
-2. In the left sidebar, select **Access tokens**.
-3. Select **Add new token**.
-4. Enter a **Name** for the token, like `n8n integration`.
-5. Enter an **expiry date** for the token. If you don't enter an expiry date, GitLab automatically sets it to 365 days later than the current date.
-    - The token expires on that expiry date at midnight UTC.
-6. Select the desired **Scopes**. For the [GitLab](../app-nodes/n8n-nodes-base.gitlab.md) node, use the `api` scope to easily grant access for all the node's functionality. Or refer to [Personal access token scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes) to select scopes for the functions you want to use.
-7. Select **Create personal access token**.
-8. Copy the access token this creates and enter it in your n8n credential as the **Access Token**.
-9. Enter the URL of your **GitLab Server** in your n8n credential. 
+1. 在 GitLab 中选择头像，再选择 **Edit profile**（编辑个人资料）。
+2. 在左侧边栏选择 **Access tokens**（访问令牌）。
+3. 选择 **Add new token**（添加新令牌）。
+4. 输入令牌的 **Name**（名称），例如 `n8n integration`。
+5. 输入令牌的 **expiry date**（到期日期）。未输入时，GitLab 会自动将其设为当前日期之后 365 天。
+    - 令牌在该到期日期的 UTC 午夜失效。
+6. 选择所需的 **Scopes**（作用域）。对于 [GitLab](../app-nodes/n8n-nodes-base.gitlab.md) 节点，可使用 `api` 作用域，方便地授予节点全部功能的访问权限；也可参阅[个人访问令牌作用域](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes)，选择所需功能的作用域。
+7. 选择 **Create personal access token**（创建个人访问令牌）。
+8. 复制所生成的访问令牌，填入 n8n 凭据的 **Access Token**（访问令牌）。
+9. 将 **GitLab Server**（GitLab 服务器）的 URL 填入 n8n 凭据。
 
-Refer to GitLab's [Create a personal access token documentation](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) for more information.
+更多信息，请参阅 GitLab 的[创建个人访问令牌文档](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're [self-hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n) n8n, you'll need a [GitLab](https://gitlab.com/) account. Then create a new GitLab application:
+如果[自托管](../../../deploy/host-n8n/README.md) n8n，需要一个 [GitLab](https://gitlab.com/) 账户，然后创建新的 GitLab 应用：
 
-1. In GitLab, select your avatar, then select **Edit profile**.
-2. In the left sidebar, select **Applications**.
-3. Select **Add new application**.
-4. Enter a **Name** for your application, like `n8n integration`.
-5. In n8n, copy the **OAuth Redirect URL**. Enter it as the GitLab **Redirect URI**.
-6. Select the desired **Scopes**. For the [GitLab](../app-nodes/n8n-nodes-base.gitlab.md) node, use the `api` scope to easily grant access for all the node's functionality. Or refer to [Personal access token scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes) to select scopes for the functions you want to use.
-6. Select **Save application**.
-7. Copy the **Application ID** and enter it as the **Client ID** in your n8n credential.
-8. Copy the **Secret** and enter it as the **Client Secret** in your n8n credential.
+1. 在 GitLab 中选择头像，再选择 **Edit profile**（编辑个人资料）。
+2. 在左侧边栏选择 **Applications**（应用）。
+3. 选择 **Add new application**（添加新应用）。
+4. 输入应用的 **Name**（名称），例如 `n8n integration`。
+5. 在 n8n 中复制 **OAuth Redirect URL**（OAuth 重定向 URL），填入 GitLab 的 **Redirect URI**（重定向 URI）。
+6. 选择所需的 **Scopes**（作用域）。对于 [GitLab](../app-nodes/n8n-nodes-base.gitlab.md) 节点，可使用 `api` 作用域，方便地授予节点全部功能的访问权限；也可参阅[个人访问令牌作用域](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes)，选择所需功能的作用域。
+6. 选择 **Save application**（保存应用）。
+7. 复制 **Application ID**（应用 ID），填入 n8n 凭据的 **Client ID**（客户端 ID）。
+8. 复制 **Secret**（秘密值），填入 n8n 凭据的 **Client Secret**（客户端密钥）。
 
-Refer to GitLab's [Configure GitLab as an OAuth 2.0 authentication identity provider](https://docs.gitlab.com/ee/integration/oauth_provider.html) documentation for more information. Refer to the [GitLab OAuth 2.0 identity provider API documentation](https://docs.gitlab.com/ee/api/oauth2.html) for more information on OAuth2 and GitLab.
+更多信息，请参阅 GitLab 的[将 GitLab 配置为 OAuth 2.0 身份验证提供商](https://docs.gitlab.com/ee/integration/oauth_provider.html)文档。OAuth2 与 GitLab 的更多信息，请参阅 [GitLab OAuth 2.0 身份提供商 API 文档](https://docs.gitlab.com/ee/api/oauth2.html)。

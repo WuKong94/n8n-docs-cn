@@ -404,5 +404,51 @@
     "translator_note": "译注：原文将 CN 说明为加拿大。Zoho 官方 Multi DC 文档列出 CN 对应 accounts.zoho.com.cn，加拿大则为 CA，对应 accounts.zohocloud.ca。此处仅修正区域说明，保留原有选项列表，不据此推断其他 n8n 版本是否提供 CA 选项。",
     "evidence": "原页面自身引用的 Zoho CRM v3 Multi DC 文档（https://www.zoho.com/crm/developer/docs/api/v3/multi-dc.html）将 CN 列为 accounts.zoho.com.cn，将 CA(Canada) 列为 accounts.zohocloud.ca；Zoho 官方 Server Domains（https://www.zoho.com/communityspaces/api/oauth-authentication-server-domains.html）明确将 .com.cn 和 accounts.zoho.com.cn 列为 China。2026-10-29 核对，原文 CN 的 Canada 说明与供应商映射冲突。",
     "scope": "仅修正 CN 的国家说明并添加译注，保留 AU/CN/EU/IN/US 原选项、OAuth 回调配置、链接和代码；不为原文添加 CA 选项，不宣称验证了节点运行或当前产品支持范围。"
+  },
+  {
+    "id": "oracle-pool-session-lifetime-description",
+    "path": "integrations/builtin/credentials/oracledb.md",
+    "source_sha256": "965dde10971e699104f84ba43293c2634422dbaee2ff89c431c877a002568cc3",
+    "original_sentence": "* **Pool Maximum Session Life Time**: The number of connections that are opened whenever a connection request exceeds the number of currently open connections.",
+    "translated_sentence": "* **Pool Maximum Session Life Time**（连接池会话最大生命周期）：连接自首次创建起，可在池中存在的最长时间，单位为秒。",
+    "evidence": "原文此字段重复了同页 Pool Increment 的连接数量说明。n8n 官方 OracleDBApi 凭据定义将该字段映射为 maxLifetimeSession，并明确按秒描述；node-oracledb 官方 createPool 文档亦将对应属性定义为秒数。核对日期 2026-10-29，记录查询时的实现提交以避免依赖可变分支。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/credentials/OracleDBApi.credentials.ts",
+      "https://node-oracledb.readthedocs.io/en/latest/api_manual/oracledb.html#oracledb.createPool"
+    ],
+    "implementation_commit": "1faf2acf9e8a7f5e829db6271532880f64751c82",
+    "implementation_blob_sha": "2dbdab785891d4911c6ea1e90fbe37de136db154",
+    "scope": "仅修正该字段的复制错误与时间单位；不修改连接池字段、SQL、连接字符串、凭据、证书或原始资源，不据此宣称已运行数据库或验证所有版本的连接池行为。"
+  },
+  {
+    "id": "oracle-pool-idle-timeout-description",
+    "path": "integrations/builtin/credentials/oracledb.md",
+    "source_sha256": "965dde10971e699104f84ba43293c2634422dbaee2ff89c431c877a002568cc3",
+    "original_sentence": "* **Pool Connection Idle Timeout**: The number of connections that are opened whenever a connection request exceeds the number of currently open connections.",
+    "translated_sentence": "* **Pool Connection Idle Timeout**（连接池空闲连接超时）：池中连接空闲多少秒后可被终止。",
+    "evidence": "原文此字段重复了同页 Pool Increment 的连接数量说明。n8n 官方 OracleDBApi 凭据定义将该字段映射为 poolTimeout，并明确按秒描述；node-oracledb 官方 createPool 文档亦将对应属性定义为秒数。核对日期 2026-10-29，记录查询时的实现提交以避免依赖可变分支。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/credentials/OracleDBApi.credentials.ts",
+      "https://node-oracledb.readthedocs.io/en/latest/api_manual/oracledb.html#oracledb.createPool"
+    ],
+    "implementation_commit": "1faf2acf9e8a7f5e829db6271532880f64751c82",
+    "implementation_blob_sha": "2dbdab785891d4911c6ea1e90fbe37de136db154",
+    "scope": "仅修正该字段的复制错误与时间单位；不修改连接池字段、SQL、连接字符串、凭据、证书或原始资源，不据此宣称已运行数据库或验证所有版本的连接池行为。"
+  },
+  {
+    "id": "rabbitmq-passwordless-external-state",
+    "path": "integrations/builtin/credentials/rabbitmq.md",
+    "source_sha256": "6b285ca9ee9193141661a7cc6cc3ffadb477c502dd6d0c60f1429fa1dd144cb4",
+    "original_sentence": "- **Passwordless**: Select whether the SSL certificate connection users SASL mechanism EXTERNAL (turned off) or doesn't use a password (turned on). If turned on, you'll also need to enter:",
+    "translated_sentence": "- **Passwordless**（无密码）：选择是否使用基于证书的无密码连接，即 SASL 机制 EXTERNAL。开启时，还需输入：",
+    "evidence": "原文将 SASL EXTERNAL 关联到 Passwordless 关闭状态。n8n 官方 RabbitMQ 凭据将此项描述为基于证书的无密码连接（SASL EXTERNAL）；同一实现提交的 RabbitMQ/GenericFunctions.ts 在 credentials.passwordless 为真时加载证书、密钥和口令，并设置 amqplib.credentials.external()。据此移除错误的关闭状态关联。核对日期 2026-10-29。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/credentials/RabbitMQ.credentials.ts",
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/nodes/RabbitMQ/GenericFunctions.ts"
+    ],
+    "implementation_commit": "1faf2acf9e8a7f5e829db6271532880f64751c82",
+    "credential_blob_sha": "5ea71e07430c8515834e99450a060a46f9fb1149",
+    "implementation_blob_sha": "50c3fb14f9cf81c92b4ad743e8be5ec6482739c6",
+    "scope": "仅修正 Passwordless 说明中的机制与开关状态关联；保留 SSL、客户端证书、私钥、口令、CA、guest 用户限制和错误示例，不宣称已建立真实连接。"
   }
 ]

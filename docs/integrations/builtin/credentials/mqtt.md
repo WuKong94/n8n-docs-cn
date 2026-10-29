@@ -1,72 +1,72 @@
 ---
-title: MQTT credentials
-description: >-
-  Documentation for MQTT credentials. Use these credentials to authenticate MQTT
-  in n8n, a workflow automation platform.
+title: MQTT 凭据
+description: MQTT 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 MQTT 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: MQTT credentials
+nodeTitle: MQTT 凭据
 originalFilePath: integrations/builtin/credentials/mqtt.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/mqtt'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/mqtt'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/mqtt
+url: https://docs.n8n.io/integrations/builtin/credentials/mqtt
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MQTT credentials <a href="#mqtt-credentials" id="mqtt-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# MQTT 凭据 <a href="#mqtt-credentials" id="mqtt-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [MQTT](../app-nodes/n8n-nodes-base.mqtt.md)
-- [MQTT Trigger](../trigger-nodes/n8n-nodes-base.mqtttrigger.md)
+- [MQTT Trigger（触发器）](../trigger-nodes/n8n-nodes-base.mqtttrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Install an [MQTT broker](https://mqtt.org/).
+安装 [MQTT 消息代理](https://mqtt.org/)。
 
-MQTT provides a list of Servers/Brokers at [MQTT Software](https://mqtt.org/software/).
+MQTT 在 [MQTT Software](https://mqtt.org/software/) 中提供了服务器及消息代理列表。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Broker connection
+- Broker connection（消息代理连接）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [MQTT's documentation](https://mqtt.org/) for more information about the MQTT protocol.
+有关 MQTT 协议的更多信息，请参阅 [MQTT 文档](https://mqtt.org/)。
 
-Refer to your broker provider's documentation for more detailed configuration and details.
+更详细的配置及相关信息，请参阅消息代理提供商的文档。
 
-## Using broker connection <a href="#using-broker-connection" id="using-broker-connection"></a>
+## 使用消息代理连接 <a href="#using-broker-connection" id="using-broker-connection"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- Your MQTT broker's **Protocol**
-- The **Host**
-- The **Port**
-- A **Username** and **Password** to authenticate with
-- If you're using **SSL**, the relevant certificates and keys
+- MQTT 消息代理的 **Protocol**（协议）
+- **Host**（主机）
+- **Port**（端口）
+- 用于身份验证的 **Username**（用户名）和 **Password**（密码）
+- 使用 **SSL** 时，需要相应证书及密钥
 
-To set things up:
+设置步骤如下：
 
-1. Select the broker's **Protocol**, which determines the URL n8n uses. Options include:
-    - **Mqtt**: Begin the URL with the standard `mqtt:` protocol.
-    - **Mqtts**: Begin the URL with the secure `mqtts:` protocol.
-    - **Ws**: Begin the URL with the WebSocket `ws:` protocol.
-2. Enter your broker **Host**.
-3. Enter the **Port** number n8n should use to connect to the broker host.
-4. Enter the **Username** to log into the broker as.
-5. Enter that user's **Password**.
-6. If you want to receive QoS 1 and 2 messages while offline, turn off the **Clean Session** toggle.
-7. Enter a **Client ID** you'd like the credential to use. If you leave this blank, n8n will generate one for you. You can use a fixed or expression-based Client ID.
-    - Client IDs can be useful to identify and track connection access. n8n recommends using something with `n8n` in it for easier auditing.
-8. If your MQTT broker uses SSL, turn the **SSL** toggle on. Once you turn it on:
-    1. Select whether to use **Passwordless** connection with certificates, which is like the SASL mechanism EXTERNAL. If turned on:
-        1. Select whether to **Reject Unauthorized Certificate**: If turned off, n8n will connect even if the certificate validation fails.
-        2. Add an SSL **Client Certificate**.
-        3. Add an SSL **Client Key** for the Client Certificate.
-    2. One or more SSL **CA Certificates**.
+1. 选择消息代理的 **Protocol**（协议），它决定 n8n 使用的 URL，可选：
+    - **Mqtt**：URL 以标准的 `mqtt:` 协议开头。
+    - **Mqtts**：URL 以安全的 `mqtts:` 协议开头。
+    - **Ws**：URL 以 WebSocket `ws:` 协议开头。
+2. 输入消息代理的 **Host**（主机）。
+3. 输入 n8n 连接消息代理主机时使用的 **Port**（端口）号。
+4. 输入登录消息代理所用的 **Username**（用户名）。
+5. 输入该用户的 **Password**（密码）。
+6. 如需在离线时接收 QoS 1 和 2 消息，请关闭 **Clean Session**（清理会话）开关。
+7. 输入此凭据使用的 **Client ID**（客户端 ID）。留空时，n8n 会自动生成。可使用固定值或基于表达式的 Client ID。
+    - Client ID 有助于识别和跟踪连接访问。n8n 建议在其中包含 `n8n`，便于审计。
+8. 如果 MQTT 消息代理使用 SSL，请开启 **SSL** 开关。开启后：
+    1. 选择是否使用基于证书的 **Passwordless**（无密码）连接，其方式类似 SASL 机制 EXTERNAL。开启时：
+        1. 选择是否 **Reject Unauthorized Certificate**（拒绝未授权证书）：关闭时，即使证书验证失败，n8n 仍会连接。
+        2. 添加 SSL **Client Certificate**（客户端证书）。
+        3. 添加该客户端证书对应的 SSL **Client Key**（客户端密钥）。
+    2. 一个或多个 SSL **CA Certificates**（CA 证书）。
 
-Refer to your MQTT broker provider's documentation for more detailed configuration instructions.
+更详细的配置说明，请参阅 MQTT 消息代理提供商的文档。

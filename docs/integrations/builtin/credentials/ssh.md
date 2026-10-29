@@ -1,64 +1,64 @@
 ---
-title: SSH credentials
-description: >-
-  Documentation for SSH credentials. Use these credentials to authenticate SSH
-  in n8n, a workflow automation platform.
+title: SSH 凭据
+description: SSH 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 SSH 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: SSH credentials
+nodeTitle: SSH 凭据
 originalFilePath: integrations/builtin/credentials/ssh.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/ssh'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/ssh'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/ssh
+url: https://docs.n8n.io/integrations/builtin/credentials/ssh
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SSH credentials <a href="#ssh-credentials" id="ssh-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# SSH 凭据 <a href="#ssh-credentials" id="ssh-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [SSH](../core-nodes/n8n-nodes-base.ssh.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a remote server with SSH enabled.
-- Create a user account that can `ssh` into the server using one of the following:
-    - Their own [password](#using-password)
-    - An SSH [private key](#using-private-key)
+- 创建启用了 SSH 的远程服务器。
+- 创建可通过以下任一方式使用 `ssh` 登录服务器的用户账户：
+    - 该账户自己的[密码](#using-password)
+    - SSH [私钥](#using-private-key)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- [Password](#using-password): Use this method if you have a user account that can `ssh` into the server using their own password.
-- [Private key](#using-private-key): Use this method if you have a user account that uses an SSH key for the server or service.
+- [Password（密码）](#using-password)：用户账户可使用自己的密码通过 `ssh` 登录服务器时，使用此方式。
+- [Private key（私钥）](#using-private-key)：用户账户使用 SSH 密钥访问服务器或服务时，使用此方式。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Secure Shell (SSH) protocol is a method for securely sending commands over a network. Refer to [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) for an example of SSH setup.
+安全外壳（SSH）协议是一种通过网络安全发送命令的方法。SSH 设置示例，请参阅[使用 SSH 连接到 GitHub](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)。
 
 
-## Using password <a href="#using-password" id="using-password"></a>
+## 使用密码 <a href="#using-password" id="using-password"></a>
 
-Use this method if you have a user account that can `ssh` into the server using their own password.
+用户账户可使用自己的密码通过 `ssh` 登录服务器时，使用此方式。
 
-To configure this credential, you'll need to:
+要配置此凭据，需要：
 
-1. Enter the IP address of the server you're connecting to as the **Host**.
-2. Enter the **Port** to use for the connection. SSH uses port `22` by default.
-3. Enter the **Username** for a user account with `ssh` access on the server.
-4. Enter the **Password** for that user account.
+1. 将要连接的服务器 IP 地址填入 **Host**（主机）。
+2. 输入连接使用的 **Port**（端口）。SSH 默认使用端口 `22`。
+3. 输入在服务器上具有 `ssh` 访问权限的用户账户的 **Username**（用户名）。
+4. 输入该用户账户的 **Password**（密码）。
 
-## Using private key <a href="#using-private-key" id="using-private-key"></a>
+## 使用私钥 <a href="#using-private-key" id="using-private-key"></a>
 
-Use this method if you have a user account that uses an SSH key for the server or service.
+用户账户使用 SSH 密钥访问服务器或服务时，使用此方式。
 
-To configure this credential, you'll need to:
+要配置此凭据，需要：
 
-1. Enter the IP address of the server you're connecting to as the **Host**.
-2. Enter the **Port** to use for the connection. SSH uses port `22` by default.
-3. Enter the **Username** of the account that generated the private key.
-4. Enter the entire contents of your SSH **Private Key**.
-5. If you created a **Passphrase** for the **Private Key**, enter the passphrase.
-    - If you didn't create a passphrase for the key, leave blank.
+1. 将要连接的服务器 IP 地址填入 **Host**（主机）。
+2. 输入连接使用的 **Port**（端口）。SSH 默认使用端口 `22`。
+3. 输入生成私钥的账户的 **Username**（用户名）。
+4. 输入 SSH **Private Key**（私钥）的完整内容。
+5. 如果为 **Private Key**（私钥）创建了 **Passphrase**（口令），请填入口令。
+    - 如果未为密钥创建口令，将此字段留空。

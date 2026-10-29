@@ -1,84 +1,84 @@
 ---
-title: SurveyMonkey credentials
-description: >-
-  Documentation for SurveyMonkey credentials. Use these credentials to
-  authenticate SurveyMonkey in n8n, a workflow automation platform.
+title: SurveyMonkey 凭据
+description: SurveyMonkey 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 SurveyMonkey 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: SurveyMonkey credentials
+- integration
+- reference
+nodeTitle: SurveyMonkey 凭据
 originalFilePath: integrations/builtin/credentials/surveymonkey.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/surveymonkey'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/surveymonkey'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/surveymonkey
+url: https://docs.n8n.io/integrations/builtin/credentials/surveymonkey
 layout:
   description:
     visible: false
 ---
-
-# SurveyMonkey credentials <a href="#surveymonkey-credentials" id="surveymonkey-credentials"></a>
-
-You can use these credentials to authenticate the following nodes:
-
-- [SurveyMonkey Trigger](../trigger-nodes/n8n-nodes-base.surveymonkeytrigger.md)
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+# SurveyMonkey 凭据 <a href="#surveymonkey-credentials" id="surveymonkey-credentials"></a>
 
-- Create a [SurveyMonkey](https://www.surveymonkey.com) account.
-- [Register an app](https://api.surveymonkey.com/v3/docs?api_key=3yr7n6m8sjwvm48x8nhxej52#registering-an-app) from your [**Developer dashboard > My apps**](https://developer.surveymonkey.com/apps/).
-    - Refer to [Required app scopes](#required-app-scopes) for information on the scopes you must use.
+这些凭据可用于以下节点的身份验证：
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- [SurveyMonkey Trigger（触发器）](../trigger-nodes/n8n-nodes-base.surveymonkeytrigger.md)
 
-- API access token
+
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
+
+- 创建一个 [SurveyMonkey](https://www.surveymonkey.com) 账号。
+- 在 [**Developer dashboard > My apps**（开发者控制台 > 我的应用）](https://developer.surveymonkey.com/apps/)中[注册应用](https://api.surveymonkey.com/v3/docs?api_key=3yr7n6m8sjwvm48x8nhxej52#registering-an-app)。
+    - 必需作用域的相关信息，请参阅[应用所需作用域](#required-app-scopes)。
+
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+
+- API access token（API 访问令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [SurveyMonkey's API documentation](https://developer.surveymonkey.com/api/v3/#SurveyMonkey-Api) for more information about the service.
+有关该服务的更多信息，请参阅 [SurveyMonkey API 文档](https://developer.surveymonkey.com/api/v3/#SurveyMonkey-Api)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Access Token**: Generated once you create an app.
-- A **Client ID**: Generated once you create an app.
-- A **Client Secret**: Generated once you create an app.
+- **Access Token**（访问令牌）：创建应用后生成。
+- **Client ID**（客户端 ID）：创建应用后生成。
+- **Client Secret**（客户端密钥）：创建应用后生成。
 
-Once you've created your app and assigned appropriate scopes, go to **Settings > Credentials**. Copy the **Access Token**, **Client ID**, and **Secret** and add them to n8n.
+创建应用并分配适当作用域后，进入 **Settings > Credentials**（设置 > 凭据）。复制 **Access Token**（访问令牌）、**Client ID**（客户端 ID）和 **Secret**（秘密值），填入 n8n。
 
-## Using OAuth <a href="#using-oauth" id="using-oauth"></a>
+## 使用 OAuth <a href="#using-oauth" id="using-oauth"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Client ID**: Generated once you create an app.
-- A **Client Secret**: Generated once you create an app.
+- **Client ID**（客户端 ID）：创建应用后生成。
+- **Client Secret**（客户端密钥）：创建应用后生成。
 
-Once you've created your app and assigned appropriate scopes:
+创建应用并分配适当作用域后：
 
-1. Go to the app's **Settings > Settings**.
-2. From n8n, copy the **OAuth Redirect URL**.
-3. Overwrite the app's existing **OAuth Redirect URL** with that URL.
-4. Select **Submit Changes**.
-5. Be sure the **Scopes** section contains the [Required app scopes](#required-app-scopes).
+1. 进入应用的 **Settings > Settings**（设置 > 设置）。
+2. 从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL）。
+3. 用此 URL 覆盖应用现有的 **OAuth Redirect URL**（OAuth 重定向 URL）。
+4. 选择 **Submit Changes**（提交更改）。
+5. 确保 **Scopes**（作用域）部分包含[应用所需作用域](#required-app-scopes)。
 
-From the app's **Settings > Credentials**, copy the **Client ID** and **Client Secret** and add them to your n8n credential. You can now select **Connect my account** from n8n.
+从应用的 **Settings > Credentials**（设置 > 凭据）中，复制 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥），填入 n8n 凭据。现在可在 n8n 中选择 **Connect my account**（连接我的账户）。
 
 {% hint style="info" %}
-**SurveyMonkey Test OAuth Flow**
+**SurveyMonkey Test OAuth Flow（测试 OAuth 流程）**
 
-This option only works if you keep the default SurveyMonkey **OAuth Redirect URL** and add the n8n OAuth Redirect URL as an **Additional Redirect URL**.
+此选项仅在保留默认 SurveyMonkey **OAuth Redirect URL**（OAuth 重定向 URL），并将 n8n OAuth 重定向 URL 添加为 **Additional Redirect URL**（其他重定向 URL）时有效。
 {% endhint %}
 
-## Required app scopes <a href="#required-app-scopes" id="required-app-scopes"></a>
+## 应用所需作用域 <a href="#required-app-scopes" id="required-app-scopes"></a>
 
-Once you create your app, go to **Settings > Scopes**. Select these scopes for your n8n credential to work:
+创建应用后，进入 **Settings > Scopes**（设置 > 作用域）。选择以下作用域，确保 n8n 凭据正常工作：
 
-- **View Surveys**
-- **View Collectors**
-- **View Responses**
-- **View Response Details**
-- **Create/Modify Webhooks**
-- **View Webhooks**
+- **View Surveys**（查看问卷）
+- **View Collectors**（查看收集器）
+- **View Responses**（查看回答）
+- **View Response Details**（查看回答详情）
+- **Create/Modify Webhooks**（创建或修改 Webhook）
+- **View Webhooks**（查看 Webhook）
 
-Select **Update Scopes** to save them.
+选择 **Update Scopes**（更新作用域），保存设置。

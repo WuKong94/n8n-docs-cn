@@ -1,16 +1,14 @@
 ---
-title: MySQL credentials
+title: MySQL 凭据
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: MySQL credentials
+nodeTitle: MySQL 凭据
 originalFilePath: integrations/builtin/credentials/mysql.md
 originalUrl: https://docs.n8n.io/integrations/builtin/credentials/mysql
 url: https://docs.n8n.io/integrations/builtin/credentials/mysql
-description: >-
-  Documentation for MySQL credentials. Use these credentials to authenticate
-  MySQL in n8n, a workflow automation platform.
+description: MySQL 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 MySQL 的身份验证。
 layout:
   width: default
   title:
@@ -30,83 +28,85 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MySQL credentials
 
-You can use these credentials to authenticate the following nodes:
+# MySQL 凭据 <a id="mysql-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [MySQL](../app-nodes/n8n-nodes-base.mysql/README.md)
-* [Agent](../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/README.md)
+* [Agent（智能体）](../cluster-nodes/root-nodes/n8n-nodes-langchain.agent/README.md)
 
 {% hint style="info" %}
-**Agent node users**
+**Agent 节点用户**
 
-The Agent node doesn't support SSH tunnels.
+Agent 节点不支持 SSH 隧道。
 {% endhint %}
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a user account on a [MySQL](https://www.mysql.com/) server database.
+在 [MySQL](https://www.mysql.com/) 服务器数据库上创建用户账户。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-* Database connection
+* Database connection（数据库连接）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [MySQL's documentation](https://dev.mysql.com/doc/refman/8.3/en/) for more information about the service.
+有关该服务的更多信息，请参阅 [MySQL 文档](https://dev.mysql.com/doc/refman/8.3/en/)。
 
-## Using database connection <a href="#using-database-connection" id="using-database-connection"></a>
+## 使用数据库连接 <a href="#using-database-connection" id="using-database-connection"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-* The server **Host**: The database's host name or IP address.
-* The **Database** name.
-* A **User** name.
-* A **Password** for that user.
-* The **Port** number used by the MySQL server.
-* **Connect Timeout**: The number of milliseconds during the initial database connection before a timeout occurs.
-* **SSL**: If your database is using SSL, turn this on and add details for the SSL certificate.
-* **SSH Tunnel**: Choose whether to connect over an SSH tunnel. An SSH tunnel lets un-encrypted traffic pass over an encrypted connection and enables authorized remote access to servers protected from outside connections by a firewall.
+* 服务器 **Host**（主机）：数据库的主机名或 IP 地址。
+* **Database**（数据库）名称。
+* **User**（用户）名称。
+* 该用户的 **Password**（密码）。
+* MySQL 服务器使用的 **Port**（端口）号。
+* **Connect Timeout**（连接超时）：初始数据库连接期间，发生超时前等待的毫秒数。
+* **SSL**：数据库使用 SSL 时，开启此项，并添加 SSL 证书详情。
+* **SSH Tunnel**（SSH 隧道）：选择是否通过 SSH 隧道连接。SSH 隧道允许未加密流量通过加密连接传输，使获授权用户可以远程访问受防火墙保护、无法从外部直接连接的服务器。
 
-To set up your database connection credential:
+设置数据库连接凭据的步骤如下：
 
-1.  Enter your database's hostname as the **Host** in your n8n credential. Run this query to confirm the hostname:
+1. 将数据库主机名填入 n8n 凭据的 **Host**（主机）。运行以下查询，确认主机名：
 
     ```
     SHOW VARIABLES WHERE Variable_name = 'hostname';
     ```
-2.  Enter your database's name as the **Database** in your n8n credential. Run this query to confirm the database name:
+2. 将数据库名称填入 n8n 凭据的 **Database**（数据库）。运行以下查询，确认数据库名称：
 
     ```
     SHOW DATABASES;
     ```
-3. Enter the username of a **User** in the database. This user should have appropriate permissions for whatever actions you want n8n to perform.
-4. Enter the **Password** for that user.
-5.  Enter the **Port** number used by the MySQL server (default is `3306`). Run this query to confirm the port number:
+3. 输入数据库中 **User**（用户）的用户名。此用户应具有执行你希望 n8n 完成的各项操作所需的适当权限。
+4. 输入该用户的 **Password**（密码）。
+5. 输入 MySQL 服务器使用的 **Port**（端口）号（默认值为 `3306`）。运行以下查询，确认端口号：
 
     ```
     SHOW VARIABLES WHERE Variable_name = 'port';
     ```
-6.  Enter the **Connect Timeout** you'd like the node to use. The Connect Timeout is the number of milliseconds during the initial database connection the node should wait before timing out. n8n defaults to `10000` which is the default used by MySQL of 10 seconds. If you want to match your database's `connect_timeout`, run this query to get it, then multiply by 1000 before entering it in n8n:
+6. 输入节点使用的 **Connect Timeout**（连接超时），即初始数据库连接期间，节点在超时前等待的毫秒数。n8n 默认使用 `10000`，即 MySQL 默认的 10 秒。如需匹配数据库的 `connect_timeout`，运行以下查询获取该值，再乘以 1000 后填入 n8n：
 
     ```
     SHOW VARIABLES WHERE Variable_name = 'connect_timeout';
     ```
-7. If your database uses SSL and you'd like to use **SSL** for the connection, turn this option on in the credential. If you turn it on, enter the information from your MySQL SSL certificate in these fields:
-   1. Enter the `ca.pem` file contents in the **CA Certificate** field.
-   2. Enter the `client-key.pem` file contents in the **Client Private Key** field.
-   3. Enter the `client-cert.pem` file contents in the **Client Certificate** field.
-8. If you want to use **SSH Tunnel** for the connection, turn this option on in the credential. Otherwise, skip it. If you turn it on:
-   1. Select the **SSH Authenticate with** to set the SSH Tunnel type to build:
-      * Select **Password** if you want to connect to SSH using a password.
-      * Select **Private Key** if you want to connect to SSH using an identity file (private key) and a passphrase.
-   2. Enter the **SSH Host**. n8n uses this host to create the SSH URI formatted as: `[user@]host:port`.
-   3. Enter the **SSH Port**. n8n uses this port to create the SSH URI formatted as: `[user@]host:port`.
-   4. Enter the **SSH User** to connect with. n8n uses this user to create the SSH URI formatted as: `[user@]host:port`.
-   5. If you selected **Password** for **SSH Authenticate with**, add the **SSH Password**.
-   6. If you selected **Private Key** for **SSH Authenticate with**:
-      1. Add the contents of the **Private Key** or identity file used for SSH. This is the same as using the `ssh-identity-file` option with the `shell-connect()` command in MySQL.
-      2. If the **Private Key** was created with a passphrase, enter that **Passphrase**. This is the same as using the `ssh-identity-pass` option with the `shell-connect()` command in MySQL. If the **Private Key** has no passphrase, leave this field blank.
+7. 如果数据库使用 SSL，且希望连接使用 **SSL**，请在凭据中开启此选项。开启后，在以下字段中输入 MySQL SSL 证书的信息：
+   1. 将 `ca.pem` 文件内容填入 **CA Certificate**（CA 证书）字段。
+   2. 将 `client-key.pem` 文件内容填入 **Client Private Key**（客户端私钥）字段。
+   3. 将 `client-cert.pem` 文件内容填入 **Client Certificate**（客户端证书）字段。
+8. 如需使用 **SSH Tunnel**（SSH 隧道）连接，请在凭据中开启此选项；否则跳过。开启后：
+   1. 通过 **SSH Authenticate with**（SSH 身份验证方式）选择要建立的 SSH 隧道类型：
+      * 如需使用密码连接 SSH，选择 **Password**（密码）。
+      * 如需使用身份文件（私钥）和口令连接 SSH，选择 **Private Key**（私钥）。
+   2. 输入 **SSH Host**（SSH 主机）。n8n 使用此主机构建以下格式的 SSH URI：`[user@]host:port`。
+   3. 输入 **SSH Port**（SSH 端口）。n8n 使用此端口构建以下格式的 SSH URI：`[user@]host:port`。
+   4. 输入用于连接的 **SSH User**（SSH 用户）。n8n 使用此用户构建以下格式的 SSH URI：`[user@]host:port`。
+   5. 如果 **SSH Authenticate with**（SSH 身份验证方式）选择了 **Password**（密码），请添加 **SSH Password**（SSH 密码）。
+   6. 如果 **SSH Authenticate with**（SSH 身份验证方式）选择了 **Private Key**（私钥）：
+      1. 添加 SSH 使用的 **Private Key**（私钥）或身份文件内容。这等同于使用 `ssh-identity-file` 选项运行 MySQL 的 `shell-connect()` 命令。
+      2. 如果 **Private Key**（私钥）创建时设置了口令，请输入该 **Passphrase**（口令）。这等同于使用 `ssh-identity-pass` 选项运行 MySQL 的 `shell-connect()` 命令。如果私钥没有口令，将此字段留空。
 
-Refer to [MySQL | Creating SSL and RSA Certificates and Keys](https://dev.mysql.com/doc/refman/8.0/en/creating-ssl-rsa-files.html) for more information on working with SSL certificates in MySQL. Refer to [MySQL | Using an SSH Tunnel](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-connection-ssh.html) for more information on working with SSH tunnels in MySQL.
+在 MySQL 中使用 SSL 证书的更多信息，请参阅 [MySQL | 创建 SSL 和 RSA 证书及密钥](https://dev.mysql.com/doc/refman/8.0/en/creating-ssl-rsa-files.html)；在 MySQL 中使用 SSH 隧道的更多信息，请参阅 [MySQL | 使用 SSH 隧道](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-connection-ssh.html)。

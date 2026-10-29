@@ -1,66 +1,66 @@
 ---
-title: RabbitMQ credentials
-description: >-
-  Documentation for RabbitMQ credentials. Use these credentials to authenticate
-  RabbitMQ in n8n, a workflow automation platform.
+title: RabbitMQ 凭据
+description: RabbitMQ 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 RabbitMQ 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: RabbitMQ credentials
+nodeTitle: RabbitMQ 凭据
 originalFilePath: integrations/builtin/credentials/rabbitmq.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/rabbitmq'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/rabbitmq'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/rabbitmq
+url: https://docs.n8n.io/integrations/builtin/credentials/rabbitmq
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# RabbitMQ credentials <a href="#rabbitmq-credentials" id="rabbitmq-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# RabbitMQ 凭据 <a href="#rabbitmq-credentials" id="rabbitmq-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [RabbitMQ](../app-nodes/n8n-nodes-base.rabbitmq.md)
-- [RabbitMQ Trigger](../trigger-nodes/n8n-nodes-base.rabbitmqtrigger.md)
+- [RabbitMQ Trigger（触发器）](../trigger-nodes/n8n-nodes-base.rabbitmqtrigger.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- User connection
+- User connection（用户连接）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [RabbitMQ's Connections documentation](https://www.rabbitmq.com/docs/connections) for more information about the service.
+有关该服务的更多信息，请参阅 [RabbitMQ 连接文档](https://www.rabbitmq.com/docs/connections)。
 
-## Using user connection <a href="#using-user-connection" id="using-user-connection"></a>
+## 使用用户连接 <a href="#using-user-connection" id="using-user-connection"></a>
 
-To configure this credential, you'll need to have a [RabbitMQ broker](https://www.rabbitmq.com/) installed and:
+配置此凭据需要已安装的 [RabbitMQ 消息代理](https://www.rabbitmq.com/)，以及：
 
-1. Enter the **Hostname** for the RabbitMQ broker.
-2. Enter the **Port** the connection should use.
-3. Enter a **User** the connection should use to log in as.
-    - The default is `guest`. RabbitMQ recommends using a different user in production environments. Refer to [Access Control | The Basics](https://www.rabbitmq.com/docs/access-control#basics) for more information. If you're using the `guest` account with a non-localhost connection, refer to [`guest` user issues](#guest-user-issues) below for troubleshooting tips.
-4. Enter the user's **Password**.
-    - The default password for the `guest` user is `guest`.
-5. Enter the [virtual host](https://www.rabbitmq.com/docs/vhosts) the connection should use as the **Vhost**. The default virtual host is `/`.
-6. Select whether the connection should use **SSL**. If turned on, also set:
-    - **Passwordless**: Select whether the SSL certificate connection users SASL mechanism EXTERNAL (turned off) or doesn't use a password (turned on). If turned on, you'll also need to enter:
-        - The **Client Certificate**: Paste the text of the SSL client certificate to use.
-        - The **Client Key**: Paste the SSL client key to use.
-        - The **Passphrase**: Paste the SSL passphrase to use.
-    - **CA Certificates**: Paste the text of the SSL CA certificates to use.
+1. 输入 RabbitMQ 消息代理的 **Hostname**（主机名）。
+2. 输入连接使用的 **Port**（端口）。
+3. 输入连接用于登录的 **User**（用户）。
+    - 默认值为 `guest`。RabbitMQ 建议生产环境使用其他用户。更多信息，请参阅[访问控制 | 基础知识](https://www.rabbitmq.com/docs/access-control#basics)。如果使用 `guest` 账户进行非 localhost 连接，排查方法请参阅下方的 [`guest` 用户问题](#guest-user-issues)。
+4. 输入该用户的 **Password（密码）**。
+    - `guest` 用户的默认密码为 `guest`。
+5. 将连接使用的[虚拟主机](https://www.rabbitmq.com/docs/vhosts)填入 **Vhost**，默认虚拟主机为 `/`。
+6. 选择连接是否使用 **SSL**。开启时，还需要设置：
+    - **Passwordless**（无密码）：选择是否使用基于证书的无密码连接，即 SASL 机制 EXTERNAL。开启时，还需输入：
+        - **Client Certificate**（客户端证书）：粘贴要使用的 SSL 客户端证书文本。
+        - **Client Key**（客户端密钥）：粘贴要使用的 SSL 客户端密钥。
+        - **Passphrase**（口令）：粘贴要使用的 SSL 口令。
+    - **CA Certificates**（CA 证书）：粘贴要使用的 SSL CA 证书文本。
 
-## guest user issues <a href="#guest-user-issues" id="guest-user-issues"></a>
+## guest 用户问题 <a href="#guest-user-issues" id="guest-user-issues"></a>
 
-If you use the `guest` user for the credential and you try to access a remote host, you may see a connection error. The RabbitMQ logs show an error like this:
+如果在凭据中使用 `guest` 用户并尝试访问远程主机，可能遇到连接错误。RabbitMQ 日志中会显示类似以下内容的错误：
 
     [error] <0.918.0> PLAIN login refused: user 'guest' can only connect via localhost
 
-This happens because RabbitMQ prohibits the default `guest` user from connecting from remote hosts. It can only connect over the `localhost`.
+这是因为 RabbitMQ 禁止默认 `guest` 用户从远程主机连接，该用户只能通过 `localhost` 连接。
 
-To resolve this error, you can:
+解决此错误的方法包括：
 
-- Update the `guest` user to allow it remote host access.
-- Create or use a different user to connect to the remote host. The `guest` user is the only user limited by default.
+- 更新 `guest` 用户，允许其访问远程主机。
+- 创建或使用其他用户连接远程主机。只有 `guest` 用户默认受此限制。
 
-Refer to ["guest" user can only connect from localhost](https://www.rabbitmq.com/docs/access-control#loopback-users) for more information.
+更多信息，请参阅 [guest 用户只能从 localhost 连接](https://www.rabbitmq.com/docs/access-control#loopback-users)。
 
