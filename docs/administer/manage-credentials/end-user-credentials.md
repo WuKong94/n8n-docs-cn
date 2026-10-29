@@ -1,129 +1,131 @@
 ---
-description: Let each user connect their own account to a credential, so a workflow runs with the credentials of the person who triggers it.
+description: 让每个用户将自己的账号连接到凭据，使工作流使用触发者的凭据运行。
 layout:
   description:
     visible: false
 status: preview
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# End-user credentials
 
-End-user credentials let workflows run with the credentials of the person who triggers them, rather than a fixed credential. A project admin creates one credential as a template, and each user connects their own account. n8n uses each user's connected account and keeps their data private.
+# 最终用户凭据 <a id="end-user-credentials"></a>
 
-With fixed credentials, everyone who runs a workflow uses the same account, which can expose one person's access and data to everyone else. End-user credentials give each user their own connection and isolate their execution data.
+最终用户凭据使工作流使用触发者的凭据运行，而非固定凭据。项目管理员创建一个凭据模板，每个用户连接自己的账号。n8n 使用各用户已连接的账号，并保护其数据隐私。
+
+固定凭据意味着所有运行工作流的人都使用同一账号，可能将某个人的访问权限和数据暴露给其他人。最终用户凭据为每个用户提供独立连接，并隔离执行数据。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-End-user credentials are available on:
+最终用户凭据可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-End-user credentials are in Preview and may change in future releases. Don't rely on them in production workflows.
+最终用户凭据处于预览阶段，未来版本可能更改。请勿在生产工作流中依赖此功能。
 {% endhint %}
 
-## What are end-user credentials
+## 什么是最终用户凭据 <a id="what-are-end-user-credentials"></a>
 
-When you create or edit a credential, select a **Credential type**:
+创建或编辑凭据时，可以选择 **Credential type**（凭据类型）：
 
-* **Fixed credential:** Uses the same credential regardless of who runs the workflow. This is the default.
-* **End-user credential:** Uses each user's credential at runtime. Only that user can see and use their credential.
+* **Fixed credential**（固定凭据）：无论谁运行工作流，都使用同一凭据，这是默认方式。
+* **End-user credential**（最终用户凭据）：运行时使用各用户的凭据，仅该用户能查看和使用自己的凭据。
 
-An end-user credential is a template. The person who creates it configures the connection once, for example the OAuth app details for Gmail. Every user with access connects their own account using that template. Each connection belongs to the user who made it: only they can use it, and only they can see the data it returns.
+最终用户凭据是一个模板，创建者只需配置一次连接，例如 Gmail 的 OAuth 应用详情。每个有访问权限的用户通过此模板连接自己的账号。每个连接属于建立它的用户，只有该用户能使用，也只有该用户能看到连接返回的数据。
 
-### Example
+### 示例 <a id="example"></a>
 
-You build a workflow with a manual trigger that reads messages from Gmail and sends a summary to Slack. You create an end-user credential for Gmail as the template. When user A runs the workflow, n8n reads user A's inbox. When user B runs it, n8n reads user B's inbox. Each user only sees their own data.
+构建一个手动触发的工作流，从 Gmail 读取消息，再向 Slack 发送摘要。为 Gmail 创建最终用户凭据模板。用户 A 运行时，n8n 读取 A 的收件箱；用户 B 运行时，读取 B 的收件箱。每个用户仅看到自己的数据。
 
-## How it works
+## 工作原理 <a id="how-it-works"></a>
 
-Select credentials on nodes using the credential dropdown, the same as always. There's no separate setting on the node. The node behavior depends on the credential type:
+与往常一样，通过节点的凭据下拉菜单选择凭据，无需额外节点设置。节点行为取决于凭据类型：
 
-* With a fixed credential, the node behaves as it always has.
-* With an end-user credential, the node shows it uses the triggering user's account and prompts them to connect if they haven't yet.
+* 使用固定凭据时，节点行为与之前相同。
+* 使用最终用户凭据时，节点显示使用触发者账号；尚未连接的用户会收到连接提示。
 
-At runtime, n8n resolves the credential to the connected account of the user who triggers the workflow. Every user with workflow access sees the node in the context of their own identity. If they've connected their account, that connection runs. If not, they need to connect before triggering the workflow.
+运行时，n8n 将凭据解析为触发工作流用户已连接的账号。每个有工作流访问权限的用户，都在自身身份上下文中查看节点。已连接账号时使用该连接运行，未连接时必须先连接才能触发工作流。
 
-You can mix fixed and end-user credentials across nodes in one workflow. For example, read from each user's personal Google Calendar with an end-user credential, but send the result through a shared team Slack account with a fixed credential.
+同一工作流的不同节点可以混用固定凭据和最终用户凭据。例如，用最终用户凭据读取各用户个人 Google Calendar，再通过使用固定凭据的团队共享 Slack 账号发送结果。
 
-## Requirements and limitations
+## 要求与限制 <a id="requirements-and-limitations"></a>
 
-* **Enterprise only:** End-user credentials require an Enterprise plan.
-* **Controlled creation:** By default, only [project admins](../manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md) can create end-user credentials. Grant this permission to other users through [custom roles](../manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md). Limiting who can create them keeps credential management central: an admin sets up a template once and shares it to the projects that need it, rather than many users each setting up their own.
-* **Team projects only:** You can only create end-user credentials in team projects, not in personal projects. This keeps them centrally managed, where an admin sets up the credential template, rather than individual users creating their own in personal projects.
-* **OAuth credentials only:** End-user credentials support OAuth-based credential types only.
-* **One connection per user:** Each user can connect a single account per end-user credential template.
-* **Supported triggers:** End-user credential resolution works with the manual trigger, [Chat Hub](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/ways-of-building-workflows/chat-hub), the MCP Server Trigger, the [Webhook trigger](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.webhook), the [n8n Form Trigger](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.formtrigger), and the [Chat Trigger](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-langchain.chattrigger). The Chat Trigger supports **Hosted Chat** only, not Embedded Chat/webhook mode. The Webhook trigger, Form Trigger, and Chat Trigger resolve end-user credentials when they use **n8n User Auth** authentication, so each user runs the workflow with their own connected account. In the Webhook node, this option is called **n8n User Auth (OAuth2)**.
+* **仅限 Enterprise**：最终用户凭据需要 Enterprise 套餐。
+* **受控创建**：默认仅[项目管理员](../manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md)可创建最终用户凭据，可通过[自定义角色](../manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md)授予其他用户权限。限制创建者有助于集中管理凭据：管理员只需配置一次模板，再共享到所需项目，而非让大量用户各自配置。
+* **仅限团队项目**：只能在团队项目创建最终用户凭据，不能在个人项目创建，以便由管理员集中配置凭据模板，避免个人用户在个人项目中各自创建。
+* **仅限 OAuth 凭据**：最终用户凭据仅支持基于 OAuth 的凭据类型。
+* **每个用户一个连接**：对于每个最终用户凭据模板，每个用户只能连接一个账号。
+* **支持的触发器**：最终用户凭据解析适用于手动触发器、[Chat Hub](../../build/ways-of-building-workflows/chat-hub.md)、MCP Server Trigger、[Webhook 触发器](../../integrations/builtin/core-nodes/n8n-nodes-base.webhook/README.md)、[n8n Form Trigger](../../integrations/builtin/core-nodes/n8n-nodes-base.formtrigger.md) 和 [Chat Trigger](../../integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/README.md)。Chat Trigger 仅支持 **Hosted Chat**（托管聊天），不支持 Embedded Chat/webhook 模式。Webhook、Form Trigger 和 Chat Trigger 使用 **n8n User Auth** 身份验证时，会解析最终用户凭据，让每个用户以自己的已连接账号运行工作流。Webhook 节点中，此选项名为 **n8n User Auth (OAuth2)**。
 
-## Create an end-user credential
+## 创建最终用户凭据 <a id="create-an-end-user-credential"></a>
 
-1. Create a credential or open an existing one.
-2. Under **Credential type**, select **End-user credential**.
-3. Configure the connection. For OAuth credentials, include the **Client ID**, **Client Secret**, and **OAuth Redirect URL** to register with the service.
-4. Select **Save**.
+1. 创建凭据，或打开现有凭据。
+2. 在 **Credential type**（凭据类型）下，选择 **End-user credential**（最终用户凭据）。
+3. 配置连接。对于 OAuth 凭据，填写 **Client ID**（客户端 ID）、**Client Secret**（客户端密钥）和用于向服务注册的 **OAuth Redirect URL**（OAuth 重定向 URL）。
+4. 选择 **Save**（保存）。
 
-Users can now connect their own account to this credential. When a user runs a workflow that uses the credential, n8n prompts them to connect if they haven't already. Users with project access can also connect ahead of time from the n8n UI, by opening a node on the canvas or from the project's **Credentials** list.
+现在用户可将自己的账号连接到此凭据。用户运行使用该凭据的工作流时，若尚未连接，n8n 会提示连接。有项目访问权限的用户，也可提前在界面中，通过打开画布节点或项目 **Credentials**（凭据）列表完成连接。
 
 {% hint style="info" %}
-Some trigger nodes, such as the **MCP Server Trigger**, **Webhook**, **Chat Trigger**, and **Form Trigger**, let you require that the triggering user has permission to execute the trigger. When you enable this, only users with a project role that allows workflow execution can trigger it. A user without that role can't connect their account.
+MCP Server Trigger、Webhook、Chat Trigger 和 Form Trigger 等部分触发器节点，允许要求触发者具有执行触发器的权限。启用后，只有具有允许执行工作流的项目角色的用户才能触发。没有该角色的用户无法连接账号。
 {% endhint %}
 
-## Connect your account
+## 连接账号 <a id="connect-your-account"></a>
 
-Before you can use an end-user credential in a workflow, connect your account to the template. You can do this from:
+在工作流中使用最终用户凭据前，需要将账号连接到模板。可通过以下位置操作：
 
-* **A node**: when you open a node that uses an end-user credential, it shows whether you've connected your account. If you haven't, select **Connect**.
-* **The credential**: open the end-user credential and connect your account in the credential modal.
-* **The credentials list**: in a project's **Credentials** list, the end-user credential's card has a **Connect** option.
+* **节点**：打开使用最终用户凭据的节点时，会显示账号是否已连接。尚未连接时，选择 **Connect**（连接）。
+* **凭据**：打开最终用户凭据，在凭据弹窗中连接账号。
+* **凭据列表**：项目 **Credentials**（凭据）列表中的最终用户凭据卡片提供 **Connect**（连接）选项。
 
-Complete the OAuth flow for your account. Once connected, the node shows your account, for example **Connected as you@example.com**.
+为账号完成 OAuth 流程。连接后，节点显示账号，例如 **Connected as you@example.com**（已连接为 you@example.com）。
 
-Your connection is private. Other users connect their own accounts to the same template and never use yours.
+连接是私有的。其他用户向同一模板连接自己的账号，绝不会使用你的账号。
 
-## Execution data and privacy
+## 执行数据与隐私 <a id="execution-data-and-privacy"></a>
 
-When a workflow execution uses an end-user credential, the execution metadata is visible to anyone with access to that workflow's executions: the status, when it ran, and that it used an end-user credential. What changes is who can see the data inside.
+工作流执行使用最终用户凭据时，有权访问该工作流执行的任何人，仍可查看执行元数据，包括状态、运行时间和使用了最终用户凭据这一事实。变化在于谁能查看内部数据。
 
-Only the user who triggered the workflow with their connected account can see the input and output data for those nodes, including the data returned from the connected service. For everyone else, including instance admins, those nodes show redacted output.
+只有使用自己已连接账号触发工作流的用户，才能查看相关节点的输入和输出数据，包括连接服务返回的数据。对其他所有人，包括实例管理员，这些节点均显示脱敏后的输出。
 
-### Admin visibility
+### 管理员可见范围 <a id="admin-visibility"></a>
 
-An admin can see that an end-user credential template exists and that it has connections attached. For example, when deleting an end-user credential, an admin sees how many user connections are attached. That count is all they see. They can't:
+管理员可以看到最终用户凭据模板存在，且有连接附加其上。例如，删除最终用户凭据时，管理员会看到附加的用户连接数量，仅此而已，不能：
 
-* View anything about individual connections
-* View a connection's secrets
-* Use anyone's connected account in their own workflows
-* See the redacted output of executions that ran on another user's connection
+* 查看任何单个连接的信息。
+* 查看连接中的密钥。
+* 在自己的工作流中使用任何其他人的已连接账号。
+* 查看通过其他用户连接运行的执行的脱敏前输出。
 
-Sharing works the same as any credential, but only shares the template, not the connected accounts. An admin can share it into other projects or with other users, and each recipient connects their own account.
+共享方式与普通凭据相同，但仅共享模板，不共享已连接账号。管理员可将模板共享给其他项目或用户，各接收者自行连接账号。
 
 {% hint style="warning" %}
-**Deleting an end-user credential removes every connection**
+**删除最终用户凭据会移除全部连接**
 
-Deleting the credential template deletes the whole credential, including every user's connection, not just your own. Any workflow that relies on it stops resolving for those users until the credential is set up again and they reconnect. n8n warns you before you delete an end-user credential that has connections attached.
+删除凭据模板会删除整个凭据，包括每个用户的连接，而非仅删除你自己的。依赖它的工作流将无法为这些用户解析凭据，直到重新配置凭据并重新连接。删除已有连接附加的最终用户凭据之前，n8n 会发出警告。
 {% endhint %}
 
-## Share end-user credentials across projects
+## 跨项目共享最终用户凭据 <a id="share-end-user-credentials-across-projects"></a>
 
-Share an end-user credential into other projects using the standard [credential sharing](share-credentials-securely.md) mechanism. Sharing shares the template, not a connection. Users in the other project see an option to connect their own account. They don't get the original owner's connection.
+使用标准[凭据共享](share-credentials-securely.md)机制，将最终用户凭据共享到其他项目。共享的是模板，而非连接。其他项目的用户会看到连接自己账号的选项，不会获得原所有者的连接。
 
-Each user only connects once per template. That single connection then resolves for them in every project the template is shared into, so they don't need to reconnect in each project.
+每个用户对同一模板仅需连接一次，该连接会在模板共享到的所有项目中为其解析，无需逐项目重新连接。
 
-A good practice is to create your end-user credentials (for example Gmail, Linear, Jira, and Google Sheets) in a single project, then share them into the other projects that need them. Each project gets the same template, and each user's one connection works across all of them.
+一种良好做法是在单个项目集中创建最终用户凭据，例如 Gmail、Linear、Jira 和 Google Sheets，再共享到其他所需项目。每个项目获得同一模板，各用户的单个连接可跨所有项目使用。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Manage credentials](./)
-* [Share credentials securely](share-credentials-securely.md)
-* [Credential overwrites](credential-overwrites.md)
-* [Use external secret stores](use-external-secret-stores.md)
-* [Create and edit credentials](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/understand-workflows/create-and-edit-credentials)
-* [RBAC role types](../manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md)
+* [管理凭据](./)
+* [安全共享凭据](share-credentials-securely.md)
+* [凭据覆盖](credential-overwrites.md)
+* [使用外部密钥存储](use-external-secret-stores.md)
+* [创建和编辑凭据](../../build/understand-workflows/create-and-edit-credentials.md)
+* [RBAC 角色类型](../manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md)

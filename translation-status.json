@@ -6265,5 +6265,217 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "administer/README.md": {
+    "status": "translated",
+    "source_sha256": "39e591ed216ab431bfee1edc7fac91578f788ecb5c095d4c9cf83f92de94a478",
+    "translation_sha256": "f5383212dd5fa4200026dd766dafc190778c946a3eea675e00c951433a6978c2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/README.md": {
+    "status": "translated",
+    "source_sha256": "4c70e30519567cfdebc68e78a7fac53ba5af3d92601026d8f0c822881643d628",
+    "translation_sha256": "6bf616a04dff39a525537b76dc6f2bf25f94cd02a197a9d425a083cd2fecfe6e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/add-and-remove-users.md": {
+    "status": "translated",
+    "source_sha256": "f7f1f04312fe9459187a8458571c1bd185ed5388cf7f87943c90104f07c6c7cd",
+    "translation_sha256": "5b399efc5898ed0d3cbe3d0756713d67e6513956d3219880acb03b74a53b425f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/follow-best-practices.md": {
+    "status": "translated",
+    "source_sha256": "3c6c9d22417e330729698995334ee34dc7e53c2311b94ca09d23c08af161ea34",
+    "translation_sha256": "7b510ecc9cbaffc375864256e682ede33c4290f3a217a3f82880ffa53db8b2be",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/set-up-for-cloud.md": {
+    "status": "translated",
+    "source_sha256": "440e1e88b7c47ecbb7256dd288f570fc0b8f6c8ba7ea5b857e182dc06e93d660",
+    "translation_sha256": "1df3a3b9df54e972e9856aafaadf5b69b94cdf83373fa2648794a497aad5cc4d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/understand-instance-roles.md": {
+    "status": "translated",
+    "source_sha256": "622ab61eb858694bd0b0f9fac7848967ac0139f0e0ed84b94fc37bc82f6d7f44",
+    "translation_sha256": "baca8a2d11aa9957a779c703491d6f432a01d3629fa6b9113ca6f9446d458af6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/set-permissions-and-roles-rbac/README.md": {
+    "status": "translated",
+    "source_sha256": "9b49f0f056497942169fcdd58e6b225fea9001f655435f54c3cafb9704a642b9",
+    "translation_sha256": "9a17605da009aa6696ba0e234b58cfd582c813d352ef408984ce8673b3f112f7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md": {
+    "status": "translated",
+    "source_sha256": "8c82dbd27aae423ce109dafd4c789a0e985fadf7b43573112bd57fdc3273576d",
+    "translation_sha256": "5334f64ea07dde422136014d207c4c7e89e4d216f56519602dd517e877d38c0a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "rbac-project-variable-scope-note"
+    ]
+  },
+  "administer/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects.md": {
+    "status": "translated",
+    "source_sha256": "b6c89b5c6587962eaae6939adce074049a7ccbaf86a1d66ea83671f0258b83b8",
+    "translation_sha256": "fb3b78df86dc9ae0d75e70fd2608231729f8972b9b8170cd785c24024bff9ae5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md": {
+    "status": "translated",
+    "source_sha256": "ffd0e75feb02d1061f2f19880beac98a18f8b4b93332a7795dcf3af3eb33a468",
+    "translation_sha256": "c7c4615fd2cd41a6e4d5e9ecae23bbce3c4ad6a4e2cf8fa24e7f0daeeb2e8c77",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-instance-roles.md": {
+    "status": "translated",
+    "source_sha256": "7ccebb12fb25fc8d9c3be30da5e6ea688b010152836adbea1290be1a5fc6ffe1",
+    "translation_sha256": "db48b6b8eafcd3f52e490981cb8d68b603fbb5926b7f3414a179403b183f618c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-project-roles.md": {
+    "status": "translated",
+    "source_sha256": "cfd704e8c4ffcd022191fe7750d6327016e744fc30b70304054975a86eec26e8",
+    "translation_sha256": "50b3a9f334f418d86d6116a56f0aa0fbdb40e9057ed844f200c74ce5bc7f17ac",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-users-and-access/control-node-availability.md": {
+    "status": "translated",
+    "source_sha256": "0a778b0d4e2eefb5decf16f5a84c43dec7598836a391f622177e8e0ee864694c",
+    "translation_sha256": "5ecced831f9ee4b6a4e97f6bf4a2b2982328bf57241b9abefd2d2c27b5650071",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-credentials/README.md": {
+    "status": "translated",
+    "source_sha256": "167e231bf6647e884db5d351587fe7a90b6b9a0bac52126560d8e3925117b07a",
+    "translation_sha256": "574f335f7fd298fe9a1bdfd92d465f57f5d9370e7d7b5a2bdbb201c91e7b111c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-credentials/use-personal-credentials-in-projects.md": {
+    "status": "translated",
+    "source_sha256": "aa9c08dd1a99d3f21b4377dcc8047233c22ab6a35cb5732da45b838ffa07aa80",
+    "translation_sha256": "13931e98e90864b6b5e4d8c82ae286fa96daa7404e5c2e17d813c0d0cde3e40c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-credentials/share-credentials-securely.md": {
+    "status": "translated",
+    "source_sha256": "2cc7bd71d18083f3edc5dcebc1bb6327bef988f9ac0d9c0d1e5dcf6583373681",
+    "translation_sha256": "0175d1055d2418f42757edce7bc041a4e57012e1b53e262c7ce8cfd44c1be541",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-credentials/credential-overwrites.md": {
+    "status": "translated",
+    "source_sha256": "36c6d46a32ccb212e6c04b6834f62c6bd7b4b06cd8cd58adfc47dab006f5e6d3",
+    "translation_sha256": "67f9c0717df17dd9d91b6c288dbe055f3294ba0a3b2818fc5872fb9997be0379",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-credentials/end-user-credentials.md": {
+    "status": "translated",
+    "source_sha256": "081e643668c5e788be738e1a304874b4a52235ebc9f7d95c53e5d00677bff1e8",
+    "translation_sha256": "928da33aba15215d8d889345cb2575cb3f2bfd1de86fc326fa8cf61aec52b670",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/manage-credentials/use-external-secret-stores.md": {
+    "status": "translated",
+    "source_sha256": "bd2fe074895c26730c3d46b49026e5119825a74c9319d21dee23cd6d5fcbfa44",
+    "translation_sha256": "2a967e7201532de32f3395e1a11955cfa94910564a773b257e77d12639a26495",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

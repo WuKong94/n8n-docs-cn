@@ -1,14 +1,11 @@
 ---
-title: RBAC projects
+title: RBAC 项目
 contentType: howto
-nodeTitle: Organize work in projects
+nodeTitle: 使用项目组织工作
 originalFilePath: user-management/rbac/projects.md
 originalUrl: https://docs.n8n.io/user-management/rbac/projects
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects
-description: >-
-  Understand how n8n uses project for RBAC. Learn how to create and manage
-  projects.
+url: https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/organize-work-in-projects
+description: 了解 n8n 如何通过项目实现 RBAC，以及如何创建和管理项目。
 layout:
   width: default
   title:
@@ -28,95 +25,97 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Organize work in projects
+
+# 使用项目组织工作 <a id="organize-work-in-projects"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-RBAC is available on:
+RBAC 可用于：
 
-- **n8n Cloud:** All plans
-- **Self-hosted:** Registered Community, Business, Enterprise
+- **n8n Cloud：**所有套餐。
+- **自托管：**Registered Community、Business、Enterprise。
 
-Different plans have different numbers of projects and roles.
+不同套餐支持的项目和角色数量不同。
 {% endhint %}
 
-n8n uses projects to group workflows and credentials[^1], and assigns [roles](see-available-roles.md) to users in each project. This means that a single user can have different roles in different projects, giving them different levels of access.
+n8n 使用项目归类工作流和凭据[^1]，并为每个项目中的用户分配[角色](see-available-roles.md)。同一用户可在不同项目中具有不同角色，从而获得不同访问权限。
 
-### Create a project <a href="#create-a-project" id="create-a-project"></a>
+### 创建项目 <a href="#create-a-project" id="create-a-project"></a>
 
-Instance owners and instance admins can create projects.
+实例所有者和实例管理员可以创建项目。
 
-To create a project:
+要创建项目：
 
-1. Select <img src="../../.gitbook/assets/plus.png" alt="Plus icon" data-size="line"> **Add project**.
-2. Fill out the project settings.
-3. Select **Save**.
+1. 选择 <img src="../../.gitbook/assets/plus.png" alt="加号图标" data-size="line"> **Add project**（添加项目）。
+2. 填写项目设置。
+3. 选择 **Save**（保存）。
 
-### Add and remove users in a project <a href="#add-and-remove-users-in-a-project" id="add-and-remove-users-in-a-project"></a>
+### 在项目中添加和移除用户 <a href="#add-and-remove-users-in-a-project" id="add-and-remove-users-in-a-project"></a>
 
-Project admins can add and remove users.
+项目管理员可以添加和移除用户。
 
-To add a user to a project:
+要向项目添加用户：
 
-1. Select the project.
-2. Select **Project settings**.
-3. Under **Project members**, browse for users or search by username or email address.
-4. Select the user you want to add.
-5. Check the [role type](see-available-roles.md) and change it if needed.
-6. Select **Save**.
+1. 选择项目。
+2. 选择 **Project settings**（项目设置）。
+3. 在 **Project members**（项目成员）下浏览用户，或按用户名、邮箱搜索。
+4. 选择要添加的用户。
+5. 检查[角色类型](see-available-roles.md)，按需更改。
+6. 选择 **Save**（保存）。
 
-To remove a user from a project:
+要从项目移除用户：
 
-1. Select the project.
-2. Select **Project settings**.
-3. In the **three-dot menu** for the user you want to remove, select **Remove user**.
-4. Select **Save**.
+1. 选择项目。
+2. 选择 **Project settings**（项目设置）。
+3. 在待移除用户的**三点菜单**中，选择 **Remove user**（移除用户）。
+4. 选择 **Save**（保存）。
 
-### Delete a project <a href="#delete-a-project" id="delete-a-project"></a>
+### 删除项目 <a href="#delete-a-project" id="delete-a-project"></a>
 
-To delete a project:
+要删除项目：
 
-1. Select the project.
-2. Select **Project settings**.
-3. Select **Delete project**.
-4. Choose what to do with the workflows and credentials. You can select:
-   * **Transfer its workflows and credentials to another project**: n8n prompts you to choose a project to move the data to.
-   * **Delete its workflows and credentials**: n8n prompts you to confirm that you want to delete all the data in the project.
+1. 选择项目。
+2. 选择 **Project settings**（项目设置）。
+3. 选择 **Delete project**（删除项目）。
+4. 选择如何处理工作流和凭据：
+   * **Transfer its workflows and credentials to another project**（将其工作流和凭据转移到其他项目）：n8n 提示选择接收数据的项目。
+   * **Delete its workflows and credentials**（删除其工作流和凭据）：n8n 提示确认删除项目中的所有数据。
 
-### Favorite a project <a href="#favorite-a-project" id="favorite-a-project"></a>
+### 收藏项目 <a href="#favorite-a-project" id="favorite-a-project"></a>
 
-You can favorite a team project to pin it for quick access. Open the project and select the star icon in the project header, or select its **three-dot menu** and select **Favorite**. See [Favorite items](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/favorite-items) for details, including how to favorite workflows, folders, and data tables the same way.
+可以收藏团队项目，将其固定以便快速访问。打开项目，选择项目标题中的星形图标，或打开**三点菜单**并选择 **Favorite**（收藏）。详情请参阅[收藏项目](../../../build/manage-workflows/favorite-items.md)，其中也说明如何以相同方式收藏工作流、文件夹和数据表。
 
-### Move workflows and credentials between projects or users <a href="#move-workflows-and-credentials-between-projects-or-users" id="move-workflows-and-credentials-between-projects-or-users"></a>
+### 在项目或用户之间移动工作流和凭据 <a href="#move-workflows-and-credentials-between-projects-or-users" id="move-workflows-and-credentials-between-projects-or-users"></a>
 
-Workflow and credential owners can move workflows or credentials (changing ownership) to other users or projects they have access to.
+工作流和凭据所有者可以将其移动到自己有权访问的其他用户或项目，更改所有权。
 
 {% hint style="warning" %}
-**Moving revokes sharing**
+**移动会撤销共享**
 
-Moving workflows or credentials removes all existing sharing. Be aware that this could impact other workflows currently sharing these resources.
+移动工作流或凭据会移除所有现有共享，可能影响当前共享这些资源的其他工作流。
 {% endhint %}
 
-1.  Select **Workflow menu** <img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="Workflow menu icon" data-size="line"> or **Credential menu** <img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="Workflow menu icon" data-size="line"> > **Move**.<br>
+1.  选择 **Workflow menu**（工作流菜单）<img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="工作流菜单图标" data-size="line"> 或 **Credential menu**（凭据菜单）<img src="../../.gitbook/assets/three-dot-options-menu (1).png" alt="工作流菜单图标" data-size="line"> > **Move**（移动）。<br>
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Moving workflows with credentials</strong></p><p>When moving a workflow with credentials you have permission to share, you can choose to share the credentials as well. This ensures that the workflow continues to have access to the credentials it needs to execute. n8n will note any credentials that can't be moved (credentials you don't have permission to share).</p></div>
-2. Select the project or user you want to move to.
-3. Select **Next**.
-4. Confirm you understand the impact of the move: workflows may stop working if the credentials they need aren't available in the target project, and n8n removes any current individual sharing.
-5. Select **Confirm move to new project**.
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>移动带凭据的工作流</strong></p><p>移动工作流时，如果其中凭据是你有权共享的，可以选择同时共享凭据，确保工作流继续拥有执行所需的凭据访问权限。n8n 会指出无法移动的凭据，即你无权共享的凭据。</p></div>
+2. 选择目标项目或用户。
+3. 选择 **Next**（下一步）。
+4. 确认理解移动的影响：目标项目中缺少所需凭据时，工作流可能无法运行，n8n 也会移除当前所有针对个人的共享。
+5. 选择 **Confirm move to new project**（确认移动到新项目）。
 
-### Use personal credentials in team projects
+### 在团队项目中使用个人凭据 <a id="use-personal-credentials-in-team-projects"></a>
 
-Project members can select their own personal credentials in any workflow in a team project they belong to, without sharing the credential with the project. The credential selector groups credentials into **Available to you** (your personal credentials) and **Available in** _project name_.
+项目成员可以在所属团队项目的任意工作流中，选择自己的个人凭据，无需将凭据共享给项目。凭据选择器将凭据分组为 **Available to you**（你可用的个人凭据）和 **Available in** _项目名称_（项目中可用的凭据）。
 
-Only the owner and people they share the credential with directly can run or publish workflows with it. To let every project member use it, share it with the project. Refer to [Use personal credentials in projects](../../manage-credentials/use-personal-credentials-in-projects.md).
+只有凭据所有者及其直接共享的对象，才能使用该凭据运行或发布工作流。要让每位项目成员都能使用，请将凭据共享给项目。参阅[在项目中使用个人凭据](../../manage-credentials/use-personal-credentials-in-projects.md)。
 
-[^1]: In n8n, credentials store authentication information to connect with specific apps and services. After creating credentials with your authentication information (username and password, API key, OAuth secrets, etc.), you can use the associated app node to interact with the service.
+[^1]: 在 n8n 中，凭据保存连接特定应用和服务所需的身份验证信息。使用用户名和密码、API 密钥、OAuth 密钥等信息创建凭据后，就可以通过相应应用节点与服务交互。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Set permissions and roles (RBAC)](./)
-* [See available roles](see-available-roles.md)
-* [Custom roles](create-custom-roles.md)
+* [设置权限与角色（RBAC）](./)
+* [查看可用角色](see-available-roles.md)
+* [自定义角色](create-custom-roles.md)

@@ -178,5 +178,14 @@
     "translated_sentence": "将服务器暴露到互联网之前，请将 `change-me-...` 占位符替换为你自己的唯一密钥，占位符位于 `.env` 中。`sandbox-runner-1` 以特权模式运行 Docker-in-Docker。不要公开其端口，也不要让 Caddy 路由到它。",
     "evidence": "同页标题、创建服务器和登录步骤均描述 Hetzner Cloud server。沙箱暴露提示误称 Droplet，该名称属于前文 DigitalOcean 指南；依据同页上下文改称服务器。来源哈希与本记录 source_sha256 一致。",
     "scope": "仅纠正服务器名称；占位符、环境文件路径、运行器服务名和网络限制保持原样。"
+  },
+  {
+    "id": "rbac-project-variable-scope-note",
+    "path": "administer/manage-users-and-access/set-permissions-and-roles-rbac/see-available-roles.md",
+    "source_sha256": "8c82dbd27aae423ce109dafd4c789a0e985fadf7b43573112bd57fdc3273576d",
+    "original_sentence": "[Variables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/define-custom-variables) and [tags](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/tag-workflows) aren't affected by RBAC: they're global across the n8n instance.",
+    "translated_sentence": "译注：本页原文把变量全部描述为实例全局资源，但同一版本的“自定义变量”文档说明，自 n8n 1.118.0 起还支持项目变量；“自定义项目角色”也列出项目变量权限。此处保留原文并提示差异，不把全局描述套用于所有变量。",
+    "evidence": "同一锁定版本的 build/code-in-n8n/define-custom-variables.md 说明项目变量自 n8n 1.118.0 起提供，仅在指定项目内可用，来源哈希为 4e31aafa8e0623fd49cf30c91fe209eb00d29fffe48284dd212d757363265d21；同章节 create-custom-project-roles.md 还列出 Project variable scopes，来源哈希为 cfd704e8c4ffcd022191fe7750d6327016e744fc30b70304054975a86eec26e8。",
+    "scope": "保留 RBAC 原句，仅添加同版本文档差异说明；未修改角色权限矩阵，也未推断或测试产品实际行为。"
   }
 ]

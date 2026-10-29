@@ -1,38 +1,39 @@
 ---
-title: Custom roles
-description: Overview of custom roles in n8n, project-level and instance-level.
+title: 自定义角色
+description: n8n 项目级和实例级自定义角色概览。
 contentType: overview
-nodeTitle: Custom roles
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles
+nodeTitle: 自定义角色
+url: https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Custom roles <a href="#custom-roles" id="custom-roles"></a>
+
+# 自定义角色 <a href="#custom-roles" id="custom-roles"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Custom roles are available on:
+自定义角色可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 {% endhint %}
 
-Custom roles let you define granular permissions beyond the built-in roles. Instead of giving users full Admin access, you can create a role with only the capabilities they need.
+自定义角色允许在内置角色之外定义细粒度权限，无需授予完整 Admin 权限，可以创建仅包含用户所需能力的角色。
 
-n8n has two types of custom roles: project roles, scoped to a single project, and instance roles, which apply across your whole n8n instance.
+n8n 有两类自定义角色：限定于单个项目的项目角色，以及适用于整个 n8n 实例的实例角色。
 
-## In this section
+## 本节内容 <a id="in-this-section"></a>
 
-* [Create custom project roles](create-custom-project-roles.md): Define permissions within a specific project, including access to workflows, credentials, folders, and other project resources. Assign them to project members to control what they can do inside that project.
+* [创建自定义项目角色](create-custom-project-roles.md)：定义特定项目内的权限，包括工作流、凭据、文件夹和其他项目资源的访问权限。将其分配给项目成员，控制他们在该项目中能执行的操作。
 
-* [Create custom instance roles](create-custom-instance-roles.md): Define permissions that apply across the entire n8n instance, such as managing users, tags, API keys, or custom roles themselves. Assign them to users who need specific instance-level capabilities without full Admin access.
+* [创建自定义实例角色](create-custom-instance-roles.md)：定义适用于整个实例的权限，例如管理用户、标签、API 密钥或自定义角色本身。分配给需要特定实例级能力、但无需完整 Admin 权限的用户。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Set permissions and roles (RBAC)](./)
-* [See available roles](see-available-roles.md)
-* [Organize work in projects](organize-work-in-projects.md)
+* [设置权限与角色（RBAC）](./)
+* [查看可用角色](see-available-roles.md)
+* [使用项目组织工作](organize-work-in-projects.md)

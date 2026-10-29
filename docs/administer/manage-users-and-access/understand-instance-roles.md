@@ -1,107 +1,108 @@
 ---
-description: n8n instance roles
+description: n8n 实例角色。
 contentType: reference
-nodeTitle: Understand instance roles
+nodeTitle: 理解实例角色
 originalFilePath: user-management/account-types.md
-originalUrl: 'https://docs.n8n.io/user-management/account-types'
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/understand-instance-roles
+originalUrl: https://docs.n8n.io/user-management/account-types
+url: https://docs.n8n.io/administer/manage-users-and-access/understand-instance-roles
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Instance roles <a href="#instance-roles" id="instance-roles"></a>
 
-Every user has one instance role. The instance role determines the user's permissions and access across the n8n instance.
+# 实例角色 <a href="#instance-roles" id="instance-roles"></a>
 
-There are four built-in instance roles: Owner, Admin, Member, and Chat user. If these don't meet your needs, you can create [custom instance roles](set-permissions-and-roles-rbac/create-custom-instance-roles.md) with granular permissions.
+每个用户都有一个实例角色，决定其在整个 n8n 实例中的权限和访问范围。
+
+四个内置实例角色为 Owner（所有者）、Admin（管理员）、Member（成员）和 Chat user（聊天用户）。如果不满足需求，可以创建具有细粒度权限的[自定义实例角色](set-permissions-and-roles-rbac/create-custom-instance-roles.md)。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-The **Admin** role is available on:
+**Admin**（管理员）角色可用于：
 
-- **n8n Cloud:** Pro, Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Pro、Enterprise。
+- **自托管：**企业版。
 {% endhint %}
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-The **Chat user** role is available on:
+**Chat user**（聊天用户）角色可用于：
 
-- **n8n Cloud:** Pro, Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Pro、Enterprise。
+- **自托管：**企业版。
 
-The Chat user role requires the Chat feature to be enabled.
+Chat user 角色需要启用 Chat 功能。
 {% endhint %}
 
 {% hint style="info" %}
-**Instance roles and project roles**
+**实例角色与项目角色**
 
-n8n has two levels of roles. Instance roles control what a user can do across the entire instance. Project roles (part of [RBAC](set-permissions-and-roles-rbac/README.md)) control what a user can do within a specific project, and a user can have different project roles in different projects.
+n8n 有两个级别的角色。实例角色控制用户在整个实例中能执行的操作；项目角色属于 [RBAC](set-permissions-and-roles-rbac/README.md)，控制用户在特定项目中的操作，同一用户可在不同项目中拥有不同项目角色。
 {% endhint %}
 
 {% hint style="info" %}
-**Create a Member role account for the owner**
+**为所有者创建 Member 角色账号**
 
-n8n recommends that owners create a second account with the **Member** role for themselves. Owners can see and edit all workflows, credentials, and projects. However, there is no way to see who created a particular workflow, so there is a risk of overriding other people's work if you build and edit workflows as an owner.
+n8n 建议所有者为自己创建第二个账号，使用 **Member**（成员）角色。所有者可以查看和编辑所有工作流、凭据和项目，但无法查看特定工作流的创建者，因此以所有者身份构建和编辑工作流，可能覆盖其他人的工作。
 {% endhint %}
 
 
-| Permission | Owner | Admin | Member | Chat user |
+| 权限 | Owner，所有者 | Admin，管理员 | Member，成员 | Chat user，聊天用户 |
 | ---------- |------ | ----- | ------ | --------- |
-| Manage own email and password | ✅ | ✅ | ✅ | ✅ |
-| Manage own workflows | ✅ | ✅ | ✅ | ❌ |
-| View, create, and use tags | ✅ | ✅ | ✅ | ❌ |
-| Delete tags | ✅ | ✅ | ❌ | ❌ |
-| View and share all workflows | ✅ | ✅ | ❌ | ❌ |
-| View, edit, and share all credentials | ✅ | ✅ | ❌ | ❌ |
-| Set up and use [Source control](../use-source-control-and-environments/README.md) | ✅ | ✅ | ❌ | ❌ |
-| Create [projects](set-permissions-and-roles-rbac/organize-work-in-projects.md) | ✅ | ✅ | ❌ | ❌ |
-| View all projects | ✅ | ✅ | ❌ | ❌ |
-| Add and remove users | ✅ | ✅ | ❌ | ❌ |
-| Access the n8n Cloud console | ✅ | ❌ | ❌ | ❌ |
+| 管理自己的邮箱和密码 | ✅ | ✅ | ✅ | ✅ |
+| 管理自己的工作流 | ✅ | ✅ | ✅ | ❌ |
+| 查看、创建和使用标签 | ✅ | ✅ | ✅ | ❌ |
+| 删除标签 | ✅ | ✅ | ❌ | ❌ |
+| 查看和共享所有工作流 | ✅ | ✅ | ❌ | ❌ |
+| 查看、编辑和共享所有凭据 | ✅ | ✅ | ❌ | ❌ |
+| 设置和使用[源代码管理](../use-source-control-and-environments/README.md) | ✅ | ✅ | ❌ | ❌ |
+| 创建[项目](set-permissions-and-roles-rbac/organize-work-in-projects.md) | ✅ | ✅ | ❌ | ❌ |
+| 查看所有项目 | ✅ | ✅ | ❌ | ❌ |
+| 添加和移除用户 | ✅ | ✅ | ❌ | ❌ |
+| 访问 n8n Cloud 控制台 | ✅ | ❌ | ❌ | ❌ |
 
-## Chat user role
-The Chat user role is for people who only need to use n8n through Chat. Chat users can't build workflows or access other n8n features.
+## Chat user 角色 <a id="chat-user-role"></a>
+Chat user 角色适合只需要通过 Chat 使用 n8n 的用户，不能构建工作流或访问其他 n8n 功能。
 
-**Chat users can:**
+**Chat user 可以：**
 
-- Send messages in Chat.
-- Create, edit, and delete their own Chat agents.
-- Run the workflows and agents that are shared with them in Chat.
+- 在 Chat 中发送消息。
+- 创建、编辑和删除自己的聊天智能体。
+- 在 Chat 中运行共享给他们的工作流和智能体。
 
-**Chat users can't:**
+**Chat user 不可以：**
 
-- Create, view, or edit workflows or credentials.
-- Create projects or view projects they don't belong to.
-- Create API keys.
-- Use some Chat tool types. Refer to the Chat documentation for details.
+- 创建、查看或编辑工作流或凭据。
+- 创建项目，或查看自己不属于的项目。
+- 创建 API 密钥。
+- 使用部分 Chat 工具类型，详情请参阅 Chat 文档。
 
-When the Chat feature is enabled, n8n opens Chat for Chat users after they sign in.
+启用 Chat 功能后，Chat user 登录时，n8n 会为其打开 Chat。
 
-**Change a user's role to or from Chat user**
+**将用户角色改为 Chat user，或从 Chat user 改为其他角色**
 
-Changing the role of a user to Chat user has these effects:
+将用户角色更改为 Chat user，会产生以下影响：
 
-- n8n removes the user from all projects they share with others. If the user is the only admin of a project, n8n blocks the change. Assign another admin to the project first.
-- The user's personal project becomes read-only.
-- n8n deletes all API keys of the user.
-- Changing a Chat user to another role gives the user ownership of their personal project again. n8n doesn't restore the projects or API keys the user lost when they became a Chat user.
+- n8n 将该用户从所有与他人共享的项目中移除。如果用户是某项目唯一的管理员，n8n 会阻止更改，请先为项目分配另一名管理员。
+- 用户的个人项目变为只读。
+- n8n 删除该用户的全部 API 密钥。
+- 将 Chat user 改为其他角色后，用户重新获得个人项目所有权，但 n8n 不会恢复其成为 Chat user 时失去的项目成员资格或 API 密钥。
 
-## Custom instance roles <a href="#custom-instance-roles" id="custom-instance-roles"></a>
+## 自定义实例角色 <a href="#custom-instance-roles" id="custom-instance-roles"></a>
 
-If the built-in roles don't match your access needs, you can create custom instance roles with granular permissions. Custom instance roles let you grant specific instance-level capabilities (such as managing users, tags, or API keys) without giving full Admin access.
+内置角色不符合访问需求时，可以创建细粒度权限的自定义实例角色，授予特定实例级能力，例如管理用户、标签或 API 密钥，无需提供完整 Admin 权限。
 
-Refer to [Create custom instance roles](set-permissions-and-roles-rbac/create-custom-instance-roles.md) for instructions on creating and managing them.
+创建和管理方式请参阅[创建自定义实例角色](set-permissions-and-roles-rbac/create-custom-instance-roles.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Manage users and access](./)
-* [Set up for Cloud](set-up-for-cloud.md)
-* [Add and remove users](add-and-remove-users.md)
-* [Set permissions and roles (RBAC)](set-permissions-and-roles-rbac/README.md)
-* [Verify user identity](verify-user-identity/README.md)
-* [Follow best practices](follow-best-practices.md)
+* [管理用户与访问](./)
+* [设置 Cloud 用户管理](set-up-for-cloud.md)
+* [添加和移除用户](add-and-remove-users.md)
+* [设置权限与角色（RBAC）](set-permissions-and-roles-rbac/README.md)
+* [验证用户身份](verify-user-identity/README.md)
+* [遵循最佳实践](follow-best-practices.md)

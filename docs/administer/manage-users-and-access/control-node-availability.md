@@ -1,108 +1,110 @@
 ---
-description: Use node type policies to control which nodes users can add, publish, and run in an instance or a project.
+description: 使用节点类型策略，控制用户在实例或项目中可以添加、发布和运行的节点。
 status: preview
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Control node availability with node type policies
 
-Node type policies are rules that decide which nodes users can use, for the whole instance or for one project.
+# 通过节点类型策略控制节点可用性 <a id="control-node-availability-with-node-type-policies"></a>
+
+节点类型策略是一组规则，用于决定整个实例或某个项目中的用户可以使用哪些节点。
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-Node type policies are in Preview and may change in future releases. Avoid relying on them in production.
+节点类型策略处于预览阶段，未来版本可能更改，请避免在生产环境中依赖此功能。
 {% endhint %}
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Node type policies are available on:
+节点类型策略可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 
-Node type policies are available from n8n 2.45.0.
+自 n8n 2.45.0 起提供节点类型策略。
 {% endhint %}
 
-An instance owner or admin sets an instance policy. A project admin can then restrict their project further. You manage policies with the [n8n public API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy).
+实例所有者或管理员设置实例策略，项目管理员可以进一步限制自己的项目。通过 [n8n 公共 API](../../connect/n8n-api/node-type-policy.md)管理策略。
 
-## How node type policies work
+## 节点类型策略的工作原理 <a id="how-node-type-policies-work"></a>
 
-A policy has a list of rules and a default action.
+一个策略包含规则列表和默认动作。
 
-Each rule has:
+每条规则包含：
 
-- `id`: a name for the rule, unique in the policy. n8n reports this ID when the rule blocks a node.
-- `action`: `allow`, `deny`, or `delegate`. Only the instance policy accepts `delegate`.
-- `selector`: the nodes the rule matches.
+- `id`：规则名称，在策略内唯一。规则阻止节点时，n8n 会报告此 ID。
+- `action`：`allow`、`deny` 或 `delegate`。只有实例策略接受 `delegate`。
+- `selector`：此规则匹配的节点。
 
-A selector matches nodes in one of two ways:
+选择器通过以下两种方式之一匹配节点：
 
-| Selector | Matches | Example |
+| 选择器 | 匹配内容 | 示例 |
 |----------|---------|---------|
-| `{ "kind": "name", "value": "<node-type>" }` | One node type, by its exact name. | `n8n-nodes-base.executeCommand` |
-| `{ "kind": "package", "value": "<package-name>" }` | Every node in a package. | `n8n-nodes-base`, `@n8n/n8n-nodes-langchain` |
+| `{ "kind": "name", "value": "<node-type>" }` | 按精确名称匹配一种节点类型。 | `n8n-nodes-base.executeCommand` |
+| `{ "kind": "package", "value": "<package-name>" }` | 某个包中的全部节点。 | `n8n-nodes-base`、`@n8n/n8n-nodes-langchain` |
 
-n8n checks the rules in order and uses the first rule that matches. If no rule matches, n8n uses the policy's `defaultAction`.
+n8n 按顺序检查规则，使用首条匹配的规则。没有匹配时，使用策略的 `defaultAction`。
 
-To find a node's type name, select the node on the canvas and copy it. Paste it into a text editor and read the `type` field.
+要查找节点类型名称，请在画布上选中节点并复制，粘贴到文本编辑器，查看 `type` 字段。
 
-A `name` rule also matches the tool versions of that node. For example, a rule on `n8n-nodes-base.gmail` also blocks the **Gmail Tool** that AI agents use.
+`name` 规则也匹配该节点的工具版本。例如，针对 `n8n-nodes-base.gmail` 的规则也会阻止 AI 智能体使用的 **Gmail Tool**。
 
-### How instance and project policies combine
+### 实例与项目策略如何组合 <a id="how-instance-and-project-policies-combine"></a>
 
-n8n evaluates the instance policy first, then the project policy:
+n8n 先评估实例策略，再评估项目策略：
 
-| Instance verdict | Result |
+| 实例判定 | 结果 |
 |------------------|--------|
-| `deny` | The node is blocked. A project can't allow it again. |
-| `allow` | The project policy decides. A project can only restrict further. |
-| `delegate` | The node is blocked unless the project has an explicit `allow` rule for it. The project's `defaultAction` doesn't count. |
+| `deny` | 节点被阻止，项目无法再次允许。 |
+| `allow` | 由项目策略决定，项目只能进一步限制。 |
+| `delegate` | 节点被阻止，除非项目有针对它的显式 `allow` 规则。项目的 `defaultAction` 不算。 |
 
-Use `delegate` for nodes you want blocked by default but that a project admin can turn on for their project. Only the instance policy accepts `delegate`.
+如果希望某节点默认被阻止，但允许项目管理员为自己的项目启用，请使用 `delegate`。只有实例策略接受 `delegate`。
 
-Without any policy, every node is available.
+未配置任何策略时，所有节点都可用。
 
-Use a policy to block nodes per project and keep them installed. On self-hosted instances, use [`NODES_EXCLUDE`](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/block-specific-nodes) to remove nodes from the whole instance.
+使用策略可以在项目级别阻止节点，同时保留安装。在自托管实例上，使用 [`NODES_EXCLUDE`](../../deploy/host-n8n/configure-n8n/security/block-specific-nodes.md) 可从整个实例中移除节点。
 
-## Set a policy with the API
+## 通过 API 设置策略 <a id="set-a-policy-with-the-api"></a>
 
-### Authentication and permissions
+### 身份验证与权限 <a id="authentication-and-permissions"></a>
 
-Send an API key in the `X-N8N-API-KEY` header. The key needs the `nodeTypePolicy:manage` scope. Refer to [Create an API key](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/authentication#create-an-api-key).
+在 `X-N8N-API-KEY` 标头中发送 API 密钥，该密钥需要 `nodeTypePolicy:manage` 权限范围。参阅[创建 API 密钥](../../connect/n8n-api/authentication.md#create-an-api-key)。
 
-| Endpoint | Who can call it |
+| 端点 | 可调用者 |
 |----------|-----------------|
-| `GET` and `PUT /api/v1/node-type-policies/instance` | Instance owners and admins |
-| `GET` and `PUT /api/v1/node-type-policies/projects/<project-id>` | Instance owners and admins, and admins of that project |
+| `GET` 和 `PUT /api/v1/node-type-policies/instance` | 实例所有者和管理员。 |
+| `GET` 和 `PUT /api/v1/node-type-policies/projects/<project-id>` | 实例所有者、实例管理员，以及该项目的管理员。 |
 
-To find a project ID, open the project in n8n. The ID is the part of the URL after `/projects/`.
+要查找项目 ID，请在 n8n 中打开项目。URL 中 `/projects/` 后的部分即为 ID。
 
-### Read, change, then write the policy
+### 读取、修改，再写入策略 <a id="read-change-then-write-the-policy"></a>
 
-Every policy has a `version`. A `PUT` must send the version you last read. This stops two admins from overwriting each other's changes.
+每个策略都有 `version`。`PUT` 必须发送最近读取的版本，避免两名管理员相互覆盖更改。
 
-To change a policy:
+要更改策略：
 
-1. Read the current policy with `GET` for the [instance](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy#get-node-type-policies-instance) or a [project](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy#get-node-type-policies-projects-projectid).
-2. Change the `rules` or the `defaultAction`.
-3. Send the whole policy back with `PUT` for the [instance](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy#put-node-type-policies-instance) or a [project](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy#put-node-type-policies-projects-projectid), with the same `version`.
+1. 使用 `GET` 读取[实例](../../connect/n8n-api/node-type-policy.md#preview-retrieve-the-instance-node-type-policy)或[项目](../../connect/n8n-api/node-type-policy.md#preview-retrieve-a-projects-node-type-policy)的当前策略。
+2. 修改 `rules` 或 `defaultAction`。
+3. 使用 `PUT`，将完整策略写回[实例](../../connect/n8n-api/node-type-policy.md#preview-replace-the-instance-node-type-policy)或[项目](../../connect/n8n-api/node-type-policy.md#preview-replace-a-projects-node-type-policy)，携带相同的 `version`。
 
-A policy that was never set returns `version: 0`, so the first `PUT` sends `0`. If someone changed the policy after you read it, n8n returns `409 Conflict`. Read the policy again and retry.
+尚未设置过的策略返回 `version: 0`，因此首次 `PUT` 发送 `0`。读取后如果有人更改策略，n8n 返回 `409 Conflict`，请重新读取后重试。
 
-A `PUT` also returns `409 Conflict` if the scope has more than one attached policy, or if its policy is shared with another scope. In that case, update the shared policy or the scope's attachments instead. Refer to [Share one policy across scopes](#share-one-policy-across-scopes).
+如果某个作用域附加了多个策略，或其策略与其他作用域共享，`PUT` 也会返回 `409 Conflict`。此时应更新共享策略或作用域的附加关系。参阅[跨作用域共享同一策略](#share-one-policy-across-scopes)。
 
-A `PUT` replaces every rule in the policy. To add one rule, send the existing rules plus the new one.
+`PUT` 会替换策略中的全部规则。要添加一条规则，请发送现有规则加新规则。
 
-### Example: Block nodes for the whole instance
+### 示例：为整个实例阻止节点 <a id="example-block-nodes-for-the-whole-instance"></a>
 
-This instance policy blocks the **Execute Command** node and lets project admins turn on the **SSH** node for their own project. Send it with [`PUT /node-type-policies/instance`](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy#put-node-type-policies-instance), with the current `version`:
+此实例策略阻止 **Execute Command** 节点，并允许项目管理员为自己的项目启用 **SSH** 节点。使用 [`PUT /node-type-policies/instance`](../../connect/n8n-api/node-type-policy.md#preview-replace-the-instance-node-type-policy) 发送，并携带当前 `version`：
 
 ```json
 {
@@ -123,11 +125,11 @@ This instance policy blocks the **Execute Command** node and lets project admins
 }
 ```
 
-The response returns the saved policy with its new `version`. It can also include `warnings`, which list rules that an earlier rule already covers. n8n never reaches those rules. The change takes effect within about one second.
+响应返回已保存策略及新的 `version`，也可能包含 `warnings`，列出已被前面规则覆盖的规则。n8n 永远不会执行到这些规则。更改大约在一秒内生效。
 
-### Example: Turn on a delegated node in one project
+### 示例：在某个项目启用委托节点 <a id="example-turn-on-a-delegated-node-in-one-project"></a>
 
-The instance policy above delegates the **SSH** node. This project policy turns it on for one project. Send it with [`PUT /node-type-policies/projects/<project-id>`](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy#put-node-type-policies-projects-projectid), with the current `version`:
+上方实例策略委托了 **SSH** 节点。以下项目策略为一个项目启用它。使用 [`PUT /node-type-policies/projects/<project-id>`](../../connect/n8n-api/node-type-policy.md#preview-replace-a-projects-node-type-policy) 发送，并携带当前 `version`：
 
 ```json
 {
@@ -143,63 +145,63 @@ The instance policy above delegates the **SSH** node. This project policy turns 
 }
 ```
 
-The `allow` rule is necessary. The project's `defaultAction: allow` doesn't turn on a delegated node.
+必须有 `allow` 规则。项目的 `defaultAction: allow` 不会启用被委托的节点。
 
-### Share one policy across scopes
+### 跨作用域共享同一策略 <a id="share-one-policy-across-scopes"></a>
 
-The `/node-type-policies/policies` and `/node-type-policies/scopes/<scope-id>/attachments` endpoints let instance admins reuse one set of rules in more than one project. Most setups don't need them. A `GET` on the attachments endpoint returns the attached policies and the `version` that the `PUT` needs. Refer to the [Endpoint reference](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy) for details.
+`/node-type-policies/policies` 和 `/node-type-policies/scopes/<scope-id>/attachments` 端点允许实例管理员在多个项目中复用同一组规则。大多数部署不需要。对附加关系端点执行 `GET`，会返回附加的策略，以及 `version`，供 `PUT` 使用。详情请参阅[端点参考](../../connect/n8n-api/node-type-policy.md)。
 
-## What users see when a node is blocked in the editor
+## 编辑器中节点被阻止时用户会看到什么 <a id="what-users-see-when-a-node-is-blocked-in-the-editor"></a>
 
-When a node is blocked in a project, users in that project see:
+项目中的节点被阻止时，该项目用户会看到：
 
-- **Nodes panel:** blocked nodes don't appear when browsing. They still appear in search, at the end of the list, with a lock. Users can't add them.
-- **Canvas:** a blocked node already in a workflow shows a restricted label.
-- **Node details:** the parameters are read-only. Users can contact an instance admin or replace the node.
-- **Publish and run:** n8n refuses the action and shows a message that lists each blocked node, with a link to find it in the workflow. n8n refuses a save in the same way if the save adds a blocked node.
+- **节点面板**：浏览时不显示被阻止节点。搜索时仍会出现，位于列表末尾并带锁图标，用户无法添加。
+- **画布**：工作流中已有的被阻止节点显示受限标签。
+- **节点详情**：参数只读，用户可以联系实例管理员或替换节点。
+- **发布和运行**：n8n 拒绝操作，显示列出全部被阻止节点的消息，并提供在工作流中定位节点的链接。如果保存操作添加了被阻止节点，n8n 也以相同方式拒绝保存。
 
-## What users see when a node is blocked in agents
+## 智能体中节点被阻止时用户会看到什么 <a id="what-users-see-when-a-node-is-blocked-in-agents"></a>
 
-- **Tool picker:** blocked nodes appear at the end of the list with a lock. Users can't add them. Chat Hub tools work the same way.
-- **Chat:** n8n refuses a call to a blocked tool and marks the step as restricted. The agent tells the user what it couldn't do.
-- **Save and publish:** n8n refuses to save an agent that adds a blocked tool, and refuses to publish an agent that uses one.
-- **AI builders:** the **Agent Builder** can suggest a blocked node. n8n then refuses the save. The same applies to n8n Assistant for Enterprise customers with preview access.
+- **工具选择器**：被阻止节点显示在列表末尾，带锁图标，无法添加。Chat Hub 工具也相同。
+- **聊天**：n8n 拒绝调用被阻止工具，将步骤标为受限。智能体告知用户哪些操作无法完成。
+- **保存和发布**：n8n 拒绝保存添加了被阻止工具的智能体，也拒绝发布使用此工具的智能体。
+- **AI 构建器**：**Agent Builder** 可能建议被阻止节点，但 n8n 随后会拒绝保存。具有预览访问权限的 Enterprise 客户使用 n8n Assistant 时也相同。
 
-## Workflows that already use a blocked node
+## 已使用被阻止节点的工作流 <a id="workflows-that-already-use-a-blocked-node"></a>
 
-A new policy doesn't change existing workflows, but it limits what users can do with them:
+新策略不修改现有工作流，但会限制用户能进行的操作：
 
-| Action | Result |
+| 操作 | 结果 |
 |--------|--------|
-| Open and edit | Allowed. |
-| Save | Allowed, as long as the save doesn't add a new blocked node type. |
-| Publish | Refused. |
-| Run, including from a trigger or as a sub-workflow | Refused. n8n records the run as a failed execution. |
-| Move to another project | Checked against the target project's policy. |
+| 打开和编辑 | 允许。 |
+| 保存 | 允许，前提是未添加新的被阻止节点类型。 |
+| 发布 | 拒绝。 |
+| 运行，包括触发器触发或作为子工作流 | 拒绝，n8n 记录为失败执行。 |
+| 移动到其他项目 | 根据目标项目策略检查。 |
 
-Published workflows stay published, but their executions fail until you allow the node or remove it from the workflow.
+已发布的工作流保持发布状态，但执行会失败，直到允许该节点或将其移出工作流。
 
-A disabled node still counts. Users can't add a blocked node as disabled and turn it on later.
+已禁用节点仍计入检查。用户无法先以禁用状态添加被阻止节点，再于之后启用。
 
-## Limitations
+## 限制 <a id="limitations"></a>
 
-- **No settings page yet:** you manage policies only through the public API. A settings page is planned.
-- **No wildcards:** a `name` rule matches one exact node type. To match many nodes, use a `package` rule.
-- **`package` rules need an installed package:** n8n rejects a `package` rule for a package that isn't installed. A `name` rule doesn't have this limit, so you can block a community node before anyone installs it.
-- **No nodes are exempt:** if a policy denies by default, it also blocks nodes like **Manual Trigger** and **Sticky Note**. Add `allow` rules for every node your users need.
-- **Not a data boundary:** blocking a node doesn't block the service behind it. Users can still reach the same API with the **HTTP Request** or **Code** node. On self-hosted instances, to stop n8n from loading a node at all, use [`NODES_EXCLUDE`](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/block-specific-nodes).
-- **Source control pulls:** n8n skips a pulled workflow that uses a blocked node and reports it in the pull result. The workflow in Git and in n8n stay different until you allow the node or remove it.
-- **Sub-workflows inside node parameters:** n8n doesn't check nodes in a sub-workflow that's defined inside another node's parameters.
+- **尚无设置页面**：目前仅通过公共 API 管理策略，计划提供设置页面。
+- **不支持通配符**：`name` 规则精确匹配一种节点类型。要匹配多个节点，请使用 `package` 规则。
+- **`package` 规则要求包已安装**：n8n 拒绝针对未安装包的 `package` 规则。`name` 规则没有此限制，因此可以在任何人安装社区节点前，预先阻止它。
+- **没有节点豁免**：策略默认拒绝时，也会阻止 **Manual Trigger** 和 **Sticky Note** 等节点。请为用户所需的每个节点添加 `allow` 规则。
+- **不是数据边界**：阻止节点不代表阻止其背后的服务。用户仍可通过 **HTTP Request** 或 **Code** 节点访问相同 API。自托管实例要完全阻止 n8n 加载某个节点，请使用 [`NODES_EXCLUDE`](../../deploy/host-n8n/configure-n8n/security/block-specific-nodes.md)。
+- **源代码管理拉取**：n8n 跳过使用被阻止节点的拉取工作流，并在拉取结果中报告。Git 与 n8n 中的工作流会保持不同，直到允许该节点或将其移除。
+- **节点参数内的子工作流**：n8n 不检查在其他节点参数内定义的子工作流中的节点。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Manage users and access](./)
-* [Set up for Cloud](set-up-for-cloud.md)
-* [Add and remove users](add-and-remove-users.md)
-* [Understand instance roles](understand-instance-roles.md)
-* [Set permissions and roles (RBAC)](set-permissions-and-roles-rbac/README.md)
-* [Verify user identity](verify-user-identity/README.md)
-* [Follow best practices](follow-best-practices.md)
-* [Organize work in projects](set-permissions-and-roles-rbac/organize-work-in-projects.md)
-* [Block specific nodes](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/block-specific-nodes)
-* [Endpoint reference](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/node-type-policy)
+* [管理用户与访问](./)
+* [设置 Cloud 用户管理](set-up-for-cloud.md)
+* [添加和移除用户](add-and-remove-users.md)
+* [理解实例角色](understand-instance-roles.md)
+* [设置权限与角色（RBAC）](set-permissions-and-roles-rbac/README.md)
+* [验证用户身份](verify-user-identity/README.md)
+* [遵循最佳实践](follow-best-practices.md)
+* [使用项目组织工作](set-permissions-and-roles-rbac/organize-work-in-projects.md)
+* [阻止特定节点](../../deploy/host-n8n/configure-n8n/security/block-specific-nodes.md)
+* [端点参考](../../connect/n8n-api/node-type-policy.md)

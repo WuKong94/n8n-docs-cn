@@ -1,146 +1,147 @@
 ---
-title: Custom instance roles
-description: Create and manage custom instance roles with granular permissions in n8n.
+title: 自定义实例角色
+description: 在 n8n 中创建和管理具有细粒度权限的自定义实例角色。
 contentType: howto
-nodeTitle: Create custom instance roles
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-instance-roles
+nodeTitle: 创建自定义实例角色
+url: https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-instance-roles
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Custom instance roles <a href="#custom-instance-roles" id="custom-instance-roles"></a>
+
+# 自定义实例角色 <a href="#custom-instance-roles" id="custom-instance-roles"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Custom instance roles are available on:
+自定义实例角色可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 
-Available from n8n 2.30.0 (released July 7, 2026)
+自 n8n 2.30.0 起提供，该版本于 2026 年 7 月 7 日发布。
 {% endhint %}
 
 {% hint style="info" %}
-**Instance roles vs project roles**
+**实例角色与项目角色**
 
-n8n has two types of custom roles:
+n8n 有两类自定义角色：
 
-**Custom instance roles**: Roles that relate to the administrative capabilities a user needs at the instance level.
+**自定义实例角色**：与用户在实例级别所需的管理能力相关的角色。
 
-**Custom project roles**: Roles that apply within a specific project. Refer to [Create custom project roles](create-custom-project-roles.md).
+**自定义项目角色**：适用于特定项目内的角色。参阅[创建自定义项目角色](create-custom-project-roles.md)。
 {% endhint %}
 
-Custom instance roles let you grant users specific instance-level capabilities without giving them full Admin access. Unlike built-in roles (Owner, Admin, Member, Chat user), custom instance roles let you define granular permissions for instance settings, user management, and other instance-wide management.
+自定义实例角色允许授予用户特定实例级能力，无需提供完整 Admin 权限。不同于 Owner、Admin、Member、Chat user 等内置角色，自定义实例角色可以为实例设置、用户管理和其他实例级管理定义细粒度权限。
 
-## Create a custom instance role <a href="#create-a-custom-instance-role" id="create-a-custom-instance-role"></a>
+## 创建自定义实例角色 <a href="#create-a-custom-instance-role" id="create-a-custom-instance-role"></a>
 
-Instance owners and instance admins can create custom instance roles.
+实例所有者和实例管理员可以创建自定义实例角色。
 
-To create a custom instance role:
+要创建自定义实例角色：
 
-1. Go to **Settings** > **Roles** > **Instance roles**.
-2. Select **Create role**.
-3. Enter a role name and optional description.
-4. Optionally, select a **Preset** (**Admin**, **Member**) to pre-fill permissions based on a built-in role, then adjust as needed.
-5. Select the permissions for this role:
-   * **Instance settings** > **Manage**: View and change instance-wide settings
-   * **Members** > **Manage**: Invite, remove, and update users across the instance
-   * **Roles** > **Manage project roles**: Create, edit, and delete custom project roles only
-   * **Roles** > **Manage all roles**: Create, edit, and delete all custom roles (instance and project). Selecting this automatically includes **Manage project roles**.
-   * **API keys** > **Manage own**: Create and delete the user's own API keys
-   * **API keys** > **Manage others**: View and delete other users' API keys. Automatically includes **Manage own**.
-   * **Tags** > **View**: View all tags
-   * **Tags** > **Manage**: Create, edit, and delete tags
-   * **Projects** > **Create**: Create new projects
-   * **Insights** > **View**: View instance-level insights
-6. Select **Save**.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Instance roles**（实例角色）。
+2. 选择 **Create role**（创建角色）。
+3. 输入角色名称，以及可选描述。
+4. 可选择 **Preset**（预设），包括 **Admin**、**Member**，按内置角色预填权限，再按需调整。
+5. 选择此角色的权限：
+   * **Instance settings**（实例设置）> **Manage**（管理）：查看和更改实例级设置。
+   * **Members**（成员）> **Manage**（管理）：在整个实例中邀请、移除和更新用户。
+   * **Roles**（角色）> **Manage project roles**（管理项目角色）：仅创建、编辑和删除自定义项目角色。
+   * **Roles**（角色）> **Manage all roles**（管理所有角色）：创建、编辑和删除全部自定义角色，包括实例和项目角色。选择后自动包含 **Manage project roles**。
+   * **API keys**（API 密钥）> **Manage own**（管理自己的）：创建和删除用户自己的 API 密钥。
+   * **API keys**（API 密钥）> **Manage others**（管理他人的）：查看和删除其他用户的 API 密钥，自动包含 **Manage own**。
+   * **Tags**（标签）> **View**（查看）：查看全部标签。
+   * **Tags**（标签）> **Manage**（管理）：创建、编辑和删除标签。
+   * **Projects**（项目）> **Create**（创建）：创建新项目。
+   * **Insights**（洞察）> **View**（查看）：查看实例级洞察。
+6. 选择 **Save**（保存）。
 
-## Assign a custom instance role to users <a href="#assign-a-custom-instance-role-to-users" id="assign-a-custom-instance-role-to-users"></a>
+## 将自定义实例角色分配给用户 <a href="#assign-a-custom-instance-role-to-users" id="assign-a-custom-instance-role-to-users"></a>
 
-Users with the **Roles: Manage all roles** permission can assign custom instance roles.
+具有 **Roles: Manage all roles**（角色：管理所有角色）权限的用户，可以分配自定义实例角色。
 
-To assign a custom instance role:
+要分配自定义实例角色：
 
-1. Go to **Settings** > **Users**.
-2. Find the user you want to update.
-3. Select the user's current role to open the role dropdown.
-4. Under **Custom roles**, select the role you want to assign.
+1. 前往 **Settings**（设置）> **Users**（用户）。
+2. 找到要更新的用户。
+3. 选择用户当前角色，打开角色下拉菜单。
+4. 在 **Custom roles**（自定义角色）下，选择要分配的角色。
 
-## Edit a custom instance role <a href="#edit-a-custom-instance-role" id="edit-a-custom-instance-role"></a>
+## 编辑自定义实例角色 <a href="#edit-a-custom-instance-role" id="edit-a-custom-instance-role"></a>
 
-To update an existing custom instance role:
+要更新现有自定义实例角色：
 
-1. Go to **Settings** > **Roles** > **Instance roles**.
-2. Find the custom role you want to edit.
-3. Select the **three-dot menu** > **Edit**.
-4. Update the role name, description, or permissions.
-5. Select **Save changes**.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Instance roles**（实例角色）。
+2. 找到要编辑的自定义角色。
+3. 选择**三点菜单** > **Edit**（编辑）。
+4. 更新角色名称、描述或权限。
+5. 选择 **Save changes**（保存更改）。
 
 {% hint style="warning" %}
-**Editing affects all assigned users**
+**编辑会影响所有已分配此角色的用户**
 
-Changes to a custom instance role take effect for all users with that role across the entire instance.
+更改自定义实例角色，会对整个实例中所有具有该角色的用户生效。
 {% endhint %}
 
-## Duplicate a custom instance role <a href="#duplicate-a-custom-instance-role" id="duplicate-a-custom-instance-role"></a>
+## 复制自定义实例角色 <a href="#duplicate-a-custom-instance-role" id="duplicate-a-custom-instance-role"></a>
 
-To create a new role based on an existing one:
+要基于现有角色创建新角色：
 
-1. Go to **Settings** > **Roles** > **Instance roles**.
-2. Find the role you want to duplicate.
-3. Select the **three-dot menu** > **Duplicate**.
-4. Update the role name and permissions as needed.
-5. Select **Create role**.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Instance roles**（实例角色）。
+2. 找到要复制的角色。
+3. 选择**三点菜单** > **Duplicate**（复制）。
+4. 按需更新角色名称和权限。
+5. 选择 **Create role**（创建角色）。
 
-## Delete a custom instance role <a href="#delete-a-custom-instance-role" id="delete-a-custom-instance-role"></a>
+## 删除自定义实例角色 <a href="#delete-a-custom-instance-role" id="delete-a-custom-instance-role"></a>
 
-To delete a custom instance role:
+要删除自定义实例角色：
 
-1. Go to **Settings** > **Roles** > **Instance roles**.
-2. Find the role you want to delete.
-3. Select the **three-dot menu** > **Delete**.
-4. Confirm the deletion.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Instance roles**（实例角色）。
+2. 找到要删除的角色。
+3. 选择**三点菜单** > **Delete**（删除）。
+4. 确认删除。
 
 {% hint style="info" %}
-**Reassign users before deletion**
+**删除前请重新分配用户角色**
 
-If users have this role, reassign them to a different role before deleting it.
+如果有用户使用此角色，请先为其重新分配其他角色，再删除。
 {% endhint %}
 
-## Permissions reference <a href="#permissions-reference" id="permissions-reference"></a>
+## 权限参考 <a href="#permissions-reference" id="permissions-reference"></a>
 
-The table below describes each permission group and its checkboxes as they appear in the **Instance roles** editor.
+下表按 **Instance roles**（实例角色）编辑器中的显示方式，说明各权限组及其复选框。
 
-| Group | Checkbox | What it allows |
+| 分组 | 复选框 | 允许的操作 |
 | ----- | -------- | -------------- |
-| Instance settings | Manage | View and change instance-wide settings |
-| Members | Manage | Invite, remove, and update users across the instance |
-| Roles | Manage project roles | Create, edit, duplicate, delete, and assign custom project roles only |
-| Roles | Manage all roles | Create, edit, duplicate, delete, and assign all custom roles (instance and project). Automatically includes **Manage project roles**. |
-| API keys | Manage own | Create and delete the user's own API keys |
-| API keys | Manage others | View and delete other users' API keys. Automatically includes **Manage own**. |
-| Tags | View | View all tags |
-| Tags | Manage | Create, edit, and delete tags |
-| Projects | Create | Create new projects |
-| Insights | View | View instance-level insights and usage data |
+| Instance settings（实例设置） | Manage（管理） | 查看和更改实例级设置。 |
+| Members（成员） | Manage（管理） | 在整个实例中邀请、移除和更新用户。 |
+| Roles（角色） | Manage project roles（管理项目角色） | 仅创建、编辑、复制、删除和分配自定义项目角色。 |
+| Roles（角色） | Manage all roles（管理所有角色） | 创建、编辑、复制、删除和分配全部自定义角色，包括实例和项目角色。自动包含 **Manage project roles**。 |
+| API keys（API 密钥） | Manage own（管理自己的） | 创建和删除用户自己的 API 密钥。 |
+| API keys（API 密钥） | Manage others（管理他人的） | 查看和删除其他用户的 API 密钥。自动包含 **Manage own**。 |
+| Tags（标签） | View（查看） | 查看全部标签。 |
+| Tags（标签） | Manage（管理） | 创建、编辑和删除标签。 |
+| Projects（项目） | Create（创建） | 创建新项目。 |
+| Insights（洞察） | View（查看） | 查看实例级洞察和使用数据。 |
 
 {% hint style="warning" %}
-**Privilege escalation risk**
+**权限提升风险**
 
-Certain permission combinations create a privilege escalation risk:
+某些权限组合会带来权限提升风险：
 
-* A user with **Roles: Manage all roles** can edit their own custom role to add permissions they weren't originally granted.
-* A user with **Members: Manage** can invite a user they control, then grant that user Admin-level access.
-* A user with **Roles: Manage project roles** can edit a custom project role they hold themselves to grant themselves permissions they weren't originally granted in that project.
+* 拥有 **Roles: Manage all roles**（角色：管理所有角色）的用户，可以编辑自己的自定义角色，添加原本未被授予的权限。
+* 拥有 **Members: Manage**（成员：管理）的用户，可以邀请其控制的用户，再授予该用户管理员级权限。
+* 拥有 **Roles: Manage project roles**（角色：管理项目角色）的用户，可以编辑自己持有的自定义项目角色，给自己添加在该项目中原本未被授予的权限。
 
-Only assign these permissions to fully trusted users, and avoid combining them unless necessary.
+仅将这些权限分配给完全可信的用户，非必要时避免组合使用。
 {% endhint %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Custom roles](create-custom-roles.md)
-* [Create custom project roles](create-custom-project-roles.md)
+* [自定义角色](create-custom-roles.md)
+* [创建自定义项目角色](create-custom-project-roles.md)
 

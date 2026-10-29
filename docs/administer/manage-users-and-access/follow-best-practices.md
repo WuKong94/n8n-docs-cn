@@ -1,45 +1,47 @@
 ---
-description: User management best practices.
+description: 用户管理最佳实践。
 contentType: explanation
-nodeTitle: Follow best practices
+nodeTitle: 遵循最佳实践
 originalFilePath: user-management/best-practices.md
-originalUrl: 'https://docs.n8n.io/user-management/best-practices'
-url: 'https://docs.n8n.io/administer/manage-users-and-access/follow-best-practices'
+originalUrl: https://docs.n8n.io/user-management/best-practices
+url: https://docs.n8n.io/administer/manage-users-and-access/follow-best-practices
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Best practices for user management <a href="#best-practices-for-user-management" id="best-practices-for-user-management"></a>
 
-This page contains advice on best practices relating to user management in n8n.
+# 用户管理最佳实践 <a href="#best-practices-for-user-management" id="best-practices-for-user-management"></a>
 
-## All platforms <a href="#all-platforms" id="all-platforms"></a>
+本页提供 n8n 用户管理的最佳实践建议。
 
-* n8n recommends that owners create a member-level account for themselves. Owners can see all workflows, but there is no way to see who created a particular workflow, so there is a risk of overriding other people's work if you build and edit workflows as an owner.
-* Users must be careful not to edit the same workflow simultaneously. It's possible to do it, but the users will overwrite each other's changes.
-* To move workflows between accounts, export the workflow as JSON, then import it to the new account. Note that this action loses the workflow history.
-* Webhook paths must be unique across the entire instance. This means each webhook path must be unique for all workflows and all users. By default, n8n generates a long random value for the webhook path, but users can edit this to their own custom path. If two users set the same path value:
-    * The path works for the first workflow that's run or published.
-    * Other workflows will error if they try to run with the same path.
+## 所有平台 <a href="#all-platforms" id="all-platforms"></a>
 
-## Self-hosted <a href="#self-hosted" id="self-hosted"></a>
+* n8n 建议所有者为自己创建成员级账号。所有者能查看全部工作流，但无法查看特定工作流的创建者，因此以所有者身份构建和编辑工作流，可能覆盖其他人的工作。
+* 用户应避免同时编辑同一工作流。虽然可以这样操作，但会相互覆盖更改。
+* 要在账号间迁移工作流，请导出为 JSON，再导入新账号。此操作会丢失工作流历史。
+* Webhook 路径必须在整个实例中唯一，即所有用户的所有工作流都不能使用重复路径。n8n 默认生成较长的随机路径值，但用户可改为自定义路径。如果两个用户设置相同路径：
+    * 路径对最先运行或发布的工作流有效。
+    * 其他工作流尝试使用相同路径运行时会报错。
 
-If you run n8n behind a reverse proxy, set the following environment variables so that n8n generates emails with the correct URL:
+## 自托管 <a href="#self-hosted" id="self-hosted"></a>
+
+如果 n8n 位于反向代理之后，请设置以下环境变量，确保生成的邮件包含正确 URL：
 
 * `N8N_HOST`
 * `N8N_PORT`
 * `N8N_PROTOCOL`
 * `N8N_EDITOR_BASE_URL`  
 
-More information on these variables is available in [Environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables).
+这些变量的更多信息请参阅[环境变量](../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/README.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Manage users and access](./)
-* [Set up for Cloud](set-up-for-cloud.md)
-* [Add and remove users](add-and-remove-users.md)
-* [Understand instance roles](understand-instance-roles.md)
-* [Set permissions and roles (RBAC)](set-permissions-and-roles-rbac/README.md)
-* [Verify user identity](verify-user-identity/README.md)
+* [管理用户与访问](./)
+* [设置 Cloud 用户管理](set-up-for-cloud.md)
+* [添加和移除用户](add-and-remove-users.md)
+* [理解实例角色](understand-instance-roles.md)
+* [设置权限与角色（RBAC）](set-permissions-and-roles-rbac/README.md)
+* [验证用户身份](verify-user-identity/README.md)
 

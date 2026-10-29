@@ -1,48 +1,50 @@
 ---
-description: User management in n8n
+description: n8n 用户管理。
 contentType: overview
-nodeTitle: Manage users and access
+nodeTitle: 管理用户与访问
 originalFilePath: user-management/index.md
-originalUrl: 'https://docs.n8n.io/user-management'
-url: 'https://docs.n8n.io/administer/'
+originalUrl: https://docs.n8n.io/user-management
+url: https://docs.n8n.io/administer/
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# User management <a href="#user-management" id="user-management"></a>
 
-User management in n8n allows you to invite people to work in your n8n instance. It includes:
+# 用户管理 <a href="#user-management" id="user-management"></a>
 
-* Login and password management
-* Adding and removing users
-* Four built-in [instance roles](understand-instance-roles.md): **Owner**, **Admin**,  **Member**, and **Chat user** (**Admin** and **Chat user** are available on n8n Cloud Pro, Enterprise, and self-hosted Enterprise), plus custom instance roles
+n8n 用户管理允许邀请其他人在你的实例中协作，包含：
+
+* 登录和密码管理。
+* 添加和移除用户。
+* 四个内置[实例角色](understand-instance-roles.md)：**Owner**（所有者）、**Admin**（管理员）、**Member**（成员）和 **Chat user**（聊天用户），以及自定义实例角色。**Admin** 和 **Chat user** 可用于 n8n Cloud Pro、Enterprise 和自托管 Enterprise。
 
 {% hint style="info" %}
-**Privacy**
+**隐私**
 
-The user management feature doesn't send personal information, such as email or username, to n8n.
+用户管理功能不会向 n8n 发送邮箱、用户名等个人信息。
 {% endhint %}
 
-## Setup guides <a href="#setup-guides" id="setup-guides"></a>
+## 设置指南 <a href="#setup-guides" id="setup-guides"></a>
 
-This section contains most usage information for user management, and the [Cloud setup guide](set-up-for-cloud.md). If you self-host n8n, there are extra steps to configure your n8n instance. Refer to the [Self-hosted guide](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/user-management).
+本节包含大多数用户管理使用说明，以及 [Cloud 设置指南](set-up-for-cloud.md)。自托管 n8n 需要额外步骤配置实例，请参阅[自托管指南](../../deploy/host-n8n/configure-n8n/user-management.md)。
 
-This section includes guides to configuring [LDAP](verify-user-identity/connect-ldap.md) and [SAML](verify-user-identity/use-saml/README.md) in n8n.
+本节还介绍如何在 n8n 中配置 [LDAP](verify-user-identity/connect-ldap.md) 和 [SAML](verify-user-identity/use-saml/README.md)。
 
-## In this section
+## 本节内容 <a id="in-this-section"></a>
 
-* [Set up for Cloud](set-up-for-cloud.md): set up user management on n8n Cloud.
-* [Add and remove users](add-and-remove-users.md): delete users and resend pending invitations.
-* [Understand instance roles](understand-instance-roles.md): the built-in Owner, Admin, Member, and Chat user roles.
-* [Control node availability](control-node-availability.md): block or allow nodes for the instance or a project.
-* [Set permissions and roles (RBAC)](set-permissions-and-roles-rbac/README.md): control access at the instance and project level.
-* [Verify user identity](verify-user-identity/README.md): require two-factor auth, or connect LDAP, SAML, or OIDC.
-* [Follow best practices](follow-best-practices.md): user management best practices.
+* [设置 Cloud 用户管理](set-up-for-cloud.md)：在 n8n Cloud 上设置用户管理。
+* [添加和移除用户](add-and-remove-users.md)：删除用户，以及重新发送待接受的邀请。
+* [理解实例角色](understand-instance-roles.md)：内置的 Owner、Admin、Member 和 Chat user 角色。
+* [控制节点可用性](control-node-availability.md)：为实例或项目阻止或允许节点。
+* [设置权限与角色（RBAC）](set-permissions-and-roles-rbac/README.md)：在实例和项目级别控制访问。
+* [验证用户身份](verify-user-identity/README.md)：要求双因素身份验证，或连接 LDAP、SAML、OIDC。
+* [遵循最佳实践](follow-best-practices.md)：用户管理最佳实践。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Administer](../)
-* [Use source control and environments](../use-source-control-and-environments/README.md)
-* [Manage credentials](../manage-credentials/README.md)
-* [Observe and log](../observe-and-log/README.md)
+* [管理](../)
+* [使用源代码管理与环境](../use-source-control-and-environments/README.md)
+* [管理凭据](../manage-credentials/README.md)
+* [观测与日志](../observe-and-log/README.md)

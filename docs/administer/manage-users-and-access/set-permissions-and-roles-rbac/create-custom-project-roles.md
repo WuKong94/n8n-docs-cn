@@ -1,245 +1,246 @@
 ---
-title: Custom project roles
-description: Create and manage custom project roles with granular permissions in n8n.
+title: 自定义项目角色
+description: 在 n8n 中创建和管理具有细粒度权限的自定义项目角色。
 contentType: howto
-nodeTitle: Create custom roles
+nodeTitle: 创建自定义角色
 originalFilePath: user-management/rbac/custom-roles.md
-originalUrl: 'https://docs.n8n.io/user-management/rbac/custom-roles'
-url: >-
-  https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-project-roles
+originalUrl: https://docs.n8n.io/user-management/rbac/custom-roles
+url: https://docs.n8n.io/administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-project-roles
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Custom project roles <a href="#custom-project-roles" id="custom-project-roles"></a>
+
+# 自定义项目角色 <a href="#custom-project-roles" id="custom-project-roles"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Custom project roles are available on:
+自定义项目角色可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 
-Available from n8n 1.122.0.
+自 n8n 1.122.0 起提供。
 {% endhint %}
 
 {% hint style="info" %}
-**Instance roles vs project roles**
+**实例角色与项目角色**
 
-n8n has two types of custom roles:
+n8n 有两类自定义角色：
 
-**Custom instance roles**: Roles that relate to the administrative capabilities a user needs at the instance level. Refer to [Create custom instance roles](create-custom-instance-roles.md).
+**自定义实例角色**：与用户在实例级别所需的管理能力相关的角色。参阅[创建自定义实例角色](create-custom-instance-roles.md)。
 
-**Custom project roles**: Roles that apply within a specific project.
+**自定义项目角色**：适用于特定项目内的角色。
 {% endhint %}
 
-Custom project roles allow you to create roles with specific permissions tailored to your team's needs. Unlike the built-in project roles (Admin, Editor, Viewer), custom roles let you define granular access to workflows, credentials, and other project resources.
+自定义项目角色允许按团队需求创建具有特定权限的角色。不同于 Admin、Editor、Viewer 等内置项目角色，自定义角色可以为工作流、凭据和其他项目资源定义细粒度访问权限。
 
-## Create a custom role <a href="#create-a-custom-role" id="create-a-custom-role"></a>
+## 创建自定义角色 <a href="#create-a-custom-role" id="create-a-custom-role"></a>
 
-Instance owners and instance admins can create custom roles.
+实例所有者和实例管理员可以创建自定义角色。
 
-To create a custom role:
+要创建自定义角色：
 
-1. Go to **Settings** > **Roles** > **Project roles**.
-2. Select **Create role**.
-3. Enter a role name and optional description.
-4. Select the permissions (scopes) for this role:
-	* **Workflow permissions**: View, execute, edit, create, publish, transfer, delete, or manage data redaction for workflows
-	* **Credential permissions**: View, edit, create, share, unshare, transfer, or delete credentials
-	* **Project permissions**: View, edit, or delete projects
-	* **Folder permissions**: View, edit, create, transfer, or delete folders
-	* **Execution permission**: Reveal redacted execution data
-	* **Secret vault permissions**: View, create, edit, delete, or sync secret vaults of a project
-	* **Secrets permission**: Use secrets in credentials
-	* **Data table permissions**: View tables, view rows, edit tables, edit rows, create, or delete tables
-	* **Project variable permissions**: View, edit, create, or delete project variables
-	* **Source control**: Push to source control
-5. Select **Create role**.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Project roles**（项目角色）。
+2. 选择 **Create role**（创建角色）。
+3. 输入角色名称，以及可选描述。
+4. 为此角色选择权限范围：
+	* **工作流权限**：查看、执行、编辑、创建、发布、转移、删除工作流，或管理工作流数据脱敏。
+	* **凭据权限**：查看、编辑、创建、共享、取消共享、转移或删除凭据。
+	* **项目权限**：查看、编辑或删除项目。
+	* **文件夹权限**：查看、编辑、创建、转移或删除文件夹。
+	* **执行权限**：查看脱敏前的原始执行数据。
+	* **密钥保管库权限**：查看、创建、编辑、删除或同步项目密钥保管库。
+	* **密钥权限**：在凭据中使用密钥。
+	* **数据表权限**：查看表、查看行、编辑表、编辑行、创建或删除表。
+	* **项目变量权限**：查看、编辑、创建或删除项目变量。
+	* **源代码管理**：推送到源代码管理。
+5. 选择 **Create role**（创建角色）。
 
-## Assign a custom role to users <a href="#assign-a-custom-role-to-users" id="assign-a-custom-role-to-users"></a>
+## 将自定义角色分配给用户 <a href="#assign-a-custom-role-to-users" id="assign-a-custom-role-to-users"></a>
 
-Project admins can assign custom roles to project members. Custom roles apply only within the specific project where they're assigned. A user can have different roles in different projects.
+项目管理员可以为项目成员分配自定义角色。角色仅适用于所分配的特定项目，同一用户可在不同项目中拥有不同角色。
 
-To assign a custom role:
+要分配自定义角色：
 
-1. Select the project.
-2. Select **Project settings**.
-3. Under **Project members**, browse or search for users.
-4. Select the user and choose the custom role from the dropdown.
-5. Select **Save**.
+1. 选择项目。
+2. 选择 **Project settings**（项目设置）。
+3. 在 **Project members**（项目成员）下浏览或搜索用户。
+4. 选择用户，并从下拉菜单选择自定义角色。
+5. 选择 **Save**（保存）。
 
 {% hint style="info" %}
-**Project-level permissions**
+**项目级权限**
 
-Custom role permissions only apply within the project where the role is in use. To grant the same permissions across multiple projects, assign the custom role in each project individually.
+自定义角色权限仅在使用该角色的项目中生效。要在多个项目授予相同权限，请在每个项目分别分配此自定义角色。
 {% endhint %}
 
-## Edit a custom role <a href="#edit-a-custom-role" id="edit-a-custom-role"></a>
+## 编辑自定义角色 <a href="#edit-a-custom-role" id="edit-a-custom-role"></a>
 
-To update an existing custom role:
+要更新现有自定义角色：
 
-1. Go to **Settings** > **Roles** > **Project roles**.
-2. Find the custom role you want to edit.
-3. Select the **three-dot menu** > **Edit**.
-4. Update the role name, description, or permissions.
-5. Select **Save changes**.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Project roles**（项目角色）。
+2. 找到要编辑的自定义角色。
+3. 选择**三点菜单** > **Edit**（编辑）。
+4. 更新角色名称、描述或权限。
+5. 选择 **Save changes**（保存更改）。
 
 {% hint style="warning" %}
-**Editing affects all assigned users**
+**编辑会影响所有已分配此角色的用户**
 
-Changes to a custom role take effect for all users with that role in any project. If the role is in use across multiple projects, the permission changes apply everywhere the role is assigned.
+更改自定义角色，会对任意项目中所有具有此角色的用户生效。如果多个项目使用此角色，权限更改会应用到所有分配位置。
 {% endhint %}
 
-## Duplicate a custom role <a href="#duplicate-a-custom-role" id="duplicate-a-custom-role"></a>
+## 复制自定义角色 <a href="#duplicate-a-custom-role" id="duplicate-a-custom-role"></a>
 
-To create a new role based on an existing one:
+要基于现有角色创建新角色：
 
-1. Go to **Settings** > **Roles** > **Project roles**.
-2. Find the role you want to duplicate.
-3. Select the **three-dot menu** > **Duplicate**.
-4. Update the role name and permissions as needed.
-5. Select **Create role**.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Project roles**（项目角色）。
+2. 找到要复制的角色。
+3. 选择**三点菜单** > **Duplicate**（复制）。
+4. 按需更新角色名称和权限。
+5. 选择 **Create role**（创建角色）。
 
-## Delete a custom role <a href="#delete-a-custom-role" id="delete-a-custom-role"></a>
+## 删除自定义角色 <a href="#delete-a-custom-role" id="delete-a-custom-role"></a>
 
-To delete a custom role:
+要删除自定义角色：
 
-1. Go to **Settings** > **Roles** > **Project roles**.
-2. Find the role you want to delete.
-3. Select the **three-dot menu** > **Delete**.
-4. Confirm the deletion.
+1. 前往 **Settings**（设置）> **Roles**（角色）> **Project roles**（项目角色）。
+2. 找到要删除的角色。
+3. 选择**三点菜单** > **Delete**（删除）。
+4. 确认删除。
 
 {% hint style="info" %}
-**Reassign users before deletion**
+**删除前请重新分配用户角色**
 
-If users are assigned to this role, you must first reassign them to a different role before deleting it.
+如果有用户被分配此角色，必须先为其重新分配其他角色，才能删除。
 {% endhint %}
 
-## Permission scopes reference <a href="#permission-scopes-reference" id="permission-scopes-reference"></a>
+## 权限范围参考 <a href="#permission-scopes-reference" id="permission-scopes-reference"></a>
 
-Custom roles use permission scopes to define what users can do within a project. Each scope below matches a checkbox in the **Project roles** editor. The section headings match the editor's section names; the scope codes are what you'll see in API responses and audit logs.
+自定义角色通过权限范围定义用户在项目内能执行的操作。下列每个范围都对应 **Project roles**（项目角色）编辑器中的复选框。章节标题与编辑器分区名称对应，范围代码会出现在 API 响应和审计日志中。
 
 {% hint style="info" %}
-**Automatically granted scopes**
+**自动授予的范围**
 
-n8n pairs some scopes together, so they don't appear as separate checkboxes:
+n8n 会将部分范围配对授予，因此不会显示为独立复选框：
 
-* Granting `<resource>:read` also grants the matching list scope for that resource (for example, `workflow:read` grants `workflow:list`).
-* Granting `workflow:publish` also grants `workflow:unpublish`.
+* 授予 `<resource>:read` 时，也会授予该资源对应的列表范围，例如 `workflow:read` 同时授予 `workflow:list`。
+* 授予 `workflow:publish` 时，也会授予 `workflow:unpublish`。
 {% endhint %}
 
-### Workflow scopes <a href="#workflow-scopes" id="workflow-scopes"></a>
-* `workflow:create` - Create new workflows
-* `workflow:read` - View workflow details
-* `workflow:update` - Edit workflows
-* `workflow:execute` - Execute workflows
-* `workflow:publish` - Publish workflows (also grants `workflow:unpublish`)
-* `workflow:delete` - Delete workflows
-* `workflow:move` - Transfer workflows between projects
-* `workflow:enableRedaction` - Turn on data redaction for a workflow (refer to [Execution data redaction](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/redact-execution-data))
-* `workflow:disableRedaction` - Turn off data redaction for a workflow (refer to [Execution data redaction](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/redact-execution-data))
+### 工作流范围 <a href="#workflow-scopes" id="workflow-scopes"></a>
+* `workflow:create` - 创建新工作流。
+* `workflow:read` - 查看工作流详情。
+* `workflow:update` - 编辑工作流。
+* `workflow:execute` - 执行工作流。
+* `workflow:publish` - 发布工作流，同时授予 `workflow:unpublish`。
+* `workflow:delete` - 删除工作流。
+* `workflow:move` - 在项目之间转移工作流。
+* `workflow:enableRedaction` - 启用工作流数据脱敏，参阅[执行数据脱敏](../../../deploy/host-n8n/configure-n8n/security/redact-execution-data.md)。
+* `workflow:disableRedaction` - 关闭工作流数据脱敏，参阅[执行数据脱敏](../../../deploy/host-n8n/configure-n8n/security/redact-execution-data.md)。
 
-### Credential scopes <a href="#credential-scopes" id="credential-scopes"></a>
-* `credential:create` - Create new credentials
-* `credential:read` - View credential details
-* `credential:update` - Edit credentials
-* `credential:delete` - Delete credentials
-* `credential:move` - Transfer credentials between projects
-* `credential:share` - Share credentials with other users
-* `credential:unshare` - Remove credential sharing
+### 凭据范围 <a href="#credential-scopes" id="credential-scopes"></a>
+* `credential:create` - 创建新凭据。
+* `credential:read` - 查看凭据详情。
+* `credential:update` - 编辑凭据。
+* `credential:delete` - 删除凭据。
+* `credential:move` - 在项目之间转移凭据。
+* `credential:share` - 将凭据共享给其他用户。
+* `credential:unshare` - 取消凭据共享。
 
-### Project scopes <a href="#project-scopes" id="project-scopes"></a>
-* `project:read` - View project details
-* `project:update` - Edit project settings
-* `project:delete` - Delete projects
+### 项目范围 <a href="#project-scopes" id="project-scopes"></a>
+* `project:read` - 查看项目详情。
+* `project:update` - 编辑项目设置。
+* `project:delete` - 删除项目。
 
-### Folder scopes <a href="#folder-scopes" id="folder-scopes"></a>
-* `folder:create` - Create new folders
-* `folder:read` - View folder contents
-* `folder:update` - Rename folders
-* `folder:delete` - Delete folders
-* `folder:move` - Transfer folders
+### 文件夹范围 <a href="#folder-scopes" id="folder-scopes"></a>
+* `folder:create` - 创建新文件夹。
+* `folder:read` - 查看文件夹内容。
+* `folder:update` - 重命名文件夹。
+* `folder:delete` - 删除文件夹。
+* `folder:move` - 转移文件夹。
 
-### Execution scopes <a href="#execution-scopes" id="execution-scopes"></a>
-* `execution:reveal` - Reveal redacted execution data (refer to [Execution data redaction](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/security/redact-execution-data))
+### 执行范围 <a href="#execution-scopes" id="execution-scopes"></a>
+* `execution:reveal` - 查看脱敏前的原始执行数据，参阅[执行数据脱敏](../../../deploy/host-n8n/configure-n8n/security/redact-execution-data.md)。
 
-### Secret vault scopes <a href="#secret-vault-scopes" id="secret-vault-scopes"></a>
+### 密钥保管库范围 <a href="#secret-vault-scopes" id="secret-vault-scopes"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Secret vault scopes are available from n8n 2.13.0.
+自 n8n 2.13.0 起提供密钥保管库范围。
 {% endhint %}
 
-The scope codes use the `externalSecretsProvider` prefix. The role editor lists this section as **Secrets vaults**.
+范围代码使用 `externalSecretsProvider` 前缀，角色编辑器中的对应分区为 **Secrets vaults**（密钥保管库）。
 
-* `externalSecretsProvider:create` - Create new secret vaults in a project
-* `externalSecretsProvider:read` - View secret vaults in a project
-* `externalSecretsProvider:update` - Edit secret vault configuration
-* `externalSecretsProvider:delete` - Delete secret vaults from a project
-* `externalSecretsProvider:sync` - Reload a vault's secrets
+* `externalSecretsProvider:create` - 在项目中创建新密钥保管库。
+* `externalSecretsProvider:read` - 查看项目中的密钥保管库。
+* `externalSecretsProvider:update` - 编辑密钥保管库配置。
+* `externalSecretsProvider:delete` - 从项目删除密钥保管库。
+* `externalSecretsProvider:sync` - 重新加载保管库密钥。
 
-### Secrets scope <a href="#secrets-scope" id="secrets-scope"></a>
-The scope code uses the `externalSecret` prefix. The role editor lists this section as **Secrets**.
+### 密钥范围 <a href="#secrets-scope" id="secrets-scope"></a>
+范围代码使用 `externalSecret` 前缀，角色编辑器中的对应分区为 **Secrets**（密钥）。
 
-* `externalSecret:list` - Use secrets in credentials
+* `externalSecret:list` - 在凭据中使用密钥。
 
-### Data table scopes <a href="#data-table-scopes" id="data-table-scopes"></a>
-* `dataTable:create` - Create new data tables
-* `dataTable:read` - View data table schema
-* `dataTable:update` - Edit data table schema
-* `dataTable:delete` - Delete data tables
-* `dataTable:readRow` - Read rows from data tables
-* `dataTable:writeRow` - Insert or update rows in data tables
+### 数据表范围 <a href="#data-table-scopes" id="data-table-scopes"></a>
+* `dataTable:create` - 创建新数据表。
+* `dataTable:read` - 查看数据表结构。
+* `dataTable:update` - 编辑数据表结构。
+* `dataTable:delete` - 删除数据表。
+* `dataTable:readRow` - 读取数据表中的行。
+* `dataTable:writeRow` - 插入或更新数据表中的行。
 
-### Project variable scopes <a href="#project-variable-scopes" id="project-variable-scopes"></a>
-* `projectVariable:create` - Create new variables
-* `projectVariable:read` - View variable values
-* `projectVariable:update` - Edit variable values
-* `projectVariable:delete` - Delete variables
+### 项目变量范围 <a href="#project-variable-scopes" id="project-variable-scopes"></a>
+* `projectVariable:create` - 创建新变量。
+* `projectVariable:read` - 查看变量值。
+* `projectVariable:update` - 编辑变量值。
+* `projectVariable:delete` - 删除变量。
 
-### Source control scopes <a href="#source-control-scopes" id="source-control-scopes"></a>
-* `sourceControl:push` - Push changes to source control
+### 源代码管理范围 <a href="#source-control-scopes" id="source-control-scopes"></a>
+* `sourceControl:push` - 将更改推送到源代码管理。
 
-## Common custom role examples <a href="#common-custom-role-examples" id="common-custom-role-examples"></a>
+## 常见自定义角色示例 <a href="#common-custom-role-examples" id="common-custom-role-examples"></a>
 
-These are example custom project roles you can create for common use cases. Remember that these roles apply within individual projects, not across your entire n8n instance.
+以下是针对常见场景可创建的自定义项目角色示例。它们适用于单个项目，而非整个 n8n 实例。
 
-### Workflow developer <a href="#workflow-developer" id="workflow-developer"></a>
-A role for users who work only with workflows:
+### 工作流开发者 <a href="#workflow-developer" id="workflow-developer"></a>
+适合只处理工作流的用户：
 * `workflow:create`, `workflow:read`, `workflow:update`, `workflow:execute`, `workflow:delete`
-* `credential:read` (view credentials but not edit them)
+* `credential:read`，查看凭据，但不能编辑。
 * `project:read`
 
-### Credential manager <a href="#credential-manager" id="credential-manager"></a>
-A role for users who manage credentials:
+### 凭据管理员 <a href="#credential-manager" id="credential-manager"></a>
+适合管理凭据的用户：
 * `credential:create`, `credential:read`, `credential:update`, `credential:delete`, `credential:share`
-* `workflow:read` (view workflows to understand credential usage)
+* `workflow:read`，查看工作流，以了解凭据使用情况。
 * `project:read`
 
-### Secrets user <a href="#secrets-user" id="secrets-user"></a>
-A role for users who use external secrets in credentials but don't manage vaults:
-* `externalSecret:list` (use secrets in credential expressions)
-* `credential:create`, `credential:read`, `credential:update` (manage credentials with secrets)
+### 密钥使用者 <a href="#secrets-user" id="secrets-user"></a>
+适合在凭据中使用外部密钥，但不管理保管库的用户：
+* `externalSecret:list`，在凭据表达式中使用密钥。
+* `credential:create`、`credential:read`、`credential:update`，管理包含密钥的凭据。
 * `workflow:read`
 * `project:read`
 
-### Workflow publisher <a href="#workflow-publisher" id="workflow-publisher"></a>
-A role for users who can publish workflows without full edit access:
+### 工作流发布者 <a href="#workflow-publisher" id="workflow-publisher"></a>
+适合能够发布工作流，但不具有完整编辑权限的用户：
 * `workflow:read`, `workflow:publish`
 * `credential:read`
 * `project:read`
 
 {% hint style="info" %}
-**Combining scopes**
+**组合权限范围**
 
-You can combine any scopes to create roles that match your specific needs. Consider the principle of least privilege: grant only the permissions users need to perform their tasks.
+可以组合任意权限范围，创建符合需求的角色。应遵循最小权限原则，仅授予用户完成任务所需的权限。
 {% endhint %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Custom roles](create-custom-roles.md)
-* [Create custom instance roles](create-custom-instance-roles.md)
+* [自定义角色](create-custom-roles.md)
+* [创建自定义实例角色](create-custom-instance-roles.md)
