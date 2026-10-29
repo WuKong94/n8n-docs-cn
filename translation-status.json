@@ -15327,5 +15327,56 @@
       "google-drive-capabilities-output-only-source-note",
       "google-drive-get-many-reference-source-note"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/README.md": {
+    "status": "translated",
+    "source_sha256": "c0b54eeb90d5362183a9bfd4b7b9f1283c23ea42284912bdc6b4c37831d3476d",
+    "translation_sha256": "06f89bb716b8b13a78b285048e80afa58d809c2b829b37f7f83e81736c2b8186",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "google-sheets-introduction-operation-objects"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/document-operations.md": {
+    "status": "translated",
+    "source_sha256": "1fe3090e45468768b02578c6c1a509d96631be1d8d9e5761abdd26738f400f2c",
+    "translation_sha256": "971ca4113aa6753d33c5ee97ad3753ba30bbaa5cb486e15beba2a39a07a06918",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/sheet-operations.md": {
+    "status": "translated",
+    "source_sha256": "a6b2c628eebe6ddaaf92316d24e02cd3dc33f5b05b437dc36a65b3ce365b48f2",
+    "translation_sha256": "e505691515fc9b2f677ad824736594c100015c1c12d98160e2eba5f94685c1ec",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "google-sheets-append-row-manual-mapping-context",
+      "google-sheets-get-rows-api-reference-source-note"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/app-nodes/googlesheets/node-options.md": {
+    "status": "translated",
+    "source_sha256": "11f7d1edca72c39091b08c1d92dd0f8b59e576e674c511efe54e06c4da4aeb6f",
+    "translation_sha256": "df37a0c8783af1e59fca6422dccb23a19e2e2e4ae34a97eb30b7f6dd45e38224",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

@@ -1,20 +1,14 @@
 ---
-title: Google Sheets Document operations
+title: Google Sheets 文档操作
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Google Sheets Document operations
-originalFilePath: >-
-  integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/document-operations.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/document-operations
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/document-operations
-description: >-
-  Documentation for the Document operations in Google Sheets node in n8n, a
-  workflow automation platform. Includes details of operations and
-  configuration, and links to examples and credentials informat
+nodeTitle: Google Sheets 文档操作
+originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/document-operations.md
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/document-operations
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/document-operations
+description: 了解 n8n 工作流自动化平台中 Google Sheets 节点的文档操作，包括操作及配置详情，以及示例和凭据信息链接。
 layout:
   width: default
   title:
@@ -34,47 +28,49 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Document operations
 
-Use this operation to create or delete a Google spreadsheet from Google Sheets. Refer to [Google Sheets](./README.md) for more information on the Google Sheets node itself.
+# 电子表格文档操作 <a id="document-operations"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+使用这些操作在 Google Sheets 中创建或删除 Google 电子表格。有关 Google Sheets 节点本身的更多信息，请参阅 [Google Sheets](./README.md)。
 
-## Create a spreadsheet <a href="#create-a-spreadsheet" id="create-a-spreadsheet"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-Use this operation to create a new spreadsheet.
+## 创建电子表格 <a href="#create-a-spreadsheet" id="create-a-spreadsheet"></a>
 
-Enter these parameters:
+此操作用于创建新电子表格。
 
-* **Credential to connect with**: Create or select an existing [Google Sheets credentials](../../credentials/google/README.md).
-* **Resource**: Select **Document**.
-* **Operation**: Select **Create**.
-* **Title**: Enter the title of the new spreadsheet you want to create.
-* **Sheets**: Add the **Title(s)** of the sheet(s) you want to create within the spreadsheet.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Sheets 凭据](../../credentials/google/README.md)。
+* **Resource**（资源）：选择 **Document**（电子表格文档）。
+* **Operation**（操作）：选择 **Create**（创建）。
+* **Title**（标题）：输入要创建的电子表格标题。
+* **Sheets**（工作表）：添加要在电子表格中创建的各个工作表的 **Title(s)**（标题）。
 
-* **Locale**: Enter the locale of the spreadsheet. This affects formatting details such as functions, dates, and currency. Use one of the following formats:
+### 选项 <a href="#options" id="options"></a>
+
+* **Locale**（区域设置）：输入电子表格的区域设置。这会影响函数、日期和货币等格式细节。使用以下格式之一：
   * `en` (639-1)
-  * `fil` (639-2 if no 639-1 format exists)
-  * `en_US` (combination of ISO language and country).
-  * Refer to [List of ISO 639 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) and [List of ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) for language and country codes. Note that Google doesn't support all locales/languages.
-* **Recalculation Interval**: Enter the desired recalculation interval for the spreadsheet functions. This affects how often `NOW`, `TODAY`, `RAND`, and `RANDBETWEEN` are updated. Select **On Change** for recalculating whenever there is a change in the spreadsheet, **Minute** for recalculating every minute, or **Hour** for recalculating every hour. Refer to [Set a spreadsheet’s location & calculation settings](https://support.google.com/docs/answer/58515) for more information about these options.
+  * `fil`（639-2 用于不存在 639-1 格式的情况）
+  * `en_US`（ISO 语言代码与国家代码的组合）。
+  * 语言和国家代码，请参阅 [ISO 639 语言代码列表](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)及 [ISO 3166 国家代码列表](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)。请注意，Google 不支持所有区域设置或语言。
+* **Recalculation Interval**（重新计算间隔）：选择电子表格函数的重新计算间隔，会影响 `NOW`、`TODAY`、`RAND` 和 `RANDBETWEEN` 的更新频率。选择 **On Change**（发生更改时），在电子表格发生变化时重新计算；选择 **Minute**（每分钟）或 **Hour**（每小时），分别按分钟或小时重新计算。更多信息，请参阅[设置电子表格的位置和计算设置](https://support.google.com/docs/answer/58515)。
 
-Refer to the [Method: spreadsheets.create | Google Sheets](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/create) API documentation for more information.
+更多信息，请参阅 [Method: spreadsheets.create | Google Sheets](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/create) API 文档。
 
-## Delete a spreadsheet <a href="#delete-a-spreadsheet" id="delete-a-spreadsheet"></a>
+## 删除电子表格 <a href="#delete-a-spreadsheet" id="delete-a-spreadsheet"></a>
 
-Use this operation to delete an existing spreadsheet.
+此操作用于删除已有电子表格。
 
-Enter these parameters:
+填写以下参数：
 
-* **Credential to connect with**: Create or select an existing [Google Sheets credentials](../../credentials/google/README.md).
-* **Resource**: Select **Document**.
-* **Operation**: Select **Delete**.
-* **Document**: Choose a spreadsheet you want to delete.
-  * Select **From list** to choose the title from the dropdown list, **By URL** to enter the url of the spreadsheet, or **By ID** to enter the `spreadsheetId`.
-  * You can find the `spreadsheetId` in a Google Sheets URL: `https://docs.google.com/spreadsheets/d/spreadsheetId/edit#gid=0`.
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Sheets 凭据](../../credentials/google/README.md)。
+* **Resource**（资源）：选择 **Document**（电子表格文档）。
+* **Operation**（操作）：选择 **Delete**（删除）。
+* **Document**（电子表格文档）：选择要删除的电子表格。
+  * 选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By URL**（按 URL）可输入电子表格 URL，选择 **By ID**（按 ID）可输入 `spreadsheetId`。
+  * 可在 Google Sheets URL 中找到 `spreadsheetId`：`https://docs.google.com/spreadsheets/d/spreadsheetId/edit#gid=0`。
 
-Refer to the [Method: files.delete | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/delete) API documentation for more information.
+更多信息，请参阅 [Method: files.delete | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/delete) API 文档。

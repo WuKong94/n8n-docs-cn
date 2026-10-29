@@ -738,5 +738,44 @@
     ],
     "scope": "仅修正或说明已核实的字段语义与引用上下文，保留原字段清单、界面名称、ID、链接、代码及源快照；不升级 API，不执行权限变更或真实文件操作。",
     "source_sha256": "ec21fb05adc9550f42495f25d787797d6bf6bf36e7056bcdc27de87b71aabe46"
+  },
+  {
+    "id": "google-sheets-introduction-operation-objects",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/README.md",
+    "original_sentence": "Use the Google Sheets node to automate work in Google Sheets, and integrate Google Sheets with other applications. n8n has built-in support for a wide range of Google Sheets features, including creating, updating, deleting, appending, removing and getting documents. ",
+    "translated_sentence": "使用 Google Sheets 节点自动处理 Google Sheets 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Sheets 功能，包括文档及其中数据的创建、更新、删除、追加、移除和获取。",
+    "evidence": "简介将创建、更新、删除、追加、移除和获取统一指向 documents，但同页操作列表明确区分 Document 的创建/删除与 Sheet Within Document 的工作表及行数据操作。译文将操作对象明确为文档及其中数据，避免误认为所有动作都针对整个电子表格文档。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/README.md"
+    ],
+    "scope": "仅明确文档与数据的操作对象、纯追加的映射说明或原文 API 引用用途；保留其他参数、ID、链接、表达式、源快照和更新日志，不升级 API，不读写任何真实表格。",
+    "source_sha256": "c0b54eeb90d5362183a9bfd4b7b9f1283c23ea42284912bdc6b4c37831d3476d"
+  },
+  {
+    "id": "google-sheets-append-row-manual-mapping-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/sheet-operations.md",
+    "original_sentence": "  * **Map Each Column Manually**: Select the **Column to Match On** when finding the rows to update. Enter **Values to Send** for each column.",
+    "translated_sentence": "  * **Map Each Column Manually**（手动映射每列）：输入每列的 **Values to Send**（要发送的值）。",
+    "evidence": "Append Row 的说明明确为在数据末尾追加新行，引用 spreadsheets.values.append；但其手动映射项沿用了选择 Column to Match On 查找待更新行的语句。同页 Append or Update Row 和 Update Row 均明确区分匹配更新与纯追加，Google append 文档也说明向检测到的表末尾追加值。译文将纯追加的手动映射说明改为填写每列 Values to Send，不再要求选择用于更新的匹配列。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/sheet-operations.md",
+      "https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/append"
+    ],
+    "scope": "仅明确文档与数据的操作对象、纯追加的映射说明或原文 API 引用用途；保留其他参数、ID、链接、表达式、源快照和更新日志，不升级 API，不读写任何真实表格。",
+    "source_sha256": "a6b2c628eebe6ddaaf92316d24e02cd3dc33f5b05b437dc36a65b3ce365b48f2"
+  },
+  {
+    "id": "google-sheets-get-rows-api-reference-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/sheet-operations.md",
+    "original_sentence": "Refer to the [Method: spreadsheets.batchUpdate | Google Sheets](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/batchUpdate) API documentation for more information.",
+    "translated_sentence": "更多信息，原文引用了 [Method: spreadsheets.batchUpdate | Google Sheets](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/batchUpdate) API 文档。译注：该链接说明批量修改接口；本节用于读取行数据，Google 的 spreadsheets.values.get 可读取指定范围的值。",
+    "evidence": "Get Row(s) 部分的参考链接指向 spreadsheets.batchUpdate，而 Google 将该接口定义为对电子表格执行一项或多项更新，并另提供 spreadsheets.values.get 读取指定范围的值。译文保留原链接并明确其属于批量修改接口，说明读取范围值的方法；不据此推断 n8n 某版本内部实际使用的请求。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/sheet-operations.md",
+      "https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets/batchUpdate",
+      "https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/get"
+    ],
+    "scope": "仅明确文档与数据的操作对象、纯追加的映射说明或原文 API 引用用途；保留其他参数、ID、链接、表达式、源快照和更新日志，不升级 API，不读写任何真实表格。",
+    "source_sha256": "a6b2c628eebe6ddaaf92316d24e02cd3dc33f5b05b437dc36a65b3ce365b48f2"
   }
 ]

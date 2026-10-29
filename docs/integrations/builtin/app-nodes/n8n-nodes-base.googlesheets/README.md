@@ -1,63 +1,62 @@
 ---
 title: Google Sheets
-description: >-
-  Documentation for the Google Sheets node in n8n. Includes details of
-  operations and configuration, and links to examples and credentials
-  information.
+description: 了解 n8n 中的 Google Sheets 节点，包括操作及配置详情，以及示例和凭据信息链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
 nodeTitle: n8n-nodes-base.googlesheets
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/index.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # Google Sheets <a href="#google-sheets" id="google-sheets"></a>
 
-Use the Google Sheets node to automate work in Google Sheets, and integrate Google Sheets with other applications. n8n has built-in support for a wide range of Google Sheets features, including creating, updating, deleting, appending, removing and getting documents. 
+使用 Google Sheets 节点自动处理 Google Sheets 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Sheets 功能，包括文档及其中数据的创建、更新、删除、追加、移除和获取。
 
-On this page, you'll find a list of operations the Google Sheets node supports and links to more resources.
+本页列出了 Google Sheets 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Google Sheets credentials](../../credentials/google/README.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Google Sheets 凭据](../../credentials/google/README.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* **Document**
-    * [**Create**](document-operations.md#create-a-spreadsheet) a spreadsheet.
-	* [**Delete**](document-operations.md#delete-a-spreadsheet) a spreadsheet.
-* **Sheet Within Document**
-	* [**Append or Update Row**](sheet-operations.md#append-or-update-row): Append a new row, or update the current one if it already exists.
-	* [**Append Row**](sheet-operations.md#append-row): Create a new row.
-	* [**Clear**](sheet-operations.md#clear-a-sheet) all data from a sheet.
-	* [**Create**](sheet-operations.md#create-a-new-sheet) a new sheet.
-	* [**Delete**](sheet-operations.md#delete-a-sheet) a sheet.
-	* [**Delete Rows or Columns**](sheet-operations.md#delete-rows-or-columns): Delete columns and rows from a sheet.
-	* [**Get Row(s)**](sheet-operations.md#get-rows): Read all rows in a sheet.
-	* [**Update Row**](sheet-operations.md#update-row): Update a row in a sheet. 
-
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+* **Document**（电子表格文档）
+    * [**Create**](document-operations.md#create-a-spreadsheet)（创建）电子表格。
+    * [**Delete**](document-operations.md#delete-a-spreadsheet)（删除）电子表格。
+* **Sheet Within Document**（文档内工作表）
+    * [**Append or Update Row**](sheet-operations.md#append-or-update-row)（追加或更新行）：追加新行，已有匹配行时则更新。
+    * [**Append Row**](sheet-operations.md#append-row)（追加行）：创建新行。
+    * [**Clear**](sheet-operations.md#clear-a-sheet)（清空）工作表中的所有数据。
+    * [**Create**](sheet-operations.md#create-a-new-sheet)（创建）新工作表。
+    * [**Delete**](sheet-operations.md#delete-a-sheet)（删除）工作表。
+    * [**Delete Rows or Columns**](sheet-operations.md#delete-rows-or-columns)（删除行或列）：从工作表中删除列和行。
+    * [**Get Row(s)**](sheet-operations.md#get-rows)（获取行）：读取工作表中的所有行。
+    * [**Update Row**](sheet-operations.md#update-row)（更新行）：更新工作表中的行。
 
 
-[Browse Google Sheets integration templates](https://n8n.io/integrations/google-sheets) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-Refer to [Google Sheet's API documentation](https://developers.google.com/sheets/api) for more information about the service.
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
+[浏览 Google Sheets 集成模板](https://n8n.io/integrations/google-sheets)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+有关该服务的更多信息，请参阅 [Google Sheets API 文档](https://developers.google.com/sheets/api)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+
+
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+常见问题及建议的解决方法，请参阅[常见问题](common-issues.md)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
