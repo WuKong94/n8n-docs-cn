@@ -3783,5 +3783,327 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "build/agentic-context-management/README.md": {
+    "status": "translated",
+    "source_sha256": "78f771828907ff4183524cbe588119658df0d9cb38b7489d377dd07ac9fda8ed",
+    "translation_sha256": "3a6adf6b1c5205a6dd0cf53d2cca8a9d18d2f6d68c41c161af90e1a16f2cfeeb",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/agentic-context-management/preferences.md": {
+    "status": "translated",
+    "source_sha256": "3dc945e72786ef0bc449a9607298b39b6b805fbdeaf50bc5026025e42a4083fb",
+    "translation_sha256": "0c59513570f3a0dc8115ad60874c1dbf9aec90ec0873e92cccfb49a0e0494073",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/README.md": {
+    "status": "translated",
+    "source_sha256": "b2089f348e128bfbad49a5a50720baba5b23aeca2d7d23b8ce0c7af7732ac451",
+    "translation_sha256": "d91aa97547e6ad204c29e781a99fc0c38b8be3781b0c4f83e23119b6aeafe912",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/using-the-code-node.md": {
+    "status": "translated",
+    "source_sha256": "b9b80a5f2646d9ade2bf0203612afbc1124c08812e88cbddd6d9c7aefda6f10c",
+    "translation_sha256": "5ade01c08d213e6701f60c2659f2e039fd563c7d64b6e04ec3025ab3043a5be4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/use-built-in-shortcuts.md": {
+    "status": "translated",
+    "source_sha256": "fe186f564166b46ce92db6565be8b26b0ae044d8b03e96d44a489bfd8035c2cd",
+    "translation_sha256": "eda3cdfcaa1ec602ce9b8e83e5a19fcab660426edac8c8cb9c48b7c74dc57a66",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/define-custom-variables.md": {
+    "status": "translated",
+    "source_sha256": "4e31aafa8e0623fd49cf30c91fe209eb00d29fffe48284dd212d757363265d21",
+    "translation_sha256": "f9e342efdc3d0944a881f8590c18bce6f63414ad2fc5c8693132694b7ce50887",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/use-built-in-shortcuts/jmespath.md": {
+    "status": "translated",
+    "source_sha256": "6d86b305dcead5c32b21ded0c34ed870bb444e35abcd4eda22eb415196508d1f",
+    "translation_sha256": "f319f007be6b012acbf1e74fad8796ab57f8d2c6661559ff2d23946aa40c1ebd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/use-built-in-shortcuts/http-node.md": {
+    "status": "translated",
+    "source_sha256": "31f75cce9228694cc7a96c178eddb20ed7e7057b6fe02001016fd7f075597f78",
+    "translation_sha256": "06079cbf117a8b4c944a6d634e20393a766ec9a0dc79ec6e7e0fa24e5afc87ce",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/use-built-in-shortcuts/langchain-code-node.md": {
+    "status": "translated",
+    "source_sha256": "d6125c90932dc3a93f8337cc07d9156712a451910b6e73ac593410a2ada7839a",
+    "translation_sha256": "731d1d2013c98d94ad6176e2b8d3b309be6761f2aea43cfeca770053a1730c9e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/use-built-in-shortcuts/n8n-metadata.md": {
+    "status": "translated",
+    "source_sha256": "a87969a0dd50f7d6239e3f0a52804f20e9fa1e77c4ef4147736ca5199219bd38",
+    "translation_sha256": "fdd06d805c468ee8a3b2c685804dcfd94327377c4e8ef3564d96415ea9a4a8b6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/core-nodes/http/pagination-variables.md": {
+    "status": "translated",
+    "source_sha256": "5467baf444f59cfc886afbd83b885f9f529401e1900478001dc59acffc0ebca6",
+    "translation_sha256": "339f0f1eb4b00f405ba03c782809a9293fddac29a2286f1951f0ea5fd3710adf",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-root-nodes/langchaincode/builtin-methods.md": {
+    "status": "translated",
+    "source_sha256": "4841144431ec4cd4e4c3c820346447df58d063e425ee2a1ded385c1562eb6cda",
+    "translation_sha256": "17a1f3df835443df399902e717a57d92fa5bfcee585002181de6704d694b41e9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/get-coding-help-from-ai.md": {
+    "status": "translated",
+    "source_sha256": "5d40c23c1837b883d4bcb225b4e8d490251284e5acd035fd0be1ab24b9415e81",
+    "translation_sha256": "19dd4a69285aa88b2e2c046e5dc1d31a16c0ebeeafebc40a2350abab877d19a4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "ai-coding-idea-type"
+    ]
+  },
+  "reusable-content/.gitbook/includes/code/ai-how-to.md": {
+    "status": "translated",
+    "source_sha256": "e947d1a7e91b4fc4c01fc4065c9245f6d9b4f664b78d25de398174097ca2fcb3",
+    "translation_sha256": "b733dd096a7c98ec076d038eeee841f2a7d17cbbaa4670e6575eee4ceae7b8a5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/agent-search-endpoint.md": {
+    "status": "translated",
+    "source_sha256": "eb0a41c81f53278893d096cfb3c40a7672bb598037e1c0dfffef77da3b335a93",
+    "translation_sha256": "6f08c0d0df2562228865a469165576eb984b9740c7a983dac728c3305b1f0151",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/core-nodes/code-node.md": {
+    "status": "translated",
+    "source_sha256": "215d894d717f1fcfd289b5d1a859f857c6d9602681158ad51795ef6425ab6613",
+    "translation_sha256": "00d24ad3c0c57360edae33af0f2b64c2a2a1465164a85e654f4c971c5681c11e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/README.md": {
+    "status": "translated",
+    "source_sha256": "d35e60f2a98139fe1bc5583be97723365553b0270519a9b061ec7eda473e3c0e",
+    "translation_sha256": "37d7b72df4d15a5f7bb7631b1ca4ee7bbe5f659a2840179f1b43326a8b161df1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/README.md": {
+    "status": "translated",
+    "source_sha256": "11af4da80c90e447aea5b44529e8b86aa7388821c19c9aa0e1cfdd6223c6fa54",
+    "translation_sha256": "cef02fbf1f8dafea77ffe597d8f762ecfbf7f015fc34d869361952f4e38b469f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/(node-name).all.md": {
+    "status": "translated",
+    "source_sha256": "f5c000b0be9b489f7617291970da9cec1bab99765e79226040e6148419318ba5",
+    "translation_sha256": "48792eefd13a188c10e1286a6c2212d49f3f566cc72c0c7f4d5c6368795adb21",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/execution.md": {
+    "status": "translated",
+    "source_sha256": "964f2672958edf93689474b633ce5500dffd008be534e0348041c4044235383f",
+    "translation_sha256": "75572ccafccaf9bdb369e0e4901532bccd7d2ed4f68849308c4453b8790d87b3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/getworkflowstaticdata.md": {
+    "status": "translated",
+    "source_sha256": "b84c243368b0f7dcb566a3ca287910dd4a54c683555a68f0d7ac1148cce1425b",
+    "translation_sha256": "62329314c3557cdabf302b068a407bb8736e4102ba99a73840774c425775482a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/vars.md": {
+    "status": "translated",
+    "source_sha256": "59418e489487a19bfcadb0fc5248c72f538de757ba915cf906f383816cfa7c95",
+    "translation_sha256": "8217ec783f2283b35c578e9d134c94b3668f71586f55077e1e98ed05df56c3f0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/code-node/README.md": {
+    "status": "translated",
+    "source_sha256": "69c34258a0351d017df0bb9857e6555fde023d7377e2da331079e19b0ae2f8d8",
+    "translation_sha256": "b38e0abf232a3cb4a77730f7809dfbec58b57a264d3245f7534e2bcf3b5bac52",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/code-node/get-number-of-items-returned-by-last-node.md": {
+    "status": "translated",
+    "source_sha256": "566fccabafaa9dcf06eb52ee133df97f9984ef5662a0d4d55b1e3a227a9785a0",
+    "translation_sha256": "477f53c3c6bb69a468b595530d7fe20355eaa1f96bb7eccec86cc2b3bc88db31",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/code-node/get-the-binary-data-buffer.md": {
+    "status": "translated",
+    "source_sha256": "02b2d2edeb23c7581320d4302eb0ebafa32f5048ce9bb380d579dde26ba533e7",
+    "translation_sha256": "1f4b3887a280b3c77a6180c4143e2cce6ed8c519867d3e5f90979363eb01e987",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/code-node/output-to-the-browser-console.md": {
+    "status": "translated",
+    "source_sha256": "8a9fe30293953c0855b76cf0ff82677dad802deb3116126f7c095b8eb601d4d4",
+    "translation_sha256": "88a3d2249211d34fcaeeb995c8995e19b63b794c4a75492b221f5a9e213f129a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/http-request-node/README.md": {
+    "status": "translated",
+    "source_sha256": "aeaa7b6019c5db2e88443aef3e999383e3ae70652a9162281c38f7053982415d",
+    "translation_sha256": "37d7a671532ffe9e203e8de3055c3eacfd2cc6b478f69abbb77cb046fc60b0d4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/code-in-n8n/cookbook/http-request-node/pagination.md": {
+    "status": "translated",
+    "source_sha256": "2a032342177c8ac38ffd0cd5a2ab5f92a808582db7c881ce41fe2731e3659709",
+    "translation_sha256": "f0a6951741454b062a4e74686afe7c5bb8183b478c00ce8c6e86e735e4dc7ea1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/integrations/builtin/core-nodes/http/pagination-api-differences.md": {
+    "status": "translated",
+    "source_sha256": "b0bc6c8ff90b7d99fb7c39b26ff8853c2f110e222b31dfb2e0f289da311ab685",
+    "translation_sha256": "f3633204ebe947572e3d4832af6e59e2e909d20f83bbe9da9b5f5b921bdd49df",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

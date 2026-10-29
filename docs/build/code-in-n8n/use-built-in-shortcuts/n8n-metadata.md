@@ -1,92 +1,94 @@
 ---
-description: Methods for working with n8n metadata.
+description: 处理 n8n 元数据的方法。
 contentType: reference
 hide:
-  - toc
-nodeTitle: n8n metadata
+- toc
+nodeTitle: n8n 元数据
 originalFilePath: code/builtin/n8n-metadata.md
-originalUrl: 'https://docs.n8n.io/code/builtin/n8n-metadata'
-url: 'https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts/n8n-metadata'
+originalUrl: https://docs.n8n.io/code/builtin/n8n-metadata
+url: https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts/n8n-metadata
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# n8n metadata <a href="#n8n-metadata" id="n8n-metadata"></a>
 
-Methods for working with n8n metadata.
+# n8n 元数据 <a href="#n8n-metadata" id="n8n-metadata"></a>
 
-This includes:
+处理 n8n 元数据的方法。
 
-* Access to n8n environment variables for self-hosted n8n.
-* Metadata about workflows, executions, and nodes.
-* Information about instance [Variables](../define-custom-variables.md) and [External secrets](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-credentials/use-external-secret-stores).
+包括：
+
+* 访问自托管 n8n 的环境变量。
+* 工作流、执行和节点的元数据。
+* 实例[变量](../define-custom-variables.md)和[外部机密](../../../administer/manage-credentials/use-external-secret-stores.md)的信息。
 
 {% hint style="info" %}
-**Python support**
+**Python 支持**
 
-You can use Python in the Code node. It isn't available in expressions.
+可以在 Code 节点中使用 Python，但表达式不支持 Python。
 {% endhint %}
 
-## JavaScript
+## JavaScript <a id="javascript"></a>
 
-| Method | Description | Available in Code node? |
+| 方法 | 说明 | Code 节点中是否可用 |
 | ------ | ----------- | :-------------------------: |
-| `$env` | Contains n8n instance configuration [environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables). | ✅ |
-| `$execution.customData` | Set and get custom execution data. Refer to [Custom executions data](../../understand-workflows/understand-executions/customize-executions-data.md) for more information. | ✅ | 
-| `$execution.id` | The unique ID of the current workflow execution. | ✅ |
-| `$execution.mode` | Whether the execution was triggered automatically, or by manually running the workflow. Possible values are `test` and `production`. | ✅ |
-| `$execution.resumeUrl` | The webhook URL to call to resume a workflow waiting at a [Wait node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait). | ✅ |
-| `$getWorkflowStaticData(type)` | This gives access to the static workflow data. Static data doesn't persist when testing workflows: publish the workflow and run it from a trigger or webhook to save static data. For persisting data between executions, consider [data tables](../../work-with-data/data-tables.md) instead. View an [example](../cookbook/built-in-methods-and-variables-examples/getworkflowstaticdata.md). | ✅ |
-| `$("<node-name>").isExecuted` | Check whether a node has already executed. | ✅ |
-| `$itemIndex` | The index of an item in a list of items. | ❌ |
-| `$nodeVersion` | Get the version of the current node. | ✅ |
-| `$prevNode.name` | The name of the node that the current input came from. When using the Merge node, note that `$prevNode` always uses the first input connector. | ✅ |
-| `$prevNode.outputIndex` | The index of the output connector that the current input came from. Use this when the previous node had multiple outputs (such as an If or Switch node).  When using the Merge node, note that `$prevNode` always uses the first input connector. | ✅ |
-| `$prevNode.runIndex` | The run of the previous node that generated the current input. When using the Merge node, note that `$prevNode` always uses the first input connector. | ✅ |
-| `$runIndex` | How many times n8n has executed the current node. Zero-based (the first run is 0, the second is 1, and so on). | ✅ |
-| `$secrets` | Contains information about your [External secrets](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-credentials/use-external-secret-stores) setup. | ❌ |
-| `$vars` | Contains the [Variables](../define-custom-variables.md) available in the active environment. | ✅ |
-| `$version` | The node version. | ❌ |
-| `$workflow.active` | Whether the workflow is active (true) or not (false). | ✅ |
-| `$workflow.id` | The workflow ID. | ✅ |
-| `$workflow.name` | The workflow name. | ✅ |
+| `$env` | 包含 n8n 实例配置的[环境变量](../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/README.md)。 | ✅ |
+| `$execution.customData` | 设置和获取自定义执行数据。更多信息请参阅[自定义执行数据](../../understand-workflows/understand-executions/customize-executions-data.md)。 | ✅ |
+| `$execution.id` | 当前工作流执行的唯一 ID。 | ✅ |
+| `$execution.mode` | 执行由自动触发还是手动运行工作流启动，可选值为 `test` 和 `production`。 | ✅ |
+| `$execution.resumeUrl` | 用于恢复在 [Wait 节点](../../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md)处等待的工作流的 Webhook URL。 | ✅ |
+| `$getWorkflowStaticData(type)` | 访问工作流静态数据。测试工作流时，静态数据不会持久保存：需发布工作流，并通过触发器或 Webhook 运行才能保存。要在多次执行之间持久保存数据，可考虑改用[数据表](../../work-with-data/data-tables.md)。查看[示例](../cookbook/built-in-methods-and-variables-examples/getworkflowstaticdata.md)。 | ✅ |
+| `$("<node-name>").isExecuted` | 检查节点是否已经执行。 | ✅ |
+| `$itemIndex` | 数据项在列表中的索引。 | ❌ |
+| `$nodeVersion` | 获取当前节点的版本。 | ✅ |
+| `$prevNode.name` | 当前输入来源节点的名称。使用 Merge 节点时，请注意 `$prevNode` 始终使用第一个输入连接点。 | ✅ |
+| `$prevNode.outputIndex` | 当前输入来源的输出连接点索引。前一节点有多个输出时使用，例如 If 或 Switch 节点。使用 Merge 节点时，请注意 `$prevNode` 始终使用第一个输入连接点。 | ✅ |
+| `$prevNode.runIndex` | 前一节点生成当前输入时对应的运行。使用 Merge 节点时，请注意 `$prevNode` 始终使用第一个输入连接点。 | ✅ |
+| `$runIndex` | n8n 已执行当前节点的次数，从零开始计数：第一次运行是 0，第二次是 1，依此类推。 | ✅ |
+| `$secrets` | 包含[外部机密](../../../administer/manage-credentials/use-external-secret-stores.md)配置信息。 | ❌ |
+| `$vars` | 包含当前环境可用的[变量](../define-custom-variables.md)。 | ✅ |
+| `$version` | 节点版本。 | ❌ |
+| `$workflow.active` | 工作流是否处于活跃状态：true 表示是，false 表示否。 | ✅ |
+| `$workflow.id` | 工作流 ID。 | ✅ |
+| `$workflow.name` | 工作流名称。 | ✅ |
 
-## Python (native)
+## Python（原生） <a id="python-native"></a>
 
-| Method | Description |
+| 方法 | 说明 |
 | ------ | ----------- |
-| `_items` | Contains incoming items in "Run once for all items" mode. |
-| `_item` | Contains the item being iterated on in "Run once for each item" mode. |
-| `_query` | In the Code Tool, contains the input string the AI Agent passes when it calls the tool. Available in "Run once for all items" mode. |
+| `_items` | 包含“Run once for all items（为所有数据项运行一次）”模式下的传入数据项。 |
+| `_item` | 包含“Run once for each item（为每个数据项运行一次）”模式下正在遍历的数据项。 |
+| `_query` | 在 Code Tool 中，包含 AI Agent 调用工具时传入的输入字符串。可用于“Run once for all items（为所有数据项运行一次）”模式。 |
 
-## Python (Pyodide, deprecated)
+## Python（Pyodide，已弃用） <a id="python-pyodide-deprecated"></a>
 
-Python (Pyodide) support is deprecated from n8n 1.113.2. Use Python (native) instead.
+从 n8n 1.113.2 起，Python（Pyodide）支持已弃用。请改用原生 Python。
 
-| Method | Description |
+| 方法 | 说明 |
 | ------ | ----------- |
-| `_env` | Contains n8n instance configuration [environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables). |
-| `_execution.customData` | Set and get custom execution data. Refer to [Custom executions data](../../understand-workflows/understand-executions/customize-executions-data.md) for more information. | 
-| `_execution.id` | The unique ID of the current workflow execution. | 
-| `_execution.mode` | Whether the execution was triggered automatically, or by manually running the workflow. Possible values are `test` and `production`. | 
-| `_execution.resumeUrl` | The webhook URL to call to resume a workflow waiting at a [Wait node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait). |
-| `_getWorkflowStaticData(type)` | This gives access to the static workflow data. Static data doesn't persist when testing workflows: publish the workflow and run it from a trigger or webhook to save static data. For persisting data between executions, consider [data tables](../../work-with-data/data-tables.md) instead. View an [example](../cookbook/built-in-methods-and-variables-examples/getworkflowstaticdata.md). |
-| `_("<node-name>").isExecuted` | Check whether a node has already executed. |
-| `_nodeVersion` | Get the version of the current node. | ✅ |
-| `_prevNode.name` | The name of the node that the current input came from. When using the Merge node, note that `_prevNode` always uses the first input connector. | 
-| `_prevNode.outputIndex` | The index of the output connector that the current input came from. Use this when the previous node had multiple outputs (such as an If or Switch node).  When using the Merge node, note that `_prevNode` always uses the first input connector. | 
-| `_prevNode.runIndex` | The run of the previous node that generated the current input. When using the Merge node, note that `_prevNode` always uses the first input connector. |
-| `_runIndex` | How many times n8n has executed the current node. Zero-based (the first run is 0, the second is 1, and so on). |
-| `_secrets` | Contains information about your [External secrets](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-credentials/use-external-secret-stores) setup. | 
-| `_vars` | Contains the [Variables](../define-custom-variables.md) available in the active environment. | 
-| `_workflow.active` | Whether the workflow is active (true) or not (false). |
-| `_workflow.id` | The workflow ID. | 
-| `_workflow.name` | The workflow name. |
+| `_env` | 包含 n8n 实例配置的[环境变量](../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/README.md)。 |
+| `_execution.customData` | 设置和获取自定义执行数据。更多信息请参阅[自定义执行数据](../../understand-workflows/understand-executions/customize-executions-data.md)。 |
+| `_execution.id` | 当前工作流执行的唯一 ID。 |
+| `_execution.mode` | 执行由自动触发还是手动运行工作流启动，可选值为 `test` 和 `production`。 |
+| `_execution.resumeUrl` | 用于恢复在 [Wait 节点](../../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md)处等待的工作流的 Webhook URL。 |
+| `_getWorkflowStaticData(type)` | 访问工作流静态数据。测试工作流时，静态数据不会持久保存：需发布工作流，并通过触发器或 Webhook 运行才能保存。要在多次执行之间持久保存数据，可考虑改用[数据表](../../work-with-data/data-tables.md)。查看[示例](../cookbook/built-in-methods-and-variables-examples/getworkflowstaticdata.md)。 |
+| `_("<node-name>").isExecuted` | 检查节点是否已经执行。 |
+| `_nodeVersion` | 获取当前节点的版本。 | ✅ |
+| `_prevNode.name` | 当前输入来源节点的名称。使用 Merge 节点时，请注意 `_prevNode` 始终使用第一个输入连接点。 |
+| `_prevNode.outputIndex` | 当前输入来源的输出连接点索引。前一节点有多个输出时使用，例如 If 或 Switch 节点。使用 Merge 节点时，请注意 `_prevNode` 始终使用第一个输入连接点。 |
+| `_prevNode.runIndex` | 前一节点生成当前输入时对应的运行。使用 Merge 节点时，请注意 `_prevNode` 始终使用第一个输入连接点。 |
+| `_runIndex` | n8n 已执行当前节点的次数，从零开始计数：第一次运行是 0，第二次是 1，依此类推。 |
+| `_secrets` | 包含[外部机密](../../../administer/manage-credentials/use-external-secret-stores.md)配置信息。 |
+| `_vars` | 包含当前环境可用的[变量](../define-custom-variables.md)。 |
+| `_workflow.active` | 工作流是否处于活跃状态：true 表示是，false 表示否。 |
+| `_workflow.id` | 工作流 ID。 |
+| `_workflow.name` | 工作流名称。 |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use built-in shortcuts](../use-built-in-shortcuts.md)
+* [使用内置快捷方法](../use-built-in-shortcuts.md)
 * [JMESPath](jmespath.md)
-* [HTTP node](http-node.md)
-* [LangChain Code node](langchain-code-node.md)
+* [HTTP 节点](http-node.md)
+* [LangChain Code 节点](langchain-code-node.md)

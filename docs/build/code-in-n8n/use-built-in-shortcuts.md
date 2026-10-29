@@ -1,48 +1,50 @@
 ---
-description: n8n's built-in custom methods and variables.
+description: n8n 内置的自定义方法和变量。
 contentType: overview
-nodeTitle: Use built-in shortcuts
+nodeTitle: 使用内置快捷方法
 originalFilePath: code/builtin/overview.md
-originalUrl: 'https://docs.n8n.io/code/builtin/overview'
-url: 'https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts'
+originalUrl: https://docs.n8n.io/code/builtin/overview
+url: https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Built-in methods and variables <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
 
-n8n provides built-in methods and variables for working with data and accessing n8n data. This section provides a reference of available methods and variables for use in expressions[^1], with a short description. 
+# 内置方法和变量 <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
+
+n8n 提供内置方法和变量，用于处理数据和访问 n8n 数据。本节列出表达式[^1]中可用的方法和变量，并提供简要说明。
 
 {% hint style="warning" %}
-**Availability in the expressions editor and the Code node**
+**在表达式编辑器和 Code 节点中的可用性**
 
-Not every method and variable in this reference works in the [Code node](cookbook/code-node/README.md). The Code node runs plain JavaScript against native Luxon, not n8n's expression engine, so any entry marked **Source: Custom n8n functionality** on a reference page (for example, [`DateTime.format()`](../work-with-data/transform-data/expression-reference/datetime.md#datetimeformat)) is an n8n-only extension that may not exist, or may behave differently, in the Code node.
+本参考中的方法和变量并非全部可用于 [Code 节点](cookbook/code-node/README.md)。Code 节点使用原生 Luxon 运行普通 JavaScript，而不是 n8n 表达式引擎。因此，参考页中标记为 **Source: Custom n8n functionality（来源：n8n 自定义功能）** 的条目（例如 [`DateTime.format()`](../work-with-data/transform-data/expression-reference/datetime.md#datetimeformat)）属于 n8n 专用扩展，在 Code 节点中可能不存在，或行为不同。
 
-If code in the Code node throws `... is not a function`, or silently produces the wrong result:
+如果 Code 节点中的代码抛出 `... is not a function`，或没有报错却返回错误结果：
 
-* Check whether the method's reference entry is tagged **Custom n8n functionality**.
-* Look for a native Luxon or JavaScript equivalent. For example, use [`toFormat()`](https://moment.github.io/luxon/api-docs/index.html#datetimetoformat) instead of the n8n-only `DateTime.format()`.
-* Watch for methods that exist in both places but with different signatures, such as `DateTime.plus()`/`minus()`: n8n's expression version accepts `(amount, unit)`, while native Luxon's version only accepts a single Duration-like object (`{ days: 7 }`). Using the expression-style signature in the Code node won't error, but won't produce the expected result either.
+* 检查该方法的参考条目是否标记为 **Custom n8n functionality（n8n 自定义功能）**。
+* 寻找原生 Luxon 或 JavaScript 的等效方法。例如，使用 [`toFormat()`](https://moment.github.io/luxon/api-docs/index.html#datetimetoformat)，代替 n8n 专用的 `DateTime.format()`。
+* 注意两边都有但签名不同的方法，例如 `DateTime.plus()`/`minus()`：n8n 表达式版本接受 `(amount, unit)`，原生 Luxon 版本则只接受单个类似 Duration 的对象（`{ days: 7 }`）。在 Code 节点中使用表达式版本的签名不会报错，但也不会得到预期结果。
 
-All data transformation functions (the top-level helper functions listed in this section, such as `$if()` or `$jmespath()`) are only available in the expressions editor, not the Code node.
+所有数据转换函数，即本节列出的顶层辅助函数（例如 `$if()` 或 `$jmespath()`），都仅适用于表达式编辑器，不能用于 Code 节点。
 {% endhint %}
 
-The [Cookbook](README.md) contains examples for some common tasks, including some [Code node only](cookbook/code-node/README.md) functions.
+[实用示例](README.md)包含常见任务的示例，其中也有一些[仅适用于 Code 节点](cookbook/code-node/README.md)的函数。
 
-## In this section
+## 本节内容 <a id="in-this-section"></a>
 
-* [JMESPath](use-built-in-shortcuts/jmespath.md): use the JMESPath library in n8n.
-* [HTTP node](use-built-in-shortcuts/http-node.md): methods for common tasks in HTTP Request node expressions.
-* [LangChain Code node](use-built-in-shortcuts/langchain-code-node.md): methods for common tasks in the LangChain Code node.
-* [n8n metadata](use-built-in-shortcuts/n8n-metadata.md): methods for working with n8n metadata.
+* [JMESPath](use-built-in-shortcuts/jmespath.md)：在 n8n 中使用 JMESPath 库。
+* [HTTP 节点](use-built-in-shortcuts/http-node.md)：HTTP Request 节点表达式中常见任务的方法。
+* [LangChain Code 节点](use-built-in-shortcuts/langchain-code-node.md)：LangChain Code 节点中常见任务的方法。
+* [n8n 元数据](use-built-in-shortcuts/n8n-metadata.md)：用于处理 n8n 元数据的方法。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Code in n8n](./)
-* [Using the Code node](using-the-code-node.md)
-* [Get coding help from AI](get-coding-help-from-ai.md)
-* [Define custom variables](define-custom-variables.md)
-* [Cookbook](cookbook/README.md)
+* [在 n8n 中编写代码](./)
+* [使用 Code 节点](using-the-code-node.md)
+* [获取 AI 编程帮助](get-coding-help-from-ai.md)
+* [定义自定义变量](define-custom-variables.md)
+* [实用示例](cookbook/README.md)
 
-[^1]: In n8n, expressions allow you to populate node parameters dynamically by executing JavaScript code. Instead of providing a static value, you can use the n8n expression syntax to define the value using data from previous nodes, other workflows, or your n8n environment.
+[^1]: 在 n8n 中，表达式通过执行 JavaScript 代码动态填充节点参数。你可以使用 n8n 表达式语法，根据前面节点、其他工作流或 n8n 环境中的数据定义值，而不是提供静态值。

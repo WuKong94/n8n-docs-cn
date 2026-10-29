@@ -1,7 +1,5 @@
 ---
-description: >-
-  Save preferences that n8n Assistant and connected MCP clients apply every time
-  they build workflows and agents for you.
+description: 保存偏好，让 n8n Assistant 和已连接的 MCP 客户端每次为你构建工作流和智能体时应用。
 layout:
   width: default
   title:
@@ -23,205 +21,207 @@ layout:
   anchors:
     visible: true
 tags:
-  - preview
+- preview
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Preferences
 
-Preferences are short instructions you write once, such as "Always connect an error workflow", that n8n Assistant and connected MCP clients apply every time they build workflows and agents for you.
+# 偏好设置 <a id="preferences"></a>
+
+偏好设置是只需编写一次的简短指令，例如“始终连接错误工作流”。n8n Assistant 和已连接的 MCP 客户端每次为你构建工作流和智能体时，都会应用这些指令。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Preferences are available on:
+以下套餐提供偏好设置：
 
-* **n8n Cloud:** Starter, Pro
-* **Self-hosted:** Community, Registered Community, Business
+* **n8n Cloud：** Starter、Pro
+* **自托管：** Community、已注册的 Community、Business
 
-Preferences aren't available on n8n Cloud Enterprise or self-hosted Enterprise yet.
+n8n Cloud Enterprise 和自托管 Enterprise 尚不提供偏好设置。
 
-Preferences are available from n8n 2.40.0. Saving preferences from n8n Assistant, and the preferences tools on the n8n MCP server, are available from n8n 2.42.0.
+偏好设置从 n8n 2.40.0 起可用。通过 n8n Assistant 保存偏好，以及 n8n MCP 服务器的偏好工具，从 n8n 2.42.0 起可用。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-Preferences are part of agentic context management, which is in Preview and may change in future releases. Avoid relying on it in production.
+偏好设置属于智能体上下文管理的一部分，处于预览阶段，未来版本中可能变化。请避免在生产环境中依赖此功能。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/KbKP88R2IFii1k97togq/" %}
+{% include "../../reusable-content/.gitbook/includes/agent-search-endpoint.md" %}
 
-## What preferences are for
+## 偏好设置的用途 <a id="what-preferences-are-for"></a>
 
-Use a preference for a rule you want AI tools to follow in every task, not only the current one. Good preferences cover:
+希望 AI 工具在每项任务中都遵循某条规则时，使用偏好设置，而不是只针对当前任务。合适的偏好包括：
 
-* **Node and credential choices:** "Use the **Slack** credential named `ops-bot` for alerts."
-* **Naming:** "Name nodes in English, starting with a verb."
-* **How work is organized:** "Put new workflows in the `Drafts` folder."
-* **Patterns to avoid:** "Don't use the **Code** node when a built-in node can do the job."
-* **Communication style:** "Explain changes in two sentences or fewer."
+* **节点和凭据选择：**“发送提醒时，使用名为 `ops-bot` 的 **Slack** 凭据。”
+* **命名：**“使用英文为节点命名，并以动词开头。”
+* **工作组织方式：**“将新工作流放入 `Drafts` 文件夹。”
+* **需要避免的模式：**“内置节点能完成任务时，不要使用 **Code** 节点。”
+* **沟通风格：**“用不超过两句话说明更改。”
 
-Keep instructions for the current task in your prompt. "Make this one a POST request" belongs in the chat, not in a preference.
+当前任务的指令应放在提示词中。例如“这次使用 POST 请求”应写在聊天中，而不是保存为偏好。
 
-## Where n8n applies preferences
+## n8n 在哪里应用偏好 <a id="where-n8n-applies-preferences"></a>
 
-Two AI surfaces read preferences:
+两类 AI 功能会读取偏好：
 
-| Surface                                                                                                                 | When it reads preferences                                                                                                                        |
+| 功能 | 读取偏好的时机 |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [n8n Assistant](../ways-of-building-workflows/n8n-assistant.md)                                                         | On every message you send, so a preference you save or edit applies from your next message, even in an open conversation.                        |
-| MCP clients connected to the [n8n MCP server](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server) | When the client calls the `get_user_preferences` tool. The n8n MCP server tells clients to call it before they create or change anything in n8n. |
+| [n8n Assistant](../ways-of-building-workflows/n8n-assistant.md) | 每条消息都会读取，因此保存或编辑的偏好从下一条消息起生效，即使对话已经开始。 |
+| 连接 [n8n MCP 服务器](../../connect/connect-to-n8n-mcp-server.md)的 MCP 客户端 | 客户端调用 `get_user_preferences` 工具时读取。n8n MCP 服务器会告知客户端，在 n8n 中创建或更改任何内容前先调用该工具。 |
 
-If a preference conflicts with something you ask for directly, the AI tool follows your request and tells you which preference it set aside.
+如果偏好与你直接提出的要求冲突，AI 工具会遵循当前要求，并告知忽略了哪条偏好。
 
-## Preference scopes
+## 偏好的作用范围 <a id="preference-scopes"></a>
 
-A preference's scope decides who it applies to. Choose the scope in the **Scope** field when you create or edit a preference.
+偏好的作用范围决定适用于哪些人。创建或编辑偏好时，在 **Scope（作用范围）** 字段选择。
 
-| Scope label                                              | Applies to                                       | Who can create, edit, or delete it                                                |
+| 作用范围标签 | 适用对象 | 谁可以创建、编辑或删除 |
 | -------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------- |
-| **Just you · All projects**                              | Only you, in every project                       | You                                                                               |
-| **Just you · Personal project**                          | Only you, when you work in your personal project | You                                                                               |
-| A team project's name (shown as **Project** in the list) | Everyone who works in that project               | Project admins and project editors. Project viewers can see it but not change it. |
-| **Global**                                               | Everyone on the instance                         | Instance owners and admins                                                        |
+| **Just you · All projects（仅你 · 所有项目）** | 仅你本人，在每个项目中 | 你本人 |
+| **Just you · Personal project（仅你 · 个人项目）** | 仅你本人，在个人项目中工作时 | 你本人 |
+| 团队项目名称（在列表中显示为 **Project（项目）**） | 该项目中的所有人 | 项目管理员和项目编辑者。项目查看者可以查看，但不能修改。 |
+| **Global（全局）** | 实例中的所有人 | 实例所有者和管理员 |
 
-n8n applies every preference in scope at once. In a conversation, n8n Assistant receives the **Global** preferences, your own preferences, and the preferences of the project you opened the conversation in. An MCP client receives the **Global** preferences, your own preferences, and the preferences of every project you can read, grouped by project. A client that passes a `projectId` receives that one project's preferences instead of every project's.
+n8n 会同时应用作用范围内的全部偏好。在对话中，n8n Assistant 收到 **Global（全局）** 偏好、你的个人偏好，以及打开对话所在项目的偏好。MCP 客户端收到全局偏好、个人偏好，以及所有你有权读取项目的偏好，并按项目分组。如果客户端传入 `projectId`，则只收到该项目的偏好，而不是所有项目的偏好。
 
-Moving a preference to another scope needs permission to delete it from the old scope and to create it in the new one.
+将偏好移动到其他作用范围，需要同时具有从原范围删除、在新范围创建的权限。
 
-## Preference limits
+## 偏好限制 <a id="preference-limits"></a>
 
-| Limit                       | Value                                                                                         |
+| 限制 | 值 |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
-| Length of one preference    | 2,000 characters                                                                              |
-| Preferences in one scope    | 50                                                                                            |
-| Duplicate text in one scope | Not allowed. n8n refuses a preference whose text matches one already saved in the same scope. |
+| 单条偏好长度 | 2,000 个字符 |
+| 每个作用范围的偏好数量 | 50 |
+| 同一作用范围内的重复文本 | 不允许。如果文本与同一范围内已保存偏好相同，n8n 会拒绝。 |
 
-When a scope is full, delete a preference before you add another.
+作用范围内的数量已满时，需先删除一条偏好，才能添加新偏好。
 
-## Create a preference in settings
+## 在设置中创建偏好 <a id="create-a-preference-in-settings"></a>
 
-1. Select **Settings** > **Context**.
-2. Select **Preferences**.
-3. Select **Create preference**.
-4. In **Preference**, write the instruction. Write it as you'd tell a colleague, for example "Always connect an error workflow, so that I'm notified on Slack if anything fails".
-5. In **Scope**, choose who the preference applies to. See [Preference scopes](preferences.md#preference-scopes) for each option.
-6. Select **Save**.
+1. 选择 **Settings（设置）** > **Context（上下文）**。
+2. 选择 **Preferences（偏好设置）**。
+3. 选择 **Create preference（创建偏好）**。
+4. 在 **Preference（偏好）** 中编写指令，像向同事交代工作一样，例如“始终连接错误工作流，以便发生任何失败时在 Slack 上通知我”。
+5. 在 **Scope（作用范围）** 中选择适用对象。各选项说明见[偏好的作用范围](preferences.md#preference-scopes)。
+6. 选择 **Save（保存）**。
 
-n8n Assistant applies the new preference from your next message. MCP clients apply it the next time they call `get_user_preferences`.
+n8n Assistant 会从下一条消息起应用新偏好。MCP 客户端会在下次调用 `get_user_preferences` 时应用。
 
-## Edit or delete preferences in settings
+## 在设置中编辑或删除偏好 <a id="edit-or-delete-preferences-in-settings"></a>
 
-**Settings** > **Context** > **Preferences** lists every preference you can see. The list shows each preference's **Scope**, **Created by**, and **Last updated** values. **Created by** names the person who created the preference, followed by its origin in parentheses when an AI tool saved it, for example "Jane Doe (MCP)" or "Jane Doe (n8n assistant)".
+**Settings（设置）** > **Context（上下文）** > **Preferences（偏好设置）** 列出所有你有权查看的偏好，并显示 **Scope（作用范围）**、**Created by（创建者）** 和 **Last updated（最后更新时间）**。**Created by** 显示创建者姓名；如果由 AI 工具保存，还会在括号中标明来源，例如“Jane Doe (MCP)”或“Jane Doe (n8n assistant)”。
 
-* **To edit a preference:** open the preference's **Options** menu, select **Edit**, change the text or the scope, then select **Save**.
-* **To delete a preference:** open the preference's **Options** menu, then select **Delete**.
-* **To delete several preferences:** select them in the list, then select **Delete selected**.
+* **编辑偏好：** 打开偏好的 **Options（选项）** 菜单，选择 **Edit（编辑）**，修改文本或作用范围，再选择 **Save（保存）**。
+* **删除偏好：** 打开偏好的 **Options（选项）** 菜单，选择 **Delete（删除）**。
+* **删除多条偏好：** 在列表中选中，再选择 **Delete selected（删除所选）**。
 
-Deleting can't be undone. n8n Assistant and MCP clients stop using a deleted preference immediately.
+删除无法撤销。n8n Assistant 和 MCP 客户端会立即停止使用已删除偏好。
 
-If you don't have permission to change a preference, n8n shows it as read-only.
+没有修改权限时，n8n 会以只读方式显示偏好。
 
-## Save preferences from n8n Assistant
+## 通过 n8n Assistant 保存偏好 <a id="save-preferences-from-n8n-assistant"></a>
 
-When you tell n8n Assistant about a lasting rule, for example "From now on, always add an error workflow", it saves the rule as a preference with the scope **Just you · All projects**. It doesn't save one-off instructions for the current task.
+向 n8n Assistant 提出长期规则时，例如“从现在起，始终添加错误工作流”，它会将规则保存为 **Just you · All projects（仅你 · 所有项目）** 范围的偏好。当前任务的一次性指令不会保存。
 
-After it saves a preference, n8n Assistant shows a card in the chat with the saved text. From the card:
+保存偏好后，n8n Assistant 会在聊天中显示包含文本的卡片。通过卡片可以：
 
-* Select **Edit** to change the text or the scope.
-* In the **Edit preference** dialog, select **Remove preference** to delete it.
+* 选择 **Edit（编辑）**，修改文本或作用范围。
+* 在 **Edit preference（编辑偏好）** 对话框中，选择 **Remove preference（移除偏好）** 删除。
 
-To see which preferences n8n Assistant applied to its latest reply, open the **+** menu in the chat input, then select **Preferences**.
+要查看助手在最近一次回复中应用了哪些偏好，打开聊天输入框中的 **+** 菜单，再选择 **Preferences（偏好设置）**。
 
-Instance owners and admins control whether n8n Assistant can save preferences. In **Settings** > **Assistant** > **Permissions**, set **Save preferences from chat** to **Allow** (the default) or **Block**. With **Block** set, n8n Assistant still applies saved preferences but can't save new ones.
+实例所有者和管理员控制助手能否保存偏好。在 **Settings（设置）** > **Assistant** > **Permissions（权限）** 中，将 **Save preferences from chat（从聊天保存偏好）** 设为 **Allow（允许，默认）** 或 **Block（禁止）**。设为 **Block** 后，助手仍会应用已保存的偏好，但无法保存新偏好。
 
-## Save preferences from an MCP client
+## 通过 MCP 客户端保存偏好 <a id="save-preferences-from-an-mcp-client"></a>
 
-An MCP client connected to the n8n MCP server can read and save preferences through four tools:
+连接 n8n MCP 服务器的 MCP 客户端，可以通过四个工具读取和保存偏好：
 
-| Tool                     | What it does                                                      |
+| 工具 | 作用 |
 | ------------------------ | ----------------------------------------------------------------- |
-| `get_user_preferences`   | Reads the preferences that apply to you                           |
-| `save_user_preference`   | Saves a new preference with the scope **Just you · All projects** |
-| `update_user_preference` | Changes a preference's text, its scope, or both                   |
-| `undo_user_preference`   | Removes a preference that an MCP client saved for you             |
+| `get_user_preferences` | 读取适用于你的偏好 |
+| `save_user_preference` | 保存 **Just you · All projects（仅你 · 所有项目）** 范围的新偏好 |
+| `update_user_preference` | 修改偏好文本、作用范围，或两者同时修改 |
+| `undo_user_preference` | 移除 MCP 客户端为你保存的偏好 |
 
-`undo_user_preference` can't remove a preference you wrote in settings, or one saved for a project or the whole instance. Remove those in **Settings** > **Context** > **Preferences**.
+`undo_user_preference` 无法移除你在设置中编写的偏好，也无法移除为项目或整个实例保存的偏好。请在 **Settings（设置）** > **Context（上下文）** > **Preferences（偏好设置）** 中移除这些内容。
 
-If your MCP client supports MCP elicitation, n8n shows you a review form after `save_user_preference` saves a preference. In the form, you can:
+如果 MCP 客户端支持 MCP elicitation（信息征询），n8n 会在 `save_user_preference` 保存偏好后显示审核表单。在表单中可以：
 
-* Accept the text as shown, or edit it first.
-* Change the scope to **Everyone on this n8n instance**, if you're an instance owner or admin.
-* Decline the form to remove the preference.
+* 接受显示的文本，或先编辑。
+* 如果是实例所有者或管理员，可以将范围改为 **Everyone on this n8n instance（此 n8n 实例中的所有人）**。
+* 拒绝表单，以移除该偏好。
 
-Closing the form without answering keeps the preference as saved.
+关闭表单而不作答，会保留已保存的偏好。
 
-### MCP client permissions for preferences
+### MCP 客户端的偏好权限 <a id="mcp-client-permissions-for-preferences"></a>
 
-When you connect an MCP client with OAuth, n8n asks you to approve two permissions for preferences:
+使用 OAuth 连接 MCP 客户端时，n8n 会请求你批准两项偏好权限：
 
-| Permission on the consent screen         | OAuth scope          | Tools                                                                    |
+| 同意屏幕上的权限 | OAuth 权限范围 | 工具 |
 | ---------------------------------------- | -------------------- | ------------------------------------------------------------------------ |
-| **Read AI preferences**                  | `aiPreference:read`  | `get_user_preferences`                                                   |
-| **Save, update and undo AI preferences** | `aiPreference:write` | `save_user_preference`, `update_user_preference`, `undo_user_preference` |
+| **Read AI preferences（读取 AI 偏好）** | `aiPreference:read` | `get_user_preferences` |
+| **Save, update and undo AI preferences（保存、更新和撤销 AI 偏好）** | `aiPreference:write` | `save_user_preference`、`update_user_preference`、`undo_user_preference` |
 
-n8n only offers these permissions when preferences are on for your instance. If you connected a client before preferences were on, reconnect it to grant them. See [Reviewing and revoking client access](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server#revoking-client-access).
+只有实例已启用偏好设置时，n8n 才提供这些权限。如果客户端在功能启用前已连接，请重新连接以授予权限。请参阅[检查和撤销客户端访问](../../connect/connect-to-n8n-mcp-server.md#revoking-client-access)。
 
-For each tool's parameters and output, see [User preferences](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server/mcp-server-tools-reference#user-preferences) in the MCP server tools reference.
+每个工具的参数和输出，请参阅 MCP 服务器工具参考中的[用户偏好](../../connect/connect-to-n8n-mcp-server/mcp-server-tools-reference.md#user-preferences)。
 
-## Write effective preferences
+## 编写有效偏好 <a id="write-effective-preferences"></a>
 
-AI tools apply a preference to every task in its scope, so write it to hold up in every task.
+AI 工具会将偏好应用于作用范围内的每项任务，因此应编写适用于所有这些任务的规则。
 
-* **State one rule per preference.** One rule is easier to edit or delete later than a paragraph of several.
-* **Say what to do, and why if it helps.** "Use the **Gmail** credential named `support-inbox` for customer emails" beats "Use the right credential".
-* **Name exact nodes, credentials, folders, and projects.** AI tools match names exactly.
-* **Avoid rules that only fit one workflow.** Put those in your prompt instead.
+* **每条偏好只写一条规则。** 相比包含多条规则的段落，单条规则更便于之后编辑或删除。
+* **说明应该做什么，必要时解释原因。**“客户邮件使用名为 `support-inbox` 的 **Gmail** 凭据”比“使用正确的凭据”更具体。
+* **准确写出节点、凭据、文件夹和项目名称。** AI 工具会精确匹配名称。
+* **避免仅适用于单个工作流的规则。** 此类指令应放入提示词。
 
-| Instead of                                                     | Write                                                                          |
+| 不建议 | 建议 |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| "Make the webhook path `/orders`."                             | Keep it in the prompt. It only applies to one workflow.                        |
-| "Be careful with errors."                                      | "Connect every new workflow to the `Error alerts` error workflow."             |
-| "Use good names, put things in folders, and avoid Code nodes." | Three preferences: one for naming, one for folders, one for the **Code** node. |
+| “将 Webhook 路径设为 `/orders`。” | 放在提示词中，只适用于单个工作流。 |
+| “注意错误处理。” | “为每个新工作流连接 `Error alerts` 错误工作流。” |
+| “使用合适名称、把内容放进文件夹，并避免 Code 节点。” | 拆分为三条偏好：一条命名规则、一条文件夹规则和一条 **Code** 节点规则。 |
 
-## Turn on preferences on a self-hosted instance
+## 在自托管实例上启用偏好 <a id="turn-on-preferences-on-a-self-hosted-instance"></a>
 
-Preferences are on by default. If your instance has telemetry turned off (`N8N_DIAGNOSTICS_ENABLED=false`), or can't reach n8n's feature flag service, preferences stay off.
+偏好设置默认开启。如果实例关闭了遥测（`N8N_DIAGNOSTICS_ENABLED=false`），或无法连接 n8n 功能标志服务，偏好功能会保持关闭。
 
-To turn preferences on, set `N8N_FEATURE_FLAG_OVERRIDES`. For example, add this value to your `.env` file. Preserve any other entries in the JSON object.
+要开启偏好设置，设置 `N8N_FEATURE_FLAG_OVERRIDES`。例如，将以下值添加到 `.env` 文件，保留 JSON 对象中的其他条目。
 
 ```bash
 N8N_FEATURE_FLAG_OVERRIDES='{"111_context_preferences":"variant"}'
 ```
 
-Restart n8n to apply the change.
+重启 n8n，应用更改。
 
-The value must be the string `"variant"`. A boolean value, such as `true`, doesn't turn preferences on.
+值必须是字符串 `"variant"`。`true` 等布尔值不会开启偏好功能。
 
-With preferences off, n8n hides **Preferences** in **Settings** > **Context**, n8n Assistant doesn't read or save preferences, and the n8n MCP server doesn't offer the preferences tools. n8n keeps preferences saved earlier, and applies them again when you turn preferences back on.
+关闭偏好功能后，n8n 会隐藏 **Settings（设置）** > **Context（上下文）** 中的 **Preferences（偏好设置）**；助手不会读取或保存偏好，MCP 服务器也不会提供偏好工具。此前保存的偏好会保留，重新开启后会再次应用。
 
-## Troubleshoot preferences
+## 偏好故障排查 <a id="troubleshoot-preferences"></a>
 
-### Preferences doesn't appear in settings
+### 设置中没有显示偏好 <a id="preferences-doesnt-appear-in-settings"></a>
 
-Check that your instance runs n8n 2.40.0 or later, and that it isn't on an Enterprise plan. On a self-hosted instance with telemetry turned off, see [Turn on preferences on a self-hosted instance](preferences.md#turn-on-preferences-on-a-self-hosted-instance).
+确认实例运行 n8n 2.40.0 或更高版本，且不是 Enterprise 套餐。关闭遥测的自托管实例，请参阅[在自托管实例上启用偏好](preferences.md#turn-on-preferences-on-a-self-hosted-instance)。
 
-### An MCP client doesn't list the preferences tools
+### MCP 客户端未列出偏好工具 <a id="an-mcp-client-doesnt-list-the-preferences-tools"></a>
 
-Check that preferences are on for your instance, then check that the client has the **Read AI preferences** and **Save, update and undo AI preferences** permissions. If you connected the client before preferences were on, revoke its access and connect it again.
+确认实例已开启偏好功能，再检查客户端是否具有 **Read AI preferences（读取 AI 偏好）** 和 **Save, update and undo AI preferences（保存、更新和撤销 AI 偏好）** 权限。如果在功能开启前已连接客户端，请撤销访问并重新连接。
 
-### n8n Assistant says saving preferences is blocked
+### n8n Assistant 提示禁止保存偏好 <a id="n8n-assistant-says-saving-preferences-is-blocked"></a>
 
-An instance owner or admin has set **Save preferences from chat** to **Block** in **Settings** > **Assistant** > **Permissions**, or the instance is connected to a protected source control branch. Create the preference in **Settings** > **Context** > **Preferences** instead, if you have permission.
+实例所有者或管理员在 **Settings（设置）** > **Assistant** > **Permissions（权限）** 中，将 **Save preferences from chat（从聊天保存偏好）** 设为了 **Block（禁止）**，或实例连接到了受保护的源代码管理分支。如果有权限，可以改在 **Settings（设置）** > **Context（上下文）** > **Preferences（偏好设置）** 中创建。
 
-### An AI tool ignores a preference
+### AI 工具忽略了偏好 <a id="an-ai-tool-ignores-a-preference"></a>
 
-Check that the preference's scope covers the project you're working in. In n8n Assistant, a team project's preference only applies in conversations opened in that project. If the preference conflicts with your prompt, the AI tool follows your prompt.
+检查偏好的作用范围是否涵盖当前项目。在 n8n Assistant 中，团队项目偏好仅适用于在该项目中打开的对话。如果偏好与提示词冲突，AI 工具会遵循提示词。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Agentic context management](./)
-* [Use n8n Assistant](../ways-of-building-workflows/n8n-assistant.md)
-* [Use n8n MCP server](../ways-of-building-workflows/connect-to-n8n-mcp-server.md)
-* [Connect to n8n MCP server](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server)
-* [MCP server tools reference](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server/mcp-server-tools-reference)
+* [智能体上下文管理](./)
+* [使用 n8n Assistant](../ways-of-building-workflows/n8n-assistant.md)
+* [使用 n8n MCP 服务器](../ways-of-building-workflows/connect-to-n8n-mcp-server.md)
+* [连接 n8n MCP 服务器](../../connect/connect-to-n8n-mcp-server.md)
+* [MCP 服务器工具参考](../../connect/connect-to-n8n-mcp-server/mcp-server-tools-reference.md)

@@ -1,37 +1,37 @@
 ---
-description: >-
-  n8n provides these methods to make it easier to perform common tasks in
-  expressions.
+description: n8n 提供这些方法，方便在表达式中执行常见任务。
 contentType: reference
 hide:
-  - toc
-nodeTitle: HTTP node
+- toc
+nodeTitle: HTTP 节点
 originalFilePath: code/builtin/http-node-variables.md
-originalUrl: 'https://docs.n8n.io/code/builtin/http-node-variables'
-url: 'https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts/http-node'
+originalUrl: https://docs.n8n.io/code/builtin/http-node-variables
+url: https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts/http-node
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# HTTP node variables <a href="#http-node-variables" id="http-node-variables"></a>
 
-Variables for working with HTTP node requests and responses when using pagination.
+# HTTP 节点变量 <a href="#http-node-variables" id="http-node-variables"></a>
 
-Refer to [HTTP Request](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.httprequest) for guidance on using the HTTP node, including configuring pagination.
+分页时用于处理 HTTP 节点请求和响应的变量。
 
-Refer to [HTTP Request node cookbook | Pagination](../cookbook/http-request-node/pagination.md) for example pagination configurations.
+HTTP 节点的使用方法，包括分页配置，请参阅 [HTTP Request](../../../integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md)。
+
+分页配置示例请参阅 [HTTP Request 节点实用示例：分页](../cookbook/http-request-node/pagination.md)。
 
 {% hint style="info" %}
-**HTTP node only**
+**仅适用于 HTTP 节点**
 
-These variables are for use in expressions in the HTTP node. You can't use them in other nodes.
+这些变量供 HTTP 节点的表达式使用，不能用于其他节点。
 {% endhint %}
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/I3wrw8MpZtbjn2khruiw/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/core-nodes/http/pagination-variables.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use built-in shortcuts](../use-built-in-shortcuts.md)
+* [使用内置快捷方法](../use-built-in-shortcuts.md)
 * [JMESPath](jmespath.md)
-* [LangChain Code node](langchain-code-node.md)
-* [n8n metadata](n8n-metadata.md)
+* [LangChain Code 节点](langchain-code-node.md)
+* [n8n 元数据](n8n-metadata.md)

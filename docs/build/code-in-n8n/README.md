@@ -1,114 +1,114 @@
 ---
-title: Code in n8n Documentation and Guides
-description: >-
-  Access documentation and guides on using code and expressions in n8n and other
-  developer resources.
+title: n8n 代码使用文档与指南
+description: 查阅在 n8n 中使用代码和表达式的文档、指南及其他开发者资源。
 contentType: overview
 hide:
-  - feedback
-  - kapaButton
-nodeTitle: Code in n8n
+- feedback
+- kapaButton
+nodeTitle: 在 n8n 中编写代码
 originalFilePath: code/index.md
-originalUrl: 'https://docs.n8n.io/code'
-url: 'https://docs.n8n.io/build/'
+originalUrl: https://docs.n8n.io/code
+url: https://docs.n8n.io/build/
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Code in n8n <a href="#code-in-n8n" id="code-in-n8n"></a>
 
-n8n is a low-code tool. This means you can do a lot without code, then add code when needed.
+# 在 n8n 中编写代码 <a href="#code-in-n8n" id="code-in-n8n"></a>
 
-## In this section
+n8n 是低代码工具。这意味着无需代码就能完成许多任务，并可在需要时加入代码。
 
-* [Using the Code node](using-the-code-node.md): add JavaScript or Python code to your workflow.
-* [Get coding help from AI](get-coding-help-from-ai.md): use GPT to generate code in the Code node.
-* [Use built-in shortcuts](use-built-in-shortcuts.md): reference for n8n's built-in methods and variables for use in expressions and code.
-* [Define custom variables](define-custom-variables.md): store and reuse values across your workflows.
-* [Cookbook](cookbook/README.md): examples and recipes for common coding tasks.
+## 本节内容 <a id="in-this-section"></a>
 
-## Code in your workflows <a href="#code-in-your-workflows" id="code-in-your-workflows"></a>
+* [使用 Code 节点](using-the-code-node.md)：向工作流添加 JavaScript 或 Python 代码。
+* [获取 AI 编程帮助](get-coding-help-from-ai.md)：使用 GPT 在 Code 节点中生成代码。
+* [使用内置快捷方法](use-built-in-shortcuts.md)：查阅可用于表达式和代码的 n8n 内置方法与变量。
+* [定义自定义变量](define-custom-variables.md)：在工作流之间存储和复用值。
+* [实用示例](cookbook/README.md)：常见编程任务的示例与解决方法。
 
-There are two places in your workflows where you can use code:
+## 工作流中的代码 <a href="#code-in-your-workflows" id="code-in-your-workflows"></a>
+
+工作流中有两处可以使用代码：
 
 <div class="grid-cards-vertical cards" markdown>
 
-- __Expressions__
+- __表达式__
 
-	Use expressions[^1] to transform [data](../work-with-data/README.md) in your nodes. You can use JavaScript in expressions, as well as n8n's [Built-in methods and variables](use-built-in-shortcuts.md).
+	使用表达式[^1]转换节点中的[数据](../work-with-data/README.md)。表达式中可以使用 JavaScript，以及 n8n 的[内置方法和变量](use-built-in-shortcuts.md)。
 
-	[→ Expressions](../work-with-data/expressions-versus-data-nodes.md)
+	[→ 表达式](../work-with-data/expressions-versus-data-nodes.md)
 
-- __Code node__
+- __Code 节点__
 
-	Use the Code node to add JavaScript or Python to your workflow.
+	使用 Code 节点，向工作流添加 JavaScript 或 Python。
 
-	[→ Code node](using-the-code-node.md)
+	[→ Code 节点](using-the-code-node.md)
 
 </div>
 
 
-## Other technical resources <a href="#other-technical-resources" id="other-technical-resources"></a>
+## 其他技术资源 <a href="#other-technical-resources" id="other-technical-resources"></a>
 
-These are features that are relevant to technical users.
+以下功能面向技术用户。
 
-### Technical nodes <a href="#technical-nodes" id="technical-nodes"></a>
+### 技术节点 <a href="#technical-nodes" id="technical-nodes"></a>
 
-n8n provides core nodes, which simplify adding key functionality such as API requests, webhooks, scheduling, and file handling.
-
-<div class="grid-cards-vertical cards" markdown>
-
-- __Write a backend__
-
-	The [HTTP Request](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.httprequest), [Webhook](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.webhook), and [Code](using-the-code-node.md) nodes help you make API calls, respond to webhooks, and write any JavaScript in your workflow.
-
-	Use this do things like [Create an API endpoint](https://n8n.io/workflows/1750-creating-an-api-endpoint/).
-
-	[→ Core nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes)
-
-- __Represent complex logic__
-
-	You can build complex flows, using nodes like [If](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.if), [Switch](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.switch), and [Merge](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.merge) nodes. 
-
-	[→ Flow logic](../flow-logic/README.md)
-
-</div>
-
-### Other developer resources <a href="#other-developer-resources" id="other-developer-resources"></a>
+n8n 提供核心节点，方便添加 API 请求、Webhook、定时任务和文件处理等关键功能。
 
 <div class="grid-cards-vertical cards" markdown>
 
-- __The n8n API__
+- __编写后端__
 
-	n8n provides an API, where you can programmatically perform many of the same tasks as you can in the GUI. There's an [n8n API node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.n8n) to access the API in your workflows.
+	[HTTP Request](../../integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md)、[Webhook](../../integrations/builtin/core-nodes/n8n-nodes-base.webhook/README.md) 和 [Code](using-the-code-node.md) 节点可以帮助你调用 API、响应 Webhook，并在工作流中编写任意 JavaScript。
 
-	[→ API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api)
+	可以用它们[创建 API 端点](https://n8n.io/workflows/1750-creating-an-api-endpoint/)等。
 
-- __Self-host__
+	[→ 核心节点](../../integrations/builtin/core-nodes/README.md)
 
-	You can self-host n8n. This keeps your data on your own infrastructure.
+- __实现复杂逻辑__
 
-	[→ Hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n)
+	可以使用 [If](../../integrations/builtin/core-nodes/n8n-nodes-base.if.md)、[Switch](../../integrations/builtin/core-nodes/n8n-nodes-base.switch.md) 和 [Merge](../../integrations/builtin/core-nodes/n8n-nodes-base.merge.md) 等节点构建复杂流程。
 
-- __Build your own nodes__
-
-	You can build custom nodes, install them on your n8n instance, and publish them to [npm](https://www.npmjs.com/).
-
-	[→ Creating nodes](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/create-nodes/overview)
+	[→ 流程逻辑](../flow-logic/README.md)
 
 </div>
 
-[^1]: In n8n, expressions allow you to populate node parameters dynamically by executing JavaScript code. Instead of providing a static value, you can use the n8n expression syntax to define the value using data from previous nodes, other workflows, or your n8n environment.
+### 其他开发者资源 <a href="#other-developer-resources" id="other-developer-resources"></a>
 
-## Related resources
+<div class="grid-cards-vertical cards" markdown>
 
-* [Build](../)
-* [Understand workflows](../understand-workflows/README.md)
-* [Build and manage agents](../build-and-manage-agents/README.md)
-* [Ways of building workflows](../ways-of-building-workflows/README.md)
-* [Manage workflows](../manage-workflows/README.md)
-* [Flow logic](../flow-logic/README.md)
-* [Work with data](../work-with-data/README.md)
-* [Integrate AI](../integrate-ai/README.md)
-* [Keyboard shortcuts](../keyboard-shortcuts.md)
+- __n8n API__
+
+	n8n 提供 API，可以通过编程执行许多与图形界面相同的任务。工作流内可通过 [n8n API 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.n8n.md)访问此 API。
+
+	[→ API](../../connect/n8n-api/README.md)
+
+- __自托管__
+
+	可以自行托管 n8n，将数据保留在自己的基础设施上。
+
+	[→ 托管](../../deploy/host-n8n/README.md)
+
+- __构建自己的节点__
+
+	可以构建自定义节点，在自己的 n8n 实例中安装，并发布到 [npm](https://www.npmjs.com/)。
+
+	[→ 创建节点](../../connect/create-nodes/overview.md)
+
+</div>
+
+[^1]: 在 n8n 中，表达式通过执行 JavaScript 代码动态填充节点参数。你可以使用 n8n 表达式语法，根据前面节点、其他工作流或 n8n 环境中的数据定义值，而不是提供静态值。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [构建](../)
+* [理解工作流](../understand-workflows/README.md)
+* [构建和管理智能体](../build-and-manage-agents/README.md)
+* [构建工作流的方式](../ways-of-building-workflows/README.md)
+* [管理工作流](../manage-workflows/README.md)
+* [流程逻辑](../flow-logic/README.md)
+* [处理数据](../work-with-data/README.md)
+* [集成 AI](../integrate-ai/README.md)
+* [键盘快捷键](../keyboard-shortcuts.md)

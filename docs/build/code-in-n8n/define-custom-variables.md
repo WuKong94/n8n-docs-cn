@@ -1,87 +1,89 @@
 ---
-title: Custom variables
-description: Custom variables allow you to store and reuse values in n8n workflows.
+title: 自定义变量
+description: 通过自定义变量，在 n8n 工作流中存储和复用值。
 contentType: howto
-nodeTitle: Define custom variables
+nodeTitle: 定义自定义变量
 originalFilePath: code/variables.md
-originalUrl: 'https://docs.n8n.io/code/variables'
-url: 'https://docs.n8n.io/build/code-in-n8n/define-custom-variables'
+originalUrl: https://docs.n8n.io/code/variables
+url: https://docs.n8n.io/build/code-in-n8n/define-custom-variables
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Custom variables <a href="#custom-variables" id="custom-variables"></a>
+
+# 自定义变量 <a href="#custom-variables" id="custom-variables"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Custom variables are available on:
+以下套餐提供自定义变量：
 
-- **n8n Cloud:** Pro, Enterprise
-- **Self-hosted:** Business, Enterprise
+- **n8n Cloud：** Pro、Enterprise
+- **自托管：** Business、Enterprise
 
-Only instance owners and admins can create variables.
+只有实例所有者和管理员可以创建变量。
 {% endhint %}
 
-Custom variables are read-only variables that you can use to store and reuse values in n8n workflows.
+自定义变量是只读变量，可用于在 n8n 工作流中存储和复用值。
 
 {% hint style="warning" %}
-**Variable scope and availability**
+**变量的作用范围和可用性**
 
-* **Global variables** are available to everyone on your n8n instance, across all projects.
-* **Project-scoped variables** are available only within the specific project they're created in.
-* Project-scoped variables are available from n8n 1.118.0. Previous versions only support global variables accessible from the left side menu.
+* **全局变量**适用于 n8n 实例中的所有用户和项目。
+* **项目变量**仅适用于创建它的特定项目。
+* 项目变量从 n8n 1.118.0 起可用。更早版本只支持从左侧菜单访问的全局变量。
 {% endhint %}
 
-## Create variables <a href="#create-variables" id="create-variables"></a>
+## 创建变量 <a href="#create-variables" id="create-variables"></a>
 
-You can access the **Variables** tab from either the overview page or a specific project.
+可以从概览页面或某个项目进入 **Variables（变量）** 标签页。
 
-To create a new variable:
+创建变量的步骤如下：
 
-1. On the **Variables** tab, select **Add Variable**.
-2. Enter a **Key** and **Value**. The maximum key length is 50 characters, and the maximum value length is 1000 characters. n8n limits the characters you can use in the key and value to lowercase and uppercase letters, numbers, and underscores (`A-Z`, `a-z`, `0-9`, `_`).
-3. Select the **Scope** (only available when creating from the overview page):
-    * **Global**: The variable is available across all projects in the n8n instance.
-    * **Project**: The variable is available only within a specific project (you can select which project).
-    * When creating from a project page, the scope is automatically set to that project.
-4. Select **Save**. The variable is now available for use in workflows according to its scope.
+1. 在 **Variables（变量）** 标签页选择 **Add Variable（添加变量）**。
+2. 输入 **Key（键）** 和 **Value（值）**。键最长 50 个字符，值最长 1000 个字符。n8n 将键和值可用的字符限制为大小写字母、数字和下划线（`A-Z`、`a-z`、`0-9`、`_`）。
+3. 选择 **Scope（作用范围）**（仅从概览页面创建时可用）：
+    * **Global（全局）**：变量适用于实例中的所有项目。
+    * **Project（项目）**：变量仅适用于某个指定项目，可以自行选择项目。
+    * 从项目页面创建时，作用范围会自动设为该项目。
+4. 选择 **Save（保存）**。变量即可在作用范围内的工作流中使用。
 
-## Edit and delete variables <a href="#edit-and-delete-variables" id="edit-and-delete-variables"></a>
+## 编辑和删除变量 <a href="#edit-and-delete-variables" id="edit-and-delete-variables"></a>
 
-To edit or delete a variable:
+编辑或删除变量的步骤如下：
 
-1. On the **Variables** tab, hover over the variable you want to change.
-2. Select **Edit** or **Delete**.
+1. 在 **Variables（变量）** 标签页，将鼠标悬停在要修改的变量上。
+2. 选择 **Edit（编辑）** 或 **Delete（删除）**。
 
-## Use variables in workflows <a href="#use-variables-in-workflows" id="use-variables-in-workflows"></a>
+## 在工作流中使用变量 <a href="#use-variables-in-workflows" id="use-variables-in-workflows"></a>
 
-You can access variables in the Code node and in expressions[^1]:
+可以在 Code 节点和表达式[^1]中访问变量：
 
 ```javascript
 // Access a variable
 $vars.<variable-name>
 ```
 
-All variables are strings.
+所有变量都是字符串。
 
-During workflow execution, n8n replaces the variables with the variable value. If the variable has no value, n8n treats its value as `undefined`. Workflows don't automatically fail in this case.
+工作流执行时，n8n 会用变量值替换变量。如果变量没有值，n8n 将其视为 `undefined`，这种情况下工作流不会自动失败。
 
 {% hint style="info" %}
-**Variable precedence**
+**变量优先级**
 
-When a project-scoped variable has the same key as a global variable, the project-scoped variable value takes precedence and overrides the global variable value within that project's workflows.
+项目变量与全局变量具有相同键时，项目变量优先，在该项目的工作流中覆盖全局变量值。
 {% endhint %}
 
-Variables are read-only. You must use the UI to change the values. If you need to set and access custom data within your workflow, use [Workflow static data](cookbook/built-in-methods-and-variables-examples/getworkflowstaticdata.md).
+变量是只读的，必须通过界面更改值。如果需要在工作流中设置并访问自定义数据，请使用[工作流静态数据](cookbook/built-in-methods-and-variables-examples/getworkflowstaticdata.md)。
 
-[^1]: In n8n, expressions allow you to populate node parameters dynamically by executing JavaScript code. Instead of providing a static value, you can use the n8n expression syntax to define the value using data from previous nodes, other workflows, or your n8n environment.
+[^1]: 在 n8n 中，表达式通过执行 JavaScript 代码动态填充节点参数。你可以使用 n8n 表达式语法，根据前面节点、其他工作流或 n8n 环境中的数据定义值，而不是提供静态值。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Code in n8n](./)
-* [Using the Code node](using-the-code-node.md)
-* [Get coding help from AI](get-coding-help-from-ai.md)
-* [Use built-in shortcuts](use-built-in-shortcuts.md)
-* [Cookbook](cookbook/README.md)
+* [在 n8n 中编写代码](./)
+* [使用 Code 节点](using-the-code-node.md)
+* [获取 AI 编程帮助](get-coding-help-from-ai.md)
+* [使用内置快捷方法](use-built-in-shortcuts.md)
+* [实用示例](cookbook/README.md)

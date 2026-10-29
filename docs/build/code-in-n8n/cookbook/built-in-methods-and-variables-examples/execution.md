@@ -2,19 +2,20 @@
 contentType: reference
 nodeTitle: execution
 originalFilePath: code/cookbook/builtin/execution.md
-originalUrl: 'https://docs.n8n.io/code/cookbook/builtin/execution'
-url: >-
-  https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/execution
+originalUrl: https://docs.n8n.io/code/cookbook/builtin/execution
+url: https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/execution
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # `execution` <a href="#execution" id="execution"></a>
 
 ## `execution.id` <a href="#executionid" id="executionid"></a>
 
-Contains the unique ID of the current workflow execution.
+包含当前工作流执行的唯一 ID。
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -32,15 +33,15 @@ executionId = _execution.id
 
 ## `execution.resumeUrl` <a href="#executionresumeurl" id="executionresumeurl"></a>
 
-The webhook URL to call to resume a [waiting](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait) workflow.
+用于恢复[等待中](../../../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md)工作流的 Webhook URL。
 
-See the [Wait > On webhook call](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait#on-webhook-call) documentation to learn more.
+更多信息请参阅 [Wait > On webhook call（Webhook 调用时）](../../../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md#on-webhook-call)文档。
 
-`execution.resumeUrl` is available in workflows containing a Wait node, along with a node that waits for a webhook response.
+工作流包含 Wait 节点和等待 Webhook 响应的节点时，可以使用 `execution.resumeUrl`。
 
 ## `execution.customData` <a href="#executioncustomdata" id="executioncustomdata"></a>
 
-This is only available in the Code node.
+仅适用于 Code 节点。
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -76,12 +77,12 @@ customData = _execution.customData.get("key")
 {% endtab %}
 {% endtabs %}
 
-Refer to [Custom executions data](../../../understand-workflows/understand-executions/customize-executions-data.md) for more information.
+更多信息请参阅[自定义执行数据](../../../understand-workflows/understand-executions/customize-executions-data.md)。
 
 ---
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Built-in methods and variables examples](./)
+* [内置方法和变量示例](./)
 
 

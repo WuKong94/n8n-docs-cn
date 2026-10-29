@@ -1,12 +1,14 @@
 ---
-title: builtin-methods
+title: LangChain Code 内置方法
 ---
-| Method | Description |
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+| 方法 | 说明 |
 | ------ | ----------- |
-| `this.addInputData(inputName, data)` | Populate the data of a specified non-main input. Useful for mocking data.<ul><li>`inputName` is the input connection type, and must be one of: `ai_agent`, `ai_chain`, `ai_document`, `ai_embedding`, `ai_languageModel`, `ai_memory`, `ai_outputParser`, `ai_retriever`, `ai_textSplitter`, `ai_tool`, `ai_vectorRetriever`, `ai_vectorStore`</li><li>`data` contains the data you want to add. Refer to [Data structure](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/understand-n8ns-data-structure) for information on the data structure expected by n8n.</li></ul> |
-| `this.addOutputData(outputName, data)` | Populate the data of a specified non-main output. Useful for mocking data.<ul><li>`outputName` is the input connection type, and must be one of: `ai_agent`, `ai_chain`, `ai_document`, `ai_embedding`, `ai_languageModel`, `ai_memory`, `ai_outputParser`, `ai_retriever`, `ai_textSplitter`, `ai_tool`, `ai_vectorRetriever`, `ai_vectorStore`</li><li>`data` contains the data you want to add. Refer to [Data structure](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/understand-n8ns-data-structure) for information on the data structure expected by n8n.</li></ul> |
-| `this.getInputConnectionData(inputName, itemIndex, inputIndex?)` | Get data from a specified non-main input.<ul><li>`inputName` is the input connection type, and must be one of: `ai_agent`, `ai_chain`, `ai_document`, `ai_embedding`, `ai_languageModel`, `ai_memory`, `ai_outputParser`, `ai_retriever`, `ai_textSplitter`, `ai_tool`, `ai_vectorRetriever`, `ai_vectorStore`</li><li>`itemIndex` should always be `0` (this parameter will be used in upcoming functionality)</li><li>Use `inputIndex` if there is more than one node connected to the specified input.</li></ul> |
-| `this.getInputData(inputIndex?, inputName?)` | Get data from the main input. |
-| `this.getNode()` | Get the current node. |
-| `this.getNodeOutputs()` | Get the outputs of the current node. |
-| `this.getExecutionCancelSignal()` | Use this to stop the execution of a function when the workflow stops. n8n handles this in most workflows, but you may need it if you build your own chains or agents. |
+| `this.addInputData(inputName, data)` | 填充指定非主输入的数据，便于模拟数据。<ul><li>`inputName` 为连接类型，必须是以下之一：`ai_agent`、`ai_chain`、`ai_document`、`ai_embedding`、`ai_languageModel`、`ai_memory`、`ai_outputParser`、`ai_retriever`、`ai_textSplitter`、`ai_tool`、`ai_vectorRetriever`、`ai_vectorStore`</li><li>`data` 包含要添加的数据。n8n 要求的数据结构见[数据结构](../../../../../../../../build/work-with-data/understand-n8ns-data-structure.md)。</li></ul> |
+| `this.addOutputData(outputName, data)` | 填充指定非主输出的数据，便于模拟数据。<ul><li>`outputName` 为连接类型，必须是以下之一：`ai_agent`、`ai_chain`、`ai_document`、`ai_embedding`、`ai_languageModel`、`ai_memory`、`ai_outputParser`、`ai_retriever`、`ai_textSplitter`、`ai_tool`、`ai_vectorRetriever`、`ai_vectorStore`</li><li>`data` 包含要添加的数据。n8n 要求的数据结构见[数据结构](../../../../../../../../build/work-with-data/understand-n8ns-data-structure.md)。</li></ul> |
+| `this.getInputConnectionData(inputName, itemIndex, inputIndex?)` | 从指定非主输入获取数据。<ul><li>`inputName` 为输入连接类型，必须是以下之一：`ai_agent`、`ai_chain`、`ai_document`、`ai_embedding`、`ai_languageModel`、`ai_memory`、`ai_outputParser`、`ai_retriever`、`ai_textSplitter`、`ai_tool`、`ai_vectorRetriever`、`ai_vectorStore`</li><li>`itemIndex` 应始终设为 `0`（该参数将用于后续功能）。</li><li>同一指定输入连接多个节点时，使用 `inputIndex`。</li></ul> |
+| `this.getInputData(inputIndex?, inputName?)` | 获取主输入的数据。 |
+| `this.getNode()` | 获取当前节点。 |
+| `this.getNodeOutputs()` | 获取当前节点的输出。 |
+| `this.getExecutionCancelSignal()` | 工作流停止时，用于停止函数执行。大多数工作流由 n8n 自动处理，但自行构建链或智能体时，可能需要使用。 |

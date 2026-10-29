@@ -2,19 +2,20 @@
 contentType: reference
 nodeTitle: (node-name).all
 originalFilePath: code/cookbook/builtin/all.md
-originalUrl: 'https://docs.n8n.io/code/cookbook/builtin/all'
-url: >-
-  https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/(node-name).all
+originalUrl: https://docs.n8n.io/code/cookbook/builtin/all
+url: https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/(node-name).all
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # `("<node-name>").all(branchIndex?: number, runIndex?: number)` <a href="#lessnode-namegreaterallbranchindex-number-runindex-number" id="lessnode-namegreaterallbranchindex-number-runindex-number"></a>
 
-This gives access to all the items of the current or parent nodes. If you don't supply any parameters, it returns all the items of the current node.
+访问当前节点或父节点的所有数据项。不提供任何参数时，返回当前节点的所有数据项。
 
-## Getting items <a href="#getting-items" id="getting-items"></a>
+## 获取数据项 <a href="#getting-items" id="getting-items"></a>
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -50,9 +51,9 @@ allItems = _("IF").all(1, 0);
 {% endtab %}
 {% endtabs %}
 
-## Accessing item data <a href="#accessing-item-data" id="accessing-item-data"></a>
+## 访问数据项内容 <a href="#accessing-item-data" id="accessing-item-data"></a>
 
-Get all items output by a previous node, and log out the data they contain:
+获取前一节点输出的所有数据项，并记录其中包含的数据：
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -76,6 +77,6 @@ for item in previousNodeData:
 {% endtab %}
 {% endtabs %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Built-in methods and variables examples](./)
+* [内置方法和变量示例](./)

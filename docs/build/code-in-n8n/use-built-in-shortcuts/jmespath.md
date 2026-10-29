@@ -1,34 +1,36 @@
 ---
-description: A method for working with the JMESPath library in n8n.
+description: 在 n8n 中使用 JMESPath 库的方法。
 contentType: reference
 hide:
-  - toc
+- toc
 nodeTitle: JMESPath
 originalFilePath: code/builtin/jmespath.md
-originalUrl: 'https://docs.n8n.io/code/builtin/jmespath'
-url: 'https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts/jmespath'
+originalUrl: https://docs.n8n.io/code/builtin/jmespath
+url: https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts/jmespath
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# JMESPath method <a href="#jmespath-method" id="jmespath-method"></a>
 
-This is an n8n-provided method for working with the [JMESPath](../../work-with-data/handle-special-data-types/query-json-data.md) library.
+# JMESPath 方法 <a href="#jmespath-method" id="jmespath-method"></a>
+
+这是 n8n 提供的用于操作 [JMESPath](../../work-with-data/handle-special-data-types/query-json-data.md) 库的方法。
 
 {% hint style="info" %}
-**JavaScript only**
+**仅适用于 JavaScript**
 
-The Python Code node doesn't provide this method. To query JSON in Python, use standard Python instead. Refer to [Query JSON with JMESPath](../../work-with-data/handle-special-data-types/query-json-data.md) for a Python version of each example.
+Python Code 节点不提供此方法。在 Python 中查询 JSON，请使用标准 Python。各示例的 Python 版本见[使用 JMESPath 查询 JSON](../../work-with-data/handle-special-data-types/query-json-data.md)。
 {% endhint %}
 
-| Method | Description | Available in Code node? |
+| 方法 | 说明 | Code 节点中是否可用 |
 | ------ | ----------- | :-------------------------: |
-| `$jmespath()` | Perform a search on a JSON object using JMESPath. | ✅ |
+| `$jmespath()` | 使用 JMESPath 搜索 JSON 对象。 | ✅ |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use built-in shortcuts](../use-built-in-shortcuts.md)
-* [HTTP node](http-node.md)
-* [LangChain Code node](langchain-code-node.md)
-* [n8n metadata](n8n-metadata.md)
+* [使用内置快捷方法](../use-built-in-shortcuts.md)
+* [HTTP 节点](http-node.md)
+* [LangChain Code 节点](langchain-code-node.md)
+* [n8n 元数据](n8n-metadata.md)

@@ -1,142 +1,144 @@
 ---
-title: code-node
+title: Code 节点
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Use the Code node to write custom JavaScript or Python and run it as a step in your workflow.
+
+使用 Code 节点编写自定义 JavaScript 或 Python，并将其作为工作流中的一个步骤运行。
 
 {% hint style="info" %}
-**Coding in n8n**
+**在 n8n 中编写代码**
 
-This page gives usage information about the Code node. For more guidance on coding in n8n, refer to the [Code](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n) section. It includes:
+本页介绍 Code 节点的使用方法。更多编程指导请参阅[代码](../../../../../../build/code-in-n8n/README.md)章节，其中包括：
 
-* Reference documentation on [Built-in methods and variables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/use-built-in-shortcuts)
-* Guidance on [Handling dates](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/handle-special-data-types/work-with-dates-and-times) and [Querying JSON](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/handle-special-data-types/query-json-data)
-* A growing collection of examples in the [Cookbook](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/cookbook/code-node)
+* [内置方法和变量](../../../../../../build/code-in-n8n/use-built-in-shortcuts.md)参考文档
+* [日期处理](../../../../../../build/work-with-data/handle-special-data-types/work-with-dates-and-times.md)和 [JSON 查询](../../../../../../build/work-with-data/handle-special-data-types/query-json-data.md)指南
+* [实用示例](../../../../../../build/code-in-n8n/cookbook/code-node/README.md)中不断增加的示例集合
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例和模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Code integrations](https://n8n.io/integrations/code/) page.
+入门示例和模板，请参阅 n8n 的 [Code 集成](https://n8n.io/integrations/code/)页面。
 {% endhint %}
 
 {% hint style="info" %}
-**Function and Function Item nodes**
+**Function 和 Function Item 节点**
 
-The Code node replaces the Function and Function Item nodes from n8n 0.198.0. If you're using an older version of n8n, you can still view the [Function node documentation](https://github.com/n8n-io/n8n-docs/blob/67935ad2528e2e30d7984ea917e4af2910a096ec/docs/integrations/builtin/core-nodes/n8n-nodes-base.function.md) and [Function Item node documentation](https://github.com/n8n-io/n8n-docs/blob/67935ad2528e2e30d7984ea917e4af2910a096ec/docs/integrations/builtin/core-nodes/n8n-nodes-base.functionItem.md).
+从 n8n 0.198.0 起，Code 节点替代 Function 和 Function Item 节点。使用更早版本时，仍可查看 [Function 节点文档](https://github.com/n8n-io/n8n-docs/blob/67935ad2528e2e30d7984ea917e4af2910a096ec/docs/integrations/builtin/core-nodes/n8n-nodes-base.function.md)和 [Function Item 节点文档](https://github.com/n8n-io/n8n-docs/blob/67935ad2528e2e30d7984ea917e4af2910a096ec/docs/integrations/builtin/core-nodes/n8n-nodes-base.functionItem.md)。
 {% endhint %}
 
-## Usage <a href="#usage" id="usage"></a>
+## 使用方式 <a href="#usage" id="usage"></a>
 
-How to use the Code node.
+如何使用 Code 节点。
 
-### Choose a mode <a href="#choose-a-mode" id="choose-a-mode"></a>
+### 选择模式 <a href="#choose-a-mode" id="choose-a-mode"></a>
 
-There are two modes:
+有两种模式：
 
-* **Run Once for All Items**: this is the default. When your workflow runs, the code in the code node executes once, regardless of how many input items there are.
-* **Run Once for Each Item**: choose this if you want your code to run for every input item.
+* **Run Once for All Items（为所有数据项运行一次）**：默认模式。工作流运行时，无论输入多少个数据项，Code 节点中的代码都只执行一次。
+* **Run Once for Each Item（为每个数据项运行一次）**：希望代码针对每个输入数据项分别运行时，选择此模式。
 
 ## JavaScript <a href="#javascript" id="javascript"></a>
 
-The Code node supports Node.js.
+Code 节点支持 Node.js。
 
-### Supported JavaScript features <a href="#supported-javascript-features" id="supported-javascript-features"></a>
+### 支持的 JavaScript 功能 <a href="#supported-javascript-features" id="supported-javascript-features"></a>
 
-The Code node supports:
+Code 节点支持：
 
-* Promises. Instead of returning the items directly, you can return a promise which resolves accordingly.
-* Writing to your browser console using `console.log`. This is useful for debugging and troubleshooting your workflows.
+* Promise。可以返回会解析为相应结果的 Promise，而不是直接返回数据项。
+* 使用 `console.log` 向浏览器控制台写入信息，便于调试和排查工作流。
 
-### External libraries <a href="#external-libraries" id="external-libraries"></a>
+### 外部库 <a href="#external-libraries" id="external-libraries"></a>
 
-If you self-host n8n, you can import and use built-in and external npm modules in the Code node. To learn how to enable external modules, refer to the [Enable modules in Code node](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-modules-in-code-node) guide.
+自托管 n8n 时，可以在 Code 节点中导入并使用内置和外部 npm 模块。启用外部模块的方法，请参阅[在 Code 节点中启用模块](../../../../../../deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/enable-modules-in-code-node.md)。
 
-If you use n8n Cloud, you can't import external npm modules. n8n makes two modules available for you:
+使用 n8n Cloud 时，不能导入外部 npm 模块。n8n 提供两个可用模块：
 
-* [crypto Node.js module](https://nodejs.org/docs/latest-v18.x/api/crypto.html)
-* [moment npm package](https://www.npmjs.com/package/moment)
+* [crypto Node.js 模块](https://nodejs.org/docs/latest-v18.x/api/crypto.html)
+* [moment npm 包](https://www.npmjs.com/package/moment)
 
-### Built-in methods and variables <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
+### 内置方法和变量 <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
 
-n8n provides built-in methods and variables for working with data and accessing n8n data. Refer to [Built-in methods and variables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/use-built-in-shortcuts) for more information.
+n8n 提供内置方法和变量，用于处理数据和访问 n8n 数据。更多信息请参阅[内置方法和变量](../../../../../../build/code-in-n8n/use-built-in-shortcuts.md)。
 
-The syntax to use the built-in methods and variables is `$variableName` or `$methodName()`. Type `$` in the Code node or expressions editor to see a list of suggested methods and variables.
+使用内置方法和变量的语法是 `$variableName` 或 `$methodName()`。在 Code 节点或表达式编辑器中输入 `$`，即可查看建议方法和变量列表。
 
-### Keyboard shortcuts <a href="#keyboard-shortcuts" id="keyboard-shortcuts"></a>
+### 键盘快捷键 <a href="#keyboard-shortcuts" id="keyboard-shortcuts"></a>
 
-The Code node editing environment supports time-saving and useful keyboard shortcuts for a range of operations from autocompletion to code-folding and using multiple-cursors. See the full list of [keyboard shortcuts](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts).
+Code 节点编辑环境提供多种实用快捷键，可用于自动补全、代码折叠、多光标等操作。完整列表见[键盘快捷键](../../../../../../integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts.md)。
 
-## Python (Pyodide - legacy) <a href="#python-pyodide-legacy" id="python-pyodide-legacy"></a>
+## Python（Pyodide，旧版） <a href="#python-pyodide-legacy" id="python-pyodide-legacy"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-Pyodide is removed from n8n 2.0. n8n no longer supports this feature.
+Pyodide 已从 n8n 2.0 中移除，n8n 不再支持此功能。
 {% endhint %}
 
-n8n added Python support in n8n 1.0. It doesn't include a Python executable. Instead, n8n provides Python support using [Pyodide](https://pyodide.org/en/stable/), which is a port of CPython to WebAssembly. This limits the available Python packages to the [Packages included with Pyodide](https://pyodide.org/en/stable/usage/packages-in-pyodide.html#packages-in-pyodide). n8n downloads the package automatically the first time you use it.
+n8n 在 1.0 中加入 Python 支持，但不包含 Python 可执行程序，而是通过 [Pyodide](https://pyodide.org/en/stable/)（CPython 的 WebAssembly 移植版）提供支持。因此，可用包仅限 [Pyodide 包含的包](https://pyodide.org/en/stable/usage/packages-in-pyodide.html#packages-in-pyodide)。首次使用时，n8n 会自动下载对应包。
 
 {% hint style="info" %}
-**Slower than JavaScript**
+**比 JavaScript 慢**
 
-The Code node takes longer to process Python than JavaScript. This is due to the extra compilation steps.
+由于需要额外编译步骤，Code 节点处理 Python 比处理 JavaScript 耗时更长。
 {% endhint %}
 
-### Built-in methods and variables <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
+### 内置方法和变量 <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
 
-n8n provides built-in methods and variables for working with data and accessing n8n data. Refer to [Built-in methods and variables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/use-built-in-shortcuts) for more information.
+n8n 提供内置方法和变量，用于处理数据和访问 n8n 数据。更多信息请参阅[内置方法和变量](../../../../../../build/code-in-n8n/use-built-in-shortcuts.md)。
 
-The syntax to use the built-in methods and variables is `_variableName` or `_methodName()`. Type `_` in the Code node to see a list of suggested methods and variables.
+使用内置方法和变量的语法是 `_variableName` 或 `_methodName()`。在 Code 节点中输入 `_`，即可查看建议方法和变量列表。
 
-### Keyboard shortcuts <a href="#keyboard-shortcuts" id="keyboard-shortcuts"></a>
+### 键盘快捷键 <a href="#keyboard-shortcuts" id="keyboard-shortcuts"></a>
 
-The Code node editing environment supports time-saving and useful keyboard shortcuts for a range of operations from autocompletion to code-folding and using multiple-cursors. See the full list of [keyboard shortcuts](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts).
+Code 节点编辑环境提供多种实用快捷键，可用于自动补全、代码折叠、多光标等操作。完整列表见[键盘快捷键](../../../../../../integrations/builtin/core-nodes/n8n-nodes-base.code/keyboard-shortcuts.md)。
 
-## File system and HTTP requests <a href="#file-system-and-http-requests" id="file-system-and-http-requests"></a>
+## 文件系统与 HTTP 请求 <a href="#file-system-and-http-requests" id="file-system-and-http-requests"></a>
 
-You can't access the file system or make HTTP requests. Use the following nodes instead:
+不能访问文件系统或发出 HTTP 请求，请改用以下节点：
 
-* [Read/Write File From Disk](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.readwritefile)
-* [HTTP Request](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.httprequest)
+* [Read/Write File From Disk（读写磁盘文件）](../../../../../../integrations/builtin/core-nodes/n8n-nodes-base.readwritefile.md)
+* [HTTP Request](../../../../../../integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md)
 
-## Python (Native) <a href="#python-native" id="python-native"></a>
+## Python（原生） <a href="#python-native" id="python-native"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Native Python support using task runners is available from n8n 1.111.0. This feature is stable as of n8n 2.
+使用任务运行器的原生 Python 支持从 n8n 1.111.0 起可用，在 n8n 2 中已稳定。
 {% endhint %}
 
-Main differences from Pyodide:
+与 Pyodide 的主要区别：
 
-* Native Python supports only `_items` in all-items mode and `_item` in per-item mode. It doesn't support other n8n built-in methods and variables.
-* On self-hosted, native Python supports importing native Python modules from the standard library and from third-parties, if the `n8nio/runners` image includes them and explicitly allowlists them. See [adding extra dependencies for task runners](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/set-up-task-runners#adding-extra-dependencies) for more details.
-* Native Python denies insecure built-ins by default. See [task runners environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/task-runners) for more details.
-* Unlike Pyodide, which accepts dot access notation, for example, `item.json.myNewField`, native Python only accepts bracket access notation, for example, `item["json"]["my_new_field"]`. There may be other minor syntax differences where Pyodide accepts constructs that aren't legal in native Python.
-* On n8n cloud, the Python option for the Code node doesn't allow users to import any Python libraries — whether from the standard library or third-party packages. See [adding extra dependencies for task runners](https://docs.n8n.io/hosting/configuration/task-runners/#adding-extra-dependencies) for instructions to include external libraries when self-hosting. In the long term, the n8n team is committed to allowing users to securely execute arbitrary Python code with any first- and third-party libraries using task runners.
+* 原生 Python 在处理所有数据项的模式下仅支持 `_items`，逐项模式下仅支持 `_item`，不支持其他 n8n 内置方法和变量。
+* 自托管环境中，如果 `n8nio/runners` 镜像包含相应模块，且已显式加入允许列表，原生 Python 可以导入标准库和第三方原生模块。详情请参阅[为任务运行器添加额外依赖](../../../../../../deploy/host-n8n/configure-n8n/set-up-task-runners.md#adding-extra-dependencies)。
+* 原生 Python 默认禁止不安全的内置功能。详情请参阅[任务运行器环境变量](../../../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/task-runners.md)。
+* Pyodide 接受点访问语法，例如 `item.json.myNewField`；原生 Python 则只接受方括号访问语法，例如 `item["json"]["my_new_field"]`。还可能有其他细微差异：Pyodide 接受的某些写法，在原生 Python 中并不合法。
+* 在 n8n Cloud 上，Code 节点的 Python 选项不允许导入任何 Python 库，包括标准库和第三方包。自托管环境如何包含外部库，请参阅[为任务运行器添加额外依赖](../../../../../../deploy/host-n8n/configure-n8n/set-up-task-runners.md#adding-extra-dependencies)。长期而言，n8n 团队致力于通过任务运行器，让用户安全执行使用任意标准库和第三方库的 Python 代码。
 
-Upgrading to native Python is a breaking change, so you may need to adjust your Python scripts to use the native Python runner.
+升级为原生 Python 属于破坏性变更，可能需要调整脚本，才能使用原生 Python 运行器。
 
-## Coding in n8n <a href="#coding-in-n8n" id="coding-in-n8n"></a>
+## 在 n8n 中编写代码 <a href="#coding-in-n8n" id="coding-in-n8n"></a>
 
-There are two places where you can use code in n8n: the Code node and the expressions editor. When using either area, there are some key concepts you need to know, as well as some built-in methods and variables to help with common tasks.
+n8n 中有两处可以使用代码：Code 节点和表达式编辑器。使用任一方式时，都需要了解一些关键概念；也有内置方法和变量可以辅助完成常见任务。
 
-### Key concepts <a href="#key-concepts" id="key-concepts"></a>
+### 关键概念 <a href="#key-concepts" id="key-concepts"></a>
 
-When working with the Code node, you need to understand the following concepts:
+使用 Code 节点时，需要了解以下概念：
 
-* [Data structure](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/understand-n8ns-data-structure): understand the data you receive in the Code node, and requirements for outputting data from the node.
-* [Item linking](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/reference-data/link-data-items): learn how data items work, and how to link to items from previous nodes. You need to handle item linking in your code when the number of input and output items doesn't match.
+* [数据结构](../../../../../../build/work-with-data/understand-n8ns-data-structure.md)：了解 Code 节点收到的数据，以及输出数据必须满足的要求。
+* [数据项关联](../../../../../../build/work-with-data/reference-data/link-data-items/README.md)：了解数据项如何工作，以及如何关联到前面节点的数据项。输入和输出数据项数量不同时，需要在代码中处理数据项关联。
 
-### Built-in methods and variables <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
+### 内置方法和变量 <a href="#built-in-methods-and-variables" id="built-in-methods-and-variables"></a>
 
-n8n includes built-in methods and variables. These provide support for:
+n8n 内置方法和变量可以帮助你：
 
-* Accessing specific item data
-* Accessing data about workflows, executions, and your n8n environment
-* Convenience variables to help with data and time
+* 访问特定数据项的数据
+* 访问工作流、执行和 n8n 环境的信息
+* 使用辅助变量处理数据和时间
 
-Refer to [Built-in methods and variables](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/code-in-n8n/use-built-in-shortcuts) for more information.
+更多信息请参阅[内置方法和变量](../../../../../../build/code-in-n8n/use-built-in-shortcuts.md)。
 
-## Use AI in the Code node <a href="#use-ai-in-the-code-node" id="use-ai-in-the-code-node"></a>
+## 在 Code 节点中使用 AI <a href="#use-ai-in-the-code-node" id="use-ai-in-the-code-node"></a>

@@ -3,20 +3,22 @@ layout:
   description:
     visible: false
 ---
-# Cookbook <a href="#cookbook" id="cookbook"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-This section contains examples and recipes for common coding tasks in n8n.
+# 实用示例 <a href="#cookbook" id="cookbook"></a>
 
-## In this section
+本节提供 n8n 常见编程任务的示例与解决方法。
 
-* [Built-in methods and variables examples](built-in-methods-and-variables-examples/README.md): usage examples for n8n's built-in methods and variables.
-* [Code node](code-node/README.md): examples and recipes for tasks you can do with the Code node.
-* [HTTP Request node](http-request-node/README.md): examples for the HTTP Request node.
+## 本节内容 <a id="in-this-section"></a>
 
-## Related resources
+* [内置方法和变量示例](built-in-methods-and-variables-examples/README.md)：n8n 内置方法和变量的用法。
+* [Code 节点](code-node/README.md)：通过 Code 节点完成任务的示例与解决方法。
+* [HTTP Request 节点](http-request-node/README.md)：HTTP Request 节点示例。
 
-* [Code in n8n](../)
-* [Using the Code node](../using-the-code-node.md)
-* [Get coding help from AI](../get-coding-help-from-ai.md)
-* [Use built-in shortcuts](../use-built-in-shortcuts.md)
-* [Define custom variables](../define-custom-variables.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [在 n8n 中编写代码](../)
+* [使用 Code 节点](../using-the-code-node.md)
+* [获取 AI 编程帮助](../get-coding-help-from-ai.md)
+* [使用内置快捷方法](../use-built-in-shortcuts.md)
+* [定义自定义变量](../define-custom-variables.md)

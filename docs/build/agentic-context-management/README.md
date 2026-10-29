@@ -1,7 +1,5 @@
 ---
-description: >-
-  Give n8n Assistant and connected MCP clients reusable context about how you
-  and your team build in n8n.
+description: 为 n8n Assistant 和已连接的 MCP 客户端提供可复用上下文，说明你和团队在 n8n 中的构建方式。
 layout:
   width: default
   title:
@@ -23,43 +21,45 @@ layout:
   anchors:
     visible: true
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Agentic context management
 
-Agentic context management lets you give AI tools in n8n reusable context, such as your naming rules and preferred nodes, so you don't repeat it in every prompt.
+# 智能体上下文管理 <a id="agentic-context-management"></a>
+
+智能体上下文管理可以向 n8n 中的 AI 工具提供可复用上下文，例如命名规则和首选节点，无需在每条提示词中重复说明。
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-Agentic context management is in Preview and may change in future releases. Avoid relying on it in production.
+智能体上下文管理处于预览阶段，未来版本中可能变化。请避免在生产环境中依赖此功能。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/KbKP88R2IFii1k97togq/" %}
+{% include "../../reusable-content/.gitbook/includes/agent-search-endpoint.md" %}
 
-## How context reaches AI tools
+## 上下文如何传递给 AI 工具 <a id="how-context-reaches-ai-tools"></a>
 
-You manage context in **Settings** > **Context**. n8n stores it once and passes it to every AI surface that reads it:
+在 **Settings（设置）** > **Context（上下文）** 中管理上下文。n8n 只存储一份，再传递给所有读取它的 AI 功能：
 
-* **n8n Assistant** reads context on every message you send, so an edit applies from your next message.
-* **MCP clients** connected to the [n8n MCP server](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/connect-to-n8n-mcp-server) read context through MCP tools, each time they call them.
+* **n8n Assistant** 会在每条消息中读取上下文，因此编辑从下一条消息起生效。
+* 连接 [n8n MCP 服务器](../../connect/connect-to-n8n-mcp-server.md)的 **MCP 客户端**，会在每次调用相关 MCP 工具时读取上下文。
 
-Context follows n8n's permissions. Each person only receives the context they're allowed to see, and only people with the right role can change context that applies to others.
+上下文遵循 n8n 的权限规则。每个人只能收到有权查看的上下文，只有具备相应角色的人才能修改适用于他人的上下文。
 
-## Types of context
+## 上下文类型 <a id="types-of-context"></a>
 
-Today, n8n supports one kind of context: [preferences](preferences.md). A preference is a short instruction, such as "Always connect an error workflow", that AI tools apply every time they build workflows and agents for you. You can save a preference for yourself, for a project, or for everyone on the instance.
+目前 n8n 支持一种上下文：[偏好设置](preferences.md)。偏好是简短指令，例如“始终连接错误工作流”，AI 工具每次为你构建工作流和智能体时都会应用。可以为自己、某个项目或实例中的所有人保存偏好。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Build](../)
-* [Ways of building workflows](../ways-of-building-workflows/)
-* [Build and manage agents](../build-and-manage-agents/)
-* [Integrate AI](../integrate-ai/)
-* [Manage workflows](../manage-workflows/)
-* [Flow logic](../flow-logic/)
-* [Work with data](../work-with-data/)
-* [Code in n8n](../code-in-n8n/)
-* [Keyboard shortcuts](../keyboard-shortcuts.md)
+* [构建](../)
+* [构建工作流的方式](../ways-of-building-workflows/)
+* [构建和管理智能体](../build-and-manage-agents/)
+* [集成 AI](../integrate-ai/)
+* [管理工作流](../manage-workflows/)
+* [流程逻辑](../flow-logic/)
+* [处理数据](../work-with-data/)
+* [在 n8n 中编写代码](../code-in-n8n/)
+* [键盘快捷键](../keyboard-shortcuts.md)

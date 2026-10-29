@@ -1,30 +1,31 @@
 ---
-description: Access your environment's custom variables.
+description: 访问环境的自定义变量。
 contentType: reference
 nodeTitle: vars
 originalFilePath: code/cookbook/builtin/vars.md
-originalUrl: 'https://docs.n8n.io/code/cookbook/builtin/vars'
-url: >-
-  https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/vars
+originalUrl: https://docs.n8n.io/code/cookbook/builtin/vars
+url: https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples/vars
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 
 # `vars` <a href="#vars" id="vars"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-`vars` is available on:
+以下套餐提供 `vars`：
 
-- **n8n Cloud:** Pro, Enterprise
-- **Self-hosted:** Business, Enterprise
+- **n8n Cloud：** Pro、Enterprise
+- **自托管：** Business、Enterprise
 
-You need access to the n8n instance owner account to create variables.
+需要 n8n 实例所有者账号的访问权限，才能创建变量。
 {% endhint %}
 
-`vars` contains all [Variables](../../define-custom-variables.md) for the active environment. It's read-only: you can access variables using `vars`, but must set them using the UI.
+`vars` 包含当前环境的所有[变量](../../define-custom-variables.md)，它是只读的：可以使用 `vars` 访问变量，但必须通过界面设置。
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -43,11 +44,11 @@ _vars.<variable-name>
 {% endtabs %}
 
 {% hint style="info" %}
-**`vars` and `env`**
+**`vars` 与 `env`**
 
-`vars` gives access to user-created variables. It's part of the [Environments](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/use-source-control-and-environments) feature. `env` gives access to the [configuration environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables) for your n8n instance.
+`vars` 用于访问用户创建的变量，属于[环境](../../../../administer/use-source-control-and-environments/README.md)功能。`env` 用于访问 n8n 实例的[配置环境变量](../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/README.md)。
 {% endhint %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Built-in methods and variables examples](./)
+* [内置方法和变量示例](./)

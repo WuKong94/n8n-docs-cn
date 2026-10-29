@@ -1,11 +1,11 @@
 ---
-title: AI coding
+title: AI 编程
 contentType: explanation
-nodeTitle: Get coding help from AI
+nodeTitle: 获取 AI 编程帮助
 originalFilePath: code/ai-code.md
 originalUrl: https://docs.n8n.io/code/ai-code
 url: https://docs.n8n.io/build/code-in-n8n/get-coding-help-from-ai
-description: Use GPT to generate code in the Code node.
+description: 使用 GPT 在 Code 节点中生成代码。
 layout:
   width: default
   title:
@@ -25,63 +25,65 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Get coding help from AI
 
-## Use AI in the Code node <a href="#use-ai-in-the-code-node" id="use-ai-in-the-code-node"></a>
+# 获取 AI 编程帮助 <a id="get-coding-help-from-ai"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/1MYzyKWyHTaQMU44vlTt/" %}
+## 在 Code 节点中使用 AI <a href="#use-ai-in-the-code-node" id="use-ai-in-the-code-node"></a>
 
-## Usage limits <a href="#usage-limits" id="usage-limits"></a>
+{% include "../../reusable-content/.gitbook/includes/code/ai-how-to.md" %}
 
-During the trial phase there are no usage limits. If n8n makes the feature permanent, there may be usage limits as part of your pricing tier.
+## 使用限制 <a href="#usage-limits" id="usage-limits"></a>
 
-## Feature limits <a href="#feature-limits" id="feature-limits"></a>
+试用阶段没有使用量限制。如果 n8n 将此功能正式推出，可能会根据定价套餐设置使用上限。
 
-The ChatGPT implementation in n8n has the following limitations:
+## 功能限制 <a href="#feature-limits" id="feature-limits"></a>
 
-* The AI writes code that manipulates data from the n8n workflow. You can't ask it to pull in data from other sources.
-* The AI doesn't know your data, just the schema, so you need to tell it things like how to find the data you want to extract, or how to check for null.
-* Nodes before the Code node must execute and deliver data to the Code node before you run your AI query.
-* Doesn't work with large incoming data schemas.
-* May have issues if there are a lot of nodes before the code node.
+n8n 中的 ChatGPT 实现有以下限制：
 
-## Writing good prompts <a href="#writing-good-prompts" id="writing-good-prompts"></a>
+* AI 编写的代码用于操作 n8n 工作流中的数据，不能要求它从其他来源获取数据。
+* AI 只知道数据结构，不知道实际数据，因此需要告诉它如何找到要提取的数据、如何检查空值等。
+* 提交 AI 请求前，Code 节点之前的节点必须已执行，并将数据传递给 Code 节点。
+* 不适用于大型传入数据结构。
+* Code 节点前面有大量节点时，可能出现问题。
 
-Writing good prompts increases the chance of getting useful code back.
+## 编写有效提示词 <a href="#writing-good-prompts" id="writing-good-prompts"></a>
 
-Some general tips:
+好的提示词能提高获得有用代码的概率。
 
-* Provide examples: if possible, give a sample expected output. This helps the AI to better understand the transformation or logic you’re aiming for.
-* Describe the processing steps: if there are specific processing steps or logic that should apply to the data, list them in sequence. For example: "First, filter out all users under 18. Then, sort the remaining users by their last name."
-* Avoid ambiguities: while the AI understands various instructions, being clear and direct ensures you get the most accurate code. Instead of saying "Get the older users," you might say "Filter users who are 60 years and above."
-* Be clear about what you expect as the output. Do you want the data transformed, filtered, aggregated, or sorted? Provide as much detail as possible.
+一般建议如下：
 
-And some n8n-specific guidance:
+* 提供示例：尽可能给出预期输出样例，帮助 AI 理解想要的数据转换或逻辑。
+* 描述处理步骤：如果数据需要特定处理步骤或逻辑，按顺序列出。例如：“首先过滤掉所有未满 18 岁的用户，再按姓氏排序剩余用户。”
+* 避免歧义：虽然 AI 能理解多种指令，但清晰、直接的表述有助于获得更准确的代码。例如，将“获取年长用户”改为“筛选年龄不小于 60 岁的用户”。
+* 明确预期输出：希望转换、筛选、聚合还是排序数据？尽可能详细说明。
 
-* Think about the input data: make sure ChatGPT knows which pieces of the data you want to access, and what the incoming data represents. You may need to tell ChatGPT about the availability of n8n's built-in methods and variables.
-* Declare interactions between nodes: if your logic involves data from multiple nodes, specify how they should interact. "Merge the output of 'Node A' with 'Node B' based on the 'userID' property". if you prefer data to come from certain nodes or to ignore others, be clear: "Only consider data from the 'Purchases' node and ignore the 'Refunds' node."
-* Ensure the output is compatible with n8n. Refer to [Data structure](../work-with-data/understand-n8ns-data-structure.md) for more information on the data structure n8n requires.
+针对 n8n，还有以下建议：
 
-### Example prompts <a href="#example-prompts" id="example-prompts"></a>
+* 考虑输入数据：确保 ChatGPT 清楚需要访问哪些数据，以及传入数据代表什么。可能还需要说明有哪些 n8n 内置方法和变量可用。
+* 说明节点交互：如果逻辑涉及多个节点，明确它们如何交互，例如“根据 userID 属性合并 Node A 和 Node B 的输出”。如果希望使用特定节点或忽略其他节点，也要说明，例如“仅考虑 Purchases 节点的数据，忽略 Refunds 节点”。
+* 确保输出兼容 n8n。n8n 要求的数据格式见[数据结构](../work-with-data/understand-n8ns-data-structure.md)。
 
-These examples show a range of possible prompts and tasks.
+### 提示词示例 <a href="#example-prompts" id="example-prompts"></a>
 
-#### Example 1: Find a piece of data inside a second dataset <a href="#example-1-find-a-piece-of-data-inside-a-second-dataset" id="example-1-find-a-piece-of-data-inside-a-second-dataset"></a>
+以下示例展示多种提示词和任务。
 
-To try the example yourself, download the example workflow and import it into n8n:
+#### 示例 1：在第二个数据集中查找某条数据 <a href="#example-1-find-a-piece-of-data-inside-a-second-dataset" id="example-1-find-a-piece-of-data-inside-a-second-dataset"></a>
+
+要自行尝试，下载示例工作流并导入 n8n：
 
 {% file src="../.gitbook/assets/find-a-piece-of-data.json" %}
-Example workflow
+示例工作流
 {% endfile %}
 
-In the third Code node, enter this prompt:
+在第三个 Code 节点中输入以下提示词：
 
-> The slack data contains only one item. The input data represents all Notion users. Sometimes the person property that holds the email can be null. I want to find the notionId of the Slack user and return it.
+> Slack 数据只有一个数据项。输入数据代表所有 Notion 用户。保存邮箱的 person 属性有时为 null。我想找到该 Slack 用户的 notionId 并返回。
 
-Take a look at the code the AI generates.
+查看 AI 生成的代码。
 
-This is the JavaScript you need:
+所需 JavaScript 如下：
 
 ```js
 const slackUser = $("Mock Slack").all()[0];
@@ -95,21 +97,21 @@ const notionUser = notionUsers.find(
 return notionUser ? [{ json: { notionId: notionUser.json.id } }] : [];
 ```
 
-#### Example 2: Data transformation <a href="#example-2-data-transformation" id="example-2-data-transformation"></a>
+#### 示例 2：数据转换 <a href="#example-2-data-transformation" id="example-2-data-transformation"></a>
 
-To try the example yourself, download the example workflow and import it into n8n:
+要自行尝试，下载示例工作流并导入 n8n：
 
 {% file src="../.gitbook/assets/data-transformation.json" %}
-Example workflow
+示例工作流
 {% endfile %}
 
-In the **Join items** Code node, enter this prompt:
+在 **Join items** Code 节点中输入以下提示词：
 
-> Return a single line of text that has all usernames listed with a comma. Each username should be enquoted with a double quotation mark.
+> 返回一行文本，用逗号分隔列出所有用户名，每个用户名都用双引号括起。
 
-Take a look at the code the AI generates.
+查看 AI 生成的代码。
 
-This is the JavaScript you need:
+所需 JavaScript 如下：
 
 ```js
 const items = $input.all();
@@ -118,21 +120,21 @@ const result = usernames.join(", ");
 return [{ json: { usernames: result } }];
 ```
 
-#### Example 3: Summarize data and create a Slack message <a href="#example-3-summarize-data-and-create-a-slack-message" id="example-3-summarize-data-and-create-a-slack-message"></a>
+#### 示例 3：汇总数据并创建 Slack 消息 <a href="#example-3-summarize-data-and-create-a-slack-message" id="example-3-summarize-data-and-create-a-slack-message"></a>
 
-To try the example yourself, download the example workflow and import it into n8n:
+要自行尝试，下载示例工作流并导入 n8n：
 
 {% file src="../.gitbook/assets/summarize-data.json" %}
-Example workflow
+示例工作流
 {% endfile %}
 
-In the **Summarize** Code node, enter this prompt:
+在 **Summarize** Code 节点中输入以下提示词：
 
-> Create a markdown text for Slack that counts how many ideas, features and bugs have been submitted. The type of submission is saved in the property\_type field. A feature has the property "Feature", a bug has the property "Bug" and an idea has the property "Bug". Also, list the five top submissions by vote in that message. Use "\<url|text>" as markdown for links.
+> 为 Slack 创建一段 Markdown 文本，统计提交了多少个想法、功能和故障。提交类型保存在 property\_type 字段中。功能的类型为“Feature”，故障的类型为“Bug”，想法的类型为“Idea”。还要在消息中列出得票最多的前五项提交。使用“\<url|text>”作为链接的 Markdown 格式。
 
-Take a look at the code the AI generates.
+查看 AI 生成的代码。
 
-This is the JavaScript you need:
+所需 JavaScript 如下：
 
 ```js
 const submissions = $input.all();
@@ -177,23 +179,23 @@ ${topSubmissionText}`;
 return [{ json: { slackMessage } }];
 ```
 
-### Reference incoming node data explicitly <a href="#reference-incoming-node-data-explicitly" id="reference-incoming-node-data-explicitly"></a>
+### 显式引用传入节点数据 <a href="#reference-incoming-node-data-explicitly" id="reference-incoming-node-data-explicitly"></a>
 
-If your incoming data contains nested fields, using dot notation to reference them can help the AI understand what data you want.
+传入数据含有嵌套字段时，使用点表示法引用，有助于 AI 理解需要哪些数据。
 
-![Code node with an AI prompt referencing nested data using dot notation, such as personal_info.first_name](../.gitbook/assets/reference-data-dot-notation.png)
+![Code 节点中的 AI 提示词通过 personal_info.first_name 等点表示法引用嵌套数据](../.gitbook/assets/reference-data-dot-notation.png)
 
-To try the example yourself, download the example workflow and import it into n8n:
+要自行尝试，下载示例工作流并导入 n8n：
 
 {% file src="../.gitbook/assets/reference-incoming-data-explicitly.json" %}
-Example workflow
+示例工作流
 {% endfile %}
 
-In the second Code node, enter this prompt:
+在第二个 Code 节点中输入以下提示词：
 
-> The data in "Mock data" represents a list of people. For each person, return a new item containing personal\_info.first\_name and work\_info.job\_title.
+> “Mock data”中的数据代表人员列表。对每个人，返回一个包含 personal\_info.first\_name 和 work\_info.job\_title 的新数据项。
 
-This is the JavaScript you need:
+所需 JavaScript 如下：
 
 ```js
 const items = $input.all();
@@ -210,16 +212,16 @@ const newItems = items.map((item) => {
 return newItems;
 ```
 
-## Fixing the code <a href="#fixing-the-code" id="fixing-the-code"></a>
+## 修正代码 <a href="#fixing-the-code" id="fixing-the-code"></a>
 
-The AI-generated code may work without any changes, but you may have to edit it. You need to be aware of n8n's [Data structure](../work-with-data/understand-n8ns-data-structure.md). You may also find n8n's built-in methods and variables useful.
+AI 生成的代码可能无需修改即可运行，也可能需要编辑。应了解 n8n 的[数据结构](../work-with-data/understand-n8ns-data-structure.md)，内置方法和变量也可能有帮助。
 
-### Related resources <a href="#related-resources" id="related-resources"></a>
+### 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-* [Code in n8n](./)
-* [Using the Code node](using-the-code-node.md)
-* [Use built-in shortcuts](use-built-in-shortcuts.md)
-* [Define custom variables](define-custom-variables.md)
-* [Cookbook](cookbook/README.md)
+* [在 n8n 中编写代码](./)
+* [使用 Code 节点](using-the-code-node.md)
+* [使用内置快捷方法](use-built-in-shortcuts.md)
+* [定义自定义变量](define-custom-variables.md)
+* [实用示例](cookbook/README.md)
 
-Pluralsight offer a short guide on [How to use ChatGPT to write code](https://www.pluralsight.com/blog/software-development/how-use-chatgpt-programming-coding), which includes example prompts.
+Pluralsight 提供了一份简短的[使用 ChatGPT 编写代码指南](https://www.pluralsight.com/blog/software-development/how-use-chatgpt-programming-coding)，其中包含提示词示例。

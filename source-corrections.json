@@ -25,5 +25,14 @@
     "translated_sentence": "使用 Magento 2 节点自动处理 Magento 2 中的工作，并将其与其他应用集成。n8n 内置支持多种 Magento 2 功能，包括创建、更新、删除和获取客户、发票、订单和产品。",
     "evidence": "同页资源列表为 Customer、Invoice、Order、Product，简介中的 projects 应为 products。",
     "scope": "根据同页明确的节点名称和操作列表纠正复制笔误；未推断或测试接口行为。"
+  },
+  {
+    "id": "ai-coding-idea-type",
+    "path": "build/code-in-n8n/get-coding-help-from-ai.md",
+    "source_sha256": "5d40c23c1837b883d4bcb225b4e8d490251284e5acd035fd0be1ab24b9415e81",
+    "original_sentence": "an idea has the property \"Bug\".",
+    "translated_sentence": "想法的类型为“Idea”。",
+    "evidence": "同页 Example 3 的 JavaScript switch 明确使用 case \"Idea\" 并增加 ideaCount；提示词把 idea 的类型重复写成了 Bug。",
+    "scope": "依据同页代码修正提示词中的类型名称；代码、下载示例和上游原文不修改。"
   }
 ]

@@ -1,8 +1,10 @@
 ---
-title: pagination-variables
+title: HTTP 分页变量
 ---
-| Variable | Description |
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+| 变量 | 说明 |
 | -------- | ----------- |
-| `$pageCount` | The pagination count. Tracks how many pages the node has fetched. |
-| `$request` | The request object sent by the HTTP node. |
-| `$response` | The response object from the HTTP call. Includes `$response.body`, `$response.headers`, and `$response.statusCode`. The contents of `body` and `headers` depend on the data sent by the API. |
+| `$pageCount` | 分页计数，跟踪节点已获取多少页。 |
+| `$request` | HTTP 节点发送的请求对象。 |
+| `$response` | HTTP 调用的响应对象，包含 `$response.body`、`$response.headers` 和 `$response.statusCode`。`body` 和 `headers` 的内容取决于 API 发送的数据。 |

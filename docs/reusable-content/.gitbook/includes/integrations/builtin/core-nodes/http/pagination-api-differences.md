@@ -1,12 +1,14 @@
 ---
-title: pagination-api-differences
+title: 不同 API 的分页差异
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
 {% hint style="info" %}
-**API differences**
+**API 差异**
 
-Different APIs implement pagination in different ways. Check the API documentation for the API you're using for details. You need to find out things like:
+不同 API 的分页实现方式不同。请查看所用 API 的文档，确认以下信息：
 
-* Does the API provide the URL for the next page?
-* Are there API-specific limits on page size or page number?
-* The structure of the data that the API returns.
+* API 是否提供下一页 URL？
+* API 是否对每页大小或页码设有专门限制？
+* API 返回的数据结构。
 {% endhint %}

@@ -1,63 +1,64 @@
 ---
-description: How to use console.log() or print()
+description: 如何使用 console.log() 或 print()。
 contentType: howto
-nodeTitle: Output to the browser console
+nodeTitle: 输出到浏览器控制台
 originalFilePath: code/cookbook/code-node/console-log.md
-originalUrl: 'https://docs.n8n.io/code/cookbook/code-node/console-log'
-url: >-
-  https://docs.n8n.io/build/code-in-n8n/cookbook/code-node/output-to-the-browser-console
+originalUrl: https://docs.n8n.io/code/cookbook/code-node/console-log
+url: https://docs.n8n.io/build/code-in-n8n/cookbook/code-node/output-to-the-browser-console
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Output to the browser console with `console.log()` or `print()` in the Code node <a href="#output-to-the-browser-console-with-consolelog-or-print-in-the-code-node" id="output-to-the-browser-console-with-consolelog-or-print-in-the-code-node"></a>
 
-You can use `console.log()` or `print()` in the Code node to help when writing and debugging your code.
+# 在 Code 节点中使用 `console.log()` 或 `print()` 输出到浏览器控制台 <a href="#output-to-the-browser-console-with-consolelog-or-print-in-the-code-node" id="output-to-the-browser-console-with-consolelog-or-print-in-the-code-node"></a>
 
-For help opening your browser console, refer to [this guide by Balsamiq](https://balsamiq.com/support/faqs/browserconsole/).
+编写和调试代码时，可以在 Code 节点中使用 `console.log()` 或 `print()` 辅助排查。
 
-## console.log (JavaScript) <a href="#consolelog-javascript" id="consolelog-javascript"></a>
+打开浏览器控制台的方法，请参阅 [Balsamiq 的指南](https://balsamiq.com/support/faqs/browserconsole/)。
 
-For technical information on `console.log()`, refer to the [MDN developer docs](https://developer.mozilla.org/en-US/docs/Web/API/Console/log).
+## console.log（JavaScript） <a href="#consolelog-javascript" id="consolelog-javascript"></a>
 
-For example, copy the following code into a Code node, then open your console and run the node:
+`console.log()` 的技术信息请参阅 [MDN 开发者文档](https://developer.mozilla.org/en-US/docs/Web/API/Console/log)。
+
+例如，将以下代码复制到 Code 节点，打开控制台并运行节点：
 
 ```js
 let a = "apple";
 console.log(a);
 ```
 
-## print (Python) <a href="#print-python" id="print-python"></a>
+## print（Python） <a href="#print-python" id="print-python"></a>
 
-For technical information on `print()`, refer to the [Real Python's guide](https://realpython.com/python-print/).
+`print()` 的技术信息请参阅 [Real Python 指南](https://realpython.com/python-print/)。
 
-For example, set your Code node **Language** to **Python**, copy the following code into the node, then open your console and run the node:
+例如，将 Code 节点的 **Language（语言）** 设为 **Python**，将以下代码复制到节点，打开控制台并运行节点：
 
 ```python
 a = "apple"
 print(a)
 ```
 
-### Printing node data <a href="#printing-node-data" id="printing-node-data"></a>
+### 打印节点数据 <a href="#printing-node-data" id="printing-node-data"></a>
 
-`_items` and `_item` are standard Python objects, so you can print them directly:
+`_items` 和 `_item` 是标准 Python 对象，可以直接打印：
 
 ```python
 print(_items)
 ```
 
 {% hint style="info" %}
-**`type()` isn't available**
+**`type()` 不可用**
 
-The Python Code node denies some built-in functions by default, including `type()`. Refer to [task runners environment variables](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/task-runners) for the full list and how to change it when self-hosting.
+Python Code 节点默认禁止部分内置函数，包括 `type()`。完整列表及自托管时的修改方式，请参阅[任务运行器环境变量](../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/task-runners.md)。
 {% endhint %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Code node cookbook](./)
-* [Get number of items returned by last node](get-number-of-items-returned-by-last-node.md)
-* [Get the binary data buffer](get-the-binary-data-buffer.md)
+* [Code 节点实用示例](./)
+* [获取前一节点返回的数据项数量](get-number-of-items-returned-by-last-node.md)
+* [获取二进制数据缓冲区](get-the-binary-data-buffer.md)
 
 
 

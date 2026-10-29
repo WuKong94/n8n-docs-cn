@@ -1,21 +1,23 @@
 ---
-title: ai-how-to
+title: 在 Code 节点中使用 AI
 ---
-{% hint style="info" %}
-**Feature availability**
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-AI assistance in the Code node is available to Cloud users. It isn't available in self-hosted n8n.
+{% hint style="info" %}
+**功能可用范围**
+
+Code 节点的 AI 辅助功能适用于 Cloud 用户，自托管 n8n 不提供。
 {% endhint %}
 
 {% hint style="info" %}
-**AI generated code overwrites your code**
+**AI 生成的代码会覆盖现有代码**
 
-If you've already written some code on the **Code** tab, the AI generated code will replace it. n8n recommends using AI as a starting point to create your initial code, then editing it as needed.
+如果已在 **Code（代码）** 标签页编写代码，AI 生成的代码会将其替换。n8n 建议先用 AI 生成初始代码，再按需要编辑。
 {% endhint %}
 
-To use ChatGPT to generate code in the Code node:
+使用 ChatGPT 在 Code 节点中生成代码的步骤如下：
 
-1. In the Code node, set **Language** to **JavaScript**.
-1. Select the **Ask AI** tab.
-1. Write your query.
-1. Select **Generate Code**. n8n sends your query to ChatGPT, then displays the result in the **Code** tab.
+1. 在 Code 节点中，将 **Language（语言）** 设为 **JavaScript**。
+1. 选择 **Ask AI（询问 AI）** 标签页。
+1. 编写请求。
+1. 选择 **Generate Code（生成代码）**。n8n 会将请求发送给 ChatGPT，再在 **Code（代码）** 标签页显示结果。

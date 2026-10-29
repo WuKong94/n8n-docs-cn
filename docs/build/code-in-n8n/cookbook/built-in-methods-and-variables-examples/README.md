@@ -1,31 +1,32 @@
 ---
 contentType: overview
-nodeTitle: Built-in methods and variables examples
+nodeTitle: 内置方法和变量示例
 originalFilePath: code/cookbook/builtin/index.md
-originalUrl: 'https://docs.n8n.io/code/cookbook/builtin'
-url: >-
-  https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples
+originalUrl: https://docs.n8n.io/code/cookbook/builtin
+url: https://docs.n8n.io/build/code-in-n8n/cookbook/built-in-methods-and-variables-examples
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Examples using n8n's built-in methods and variables <a href="#examples-using-n8ns-built-in-methods-and-variables" id="examples-using-n8ns-built-in-methods-and-variables"></a>
 
-n8n provides built-in methods and variables for working with data and accessing n8n data. This section provides usage examples.
+# n8n 内置方法和变量使用示例 <a href="#examples-using-n8ns-built-in-methods-and-variables" id="examples-using-n8ns-built-in-methods-and-variables"></a>
 
-## In this section
+n8n 提供内置方法和变量，用于处理数据和访问 n8n 数据。本节提供使用示例。
 
-* [execution](execution.md): set and get custom execution data.
-* [getWorkflowStaticData](getworkflowstaticdata.md): access the static workflow data.
-* [("node-name").all]((node-name).all.md): access all the items of the current or parent nodes.
-* [vars](vars.md): access your environment's custom variables.
+## 本节内容 <a id="in-this-section"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+* [execution](execution.md)：设置和获取自定义执行数据。
+* [getWorkflowStaticData](getworkflowstaticdata.md)：访问工作流静态数据。
+* [("node-name").all]((node-name).all.md): 访问当前节点或父节点的所有数据项。
+* [vars](vars.md)：访问环境的自定义变量。
 
-* [Cookbook](../)
-* [Code node](../code-node/README.md)
-* [HTTP Request node](../http-request-node/README.md)
-* [Built-in methods and variables reference](../../use-built-in-shortcuts.md)
-* [Expressions](../../../work-with-data/expressions-versus-data-nodes.md)
-* [Using the Code node](../../using-the-code-node.md)
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+* [实用示例](../)
+* [Code 节点](../code-node/README.md)
+* [HTTP Request 节点](../http-request-node/README.md)
+* [内置方法和变量参考](../../use-built-in-shortcuts.md)
+* [表达式](../../../work-with-data/expressions-versus-data-nodes.md)
+* [使用 Code 节点](../../using-the-code-node.md)
