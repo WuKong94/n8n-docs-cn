@@ -1,105 +1,106 @@
 ---
-nodeTitle: Nodeoutputdata
+nodeTitle: NodeOutputData（节点输出数据）
 originalFilePath: data/expression-reference/nodeoutputdata.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/nodeoutputdata'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/nodeoutputdata
+originalUrl: https://docs.n8n.io/data/expression-reference/nodeoutputdata
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/nodeoutputdata
 layout:
   description:
     visible: false
 ---
-# NodeOutputData <a href="#nodeoutputdata" id="nodeoutputdata"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# NodeOutputData（节点输出数据） <a href="#nodeoutputdata" id="nodeoutputdata"></a>
 
 ## `$()`.**`all()`** <a href="#dollarall" id="dollarall"></a>
 
-**Description:** Returns an array of the node’s output items
+**说明：** 返回节点输出数据项组成的数组。
 
-**Syntax:** `$()`.all(branchIndex?, runIndex?)
+**语法：** `$()`.all(branchIndex?, runIndex?)
 
-**Returns:** Array<Item>
+**返回值：** Array<Item>
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `branchIndex` (Number) - optional - The output branch of the node to use. Defaults to the first branch (index 0)
-  * `runIndex` (Number) - optional - The run of the node to use. Defaults to the first run (index 0)
+  * `branchIndex`（Number）— 可选 — 要使用的节点输出分支。默认为第一个分支（索引为 0）。
+  * `runIndex`（Number）— 可选 — 要使用节点的第几次运行。默认为第一次运行（索引为 0）。
 
 ## `$()`.**`first()`** <a href="#dollarfirst" id="dollarfirst"></a>
 
-**Description:** Returns the first item output by the node
+**说明：** 返回节点输出的第一个数据项。
 
-**Syntax:** `$()`.first(branchIndex?, runIndex?)
+**语法：** `$()`.first(branchIndex?, runIndex?)
 
-**Returns:** Item
+**返回值：** Item（数据项）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `branchIndex` (Number) - optional - The output branch of the node to use. Defaults to the first branch (index 0)
-  * `runIndex` (Number) - optional - The run of the node to use. Defaults to the first run (index 0)
+  * `branchIndex`（Number）— 可选 — 要使用的节点输出分支。默认为第一个分支（索引为 0）。
+  * `runIndex`（Number）— 可选 — 要使用节点的第几次运行。默认为第一次运行（索引为 0）。
 
 ## `$()`.**`isExecuted`** <a href="#dollarisexecuted" id="dollarisexecuted"></a>
 
-**Description:** Is <code>true</code> if the node has executed, <code>false</code> otherwise
+**说明：** 节点已执行时为 <code>true</code>，否则为 <code>false</code>。
 
-**Syntax:** `$()`.`$()`.**`isExecuted`**
+**语法：** `$()`.`$()`.**`isExecuted`**
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$()`.**`item`** <a href="#dollaritem" id="dollaritem"></a>
 
-**Description:** Returns the matching item, i.e. the one used to produce the current item in the current node. <a href="../../reference-data/link-data-items/README.md">More info</a>
+**说明：** 返回匹配的数据项，也就是用于生成当前节点中当前数据项的那个数据项。<a href="../../reference-data/link-data-items/README.md">更多信息</a>
 
-**Syntax:** `$()`.`$()`.**`item`**
+**语法：** `$()`.`$()`.**`item`**
 
-**Returns:** Item
+**返回值：** Item（数据项）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$()`.**`itemMatching()`** <a href="#dollaritemmatching" id="dollaritemmatching"></a>
 
-**Description:** Returns the matching item, i.e. the one used to produce the item in the current node at the specified index. <a href="../../reference-data/link-data-items/README.md">More info</a>
+**说明：** 返回匹配的数据项，也就是用于生成当前节点中指定索引处数据项的那个数据项。<a href="../../reference-data/link-data-items/README.md">更多信息</a>
 
-**Syntax:** `$()`.itemMatching(currentItemIndex?)
+**语法：** `$()`.itemMatching(currentItemIndex?)
 
-**Returns:** Item
+**返回值：** Item（数据项）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `currentItemIndex` (Number) - The index of the item in the current node to be matched with.
+  * `currentItemIndex`（Number）— 要匹配的当前节点中数据项的索引。
 
 ## `$()`.**`last()`** <a href="#dollarlast" id="dollarlast"></a>
 
-**Description:** Returns the last item output by the node
+**说明：** 返回节点输出的最后一个数据项。
 
-**Syntax:** `$()`.last(branchIndex?, runIndex?)
+**语法：** `$()`.last(branchIndex?, runIndex?)
 
-**Returns:** Item
+**返回值：** Item（数据项）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `branchIndex` (Number) - optional - The output branch of the node to use. Defaults to the first branch (index 0)
-  * `runIndex` (Number) - optional - The run of the node to use. Defaults to the first run (index 0)
+  * `branchIndex`（Number）— 可选 — 要使用的节点输出分支。默认为第一个分支（索引为 0）。
+  * `runIndex`（Number）— 可选 — 要使用节点的第几次运行。默认为第一次运行（索引为 0）。
 
 ## `$()`.**`params`** <a href="#dollarparams" id="dollarparams"></a>
 
-**Description:** The configuration settings of the given node. These are the parameters you fill out within the node’s UI (e.g. its operation).
+**说明：** 指定节点的配置，即在节点界面中填写的参数，例如要执行的操作。
 
-**Syntax:** `$()`.`$()`.**`params`**
+**语法：** `$()`.`$()`.**`params`**
 
-**Returns:** NodeParams
+**返回值：** NodeParams
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

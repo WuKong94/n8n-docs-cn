@@ -1,26 +1,27 @@
 ---
-nodeTitle: Object
+nodeTitle: Object（对象）
 originalFilePath: data/expression-reference/object.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/object'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/object
+originalUrl: https://docs.n8n.io/data/expression-reference/object
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/object
 layout:
   description:
     visible: false
 ---
-# Object <a href="#object" id="object"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# Object（对象） <a href="#object" id="object"></a>
 
 ## _`Object`_.**`compact()`** <a href="#objectcompact" id="objectcompact"></a>
 
-**Description:** Removes all fields that have empty values, i.e. are <code>null</code> or <code>""</code>
+**说明：** 删除所有值为空的字段，即值为 <code>null</code> 或 <code>""</code> 的字段。
 
-**Syntax:** _`Object`_.compact()
+**语法：** _`Object`_.compact()
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'x':null, 'y':2, 'z':''}
@@ -29,19 +30,19 @@ layout:
 
 ## _`Object`_.**`hasField()`** <a href="#objecthasfield" id="objecthasfield"></a>
 
-**Description:** Returns <code>true</code> if there is a field called <code>name</code>. Only checks top-level keys. Comparison is case-sensitive.
+**说明：** 返回 <code>true</code> 表示存在名为 <code>name</code> 的字段。仅检查顶层键，比较时区分大小写。
 
-**Syntax:** _`Object`_.hasField(name)
+**语法：** _`Object`_.hasField(name)
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `name` (String) - The name of the key to search for
+  * `name`（String）— 要查找的键名。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name':'Nathan', 'age':42}
@@ -56,15 +57,15 @@ layout:
 
 ## _`Object`_.**`isEmpty()`** <a href="#objectisempty" id="objectisempty"></a>
 
-**Description:** Returns <code>true</code> if the Object has no keys (fields) set or is <code>null</code> or <code>undefined</code>
+**说明：** 返回 <code>true</code> 的情况是对象没有设置任何键（字段），或对象为 <code>null</code> 或 <code>undefined</code>。
 
-**Syntax:** _`Object`_.isEmpty()
+**语法：** _`Object`_.isEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name': 'Nathan'}
@@ -78,15 +79,15 @@ layout:
 
 ## _`Object`_.**`isNotEmpty()`** <a href="#objectisnotempty" id="objectisnotempty"></a>
 
-**Description:** Returns <code>true</code> if the Object has at least one key (field) set
+**说明：** 返回 <code>true</code> 表示对象至少设置了一个键（字段）。
 
-**Syntax:** _`Object`_.isNotEmpty()
+**语法：** _`Object`_.isNotEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name': 'Nathan'}
@@ -100,19 +101,19 @@ layout:
 
 ## _`Object`_.**`keepFieldsContaining()`** <a href="#objectkeepfieldscontaining" id="objectkeepfieldscontaining"></a>
 
-**Description:** Removes any fields whose values don’t at least partly match the given <code>value</code>. Comparison is case-sensitive. Fields that aren’t strings will always be removed.
+**说明：** 删除值与指定 <code>value</code> 完全不匹配的字段；至少部分匹配的字段予以保留。比较时区分大小写，值不是字符串的字段始终会被删除。
 
-**Syntax:** _`Object`_.keepFieldsContaining(value)
+**语法：** _`Object`_.keepFieldsContaining(value)
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `value` (String) - The text that a value must contain in order to be kept
+  * `value`（String）— 字段值必须包含此文本才会被保留。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name': 'Mr Nathan', 'city':'hanoi', age: 42 }
@@ -127,15 +128,15 @@ layout:
 
 ## _`Object`_.**`keys()`** <a href="#objectkeys" id="objectkeys"></a>
 
-**Description:** Returns an array with all the field names (keys) the object contains. The same as JavaScript’s <code>Object.keys(obj)</code>.
+**说明：** 返回包含对象所有字段名（键）的数组。与 JavaScript 的 <code>Object.keys(obj)</code> 相同。
 
-**Syntax:** _`Object`_.keys()
+**语法：** _`Object`_.keys()
 
-**Returns:** Array<String>
+**返回值：** Array<String>
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name': 'Mr Nathan', age: 42 }
@@ -144,19 +145,19 @@ layout:
 
 ## _`Object`_.**`merge()`** <a href="#objectmerge" id="objectmerge"></a>
 
-**Description:** Merges the two Objects into a single one. If a key (field name) exists in both Objects, the value from the first (base) Object is used.
+**说明：** 将两个对象合并为一个。如果两个对象中存在相同的键（字段名），则使用第一个对象（基础对象）中的值。
 
-**Syntax:** _`Object`_.merge(otherObject)
+**语法：** _`Object`_.merge(otherObject)
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `otherObject` (Object) - The Object to merge with the base Object.
+  * `otherObject`（Object）— 要与基础对象合并的对象。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj1 = {'name':'Nathan', 'age': 42}
@@ -166,19 +167,19 @@ layout:
 
 ## _`Object`_.**`removeField()`** <a href="#objectremovefield" id="objectremovefield"></a>
 
-**Description:** Removes a field from the Object. The same as JavaScript’s <code>delete</code>.
+**说明：** 从对象中删除一个字段。与 JavaScript 的 <code>delete</code> 相同。
 
-**Syntax:** _`Object`_.removeField(key)
+**语法：** _`Object`_.removeField(key)
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `key` (String) - The name of the field to remove
+  * `key`（String）— 要删除的字段名。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name':'Nathan', 'city':'hanoi'}
@@ -187,19 +188,19 @@ layout:
 
 ## _`Object`_.**`removeFieldsContaining()`** <a href="#objectremovefieldscontaining" id="objectremovefieldscontaining"></a>
 
-**Description:** Removes keys (fields) whose values at least partly match the given <code>value</code>. Comparison is case-sensitive. Fields that aren’t strings are always kept.
+**说明：** 删除值与指定 <code>value</code> 至少部分匹配的键（字段）。比较时区分大小写，值不是字符串的字段始终会被保留。
 
-**Syntax:** _`Object`_.removeFieldsContaining(value)
+**语法：** _`Object`_.removeFieldsContaining(value)
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `value` (String) - The text that a value must contain in order to be removed
+  * `value`（String）— 字段值包含此文本时，该字段会被删除。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name': 'Mr Nathan', 'city':'hanoi', age: 42}
@@ -214,15 +215,15 @@ layout:
 
 ## _`Object`_.**`toJsonString()`** <a href="#objecttojsonstring" id="objecttojsonstring"></a>
 
-**Description:** Converts the Object to a JSON string. Similar to JavaScript’s <code>JSON.stringify()</code>.
+**说明：** 将对象转换为 JSON 字符串。与 JavaScript 的 <code>JSON.stringify()</code> 类似。
 
-**Syntax:** _`Object`_.toJsonString()
+**语法：** _`Object`_.toJsonString()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name':'Nathan', age:42}
@@ -232,15 +233,15 @@ layout:
 
 ## _`Object`_.**`urlEncode()`** <a href="#objecturlencode" id="objecturlencode"></a>
 
-**Description:** Generates a URL parameter string from the Object’s keys and values. Only top-level keys are supported.
+**说明：** 根据对象的键和值生成 URL 参数字符串，仅支持顶层键。
 
-**Syntax:** _`Object`_.urlEncode()
+**语法：** _`Object`_.urlEncode()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name':'Mr Nathan', 'city':'hanoi'}
@@ -249,15 +250,15 @@ layout:
 
 ## _`Object`_.**`values()`** <a href="#objectvalues" id="objectvalues"></a>
 
-**Description:** Returns an array with all the values of the fields the Object contains. The same as JavaScript’s <code>Object.values(obj)</code>.
+**说明：** 返回包含对象所有字段值的数组。与 JavaScript 的 <code>Object.values(obj)</code> 相同。
 
-**Syntax:** _`Object`_.values()
+**语法：** _`Object`_.values()
 
-**Returns:** Array<String>
+**返回值：** Array<String>
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = {'name': 'Mr Nathan', age: 42 }
@@ -265,6 +266,6 @@ layout:
   ```
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

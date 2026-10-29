@@ -1,1000 +1,1002 @@
 ---
-nodeTitle: Expression reference
+nodeTitle: 表达式参考
 originalFilePath: data/expression-reference/index.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference'
-url: 'https://docs.n8n.io/build/work-with-data/transform-data/expression-reference'
+originalUrl: https://docs.n8n.io/data/expression-reference
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference
 layout:
   description:
     visible: false
 ---
-# Expression Reference <a href="#expression-reference" id="expression-reference"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-These are some commonly used expressions. A more exhaustive list appears below.
+# 表达式参考 <a href="#expression-reference" id="expression-reference"></a>
 
-## In this section
+以下是一些常用表达式。下方还列出了更全面的参考。
 
-* [Array](array.md): methods for working with arrays.
-* [BinaryFile](binaryfile.md): properties of binary file data.
-* [Boolean](boolean.md): methods for working with booleans.
-* [CustomData](customdata.md): methods for getting and setting custom execution data.
-* [Date](date.md): methods for converting a JavaScript Date.
-* [DateTime](datetime.md): methods and properties for working with Luxon DateTimes.
-* [ExecData](execdata.md): properties of the current execution.
-* [HTTPResponse](httpresponse.md): properties of the last HTTP call's response.
-* [Item](item.md): properties of the current item.
-* [NodeInputData](nodeinputdata.md): methods for reading the current node's input.
-* [NodeOutputData](nodeoutputdata.md): methods for reading a node's output.
-* [Number](number.md): methods for working with numbers.
-* [Object](object.md): methods for working with objects.
-* [PrevNodeData](prevnodedata.md): properties describing the node an input came from.
-* [Root](root.md): top-level variables and helper functions such as `$json` and `$now`.
-* [String](string.md): methods for working with strings.
-* [WorkflowData](workflowdata.md): properties of the current workflow.
+## 本节内容 <a id="in-this-section"></a>
 
-| Category | Expression | Description |
+* [Array](array.md)：处理数组的方法。
+* [BinaryFile](binaryfile.md)：二进制文件数据的属性。
+* [Boolean](boolean.md)：处理布尔值的方法。
+* [CustomData](customdata.md)：获取和设置自定义执行数据的方法。
+* [Date](date.md)：转换 JavaScript Date 的方法。
+* [DateTime](datetime.md)：处理 Luxon DateTime 的方法和属性。
+* [ExecData](execdata.md)：当前执行的属性。
+* [HTTPResponse](httpresponse.md)：最近一次 HTTP 调用的响应属性。
+* [Item](item.md)：当前数据项的属性。
+* [NodeInputData](nodeinputdata.md)：读取当前节点输入的方法。
+* [NodeOutputData](nodeoutputdata.md)：读取节点输出的方法。
+* [Number](number.md)：处理数字的方法。
+* [Object](object.md)：处理对象的方法。
+* [PrevNodeData](prevnodedata.md)：描述输入来源节点的属性。
+* [Root](root.md)：顶层变量和辅助函数，例如 `$json` 和 `$now`。
+* [String](string.md)：处理字符串的方法。
+* [WorkflowData](workflowdata.md)：当前工作流的属性。
+
+| 类别 | 表达式 | 说明 |
 |---|---|---|
-| Access current input item data | `$json` | JSON data of the current item | 
-| | `$json.fieldName` | Field of the current item |
-| | `$binary` | Binary data of current item |
-| Access previous node data | `$("NodeName").first()` | First item in a node |
-| | `$("NodeName").item` | Linked item of a node. See [Item linking](../../reference-data/link-data-items/README.md) for more information. |
-| | `$("NodeName").all()` | All items of a node |
-| | `$("NodeName").last()` | Last item of a node |
-| Date/Time | `$now` | Current date and time | 
-| | `$today` | Today's date | 
-| | `$now.toFormat("yyyy-MM-dd")` | Format current date as a string |
-| Conditionals | `$if(condition, "true", "false")` | Helper function that returns a value when a condition is true or false |
-| | `condition ? true : false` | Ternary operator: returns one value if a condition is true, another if false |
-| | `$ifEmpty(value, defaultValue)` | Helper function takes two parameters and tests the first to check if it's empty, then returns either the parameter (if not empty) or the second parameter (if the first is empty). The first parameter is empty if it's `undefined`, `null`, an empty string `''`, an array where `value.length` returns `false` , or an object where `Object.keys(value).length` returns `false`|
-| String Methods | `text.toUpperCase()` | Convert to uppercase |
-| | `text.toLowerCase()` | Convert to lowercase |
-| | `text.includes("foo")` | Check if text contains search term |
-| | `text.extractEmail()` | Extract email from text |
-| Array Methods | `array.length` | Get array length |
-| | `array.join(", ")` | Join array elements using a comma a separator |
-| | `array.filter(x => x <= 20)` | Filter items of array based on the filtering condition |
-| | `array.map(x => x.id)` | Transform items of an array |
+| 访问当前输入数据项的数据 | `$json` | 当前数据项的 JSON 数据 |
+| | `$json.fieldName` | 当前数据项的字段 |
+| | `$binary` | 当前数据项的二进制数据 |
+| 访问前面节点的数据 | `$("NodeName").first()` | 节点中的第一个数据项 |
+| | `$("NodeName").item` | 节点中关联的数据项。更多信息请参阅[数据项关联](../../reference-data/link-data-items/README.md)。 |
+| | `$("NodeName").all()` | 节点中的所有数据项 |
+| | `$("NodeName").last()` | 节点中的最后一个数据项 |
+| 日期与时间 | `$now` | 当前日期和时间 |
+| | `$today` | 今天的日期 |
+| | `$now.toFormat("yyyy-MM-dd")` | 将当前日期格式化为字符串 |
+| 条件判断 | `$if(condition, "true", "false")` | 根据条件为真或假返回相应值的辅助函数 |
+| | `condition ? true : false` | 三元运算符：条件为真时返回一个值，为假时返回另一个值 |
+| | `$ifEmpty(value, defaultValue)` | 此辅助函数接收两个参数，检查第一个参数是否为空；不为空时返回第一个参数，为空时返回第二个参数。以下情况视为空：`undefined`、`null`、空字符串 `''`、调用 `value.length` 返回 `false` 的数组，或调用 `Object.keys(value).length` 返回 `false` 的对象。 |
+| 字符串方法 | `text.toUpperCase()` | 转换为大写 |
+| | `text.toLowerCase()` | 转换为小写 |
+| | `text.includes("foo")` | 检查文本是否包含搜索内容 |
+| | `text.extractEmail()` | 从文本中提取电子邮件地址 |
+| 数组方法 | `array.length` | 获取数组长度 |
+| | `array.join(", ")` | 使用逗号作为分隔符连接数组元素 |
+| | `array.filter(x => x <= 20)` | 根据过滤条件筛选数组元素 |
+| | `array.map(x => x.id)` | 转换数组元素 |
 
-Browse the tables below to find methods by the data type on which they act. Click a method name to read detailed documentation for it.
+下方表格按操作对象的数据类型列出了方法。点击方法名称，可查看详细文档。
 
-## Array <a href="#array" id="array"></a>
+## Array（数组） <a href="#array" id="array"></a>
 
 * [_`Array`_.**`append(elem1, elem2?, ..., elemN?)`**](array.md#arrayappend)
 
-    Adds new elements to the end of the array. Similar to <code>push()</code>, but returns the modified array. Consider using spread syntax instead (see examples).
+    将新元素添加到数组末尾。与 <code>push()</code> 类似，但返回修改后的数组。也可以考虑改用展开语法，参见示例。
 
 * [_`Array`_.**`average()`**](array.md#arrayaverage)
 
-    Returns the average of the numbers in the array. Throws an error if there are any non-numbers.
+    返回数组中数字的平均值。如果存在非数字元素，则抛出错误。
 
 * [_`Array`_.**`chunk(length)`**](array.md#arraychunk)
 
-    Splits the array into an array of sub-arrays, each with the given length
+    将数组拆分为由指定长度的子数组组成的数组。
 
 * [_`Array`_.**`compact()`**](array.md#arraycompact)
 
-    Removes any empty values from the array. <code>null</code>, <code>""</code> and <code>undefined</code> count as empty.
+    删除数组中的空值。<code>null</code>、<code>""</code> 和 <code>undefined</code> 均视为空。
 
 * [_`Array`_.**`concat(array2, array3?, ... arrayN?)`**](array.md#arrayconcat)
 
-    Joins one or more arrays onto the end of the base array
+    将一个或多个数组连接到基础数组末尾。
 
 * [_`Array`_.**`difference(otherArray)`**](array.md#arraydifference)
 
-    Compares two arrays. Returns all elements in the base array that aren't present
-in <code>otherArray</code>.
+    比较两个数组。返回基础数组中存在、但未包含在
+<code>otherArray</code> 中的所有元素。
 
 * [_`Array`_.**`filter(function(element, index?, array?), thisValue?)`**](array.md#arrayfilter)
 
-    Returns an array with only the elements satisfying a condition. The condition is a function that returns <code>true</code> or <code>false</code>.
+    返回仅包含满足条件的元素的数组。条件是一个返回 <code>true</code> 或 <code>false</code> 的函数。
 
 * [_`Array`_.**`find(function(element, index?, array?), thisValue?)`**](array.md#arrayfind)
 
-    Returns the first element from the array that satisfies the provided condition. The condition is a function that returns <code>true</code> or <code>false</code>. Returns <code>undefined</code> if no matches are found.
+    返回数组中满足指定条件的第一个元素。条件是一个返回 <code>true</code> 或 <code>false</code> 的函数。如果没有匹配项，则返回 <code>undefined</code>。
 
-If you need all matching elements, use <code>filter()</code>.
+如果需要所有匹配的元素，请使用 <code>filter()</code>。
 
 * [_`Array`_.**`first()`**](array.md#arrayfirst)
 
-    Returns the first element of the array
+    返回数组的第一个元素。
 
 * [_`Array`_.**`includes(element, start?)`**](array.md#arrayincludes)
 
-    Returns <code>true</code> if the array contains the specified element
+    返回 <code>true</code> 表示数组包含指定元素。
 
 * [_`Array`_.**`indexOf(element, start?)`**](array.md#arrayindexof)
 
-    Returns the position of the first matching element in the array, or -1 if the element isn’t found. Positions start at 0.
+    返回数组中第一个匹配元素的位置，未找到时返回 -1。位置从 0 开始。
 
 * [_`Array`_.**`intersection(otherArray)`**](array.md#arrayintersection)
 
-    Compares two arrays. Returns all elements in the base array that are also present in the other array.
+    比较两个数组。返回基础数组中也存在于另一个数组中的所有元素。
 
 * [_`Array`_.**`isEmpty()`**](array.md#arrayisempty)
 
-    Returns <code>true</code> if the array has no elements or is <code>null</code> or <code>undefined</code>
+    返回 <code>true</code> 的情况是数组没有元素，或数组为 <code>null</code> 或 <code>undefined</code>。
 
 * [_`Array`_.**`isNotEmpty()`**](array.md#arrayisnotempty)
 
-    Returns <code>true</code> if the array has at least one element
+    返回 <code>true</code> 表示数组至少包含一个元素。
 
 * [_`Array`_.**`join(separator?)`**](array.md#arrayjoin)
 
-    Merges all elements of the array into a single string, with an optional separator between each element.
+    将数组中的所有元素合并为一个字符串，可选择在各元素之间插入分隔符。
 
-The opposite of <code>split()</code>.
+与 <code>split()</code> 的作用相反。
 
 * [_`Array`_.**`last()`**](array.md#arraylast)
 
-    Returns the last element of the array
+    返回数组的最后一个元素。
 
 * [_`Array`_.**`length`**](array.md#arraylength)
 
-    The number of elements in the array
+    数组中的元素数量。
 
 * [_`Array`_.**`map(function(element, index?, array?), thisValue?)`**](array.md#arraymap)
 
-    Creates a new array by applying a function to each element of the original array
+    对原数组中的每个元素应用一个函数，创建新数组。
 
 * [_`Array`_.**`max()`**](array.md#arraymax)
 
-    Returns the largest number in the array. Throws an error if there are any non-numbers.
+    返回数组中的最大数字。如果存在非数字元素，则抛出错误。
 
 * [_`Array`_.**`min()`**](array.md#arraymin)
 
-    Returns the smallest number in the array. Throws an error if there are any non-numbers.
+    返回数组中的最小数字。如果存在非数字元素，则抛出错误。
 
 * [_`Array`_.**`pluck(fieldName1?, fieldName2?, …)`**](array.md#arraypluck)
 
-    Returns an array containing the values of the given field(s) in each Object of the array. Ignores any array elements that aren’t Objects or don’t have a key matching the field name(s) provided.
+    返回一个数组，其中包含原数组中各对象的指定字段值。忽略非对象元素，以及没有与指定字段名匹配的键的对象。
 
 * [_`Array`_.**`randomItem()`**](array.md#arrayrandomitem)
 
-    Returns a randomly-chosen element from the array
+    返回从数组中随机选择的一个元素。
 
 * [_`Array`_.**`reduce(function(prevResult, currentElem, currentIndex?, array?), initResult)`**](array.md#arrayreduce)
 
-    Reduces an array to a single value by applying a function to each element. The function combines the current element with the result of reducing the previous elements, producing a new result.
+    对数组中的每个元素应用一个函数，将数组归约为单个值。该函数将当前元素与之前元素的归约结果结合，生成新的结果。
 
 * [_`Array`_.**`removeDuplicates(keys?)`**](array.md#arrayremoveduplicates)
 
-    Removes any re-occurring elements from the array
+    删除数组中重复出现的元素。
 
 * [_`Array`_.**`renameKeys(from, to)`**](array.md#arrayrenamekeys)
 
-    Changes all matching keys (field names) of any Objects in the array. Rename more than one key by
-adding extra arguments, i.e. <code>from1, to1, from2, to2, ...</code>.
+    修改数组中各对象的所有匹配键（字段名）。如需重命名多个键，可以
+添加更多参数，即 <code>from1, to1, from2, to2, ...</code>。
 
 * [_`Array`_.**`reverse()`**](array.md#arrayreverse)
 
-    Reverses the order of the elements in the array
+    反转数组中元素的顺序。
 
 * [_`Array`_.**`slice(start, end)`**](array.md#arrayslice)
 
-    Returns a portion of the array, from the <code>start</code> index up to (but not including) the <code>end</code> index. Indexes start at 0.
+    返回数组中从 <code>start</code> 索引开始，到 <code>end</code> 索引之前的一段元素，不包含结束索引处的元素。索引从 0 开始。
 
 * [_`Array`_.**`smartJoin(keyField, nameField)`**](array.md#arraysmartjoin)
 
-    Creates a single Object from an array of Objects. Each Object in the array provides one field for the returned Object. Each Object in the array must contain a field with the key name and a field with the value.
+    根据对象数组创建单个对象。数组中的每个对象为返回对象提供一个字段。数组中的每个对象都必须包含一个提供键名的字段和一个提供值的字段。
 
 * [_`Array`_.**`sort(compareFunction(a, b)?)`**](array.md#arraysort)
 
-    Reorders the elements of the array. For sorting strings alphabetically, no parameter is required. For sorting numbers or Objects, see examples.
+    对数组中的元素重新排序。按字母顺序排列字符串时，不需要参数。数字或对象的排序方法请参阅示例。
 
 * [_`Array`_.**`sum()`**](array.md#arraysum)
 
-    Returns the total of all the numbers in the array. Throws an error if there are any non-numbers.
+    返回数组中所有数字的总和。如果存在非数字元素，则抛出错误。
 
 * [_`Array`_.**`toJsonString()`**](array.md#arraytojsonstring)
 
-    Converts the array to a JSON string. The same as JavaScript’s <code>JSON.stringify()</code>.
+    将数组转换为 JSON 字符串。与 JavaScript 的 <code>JSON.stringify()</code> 相同。
 
 * [_`Array`_.**`toSpliced(start, deleteCount, elem1, ....., elemN)`**](array.md#arraytospliced)
 
-    Adds and/or removes array elements at a given position. 
+    在指定位置添加或删除数组元素。
 
-See also <code>slice()</code> and <code>append()</code>.
+另请参阅 <code>slice()</code> 和 <code>append()</code>。
 
 * [_`Array`_.**`toString()`**](array.md#arraytostring)
 
-    Converts the array to a string, with values separated by commas. To use a different separator, use <code>join()</code> instead.
+    将数组转换为字符串，各值以逗号分隔。如果要使用其他分隔符，请使用 <code>join()</code>。
 
 * [_`Array`_.**`union(otherArray)`**](array.md#arrayunion)
 
-    Concatenates two arrays and then removes any duplicates
+    连接两个数组，并删除重复元素。
 
 * [_`Array`_.**`unique()`**](array.md#arrayunique)
 
-    Removes any duplicate elements from the array
+    删除数组中的重复元素。
 
 
-## BinaryFile <a href="#binaryfile" id="binaryfile"></a>
+## BinaryFile（二进制文件） <a href="#binaryfile" id="binaryfile"></a>
 
 * [`binaryFile`.**`directory`**](binaryfile.md#binaryfiledirectory)
 
-    The path to the directory that the file is stored in. Useful for distinguishing between files with the same name in different directories. Not set if n8n is  configured to store files in its database. 
+    文件所在目录的路径，可用于区分不同目录中的同名文件。如果 n8n 配置为将文件存储在数据库中，则不设置此值。
 
 * [`binaryFile`.**`fileExtension`**](binaryfile.md#binaryfilefileextension)
 
-    The suffix attached to the filename (e.g. <code>txt</code>)
+    文件名末尾的后缀，例如 <code>txt</code>。
 
 * [`binaryFile`.**`fileName`**](binaryfile.md#binaryfilefilename)
 
-    The name of the file, including extension
+    文件名，包含扩展名。
 
 * [`binaryFile`.**`fileSize`**](binaryfile.md#binaryfilefilesize)
 
-    A string representing the size of the file
+    表示文件大小的字符串。
 
 * [`binaryFile`.**`fileType`**](binaryfile.md#binaryfilefiletype)
 
-    A string representing the type of the file, e.g. <code>image</code>. Corresponds to the first part of the MIME type.
+    表示文件类型的字符串，例如 <code>image</code>。对应 MIME 类型的第一部分。
 
 * [`binaryFile`.**`id`**](binaryfile.md#binaryfileid)
 
-    The unique ID of the file. Used to identify the file when it is stored on disk or in a storage service such as S3.
+    文件的唯一 ID。当文件存储在磁盘或 S3 等存储服务中时，用于标识该文件。
 
 * [`binaryFile`.**`mimeType`**](binaryfile.md#binaryfilemimetype)
 
-    A string representing the format of the file’s contents, e.g. <code>image/jpeg</code>
+    表示文件内容格式的字符串，例如 <code>image/jpeg</code>。
 
 
-## Boolean <a href="#boolean" id="boolean"></a>
+## Boolean（布尔值） <a href="#boolean" id="boolean"></a>
 
 * [_`Boolean`_.**`isEmpty()`**](boolean.md#booleanisempty)
 
-    Returns <code>true</code> if the boolean is <code>false</code>, <code>null</code>, or <code>undefined</code>. Returns <code>false</code> if the boolean is <code>true</code>.
+    返回 <code>true</code> 的情况是布尔值为 <code>false</code>、<code>null</code> 或 <code>undefined</code>；返回 <code>false</code> 的情况是布尔值为 <code>true</code>。
 
 * [_`Boolean`_.**`isNotEmpty()`**](boolean.md#booleanisnotempty)
 
-    Returns <code>true</code> if the boolean is <code>true</code>. Returns <code>false</code> if the boolean is <code>false</code>, <code>null</code>, or <code>undefined</code>. This is the inverse of <code>isEmpty()</code>.
+    返回 <code>true</code> 的情况是布尔值为 <code>true</code>；返回 <code>false</code> 的情况是布尔值为 <code>false</code>、<code>null</code> 或 <code>undefined</code>。结果与 <code>isEmpty()</code> 相反。
 
 * [_`Boolean`_.**`toNumber()`**](boolean.md#booleantonumber)
 
-    Converts <code>true</code> to 1 and <code>false</code> to 0
+    将 <code>true</code> 转换为 1，将 <code>false</code> 转换为 0。
 
 * [_`Boolean`_.**`toString()`**](boolean.md#booleantostring)
 
-    Converts <code>true</code> to the string ‘true’ and <code>false</code> to the string ‘false’ 
+    将 <code>true</code> 转换为字符串 ‘true’，将 <code>false</code> 转换为字符串 ‘false’。
 
 
-## CustomData <a href="#customdata" id="customdata"></a>
+## CustomData（自定义数据） <a href="#customdata" id="customdata"></a>
 
 * [`$execution.customData`.**`get(key)`**](customdata.md#dollarexecutioncustomdataget)
 
-    Returns the custom execution data stored under the given key. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+    返回存储在指定键下的自定义执行数据。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
 * [`$execution.customData`.**`getAll()`**](customdata.md#dollarexecutioncustomdatagetall)
 
-    Returns all the key-value pairs of custom data that have been set in the current execution. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+    返回当前执行中已设置的所有自定义数据键值对。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
 * [`$execution.customData`.**`set(key, value)`**](customdata.md#dollarexecutioncustomdataset)
 
-    Stores custom execution data under the key specified. Use this to easily filter executions by this data. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+    将自定义执行数据存储在指定的键下，便于按这些数据筛选执行记录。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
 * [`$execution.customData`.**`setAll(obj)`**](customdata.md#dollarexecutioncustomdatasetall)
 
-    Sets multiple key-value pairs of  custom data for the execution. Use this to easily filter executions by this data. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+    为本次执行设置多组自定义数据键值对，便于按这些数据筛选执行记录。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
 
-## Date <a href="#date" id="date"></a>
+## Date（日期） <a href="#date" id="date"></a>
 
 * [_`Date`_.**`toDateTime()`**](date.md#datetodatetime)
 
-    Converts a JavaScript Date to a Luxon DateTime. The DateTime contains the same information, but is easier to manipulate.
+    将 JavaScript Date 转换为 Luxon DateTime。DateTime 包含相同的信息，但更易于操作。
 
 
-## DateTime <a href="#datetime" id="datetime"></a>
+## DateTime（日期时间） <a href="#datetime" id="datetime"></a>
 
 * [_`DateTime`_.**`day`**](datetime.md#datetimeday)
 
-    The day of the month (1-31)
+    一个月中的第几天，取值为 1–31。
 
 * [_`DateTime`_.**`diffTo(otherDateTime, unit)`**](datetime.md#datetimediffto)
 
-    Returns the difference between two DateTimes, in the given unit(s)
+    以指定单位返回两个 DateTime 之间的差值。
 
 * [_`DateTime`_.**`diffToNow(unit)`**](datetime.md#datetimedifftonow)
 
-    Returns the difference between the current moment and the DateTime, in the given unit(s). For a textual representation, use <code>toRelative()</code> instead.
+    以指定单位返回当前时刻与该 DateTime 之间的差值。如果需要文本形式，请使用 <code>toRelative()</code>。
 
 * [_`DateTime`_.**`endOf(unit, opts)`**](datetime.md#datetimeendof)
 
-    Rounds the DateTime up to the end of one of its units, e.g. the end of the month
+    将 DateTime 向上调整到指定单位的结束时刻，例如月末。
 
 * [_`DateTime`_.**`equals(other)`**](datetime.md#datetimeequals)
 
-    Returns <code>true</code> if the two DateTimes represent exactly the same moment and are in the same time zone. For a less strict comparison, use <code>hasSame()</code>.
+    返回 <code>true</code> 表示两个 DateTime 代表完全相同的时刻，且时区相同。如需较宽松的比较，请使用 <code>hasSame()</code>。
 
 * [_`DateTime`_.**`extract(unit?)`**](datetime.md#datetimeextract)
 
-    Extracts a part of the date or time, e.g. the month, as a number. To extract textual names instead, see <code>format()</code>.
+    以数字形式提取日期或时间的某一部分，例如月份。如需提取文本名称，请参阅 <code>format()</code>。
 
 * [_`DateTime`_.**`format(fmt)`**](datetime.md#datetimeformat)
 
-    Converts the DateTime to a string, using the format specified. <a href="https://moment.github.io/luxon/#/formatting?id=table-of-tokens">Formatting guide</a>. For common formats, <code>toLocaleString()</code> may be easier.
+    使用指定格式将 DateTime 转换为字符串。参阅<a href="https://moment.github.io/luxon/#/formatting?id=table-of-tokens">格式化指南</a>。对于常见格式，使用 <code>toLocaleString()</code> 可能更方便。
 
 * [_`DateTime`_.**`hasSame(otherDateTime, unit)`**](datetime.md#datetimehassame)
 
-    Returns <code>true</code> if the two DateTimes are the same, down to the unit specified. Time zones are ignored (only local times are compared), so use <code>toUTC()</code> first if needed.
+    返回 <code>true</code> 表示两个 DateTime 在指定单位及更大单位上相同。忽略时区，仅比较本地时间，因此必要时请先使用 <code>toUTC()</code>。
 
 * [_`DateTime`_.**`hour`**](datetime.md#datetimehour)
 
-    The hour of the day (0-23)
+    一天中的小时数，取值为 0–23。
 
 * [_`DateTime`_.**`isBetween(date1, date2)`**](datetime.md#datetimeisbetween)
 
-    Returns <code>true</code> if the DateTime lies between the two moments specified
+    返回 <code>true</code> 表示 DateTime 位于指定的两个时刻之间。
 
 * [_`DateTime`_.**`isEmpty()`**](datetime.md#datetimeisempty)
 
-    Returns <code>false</code> for all DateTimes. Returns <code>true</code> for <code>null</code> or <code>undefined</code>.
+    对所有 DateTime 返回 <code>false</code>。返回 <code>true</code> 的情况是值为 <code>null</code> 或 <code>undefined</code>。
 
 * [_`DateTime`_.**`isInDST`**](datetime.md#datetimeisindst)
 
-    Whether the DateTime is in daylight saving time
+    DateTime 是否处于夏令时。
 
 * [_`DateTime`_.**`isNotEmpty()`**](datetime.md#datetimeisnotempty)
 
-    Returns <code>true</code> for all DateTimes. Returns <code>false</code> for <code>null</code> or <code>undefined</code>.
+    对所有 DateTime 返回 <code>true</code>。返回 <code>false</code> 的情况是值为 <code>null</code> 或 <code>undefined</code>。
 
 * [_`DateTime`_.**`locale`**](datetime.md#datetimelocale)
 
-    The locale of a DateTime, such 'en-GB'. The locale is used when formatting the DateTime.
+    DateTime 的区域设置，例如 ‘en-GB’。格式化 DateTime 时会使用该区域设置。
 
 * [_`DateTime`_.**`millisecond`**](datetime.md#datetimemillisecond)
 
-    The millisecond of the second (0-999)
+    一秒中的毫秒数，取值为 0–999。
 
 * [_`DateTime`_.**`minus(n, unit?)`**](datetime.md#datetimeminus)
 
-    Subtracts a given period of time from the DateTime
+    从 DateTime 中减去指定时长。
 
 * [_`DateTime`_.**`minute`**](datetime.md#datetimeminute)
 
-    The minute of the hour (0-59)
+    一小时中的分钟数，取值为 0–59。
 
 * [_`DateTime`_.**`month`**](datetime.md#datetimemonth)
 
-    The month (1-12)
+    月份，取值为 1–12。
 
 * [_`DateTime`_.**`monthLong`**](datetime.md#datetimemonthlong)
 
-    The textual long month name, e.g. 'October'. Defaults to the system's locale if no locale has been specified.
+    完整的月份名称，例如 ‘October’。未指定区域设置时，默认使用系统区域设置。
 
 * [_`DateTime`_.**`monthShort`**](datetime.md#datetimemonthshort)
 
-    The textual abbreviated month name, e.g. 'Oct'. Defaults to the system's locale if no locale has been specified.
+    缩写的月份名称，例如 ‘Oct’。未指定区域设置时，默认使用系统区域设置。
 
 * [_`DateTime`_.**`plus(n, unit?)`**](datetime.md#datetimeplus)
 
-    Adds a given period of time to the DateTime
+    为 DateTime 加上指定时长。
 
 * [_`DateTime`_.**`quarter`**](datetime.md#datetimequarter)
 
-    The quarter of the year (1-4)
+    一年中的季度，取值为 1–4。
 
 * [_`DateTime`_.**`second`**](datetime.md#datetimesecond)
 
-    The second of the minute (0-59)
+    一分钟中的秒数，取值为 0–59。
 
 * [_`DateTime`_.**`set(values)`**](datetime.md#datetimeset)
 
-    Assigns new values to specified units of the DateTime. To round a DateTime, see also <code>startOf()</code> and <code>endOf()</code>.
+    为 DateTime 的指定单位赋予新值。如需将 DateTime 调整到单位起点或终点，另请参阅 <code>startOf()</code> 和 <code>endOf()</code>。
 
 * [_`DateTime`_.**`setLocale(locale)`**](datetime.md#datetimesetlocale)
 
-    Sets the locale, which determines the language and formatting for the DateTime. Useful when generating a textual representation of the DateTime, e.g. with <code>format()</code> or <code>toLocaleString()</code>.
+    设置区域，决定 DateTime 使用的语言和格式。生成 DateTime 的文本表示时很有用，例如使用 <code>format()</code> 或 <code>toLocaleString()</code> 时。
 
 * [_`DateTime`_.**`setZone(zone, opts)`**](datetime.md#datetimesetzone)
 
-    Converts the DateTime to the given time zone. The DateTime still represents the same moment unless specified in the options. See also <code>toLocal()</code> and <code>toUTC()</code>.
+    将 DateTime 转换为指定时区。除非通过选项另行指定，DateTime 仍表示同一时刻。另请参阅 <code>toLocal()</code> 和 <code>toUTC()</code>。
 
 * [_`DateTime`_.**`startOf(unit, opts)`**](datetime.md#datetimestartof)
 
-    Rounds the DateTime down to the beginning of one of its units, e.g. the start of the month
+    将 DateTime 向下调整到指定单位的起始时刻，例如月初。
 
 * [_`DateTime`_.**`toISO(opts)`**](datetime.md#datetimetoiso)
 
-    Returns an ISO 8601-compliant string representation of the DateTime
+    返回符合 ISO 8601 标准的 DateTime 字符串表示。
 
 * [_`DateTime`_.**`toLocal()`**](datetime.md#datetimetolocal)
 
-    Converts a DateTime to the workflow’s local time zone. The DateTime still represents the same moment unless specified in the parameters. The workflow’s time zone can be set in the workflow settings.
+    将 DateTime 转换为工作流的本地时区。除非通过参数另行指定，DateTime 仍表示同一时刻。可以在工作流设置中设置时区。
 
 * [_`DateTime`_.**`toLocaleString(formatOpts)`**](datetime.md#datetimetolocalestring)
 
-    Returns a localised string representing the DateTime, i.e. in the language and format corresponding to its locale. Defaults to the system's locale if none specified.
+    返回 DateTime 的本地化字符串，即使用对应区域的语言和格式。未指定区域时，默认使用系统区域设置。
 
 * [_`DateTime`_.**`toMillis()`**](datetime.md#datetimetomillis)
 
-    Returns a Unix timestamp in milliseconds (the number elapsed since 1st Jan 1970)
+    返回以毫秒为单位的 Unix 时间戳，即自 1970 年 1 月 1 日起经过的毫秒数。
 
 * [_`DateTime`_.**`toRelative(options)`**](datetime.md#datetimetorelative)
 
-    Returns a textual representation of the time relative to now, e.g. ‘in two days’. Rounds down by default.
+    返回相对于当前时刻的时间文本，例如 ‘in two days’（两天后）。默认向下取整。
 
 * [_`DateTime`_.**`toSeconds()`**](datetime.md#datetimetoseconds)
 
-    Returns a Unix timestamp in seconds (the number elapsed since 1st Jan 1970)
+    返回以秒为单位的 Unix 时间戳，即自 1970 年 1 月 1 日起经过的秒数。
 
 * [_`DateTime`_.**`toString()`**](datetime.md#datetimetostring)
 
-    Returns a string representation of the DateTime. Similar to <code>toISO()</code>. For more formatting options, see <code>format()</code> or <code>toLocaleString()</code>.
+    返回 DateTime 的字符串表示，与 <code>toISO()</code> 类似。更多格式化选项请参阅 <code>format()</code> 或 <code>toLocaleString()</code>。
 
 * [_`DateTime`_.**`toUTC(offset, opts)`**](datetime.md#datetimetoutc)
 
-    Converts a DateTime to the UTC time zone. The DateTime still represents the same moment unless specified in the parameters. Use <code>setZone()</code> to convert to other zones.
+    将 DateTime 转换为 UTC 时区。除非通过参数另行指定，DateTime 仍表示同一时刻。转换到其他时区请使用 <code>setZone()</code>。
 
 * [_`DateTime`_.**`weekday`**](datetime.md#datetimeweekday)
 
-    The day of the week. 1 is Monday and 7 is Sunday.
+    星期几。1 表示星期一，7 表示星期日。
 
 * [_`DateTime`_.**`weekdayLong`**](datetime.md#datetimeweekdaylong)
 
-    The textual long weekday name, e.g. 'Wednesday'. Defaults to the system's locale if no locale has been specified.
+    完整的星期名称，例如 ‘Wednesday’。未指定区域设置时，默认使用系统区域设置。
 
 * [_`DateTime`_.**`weekdayShort`**](datetime.md#datetimeweekdayshort)
 
-    The textual abbreviated weekday name, e.g. 'Wed'. Defaults to the system's locale if no locale has been specified.
+    缩写的星期名称，例如 ‘Wed’。未指定区域设置时，默认使用系统区域设置。
 
 * [_`DateTime`_.**`weekNumber`**](datetime.md#datetimeweeknumber)
 
-    The week number of the year (1-52ish)
+    一年中的周数，大致取值为 1–52。
 
 * [_`DateTime`_.**`year`**](datetime.md#datetimeyear)
 
-    The year
+    年份。
 
 * [_`DateTime`_.**`zone`**](datetime.md#datetimezone)
 
-    The time zone associated with the DateTime
+    与 DateTime 关联的时区。
 
 
-## ExecData <a href="#execdata" id="execdata"></a>
+## ExecData（执行数据） <a href="#execdata" id="execdata"></a>
 
 * [`$exec`.**`customData`**](execdata.md#dollarexeccustomdata)
 
-    Set and get custom execution data (e.g. to filter executions by). You can also do this with the ‘Execution Data’ node. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+    设置和获取自定义执行数据，例如用于筛选执行记录。也可以通过 Execution Data 节点完成这些操作。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
 * [`$exec`.**`id`**](execdata.md#dollarexecid)
 
-    The ID of the current workflow execution
+    当前工作流执行的 ID。
 
 * [`$exec`.**`mode`**](execdata.md#dollarexecmode)
 
-    Can be one of 3 values: either <code>test</code> (meaning the execution was triggered by clicking a button in n8n) or <code>production</code> (meaning the execution was triggered automatically). When running workflow tests, <code>evaluation</code> is used.
+    可能为以下三个值之一：<code>test</code>（通过点击 n8n 中的按钮触发执行）、<code>production</code>（自动触发执行）。运行工作流测试时，使用 <code>evaluation</code>。
 
 * [`$exec`.**`resumeFormUrl`**](execdata.md#dollarexecresumeformurl)
 
-    The URL to access a form generated by the <a href="https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait">’Wait’ node</a>.
+    访问 <a href="../../../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md">Wait 节点</a>所生成表单的 URL。
 
 * [`$exec`.**`resumeUrl`**](execdata.md#dollarexecresumeurl)
 
-    The webhook URL to call to resume a workflow waiting at a <a href="https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait">’Wait’ node</a>.
+    用于恢复在 <a href="../../../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md">Wait 节点</a>处等待的工作流的 Webhook URL。
 
 
-## HTTPResponse <a href="#httpresponse" id="httpresponse"></a>
+## HTTPResponse（HTTP 响应） <a href="#httpresponse" id="httpresponse"></a>
 
 * [`$response`.**`body`**](httpresponse.md#dollarresponsebody)
 
-    The body of the response object from the last HTTP call. Only available in the ‘HTTP Request’ node
+    最近一次 HTTP 调用的响应对象的正文。仅在 HTTP Request 节点中可用。
 
 * [`$response`.**`headers`**](httpresponse.md#dollarresponseheaders)
 
-    The headers returned by the last HTTP call. Only available in the ‘HTTP Request’ node.
+    最近一次 HTTP 调用返回的响应头。仅在 HTTP Request 节点中可用。
 
 * [`$response`.**`statusCode`**](httpresponse.md#dollarresponsestatuscode)
 
-    The HTTP status code returned by the last HTTP call. Only available in the ‘HTTP Request’ node.
+    最近一次 HTTP 调用返回的 HTTP 状态码。仅在 HTTP Request 节点中可用。
 
 * [`$response`.**`statusMessage`**](httpresponse.md#dollarresponsestatusmessage)
 
-    An optional message regarding the request status. Only available in the ‘HTTP Request’ node.
+    关于请求状态的可选消息。仅在 HTTP Request 节点中可用。
 
 
-## Item <a href="#item" id="item"></a>
+## Item（数据项） <a href="#item" id="item"></a>
 
 * [`$item`.**`binary`**](item.md#dollaritembinary)
 
-    Returns any binary data the item contains
+    返回数据项包含的所有二进制数据。
 
 * [`$item`.**`json`**](item.md#dollaritemjson)
 
-    Returns the JSON data the item contains. <a href="../../understand-n8ns-data-structure.md">More info</a>
+    返回数据项包含的 JSON 数据。<a href="../../understand-n8ns-data-structure.md">更多信息</a>
 
 
-## NodeInputData <a href="#nodeinputdata" id="nodeinputdata"></a>
+## NodeInputData（节点输入数据） <a href="#nodeinputdata" id="nodeinputdata"></a>
 
 * [`$input`.**`all(branchIndex?, runIndex?)`**](nodeinputdata.md#dollarinputall)
 
-    Returns an array of the current node’s input items
+    返回当前节点输入数据项组成的数组。
 
 * [`$input`.**`first(branchIndex?, runIndex?)`**](nodeinputdata.md#dollarinputfirst)
 
-    Returns the current node’s first input item
+    返回当前节点的第一个输入数据项。
 
 * [`$input`.**`item`**](nodeinputdata.md#dollarinputitem)
 
-    Returns the input item currently being processed
+    返回当前正在处理的输入数据项。
 
 * [`$input`.**`last(branchIndex?, runIndex?)`**](nodeinputdata.md#dollarinputlast)
 
-    Returns the current node’s last input item
+    返回当前节点的最后一个输入数据项。
 
 * [`$input`.**`params`**](nodeinputdata.md#dollarinputparams)
 
-    The configuration settings of the current node. These are the parameters you fill out within the node when configuring it (e.g. its operation).
+    当前节点的配置，即配置节点时填写的参数，例如要执行的操作。
 
 
-## NodeOutputData <a href="#nodeoutputdata" id="nodeoutputdata"></a>
+## NodeOutputData（节点输出数据） <a href="#nodeoutputdata" id="nodeoutputdata"></a>
 
 * [`$()`.**`all(branchIndex?, runIndex?)`**](nodeoutputdata.md#dollarall)
 
-    Returns an array of the node’s output items
+    返回节点输出数据项组成的数组。
 
 * [`$()`.**`first(branchIndex?, runIndex?)`**](nodeoutputdata.md#dollarfirst)
 
-    Returns the first item output by the node
+    返回节点输出的第一个数据项。
 
 * [`$()`.**`isExecuted`**](nodeoutputdata.md#dollarisexecuted)
 
-    Is <code>true</code> if the node has executed, <code>false</code> otherwise
+    节点已执行时为 <code>true</code>，否则为 <code>false</code>。
 
 * [`$()`.**`item`**](nodeoutputdata.md#dollaritem)
 
-    Returns the matching item, i.e. the one used to produce the current item in the current node. <a href="../../reference-data/link-data-items/README.md">More info</a>
+    返回匹配的数据项，也就是用于生成当前节点中当前数据项的那个数据项。<a href="../../reference-data/link-data-items/README.md">更多信息</a>
 
 * [`$()`.**`itemMatching(currentItemIndex?)`**](nodeoutputdata.md#dollaritemmatching)
 
-    Returns the matching item, i.e. the one used to produce the item in the current node at the specified index. <a href="../../reference-data/link-data-items/README.md">More info</a>
+    返回匹配的数据项，也就是用于生成当前节点中指定索引处数据项的那个数据项。<a href="../../reference-data/link-data-items/README.md">更多信息</a>
 
 * [`$()`.**`last(branchIndex?, runIndex?)`**](nodeoutputdata.md#dollarlast)
 
-    Returns the last item output by the node
+    返回节点输出的最后一个数据项。
 
 * [`$()`.**`params`**](nodeoutputdata.md#dollarparams)
 
-    The configuration settings of the given node. These are the parameters you fill out within the node’s UI (e.g. its operation).
+    指定节点的配置，即在节点界面中填写的参数，例如要执行的操作。
 
 
-## Number <a href="#number" id="number"></a>
+## Number（数字） <a href="#number" id="number"></a>
 
 * [_`Number`_.**`abs()`**](number.md#numberabs)
 
-    Returns the number’s absolute value, i.e. removes any minus sign
+    返回数字的绝对值，即去掉负号。
 
 * [_`Number`_.**`ceil()`**](number.md#numberceil)
 
-    Rounds the number up to the next whole number
+    将数字向上取整。
 
 * [_`Number`_.**`floor()`**](number.md#numberfloor)
 
-    Rounds the number down to the nearest whole number
+    将数字向下取整。
 
 * [_`Number`_.**`format(locale?, options?)`**](number.md#numberformat)
 
-    Returns a formatted string representing the number. Useful for formatting for a specific language or currency. The same as <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat”><code>Intl.NumberFormat()</code></a>.
+    返回表示该数字的格式化字符串，适合按特定语言或货币格式显示数字。与 <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat”><code>Intl.NumberFormat()</code></a> 相同。
 
 * [_`Number`_.**`isEmpty()`**](number.md#numberisempty)
 
-    Returns <code>true</code> if the number is <code>0</code>, <code>NaN</code>, <code>null</code>, or <code>undefined</code>. Returns <code>false</code> for every other number.
+    返回 <code>true</code> 的情况是数字为 <code>0</code>、<code>NaN</code>、<code>null</code> 或 <code>undefined</code>。其他数字均返回 <code>false</code>。
 
 * [_`Number`_.**`isEven()`**](number.md#numberiseven)
 
-    Returns <code>true</code> if the number is even. Throws an error if the number isn’t a whole number.
+    返回 <code>true</code> 表示该数字是偶数。如果数字不是整数，则抛出错误。
 
 * [_`Number`_.**`isInteger()`**](number.md#numberisinteger)
 
-    Returns <code>true</code> if the number is a whole number
+    返回 <code>true</code> 表示该数字是整数。
 
 * [_`Number`_.**`isNotEmpty()`**](number.md#numberisnotempty)
 
-    Returns <code>true</code> for every number except <code>0</code> and <code>NaN</code>. Returns <code>false</code> if the number is <code>0</code>, <code>NaN</code>, <code>null</code>, or <code>undefined</code>. This is the inverse of <code>isEmpty()</code>.
+    返回 <code>true</code> 的数字包括除 <code>0</code> 和 <code>NaN</code> 之外的所有数字。返回 <code>false</code> 的情况是数字为 <code>0</code>、<code>NaN</code>、<code>null</code> 或 <code>undefined</code>。结果与 <code>isEmpty()</code> 相反。
 
 * [_`Number`_.**`isOdd()`**](number.md#numberisodd)
 
-    Returns <code>true</code> if the number is odd. Throws an error if the number isn’t a whole number.
+    返回 <code>true</code> 表示该数字是奇数。如果数字不是整数，则抛出错误。
 
 * [_`Number`_.**`round(decimalPlaces?)`**](number.md#numberround)
 
-    Returns the number rounded to the nearest whole number (or specified number of decimal places)
+    返回四舍五入到最接近的整数或指定小数位数后的数字。
 
 * [_`Number`_.**`toBoolean()`**](number.md#numbertoboolean)
 
-    Converts the number to a boolean value. <code>0</code> becomes <code>false</code>; everything else becomes <code>true</code>.
+    将数字转换为布尔值。<code>0</code> 转换为 <code>false</code>，其他值均转换为 <code>true</code>。
 
 * [_`Number`_.**`toDateTime(format?)`**](number.md#numbertodatetime)
 
-    Converts a numerical timestamp into a DateTime. The format of the timestamp must be specified if it’s not in milliseconds. Uses the time zone in n8n (or in the workflow’s settings).
+    将数字时间戳转换为 DateTime。如果时间戳的单位不是毫秒，必须指定其格式。使用 n8n 的时区或工作流设置中的时区。
 
 * [_`Number`_.**`toLocaleString(locales?, options?)`**](number.md#numbertolocalestring)
 
-    Returns a localised string representing the number, i.e. in the language and format corresponding to its locale. Defaults to the system's locale if none specified.
+    返回表示该数字的本地化字符串，即使用对应区域的语言和格式。未指定区域时，默认使用系统区域设置。
 
 * [_`Number`_.**`toString(radix?)`**](number.md#numbertostring)
 
-    Converts the number to a simple textual representation. For more formatting options, see <code>toLocaleString()</code>.
+    将数字转换为简单的文本表示形式。更多格式化选项请参阅 <code>toLocaleString()</code>。
 
 
-## Object <a href="#object" id="object"></a>
+## Object（对象） <a href="#object" id="object"></a>
 
 * [_`Object`_.**`compact()`**](object.md#objectcompact)
 
-    Removes all fields that have empty values, i.e. are <code>null</code> or <code>""</code>
+    删除所有值为空的字段，即值为 <code>null</code> 或 <code>""</code> 的字段。
 
 * [_`Object`_.**`hasField(name)`**](object.md#objecthasfield)
 
-    Returns <code>true</code> if there is a field called <code>name</code>. Only checks top-level keys. Comparison is case-sensitive.
+    返回 <code>true</code> 表示存在名为 <code>name</code> 的字段。仅检查顶层键，比较时区分大小写。
 
 * [_`Object`_.**`isEmpty()`**](object.md#objectisempty)
 
-    Returns <code>true</code> if the Object has no keys (fields) set or is <code>null</code> or <code>undefined</code>
+    返回 <code>true</code> 的情况是对象没有设置任何键（字段），或对象为 <code>null</code> 或 <code>undefined</code>。
 
 * [_`Object`_.**`isNotEmpty()`**](object.md#objectisnotempty)
 
-    Returns <code>true</code> if the Object has at least one key (field) set
+    返回 <code>true</code> 表示对象至少设置了一个键（字段）。
 
 * [_`Object`_.**`keepFieldsContaining(value)`**](object.md#objectkeepfieldscontaining)
 
-    Removes any fields whose values don’t at least partly match the given <code>value</code>. Comparison is case-sensitive. Fields that aren’t strings will always be removed.
+    删除值与指定 <code>value</code> 完全不匹配的字段；至少部分匹配的字段予以保留。比较时区分大小写，值不是字符串的字段始终会被删除。
 
 * [_`Object`_.**`keys()`**](object.md#objectkeys)
 
-    Returns an array with all the field names (keys) the object contains. The same as JavaScript’s <code>Object.keys(obj)</code>.
+    返回包含对象所有字段名（键）的数组。与 JavaScript 的 <code>Object.keys(obj)</code> 相同。
 
 * [_`Object`_.**`merge(otherObject)`**](object.md#objectmerge)
 
-    Merges the two Objects into a single one. If a key (field name) exists in both Objects, the value from the first (base) Object is used.
+    将两个对象合并为一个。如果两个对象中存在相同的键（字段名），则使用第一个对象（基础对象）中的值。
 
 * [_`Object`_.**`removeField(key)`**](object.md#objectremovefield)
 
-    Removes a field from the Object. The same as JavaScript’s <code>delete</code>.
+    从对象中删除一个字段。与 JavaScript 的 <code>delete</code> 相同。
 
 * [_`Object`_.**`removeFieldsContaining(value)`**](object.md#objectremovefieldscontaining)
 
-    Removes keys (fields) whose values at least partly match the given <code>value</code>. Comparison is case-sensitive. Fields that aren’t strings are always kept.
+    删除值与指定 <code>value</code> 至少部分匹配的键（字段）。比较时区分大小写，值不是字符串的字段始终会被保留。
 
 * [_`Object`_.**`toJsonString()`**](object.md#objecttojsonstring)
 
-    Converts the Object to a JSON string. Similar to JavaScript’s <code>JSON.stringify()</code>.
+    将对象转换为 JSON 字符串。与 JavaScript 的 <code>JSON.stringify()</code> 类似。
 
 * [_`Object`_.**`urlEncode()`**](object.md#objecturlencode)
 
-    Generates a URL parameter string from the Object’s keys and values. Only top-level keys are supported.
+    根据对象的键和值生成 URL 参数字符串，仅支持顶层键。
 
 * [_`Object`_.**`values()`**](object.md#objectvalues)
 
-    Returns an array with all the values of the fields the Object contains. The same as JavaScript’s <code>Object.values(obj)</code>.
+    返回包含对象所有字段值的数组。与 JavaScript 的 <code>Object.values(obj)</code> 相同。
 
 
-## PrevNodeData <a href="#prevnodedata" id="prevnodedata"></a>
+## PrevNodeData（前一节点数据） <a href="#prevnodedata" id="prevnodedata"></a>
 
 * [**`name`**](prevnodedata.md#name)
 
-    The name of the node that the current input came from. 
+    提供当前输入的节点名称。
 
-Always uses the current node’s first input connector if there is more than one (e.g. in the ‘Merge’ node).
+如果当前节点有多个输入连接点（例如 Merge 节点），始终使用第一个输入连接点。
 
 * [**`outputIndex`**](prevnodedata.md#outputindex)
 
-    The index of the output connector that the current input came from. Use this when the previous node had multiple outputs (such as an ‘If’ or ‘Switch’ node). 
+    提供当前输入的输出连接点索引。前一个节点有多个输出时（例如 If 或 Switch 节点），可以使用此值。
 
-Always uses the current node’s first input connector if there is more than one (e.g. in the ‘Merge’ node). 
+如果当前节点有多个输入连接点（例如 Merge 节点），始终使用第一个输入连接点。
 
 * [**`runIndex`**](prevnodedata.md#runindex)
 
-    The run of the previous node that generated the current input. 
+    前一个节点生成当前输入时的运行次数索引。
 
-Always uses the current node’s first input connector if there is more than one (e.g. in the ‘Merge’ node). 
+如果当前节点有多个输入连接点（例如 Merge 节点），始终使用第一个输入连接点。
 
 
-## Root <a href="#root" id="root"></a>
+## Root（全局变量与函数） <a href="#root" id="root"></a>
 
 * [**`$(nodeName)`**](root.md#dollar)
 
-    Returns the data of the specified node
+    返回指定节点的数据。
 
 * [**`$binary`**](root.md#dollarbinary)
 
-    Returns any binary input data to the current node, for the current item. Shorthand for <code>$input.item.binary</code>.
+    返回当前节点中当前数据项的二进制输入数据，是 <code>$input.item.binary</code> 的简写。
 
 * [**`$execution`**](root.md#dollarexecution)
 
-    Retrieve or set metadata for the current execution
+    获取或设置当前执行的元数据。
 
 * [**`$fromAI(key, description?, type?, defaultValue?)`**](root.md#dollarfromai)
 
-    Use when a large language model should provide the value of a node parameter. Consider providing a description for better results.
+    当节点参数的值应由大语言模型提供时使用。建议提供说明，以获得更好的结果。
 
 * [**`$if(condition, valueIfTrue, valueIfFalse)`**](root.md#dollarif)
 
-    Returns one of two values depending on the <code>condition</code>. Similar to the <code>?</code> operator in JavaScript.
+    根据 <code>condition</code> 返回两个值中的一个，与 JavaScript 的 <code>?</code> 运算符类似。
 
 * [**`$ifEmpty(value, valueIfEmpty)`**](root.md#dollarifempty)
 
-    Returns the first parameter if it isn’t empty, otherwise returns the second parameter. The following count as empty: <code>””</code>, <code>[]</code>, <code>{}</code>, <code>null</code>, <code>undefined</code>
+    如果第一个参数不为空，则返回第一个参数，否则返回第二个参数。以下值视为空：<code>””</code>、<code>[]</code>、<code>{}</code>、<code>null</code>、<code>undefined</code>。
 
 * [**`$input`**](root.md#dollarinput)
 
-    The input data of the current node
+    当前节点的输入数据。
 
 * [**`$itemIndex`**](root.md#dollaritemindex)
 
-    The position of the item currently being processed in the list of input items
+    当前正在处理的数据项在输入数据项列表中的位置。
 
 * [**`$jmespath(obj, expression)`**](root.md#dollarjmespath)
 
-    Extracts data from an object (or array of objects) using a <a href=”/code/cookbook/jmespath/”>JMESPath</a> expression. Useful for querying complex, nested objects. Returns <code>undefined</code> if the expression is invalid.
+    使用 <a href=”/code/cookbook/jmespath/”>JMESPath</a> 表达式从对象或对象数组中提取数据，适合查询复杂的嵌套对象。如果表达式无效，则返回 <code>undefined</code>。
 
 * [**`$json`**](root.md#dollarjson)
 
-    Returns the JSON input data to the current node, for the current item. Shorthand for <code>$input.item.json</code>. <a href="../../understand-n8ns-data-structure.md">More info</a>
+    返回当前节点中当前数据项的 JSON 输入数据，是 <code>$input.item.json</code> 的简写。<a href="../../understand-n8ns-data-structure.md">更多信息</a>
 
 * [**`$max(num1, num2, …, numN)`**](root.md#dollarmax)
 
-    Returns the highest of the given numbers
+    返回给定数字中的最大值。
 
 * [**`$min(num1, num2, …, numN)`**](root.md#dollarmin)
 
-    Returns the lowest of the given numbers
+    返回给定数字中的最小值。
 
 * [**`$nodeVersion`**](root.md#dollarnodeversion)
 
-    The version of the current node (as displayed at the bottom of the nodes’s settings pane)
+    当前节点的版本，显示在节点设置面板底部。
 
 * [**`$now`**](root.md#dollarnow)
 
-    A DateTime representing the current moment. 
+    表示当前时刻的 DateTime。
 
-Uses the workflow’s time zone (which can be changed in the workflow settings).
+使用工作流的时区，可以在工作流设置中修改。
 
 * [**`$pageCount`**](root.md#dollarpagecount)
 
-    The number of results pages the node has fetched. Only available in the ‘HTTP Request’ node.
+    节点已获取的结果页数，仅在 HTTP Request 节点中可用。
 
 * [**`$parameter`**](root.md#dollarparameter)
 
-    The configuration settings of the current node. These are the parameters you fill out within the node’s UI (e.g. its operation).
+    当前节点的配置，即在节点界面中填写的参数，例如要执行的操作。
 
 * [**`$prevNode`**](root.md#dollarprevnode)
 
-    Information about the node that the current input came from. 
+    关于提供当前输入的节点的信息。
 
-When in a ‘Merge’ node, always uses the first input connector.
+在 Merge 节点中，始终使用第一个输入连接点。
 
 * [**`$request`**](root.md#dollarrequest)
 
-    The request object sent during the last run of the node. Only available in the ‘HTTP Request’ node.
+    节点最近一次运行时发送的请求对象，仅在 HTTP Request 节点中可用。
 
 * [**`$response`**](root.md#dollarresponse)
 
-    The response returned by the last HTTP call. Only available in the ‘HTTP Request’ node.
+    最近一次 HTTP 调用返回的响应，仅在 HTTP Request 节点中可用。
 
 * [**`$runIndex`**](root.md#dollarrunindex)
 
-    The index of the current run of the current node execution. Starts at 0.
+    当前节点本次执行中当前运行的索引，从 0 开始。
 
 * [**`$secrets`**](root.md#dollarsecrets)
 
-    The secrets from an <a href="https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/external-secrets">external secrets vault</a>, if configured. Secret values are never displayed to the user. Only available in credential fields.
+    如果已配置<a href="../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/external-secrets.md">外部密钥库</a>，则提供其中的密钥。密钥值不会向用户显示，仅在凭据字段中可用。
 
 * [**`$today`**](root.md#dollartoday)
 
-    A DateTime representing midnight at the start of the current day. 
+    表示当天起始午夜时刻的 DateTime。
 
-Uses the instance’s time zone (unless overridden in the workflow’s settings).
+使用实例的时区，除非工作流设置覆盖了该时区。
 
 * [**`$vars`**](root.md#dollarvars)
 
-    The <a href="../../../code-in-n8n/define-custom-variables.md">variables</a> available to the workflow
+    工作流可用的<a href="../../../code-in-n8n/define-custom-variables.md">变量</a>。
 
 * [**`$workflow`**](root.md#dollarworkflow)
 
-    Information about the current workflow
+    关于当前工作流的信息。
 
 
-## String <a href="#string" id="string"></a>
+## String（字符串） <a href="#string" id="string"></a>
 
 * [_`String`_.**`base64Encode()`**](string.md#stringbase64decode)
 
-    Converts plain text to a base64-encoded string
+    将 base64 编码的字符串转换为纯文本。
 
 * [_`String`_.**`base64Encode()`**](string.md#stringbase64encode)
 
-    Converts a base64-encoded string to plain text
+    将纯文本转换为 base64 编码的字符串。
 
 * [_`String`_.**`concat(string1, string2?, ..., stringN?)`**](string.md#stringconcat)
 
-    Joins one or more strings onto the end of the base string. Alternatively, use the <code>+</code> operator (see examples).
+    将一个或多个字符串连接到基础字符串末尾。也可以使用 <code>+</code> 运算符，参见示例。
 
 * [_`String`_.**`extractDomain()`**](string.md#stringextractdomain)
 
-    If the string is an email address or URL, returns its domain (or <code>undefined</code> if nothing found). 
+    如果字符串是电子邮件地址或 URL，则返回其域名；未找到时返回 <code>undefined</code>。
 
-If the string also contains other content, try using <code>extractEmail()</code> or <code>extractUrl()</code> first.
+如果字符串还包含其他内容，可以先尝试使用 <code>extractEmail()</code> 或 <code>extractUrl()</code>。
 
 * [_`String`_.**`extractEmail()`**](string.md#stringextractemail)
 
-    Extracts the first email found in the string. Returns <code>undefined</code> if none is found.
+    提取字符串中找到的第一个电子邮件地址。未找到时返回 <code>undefined</code>。
 
 * [_`String`_.**`extractUrl()`**](string.md#stringextracturl)
 
-    Extracts the first URL found in the string. Returns <code>undefined</code> if none is found. Only recognizes full URLs, e.g. those starting with <code>http</code>.
+    提取字符串中找到的第一个 URL。未找到时返回 <code>undefined</code>。仅识别完整的 URL，例如以 <code>http</code> 开头的 URL。
 
 * [_`String`_.**`extractUrlPath()`**](string.md#stringextracturlpath)
 
-    Returns the part of a URL after the domain, or <code>undefined</code> if no URL found. 
+    返回 URL 中域名之后的部分，未找到 URL 时返回 <code>undefined</code>。
 
-If the string also contains other content, try using <code>extractUrl()</code> first.
+如果字符串还包含其他内容，可以先尝试使用 <code>extractUrl()</code>。
 
 * [_`String`_.**`hash(algo?)`**](string.md#stringhash)
 
-    Returns the string hashed with the given algorithm. Defaults to md5 if not specified.
+    返回使用指定算法计算出的字符串哈希值。未指定时，默认使用 md5。
 
 * [_`String`_.**`includes(searchString, start?)`**](string.md#stringincludes)
 
-    Returns <code>true</code> if the string contains the <code>searchString</code>. Case-sensitive.
+    返回 <code>true</code> 表示字符串包含 <code>searchString</code>，区分大小写。
 
 * [_`String`_.**`indexOf(searchString, start?)`**](string.md#stringindexof)
 
-    Returns the index (position) of the first occurrence of <code>searchString</code> within the base string, or -1 if not found. Case-sensitive.
+    返回 <code>searchString</code> 在基础字符串中首次出现的索引（位置），未找到时返回 -1，区分大小写。
 
 * [_`String`_.**`isDomain()`**](string.md#stringisdomain)
 
-    Returns <code>true</code> if the string is a domain
+    返回 <code>true</code> 表示字符串是域名。
 
 * [_`String`_.**`isEmail()`**](string.md#stringisemail)
 
-    Returns <code>true</code> if the string is an email
+    返回 <code>true</code> 表示字符串是电子邮件地址。
 
 * [_`String`_.**`isEmpty()`**](string.md#stringisempty)
 
-    Returns <code>true</code> if the string has no characters or is <code>null</code> or <code>undefined</code>
+    返回 <code>true</code> 的情况是字符串没有字符，或值为 <code>null</code> 或 <code>undefined</code>。
 
 * [_`String`_.**`isNotEmpty()`**](string.md#stringisnotempty)
 
-    Returns <code>true</code> if the string has at least one character
+    返回 <code>true</code> 表示字符串至少包含一个字符。
 
 * [_`String`_.**`isNumeric()`**](string.md#stringisnumeric)
 
-    Returns <code>true</code> if the string represents a number
+    返回 <code>true</code> 表示字符串表示一个数字。
 
 * [_`String`_.**`isUrl()`**](string.md#stringisurl)
 
-    Returns <code>true</code> if the string is a valid URL
+    返回 <code>true</code> 表示字符串是有效的 URL。
 
 * [_`String`_.**`length`**](string.md#stringlength)
 
-    The number of characters in the string
+    字符串中的字符数量。
 
 * [_`String`_.**`match(regexp)`**](string.md#stringmatch)
 
-    Matches the string against a <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a>. Returns an array containing the first match, or all matches if the <code>g</code> flag is set in the regular expression. Returns <code>null</code> if no matches are found. 
+    使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>匹配字符串。返回包含第一个匹配结果的数组；如果正则表达式设置了 <code>g</code> 标志，则返回所有匹配结果。未找到匹配项时返回 <code>null</code>。
 
-For checking whether text is present, consider <code>includes()</code> instead.
+如果只需检查文本是否存在，可以考虑改用 <code>includes()</code>。
 
 * [_`String`_.**`parseJson()`**](string.md#stringparsejson)
 
-    Returns the JavaScript Object or value represented by the string, or <code>undefined</code> if the string isn’t valid JSON. Single-quoted JSON is not supported.
+    返回字符串所表示的 JavaScript 对象或值。如果字符串不是有效的 JSON，则返回 <code>undefined</code>。不支持使用单引号的 JSON。
 
 * [_`String`_.**`quote(mark?)`**](string.md#stringquote)
 
-    Wraps a string in quotation marks, and escapes any quotation marks already in the string. Useful when constructing JSON, SQL, etc.
+    为字符串加上引号，并转义字符串中已有的引号。适用于构造 JSON、SQL 等内容。
 
 * [_`String`_.**`removeMarkdown()`**](string.md#stringremovemarkdown)
 
-    Removes any Markdown formatting from the string. Also removes HTML tags.
+    删除字符串中的所有 Markdown 格式，同时删除 HTML 标签。
 
 * [_`String`_.**`removeTags()`**](string.md#stringremovetags)
 
-    Removes tags, such as HTML or XML, from the string
+    删除字符串中的标签，例如 HTML 或 XML 标签。
 
 * [_`String`_.**`replace(pattern, replacement)`**](string.md#stringreplace)
 
-    Returns a string with the first occurrence of <code>pattern</code> replaced by <code>replacement</code>. 
+    返回一个字符串，其中首次出现的 <code>pattern</code> 被替换为 <code>replacement</code>。
 
-To replace all occurrences, use <code>replaceAll()</code> instead.
+如需替换所有出现的位置，请使用 <code>replaceAll()</code>。
 
 * [_`String`_.**`replaceAll(pattern, replacement)`**](string.md#stringreplaceall)
 
-    Returns a string with all occurrences of <code>pattern</code> replaced by <code>replacement</code>
+    返回一个字符串，其中所有出现的 <code>pattern</code> 均被替换为 <code>replacement</code>。
 
 * [_`String`_.**`replaceSpecialChars()`**](string.md#stringreplacespecialchars)
 
-    Replaces special characters in the string with the closest ASCII character
+    将字符串中的特殊字符替换为最接近的 ASCII 字符。
 
 * [_`String`_.**`search(regexp)`**](string.md#stringsearch)
 
-    Returns the index (position) of the first occurrence of a pattern within the string, or -1 if not found. The pattern is specified using a <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a>. To use text instead, see <code>indexOf()</code>.
+    返回模式在字符串中首次出现的索引（位置），未找到时返回 -1。模式使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>指定。如需使用文本查找，请参阅 <code>indexOf()</code>。
 
 * [_`String`_.**`slice(start, end?)`**](string.md#stringslice)
 
-    Extracts a fragment of the string at the given position. For more advanced extraction, see <code>match()</code>.
+    从指定位置提取字符串片段。更复杂的提取方式请参阅 <code>match()</code>。
 
 * [_`String`_.**`split(separator?, limit?)`**](string.md#stringsplit)
 
-    Splits the string into an array of substrings. Each split is made at the <code>separator</code>, and the separator isn’t included in the output. 
+    将字符串拆分为子字符串数组。每次都在 <code>separator</code> 处拆分，输出不包含分隔符。
 
-The opposite of using <code>join()</code> on an array.
+与在数组上使用 <code>join()</code> 的作用相反。
 
 * [_`String`_.**`startsWith(searchString, start?)`**](string.md#stringstartswith)
 
-    Returns <code>true</code> if the string starts with <code>searchString</code>. Case-sensitive.
+    返回 <code>true</code> 表示字符串以 <code>searchString</code> 开头，区分大小写。
 
 * [_`String`_.**`substring(start, end?)`**](string.md#stringsubstring)
 
-    Extracts a fragment of the string at the given position. For more advanced extraction, see <code>match()</code>.
+    从指定位置提取字符串片段。更复杂的提取方式请参阅 <code>match()</code>。
 
 * [_`String`_.**`toBoolean()`**](string.md#stringtoboolean)
 
-    Converts the string to a boolean value. <code>0</code>, <code>false</code> and <code>no</code> resolve to <code>false</code>, everything else to <code>true</code>. Case-insensitive.
+    将字符串转换为布尔值。<code>0</code>、<code>false</code> 和 <code>no</code> 转换为 <code>false</code>，其他值均转换为 <code>true</code>，不区分大小写。
 
 * [_`String`_.**`toDateTime()`**](string.md#stringtodatetime)
 
-    Converts the string to a DateTime. Useful for further transformation. Supported formats for the string are ISO 8601, HTTP, RFC2822, SQL and Unix timestamp in milliseconds. 
+    将字符串转换为 DateTime，便于进一步转换。支持的字符串格式包括 ISO 8601、HTTP、RFC2822、SQL 和以毫秒为单位的 Unix 时间戳。
 
-To parse other formats, use <a href=”https://moment.github.io/luxon/api-docs/index.html#datetimefromformat”> <code>DateTime.fromFormat()</code></a>.
+如需解析其他格式，请使用 <a href=”https://moment.github.io/luxon/api-docs/index.html#datetimefromformat”> <code>DateTime.fromFormat()</code></a>。
 
 * [_`String`_.**`toJsonString()`**](string.md#stringtojsonstring)
 
-    Prepares the string to be inserted into a JSON object. Escapes any quotes and special characters (e.g. new lines), and wraps the string in quotes.
+    处理字符串，使其可插入 JSON 对象：转义引号和特殊字符，例如换行符，并为字符串加上引号。
 
-The same as JavaScript’s <code>JSON.stringify()</code>.
+与 JavaScript 的 <code>JSON.stringify()</code> 相同。
 
 * [_`String`_.**`toLowerCase()`**](string.md#stringtolowercase)
 
-    Converts all letters in the string to lower case
+    将字符串中的所有字母转换为小写。
 
 * [_`String`_.**`toNumber()`**](string.md#stringtonumber)
 
-    Converts a string representing a number to a number. Throws an error if the string doesn’t start with a valid number.
+    将表示数字的字符串转换为数字。如果字符串不是以有效数字开头，则抛出错误。
 
 * [_`String`_.**`toSentenceCase()`**](string.md#stringtosentencecase)
 
-    Changes the capitalization of the string to sentence case. The first letter of each sentence is capitalized and all others are lowercased.
+    将字符串转换为句首大写形式，每个句子的首字母大写，其余字母小写。
 
 * [_`String`_.**`toSnakeCase()`**](string.md#stringtosnakecase)
 
-    Changes the format of the string to snake case. Spaces and dashes are replaced by <code>_</code>, symbols are removed and all letters are lowercased.
+    将字符串转换为蛇形命名形式：空格和连字符替换为 <code>_</code>，删除符号，所有字母转换为小写。
 
 * [_`String`_.**`toTitleCase()`**](string.md#stringtotitlecase)
 
-    Changes the capitalization of the string to title case. The first letter of each word is capitalized and the others left unchanged. Short prepositions and conjunctions aren’t capitalized (e.g. ‘a’, ‘the’).
+    将字符串转换为标题大小写形式。每个单词的首字母大写，其余字母保持原样。较短的介词和连词不大写，例如 ‘a’、‘the’。
 
 * [_`String`_.**`toUpperCase()`**](string.md#stringtouppercase)
 
-    Converts all letters in the string to upper case (capitals)
+    将字符串中的所有字母转换为大写。
 
 * [_`String`_.**`trim()`**](string.md#stringtrim)
 
-    Removes whitespace from both ends of the string. Whitespace includes new lines, tabs, spaces, etc.
+    删除字符串两端的空白字符，包括换行符、制表符、空格等。
 
 * [_`String`_.**`urlDecode(allChars?)`**](string.md#stringurldecode)
 
-    Decodes a URL-encoded string. Replaces any character codes in the form of <code>%XX</code> with their corresponding characters.
+    对 URL 编码的字符串进行解码，将 <code>%XX</code> 形式的字符编码替换为对应字符。
 
 * [_`String`_.**`urlEncode(allChars?)`**](string.md#stringurlencode)
 
-    Encodes the string so that it can be used in a URL. Spaces and special characters are replaced with codes of the form <code>%XX</code>.
+    对字符串进行编码，使其可用于 URL。空格和特殊字符替换为 <code>%XX</code> 形式的编码。
 
 
-## WorkflowData <a href="#workflowdata" id="workflowdata"></a>
+## WorkflowData（工作流数据） <a href="#workflowdata" id="workflowdata"></a>
 
 * [`$workflow`.**`active`**](workflowdata.md#dollarworkflowactive)
 
-    Whether the workflow is active
+    工作流是否处于激活状态。
 
 * [`$workflow`.**`id`**](workflowdata.md#dollarworkflowid)
 
-    The workflow ID. Can also be found in the workflow’s URL.
+    工作流 ID，也可以从工作流 URL 中找到。
 
 * [`$workflow`.**`name`**](workflowdata.md#dollarworkflowname)
 
-    The name of the workflow, as shown at the top of the editor
+    工作流名称，即编辑器顶部显示的名称。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Transform data](../)
-* [Approaches for transforming data](../approaches-for-transforming-data.md)
-* [Expressions for data transformation](../expressions-for-data-transformation.md)
+* [转换数据](../)
+* [数据转换方式](../approaches-for-transforming-data.md)
+* [使用表达式转换数据](../expressions-for-data-transformation.md)

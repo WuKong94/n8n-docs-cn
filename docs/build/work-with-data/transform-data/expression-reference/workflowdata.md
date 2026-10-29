@@ -1,46 +1,47 @@
 ---
-nodeTitle: Workflowdata
+nodeTitle: WorkflowData（工作流数据）
 originalFilePath: data/expression-reference/workflowdata.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/workflowdata'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/workflowdata
+originalUrl: https://docs.n8n.io/data/expression-reference/workflowdata
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/workflowdata
 layout:
   description:
     visible: false
 ---
-# WorkflowData <a href="#workflowdata" id="workflowdata"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# WorkflowData（工作流数据） <a href="#workflowdata" id="workflowdata"></a>
 
 ## `$workflow`.**`active`** <a href="#dollarworkflowactive" id="dollarworkflowactive"></a>
 
-**Description:** Whether the workflow is active
+**说明：** 工作流是否处于激活状态。
 
-**Syntax:** `$workflow`.`$workflow`.**`active`**
+**语法：** `$workflow`.`$workflow`.**`active`**
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$workflow`.**`id`** <a href="#dollarworkflowid" id="dollarworkflowid"></a>
 
-**Description:** The workflow ID. Can also be found in the workflow’s URL.
+**说明：** 工作流 ID，也可以从工作流 URL 中找到。
 
-**Syntax:** `$workflow`.`$workflow`.**`id`**
+**语法：** `$workflow`.`$workflow`.**`id`**
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$workflow`.**`name`** <a href="#dollarworkflowname" id="dollarworkflowname"></a>
 
-**Description:** The name of the workflow, as shown at the top of the editor
+**说明：** 工作流名称，即编辑器顶部显示的名称。
 
-**Syntax:** `$workflow`.`$workflow`.**`name`**
+**语法：** `$workflow`.`$workflow`.**`name`**
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

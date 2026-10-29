@@ -1,56 +1,57 @@
 ---
-nodeTitle: Httpresponse
+nodeTitle: HTTPResponse（HTTP 响应）
 originalFilePath: data/expression-reference/httpresponse.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/httpresponse'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/httpresponse
+originalUrl: https://docs.n8n.io/data/expression-reference/httpresponse
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/httpresponse
 layout:
   description:
     visible: false
 ---
-# HTTPResponse <a href="#httpresponse" id="httpresponse"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# HTTPResponse（HTTP 响应） <a href="#httpresponse" id="httpresponse"></a>
 
 ## `$response`.**`body`** <a href="#dollarresponsebody" id="dollarresponsebody"></a>
 
-**Description:** The body of the response object from the last HTTP call. Only available in the ‘HTTP Request’ node
+**说明：** 最近一次 HTTP 调用的响应对象的正文。仅在 HTTP Request 节点中可用。
 
-**Syntax:** `$response`.`$response`.**`body`**
+**语法：** `$response`.`$response`.**`body`**
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$response`.**`headers`** <a href="#dollarresponseheaders" id="dollarresponseheaders"></a>
 
-**Description:** The headers returned by the last HTTP call. Only available in the ‘HTTP Request’ node.
+**说明：** 最近一次 HTTP 调用返回的响应头。仅在 HTTP Request 节点中可用。
 
-**Syntax:** `$response`.`$response`.**`headers`**
+**语法：** `$response`.`$response`.**`headers`**
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$response`.**`statusCode`** <a href="#dollarresponsestatuscode" id="dollarresponsestatuscode"></a>
 
-**Description:** The HTTP status code returned by the last HTTP call. Only available in the ‘HTTP Request’ node.
+**说明：** 最近一次 HTTP 调用返回的 HTTP 状态码。仅在 HTTP Request 节点中可用。
 
-**Syntax:** `$response`.`$response`.**`statusCode`**
+**语法：** `$response`.`$response`.**`statusCode`**
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$response`.**`statusMessage`** <a href="#dollarresponsestatusmessage" id="dollarresponsestatusmessage"></a>
 
-**Description:** An optional message regarding the request status. Only available in the ‘HTTP Request’ node.
+**说明：** 关于请求状态的可选消息。仅在 HTTP Request 节点中可用。
 
-**Syntax:** `$response`.`$response`.**`statusMessage`**
+**语法：** `$response`.`$response`.**`statusMessage`**
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

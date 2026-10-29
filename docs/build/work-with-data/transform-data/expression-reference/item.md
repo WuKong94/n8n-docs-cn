@@ -1,36 +1,37 @@
 ---
-nodeTitle: Item
+nodeTitle: Item（数据项）
 originalFilePath: data/expression-reference/item.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/item'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/item
+originalUrl: https://docs.n8n.io/data/expression-reference/item
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/item
 layout:
   description:
     visible: false
 ---
-# Item <a href="#item" id="item"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# Item（数据项） <a href="#item" id="item"></a>
 
 ## `$item`.**`binary`** <a href="#dollaritembinary" id="dollaritembinary"></a>
 
-**Description:** Returns any binary data the item contains
+**说明：** 返回数据项包含的所有二进制数据。
 
-**Syntax:** `$item`.`$item`.**`binary`**
+**语法：** `$item`.`$item`.**`binary`**
 
-**Returns:** Array<BinaryFile>
+**返回值：** Array<BinaryFile>
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## `$item`.**`json`** <a href="#dollaritemjson" id="dollaritemjson"></a>
 
-**Description:** Returns the JSON data the item contains. <a href="../../understand-n8ns-data-structure.md">More info</a>
+**说明：** 返回数据项包含的 JSON 数据。<a href="../../understand-n8ns-data-structure.md">更多信息</a>
 
-**Syntax:** `$item`.`$item`.**`json`**
+**语法：** `$item`.`$item`.**`json`**
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

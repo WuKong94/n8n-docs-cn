@@ -1,52 +1,53 @@
 ---
-nodeTitle: Prevnodedata
+nodeTitle: PrevNodeData（前一节点数据）
 originalFilePath: data/expression-reference/prevnodedata.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/prevnodedata'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/prevnodedata
+originalUrl: https://docs.n8n.io/data/expression-reference/prevnodedata
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/prevnodedata
 layout:
   description:
     visible: false
 ---
-# PrevNodeData <a href="#prevnodedata" id="prevnodedata"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# PrevNodeData（前一节点数据） <a href="#prevnodedata" id="prevnodedata"></a>
 
 ## **`name`** <a href="#name" id="name"></a>
 
-**Description:** The name of the node that the current input came from. 
+**说明：** 提供当前输入的节点名称。
 
-Always uses the current node’s first input connector if there is more than one (e.g. in the ‘Merge’ node).
+如果当前节点有多个输入连接点（例如 Merge 节点），始终使用第一个输入连接点。
 
-**Syntax:** **`name`**
+**语法：** **`name`**
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`outputIndex`** <a href="#outputindex" id="outputindex"></a>
 
-**Description:** The index of the output connector that the current input came from. Use this when the previous node had multiple outputs (such as an ‘If’ or ‘Switch’ node). 
+**说明：** 提供当前输入的输出连接点索引。前一个节点有多个输出时（例如 If 或 Switch 节点），可以使用此值。
 
-Always uses the current node’s first input connector if there is more than one (e.g. in the ‘Merge’ node). 
+如果当前节点有多个输入连接点（例如 Merge 节点），始终使用第一个输入连接点。
 
-**Syntax:** **`outputIndex`**
+**语法：** **`outputIndex`**
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`runIndex`** <a href="#runindex" id="runindex"></a>
 
-**Description:** The run of the previous node that generated the current input. 
+**说明：** 前一个节点生成当前输入时的运行次数索引。
 
-Always uses the current node’s first input connector if there is more than one (e.g. in the ‘Merge’ node). 
+如果当前节点有多个输入连接点（例如 Merge 节点），始终使用第一个输入连接点。
 
-**Syntax:** **`runIndex`**
+**语法：** **`runIndex`**
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

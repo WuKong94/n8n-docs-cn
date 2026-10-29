@@ -1,26 +1,27 @@
 ---
-nodeTitle: Datetime
+nodeTitle: DateTime（日期时间）
 originalFilePath: data/expression-reference/datetime.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/datetime'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/datetime
+originalUrl: https://docs.n8n.io/data/expression-reference/datetime
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/datetime
 layout:
   description:
     visible: false
 ---
-# DateTime <a href="#datetime" id="datetime"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# DateTime（日期时间） <a href="#datetime" id="datetime"></a>
 
 ## _`DateTime`_.**`day`** <a href="#datetimeday" id="datetimeday"></a>
 
-**Description:** The day of the month (1-31)
+**说明：** 一个月中的第几天，取值为 1–31。
 
-**Syntax:** _`DateTime`_.day
+**语法：** _`DateTime`_.day
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -29,20 +30,20 @@ layout:
 
 ## _`DateTime`_.**`diffTo()`** <a href="#datetimediffto" id="datetimediffto"></a>
 
-**Description:** Returns the difference between two DateTimes, in the given unit(s)
+**说明：** 以指定单位返回两个 DateTime 之间的差值。
 
-**Syntax:** _`DateTime`_.diffTo(otherDateTime, unit)
+**语法：** _`DateTime`_.diffTo(otherDateTime, unit)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `otherDateTime ` (String|DateTime) - The moment to subtract the base DateTime from. Can be an ISO date string or a Luxon DateTime.
-  * `unit ` (String|Array<String>) - optional - The unit, or array of units, to return the result in. Possible values: <code>years</code>, <code>months</code>, <code>weeks</code>, <code>days</code>, <code>hours</code>, <code>minutes</code>, <code>seconds</code>, <code>milliseconds</code>.
+  * `otherDateTime `（String|DateTime）— 从此时刻减去基础 DateTime。可以是 ISO 日期字符串或 Luxon DateTime。
+  * `unit `（String|Array<String>）— 可选 — 返回结果使用的单位或单位数组。可选值：<code>years</code>、<code>months</code>、<code>weeks</code>、<code>days</code>、<code>hours</code>、<code>minutes</code>、<code>seconds</code>、<code>milliseconds</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt1 = "2024-03-30T18:49:07.234".toDateTime()
@@ -61,19 +62,19 @@ layout:
 
 ## _`DateTime`_.**`diffToNow()`** <a href="#datetimedifftonow" id="datetimedifftonow"></a>
 
-**Description:** Returns the difference between the current moment and the DateTime, in the given unit(s). For a textual representation, use <code>toRelative()</code> instead.
+**说明：** 以指定单位返回当前时刻与该 DateTime 之间的差值。如果需要文本形式，请使用 <code>toRelative()</code>。
 
-**Syntax:** _`DateTime`_.diffToNow(unit)
+**语法：** _`DateTime`_.diffToNow(unit)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `unit ` (String|Array<String>) - optional - The unit, or array of units, to return the result in. Possible values: <code>years</code>, <code>months</code>, <code>weeks</code>, <code>days</code>, <code>hours</code>, <code>minutes</code>, <code>seconds</code>, <code>milliseconds</code>.
+  * `unit `（String|Array<String>）— 可选 — 返回结果使用的单位或单位数组。可选值：<code>years</code>、<code>months</code>、<code>weeks</code>、<code>days</code>、<code>hours</code>、<code>minutes</code>、<code>seconds</code>、<code>milliseconds</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2023-03-30T18:49:07.234".toDateTime()
@@ -91,21 +92,21 @@ layout:
 
 ## _`DateTime`_.**`endOf()`** <a href="#datetimeendof" id="datetimeendof"></a>
 
-**Description:** Rounds the DateTime up to the end of one of its units, e.g. the end of the month
+**说明：** 将 DateTime 向上调整到指定单位的结束时刻，例如月末。
 
-**Syntax:** _`DateTime`_.endOf(unit, opts)
+**语法：** _`DateTime`_.endOf(unit, opts)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `unit ` (String) - The unit to round to the end of. Can be <code>year</code>, <code>quarter</code>, <code>month</code>, <code>week</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, or <code>millisecond</code>.
-  * `opts ` (Object) - optional - Object with options that affect the output. Possible properties:
-<code>useLocaleWeeks</code> (boolean): Whether to use the locale when calculating the start of the week. Defaults to false.
+  * `unit `（String）— 要调整到其结束时刻的单位。可选值：<code>year</code>、<code>quarter</code>、<code>month</code>、<code>week</code>、<code>day</code>、<code>hour</code>、<code>minute</code>、<code>second</code> 或 <code>millisecond</code>。
+  * `opts `（Object）— 可选 — 包含影响输出结果的选项的对象。可用属性：
+<code>useLocaleWeeks</code>（boolean）：计算一周起始日期时，是否遵循区域设置。默认为 false。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-20T18:49".toDateTime()
@@ -114,19 +115,19 @@ layout:
 
 ## _`DateTime`_.**`equals()`** <a href="#datetimeequals" id="datetimeequals"></a>
 
-**Description:** Returns <code>true</code> if the two DateTimes represent exactly the same moment and are in the same time zone. For a less strict comparison, use <code>hasSame()</code>.
+**说明：** 返回 <code>true</code> 表示两个 DateTime 代表完全相同的时刻，且时区相同。如需较宽松的比较，请使用 <code>hasSame()</code>。
 
-**Syntax:** _`DateTime`_.equals(other)
+**语法：** _`DateTime`_.equals(other)
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `other ` (DateTime) - The other DateTime to compare
+  * `other `（DateTime）— 用于比较的另一个 DateTime。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt1 = "2024-03-20T18:49+01:00".toDateTime()
@@ -136,19 +137,19 @@ layout:
 
 ## _`DateTime`_.**`extract()`** <a href="#datetimeextract" id="datetimeextract"></a>
 
-**Description:** Extracts a part of the date or time, e.g. the month, as a number. To extract textual names instead, see <code>format()</code>.
+**说明：** 以数字形式提取日期或时间的某一部分，例如月份。如需提取文本名称，请参阅 <code>format()</code>。
 
-**Syntax:** _`DateTime`_.extract(unit?)
+**语法：** _`DateTime`_.extract(unit?)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `unit` (String) - optional - The part of the date or time to return. One of: <code>year</code>, <code>month</code>, <code>week</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>
+  * `unit`（String）— 可选 — 要返回的日期或时间部分。可选值：<code>year</code>、<code>month</code>、<code>week</code>、<code>day</code>、<code>hour</code>、<code>minute</code>、<code>second</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -162,19 +163,19 @@ layout:
 
 ## _`DateTime`_.**`format()`** <a href="#datetimeformat" id="datetimeformat"></a>
 
-**Description:** Converts the DateTime to a string, using the format specified. <a href="https://moment.github.io/luxon/#/formatting?id=table-of-tokens">Formatting guide</a>. For common formats, <code>toLocaleString()</code> may be easier.
+**说明：** 使用指定格式将 DateTime 转换为字符串。参阅<a href="https://moment.github.io/luxon/#/formatting?id=table-of-tokens">格式化指南</a>。对于常见格式，使用 <code>toLocaleString()</code> 可能更方便。
 
-**Syntax:** _`DateTime`_.format(fmt)
+**语法：** _`DateTime`_.format(fmt)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `fmt` (String) - The <a href="https://moment.github.io/luxon/#/formatting?id=table-of-tokens">format</a> of the string to return 
+  * `fmt`（String）— 要返回的字符串<a href="https://moment.github.io/luxon/#/formatting?id=table-of-tokens">格式</a>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-04-30T18:49".toDateTime()
@@ -189,36 +190,36 @@ layout:
   ```
 
 {% hint style="warning" %}
-**Not available in the Code node**
+**在 Code 节点中不可用**
 
-`format()` is a custom n8n extension added to Luxon `DateTime` objects in the expressions editor. It doesn't exist in the Code node, because Code node scripts run against plain, unmodified Luxon. Calling it there throws `... .format is not a function`.
+`format()` 是 n8n 为表达式编辑器中的 Luxon `DateTime` 对象添加的自定义扩展。Code 节点脚本使用未经修改的原生 Luxon，因此不提供此方法。在 Code 节点中调用会抛出 `... .format is not a function`。
 
-Use Luxon's native [`toFormat()`](https://moment.github.io/luxon/api-docs/index.html#datetimetoformat) instead:
+请改用 Luxon 原生的 [`toFormat()`](https://moment.github.io/luxon/api-docs/index.html#datetimetoformat)：
 
 ```javascript
 // In the Code node
 DateTime.now().toFormat('dd/LL/yyyy'); //=> '30/04/2024'
 ```
 
-This applies to any method on this page marked **Source: Custom n8n functionality**: it's available in expressions (e.g. the Set node) but may not be available in the Code node. See [Built-in methods and variables](../../../code-in-n8n/use-built-in-shortcuts.md) for more on this distinction.
+这一点也适用于本页标为**来源：n8n 自定义功能**的其他方法：它们在表达式中可用，例如 Set 节点中的表达式，但在 Code 节点中可能不可用。更多区别请参阅[内置方法和变量](../../../code-in-n8n/use-built-in-shortcuts.md)。
 {% endhint %}
 
 ## _`DateTime`_.**`hasSame()`** <a href="#datetimehassame" id="datetimehassame"></a>
 
-**Description:** Returns <code>true</code> if the two DateTimes are the same, down to the unit specified. Time zones are ignored (only local times are compared), so use <code>toUTC()</code> first if needed.
+**说明：** 返回 <code>true</code> 表示两个 DateTime 在指定单位及更大单位上相同。忽略时区，仅比较本地时间，因此必要时请先使用 <code>toUTC()</code>。
 
-**Syntax:** _`DateTime`_.hasSame(otherDateTime, unit)
+**语法：** _`DateTime`_.hasSame(otherDateTime, unit)
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `otherDateTime ` (DateTime) - The other DateTime to compare
-  * `unit ` (String) - The unit of time to check sameness down to. One of <code>year</code>, <code>quarter</code>, <code>month</code>, <code>week</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, or <code>millisecond</code>.
+  * `otherDateTime `（DateTime）— 用于比较的另一个 DateTime。
+  * `unit `（String）— 比较相同与否时使用的最小时间单位。可选值：<code>year</code>、<code>quarter</code>、<code>month</code>、<code>week</code>、<code>day</code>、<code>hour</code>、<code>minute</code>、<code>second</code> 或 <code>millisecond</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt1 = "2024-03-20".toDateTime()
@@ -234,15 +235,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`hour`** <a href="#datetimehour" id="datetimehour"></a>
 
-**Description:** The hour of the day (0-23)
+**说明：** 一天中的小时数，取值为 0–23。
 
-**Syntax:** _`DateTime`_.hour
+**语法：** _`DateTime`_.hour
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -251,20 +252,20 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`isBetween()`** <a href="#datetimeisbetween" id="datetimeisbetween"></a>
 
-**Description:** Returns <code>true</code> if the DateTime lies between the two moments specified
+**说明：** 返回 <code>true</code> 表示 DateTime 位于指定的两个时刻之间。
 
-**Syntax:** _`DateTime`_.isBetween(date1, date2)
+**语法：** _`DateTime`_.isBetween(date1, date2)
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `date1` (String|DateTime) - The moment that the base DateTime must be after. Can be an ISO date string or a Luxon DateTime.
-  * `date2` (String|DateTime) - The moment that the base DateTime must be before. Can be an ISO date string or a Luxon DateTime.
+  * `date1`（String|DateTime）— 基础 DateTime 必须晚于的时刻。可以是 ISO 日期字符串或 Luxon DateTime。
+  * `date2`（String|DateTime）— 基础 DateTime 必须早于的时刻。可以是 ISO 日期字符串或 Luxon DateTime。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -278,15 +279,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`isEmpty()`** <a href="#datetimeisempty" id="datetimeisempty"></a>
 
-**Description:** Returns <code>false</code> for all DateTimes. Returns <code>true</code> for <code>null</code> or <code>undefined</code>.
+**说明：** 对所有 DateTime 返回 <code>false</code>。返回 <code>true</code> 的情况是值为 <code>null</code> 或 <code>undefined</code>。
 
-**Syntax:** _`DateTime`_.isEmpty()
+**语法：** _`DateTime`_.isEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = '2023-03-30T18:49:07.234'.toDateTime()
@@ -300,25 +301,25 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`isInDST`** <a href="#datetimeisindst" id="datetimeisindst"></a>
 
-**Description:** Whether the DateTime is in daylight saving time
+**说明：** DateTime 是否处于夏令时。
 
-**Syntax:** _`DateTime`_.isInDST
+**语法：** _`DateTime`_.isInDST
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Type:** Luxon
+**类型：** Luxon
 
 ## _`DateTime`_.**`isNotEmpty()`** <a href="#datetimeisnotempty" id="datetimeisnotempty"></a>
 
-**Description:** Returns <code>true</code> for all DateTimes. Returns <code>false</code> for <code>null</code> or <code>undefined</code>.
+**说明：** 对所有 DateTime 返回 <code>true</code>。返回 <code>false</code> 的情况是值为 <code>null</code> 或 <code>undefined</code>。
 
-**Syntax:** _`DateTime`_.isNotEmpty()
+**语法：** _`DateTime`_.isNotEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = '2023-03-30T18:49:07.234'.toDateTime()
@@ -332,15 +333,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`locale`** <a href="#datetimelocale" id="datetimelocale"></a>
 
-**Description:** The locale of a DateTime, such 'en-GB'. The locale is used when formatting the DateTime.
+**说明：** DateTime 的区域设置，例如 ‘en-GB’。格式化 DateTime 时会使用该区域设置。
 
-**Syntax:** _`DateTime`_.locale
+**语法：** _`DateTime`_.locale
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.locale //=> 'en-US'
@@ -348,15 +349,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`millisecond`** <a href="#datetimemillisecond" id="datetimemillisecond"></a>
 
-**Description:** The millisecond of the second (0-999)
+**说明：** 一秒中的毫秒数，取值为 0–999。
 
-**Syntax:** _`DateTime`_.millisecond
+**语法：** _`DateTime`_.millisecond
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49:07.234".toDateTime()
@@ -365,20 +366,20 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`minus()`** <a href="#datetimeminus" id="datetimeminus"></a>
 
-**Description:** Subtracts a given period of time from the DateTime
+**说明：** 从 DateTime 中减去指定时长。
 
-**Syntax:** _`DateTime`_.minus(n, unit?)
+**语法：** _`DateTime`_.minus(n, unit?)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `n` (Number|Object) - The number of units to subtract. Or use a Luxon <a href=”https://moment.github.io/luxon/api-docs/index.html#duration”>Duration</a> object to subtract multiple units at once.
-  * `unit` (String) - optional - The units of the number. One of: <code>years</code>, <code>months</code>, <code>weeks</code>, <code>days</code>, <code>hours</code>, <code>minutes</code>, <code>seconds</code>, <code>milliseconds</code>
+  * `n`（Number|Object）— 要减去的单位数量。也可以使用 Luxon <a href=”https://moment.github.io/luxon/api-docs/index.html#duration”>Duration</a> 对象，一次减去多个单位的时长。
+  * `unit`（String）— 可选 — 数字对应的单位。可选值：<code>years</code>、<code>months</code>、<code>weeks</code>、<code>days</code>、<code>hours</code>、<code>minutes</code>、<code>seconds</code>、<code>milliseconds</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -391,20 +392,20 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
   ```
 
 {% hint style="info" %}
-**Code node:** Luxon's native `DateTime.prototype.minus()` also exists in the Code node, but only accepts a single [Duration-like object](https://moment.github.io/luxon/api-docs/index.html#datetimeminus) (e.g. `dt.minus({ days: 7 })`), not this page's n8n-only `(n, unit)` shorthand. Passing `dt.minus(7, 'days')` in the Code node will not raise an error but will not subtract 7 days either — double-check the result if you use this signature there.
+**Code 节点：** Code 节点也提供 Luxon 原生的 `DateTime.prototype.minus()`，但只接受一个 [Duration 类对象](https://moment.github.io/luxon/api-docs/index.html#datetimeminus)，例如 `dt.minus({ days: 7 })`，不支持本页仅适用于 n8n 的 `(n, unit)` 简写。在 Code 节点中传入 `dt.minus(7, 'days')` 不会报错，但也不会减去 7 天。如果在 Code 节点中使用此签名，请仔细检查结果。
 {% endhint %}
 
 ## _`DateTime`_.**`minute`** <a href="#datetimeminute" id="datetimeminute"></a>
 
-**Description:** The minute of the hour (0-59)
+**说明：** 一小时中的分钟数，取值为 0–59。
 
-**Syntax:** _`DateTime`_.minute
+**语法：** _`DateTime`_.minute
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -413,15 +414,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`month`** <a href="#datetimemonth" id="datetimemonth"></a>
 
-**Description:** The month (1-12)
+**说明：** 月份，取值为 1–12。
 
-**Syntax:** _`DateTime`_.month
+**语法：** _`DateTime`_.month
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -430,15 +431,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`monthLong`** <a href="#datetimemonthlong" id="datetimemonthlong"></a>
 
-**Description:** The textual long month name, e.g. 'October'. Defaults to the system's locale if no locale has been specified.
+**说明：** 完整的月份名称，例如 ‘October’。未指定区域设置时，默认使用系统区域设置。
 
-**Syntax:** _`DateTime`_.monthLong
+**语法：** _`DateTime`_.monthLong
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -452,15 +453,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`monthShort`** <a href="#datetimemonthshort" id="datetimemonthshort"></a>
 
-**Description:** The textual abbreviated month name, e.g. 'Oct'. Defaults to the system's locale if no locale has been specified.
+**说明：** 缩写的月份名称，例如 ‘Oct’。未指定区域设置时，默认使用系统区域设置。
 
-**Syntax:** _`DateTime`_.monthShort
+**语法：** _`DateTime`_.monthShort
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -474,20 +475,20 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`plus()`** <a href="#datetimeplus" id="datetimeplus"></a>
 
-**Description:** Adds a given period of time to the DateTime
+**说明：** 为 DateTime 加上指定时长。
 
-**Syntax:** _`DateTime`_.plus(n, unit?)
+**语法：** _`DateTime`_.plus(n, unit?)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `n` (Number|Object) - The number of units to add. Or use a Luxon <a href=”https://moment.github.io/luxon/api-docs/index.html#duration”>Duration</a> object to add multiple units at once.
-  * `unit` (String) - optional - The units of the number. One of: <code>years</code>, <code>months</code>, <code>weeks</code>, <code>days</code>, <code>hours</code>, <code>minutes</code>, <code>seconds</code>, <code>milliseconds</code>
+  * `n`（Number|Object）— 要增加的单位数量。也可以使用 Luxon <a href=”https://moment.github.io/luxon/api-docs/index.html#duration”>Duration</a> 对象，一次增加多个单位的时长。
+  * `unit`（String）— 可选 — 数字对应的单位。可选值：<code>years</code>、<code>months</code>、<code>weeks</code>、<code>days</code>、<code>hours</code>、<code>minutes</code>、<code>seconds</code>、<code>milliseconds</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -500,20 +501,20 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
   ```
 
 {% hint style="info" %}
-**Code node:** Luxon's native `DateTime.prototype.plus()` also exists in the Code node, but only accepts a single [Duration-like object](https://moment.github.io/luxon/api-docs/index.html#datetimeplus) (e.g., `dt.plus({ days: 7 })`), not this page's n8n-only `(n, unit)` shorthand. Passing `dt.plus(7, 'days')` in the Code node will not raise an error but will not add 7 days either. Double-check the result if you use this signature there.
+**Code 节点：** Code 节点也提供 Luxon 原生的 `DateTime.prototype.plus()`，但只接受一个 [Duration 类对象](https://moment.github.io/luxon/api-docs/index.html#datetimeplus)，例如 `dt.plus({ days: 7 })`，不支持本页仅适用于 n8n 的 `(n, unit)` 简写。在 Code 节点中传入 `dt.plus(7, 'days')` 不会报错，但也不会加上 7 天。如果在 Code 节点中使用此签名，请仔细检查结果。
 {% endhint %}
 
 ## _`DateTime`_.**`quarter`** <a href="#datetimequarter" id="datetimequarter"></a>
 
-**Description:** The quarter of the year (1-4)
+**说明：** 一年中的季度，取值为 1–4。
 
-**Syntax:** _`DateTime`_.quarter
+**语法：** _`DateTime`_.quarter
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -522,15 +523,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`second`** <a href="#datetimesecond" id="datetimesecond"></a>
 
-**Description:** The second of the minute (0-59)
+**说明：** 一分钟中的秒数，取值为 0–59。
 
-**Syntax:** _`DateTime`_.second
+**语法：** _`DateTime`_.second
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49:07.234".toDateTime()
@@ -539,19 +540,19 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`set()`** <a href="#datetimeset" id="datetimeset"></a>
 
-**Description:** Assigns new values to specified units of the DateTime. To round a DateTime, see also <code>startOf()</code> and <code>endOf()</code>.
+**说明：** 为 DateTime 的指定单位赋予新值。如需将 DateTime 调整到单位起点或终点，另请参阅 <code>startOf()</code> 和 <code>endOf()</code>。
 
-**Syntax:** _`DateTime`_.set(values)
+**语法：** _`DateTime`_.set(values)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `values ` (Object) - An object containing the units to set and corresponding values to assign. Possible keys are <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code> and <code>millsecond</code>.
+  * `values `（Object）— 包含要设置的单位及相应值的对象。可用键：<code>year</code>、<code>month</code>、<code>day</code>、<code>hour</code>、<code>minute</code>、<code>second</code> 和 <code>millsecond</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -560,19 +561,19 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`setLocale()`** <a href="#datetimesetlocale" id="datetimesetlocale"></a>
 
-**Description:** Sets the locale, which determines the language and formatting for the DateTime. Useful when generating a textual representation of the DateTime, e.g. with <code>format()</code> or <code>toLocaleString()</code>.
+**说明：** 设置区域，决定 DateTime 使用的语言和格式。生成 DateTime 的文本表示时很有用，例如使用 <code>format()</code> 或 <code>toLocaleString()</code> 时。
 
-**Syntax:** _`DateTime`_.setLocale(locale)
+**语法：** _`DateTime`_.setLocale(locale)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `locale ` (String) - The locale to assign, e.g. ‘en-GB’ for British English or ‘pt-BR’ for Brazilian Portuguese. <a href=”https://www.localeplanet.com/icu/”>List</a> (unofficial)
+  * `locale `（String）— 要使用的区域设置，例如 ‘en-GB’ 表示英式英语，‘pt-BR’ 表示巴西葡萄牙语。<a href=”https://www.localeplanet.com/icu/”>列表</a>（非官方）。
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.setLocale('de-DE').toLocaleString({'dateStyle':'long'}) //=> 5. Oktober 2024
@@ -584,21 +585,21 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`setZone()`** <a href="#datetimesetzone" id="datetimesetzone"></a>
 
-**Description:** Converts the DateTime to the given time zone. The DateTime still represents the same moment unless specified in the options. See also <code>toLocal()</code> and <code>toUTC()</code>.
+**说明：** 将 DateTime 转换为指定时区。除非通过选项另行指定，DateTime 仍表示同一时刻。另请参阅 <code>toLocal()</code> 和 <code>toUTC()</code>。
 
-**Syntax:** _`DateTime`_.setZone(zone, opts)
+**语法：** _`DateTime`_.setZone(zone, opts)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `zone ` (String) - optional - A zone identifier, either in the format ‘America/New_York’, 'UTC+3', or the strings 'local' or 'utc'
-  * `opts ` (Object) - optional - Options that affect the output. Possible properties:
-<code>keepCalendarTime</code> (boolean): Whether to keep the time the same and only change the offset. Defaults to false.
+  * `zone `（String）— 可选 — 时区标识符，可以使用 ‘America/New_York’、‘UTC+3’ 格式，或字符串 ‘local’、‘utc’。
+  * `opts `（Object）— 可选 — 影响输出结果的选项。可用属性：
+<code>keepCalendarTime</code>（boolean）：是否保持本地日期时间不变，仅修改时区偏移量。默认为 false。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-01-01T00:00:00.000+02:00".toDateTime()
@@ -612,21 +613,21 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`startOf()`** <a href="#datetimestartof" id="datetimestartof"></a>
 
-**Description:** Rounds the DateTime down to the beginning of one of its units, e.g. the start of the month
+**说明：** 将 DateTime 向下调整到指定单位的起始时刻，例如月初。
 
-**Syntax:** _`DateTime`_.startOf(unit, opts)
+**语法：** _`DateTime`_.startOf(unit, opts)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `unit ` (String) - The unit to round to the beginning of. One of <code>year</code>, <code>quarter</code>, <code>month</code>, <code>week</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, or <code>millisecond</code>.
-  * `opts ` (Object) - optional - Object with options that affect the output. Possible properties:
-<code>useLocaleWeeks</code> (boolean): Whether to use the locale when calculating the start of the week. Defaults to false.
+  * `unit `（String）— 要调整到其起始时刻的单位。可选值：<code>year</code>、<code>quarter</code>、<code>month</code>、<code>week</code>、<code>day</code>、<code>hour</code>、<code>minute</code>、<code>second</code> 或 <code>millisecond</code>。
+  * `opts `（Object）— 可选 — 包含影响输出结果的选项的对象。可用属性：
+<code>useLocaleWeeks</code>（boolean）：计算一周起始日期时，是否遵循区域设置。默认为 false。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-20T18:49".toDateTime()
@@ -635,19 +636,19 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toISO()`** <a href="#datetimetoiso" id="datetimetoiso"></a>
 
-**Description:** Returns an ISO 8601-compliant string representation of the DateTime
+**说明：** 返回符合 ISO 8601 标准的 DateTime 字符串表示。
 
-**Syntax:** _`DateTime`_.toISO(opts)
+**语法：** _`DateTime`_.toISO(opts)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `opts ` (Object) - optional - Configuration options. See <a href=”https://moment.github.io/luxon/api-docs/index.html#datetimetoiso”>Luxon docs</a> for more info.
+  * `opts `（Object）— 可选 — 配置选项。更多信息请参阅 <a href=”https://moment.github.io/luxon/api-docs/index.html#datetimetoiso”>Luxon 文档</a>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.toISO() //=> 2024-04-05T18:44:55.525+02:00
@@ -655,15 +656,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toLocal()`** <a href="#datetimetolocal" id="datetimetolocal"></a>
 
-**Description:** Converts a DateTime to the workflow’s local time zone. The DateTime still represents the same moment unless specified in the parameters. The workflow’s time zone can be set in the workflow settings.
+**说明：** 将 DateTime 转换为工作流的本地时区。除非通过参数另行指定，DateTime 仍表示同一时刻。可以在工作流设置中设置时区。
 
-**Syntax:** _`DateTime`_.toLocal()
+**语法：** _`DateTime`_.toLocal()
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-01-01T00:00:00.000Z".toDateTime()
@@ -672,19 +673,19 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toLocaleString()`** <a href="#datetimetolocalestring" id="datetimetolocalestring"></a>
 
-**Description:** Returns a localised string representing the DateTime, i.e. in the language and format corresponding to its locale. Defaults to the system's locale if none specified.
+**说明：** 返回 DateTime 的本地化字符串，即使用对应区域的语言和格式。未指定区域时，默认使用系统区域设置。
 
-**Syntax:** _`DateTime`_.toLocaleString(formatOpts)
+**语法：** _`DateTime`_.toLocaleString(formatOpts)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `formatOpts ` (Object) - optional - Configuration options for the rendering. See <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters”>Intl.DateTimeFormat</a> for a full list. Defaults to rendering a short date.
+  * `formatOpts `（Object）— 可选 — 显示结果的配置选项。完整列表请参阅 <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters”>Intl.DateTimeFormat</a>。默认显示简短日期。
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.toLocaleString() //=> '4/30/2024'
@@ -728,15 +729,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toMillis()`** <a href="#datetimetomillis" id="datetimetomillis"></a>
 
-**Description:** Returns a Unix timestamp in milliseconds (the number elapsed since 1st Jan 1970)
+**说明：** 返回以毫秒为单位的 Unix 时间戳，即自 1970 年 1 月 1 日起经过的毫秒数。
 
-**Syntax:** _`DateTime`_.toMillis()
+**语法：** _`DateTime`_.toMillis()
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.toMillis() //=> 1712334324677
@@ -744,21 +745,21 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toRelative()`** <a href="#datetimetorelative" id="datetimetorelative"></a>
 
-**Description:** Returns a textual representation of the time relative to now, e.g. ‘in two days’. Rounds down by default.
+**说明：** 返回相对于当前时刻的时间文本，例如 ‘in two days’（两天后）。默认向下取整。
 
-**Syntax:** _`DateTime`_.toRelative(options)
+**语法：** _`DateTime`_.toRelative(options)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `options ` (Object) - optional - Options that affect the output. Possible properties:
-<code>unit</code> = the unit to default to (<code>years</code>, <code>months</code>, <code>days</code>, etc.).
-<code>locale</code> = the language and formatting to use (e.g. <code>de</code>, <code>fr</code>)
+  * `options `（Object）— 可选 — 影响输出结果的选项。可用属性：
+<code>unit</code> = 默认使用的单位，例如 <code>years</code>、<code>months</code>、<code>days</code> 等。
+<code>locale</code> = 使用的语言和格式，例如 <code>de</code>、<code>fr</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.plus(1, 'day').toRelative() //=> "in 1 day"
@@ -774,15 +775,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toSeconds()`** <a href="#datetimetoseconds" id="datetimetoseconds"></a>
 
-**Description:** Returns a Unix timestamp in seconds (the number elapsed since 1st Jan 1970)
+**说明：** 返回以秒为单位的 Unix 时间戳，即自 1970 年 1 月 1 日起经过的秒数。
 
-**Syntax:** _`DateTime`_.toSeconds()
+**语法：** _`DateTime`_.toSeconds()
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.toSeconds() //=> 1712334442.372
@@ -790,15 +791,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toString()`** <a href="#datetimetostring" id="datetimetostring"></a>
 
-**Description:** Returns a string representation of the DateTime. Similar to <code>toISO()</code>. For more formatting options, see <code>format()</code> or <code>toLocaleString()</code>.
+**说明：** 返回 DateTime 的字符串表示，与 <code>toISO()</code> 类似。更多格式化选项请参阅 <code>format()</code> 或 <code>toLocaleString()</code>。
 
-**Syntax:** _`DateTime`_.toString()
+**语法：** _`DateTime`_.toString()
 
-**Returns:** string
+**返回值：** string（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.toString() //=> 2024-04-05T18:44:55.525+02:00
@@ -806,21 +807,21 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`toUTC()`** <a href="#datetimetoutc" id="datetimetoutc"></a>
 
-**Description:** Converts a DateTime to the UTC time zone. The DateTime still represents the same moment unless specified in the parameters. Use <code>setZone()</code> to convert to other zones.
+**说明：** 将 DateTime 转换为 UTC 时区。除非通过参数另行指定，DateTime 仍表示同一时刻。转换到其他时区请使用 <code>setZone()</code>。
 
-**Syntax:** _`DateTime`_.toUTC(offset, opts)
+**语法：** _`DateTime`_.toUTC(offset, opts)
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Parameters:**
+**参数：**
 
-  * `offset ` (Number) - optional - An offset from UTC in minutes
-  * `opts ` (Object) - optional - Object with options that affect the output. Possible properties:
-<code>keepCalendarTime</code> (boolean): Whether to keep the time the same and only change the offset. Defaults to false.
+  * `offset `（Number）— 可选 — 相对于 UTC 的偏移量，以分钟为单位。
+  * `opts `（Object）— 可选 — 包含影响输出结果的选项的对象。可用属性：
+<code>keepCalendarTime</code>（boolean）：是否保持本地日期时间不变，仅修改时区偏移量。默认为 false。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-01-01T00:00:00.000+02:00".toDateTime()
@@ -829,15 +830,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`weekday`** <a href="#datetimeweekday" id="datetimeweekday"></a>
 
-**Description:** The day of the week. 1 is Monday and 7 is Sunday.
+**说明：** 星期几。1 表示星期一，7 表示星期日。
 
-**Syntax:** _`DateTime`_.weekday
+**语法：** _`DateTime`_.weekday
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -846,15 +847,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`weekdayLong`** <a href="#datetimeweekdaylong" id="datetimeweekdaylong"></a>
 
-**Description:** The textual long weekday name, e.g. 'Wednesday'. Defaults to the system's locale if no locale has been specified.
+**说明：** 完整的星期名称，例如 ‘Wednesday’。未指定区域设置时，默认使用系统区域设置。
 
-**Syntax:** _`DateTime`_.weekdayLong
+**语法：** _`DateTime`_.weekdayLong
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -868,15 +869,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`weekdayShort`** <a href="#datetimeweekdayshort" id="datetimeweekdayshort"></a>
 
-**Description:** The textual abbreviated weekday name, e.g. 'Wed'. Defaults to the system's locale if no locale has been specified.
+**说明：** 缩写的星期名称，例如 ‘Wed’。未指定区域设置时，默认使用系统区域设置。
 
-**Syntax:** _`DateTime`_.weekdayShort
+**语法：** _`DateTime`_.weekdayShort
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -890,15 +891,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`weekNumber`** <a href="#datetimeweeknumber" id="datetimeweeknumber"></a>
 
-**Description:** The week number of the year (1-52ish)
+**说明：** 一年中的周数，大致取值为 1–52。
 
-**Syntax:** _`DateTime`_.weekNumber
+**语法：** _`DateTime`_.weekNumber
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -907,15 +908,15 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`year`** <a href="#datetimeyear" id="datetimeyear"></a>
 
-**Description:** The year
+**说明：** 年份。
 
-**Syntax:** _`DateTime`_.year
+**语法：** _`DateTime`_.year
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   // dt = "2024-03-30T18:49".toDateTime()
@@ -924,19 +925,19 @@ This applies to any method on this page marked **Source: Custom n8n functionalit
 
 ## _`DateTime`_.**`zone`** <a href="#datetimezone" id="datetimezone"></a>
 
-**Description:** The time zone associated with the DateTime
+**说明：** 与 DateTime 关联的时区。
 
-**Syntax:** _`DateTime`_.zone
+**语法：** _`DateTime`_.zone
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Type:** Luxon
+**类型：** Luxon
 
-**Examples:**
+**示例：**
 
   ```javascript
   $now.zone //=> {"zoneName": "Europe/Berlin", "valid": true}
   ```
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

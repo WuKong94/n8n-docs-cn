@@ -1,30 +1,31 @@
 ---
-nodeTitle: Customdata
+nodeTitle: CustomData（自定义数据）
 originalFilePath: data/expression-reference/customdata.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/customdata'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/customdata
+originalUrl: https://docs.n8n.io/data/expression-reference/customdata
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/customdata
 layout:
   description:
     visible: false
 ---
-# CustomData <a href="#customdata" id="customdata"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# CustomData（自定义数据） <a href="#customdata" id="customdata"></a>
 
 ## `$execution.customData`.**`get()`** <a href="#dollarexecutioncustomdataget" id="dollarexecutioncustomdataget"></a>
 
-**Description:** Returns the custom execution data stored under the given key. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+**说明：** 返回存储在指定键下的自定义执行数据。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
-**Syntax:** `$execution.customData`.get(key)
+**语法：** `$execution.customData`.get(key)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `key` (String) - The key (identifier) under which the data is stored
+  * `key`（String）— 存储数据所用的键（标识符）。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Get the user's email (which was previously stored)
@@ -33,15 +34,15 @@ layout:
 
 ## `$execution.customData`.**`getAll()`** <a href="#dollarexecutioncustomdatagetall" id="dollarexecutioncustomdatagetall"></a>
 
-**Description:** Returns all the key-value pairs of custom data that have been set in the current execution. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+**说明：** 返回当前执行中已设置的所有自定义数据键值对。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
-**Syntax:** `$execution.customData`.getAll()
+**语法：** `$execution.customData`.getAll()
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   $execution.customData.getAll() //=> {"user_email": "me@example.com", "id": 1234}
@@ -49,18 +50,18 @@ layout:
 
 ## `$execution.customData`.**`set()`** <a href="#dollarexecutioncustomdataset" id="dollarexecutioncustomdataset"></a>
 
-**Description:** Stores custom execution data under the key specified. Use this to easily filter executions by this data. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+**说明：** 将自定义执行数据存储在指定的键下，便于按这些数据筛选执行记录。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
-**Syntax:** `$execution.customData`.set(key, value)
+**语法：** `$execution.customData`.set(key, value)
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `key` (String) - The key (identifier) under which the data is stored
-  * `value` (String) - The data to store
+  * `key`（String）— 存储数据所用的键（标识符）。
+  * `value`（String）— 要存储的数据。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Store the user's email, to easily retrieve all execs related to that user later
@@ -69,23 +70,23 @@ layout:
 
 ## `$execution.customData`.**`setAll()`** <a href="#dollarexecutioncustomdatasetall" id="dollarexecutioncustomdatasetall"></a>
 
-**Description:** Sets multiple key-value pairs of  custom data for the execution. Use this to easily filter executions by this data. <a href="../../../understand-workflows/understand-executions/customize-executions-data.md">More info</a>
+**说明：** 为本次执行设置多组自定义数据键值对，便于按这些数据筛选执行记录。<a href="../../../understand-workflows/understand-executions/customize-executions-data.md">更多信息</a>
 
-**Syntax:** `$execution.customData`.setAll(obj)
+**语法：** `$execution.customData`.setAll(obj)
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `obj` (Object) - A JavaScript object containing key-value pairs of the data to set
+  * `obj`（Object）— 包含待设置数据键值对的 JavaScript 对象。
 
-**Examples:**
+**示例：**
 
   ```javascript
   $execution.customData.setAll({"user_email": "me@example.com", "id": 1234})
   ```
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

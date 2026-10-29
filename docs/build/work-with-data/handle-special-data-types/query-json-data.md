@@ -1,41 +1,40 @@
 ---
-title: Query JSON with JMESPath
-description: >-
-  n8n supports the JMESPath library, to simplify working with JSON formatted
-  data.
+title: 使用 JMESPath 查询 JSON
+description: n8n 支持 JMESPath 库，可简化 JSON 格式数据的处理。
 contentType: howto
-nodeTitle: Query JSON data
+nodeTitle: 查询 JSON 数据
 originalFilePath: data/specific-data-types/jmespath.md
-originalUrl: 'https://docs.n8n.io/data/specific-data-types/jmespath'
-url: >-
-  https://docs.n8n.io/build/work-with-data/handle-special-data-types/query-json-data
+originalUrl: https://docs.n8n.io/data/specific-data-types/jmespath
+url: https://docs.n8n.io/build/work-with-data/handle-special-data-types/query-json-data
 layout:
   description:
     visible: false
 ---
-
-# Query JSON with JMESPath <a href="#query-json-with-jmespath" id="query-json-with-jmespath"></a>
-
-[JMESPath](https://jmespath.org/) is a query language for JSON that you can use to extract and transform elements from a JSON document. For full details of how to use JMESPath, refer to the [JMESPath documentation](https://jmespath.org/tutorial.html).
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## The `jmespath()` method <a href="#the-jmespath-method" id="the-jmespath-method"></a>
+# 使用 JMESPath 查询 JSON <a href="#query-json-with-jmespath" id="query-json-with-jmespath"></a>
 
-n8n provides a custom method, `jmespath()`. Use this method to perform a search on a JSON object using the JMESPath query language.
+[JMESPath](https://jmespath.org/) 是一种 JSON 查询语言，可用于从 JSON 文档中提取和转换元素。完整用法请参阅 [JMESPath 文档](https://jmespath.org/tutorial.html)。
 
-The basic syntax is: 
+
+## `jmespath()` 方法 <a href="#the-jmespath-method" id="the-jmespath-method"></a>
+
+n8n 提供了自定义方法 `jmespath()`。你可以使用此方法，以 JMESPath 查询语言搜索 JSON 对象。
+
+基本语法如下：
 
 ```js
 $jmespath(object, searchString)
 ```
 
 {% hint style="info" %}
-**JavaScript only**
+**仅支持 JavaScript**
 
-The Python Code node doesn't provide `$jmespath()`. To get the same results in Python, use standard Python instead. Each example below includes a Python version.
+Python Code 节点不提供 `$jmespath()`。要在 Python 中获得相同结果，请使用标准 Python 写法。下方每个示例都提供了 Python 版本。
 {% endhint %}
 
-To help understand what the method does, here is the equivalent longer JavaScript:
+为了帮助你理解此方法的作用，下面给出了等效但更长的 JavaScript 写法：
 
 
 ```js
@@ -44,40 +43,40 @@ jmespath.search(object, searchString);
 ```
 
 {% hint style="info" %}
-**Expressions must be single-line**
+**表达式必须写在一行中**
 
-The longer code example doesn't work in Expressions, as they must be single-line.
+上面较长的代码示例不能直接用于表达式，因为表达式必须写在一行中。
 {% endhint %}
 
-`object` is a JSON object, such as the output of a previous node. `searchString` is an expression written in the JMESPath query language. The [JMESPath Specification](https://jmespath.org/specification.html#jmespath-specification) provides a list of supported expressions, while their [Tutorial](https://jmespath.org/tutorial.html) and [Examples](https://jmespath.org/examples.html) provide interactive examples.
+`object` 是一个 JSON 对象，例如前一个节点的输出。`searchString` 是使用 JMESPath 查询语言编写的表达式。[JMESPath 规范](https://jmespath.org/specification.html#jmespath-specification)列出了支持的表达式，[教程](https://jmespath.org/tutorial.html)和[示例](https://jmespath.org/examples.html)则提供了可交互的示例。
 
 {% hint style="warning" %}
-**Search parameter order**
+**搜索参数的顺序**
 
-The examples in the [JMESPath Specification](https://jmespath.org/specification.html#jmespath-specification) follow the pattern `search(searchString, object)`. The [JMESPath JavaScript library](https://github.com/jmespath/jmespath.js/), which n8n uses, supports `search(object, searchString)` instead. This means that when using examples from the JMESPath documentation, you may need to change the order of the search function parameters.
+[JMESPath 规范](https://jmespath.org/specification.html#jmespath-specification)中的示例使用 `search(searchString, object)` 形式，而 n8n 所用的 [JMESPath JavaScript 库](https://github.com/jmespath/jmespath.js/)支持的是 `search(object, searchString)`。因此，使用 JMESPath 文档中的示例时，你可能需要调整搜索函数的参数顺序。
 {% endhint %}
 
-## Common tasks <a href="#common-tasks" id="common-tasks"></a>
+## 常见任务 <a href="#common-tasks" id="common-tasks"></a>
 
-This section provides examples for some common operations. More examples, and detailed guidance, are available in [JMESPath's own documentation](https://jmespath.org/tutorial.html).
+本节介绍一些常见操作的示例。更多示例和详细说明请参阅 [JMESPath 官方文档](https://jmespath.org/tutorial.html)。
 
-When trying out these examples, you need to set the Code node **Mode** to **Run Once for Each Item**.
+尝试这些示例时，需要将 Code 节点的 **Mode（模式）**设置为 **Run Once for Each Item（为每个数据项运行一次）**。
 
-### Apply a JMESPath expression to a collection of elements with projections <a href="#apply-a-jmespath-expression-to-a-collection-of-elements-with-projections" id="apply-a-jmespath-expression-to-a-collection-of-elements-with-projections"></a>
+### 通过投影将 JMESPath 表达式应用于一组元素 <a href="#apply-a-jmespath-expression-to-a-collection-of-elements-with-projections" id="apply-a-jmespath-expression-to-a-collection-of-elements-with-projections"></a>
 
-From the [JMESPath projections documentation](https://jmespath.org/tutorial.html#projections):
+[JMESPath 投影文档](https://jmespath.org/tutorial.html#projections)中的说明如下：
 
-> Projections are one of the key features of JMESPath. Use it to apply an expression to a collection of elements. JMESPath supports five kinds of projections:
+> 投影是 JMESPath 的核心功能之一，可将表达式应用于一组元素。JMESPath 支持五种投影：
 > 
-> * List Projections
-> * Slice Projections
-> * Object Projections
-> * Flatten Projections
-> * Filter Projections
+> * 列表投影
+> * 切片投影
+> * 对象投影
+> * 展平投影
+> * 过滤投影
 
-The following example shows basic usage of list, slice, and object projections. Refer to the [JMESPath projections documentation](https://jmespath.org/tutorial.html#projections) for detailed explanations of each projection type, and more examples.
+以下示例展示列表、切片和对象投影的基本用法。各类投影的详细说明及更多示例，请参阅 [JMESPath 投影文档](https://jmespath.org/tutorial.html#projections)。
 
-Given this JSON from a webhook node:
+假设 Webhook 节点提供了以下 JSON：
 
 
 ```js
@@ -121,17 +120,17 @@ Given this JSON from a webhook node:
 ```
 
 
-Retrieve a [list](https://jmespath.org/tutorial.html#list-and-slice-projections) of all the people's first names:
+获取所有人的名字组成的[列表](https://jmespath.org/tutorial.html#list-and-slice-projections)：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{$jmespath($json.body.people, "[*].first" )}}
 // Returns ["James", "Jacob", "Jayden"]
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let firstNames = $jmespath($json.body.people, "[*].first" )
 return {firstNames};
@@ -149,7 +148,7 @@ return {firstNames};
 ```
 {% endtab %}
 
-{% tab title="Code node (Python)" %}
+{% tab title="Code 节点（Python）" %}
 ```python
 people = _item["json"]["body"]["people"]
 first_names = [person["first"] for person in people]
@@ -170,17 +169,17 @@ Returns:
 {% endtab %}
 {% endtabs %}
 
-Get a [slice](https://jmespath.org/tutorial.html#list-and-slice-projections) of the first names:
+获取名字列表的一个[切片](https://jmespath.org/tutorial.html#list-and-slice-projections)：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{$jmespath($json.body.people, "[:2].first")}}
 // Returns ["James", "Jacob"]
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let firstTwoNames = $jmespath($json.body.people, "[:2].first");
 return {firstTwoNames};
@@ -198,7 +197,7 @@ return {firstTwoNames};
 ```
 {% endtab %}
 
-{% tab title="Code node (Python)" %}
+{% tab title="Code 节点（Python）" %}
 ```python
 people = _item["json"]["body"]["people"]
 first_two_names = [person["first"] for person in people[:2]]
@@ -218,17 +217,17 @@ Returns:
 {% endtab %}
 {% endtabs %}
 
-Get a list of the dogs' ages using [object projections](https://jmespath.org/tutorial.html#object-projections):
+使用[对象投影](https://jmespath.org/tutorial.html#object-projections)获取所有狗的年龄列表：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{$jmespath($json.body.dogs, "*.age")}}
 // Returns [7,5]
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let dogsAges = $jmespath($json.body.dogs, "*.age");
 return {dogsAges};
@@ -245,7 +244,7 @@ return {dogsAges};
 ```
 {% endtab %}
 
-{% tab title="Code node (Python)" %}
+{% tab title="Code 节点（Python）" %}
 ```python
 dogs = _item["json"]["body"]["dogs"]
 dogs_ages = [dog["age"] for dog in dogs.values()]
@@ -265,11 +264,11 @@ Returns:
 {% endtab %}
 {% endtabs %}
 
-### Select multiple elements and create a new list or object <a href="#select-multiple-elements-and-create-a-new-list-or-object" id="select-multiple-elements-and-create-a-new-list-or-object"></a>
+### 选择多个元素并创建新的列表或对象 <a href="#select-multiple-elements-and-create-a-new-list-or-object" id="select-multiple-elements-and-create-a-new-list-or-object"></a>
 
-Use [Multiselect](https://jmespath.org/tutorial.html#multiselect) to select elements from a JSON object and combine them into a new list or object.
+使用[多选（Multiselect）](https://jmespath.org/tutorial.html#multiselect)，从 JSON 对象中选择元素，并将它们组合成新的列表或对象。
 
-Given this JSON from a webhook node:
+假设 Webhook 节点提供了以下 JSON：
 
 
 ```js
@@ -313,17 +312,17 @@ Given this JSON from a webhook node:
 ```
 
 
-Use multiselect list to get the first and last names and create new lists containing both names:
+使用多选列表获取名字和姓氏，并创建同时包含两者的新列表：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{$jmespath($json.body.people, "[].[first, last]")}}
 // Returns [["James","Green"],["Jacob","Jones"],["Jayden","Smith"]]
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let newList = $jmespath($json.body.people, "[].[first, last]");
 return {newList};
@@ -350,7 +349,7 @@ return {newList};
 ```
 {% endtab %}
 
-{% tab title="Code node (Python)" %}
+{% tab title="Code 节点（Python）" %}
 ```python
 people = _item["json"]["body"]["people"]
 new_list = [[person["first"], person["last"]] for person in people]
@@ -380,9 +379,9 @@ Returns:
 {% endtab %}
 {% endtabs %}
 
-### An alternative to arrow functions in expressions <a href="#an-alternative-to-arrow-functions-in-expressions" id="an-alternative-to-arrow-functions-in-expressions"></a>
+### 在表达式中替代箭头函数的写法 <a href="#an-alternative-to-arrow-functions-in-expressions" id="an-alternative-to-arrow-functions-in-expressions"></a>
 
-For example, generate some input data by returning the below code from the Code node:
+例如，先在 Code 节点中返回以下代码的结果，生成一些输入数据：
 
 ```js
 return[
@@ -415,14 +414,14 @@ return[
 ]
 ```
 
-You could do a search like "find the item with the name Lenovo and tell me their category ID."
+随后可以执行这样的查询：“找出名称为 Lenovo 的数据项，并返回其类别 ID。”
 
 ```js
 {{ $jmespath($("Code").all(), "[?json.name=='Lenovo'].json.category_id") }}
 ```
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Handle special data types](./)
-* [Work with files and images](work-with-files-and-images.md)
-* [Work with dates and times](work-with-dates-and-times.md)
+* [处理特殊数据类型](./)
+* [处理文件和图片](work-with-files-and-images.md)
+* [处理日期和时间](work-with-dates-and-times.md)

@@ -1,26 +1,27 @@
 ---
-nodeTitle: String
+nodeTitle: String（字符串）
 originalFilePath: data/expression-reference/string.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/string'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/string
+originalUrl: https://docs.n8n.io/data/expression-reference/string
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/string
 layout:
   description:
     visible: false
 ---
-# String <a href="#string" id="string"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# String（字符串） <a href="#string" id="string"></a>
 
 ## _`String`_.**`base64Decode()`** <a href="#stringbase64decode" id="stringbase64decode"></a>
 
-**Description:** Converts plain text to a base64-encoded string
+**说明：** 将 base64 编码的字符串转换为纯文本。
 
-**Syntax:** _`String`_.base64Encode()
+**语法：** _`String`_.base64Decode()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "aGVsbG8=".base64Decode() //=> "hello"
@@ -28,15 +29,15 @@ layout:
 
 ## _`String`_.**`base64Encode()`** <a href="#stringbase64encode" id="stringbase64encode"></a>
 
-**Description:** Converts a base64-encoded string to plain text
+**说明：** 将纯文本转换为 base64 编码的字符串。
 
-**Syntax:** _`String`_.base64Encode()
+**语法：** _`String`_.base64Encode()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "hello".base64Encode() //=> "aGVsbG8="
@@ -44,21 +45,21 @@ layout:
 
 ## _`String`_.**`concat()`** <a href="#stringconcat" id="stringconcat"></a>
 
-**Description:** Joins one or more strings onto the end of the base string. Alternatively, use the <code>+</code> operator (see examples).
+**说明：** 将一个或多个字符串连接到基础字符串末尾。也可以使用 <code>+</code> 运算符，参见示例。
 
-**Syntax:** _`String`_.concat(string1, string2?, ..., stringN?)
+**语法：** _`String`_.concat(string1, string2?, ..., stringN?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `string1` (String) - The first string to append
-  * `string2` (String) - optional - The second string to append
-  * `stringN` (String) - optional - The Nth string to append
+  * `string1`（String）— 要追加的第一个字符串。
+  * `string2`（String）— 可选 — 要追加的第二个字符串。
+  * `stringN`（String）— 可选 — 要追加的第 N 个字符串。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'sea'.concat('food') //=> 'seafood'
@@ -71,17 +72,17 @@ layout:
 
 ## _`String`_.**`extractDomain()`** <a href="#stringextractdomain" id="stringextractdomain"></a>
 
-**Description:** If the string is an email address or URL, returns its domain (or <code>undefined</code> if nothing found). 
+**说明：** 如果字符串是电子邮件地址或 URL，则返回其域名；未找到时返回 <code>undefined</code>。
 
-If the string also contains other content, try using <code>extractEmail()</code> or <code>extractUrl()</code> first.
+如果字符串还包含其他内容，可以先尝试使用 <code>extractEmail()</code> 或 <code>extractUrl()</code>。
 
-**Syntax:** _`String`_.extractDomain()
+**语法：** _`String`_.extractDomain()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "me@example.com".extractDomain() //=> 'example.com'
@@ -97,15 +98,15 @@ If the string also contains other content, try using <code>extractEmail()</code>
 
 ## _`String`_.**`extractEmail()`** <a href="#stringextractemail" id="stringextractemail"></a>
 
-**Description:** Extracts the first email found in the string. Returns <code>undefined</code> if none is found.
+**说明：** 提取字符串中找到的第一个电子邮件地址。未找到时返回 <code>undefined</code>。
 
-**Syntax:** _`String`_.extractEmail()
+**语法：** _`String`_.extractEmail()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "My email is me@example.com".extractEmail() //=> 'me@example.com'
@@ -113,15 +114,15 @@ If the string also contains other content, try using <code>extractEmail()</code>
 
 ## _`String`_.**`extractUrl()`** <a href="#stringextracturl" id="stringextracturl"></a>
 
-**Description:** Extracts the first URL found in the string. Returns <code>undefined</code> if none is found. Only recognizes full URLs, e.g. those starting with <code>http</code>.
+**说明：** 提取字符串中找到的第一个 URL。未找到时返回 <code>undefined</code>。仅识别完整的 URL，例如以 <code>http</code> 开头的 URL。
 
-**Syntax:** _`String`_.extractUrl()
+**语法：** _`String`_.extractUrl()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "Check out http://n8n.io".extractUrl() //=> 'http://n8n.io'
@@ -129,17 +130,17 @@ If the string also contains other content, try using <code>extractEmail()</code>
 
 ## _`String`_.**`extractUrlPath()`** <a href="#stringextracturlpath" id="stringextracturlpath"></a>
 
-**Description:** Returns the part of a URL after the domain, or <code>undefined</code> if no URL found. 
+**说明：** 返回 URL 中域名之后的部分，未找到 URL 时返回 <code>undefined</code>。
 
-If the string also contains other content, try using <code>extractUrl()</code> first.
+如果字符串还包含其他内容，可以先尝试使用 <code>extractUrl()</code>。
 
-**Syntax:** _`String`_.extractUrlPath()
+**语法：** _`String`_.extractUrlPath()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "http://n8n.io/workflows".extractUrlPath() //=> '/workflows'
@@ -151,20 +152,20 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`hash()`** <a href="#stringhash" id="stringhash"></a>
 
-**Description:** Returns the string hashed with the given algorithm. Defaults to md5 if not specified.
+**说明：** 返回使用指定算法计算出的字符串哈希值。未指定时，默认使用 md5。
 
-**Syntax:** _`String`_.hash(algo?)
+**语法：** _`String`_.hash(algo?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `algo` (String) - optional - The hashing algorithm to use. One of <code>md5</code>, <code>base64</code>, <code>sha1</code>, <code>sha224</code>, <code>sha256</code>, <code>sha384</code>, <code>sha512</code>, <code>sha3</code>, <code>ripemd160</code>
+  * `algo`（String）— 可选 — 要使用的哈希算法。可选值：<code>md5</code>、<code>base64</code>、<code>sha1</code>、<code>sha224</code>、<code>sha256</code>、<code>sha384</code>、<code>sha512</code>、<code>sha3</code>、<code>ripemd160</code>。
         
 
-**Examples:**
+**示例：**
 
   ```javascript
   "hello".hash() //=> '5d41402abc4b2a76b9719d911017c592'
@@ -172,20 +173,20 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`includes()`** <a href="#stringincludes" id="stringincludes"></a>
 
-**Description:** Returns <code>true</code> if the string contains the <code>searchString</code>. Case-sensitive.
+**说明：** 返回 <code>true</code> 表示字符串包含 <code>searchString</code>，区分大小写。
 
-**Syntax:** _`String`_.includes(searchString, start?)
+**语法：** _`String`_.includes(searchString, start?)
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `searchString` (String) - The text to search for
-  * `start` (Number) - optional - The position (index) to start searching from
+  * `searchString`（String）— 要查找的文本。
+  * `start`（Number）— 可选 — 开始搜索的位置（索引）。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'team'.includes('tea') //=> true
@@ -200,20 +201,20 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`indexOf()`** <a href="#stringindexof" id="stringindexof"></a>
 
-**Description:** Returns the index (position) of the first occurrence of <code>searchString</code> within the base string, or -1 if not found. Case-sensitive.
+**说明：** 返回 <code>searchString</code> 在基础字符串中首次出现的索引（位置），未找到时返回 -1，区分大小写。
 
-**Syntax:** _`String`_.indexOf(searchString, start?)
+**语法：** _`String`_.indexOf(searchString, start?)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `searchString` (String) - The text to search for
-  * `start` (Number) - optional - The position (index) to start searching from
+  * `searchString`（String）— 要查找的文本。
+  * `start`（Number）— 可选 — 开始搜索的位置（索引）。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'steam'.indexOf('tea') //=> 1
@@ -228,15 +229,15 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`isDomain()`** <a href="#stringisdomain" id="stringisdomain"></a>
 
-**Description:** Returns <code>true</code> if the string is a domain
+**说明：** 返回 <code>true</code> 表示字符串是域名。
 
-**Syntax:** _`String`_.isDomain()
+**语法：** _`String`_.isDomain()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "n8n.io".isDomain() //=> true
@@ -252,15 +253,15 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`isEmail()`** <a href="#stringisemail" id="stringisemail"></a>
 
-**Description:** Returns <code>true</code> if the string is an email
+**说明：** 返回 <code>true</code> 表示字符串是电子邮件地址。
 
-**Syntax:** _`String`_.isEmail()
+**语法：** _`String`_.isEmail()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "me@example.com".isEmail() //=> true
@@ -276,15 +277,15 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`isEmpty()`** <a href="#stringisempty" id="stringisempty"></a>
 
-**Description:** Returns <code>true</code> if the string has no characters or is <code>null</code> or <code>undefined</code>
+**说明：** 返回 <code>true</code> 的情况是字符串没有字符，或值为 <code>null</code> 或 <code>undefined</code>。
 
-**Syntax:** _`String`_.isEmpty()
+**语法：** _`String`_.isEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "".isEmpty() // => true
@@ -296,15 +297,15 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`isNotEmpty()`** <a href="#stringisnotempty" id="stringisnotempty"></a>
 
-**Description:** Returns <code>true</code> if the string has at least one character
+**说明：** 返回 <code>true</code> 表示字符串至少包含一个字符。
 
-**Syntax:** _`String`_.isNotEmpty()
+**语法：** _`String`_.isNotEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "hello".isNotEmpty() // => true
@@ -316,15 +317,15 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`isNumeric()`** <a href="#stringisnumeric" id="stringisnumeric"></a>
 
-**Description:** Returns <code>true</code> if the string represents a number
+**说明：** 返回 <code>true</code> 表示字符串表示一个数字。
 
-**Syntax:** _`String`_.isNumeric()
+**语法：** _`String`_.isNumeric()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "1.2234".isNumeric() // true
@@ -340,15 +341,15 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`isUrl()`** <a href="#stringisurl" id="stringisurl"></a>
 
-**Description:** Returns <code>true</code> if the string is a valid URL
+**说明：** 返回 <code>true</code> 表示字符串是有效的 URL。
 
-**Syntax:** _`String`_.isUrl()
+**语法：** _`String`_.isUrl()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "https://n8n.io".isUrl() //=> true
@@ -364,15 +365,15 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`length`** <a href="#stringlength" id="stringlength"></a>
 
-**Description:** The number of characters in the string
+**说明：** 字符串中的字符数量。
 
-**Syntax:** _`String`_.length
+**语法：** _`String`_.length
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Examples:**
+**示例：**
 
   ```javascript
   "hello".length //=> 5
@@ -380,21 +381,21 @@ If the string also contains other content, try using <code>extractUrl()</code> f
 
 ## _`String`_.**`match()`** <a href="#stringmatch" id="stringmatch"></a>
 
-**Description:** Matches the string against a <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a>. Returns an array containing the first match, or all matches if the <code>g</code> flag is set in the regular expression. Returns <code>null</code> if no matches are found. 
+**说明：** 使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>匹配字符串。返回包含第一个匹配结果的数组；如果正则表达式设置了 <code>g</code> 标志，则返回所有匹配结果。未找到匹配项时返回 <code>null</code>。
 
-For checking whether text is present, consider <code>includes()</code> instead.
+如果只需检查文本是否存在，可以考虑改用 <code>includes()</code>。
 
-**Syntax:** _`String`_.match(regexp)
+**语法：** _`String`_.match(regexp)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `regexp` (RegExp) - A <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a> with the pattern to look for. Will look for multiple matches if the <code>g</code> flag is present (see examples).
+  * `regexp`（RegExp）— 包含待查找模式的<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>。存在 <code>g</code> 标志时，会查找多个匹配项，参见示例。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Match all words starting with 'r'
@@ -413,15 +414,15 @@ For checking whether text is present, consider <code>includes()</code> instead.
 
 ## _`String`_.**`parseJson()`** <a href="#stringparsejson" id="stringparsejson"></a>
 
-**Description:** Returns the JavaScript Object or value represented by the string, or <code>undefined</code> if the string isn’t valid JSON. Single-quoted JSON is not supported.
+**说明：** 返回字符串所表示的 JavaScript 对象或值。如果字符串不是有效的 JSON，则返回 <code>undefined</code>。不支持使用单引号的 JSON。
 
-**Syntax:** _`String`_.parseJson()
+**语法：** _`String`_.parseJson()
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   '{"name":"Nathan"}'.parseJson() //=> {"name":"Nathan"}
@@ -437,19 +438,19 @@ For checking whether text is present, consider <code>includes()</code> instead.
 
 ## _`String`_.**`quote()`** <a href="#stringquote" id="stringquote"></a>
 
-**Description:** Wraps a string in quotation marks, and escapes any quotation marks already in the string. Useful when constructing JSON, SQL, etc.
+**说明：** 为字符串加上引号，并转义字符串中已有的引号。适用于构造 JSON、SQL 等内容。
 
-**Syntax:** _`String`_.quote(mark?)
+**语法：** _`String`_.quote(mark?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `mark` (String) - optional - The type of quotation mark to use
+  * `mark`（String）— 可选 — 要使用的引号类型。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'Nathan says "hi"'.quote() //=> '"Nathan says \"hi\""'
@@ -457,15 +458,15 @@ For checking whether text is present, consider <code>includes()</code> instead.
 
 ## _`String`_.**`removeMarkdown()`** <a href="#stringremovemarkdown" id="stringremovemarkdown"></a>
 
-**Description:** Removes any Markdown formatting from the string. Also removes HTML tags.
+**说明：** 删除字符串中的所有 Markdown 格式，同时删除 HTML 标签。
 
-**Syntax:** _`String`_.removeMarkdown()
+**语法：** _`String`_.removeMarkdown()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "*bold*, [link]()".removeMarkdown() //=> "bold, link"
@@ -473,15 +474,15 @@ For checking whether text is present, consider <code>includes()</code> instead.
 
 ## _`String`_.**`removeTags()`** <a href="#stringremovetags" id="stringremovetags"></a>
 
-**Description:** Removes tags, such as HTML or XML, from the string
+**说明：** 删除字符串中的标签，例如 HTML 或 XML 标签。
 
-**Syntax:** _`String`_.removeTags()
+**语法：** _`String`_.removeTags()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "<b>bold</b>, <a>link</a>".removeTags() //=> "bold, link"
@@ -489,22 +490,22 @@ For checking whether text is present, consider <code>includes()</code> instead.
 
 ## _`String`_.**`replace()`** <a href="#stringreplace" id="stringreplace"></a>
 
-**Description:** Returns a string with the first occurrence of <code>pattern</code> replaced by <code>replacement</code>. 
+**说明：** 返回一个字符串，其中首次出现的 <code>pattern</code> 被替换为 <code>replacement</code>。
 
-To replace all occurrences, use <code>replaceAll()</code> instead.
+如需替换所有出现的位置，请使用 <code>replaceAll()</code>。
 
-**Syntax:** _`String`_.replace(pattern, replacement)
+**语法：** _`String`_.replace(pattern, replacement)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `pattern` (String|RegExp) - The pattern in the string to replace. Can be a string to match or a <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a>.
-  * `replacement` (String) - The new text to replace with
+  * `pattern`（String|RegExp）— 字符串中要替换的匹配模式，可以是待匹配的字符串或<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>。
+  * `replacement`（String）— 替换后使用的新文本。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'Red or blue or green'.replace('or', 'and') //=> 'Red and blue or green'
@@ -526,20 +527,20 @@ To replace all occurrences, use <code>replaceAll()</code> instead.
 
 ## _`String`_.**`replaceAll()`** <a href="#stringreplaceall" id="stringreplaceall"></a>
 
-**Description:** Returns a string with all occurrences of <code>pattern</code> replaced by <code>replacement</code>
+**说明：** 返回一个字符串，其中所有出现的 <code>pattern</code> 均被替换为 <code>replacement</code>。
 
-**Syntax:** _`String`_.replaceAll(pattern, replacement)
+**语法：** _`String`_.replaceAll(pattern, replacement)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `pattern` (String|RegExp) - The pattern in the string to replace. Can be a string to match or a <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a>.
-  * `replacement` (String|function) - The new text to replace with. Can be a string or a function that returns a string (see examples).
+  * `pattern`（String|RegExp）— 字符串中要替换的匹配模式，可以是待匹配的字符串或<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>。
+  * `replacement`（String|function）— 替换后使用的新文本，可以是字符串或返回字符串的函数，参见示例。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'Red or blue or green'.replace('or', 'and') //=> 'Red and blue and green'
@@ -558,15 +559,15 @@ To replace all occurrences, use <code>replaceAll()</code> instead.
 
 ## _`String`_.**`replaceSpecialChars()`** <a href="#stringreplacespecialchars" id="stringreplacespecialchars"></a>
 
-**Description:** Replaces special characters in the string with the closest ASCII character
+**说明：** 将字符串中的特殊字符替换为最接近的 ASCII 字符。
 
-**Syntax:** _`String`_.replaceSpecialChars()
+**语法：** _`String`_.replaceSpecialChars()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "déjà".replaceSpecialChars() //=> "deja"
@@ -574,19 +575,19 @@ To replace all occurrences, use <code>replaceAll()</code> instead.
 
 ## _`String`_.**`search()`** <a href="#stringsearch" id="stringsearch"></a>
 
-**Description:** Returns the index (position) of the first occurrence of a pattern within the string, or -1 if not found. The pattern is specified using a <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a>. To use text instead, see <code>indexOf()</code>.
+**说明：** 返回模式在字符串中首次出现的索引（位置），未找到时返回 -1。模式使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>指定。如需使用文本查找，请参阅 <code>indexOf()</code>。
 
-**Syntax:** _`String`_.search(regexp)
+**语法：** _`String`_.search(regexp)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `regexp` (RegExp) - A <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>regular expression</a> with the pattern to look for
+  * `regexp`（RegExp）— 包含待查找模式的<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions”>正则表达式</a>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Pos of first word starting with 'n'
@@ -601,20 +602,20 @@ To replace all occurrences, use <code>replaceAll()</code> instead.
 
 ## _`String`_.**`slice()`** <a href="#stringslice" id="stringslice"></a>
 
-**Description:** Extracts a fragment of the string at the given position. For more advanced extraction, see <code>match()</code>.
+**说明：** 从指定位置提取字符串片段。更复杂的提取方式请参阅 <code>match()</code>。
 
-**Syntax:** _`String`_.slice(start, end?)
+**语法：** _`String`_.slice(start, end?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `start` (Number) - The position to start from. Positions start at 0. Negative numbers count back from the end of the string.
-  * `end` (String) - optional - The position to select up to. The character at the end position is not included. Negative numbers select from the end of the string. If omitted, will extract to the end of the string.
+  * `start`（Number）— 起始位置，从 0 开始。负数表示从字符串末尾向前计数。
+  * `end`（String）— 可选 — 选择的结束位置，不包含该位置的字符。负数表示从字符串末尾计算位置。省略时，提取到字符串末尾。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'Hello from n8n'.slice(0, 5) //=> 'Hello'
@@ -630,22 +631,22 @@ To replace all occurrences, use <code>replaceAll()</code> instead.
 
 ## _`String`_.**`split()`** <a href="#stringsplit" id="stringsplit"></a>
 
-**Description:** Splits the string into an array of substrings. Each split is made at the <code>separator</code>, and the separator isn’t included in the output. 
+**说明：** 将字符串拆分为子字符串数组。每次都在 <code>separator</code> 处拆分，输出不包含分隔符。
 
-The opposite of using <code>join()</code> on an array.
+与在数组上使用 <code>join()</code> 的作用相反。
 
-**Syntax:** _`String`_.split(separator?, limit?)
+**语法：** _`String`_.split(separator?, limit?)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `separator` (String) - optional - The string (or regular expression) to use for splitting. If omitted, an array with the original string is returned.
-  * `limit` (Number) - optional - The max number of array elements to return. Returns all elements if omitted.
+  * `separator`（String）— 可选 — 用于拆分的字符串或正则表达式。省略时，返回仅包含原字符串的数组。
+  * `limit`（Number）— 可选 — 返回的数组元素数量上限。省略时返回所有元素。
 
-**Examples:**
+**示例：**
 
   ```javascript
   "wind,fire,water".split(",") //=> ['wind', 'fire', 'water']
@@ -662,20 +663,20 @@ The opposite of using <code>join()</code> on an array.
 
 ## _`String`_.**`startsWith()`** <a href="#stringstartswith" id="stringstartswith"></a>
 
-**Description:** Returns <code>true</code> if the string starts with <code>searchString</code>. Case-sensitive.
+**说明：** 返回 <code>true</code> 表示字符串以 <code>searchString</code> 开头，区分大小写。
 
-**Syntax:** _`String`_.startsWith(searchString, start?)
+**语法：** _`String`_.startsWith(searchString, start?)
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `searchString` (String) - The text to check against the start of the base string
-  * `start` (Number) - optional - The position (index) to start searching from
+  * `searchString`（String）— 要与基础字符串开头比较的文本。
+  * `start`（Number）— 可选 — 开始搜索的位置（索引）。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'team'.startsWith('tea') //=> true
@@ -689,20 +690,20 @@ The opposite of using <code>join()</code> on an array.
 
 ## _`String`_.**`substring()`** <a href="#stringsubstring" id="stringsubstring"></a>
 
-**Description:** Extracts a fragment of the string at the given position. For more advanced extraction, see <code>match()</code>.
+**说明：** 从指定位置提取字符串片段。更复杂的提取方式请参阅 <code>match()</code>。
 
-**Syntax:** _`String`_.substring(start, end?)
+**语法：** _`String`_.substring(start, end?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `start` (Number) - The position to start from. Positions start at 0.
-  * `end` (String) - optional - The position to select up to. The character at the end position is not included. If omitted, will extract to the end of the string.
+  * `start`（Number）— 起始位置，从 0 开始。
+  * `end`（String）— 可选 — 选择的结束位置，不包含该位置的字符。省略时，提取到字符串末尾。
 
-**Examples:**
+**示例：**
 
   ```javascript
   'Hello from n8n'.substring(0, 5) //=> 'Hello'
@@ -714,15 +715,15 @@ The opposite of using <code>join()</code> on an array.
 
 ## _`String`_.**`toBoolean()`** <a href="#stringtoboolean" id="stringtoboolean"></a>
 
-**Description:** Converts the string to a boolean value. <code>0</code>, <code>false</code> and <code>no</code> resolve to <code>false</code>, everything else to <code>true</code>. Case-insensitive.
+**说明：** 将字符串转换为布尔值。<code>0</code>、<code>false</code> 和 <code>no</code> 转换为 <code>false</code>，其他值均转换为 <code>true</code>，不区分大小写。
 
-**Syntax:** _`String`_.toBoolean()
+**语法：** _`String`_.toBoolean()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "true".toBoolean() //=> true
@@ -742,17 +743,17 @@ The opposite of using <code>join()</code> on an array.
 
 ## _`String`_.**`toDateTime()`** <a href="#stringtodatetime" id="stringtodatetime"></a>
 
-**Description:** Converts the string to a DateTime. Useful for further transformation. Supported formats for the string are ISO 8601, HTTP, RFC2822, SQL and Unix timestamp in milliseconds. 
+**说明：** 将字符串转换为 DateTime，便于进一步转换。支持的字符串格式包括 ISO 8601、HTTP、RFC2822、SQL 和以毫秒为单位的 Unix 时间戳。
 
-To parse other formats, use <a href=”https://moment.github.io/luxon/api-docs/index.html#datetimefromformat”> <code>DateTime.fromFormat()</code></a>.
+如需解析其他格式，请使用 <a href=”https://moment.github.io/luxon/api-docs/index.html#datetimefromformat”> <code>DateTime.fromFormat()</code></a>。
 
-**Syntax:** _`String`_.toDateTime()
+**语法：** _`String`_.toDateTime()
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "2024-03-29T18:06:31.798+01:00".toDateTime()
@@ -772,17 +773,17 @@ To parse other formats, use <a href=”https://moment.github.io/luxon/api-docs/i
 
 ## _`String`_.**`toJsonString()`** <a href="#stringtojsonstring" id="stringtojsonstring"></a>
 
-**Description:** Prepares the string to be inserted into a JSON object. Escapes any quotes and special characters (e.g. new lines), and wraps the string in quotes.
+**说明：** 处理字符串，使其可插入 JSON 对象：转义引号和特殊字符，例如换行符，并为字符串加上引号。
 
-The same as JavaScript’s <code>JSON.stringify()</code>.
+与 JavaScript 的 <code>JSON.stringify()</code> 相同。
 
-**Syntax:** _`String`_.toJsonString()
+**语法：** _`String`_.toJsonString()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // str = 'The "best" colours: red\nbrown'
@@ -791,15 +792,15 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`toLowerCase()`** <a href="#stringtolowercase" id="stringtolowercase"></a>
 
-**Description:** Converts all letters in the string to lower case
+**说明：** 将字符串中的所有字母转换为小写。
 
-**Syntax:** _`String`_.toLowerCase()
+**语法：** _`String`_.toLowerCase()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Examples:**
+**示例：**
 
   ```javascript
   "I'm SHOUTing".toLowerCase() //=> "i'm shouting"
@@ -807,15 +808,15 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`toNumber()`** <a href="#stringtonumber" id="stringtonumber"></a>
 
-**Description:** Converts a string representing a number to a number. Throws an error if the string doesn’t start with a valid number.
+**说明：** 将表示数字的字符串转换为数字。如果字符串不是以有效数字开头，则抛出错误。
 
-**Syntax:** _`String`_.toNumber()
+**语法：** _`String`_.toNumber()
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "123".toNumber() //=> 123
@@ -827,15 +828,15 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`toSentenceCase()`** <a href="#stringtosentencecase" id="stringtosentencecase"></a>
 
-**Description:** Changes the capitalization of the string to sentence case. The first letter of each sentence is capitalized and all others are lowercased.
+**说明：** 将字符串转换为句首大写形式，每个句子的首字母大写，其余字母小写。
 
-**Syntax:** _`String`_.toSentenceCase()
+**语法：** _`String`_.toSentenceCase()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "quick! brown FOX".toSentenceCase() //=> "Quick! Brown fox"
@@ -843,15 +844,15 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`toSnakeCase()`** <a href="#stringtosnakecase" id="stringtosnakecase"></a>
 
-**Description:** Changes the format of the string to snake case. Spaces and dashes are replaced by <code>_</code>, symbols are removed and all letters are lowercased.
+**说明：** 将字符串转换为蛇形命名形式：空格和连字符替换为 <code>_</code>，删除符号，所有字母转换为小写。
 
-**Syntax:** _`String`_.toSnakeCase()
+**语法：** _`String`_.toSnakeCase()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "quick brown $FOX".toSnakeCase() //=> "quick_brown_fox"
@@ -859,15 +860,15 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`toTitleCase()`** <a href="#stringtotitlecase" id="stringtotitlecase"></a>
 
-**Description:** Changes the capitalization of the string to title case. The first letter of each word is capitalized and the others left unchanged. Short prepositions and conjunctions aren’t capitalized (e.g. ‘a’, ‘the’).
+**说明：** 将字符串转换为标题大小写形式。每个单词的首字母大写，其余字母保持原样。较短的介词和连词不大写，例如 ‘a’、‘the’。
 
-**Syntax:** _`String`_.toTitleCase()
+**语法：** _`String`_.toTitleCase()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   "quick a brown FOX".toTitleCase() //=> "Quick a Brown Fox"
@@ -875,13 +876,13 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`toUpperCase()`** <a href="#stringtouppercase" id="stringtouppercase"></a>
 
-**Description:** Converts all letters in the string to upper case (capitals)
+**说明：** 将字符串中的所有字母转换为大写。
 
-**Syntax:** _`String`_.toUpperCase()
+**语法：** _`String`_.toUpperCase()
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Examples:**
+**示例：**
 
   ```javascript
   "I'm not angry".toUpperCase() //=> "I'M NOT ANGRY"
@@ -889,15 +890,15 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`trim()`** <a href="#stringtrim" id="stringtrim"></a>
 
-**Description:** Removes whitespace from both ends of the string. Whitespace includes new lines, tabs, spaces, etc.
+**说明：** 删除字符串两端的空白字符，包括换行符、制表符、空格等。
 
-**Syntax:** _`String`_.trim()
+**语法：** _`String`_.trim()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Examples:**
+**示例：**
 
   ```javascript
   '   lonely   '.trim() //=> 'lonely'
@@ -905,19 +906,19 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`urlDecode()`** <a href="#stringurldecode" id="stringurldecode"></a>
 
-**Description:** Decodes a URL-encoded string. Replaces any character codes in the form of <code>%XX</code> with their corresponding characters.
+**说明：** 对 URL 编码的字符串进行解码，将 <code>%XX</code> 形式的字符编码替换为对应字符。
 
-**Syntax:** _`String`_.urlDecode(allChars?)
+**语法：** _`String`_.urlDecode(allChars?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `allChars` (Boolean) - optional - Whether to decode characters that are part of the URI syntax (e.g. <code>=</code>, <code>?</code>)
+  * `allChars`（Boolean）— 可选 — 是否解码 URI 语法中的字符，例如 <code>=</code>、<code>?</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   "name%3DNathan%20Automat".urlDecode() //=> "name=Nathan Automat"
@@ -929,19 +930,19 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
 
 ## _`String`_.**`urlEncode()`** <a href="#stringurlencode" id="stringurlencode"></a>
 
-**Description:** Encodes the string so that it can be used in a URL. Spaces and special characters are replaced with codes of the form <code>%XX</code>.
+**说明：** 对字符串进行编码，使其可用于 URL。空格和特殊字符替换为 <code>%XX</code> 形式的编码。
 
-**Syntax:** _`String`_.urlEncode(allChars?)
+**语法：** _`String`_.urlEncode(allChars?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `allChars` (Boolean) - optional - Whether to encode characters that are part of the URI syntax (e.g. <code>=</code>, <code>?</code>)
+  * `allChars`（Boolean）— 可选 — 是否编码 URI 语法中的字符，例如 <code>=</code>、<code>?</code>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   "name=Nathan Automat".urlEncode() //=> "name%3DNathan%20Automat"
@@ -952,6 +953,6 @@ The same as JavaScript’s <code>JSON.stringify()</code>.
   ```
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

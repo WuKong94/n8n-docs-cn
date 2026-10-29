@@ -52,5 +52,41 @@
     "translated_sentence": "此示例通过 JavaScript 属性访问查询 JSON 数据。",
     "evidence": "同页代码为 {{$json.body.city}}，并给出等价的 {{$json['body']['city']}}。这是属性访问示例，未调用 JMESPath 查询方法。",
     "scope": "依据同页表达式更正语法说明；表达式代码和输入数据不修改，未测试运行行为。"
+  },
+  {
+    "id": "string-base64-decode-description-and-signature",
+    "path": "build/work-with-data/transform-data/expression-reference/string.md",
+    "source_sha256": "1523b15304c4be5ff6b1b4f62f41fe871ab65d99a4d8c293b43613b3a0bc7077",
+    "original_sentence": "**Description:** Converts plain text to a base64-encoded string\n\n**Syntax:** _`String`_.base64Encode()",
+    "translated_sentence": "**说明：** 将 base64 编码的字符串转换为纯文本。\n\n**语法：** _`String`_.base64Decode()",
+    "evidence": "同页此段标题为 base64Decode()，示例为 \"aGVsbG8=\".base64Decode() //=> \"hello\"；说明和语法行误写成编码方向。",
+    "scope": "依据同页标题和示例更正解码方向及语法行；示例代码和上游原文不修改，未测试运行行为。"
+  },
+  {
+    "id": "string-base64-encode-description",
+    "path": "build/work-with-data/transform-data/expression-reference/string.md",
+    "source_sha256": "1523b15304c4be5ff6b1b4f62f41fe871ab65d99a4d8c293b43613b3a0bc7077",
+    "original_sentence": "**Description:** Converts a base64-encoded string to plain text",
+    "translated_sentence": "**说明：** 将纯文本转换为 base64 编码的字符串。",
+    "evidence": "同页此段标题和语法均为 base64Encode()，示例为 \"hello\".base64Encode() //=> \"aGVsbG8=\"；原说明误写成解码方向。",
+    "scope": "依据同页标题、语法和示例更正编码方向；示例代码和上游原文不修改，未测试运行行为。"
+  },
+  {
+    "id": "expression-index-base64-decode-description",
+    "path": "build/work-with-data/transform-data/expression-reference/README.md",
+    "source_sha256": "3ac0514169b5314a1a3a57fe50b5fda2e13fd2ab00645642d0d3f29fe3fb611b",
+    "original_sentence": "    Converts plain text to a base64-encoded string",
+    "translated_sentence": "    将 base64 编码的字符串转换为纯文本。",
+    "evidence": "本页该说明的链接目标为 stringbase64decode；同一锁定版本的 string.md 中对应方法的标题和示例明确区分 Base64 编码、解码方向。该来源哈希为 1523b15304c4be5ff6b1b4f62f41fe871ab65d99a4d8c293b43613b3a0bc7077。",
+    "scope": "依据同页链接及同版本详细页示例更正概览中的编码、解码方向；方法链接、示例代码和上游原文不修改。"
+  },
+  {
+    "id": "expression-index-base64-encode-description",
+    "path": "build/work-with-data/transform-data/expression-reference/README.md",
+    "source_sha256": "3ac0514169b5314a1a3a57fe50b5fda2e13fd2ab00645642d0d3f29fe3fb611b",
+    "original_sentence": "    Converts a base64-encoded string to plain text",
+    "translated_sentence": "    将纯文本转换为 base64 编码的字符串。",
+    "evidence": "本页该说明的链接目标为 stringbase64encode；同一锁定版本的 string.md 中对应方法的标题和示例明确区分 Base64 编码、解码方向。该来源哈希为 1523b15304c4be5ff6b1b4f62f41fe871ab65d99a4d8c293b43613b3a0bc7077。",
+    "scope": "依据同页链接及同版本详细页示例更正概览中的编码、解码方向；方法链接、示例代码和上游原文不修改。"
   }
 ]

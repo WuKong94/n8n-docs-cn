@@ -1,67 +1,68 @@
 ---
-nodeTitle: Root
+nodeTitle: Root（全局变量与函数）
 originalFilePath: data/expression-reference/root.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/root'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/root
+originalUrl: https://docs.n8n.io/data/expression-reference/root
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/root
 layout:
   description:
     visible: false
 ---
-# Root <a href="#root" id="root"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# Root（全局变量与函数） <a href="#root" id="root"></a>
 
 ## **`$()`** <a href="#dollar" id="dollar"></a>
 
-**Description:** Returns the data of the specified node
+**说明：** 返回指定节点的数据。
 
-**Syntax:** $(nodeName)
+**语法：** $(nodeName)
 
-**Returns:** NodeData
+**返回值：** NodeData
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `nodeName` (String) - The name of the node to retrieve  data for
+  * `nodeName`（String）— 要获取数据的节点名称。
 
 ## **`$binary`** <a href="#dollarbinary" id="dollarbinary"></a>
 
-**Description:** Returns any binary input data to the current node, for the current item. Shorthand for <code>$input.item.binary</code>.
+**说明：** 返回当前节点中当前数据项的二进制输入数据，是 <code>$input.item.binary</code> 的简写。
 
-**Syntax:** **`$binary`**
+**语法：** **`$binary`**
 
-**Returns:** Array<BinaryFile>
+**返回值：** Array<BinaryFile>
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$execution`** <a href="#dollarexecution" id="dollarexecution"></a>
 
-**Description:** Retrieve or set metadata for the current execution
+**说明：** 获取或设置当前执行的元数据。
 
-**Syntax:** **`$execution`**
+**语法：** **`$execution`**
 
-**Returns:** ExecData
+**返回值：** ExecData
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$fromAI()`** <a href="#dollarfromai" id="dollarfromai"></a>
 
-**Description:** Use when a large language model should provide the value of a node parameter. Consider providing a description for better results.
+**说明：** 当节点参数的值应由大语言模型提供时使用。建议提供说明，以获得更好的结果。
 
-**Syntax:** $fromAI(key, description?, type?, defaultValue?)
+**语法：** $fromAI(key, description?, type?, defaultValue?)
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `key` (String) - The name of the field to fetch. May only contain letters, numbers, underscores and hyphens.
-  * `description` (String) - optional - Use to give the model more context on exactly what it should return
-  * `type` (String) - optional - The type of the value to return. One of <code>string</code>, <code>number</code>,  <code>boolean</code>, <code>json</code>, <code>date</code>, <code>datetime</code>. Defaults to <code>string</code>.
-  * `defaultValue` (any) - optional - A value to use if the model doesn’t return the key
+  * `key`（String）— 要获取的字段名，仅允许包含字母、数字、下划线和连字符。
+  * `description`（String）— 可选 — 向模型提供更多上下文，说明它具体应返回什么内容。
+  * `type`（String）— 可选 — 返回值的类型。可选值为 <code>string</code>、<code>number</code>、<code>boolean</code>、<code>json</code>、<code>date</code>、<code>datetime</code>。默认为 <code>string</code>。
+  * `defaultValue`（any）— 可选 — 模型未返回该键时使用的值。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Ask the model to provide a name, and use it here
@@ -80,21 +81,21 @@ layout:
 
 ## **`$if()`** <a href="#dollarif" id="dollarif"></a>
 
-**Description:** Returns one of two values depending on the <code>condition</code>. Similar to the <code>?</code> operator in JavaScript.
+**说明：** 根据 <code>condition</code> 返回两个值中的一个，与 JavaScript 的 <code>?</code> 运算符类似。
 
-**Syntax:** $if(condition, valueIfTrue, valueIfFalse)
+**语法：** $if(condition, valueIfTrue, valueIfFalse)
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `condition` (Boolean) - The check to make. Should evaluate to either <code>true</code> or <code>false</code>
-  * `valueIfTrue` (any) - The value to return if the condition is true
-  * `valueIfFalse` (any) - The value to return if the condition is false
+  * `condition`（Boolean）— 要检查的条件，求值结果应为 <code>true</code> 或 <code>false</code>。
+  * `valueIfTrue`（any）— 条件为 true 时返回的值。
+  * `valueIfFalse`（any）— 条件为 false 时返回的值。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Return "Good day" if time is before 5pm, otherwise "Good evening"
@@ -109,20 +110,20 @@ layout:
 
 ## **`$ifEmpty()`** <a href="#dollarifempty" id="dollarifempty"></a>
 
-**Description:** Returns the first parameter if it isn’t empty, otherwise returns the second parameter. The following count as empty: <code>””</code>, <code>[]</code>, <code>{}</code>, <code>null</code>, <code>undefined</code>
+**说明：** 如果第一个参数不为空，则返回第一个参数，否则返回第二个参数。以下值视为空：<code>””</code>、<code>[]</code>、<code>{}</code>、<code>null</code>、<code>undefined</code>。
 
-**Syntax:** $ifEmpty(value, valueIfEmpty)
+**语法：** $ifEmpty(value, valueIfEmpty)
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `value` (any) - The value to return, provided it isn’t empty
-  * `valueIfEmpty` (any) - What to return if <code>value</code> is empty
+  * `value`（any）— 非空时要返回的值。
+  * `valueIfEmpty`（any）— <code>value</code> 为空时返回的值。
 
-**Examples:**
+**示例：**
 
   ```javascript
   "Hi " + $ifEmpty(name, "there") // e.g. "Hi Nathan" or "Hi there"
@@ -130,40 +131,40 @@ layout:
 
 ## **`$input`** <a href="#dollarinput" id="dollarinput"></a>
 
-**Description:** The input data of the current node
+**说明：** 当前节点的输入数据。
 
-**Syntax:** **`$input`**
+**语法：** **`$input`**
 
-**Returns:** NodeData
+**返回值：** NodeData
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$itemIndex`** <a href="#dollaritemindex" id="dollaritemindex"></a>
 
-**Description:** The position of the item currently being processed in the list of input items
+**说明：** 当前正在处理的数据项在输入数据项列表中的位置。
 
-**Syntax:** **`$itemIndex`**
+**语法：** **`$itemIndex`**
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$jmespath()`** <a href="#dollarjmespath" id="dollarjmespath"></a>
 
-**Description:** Extracts data from an object (or array of objects) using a <a href=”/code/cookbook/jmespath/”>JMESPath</a> expression. Useful for querying complex, nested objects. Returns <code>undefined</code> if the expression is invalid.
+**说明：** 使用 <a href=”/code/cookbook/jmespath/”>JMESPath</a> 表达式从对象或对象数组中提取数据，适合查询复杂的嵌套对象。如果表达式无效，则返回 <code>undefined</code>。
 
-**Syntax:** $jmespath(obj, expression)
+**语法：** $jmespath(obj, expression)
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `obj` (Object|Array) - The Object or array of Objects to retrieve data from
-  * `expression` (String) - A <a href=”https://jmespath.org/examples.html”>JMESPath expression</a> defining the data to retrieve from the object
+  * `obj`（Object|Array）— 要从中获取数据的对象或对象数组。
+  * `expression`（String）— 定义要从对象中获取哪些数据的 <a href=”https://jmespath.org/examples.html”>JMESPath 表达式</a>。
 
-**Examples:**
+**示例：**
 
   ```javascript
   data = {
@@ -237,171 +238,171 @@ layout:
 
 ## **`$json`** <a href="#dollarjson" id="dollarjson"></a>
 
-**Description:** Returns the JSON input data to the current node, for the current item. Shorthand for <code>$input.item.json</code>. <a href="../../understand-n8ns-data-structure.md">More info</a>
+**说明：** 返回当前节点中当前数据项的 JSON 输入数据，是 <code>$input.item.json</code> 的简写。<a href="../../understand-n8ns-data-structure.md">更多信息</a>
 
-**Syntax:** **`$json`**
+**语法：** **`$json`**
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$max()`** <a href="#dollarmax" id="dollarmax"></a>
 
-**Description:** Returns the highest of the given numbers
+**说明：** 返回给定数字中的最大值。
 
-**Syntax:** $max(num1, num2, …, numN)
+**语法：** $max(num1, num2, …, numN)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `num1` (Number) - The first number to compare
-  * `num2` (Number) - The second number to compare
+  * `num1`（Number）— 要比较的第一个数字。
+  * `num2`（Number）— 要比较的第二个数字。
 
 ## **`$min()`** <a href="#dollarmin" id="dollarmin"></a>
 
-**Description:** Returns the lowest of the given numbers
+**说明：** 返回给定数字中的最小值。
 
-**Syntax:** $min(num1, num2, …, numN)
+**语法：** $min(num1, num2, …, numN)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `num1` (Number) - The first number to compare
-  * `num2` (Number) - The second number to compare
+  * `num1`（Number）— 要比较的第一个数字。
+  * `num2`（Number）— 要比较的第二个数字。
 
 ## **`$nodeVersion`** <a href="#dollarnodeversion" id="dollarnodeversion"></a>
 
-**Description:** The version of the current node (as displayed at the bottom of the nodes’s settings pane)
+**说明：** 当前节点的版本，显示在节点设置面板底部。
 
-**Syntax:** **`$nodeVersion`**
+**语法：** **`$nodeVersion`**
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$now`** <a href="#dollarnow" id="dollarnow"></a>
 
-**Description:** A DateTime representing the current moment. 
+**说明：** 表示当前时刻的 DateTime。
 
-Uses the workflow’s time zone (which can be changed in the workflow settings).
+使用工作流的时区，可以在工作流设置中修改。
 
-**Syntax:** **`$now`**
+**语法：** **`$now`**
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$pageCount`** <a href="#dollarpagecount" id="dollarpagecount"></a>
 
-**Description:** The number of results pages the node has fetched. Only available in the ‘HTTP Request’ node.
+**说明：** 节点已获取的结果页数，仅在 HTTP Request 节点中可用。
 
-**Syntax:** **`$pageCount`**
+**语法：** **`$pageCount`**
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$parameter`** <a href="#dollarparameter" id="dollarparameter"></a>
 
-**Description:** The configuration settings of the current node. These are the parameters you fill out within the node’s UI (e.g. its operation).
+**说明：** 当前节点的配置，即在节点界面中填写的参数，例如要执行的操作。
 
-**Syntax:** **`$parameter`**
+**语法：** **`$parameter`**
 
-**Returns:** NodeParams
+**返回值：** NodeParams
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$prevNode`** <a href="#dollarprevnode" id="dollarprevnode"></a>
 
-**Description:** Information about the node that the current input came from. 
+**说明：** 关于提供当前输入的节点的信息。
 
-When in a ‘Merge’ node, always uses the first input connector.
+在 Merge 节点中，始终使用第一个输入连接点。
 
-**Syntax:** **`$prevNode`**
+**语法：** **`$prevNode`**
 
-**Returns:** PrevNodeData
+**返回值：** PrevNodeData
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$request`** <a href="#dollarrequest" id="dollarrequest"></a>
 
-**Description:** The request object sent during the last run of the node. Only available in the ‘HTTP Request’ node.
+**说明：** 节点最近一次运行时发送的请求对象，仅在 HTTP Request 节点中可用。
 
-**Syntax:** **`$request`**
+**语法：** **`$request`**
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$response`** <a href="#dollarresponse" id="dollarresponse"></a>
 
-**Description:** The response returned by the last HTTP call. Only available in the ‘HTTP Request’ node.
+**说明：** 最近一次 HTTP 调用返回的响应，仅在 HTTP Request 节点中可用。
 
-**Syntax:** **`$response`**
+**语法：** **`$response`**
 
-**Returns:** HTTPResponse
+**返回值：** HTTPResponse
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$runIndex`** <a href="#dollarrunindex" id="dollarrunindex"></a>
 
-**Description:** The index of the current run of the current node execution. Starts at 0.
+**说明：** 当前节点本次执行中当前运行的索引，从 0 开始。
 
-**Syntax:** **`$runIndex`**
+**语法：** **`$runIndex`**
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$secrets`** <a href="#dollarsecrets" id="dollarsecrets"></a>
 
-**Description:** The secrets from an <a href="https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/external-secrets">external secrets vault</a>, if configured. Secret values are never displayed to the user. Only available in credential fields.
+**说明：** 如果已配置<a href="../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/external-secrets.md">外部密钥库</a>，则提供其中的密钥。密钥值不会向用户显示，仅在凭据字段中可用。
 
-**Syntax:** **`$secrets`**
+**语法：** **`$secrets`**
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$today`** <a href="#dollartoday" id="dollartoday"></a>
 
-**Description:** A DateTime representing midnight at the start of the current day. 
+**说明：** 表示当天起始午夜时刻的 DateTime。
 
-Uses the instance’s time zone (unless overridden in the workflow’s settings).
+使用实例的时区，除非工作流设置覆盖了该时区。
 
-**Syntax:** **`$today`**
+**语法：** **`$today`**
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$vars`** <a href="#dollarvars" id="dollarvars"></a>
 
-**Description:** The <a href="../../../code-in-n8n/define-custom-variables.md">variables</a> available to the workflow
+**说明：** 工作流可用的<a href="../../../code-in-n8n/define-custom-variables.md">变量</a>。
 
-**Syntax:** **`$vars`**
+**语法：** **`$vars`**
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 ## **`$workflow`** <a href="#dollarworkflow" id="dollarworkflow"></a>
 
-**Description:** Information about the current workflow
+**说明：** 关于当前工作流的信息。
 
-**Syntax:** **`$workflow`**
+**语法：** **`$workflow`**
 
-**Returns:** WorkflowData
+**返回值：** WorkflowData
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

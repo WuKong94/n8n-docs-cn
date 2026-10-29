@@ -1,26 +1,27 @@
 ---
-nodeTitle: Date
+nodeTitle: Date（日期）
 originalFilePath: data/expression-reference/date.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/date'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date
+originalUrl: https://docs.n8n.io/data/expression-reference/date
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/date
 layout:
   description:
     visible: false
 ---
-# Date <a href="#date" id="date"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# Date（日期） <a href="#date" id="date"></a>
 
 ## _`Date`_.**`toDateTime()`** <a href="#datetodatetime" id="datetodatetime"></a>
 
-**Description:** Converts a JavaScript Date to a Luxon DateTime. The DateTime contains the same information, but is easier to manipulate.
+**说明：** 将 JavaScript Date 转换为 Luxon DateTime。DateTime 包含相同的信息，但更易于操作。
 
-**Syntax:** _`Date`_.toDateTime()
+**语法：** _`Date`_.toDateTime()
 
-**Returns:** DateTime
+**返回值：** DateTime
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // date = new Date("2024-03-30T18:49")
@@ -28,6 +29,6 @@ layout:
   ```
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

@@ -1,32 +1,33 @@
 ---
-nodeTitle: Array
+nodeTitle: Array（数组）
 originalFilePath: data/expression-reference/array.md
-originalUrl: 'https://docs.n8n.io/data/expression-reference/array'
-url: >-
-  https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/array
+originalUrl: https://docs.n8n.io/data/expression-reference/array
+url: https://docs.n8n.io/build/work-with-data/transform-data/expression-reference/array
 layout:
   description:
     visible: false
 ---
-# Array <a href="#array" id="array"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
+
+# Array（数组） <a href="#array" id="array"></a>
 
 ## _`Array`_.**`append()`** <a href="#arrayappend" id="arrayappend"></a>
 
-**Description:** Adds new elements to the end of the array. Similar to <code>push()</code>, but returns the modified array. Consider using spread syntax instead (see examples).
+**说明：** 将新元素添加到数组末尾。与 <code>push()</code> 类似，但返回修改后的数组。也可以考虑改用展开语法，参见示例。
 
-**Syntax:** _`Array`_.append(elem1, elem2?, ..., elemN?)
+**语法：** _`Array`_.append(elem1, elem2?, ..., elemN?)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `elem1` (any) - The first element to append
-  * `elem2` (any) - optional - The second element to append
-  * `elemN` (any) - optional - The Nth element to append
+  * `elem1`（any）— 要追加的第一个元素。
+  * `elem2`（any）— 可选 — 要追加的第二个元素。
+  * `elemN`（any）— 可选 — 要追加的第 N 个元素。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['forget', 'me']
@@ -43,15 +44,15 @@ layout:
 
 ## _`Array`_.**`average()`** <a href="#arrayaverage" id="arrayaverage"></a>
 
-**Description:** Returns the average of the numbers in the array. Throws an error if there are any non-numbers.
+**说明：** 返回数组中数字的平均值。如果存在非数字元素，则抛出错误。
 
-**Syntax:** _`Array`_.average()
+**语法：** _`Array`_.average()
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [12, 1, 5]
@@ -60,19 +61,19 @@ layout:
 
 ## _`Array`_.**`chunk()`** <a href="#arraychunk" id="arraychunk"></a>
 
-**Description:** Splits the array into an array of sub-arrays, each with the given length
+**说明：** 将数组拆分为由指定长度的子数组组成的数组。
 
-**Syntax:** _`Array`_.chunk(length)
+**语法：** _`Array`_.chunk(length)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `length` (Number) - The number of elements in each chunk
+  * `length`（Number）— 每个分块包含的元素数量。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [1, 2, 3, 4, 5, 6]
@@ -81,15 +82,15 @@ layout:
 
 ## _`Array`_.**`compact()`** <a href="#arraycompact" id="arraycompact"></a>
 
-**Description:** Removes any empty values from the array. <code>null</code>, <code>""</code> and <code>undefined</code> count as empty.
+**说明：** 删除数组中的空值。<code>null</code>、<code>""</code> 和 <code>undefined</code> 均视为空。
 
-**Syntax:** _`Array`_.compact()
+**语法：** _`Array`_.compact()
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [2, null, 1, ""]
@@ -98,21 +99,21 @@ layout:
 
 ## _`Array`_.**`concat()`** <a href="#arrayconcat" id="arrayconcat"></a>
 
-**Description:** Joins one or more arrays onto the end of the base array
+**说明：** 将一个或多个数组连接到基础数组末尾。
 
-**Syntax:** _`Array`_.concat(array2, array3?, ... arrayN?)
+**语法：** _`Array`_.concat(array2, array3?, ... arrayN?)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `array2` (Array) - The first array to be joined on the end of the base array
-  * `array3` (Array) - optional - The second array to be joined on to the end of the base array
-  * `arrayN` (Array) - optional - The Nth array to be joined on to the end of the base array
+  * `array2`（Array）— 要连接到基础数组末尾的第一个数组。
+  * `array3`（Array）— 可选 — 要连接到基础数组末尾的第二个数组。
+  * `arrayN`（Array）— 可选 — 要连接到基础数组末尾的第 N 个数组。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr1 = ['Nathan', 'Jan']
@@ -128,20 +129,20 @@ layout:
 
 ## _`Array`_.**`difference()`** <a href="#arraydifference" id="arraydifference"></a>
 
-**Description:** Compares two arrays. Returns all elements in the base array that aren't present
-in <code>otherArray</code>.
+**说明：** 比较两个数组。返回基础数组中存在、但未包含在
+<code>otherArray</code> 中的所有元素。
 
-**Syntax:** _`Array`_.difference(otherArray)
+**语法：** _`Array`_.difference(otherArray)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `otherArray` (Array) - The array to compare to the base array
+  * `otherArray`（Array）— 要与基础数组比较的数组。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [1, 2, 3]
@@ -150,23 +151,23 @@ in <code>otherArray</code>.
 
 ## _`Array`_.**`filter()`** <a href="#arrayfilter" id="arrayfilter"></a>
 
-**Description:** Returns an array with only the elements satisfying a condition. The condition is a function that returns <code>true</code> or <code>false</code>.
+**说明：** 返回仅包含满足条件的元素的数组。条件是一个返回 <code>true</code> 或 <code>false</code> 的函数。
 
-**Syntax:** _`Array`_.filter(function(element, index?, array?), thisValue?)
+**语法：** _`Array`_.filter(function(element, index?, array?), thisValue?)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `function()` (function) - A function to run for each array element. If it returns <code>true</code>, the element will be kept. Consider using <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>arrow function notation</a> to save space.
-  * `element` (any) - The value of the current element
-  * `index` (Number) - optional - The position of the current element in the array (starting at 0)
-  * `array` (Array) - optional - The array being processed. Rarely needed.
-  * `thisValue` (any) - optional - A value passed to the function as its <code>this</code> value. Rarely needed.
+  * `function()`（function）— 对数组中的每个元素运行的函数。如果返回 <code>true</code>，则保留该元素。可以使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>箭头函数写法</a>来缩短代码。
+  * `element`（any）— 当前元素的值。
+  * `index`（Number）— 可选 — 当前元素在数组中的位置，从 0 开始。
+  * `array`（Array）— 可选 — 正在处理的数组，很少需要使用。
+  * `thisValue`（any）— 可选 — 传递给函数作为 <code>this</code> 的值，很少需要使用。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Keep ages over 18 (using arrow function notation):
@@ -191,25 +192,25 @@ in <code>otherArray</code>.
 
 ## _`Array`_.**`find()`** <a href="#arrayfind" id="arrayfind"></a>
 
-**Description:** Returns the first element from the array that satisfies the provided condition. The condition is a function that returns <code>true</code> or <code>false</code>. Returns <code>undefined</code> if no matches are found.
+**说明：** 返回数组中满足指定条件的第一个元素。条件是一个返回 <code>true</code> 或 <code>false</code> 的函数。如果没有匹配项，则返回 <code>undefined</code>。
 
-If you need all matching elements, use <code>filter()</code>.
+如果需要所有匹配的元素，请使用 <code>filter()</code>。
 
-**Syntax:** _`Array`_.find(function(element, index?, array?), thisValue?)
+**语法：** _`Array`_.find(function(element, index?, array?), thisValue?)
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `function()` (function) - A function to run for each array element. As soon as it returns <code>true</code>, that element will be returned. Consider using <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>arrow function notation</a> to save space.
-  * `element` (any) - The value of the current element
-  * `index` (Number) - optional - The position of the current element in the array (starting at 0)
-  * `array` (Array) - optional - The array of the current element. Rarely needed.
-  * `thisValue` (any) - optional - A value passed to the function as its <code>this</code> value. Rarely needed.
+  * `function()`（function）— 对数组中的每个元素运行的函数。一旦返回 <code>true</code>，就返回该元素。可以使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>箭头函数写法</a>来缩短代码。
+  * `element`（any）— 当前元素的值。
+  * `index`（Number）— 可选 — 当前元素在数组中的位置，从 0 开始。
+  * `array`（Array）— 可选 — 当前元素所在的数组，很少需要使用。
+  * `thisValue`（any）— 可选 — 传递给函数作为 <code>this</code> 的值，很少需要使用。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Find first age over 18 (using arrow function notation):
@@ -228,15 +229,15 @@ If you need all matching elements, use <code>filter()</code>.
 
 ## _`Array`_.**`first()`** <a href="#arrayfirst" id="arrayfirst"></a>
 
-**Description:** Returns the first element of the array
+**说明：** 返回数组的第一个元素。
 
-**Syntax:** _`Array`_.first()
+**语法：** _`Array`_.first()
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['quick', 'brown', 'fox']
@@ -245,20 +246,20 @@ If you need all matching elements, use <code>filter()</code>.
 
 ## _`Array`_.**`includes()`** <a href="#arrayincludes" id="arrayincludes"></a>
 
-**Description:** Returns <code>true</code> if the array contains the specified element
+**说明：** 返回 <code>true</code> 表示数组包含指定元素。
 
-**Syntax:** _`Array`_.includes(element, start?)
+**语法：** _`Array`_.includes(element, start?)
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `element` (any) - The value to search the array for
-  * `start` (Number) - optional - The index to start looking from
+  * `element`（any）— 要在数组中查找的值。
+  * `start`（Number）— 可选 — 开始查找的索引。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // names = ["Bob", "Bill", "Nat"];
@@ -268,20 +269,20 @@ If you need all matching elements, use <code>filter()</code>.
 
 ## _`Array`_.**`indexOf()`** <a href="#arrayindexof" id="arrayindexof"></a>
 
-**Description:** Returns the position of the first matching element in the array, or -1 if the element isn’t found. Positions start at 0.
+**说明：** 返回数组中第一个匹配元素的位置，未找到时返回 -1。位置从 0 开始。
 
-**Syntax:** _`Array`_.indexOf(element, start?)
+**语法：** _`Array`_.indexOf(element, start?)
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `element` (any) - The value to look for
-  * `start` (Number) - optional - The index to start looking from
+  * `element`（any）— 要查找的值。
+  * `start`（Number）— 可选 — 开始查找的索引。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // names = ["Bob", "Bill", "Nat"];
@@ -295,19 +296,19 @@ If you need all matching elements, use <code>filter()</code>.
 
 ## _`Array`_.**`intersection()`** <a href="#arrayintersection" id="arrayintersection"></a>
 
-**Description:** Compares two arrays. Returns all elements in the base array that are also present in the other array.
+**说明：** 比较两个数组。返回基础数组中也存在于另一个数组中的所有元素。
 
-**Syntax:** _`Array`_.intersection(otherArray)
+**语法：** _`Array`_.intersection(otherArray)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `otherArray` (Array) - The array to compare to the base array
+  * `otherArray`（Array）— 要与基础数组比较的数组。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [1, 2]
@@ -316,15 +317,15 @@ If you need all matching elements, use <code>filter()</code>.
 
 ## _`Array`_.**`isEmpty()`** <a href="#arrayisempty" id="arrayisempty"></a>
 
-**Description:** Returns <code>true</code> if the array has no elements or is <code>null</code> or <code>undefined</code>
+**说明：** 返回 <code>true</code> 的情况是数组没有元素，或数组为 <code>null</code> 或 <code>undefined</code>。
 
-**Syntax:** _`Array`_.isEmpty()
+**语法：** _`Array`_.isEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = []
@@ -338,15 +339,15 @@ If you need all matching elements, use <code>filter()</code>.
 
 ## _`Array`_.**`isNotEmpty()`** <a href="#arrayisnotempty" id="arrayisnotempty"></a>
 
-**Description:** Returns <code>true</code> if the array has at least one element
+**说明：** 返回 <code>true</code> 表示数组至少包含一个元素。
 
-**Syntax:** _`Array`_.isNotEmpty()
+**语法：** _`Array`_.isNotEmpty()
 
-**Returns:** Boolean
+**返回值：** Boolean（布尔值）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['quick', 'brown', 'fox']
@@ -360,21 +361,21 @@ If you need all matching elements, use <code>filter()</code>.
 
 ## _`Array`_.**`join()`** <a href="#arrayjoin" id="arrayjoin"></a>
 
-**Description:** Merges all elements of the array into a single string, with an optional separator between each element.
+**说明：** 将数组中的所有元素合并为一个字符串，可选择在各元素之间插入分隔符。
 
-The opposite of <code>split()</code>.
+与 <code>split()</code> 的作用相反。
 
-**Syntax:** _`Array`_.join(separator?)
+**语法：** _`Array`_.join(separator?)
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `separator` (String) - optional - The character(s) to insert between each element
+  * `separator`（String）— 可选 — 在各元素之间插入的一个或多个字符。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['Wind', 'Water', 'Fire']
@@ -389,15 +390,15 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`last()`** <a href="#arraylast" id="arraylast"></a>
 
-**Description:** Returns the last element of the array
+**说明：** 返回数组的最后一个元素。
 
-**Syntax:** _`Array`_.last()
+**语法：** _`Array`_.last()
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['quick', 'brown', 'fox']
@@ -407,15 +408,15 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`length`** <a href="#arraylength" id="arraylength"></a>
 
-**Description:** The number of elements in the array
+**说明：** 数组中的元素数量。
 
-**Syntax:** _`Array`_.length
+**语法：** _`Array`_.length
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Examples:**
+**示例：**
 
   ```javascript
   // names = ["Bob", "Bill", "Nat"];
@@ -424,23 +425,23 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`map()`** <a href="#arraymap" id="arraymap"></a>
 
-**Description:** Creates a new array by applying a function to each element of the original array
+**说明：** 对原数组中的每个元素应用一个函数，创建新数组。
 
-**Syntax:** _`Array`_.map(function(element, index?, array?), thisValue?)
+**语法：** _`Array`_.map(function(element, index?, array?), thisValue?)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `function()` (function) - A function to run for each array element. In the new array, the output of this function takes the place of the element. Consider using <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>arrow function notation</a> to save space.
-  * `element` (any) - The value of the current element
-  * `index` (Number) - optional - The position of the current element in the array (starting at 0)
-  * `array` (Array) - optional - The array of the current element. Rarely needed.
-  * `thisValue` (any) - optional - A value passed to the function as its <code>this</code> value. Rarely needed.
+  * `function()`（function）— 对数组中的每个元素运行的函数。在新数组中，该函数的输出会替代原元素。可以使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>箭头函数写法</a>来缩短代码。
+  * `element`（any）— 当前元素的值。
+  * `index`（Number）— 可选 — 当前元素在数组中的位置，从 0 开始。
+  * `array`（Array）— 可选 — 当前元素所在的数组，很少需要使用。
+  * `thisValue`（any）— 可选 — 传递给函数作为 <code>this</code> 的值，很少需要使用。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Double all numbers (using arrow function notation):
@@ -459,15 +460,15 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`max()`** <a href="#arraymax" id="arraymax"></a>
 
-**Description:** Returns the largest number in the array. Throws an error if there are any non-numbers.
+**说明：** 返回数组中的最大数字。如果存在非数字元素，则抛出错误。
 
-**Syntax:** _`Array`_.max()
+**语法：** _`Array`_.max()
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [1, 12, 5]
@@ -477,19 +478,19 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`mergeIntoObject()`** <a href="#arraymergeintoobject" id="arraymergeintoobject"></a>
 
-**Description:** Merges two arrays of Objects into a single Object, by merging the key-value pairs of each element. If the arrays are different lengths, keeps the elements from the longer array.
+**说明：** 将两个对象数组合并为一个对象，方式是合并各元素的键值对。如果两个数组长度不同，则保留较长数组中的元素。
 
-**Syntax:** _`Array`_.mergeIntoObject(otherArray)
+**语法：** _`Array`_.mergeIntoObject(otherArray)
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `otherArray` (Array) - The array of Objects to merge with the base array
+  * `otherArray`（Array）— 要与基础数组合并的对象数组。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [{ name: 'Nathan' }, { age: 42 }]
@@ -498,15 +499,15 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`min()`** <a href="#arraymin" id="arraymin"></a>
 
-**Description:** Returns the smallest number in the array. Throws an error if there are any non-numbers.
+**说明：** 返回数组中的最小数字。如果存在非数字元素，则抛出错误。
 
-**Syntax:** _`Array`_.min()
+**语法：** _`Array`_.min()
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [12, 1, 5]
@@ -515,20 +516,20 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`pluck()`** <a href="#arraypluck" id="arraypluck"></a>
 
-**Description:** Returns an array containing the values of the given field(s) in each Object of the array. Ignores any array elements that aren’t Objects or don’t have a key matching the field name(s) provided.
+**说明：** 返回一个数组，其中包含原数组中各对象的指定字段值。忽略非对象元素，以及没有与指定字段名匹配的键的对象。
 
-**Syntax:** _`Array`_.pluck(fieldName1?, fieldName2?, …)
+**语法：** _`Array`_.pluck(fieldName1?, fieldName2?, …)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `fieldName1` (String) - optional - The first key to retrieve the value of
-  * `fieldName2` (String) - optional - The second key to retrieve the value of
+  * `fieldName1`（String）— 可选 — 要获取值的第一个键。
+  * `fieldName2`（String）— 可选 — 要获取值的第二个键。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [{'name':'Nathan','age':42},{'name':'Jan','city':'Berlin'}]
@@ -542,15 +543,15 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`randomItem()`** <a href="#arrayrandomitem" id="arrayrandomitem"></a>
 
-**Description:** Returns a randomly-chosen element from the array
+**说明：** 返回从数组中随机选择的一个元素。
 
-**Syntax:** _`Array`_.randomItem()
+**语法：** _`Array`_.randomItem()
 
-**Returns:** any
+**返回值：** any（任意类型）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['quick', 'brown', 'fox']
@@ -560,22 +561,22 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`reduce()`** <a href="#arrayreduce" id="arrayreduce"></a>
 
-**Description:** Reduces an array to a single value by applying a function to each element. The function combines the current element with the result of reducing the previous elements, producing a new result.
+**说明：** 对数组中的每个元素应用一个函数，将数组归约为单个值。该函数将当前元素与之前元素的归约结果结合，生成新的结果。
 
-**Syntax:** _`Array`_.reduce(function(prevResult, currentElem, currentIndex?, array?), initResult)
+**语法：** _`Array`_.reduce(function(prevResult, currentElem, currentIndex?, array?), initResult)
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `function()` (function) - A function to run for each array element. Takes the accumulated result and the current element, and returns a new accumulated result. Consider using <a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>arrow function notation</a> to save space.
-  * `prevResult` (any) - The accumulated result from applying the function to previous elements. When processing the first element, it’s set to <code>initResult</code> (or the first array element if not specified).
-  * `currentElem` (any) - The value in the array currently being processed
-  * `currentIndex` (Number) - optional - The position of the current element in the array (starting at 0)
-  * `array` (Array) - optional - The array being processed. Rarely needed.
-  * `initResult` (any) - optional - The initial value of the prevResult, used when calling the function on the first array element. When not specified it’s set to the first array element, and the first function call is on the second array element instead of the first.
+  * `function()`（function）— 对数组中的每个元素运行的函数。接收累计结果和当前元素，返回新的累计结果。可以使用<a href=”https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions”>箭头函数写法</a>来缩短代码。
+  * `prevResult`（any）— 将函数应用于之前元素后得到的累计结果。处理第一个元素时，设为 <code>initResult</code>；未指定时，使用数组的第一个元素。
+  * `currentElem`（any）— 当前正在处理的数组元素值。
+  * `currentIndex`（Number）— 可选 — 当前元素在数组中的位置，从 0 开始。
+  * `array`（Array）— 可选 — 正在处理的数组，很少需要使用。
+  * `initResult`（any）— 可选 — prevResult 的初始值，在对数组第一个元素调用函数时使用。未指定时，设为数组第一个元素，此时首次函数调用会从数组的第二个元素开始。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Sum numbers (using arrow function notation):
@@ -594,19 +595,19 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`removeDuplicates()`** <a href="#arrayremoveduplicates" id="arrayremoveduplicates"></a>
 
-**Description:** Removes any re-occurring elements from the array
+**说明：** 删除数组中重复出现的元素。
 
-**Syntax:** _`Array`_.removeDuplicates(keys?)
+**语法：** _`Array`_.removeDuplicates(keys?)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `keys` (String) - optional - For use on arrays of Objects. A key, or comma-separated list of keys to restrict the check to. If omitted, all keys are checked.
+  * `keys`（String）— 可选 — 用于对象数组。指定一个键或用逗号分隔的多个键，仅检查这些键。省略时检查所有键。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['quick', 'brown', 'quick']
@@ -615,21 +616,21 @@ The opposite of <code>split()</code>.
 
 ## _`Array`_.**`renameKeys()`** <a href="#arrayrenamekeys" id="arrayrenamekeys"></a>
 
-**Description:** Changes all matching keys (field names) of any Objects in the array. Rename more than one key by
-adding extra arguments, i.e. <code>from1, to1, from2, to2, ...</code>.
+**说明：** 修改数组中各对象的所有匹配键（字段名）。如需重命名多个键，可以
+添加更多参数，即 <code>from1, to1, from2, to2, ...</code>。
 
-**Syntax:** _`Array`_.renameKeys(from, to)
+**语法：** _`Array`_.renameKeys(from, to)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `from` (String) - The key to rename
-  * `to` (String) - The new key name
+  * `from`（String）— 要重命名的键。
+  * `to`（String）— 新键名。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [{'name':'bob'},{'name':'meg'}]
@@ -638,15 +639,15 @@ adding extra arguments, i.e. <code>from1, to1, from2, to2, ...</code>.
 
 ## _`Array`_.**`reverse()`** <a href="#arrayreverse" id="arrayreverse"></a>
 
-**Description:** Reverses the order of the elements in the array
+**说明：** 反转数组中元素的顺序。
 
-**Syntax:** _`Array`_.reverse()
+**语法：** _`Array`_.reverse()
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['dog', 'bites', 'man']
@@ -655,20 +656,20 @@ adding extra arguments, i.e. <code>from1, to1, from2, to2, ...</code>.
 
 ## _`Array`_.**`slice()`** <a href="#arrayslice" id="arrayslice"></a>
 
-**Description:** Returns a portion of the array, from the <code>start</code> index up to (but not including) the <code>end</code> index. Indexes start at 0.
+**说明：** 返回数组中从 <code>start</code> 索引开始，到 <code>end</code> 索引之前的一段元素，不包含结束索引处的元素。索引从 0 开始。
 
-**Syntax:** _`Array`_.slice(start, end)
+**语法：** _`Array`_.slice(start, end)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `start` (Number) - optional - The position to start from. Positions start at 0. Negative numbers count back from the end of the array.
-  * `end` (Number) - optional - The position to select up to. The element at the end position is not included. Negative numbers select from the end of the array. If omitted, will extract to the end of the array.
+  * `start`（Number）— 可选 — 起始位置，从 0 开始。负数表示从数组末尾向前计数。
+  * `end`（Number）— 可选 — 选择的结束位置，不包含该位置的元素。负数表示从数组末尾计算位置。省略时，提取到数组末尾。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [1, 2, 3, 4, 5]
@@ -687,20 +688,20 @@ adding extra arguments, i.e. <code>from1, to1, from2, to2, ...</code>.
 
 ## _`Array`_.**`smartJoin()`** <a href="#arraysmartjoin" id="arraysmartjoin"></a>
 
-**Description:** Creates a single Object from an array of Objects. Each Object in the array provides one field for the returned Object. Each Object in the array must contain a field with the key name and a field with the value.
+**说明：** 根据对象数组创建单个对象。数组中的每个对象为返回对象提供一个字段。数组中的每个对象都必须包含一个提供键名的字段和一个提供值的字段。
 
-**Syntax:** _`Array`_.smartJoin(keyField, nameField)
+**语法：** _`Array`_.smartJoin(keyField, nameField)
 
-**Returns:** Object
+**返回值：** Object（对象）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `keyField` (String) - The field in each Object containing the key name
-  * `nameField` (String) - The field in each Object containing the value
+  * `keyField`（String）— 各对象中包含键名的字段。
+  * `nameField`（String）— 各对象中包含值的字段。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr => [{'field':'age','value':2},{'field':'city','value':'Berlin'}]
@@ -709,26 +710,26 @@ adding extra arguments, i.e. <code>from1, to1, from2, to2, ...</code>.
 
 ## _`Array`_.**`sort()`** <a href="#arraysort" id="arraysort"></a>
 
-**Description:** Reorders the elements of the array. For sorting strings alphabetically, no parameter is required. For sorting numbers or Objects, see examples.
+**说明：** 对数组中的元素重新排序。按字母顺序排列字符串时，不需要参数。数字或对象的排序方法请参阅示例。
 
-**Syntax:** _`Array`_.sort(compareFunction(a, b)?)
+**语法：** _`Array`_.sort(compareFunction(a, b)?)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `compareFunction` (function) - optional - A function to compare two array elements and return a number indicating which one comes first:
-<b>Return < 0</b>: <code>a</code> comes before <code>b</code>
-<b>Return 0</b>: <code>a</code> and <code>b</code> are equal (leave order unchanged)
-<b>Return > 0</b>: <code>b</code> comes before <code>a</code>
+  * `compareFunction`（function）— 可选 — 比较两个数组元素的函数，返回一个数字来表示哪个元素排在前面：
+<b>返回 < 0</b>：<code>a</code> 排在 <code>b</code> 前面。
+<b>返回 0</b>：<code>a</code> 与 <code>b</code> 相等，顺序保持不变。
+<b>返回 > 0</b>：<code>b</code> 排在 <code>a</code> 前面。
 
-If no function is specified, converts all values to strings and compares their character codes.
-  * `a` (any) - The first element to compare in the function
-  * `b` (any) - The second element to compare in the function
+未指定函数时，将所有值转换为字符串，再比较其字符编码。
+  * `a`（any）— 函数中要比较的第一个元素。
+  * `b`（any）— 函数中要比较的第二个元素。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // No need for a param when sorting strings
@@ -759,15 +760,15 @@ If no function is specified, converts all values to strings and compares their c
 
 ## _`Array`_.**`sum()`** <a href="#arraysum" id="arraysum"></a>
 
-**Description:** Returns the total of all the numbers in the array. Throws an error if there are any non-numbers.
+**说明：** 返回数组中所有数字的总和。如果存在非数字元素，则抛出错误。
 
-**Syntax:** _`Array`_.sum()
+**语法：** _`Array`_.sum()
 
-**Returns:** Number
+**返回值：** Number（数字）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [12, 1, 5]
@@ -776,15 +777,15 @@ If no function is specified, converts all values to strings and compares their c
 
 ## _`Array`_.**`toJsonString()`** <a href="#arraytojsonstring" id="arraytojsonstring"></a>
 
-**Description:** Converts the array to a JSON string. The same as JavaScript’s <code>JSON.stringify()</code>.
+**说明：** 将数组转换为 JSON 字符串。与 JavaScript 的 <code>JSON.stringify()</code> 相同。
 
-**Syntax:** _`Array`_.toJsonString()
+**语法：** _`Array`_.toJsonString()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // obj = ['quick', 'brown', 'fox']
@@ -793,25 +794,25 @@ If no function is specified, converts all values to strings and compares their c
 
 ## _`Array`_.**`toSpliced()`** <a href="#arraytospliced" id="arraytospliced"></a>
 
-**Description:** Adds and/or removes array elements at a given position. 
+**说明：** 在指定位置添加或删除数组元素。
 
-See also <code>slice()</code> and <code>append()</code>.
+另请参阅 <code>slice()</code> 和 <code>append()</code>。
 
-**Syntax:** _`Array`_.toSpliced(start, deleteCount, elem1, ....., elemN)
+**语法：** _`Array`_.toSpliced(start, deleteCount, elem1, ....., elemN)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Parameters:**
+**参数：**
 
-  * `start` (Number) - The index (position) to add or remove elements at.  New elements are inserted before the element at this index. A negative index counts back from the end of the array. 
-  * `deleteCount` (Number) - optional - The number of elements to remove. If omitted, removes all elements from the <code>start</code> index onwards.
-  * `elem1` (any) - optional - The first new element to be added
-  * `elem2` (any) - optional - The second new element to be added
-  * `elemN` (any) - optional - The Nth new element to be added
+  * `start`（Number）— 添加或删除元素的索引（位置）。新元素插入到该索引处的元素之前。负索引表示从数组末尾向前计数。
+  * `deleteCount`（Number）— 可选 — 要删除的元素数量。省略时，删除从 <code>start</code> 索引开始的所有元素。
+  * `elem1`（any）— 可选 — 要添加的第一个新元素。
+  * `elem2`（any）— 可选 — 要添加的第二个新元素。
+  * `elemN`（any）— 可选 — 要添加的第 N 个新元素。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // Insert element at index 1
@@ -833,15 +834,15 @@ See also <code>slice()</code> and <code>append()</code>.
 
 ## _`Array`_.**`toString()`** <a href="#arraytostring" id="arraytostring"></a>
 
-**Description:** Converts the array to a string, with values separated by commas. To use a different separator, use <code>join()</code> instead.
+**说明：** 将数组转换为字符串，各值以逗号分隔。如果要使用其他分隔符，请使用 <code>join()</code>。
 
-**Syntax:** _`Array`_.toString()
+**语法：** _`Array`_.toString()
 
-**Returns:** String
+**返回值：** String（字符串）
 
-**Source:** JavaScript function
+**来源：** JavaScript 函数
 
-**Examples:**
+**示例：**
 
   ```javascript
   // words = ['make', 'my', 'day']
@@ -850,19 +851,19 @@ See also <code>slice()</code> and <code>append()</code>.
 
 ## _`Array`_.**`union()`** <a href="#arrayunion" id="arrayunion"></a>
 
-**Description:** Concatenates two arrays and then removes any duplicates
+**说明：** 连接两个数组，并删除重复元素。
 
-**Syntax:** _`Array`_.union(otherArray)
+**语法：** _`Array`_.union(otherArray)
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Parameters:**
+**参数：**
 
-  * `otherArray` (Array) - The array to union with the base array
+  * `otherArray`（Array）— 要与基础数组求并集的数组。
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = [1, 2]
@@ -872,15 +873,15 @@ See also <code>slice()</code> and <code>append()</code>.
 
 ## _`Array`_.**`unique()`** <a href="#arrayunique" id="arrayunique"></a>
 
-**Description:** Removes any duplicate elements from the array
+**说明：** 删除数组中的重复元素。
 
-**Syntax:** _`Array`_.unique()
+**语法：** _`Array`_.unique()
 
-**Returns:** Array
+**返回值：** Array（数组）
 
-**Source:**  Custom n8n functionality
+**来源：** n8n 自定义功能
 
-**Examples:**
+**示例：**
 
   ```javascript
   // arr = ['quick', 'brown', 'quick']
@@ -888,6 +889,6 @@ See also <code>slice()</code> and <code>append()</code>.
   ```
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Expression reference](./)
+* [表达式参考](./)

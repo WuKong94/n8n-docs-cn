@@ -1,63 +1,64 @@
 ---
-title: Date and time with Luxon
-description: Use Luxon to work with date and time in n8n.
+title: 使用 Luxon 处理日期和时间
+description: 使用 Luxon 处理 n8n 中的日期和时间。
 contentType: howto
-nodeTitle: Work with dates and times
+nodeTitle: 处理日期和时间
 originalFilePath: data/specific-data-types/luxon.md
-originalUrl: 'https://docs.n8n.io/data/specific-data-types/luxon'
-url: >-
-  https://docs.n8n.io/build/work-with-data/handle-special-data-types/work-with-dates-and-times
+originalUrl: https://docs.n8n.io/data/specific-data-types/luxon
+url: https://docs.n8n.io/build/work-with-data/handle-special-data-types/work-with-dates-and-times
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Date and time with Luxon <a href="#date-and-time-with-luxon" id="date-and-time-with-luxon"></a>
 
-[Luxon](https://github.com/moment/luxon/) is a JavaScript library that makes it easier to work with date and time. For full details of how to use Luxon, refer to [Luxon's documentation](https://moment.github.io/luxon/#/?id=luxon). 
+# 使用 Luxon 处理日期和时间 <a href="#date-and-time-with-luxon" id="date-and-time-with-luxon"></a>
 
-n8n passes dates between nodes as strings, so you need to parse them. Luxon makes this easier.
+[Luxon](https://github.com/moment/luxon/) 是一个 JavaScript 库，可以简化日期和时间的处理。完整用法请参阅 [Luxon 文档](https://moment.github.io/luxon/#/?id=luxon)。
+
+n8n 在节点之间以字符串形式传递日期，因此你需要先解析这些字符串。Luxon 可以简化这一步。
 
 {% hint style="info" %}
-**Python support**
+**Python 支持**
 
-Luxon is a JavaScript library. The two convenience [variables](#get-the-current-datetime-or-date) created by n8n are available when using Python in the Code node, but their functionality is limited:
+Luxon 是一个 JavaScript 库。在 Code 节点中使用 Python 时，也可以使用 n8n 提供的两个便捷[变量](#get-the-current-datetime-or-date)，但其功能有限：
 
-* You can't perform Luxon operations on these variables. For example, there is no Python equivalent for `$today.minus(...)`.
-* The generic Luxon functionality, such as [Convert date string to Luxon](#convert-date-string-to-luxon), isn't available for Python users.
+* 无法对这些变量执行 Luxon 操作。例如，Python 中没有与 `$today.minus(...)` 等效的写法。
+* Python 用户无法使用通用的 Luxon 功能，例如[将日期字符串转换为 Luxon 对象](#convert-date-string-to-luxon)。
 {% endhint %}
 
-## Date and time behavior in n8n <a href="#date-and-time-behavior-in-n8n" id="date-and-time-behavior-in-n8n"></a>
+## n8n 中日期和时间的行为 <a href="#date-and-time-behavior-in-n8n" id="date-and-time-behavior-in-n8n"></a>
 
-Be aware of the following:
+请注意以下几点：
 
-* In a workflow, n8n converts dates and times to strings between nodes. Keep this in mind when doing arithmetic on dates and times from other nodes.
-* Using Luxon's `DateTime()` is the recommended approach in n8n. Using vanilla JavaScript's `Date()` doesn't work with some n8n features. For example, it doesn't respect the [Workflow-specific Time Zone](https://docs.n8n.io/workflows/settings/#timezone).
-* With vanilla JavaScript, you can convert a string to a date with `new Date('2019-06-23')`. In Luxon, you must use a function explicitly stating the format, such as `DateTime.fromISO('2019-06-23')` or `DateTime.fromFormat("23-06-2019", "dd-MM-yyyy")`.
+* 在工作流中，n8n 会在节点之间传递数据时将日期和时间转换为字符串。对其他节点提供的日期和时间进行运算时，请留意这一点。
+* 在 n8n 中，建议使用 Luxon 的 `DateTime()`。原生 JavaScript 的 `Date()` 无法配合某些 n8n 功能正常工作，例如不会遵循[工作流专用时区](../../manage-workflows/configure-workflow-settings.md#timezone)。
+* 使用原生 JavaScript 时，可以通过 `new Date('2019-06-23')` 将字符串转换为日期。在 Luxon 中，则必须使用明确指定格式的函数，例如 `DateTime.fromISO('2019-06-23')` 或 `DateTime.fromFormat("23-06-2019", "dd-MM-yyyy")`。
 
-## Setting the timezone in n8n <a href="#setting-the-timezone-in-n8n" id="setting-the-timezone-in-n8n"></a>
+## 在 n8n 中设置时区 <a href="#setting-the-timezone-in-n8n" id="setting-the-timezone-in-n8n"></a>
 
-Luxon uses the n8n timezone. This value is either:
+Luxon 使用 n8n 的时区，其值来自以下设置之一：
 
-* Default: `America/New York`
-* A custom timezone for your n8n instance, set using the `GENERIC_TIMEZONE` environment variable.
-* A custom timezone for an individual workflow, configured in workflow settings.
+* 默认值：`America/New York`
+* 通过 `GENERIC_TIMEZONE` 环境变量为 n8n 实例设置的自定义时区。
+* 在工作流设置中为单个工作流配置的自定义时区。
 
-## Common tasks <a href="#common-tasks" id="common-tasks"></a>
+## 常见任务 <a href="#common-tasks" id="common-tasks"></a>
 
-This section provides examples for some common operations. More examples, and detailed guidance, are available in [Luxon's own documentation](https://moment.github.io/luxon/#/?id=luxon).
+本节介绍一些常见操作的示例。更多示例和详细说明请参阅 [Luxon 官方文档](https://moment.github.io/luxon/#/?id=luxon)。
 
-### Get the current datetime or date <a href="#get-the-current-datetime-or-date" id="get-the-current-datetime-or-date"></a>
+### 获取当前日期时间或日期 <a href="#get-the-current-datetime-or-date" id="get-the-current-datetime-or-date"></a>
 
-Use the `$now` and `$today` Luxon objects to get the current time or day:
+使用 `$now` 和 `$today` Luxon 对象，可以获取当前时间或当天日期：
 
-* `now`: a Luxon object containing the current timestamp. Equivalent to `DateTime.now()`.
-* `today`: a Luxon object containing the current timestamp, rounded down to the day. Equivalent to `DateTime.now().set({ hour: 0, minute: 0, second: 0, millisecond: 0 })`.
+* `now`：包含当前时间戳的 Luxon 对象，等效于 `DateTime.now()`。
+* `today`：包含当前时间戳并向下取整到当天起始时刻的 Luxon 对象，等效于 `DateTime.now().set({ hour: 0, minute: 0, second: 0, millisecond: 0 })`。
 
-Note that these variables can return different time formats when cast as a string:
+请注意，将这些变量转换为字符串时，返回的时间格式可能不同：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```javascript
 {{$now}}
 // n8n displays the ISO formatted timestamp
@@ -68,7 +69,7 @@ Note that these variables can return different time formats when cast as a strin
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```javascript
 $now
 // n8n displays <ISO formatted timestamp>
@@ -79,7 +80,7 @@ let rightNow = "Today's date is " + $now
 ```
 {% endtab %}
 
-{% tab title="Code node (Python)" %}
+{% tab title="Code 节点（Python）" %}
 ```python
 _now
 # n8n displays <ISO formatted timestamp>
@@ -91,216 +92,216 @@ rightNow = "Today's date is " + str(_now)
 {% endtab %}
 {% endtabs %}
 
-n8n provides built-in convenience functions to support data transformation in expressions for dates. Refer to [Expression reference](../transform-data/expression-reference/README.md) for more information.
+n8n 提供了内置便捷函数，支持在表达式中转换日期数据。更多信息请参阅[表达式参考](../transform-data/expression-reference/README.md)。
 
-### Convert JavaScript dates to Luxon <a href="#convert-javascript-dates-to-luxon" id="convert-javascript-dates-to-luxon"></a>
+### 将 JavaScript 日期转换为 Luxon 对象 <a href="#convert-javascript-dates-to-luxon" id="convert-javascript-dates-to-luxon"></a>
 
-To convert a native JavaScript date to a Luxon date:
+将原生 JavaScript 日期转换为 Luxon 日期的方法如下：
 
-* In expressions, use the `.toDateTime()` method. For example, `{{ (new Date()).toDateTime() }}`.
-* In the Code node, use `DateTime.fromJSDate()`. For example, `let luxondate = DateTime.fromJSDate(new Date())`.
+* 在表达式中，使用 `.toDateTime()` 方法。例如，`{{ (new Date()).toDateTime() }}`。
+* 在 Code 节点中，使用 `DateTime.fromJSDate()`。例如，`let luxondate = DateTime.fromJSDate(new Date())`。
 
-### Convert date string to Luxon <a href="#convert-date-string-to-luxon" id="convert-date-string-to-luxon"></a>
+### 将日期字符串转换为 Luxon 对象 <a href="#convert-date-string-to-luxon" id="convert-date-string-to-luxon"></a>
 
-You can convert date strings and other date formats to a Luxon DateTime object. You can convert from standard formats and from arbitrary strings.
+你可以将日期字符串和其他日期格式转换为 Luxon DateTime 对象，既支持标准格式，也支持自定义格式的字符串。
 
 {% hint style="info" %}
-**A difference between Luxon DateTime and JavaScript Date**
+**Luxon DateTime 与 JavaScript Date 的区别**
 
-With vanilla JavaScript, you can convert a string to a date with `new Date('2019-06-23')`. In Luxon, you must use a function explicitly stating the format, such as `DateTime.fromISO('2019-06-23')` or `DateTime.fromFormat("23-06-2019", "dd-MM-yyyy")`.
+使用原生 JavaScript 时，可以通过 `new Date('2019-06-23')` 将字符串转换为日期。在 Luxon 中，则必须使用明确指定格式的函数，例如 `DateTime.fromISO('2019-06-23')` 或 `DateTime.fromFormat("23-06-2019", "dd-MM-yyyy")`。
 {% endhint %}
 
-#### If you have a date in a supported standard technical format: <a href="#if-you-have-a-date-in-a-supported-standard-technical-format" id="if-you-have-a-date-in-a-supported-standard-technical-format"></a>
+#### 日期采用受支持的标准技术格式时 <a href="#if-you-have-a-date-in-a-supported-standard-technical-format" id="if-you-have-a-date-in-a-supported-standard-technical-format"></a>
 
-Most dates use `fromISO()`. This creates a Luxon DateTime from an ISO 8601 string. For example:
+大多数日期使用 `fromISO()`。此方法根据 ISO 8601 字符串创建 Luxon DateTime 对象。例如：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{DateTime.fromISO('2019-06-23T00:00:00.00')}}
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let luxonDateTime = DateTime.fromISO('2019-06-23T00:00:00.00')
 ```
 {% endtab %}
 {% endtabs %}
 
-Luxon's API documentation has more information on [fromISO](https://moment.github.io/luxon/api-docs/index.html#datetimefromiso).
+Luxon 的 API 文档提供了关于 [fromISO](https://moment.github.io/luxon/api-docs/index.html#datetimefromiso) 的更多信息。
 
-Luxon provides functions to handle conversions for a range of formats. Refer to Luxon's guide to [Parsing technical formats](https://moment.github.io/luxon/#/parsing?id=parsing-technical-formats) for details.
+Luxon 提供了可转换多种格式的函数。详情请参阅 Luxon 的[解析技术格式](https://moment.github.io/luxon/#/parsing?id=parsing-technical-formats)指南。
 
-#### If you have a date as a string that doesn't use a standard format: <a href="#if-you-have-a-date-as-a-string-that-doesnt-use-a-standard-format" id="if-you-have-a-date-as-a-string-that-doesnt-use-a-standard-format"></a>
+#### 日期是非标准格式的字符串时 <a href="#if-you-have-a-date-as-a-string-that-doesnt-use-a-standard-format" id="if-you-have-a-date-as-a-string-that-doesnt-use-a-standard-format"></a>
 
-Use Luxon's [Ad-hoc parsing](https://moment.github.io/luxon/#/parsing?id=ad-hoc-parsing). To do this, use the `fromFormat()` function, providing the string and a set of [tokens](https://moment.github.io/luxon/#/parsing?id=table-of-tokens) that describe the format.
+使用 Luxon 的[自定义格式解析（Ad-hoc parsing）](https://moment.github.io/luxon/#/parsing?id=ad-hoc-parsing)。具体做法是调用 `fromFormat()` 函数，传入字符串，以及一组描述其格式的[格式标记](https://moment.github.io/luxon/#/parsing?id=table-of-tokens)。
 
-For example, you have n8n's founding date, 23rd June 2019, formatted as `23-06-2019`. You want to turn this into a Luxon object:
+例如，n8n 的成立日期是 2019 年 6 月 23 日，格式为 `23-06-2019`。你希望将它转换为 Luxon 对象：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{DateTime.fromFormat("23-06-2019", "dd-MM-yyyy")}}
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let newFormat = DateTime.fromFormat("23-06-2019", "dd-MM-yyyy")
 ```
 {% endtab %}
 {% endtabs %}
 
-When using ad-hoc parsing, note Luxon's warning about [Limitations](https://moment.github.io/luxon/#/parsing?id=limitations). If you see unexpected results, try their [Debugging](https://moment.github.io/luxon/#/parsing?id=debugging) guide.
+使用自定义格式解析时，请留意 Luxon 关于[局限性](https://moment.github.io/luxon/#/parsing?id=limitations)的提示。如果结果不符合预期，可以参阅其[调试](https://moment.github.io/luxon/#/parsing?id=debugging)指南。
 
-### Get n days from today <a href="#get-n-days-from-today" id="get-n-days-from-today"></a>
+### 获取今天前后 n 天的日期 <a href="#get-n-days-from-today" id="get-n-days-from-today"></a>
 
-Get a number of days before or after today. 
+获取今天之前或之后若干天的日期。
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
-For example, you want to set a field to always show the date seven days before the current date.
+{% tab title="表达式（JavaScript）" %}
+例如，你希望某个字段始终显示当前日期七天前的日期。
 
-In the expressions editor, enter:
+在表达式编辑器中输入：
 
 
 ``` js
 {{$today.minus({days: 7})}}
 ```
 
-On the 23rd June 2019, this returns `[Object: "2019-06-16T00:00:00.000+00:00"]`.
+在 2019 年 6 月 23 日执行时，返回 `[Object: "2019-06-16T00:00:00.000+00:00"]`。
 
-This example uses n8n's custom variable `$today` for convenience. It's the equivalent of `DateTime.now().set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).minus({days: 7})`.
+为方便起见，此示例使用 n8n 的自定义变量 `$today`，它等效于 `DateTime.now().set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).minus({days: 7})`。
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
-For example, you want a variable containing the date seven days before the current date.
+{% tab title="Code 节点（JavaScript）" %}
+例如，你希望某个变量保存当前日期七天前的日期。
 
-In the code editor, enter:
+在代码编辑器中输入：
 
 ``` js
 let sevenDaysAgo = $today.minus({days: 7})
 ```
 
-On the 23rd June 2019, this returns `[Object: "2019-06-16T00:00:00.000+00:00"]`.
+在 2019 年 6 月 23 日执行时，返回 `[Object: "2019-06-16T00:00:00.000+00:00"]`。
 
-This example uses n8n's custom variable `$today` for convenience. It's the equivalent of `DateTime.now().set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).minus({days: 7})`.
+为方便起见，此示例使用 n8n 的自定义变量 `$today`，它等效于 `DateTime.now().set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).minus({days: 7})`。
 {% endtab %}
 {% endtabs %}
 
-For more detailed information and examples, refer to:
+更多详细说明和示例，请参阅：
 
-* Luxon's [guide to math](https://moment.github.io/luxon/#/math)
-* Their API documentation on [DateTime plus](https://moment.github.io/luxon/api-docs/index.html#datetimeplus) and [DateTime minus](https://moment.github.io/luxon/api-docs/index.html#datetimeminus)
+* Luxon 的[日期时间运算指南](https://moment.github.io/luxon/#/math)
+* API 文档中的 [DateTime plus](https://moment.github.io/luxon/api-docs/index.html#datetimeplus) 和 [DateTime minus](https://moment.github.io/luxon/api-docs/index.html#datetimeminus)
 
-### Create human-readable dates <a href="#create-human-readable-dates" id="create-human-readable-dates"></a>
+### 创建易读的日期 <a href="#create-human-readable-dates" id="create-human-readable-dates"></a>
 
-In [Get n days from today](#get-n-days-from-today), the example gets the date seven days before the current date, and returns it as `[Object: "yyyy-mm-dd-T00:00:00.000+00:00"]` (for expressions) or `yyyy-mm-dd-T00:00:00.000+00:00` (in the Code node). To make this more readable, you can use Luxon's formatting functions.
+在[获取今天前后 n 天的日期](#get-n-days-from-today)一节中，示例获取当前日期七天前的日期，并返回 `[Object: "yyyy-mm-dd-T00:00:00.000+00:00"]`（表达式）或 `yyyy-mm-dd-T00:00:00.000+00:00`（Code 节点）。可以使用 Luxon 的格式化函数，让结果更易读。
 
-For example, you want the field containing the date to be formatted as DD/MM/YYYY, so that on the 23rd June 2019, it returns `23/06/2019`.
+例如，你希望将日期字段的格式设为 DD/MM/YYYY，这样在 2019 年 6 月 23 日执行时，会返回 `23/06/2019`。
 
-This expression gets the date seven days before today, and converts it to the DD/MM/YYYY format.
+以下表达式获取今天七天前的日期，并将其转换为 DD/MM/YYYY 格式。
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{$today.minus({days: 7}).toLocaleString()}}
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let readableSevenDaysAgo = $today.minus({days: 7}).toLocaleString()
 ```
 {% endtab %}
 {% endtabs %}
 
-You can alter the format. For example:
+你可以修改格式。例如：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{$today.minus({days: 7}).toLocaleString({month: 'long', day: 'numeric', year: 'numeric'})}}
 ```
 
-On 23rd June 2019, this returns "16 June 2019".
+在 2019 年 6 月 23 日执行时，返回 "16 June 2019"。
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let readableSevenDaysAgo = $today.minus({days: 7}).toLocaleString({month: 'long', day: 'numeric', year: 'numeric'})
 ```
 
-On 23rd June 2019, this returns "16 June 2019".
+在 2019 年 6 月 23 日执行时，返回 "16 June 2019"。
 {% endtab %}
 {% endtabs %}
 
-Refer to Luxon's guide on [toLocaleString (strings for humans)](https://moment.github.io/luxon/#/formatting?id=tolocalestring-strings-for-humans) for more information.
+更多信息请参阅 Luxon 的 [toLocaleString（面向读者的字符串）](https://moment.github.io/luxon/#/formatting?id=tolocalestring-strings-for-humans)指南。
 
 
-### Get the time between two dates <a href="#get-the-time-between-two-dates" id="get-the-time-between-two-dates"></a>
+### 获取两个日期之间的时间差 <a href="#get-the-time-between-two-dates" id="get-the-time-between-two-dates"></a>
 
-To get the time between two dates, use Luxon's diffs feature. This subtracts one date from another and returns a duration.
+要获取两个日期之间的时间差，请使用 Luxon 的 diffs 功能。它将一个日期减去另一个日期，并返回一段时长。
 
-For example, get the number of months between two dates:
+例如，获取两个日期之间相差的月数：
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{DateTime.fromISO('2019-06-23').diff(DateTime.fromISO('2019-05-23'), 'months').toObject()}}
 ```
 
-This returns `[Object: {"months":1}]`.
+返回结果为 `[Object: {"months":1}]`。
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let monthsBetweenDates = DateTime.fromISO('2019-06-23').diff(DateTime.fromISO('2019-05-23'), 'months').toObject()
 ```
 
-This returns `{"months":1}`.
+返回结果为 `{"months":1}`。
 {% endtab %}
 {% endtabs %}
 
-Refer to Luxon's [Diffs](https://moment.github.io/luxon/#/math?id=diffs) for more information.
+更多信息请参阅 Luxon 的[日期差值（Diffs）](https://moment.github.io/luxon/#/math?id=diffs)说明。
 
-### A longer example: How many days to Christmas? <a href="#a-longer-example-how-many-days-to-christmas" id="a-longer-example-how-many-days-to-christmas"></a>
+### 一个较长的示例：距离圣诞节还有多少天？ <a href="#a-longer-example-how-many-days-to-christmas" id="a-longer-example-how-many-days-to-christmas"></a>
 
-This example brings together several Luxon features, uses JMESPath, and does some basic string manipulation. 
+此示例结合了多种 Luxon 功能，使用 JMESPath，并执行一些基本的字符串操作。
 
-The scenario: you want a countdown to 25th December. Every day, it should tell you the number of days remaining to Christmas. You don't want to update it for next year - it needs to seamlessly work for every year.
+场景：你希望实现一个到 12 月 25 日的倒计时。它每天告诉你距离圣诞节还剩多少天，并且每年都能自动适用，无需为下一年手动更新。
 
 {% tabs %}
-{% tab title="Expressions (JavaScript)" %}
+{% tab title="表达式（JavaScript）" %}
 ```js
 {{"There are " + $today.diff(DateTime.fromISO($today.year + '-12-25'), 'days').toObject().days.toString().substring(1) + " days to Christmas!"}}
 ```
 {% endtab %}
 
-{% tab title="Code node (JavaScript)" %}
+{% tab title="Code 节点（JavaScript）" %}
 ```js
 let daysToChristmas = "There are " + $today.diff(DateTime.fromISO($today.year + '-12-25'), 'days').toObject().days.toString().substring(1) + " days to Christmas!";
 ```
 {% endtab %}
 {% endtabs %}
 
-This outputs `"There are <number of days> days to Christmas!"`. For example, on 9th March, it outputs "There are 291 days to Christmas!".
+输出结果为 `"There are <number of days> days to Christmas!"`。例如，在 3 月 9 日执行时，输出 "There are 291 days to Christmas!"。
 
-A detailed explanation of what the code does:
+下面详细解释代码的作用：
 
-* `{{` and `}}`: in the expressions version, these indicate the start and end of the expression. The Code node version doesn't need them.
-* `"There are "`: a string. 
-* `+`: used to join two strings.
-* `$today.diff()`: This is similar to the example in [Get the time between two dates](#get-the-time-between-two-dates), but it uses n8n's custom `$today` variable.
-* `DateTime.fromISO($today.year + '-12-25'), 'days'`: this part gets the current year using `$today.year`, turns it into an ISO string along with the month and date, and then takes the whole ISO string and converts it to a Luxon DateTime data structure. It also tells Luxon that you want the duration in days.
-* `toObject()` turns the result of diff() into a more usable object. At this point, the expression returns `[Object: {"days":-<number-of-days>}]`. For example, on 9th March, `[Object: {"days":-291}]`.
-* `.days` uses JMESPath syntax to retrieve just the number of days from the object. For more information on using JMESPath with n8n, refer to our [JMESpath](query-json-data.md) documentation. This gives you the number of days to Christmas, as a negative number.
-* `.toString().substring(1)` turns the number into a string and removes the `-`.
-* `+ " days to Christmas!"`: another string, with a `+` to join it to the previous string.
+* `{{` 和 `}}`：在表达式版本中，表示表达式的开始和结束。Code 节点版本不需要它们。
+* `"There are "`：一个字符串。
+* `+`：用于连接两个字符串。
+* `$today.diff()`：与[获取两个日期之间的时间差](#get-the-time-between-two-dates)一节的示例类似，但使用了 n8n 的自定义变量 `$today`。
+* `DateTime.fromISO($today.year + '-12-25'), 'days'`：这一部分通过 `$today.year` 获取当前年份，将其与月份和日期组合为 ISO 字符串，再把完整的 ISO 字符串转换为 Luxon DateTime 数据结构。同时，它指定 Luxon 以天为单位返回时长。
+* `toObject()` 将 diff() 的结果转换为更易用的对象。此时，表达式返回 `[Object: {"days":-<number-of-days>}]`。例如，在 3 月 9 日执行时，返回 `[Object: {"days":-291}]`。
+* `.days` 使用 JMESPath 语法，只从对象中提取天数。有关在 n8n 中使用 JMESPath 的更多信息，请参阅 [JMESPath 文档](query-json-data.md)。得到的结果是距离圣诞节的天数，值为负数。
+* `.toString().substring(1)` 将数字转换为字符串，并去掉 `-`。
+* `+ " days to Christmas!"`：另一个字符串，通过 `+` 与前面的字符串连接。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Handle special data types](./)
-* [Work with files and images](work-with-files-and-images.md)
-* [Query JSON data](query-json-data.md)
+* [处理特殊数据类型](./)
+* [处理文件和图片](work-with-files-and-images.md)
+* [查询 JSON 数据](query-json-data.md)
