@@ -214,5 +214,14 @@
     "evidence": "同版本 reusable-content/.gitbook/includes/source-control-environments/feature-availability.md 写明 Available on Business and Enterprise plans；该片段用于本章节总览、理解源代码管理和教程，来源哈希：b5d6fa9e7d260473876c97d5061c396fd79f1b0afa1436657e6811f977b79a46。",
     "scope": "保留本页方案描述，只加译注提示同版本章节间的差异；未推断或测试方案授权及 API 可用性。",
     "source_sha256": "33b5dec4c0bfa3369d50c4c2f1bbe5efc03df34b53af440fb4f48d725bb019ae"
+  },
+  {
+    "id": "api-auth-source-control-scope-list-note",
+    "path": "connect/n8n-api/authentication.md",
+    "original_sentence": "| `sourceControl:pull` | Pull changes from the connected source control repository into the instance. |",
+    "translated_sentence": "译注：本表只列出 sourceControl:pull，但同一版本“通过公共 API 以编程方式使用环境”指南还使用 sourceControl:read 和 sourceControl:push。此处保留原表并提示其列表差异；请结合目标实例支持的端点和作用域核对，不将本表视为全部源代码管理作用域的完整清单。",
+    "evidence": "同版本 administer/use-source-control-and-environments/use-environments-via-api.md 的 Authentication and scopes 表列出 sourceControl:pull、sourceControl:push 和 sourceControl:read，并在开发到生产的示例中分别配置这些作用域。对照来源哈希：33b5dec4c0bfa3369d50c4c2f1bbe5efc03df34b53af440fb4f48d725bb019ae。",
+    "scope": "保留原作用域表，仅加译注指出同版本指南间的列表差异；不增删权限、不推断方案授权或运行兼容性。",
+    "source_sha256": "df7a370de958cb7603f7f516884a4823ac7bf9aaae49ea9d764e1a5d1671960e"
   }
 ]

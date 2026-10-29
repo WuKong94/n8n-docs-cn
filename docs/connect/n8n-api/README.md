@@ -1,84 +1,84 @@
 ---
-title: n8n public REST API Documentation and Guides
-description: >-
-  Use n8n's public REST API to perform tasks programmatically instead of
-  through the GUI.
+title: n8n 公共 REST API 文档与指南
+description: 使用 n8n 公共 REST API，以编程方式完成任务。
 contentType: overview
 search:
   boost: 5
 hide:
-  - feedback
-  - kapaButton
+- feedback
+- kapaButton
 nodeTitle: n8n API
 originalFilePath: api/index.md
-originalUrl: 'https://docs.n8n.io/api'
-url: 'https://docs.n8n.io/connect/'
+originalUrl: https://docs.n8n.io/api
+url: https://docs.n8n.io/connect/
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# n8n public REST API <a href="#n8n-public-rest-api" id="n8n-public-rest-api"></a>
 
-{% hint style="info" %}
-**Feature availability**
-
-The n8n API is available on:
-
-- **n8n Cloud:** Starter, Pro, Enterprise
-- **Self-hosted:** All editions
-
-It isn't available on the free trial.
-{% endhint %}
-
-Using n8n's public API[^1], you can programmatically perform many of the same tasks as you can in the GUI. For supported POSTs, an [idempotency key](idempotency.md) returns the first successful response instead of running the request again.
-
-n8n provides an [n8n API node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.n8n) to access the API in your workflows.
-
-## In this section
-
-* [Authentication](authentication.md): how to authenticate requests to the n8n API.
-* [Pagination](pagination.md): paginate large result sets.
-* [Idempotency](idempotency.md): retry a POST with an `Idempotency-Key` header.
-* [Use an API playground](use-an-api-playground.md): try out the API in a built-in playground (self-hosted n8n only).
-* [Endpoint reference](api-reference.md): the complete endpoint reference, generated from the OpenAPI specification.
-
-## Choose your interaction method <a href="#choose-your-interaction-method" id="choose-your-interaction-method"></a>
-
-### REST API (this section) <a href="#rest-api-this-section" id="rest-api-this-section"></a>
-Interact with n8n directly using HTTP requests. Ideal for:
-* Custom integrations and applications
-* Language-agnostic HTTP calls
-* Direct REST API usage in workflows
-
-### n8n CLI (recommended for developers) <a href="#n8n-cli-recommended-for-developers" id="n8n-cli-recommended-for-developers"></a>
-Use [n8n CLI](../n8n-cli.md) for a command-line experience. It wraps the public API and is a good fit for:
-* Command-line automation and scripting
-* CI/CD pipeline integration
-* AI agent integration (Claude Code, Cursor, etc.)
-* Developers who prefer CLI tools
-
-## Learn about REST APIs <a href="#learn-about-rest-apis" id="learn-about-rest-apis"></a>
-
-The API documentation assumes you are familiar with REST APIs. If you're not, these resources may be helpful:
-
-* [KnowledgeOwl's guide to working with APIs](https://support.knowledgeowl.com/help/working-with-apis): a basic introduction, including examples of how to call REST APIs.
-* [IBM Cloud Learn Hub - What is an Application Programming Interface (API)](https://www.ibm.com/cloud/learn/api): this gives a general, but technical, introduction to APIs.
-* [IBM Cloud Learn Hub - What is a REST API?](https://www.ibm.com/cloud/learn/rest-apis): more detailed information about REST APIs.
-* [MDN web docs - An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview): REST APIs work over HTTP and use HTTP verbs, or methods, to specify the action to perform.
+# n8n 公共 REST API <a href="#n8n-public-rest-api" id="n8n-public-rest-api"></a>
 
 {% hint style="info" %}
-**Use the API playground**
+**功能可用范围**
 
-Trying out the API in the [playground](use-an-api-playground.md) can help you understand how APIs work. If you're worried about changing live data, consider setting up a test workflow, or test n8n instance, to explore safely.
+n8n API 可用于：
+
+- **n8n Cloud：**Starter、Pro、Enterprise。
+- **自托管：**所有版本。
+
+免费试用期间无法使用。
 {% endhint %}
 
-[^1]: APIs, or application programming interfaces, offer programmatic access to a service's data and functionality. APIs make it easier for software to interact with external systems. They're often offered as an alternative to traditional user-focused interfaces accessed through web browsers or UI.
+通过 n8n 公共 API[^1]，可以用编程方式完成图形界面中的许多同类任务。对于支持的 POST 请求，[幂等键](idempotency.md)可使重试返回第一次成功的响应，避免重复执行请求。
 
-## Related resources
+n8n 提供 [n8n API 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.n8n.md)，供工作流访问 API。
 
-* [Connect](../)
+## 本节内容 <a id="in-this-section"></a>
+
+* [身份验证](authentication.md)：如何验证 n8n API 请求。
+* [分页](pagination.md)：对大型结果集分页。
+* [幂等性](idempotency.md)：使用 `Idempotency-Key` 请求头重试 POST。
+* [使用 API 测试台](use-an-api-playground.md)：在内置测试台中尝试 API（仅自托管 n8n）。
+* [端点参考](api-reference.md)：由 OpenAPI 规范生成的完整端点参考。
+
+## 选择交互方式 <a href="#choose-your-interaction-method" id="choose-your-interaction-method"></a>
+
+### REST API（本节） <a href="#rest-api-this-section" id="rest-api-this-section"></a>
+使用 HTTP 请求直接与 n8n 交互，适合：
+* 自定义集成和应用。
+* 不依赖特定编程语言的 HTTP 调用。
+* 在工作流中直接使用 REST API。
+
+### n8n CLI（推荐开发者使用） <a href="#n8n-cli-recommended-for-developers" id="n8n-cli-recommended-for-developers"></a>
+使用 [n8n CLI](../n8n-cli.md) 获得命令行操作体验。它封装了公共 API，适合：
+* 命令行自动化与脚本。
+* CI/CD 流水线集成。
+* AI 智能体集成（Claude Code、Cursor 等）。
+* 偏好 CLI 工具的开发者。
+
+## 了解 REST API <a href="#learn-about-rest-apis" id="learn-about-rest-apis"></a>
+
+API 文档假定你已熟悉 REST API。如果尚不了解，以下资源可能有帮助：
+
+* [KnowledgeOwl 的 API 使用指南](https://support.knowledgeowl.com/help/working-with-apis)：基础介绍，包含 REST API 调用示例。
+* [IBM Cloud Learn Hub：什么是应用程序编程接口（API）](https://www.ibm.com/cloud/learn/api)：从技术角度介绍 API 的一般概念。
+* [IBM Cloud Learn Hub：什么是 REST API？](https://www.ibm.com/cloud/learn/rest-apis)：更详细地介绍 REST API。
+* [MDN Web 文档：HTTP 概览](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)：REST API 通过 HTTP 工作，并使用 HTTP 动词（方法）指定要执行的操作。
+
+{% hint style="info" %}
+**使用 API 测试台**
+
+在[测试台](use-an-api-playground.md)中尝试 API，有助于理解 API 的工作方式。如果担心更改正式数据，可以建立测试工作流或测试 n8n 实例。
+{% endhint %}
+
+[^1]: API（应用程序编程接口）提供以编程方式访问服务数据和功能的方法，让软件更容易与外部系统交互。它常作为通过浏览器或图形界面操作的传统用户界面的替代方式。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [连接](../)
 * [n8n CLI](../n8n-cli.md)
-* [Connect to n8n MCP server](../connect-to-n8n-mcp-server.md)
-* [Connect to the n8n docs MCP server](../connect-to-n8n-docs-mcp-server.md)
-* [Create nodes](../create-nodes/README.md)
+* [连接 n8n MCP 服务器](../connect-to-n8n-mcp-server.md)
+* [连接 n8n 文档 MCP 服务器](../connect-to-n8n-docs-mcp-server.md)
+* [创建节点](../create-nodes/README.md)

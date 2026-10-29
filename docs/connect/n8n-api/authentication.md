@@ -1,39 +1,41 @@
 ---
-description: Authentication for n8n's public REST API.
+description: n8n 公共 REST API 的身份验证。
 contentType: howto
-nodeTitle: Authentication
+nodeTitle: 身份验证
 originalFilePath: api/authentication.md
-originalUrl: 'https://docs.n8n.io/api/authentication'
-url: 'https://docs.n8n.io/connect/n8n-api/authentication'
+originalUrl: https://docs.n8n.io/api/authentication
+url: https://docs.n8n.io/connect/n8n-api/authentication
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# API authentication <a href="#api-authentication" id="api-authentication"></a>
 
-n8n uses API keys to authenticate API calls.
+# API 身份验证 <a href="#api-authentication" id="api-authentication"></a>
+
+n8n 使用 API 密钥验证 API 调用。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-The n8n API isn't available during the free trial. Please upgrade to access this feature.
+免费试用期间无法使用 n8n API，请升级后使用此功能。
 {% endhint %}
 
-## Create an API key <a href="#create-an-api-key" id="create-an-api-key"></a>
+## 创建 API 密钥 <a href="#create-an-api-key" id="create-an-api-key"></a>
 
-1. Log in to n8n.
-1. Go to **Settings** > **n8n API**.
-1. Select **Create an API key**.
-1. Choose a **Label** and set an **Expiration** time for the key.
-1. If you're on an Enterprise plan, choose the **Scopes** to give the key. Refer to [API Scopes](#api-scopes) for the full list of available scopes.
-1. Copy **My API Key** and use this key to authenticate your calls.
+1. 登录 n8n。
+1. 前往 **Settings**（设置）> **n8n API**。
+1. 选择 **Create an API key**（创建 API 密钥）。
+1. 为密钥设置 **Label**（标签）和 **Expiration**（过期时间）。
+1. 如果使用 Enterprise 方案，选择要授予密钥的 **Scopes**（作用域）。完整列表请参阅 [API 作用域](#api-scopes)。
+1. 复制 **My API Key**（我的 API 密钥），用它验证调用。
 
-## Call the API using your key <a href="#call-the-api-using-your-key" id="call-the-api-using-your-key"></a>
+## 使用密钥调用 API <a href="#call-the-api-using-your-key" id="call-the-api-using-your-key"></a>
 
-Send the API key in your API call as a header named `X-N8N-API-KEY`. 
+在 API 调用中，通过名为 `X-N8N-API-KEY` 的请求头发送 API 密钥。
 
-For example, say you want to get all active workflows. Your curl request will look like this:
+例如，要获取所有活跃工作流，curl 请求如下：
 
 ```shell
 # For a self-hosted n8n instance <a href="#for-a-self-hosted-n8n-instance" id="for-a-self-hosted-n8n-instance"></a>
@@ -49,195 +51,197 @@ curl -X 'GET' \
   -H 'X-N8N-API-KEY: <your-api-key>'
 ```
 
-## Node configuration <a href="#node-configuration" id="node-configuration"></a>
+## 节点配置 <a href="#node-configuration" id="node-configuration"></a>
 
-To call the n8n API from within a workflow, use the [n8n node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.n8n). When you create the credential, fill these fields:
+要在工作流中调用 n8n API，请使用 [n8n 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.n8n.md)。创建凭据时，填写以下字段：
 
-- **API Key**: paste the key you created in [Create an API key](#create-an-api-key).
-- **Base URL**: enter your instance's API root in one of these formats:
-	- Cloud: `https://<name>.app.n8n.cloud/api/v1`, where `<name>` is your Cloud subdomain.
-	- Self-hosted: `https://<your-instance-url>/api/v1`.
+- **API Key**（API 密钥）：粘贴在[创建 API 密钥](#create-an-api-key)中生成的密钥。
+- **Base URL**（基础 URL）：使用以下格式之一填写实例的 API 根地址：
+	- Cloud：`https://<name>.app.n8n.cloud/api/v1`，其中 `<name>` 是 Cloud 子域名。
+	- 自托管：`https://<your-instance-url>/api/v1`。
 
-For the available operations and parameters, refer to the [n8n node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.n8n) documentation.
+可用操作和参数请参阅 [n8n 节点](../../integrations/builtin/core-nodes/n8n-nodes-base.n8n.md)文档。
 
-## Delete an API key <a href="#delete-an-api-key" id="delete-an-api-key"></a>
+## 删除 API 密钥 <a href="#delete-an-api-key" id="delete-an-api-key"></a>
 
-1. Log in to n8n.
-2. Go to **Settings** > **n8n API**.
-3. Select **Delete** next to the key you want to delete.
-4. Confirm the delete by selecting **Delete Forever**.
+1. 登录 n8n。
+2. 前往 **Settings**（设置）> **n8n API**。
+3. 选择待删除密钥旁的 **Delete**（删除）。
+4. 选择 **Delete Forever**（永久删除）进行确认。
 
-## API Scopes <a href="#api-scopes" id="api-scopes"></a>
+## API 作用域 <a href="#api-scopes" id="api-scopes"></a>
 
-On [Enterprise instances](https://n8n.io/enterprise/), you can limit which resources and actions an API key can access with scopes. Choose the minimum scopes needed for the key's intended purpose.
+在 [Enterprise 实例](https://n8n.io/enterprise/)中，可以使用作用域限制 API 密钥可访问的资源和操作。请为密钥的预定用途选择所需的最小作用域。
 
-Non-Enterprise API keys have full access to all the account's resources and capabilities.
+非 Enterprise 方案的 API 密钥具有该账号全部资源和功能的完整访问权限。
 
 {% hint style="info" %}
-**API key scopes vs. project role scopes**
+**API 密钥作用域与项目角色作用域**
 
-API key scopes control what an API key can do at the instance level. They differ from the **project role scopes** used to define custom roles inside a project. For project role scopes, refer to [Custom project roles](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles).
+API 密钥作用域控制 API 密钥在实例级别能执行的操作，不同于定义项目内自定义角色所用的**项目角色作用域**。项目角色作用域请参阅[自定义项目角色](../../administer/manage-users-and-access/set-permissions-and-roles-rbac/create-custom-roles.md)。
 {% endhint %}
 
-The following tables list the scopes available when you create a scoped API key, grouped by resource.
+以下表格按资源列出创建受限 API 密钥时可用的作用域。
 
-### Community package scopes <a href="#community-package-scopes" id="community-package-scopes"></a>
+### 社区软件包作用域 <a href="#community-package-scopes" id="community-package-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `communityPackage:install` | Install a community node package on the instance. |
-| `communityPackage:list` | List installed community node packages. |
-| `communityPackage:uninstall` | Uninstall a community node package. |
-| `communityPackage:update` | Update an installed community node package. |
+| `communityPackage:install` | 在实例上安装社区节点软件包。 |
+| `communityPackage:list` | 列出已安装的社区节点软件包。 |
+| `communityPackage:uninstall` | 卸载社区节点软件包。 |
+| `communityPackage:update` | 更新已安装的社区节点软件包。 |
 
-### Credential scopes <a href="#credential-scopes" id="credential-scopes"></a>
+### 凭据作用域 <a href="#credential-scopes" id="credential-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `credential:create` | Create credentials. |
-| `credential:read` | Retrieve a credential and its data schema. |
-| `credential:list` | List credentials. |
-| `credential:update` | Update a credential. |
-| `credential:delete` | Delete a credential. |
-| `credential:move` | Transfer a credential to another project. |
+| `credential:create` | 创建凭据。 |
+| `credential:read` | 获取凭据及其数据结构。 |
+| `credential:list` | 列出凭据。 |
+| `credential:update` | 更新凭据。 |
+| `credential:delete` | 删除凭据。 |
+| `credential:move` | 将凭据转移到其他项目。 |
 
-### Data table scopes <a href="#data-table-scopes" id="data-table-scopes"></a>
+### 数据表作用域 <a href="#data-table-scopes" id="data-table-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `dataTable:create` | Create a data table. |
-| `dataTable:read` | Retrieve a data table. |
-| `dataTable:list` | List data tables. |
-| `dataTable:update` | Update a data table's metadata. |
-| `dataTable:delete` | Delete a data table. |
+| `dataTable:create` | 创建数据表。 |
+| `dataTable:read` | 获取数据表。 |
+| `dataTable:list` | 列出数据表。 |
+| `dataTable:update` | 更新数据表元数据。 |
+| `dataTable:delete` | 删除数据表。 |
 
-### Data table column scopes <a href="#data-table-column-scopes" id="data-table-column-scopes"></a>
+### 数据表列作用域 <a href="#data-table-column-scopes" id="data-table-column-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `dataTableColumn:create` | Add a column to a data table. |
-| `dataTableColumn:read` | Retrieve a data table column. |
-| `dataTableColumn:update` | Update a data table column. |
-| `dataTableColumn:delete` | Delete a data table column. |
+| `dataTableColumn:create` | 向数据表添加列。 |
+| `dataTableColumn:read` | 获取数据表列。 |
+| `dataTableColumn:update` | 更新数据表列。 |
+| `dataTableColumn:delete` | 删除数据表列。 |
 
-### Data table row scopes <a href="#data-table-row-scopes" id="data-table-row-scopes"></a>
+### 数据表行作用域 <a href="#data-table-row-scopes" id="data-table-row-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `dataTableRow:create` | Insert rows into a data table. |
-| `dataTableRow:read` | Read rows from a data table. |
-| `dataTableRow:update` | Update existing rows in a data table. |
-| `dataTableRow:delete` | Delete rows from a data table. |
-| `dataTableRow:upsert` | Update an existing row in a data table, or insert a new one if no row matches the filter conditions. |
+| `dataTableRow:create` | 向数据表插入行。 |
+| `dataTableRow:read` | 从数据表读取行。 |
+| `dataTableRow:update` | 更新数据表中的已有行。 |
+| `dataTableRow:delete` | 删除数据表中的行。 |
+| `dataTableRow:upsert` | 更新数据表中的已有行；如果没有行匹配筛选条件，则插入新行。 |
 
-### Execution scopes <a href="#execution-scopes" id="execution-scopes"></a>
+### 执行作用域 <a href="#execution-scopes" id="execution-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `execution:read` | Retrieve an execution and its details. |
-| `execution:list` | List executions. |
-| `execution:retry` | Retry a failed execution. |
-| `execution:stop` | Stop a running execution. |
-| `execution:delete` | Delete an execution. |
+| `execution:read` | 获取执行及其详细信息。 |
+| `execution:list` | 列出执行。 |
+| `execution:retry` | 重试失败的执行。 |
+| `execution:stop` | 停止正在运行的执行。 |
+| `execution:delete` | 删除执行。 |
 
-### Execution tags scopes <a href="#execution-tags-scopes" id="execution-tags-scopes"></a>
+### 执行标签作用域 <a href="#execution-tags-scopes" id="execution-tags-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `executionTags:list` | Read the annotation tags assigned to an execution. |
-| `executionTags:update` | Update the annotation tags assigned to an execution. |
+| `executionTags:list` | 读取分配给执行的注释标签。 |
+| `executionTags:update` | 更新分配给执行的注释标签。 |
 
-### Folder scopes <a href="#folder-scopes" id="folder-scopes"></a>
+### 文件夹作用域 <a href="#folder-scopes" id="folder-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `folder:create` | Create a folder in a project. |
-| `folder:read` | Retrieve a folder. |
-| `folder:list` | List folders in a project. |
-| `folder:update` | Update a folder. |
-| `folder:delete` | Delete a folder. |
+| `folder:create` | 在项目中创建文件夹。 |
+| `folder:read` | 获取文件夹。 |
+| `folder:list` | 列出项目中的文件夹。 |
+| `folder:update` | 更新文件夹。 |
+| `folder:delete` | 删除文件夹。 |
 
-### Insights scopes <a href="#insights-scopes" id="insights-scopes"></a>
+### Insights 作用域 <a href="#insights-scopes" id="insights-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `insights:read` | Read instance insights data, including execution counts, failure rates, time saved, and average run time. |
+| `insights:read` | 读取实例 Insights 数据，包括执行次数、失败率、节省时间和平均运行时间。 |
 
-### Project scopes <a href="#project-scopes" id="project-scopes"></a>
+### 项目作用域 <a href="#project-scopes" id="project-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `project:create` | Create a project. |
-| `project:list` | List projects. |
-| `project:update` | Update a project. |
-| `project:delete` | Delete a project. |
+| `project:create` | 创建项目。 |
+| `project:list` | 列出项目。 |
+| `project:update` | 更新项目。 |
+| `project:delete` | 删除项目。 |
 
-### Security audit scopes <a href="#security-audit-scopes" id="security-audit-scopes"></a>
+### 安全审计作用域 <a href="#security-audit-scopes" id="security-audit-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `securityAudit:generate` | Generate a security audit report for the instance. |
+| `securityAudit:generate` | 为实例生成安全审计报告。 |
 
-### Source control scopes <a href="#source-control-scopes" id="source-control-scopes"></a>
+### 源代码管理作用域 <a href="#source-control-scopes" id="source-control-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `sourceControl:pull` | Pull changes from the connected source control repository into the instance. |
+| `sourceControl:pull` | 从已连接的源代码管理仓库向实例拉取更改。 |
 
-### Tag scopes <a href="#tag-scopes" id="tag-scopes"></a>
+译注：本表只列出 sourceControl:pull，但同一版本“通过公共 API 以编程方式使用环境”指南还使用 sourceControl:read 和 sourceControl:push。此处保留原表并提示其列表差异；请结合目标实例支持的端点和作用域核对，不将本表视为全部源代码管理作用域的完整清单。
 
-| Scope | Description |
+### 标签作用域 <a href="#tag-scopes" id="tag-scopes"></a>
+
+| 作用域 | 说明 |
 |-------|-------------|
-| `tag:create` | Create a tag in the global tag registry. |
-| `tag:read` | Retrieve a tag. |
-| `tag:list` | List tags. |
-| `tag:update` | Update a tag. |
-| `tag:delete` | Delete a tag. |
+| `tag:create` | 在全局标签注册表中创建标签。 |
+| `tag:read` | 获取标签。 |
+| `tag:list` | 列出标签。 |
+| `tag:update` | 更新标签。 |
+| `tag:delete` | 删除标签。 |
 
-### User scopes <a href="#user-scopes" id="user-scopes"></a>
+### 用户作用域 <a href="#user-scopes" id="user-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `user:create` | Invite or create users on the instance. |
-| `user:read` | Retrieve a user. |
-| `user:list` | List users. |
-| `user:changeRole` | Change a user's global (instance-level) role. |
-| `user:enforceMfa` | Reserved scope. No `/api/v1/` endpoint consumes it, so selecting this scope on a Public API key has no public-facing effect. |
-| `user:delete` | Delete a user from the instance. |
+| `user:create` | 在实例中邀请或创建用户。 |
+| `user:read` | 获取用户。 |
+| `user:list` | 列出用户。 |
+| `user:changeRole` | 更改用户的全局（实例级）角色。 |
+| `user:enforceMfa` | 保留作用域。没有 `/api/v1/` 端点使用它，因此在公共 API 密钥上选择此作用域不会影响公开接口。 |
+| `user:delete` | 从实例删除用户。 |
 
-### Variable scopes <a href="#variable-scopes" id="variable-scopes"></a>
+### 变量作用域 <a href="#variable-scopes" id="variable-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `variable:create` | Create an instance variable. |
-| `variable:list` | List instance variables. |
-| `variable:update` | Update an instance variable. |
-| `variable:delete` | Delete an instance variable. |
+| `variable:create` | 创建实例变量。 |
+| `variable:list` | 列出实例变量。 |
+| `variable:update` | 更新实例变量。 |
+| `variable:delete` | 删除实例变量。 |
 
-### Workflow scopes <a href="#workflow-scopes" id="workflow-scopes"></a>
+### 工作流作用域 <a href="#workflow-scopes" id="workflow-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `workflow:create` | Create a workflow. |
-| `workflow:read` | Retrieve a workflow and its details. |
-| `workflow:list` | List workflows. |
-| `workflow:update` | Update a workflow. |
-| `workflow:delete` | Delete, archive, or unarchive a workflow. |
-| `workflow:move` | Transfer a workflow to another project. |
-| `workflow:activate` | Activate or deactivate a workflow. Also referred to as "publish/unpublish" in the public API (`/workflows/{id}/activate` and `/workflows/{id}/deactivate`). |
+| `workflow:create` | 创建工作流。 |
+| `workflow:read` | 获取工作流及其详细信息。 |
+| `workflow:list` | 列出工作流。 |
+| `workflow:update` | 更新工作流。 |
+| `workflow:delete` | 删除、归档或取消归档工作流。 |
+| `workflow:move` | 将工作流转移到其他项目。 |
+| `workflow:activate` | 激活或停用工作流。在公共 API 中也称为“发布/取消发布”（`/workflows/{id}/activate` 和 `/workflows/{id}/deactivate`）。 |
 
-### Workflow tags scopes <a href="#workflow-tags-scopes" id="workflow-tags-scopes"></a>
+### 工作流标签作用域 <a href="#workflow-tags-scopes" id="workflow-tags-scopes"></a>
 
-| Scope | Description |
+| 作用域 | 说明 |
 |-------|-------------|
-| `workflowTags:list` | Read the tags assigned to a workflow. |
-| `workflowTags:update` | Update the tags assigned to a workflow. |
+| `workflowTags:list` | 读取分配给工作流的标签。 |
+| `workflowTags:update` | 更新分配给工作流的标签。 |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
 * [n8n API](./)
-* [Pagination](pagination.md)
-* [Idempotency](idempotency.md)
-* [Use an API playground](use-an-api-playground.md)
-* [Endpoint reference](api-reference.md)
+* [分页](pagination.md)
+* [幂等性](idempotency.md)
+* [使用 API 测试台](use-an-api-playground.md)
+* [端点参考](api-reference.md)
 

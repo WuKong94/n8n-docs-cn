@@ -6849,5 +6849,107 @@
     "source_correction_ids": [
       "source-control-github-action-legacy-request-note"
     ]
+  },
+  "administer/observe-and-log/README.md": {
+    "status": "translated",
+    "source_sha256": "df6efbbdac992a28f82af0d5fdc13e2a889f43c04d8d1b82bb26532f2fc6c792",
+    "translation_sha256": "1a4b82851e852123a73efb8054a3d623ed690fbbdec4ad41a616458f580b7341",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/observe-and-log/track-usage-with-insights.md": {
+    "status": "translated",
+    "source_sha256": "a53e9cd15898264ba0fc70c69c7e5a66d021d3917ae5a91983329b9222f977bb",
+    "translation_sha256": "3d778d9129c7e9595662cafd9fe507c1ef5a16208b8fe5a2c065645888629368",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/SUMMARY.md": {
+    "status": "translated",
+    "source_sha256": "b360171b88edc759286a6db61cf060ae143560ed2025fb5bcbb050b68eee8dfa",
+    "translation_sha256": "de258e48b8a375c5a396779baac5946338f96cef9425cf25c61571cd8c37c6e4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/observe-and-log/stream-logs-to-external-systems.md": {
+    "status": "translated",
+    "source_sha256": "cb2b9980d4b81b70be317c7e85b05cde5a84474b3aaa66fbd4b4b4b66af418e7",
+    "translation_sha256": "838513c572187b5a677283a4f96923f938e4cf784cff467fc55df05c891b530d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/n8n-api/README.md": {
+    "status": "translated",
+    "source_sha256": "793667c0c2c68728a91d8a85acc64fdcdb7d0f2de14b5c036217ee53966e31a6",
+    "translation_sha256": "78f503da3a55d91bb8a839292f32fd2cfaaae3a159a2275d21f1cbc6bdce7fc2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/n8n-api/pagination.md": {
+    "status": "translated",
+    "source_sha256": "ef8887a146ffe38db326228e1458a7a645c79fe379e0ff88efce7971206726d9",
+    "translation_sha256": "8e4c0edde6e62609fdb7674591703d68b48e9454b887884b23913df4b07feec4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/n8n-api/idempotency.md": {
+    "status": "translated",
+    "source_sha256": "5eaee66776a7e1aabf99c58fbbdaab38cb74afd4fa72c48a30797ff016c10d86",
+    "translation_sha256": "ef2804cf1fbda12771529960e18b9d217ca7a20e14a55fde8a97a2fa0d593e86",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/n8n-api/use-an-api-playground.md": {
+    "status": "translated",
+    "source_sha256": "26a29123cdb1a539a2136bbeac286f4b9a18cc343a158bfcde07a05313cd5b4c",
+    "translation_sha256": "2120bebd28e338aeed2e4bf1676f453625fac95350be269c2c347727959315e1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "connect/n8n-api/authentication.md": {
+    "status": "translated",
+    "source_sha256": "df7a370de958cb7603f7f516884a4823ac7bf9aaae49ea9d764e1a5d1671960e",
+    "translation_sha256": "82b2015920c304579b3e06f50e34aac074b5866dd49d5bbff739ea25def1fb77",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "api-auth-source-control-scope-list-note"
+    ]
   }
 }
