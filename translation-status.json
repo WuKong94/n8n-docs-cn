@@ -35,12 +35,20 @@
   "get-started/build-your-first-workflow.md": {
     "status": "translated",
     "source_sha256": "1fa5c51ac20d0013e483d1e5f7fb1d87c7249fe0765f09612e277c04a7919278",
-    "translation_sha256": "02838bff2512e473ad0b4d20feff2651bee81e9404c13ddd92238735e457813c",
+    "translation_sha256": "e3fca794afe42d256c22d58526f21b58b8afa8562045e76923486146b8aecdfc",
     "checks": [
-      "code-examples-identical",
-      "image-destinations-identical",
+      "code-examples-identical-except-reviewed-prompt-translations",
+      "image-resources-preserved",
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
+    ],
+    "prose_fences": [
+      {
+        "index": 5,
+        "kind": "prompt",
+        "source_sha256": "e3990546c8d792c217a721cc4e183cfdfc122d0127783dfef60f396cbea0f402",
+        "translation_sha256": "0a1718eeaf487567b688a6d58835d7c9278ca0efe3448c808cf3139dd9d8896b"
+      }
     ]
   },
   "get-started/key-concept-glossary.md": {
@@ -3675,6 +3683,100 @@
     "status": "translated",
     "source_sha256": "c6666f281bc4e889eafcbca8129b6d6df9c2c0f9a87e7312ca423e8ff236658b",
     "translation_sha256": "b90ffe892e6842d439697622547cba697ca6744984979b72451c4e08c3030b8a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/ways-of-building-workflows/n8n-assistant.md": {
+    "status": "translated",
+    "source_sha256": "75ec09ce71a76c7ac5705b950409d4d10ad35b6d100797a1d5d131d12ec4260c",
+    "translation_sha256": "15adb45c164aa061d38e2284b3a1f0985e64429fc66d0b9faea67f595165deb4",
+    "checks": [
+      "code-examples-identical-except-reviewed-prompt-translations",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "prose_fences": [
+      {
+        "index": 0,
+        "kind": "prompt",
+        "source_sha256": "7ada977c4d51e271457fa4a57778c4acc8d5b55e6f10213b2d82b8a120dce19b",
+        "translation_sha256": "1fe5c491303ec7d4be79996ab7903c4d260d069af97c5d176a39bf631d0b57a8"
+      },
+      {
+        "index": 1,
+        "kind": "prompt",
+        "source_sha256": "503fe756e70df5a6b652247a4faad098223605afec76754a0a3fd28d40bd4fe3",
+        "translation_sha256": "897046baf64caf5e6c64aea004cb51a5a29eee43fd863cd5134bfa6cedbb3881"
+      },
+      {
+        "index": 2,
+        "kind": "prompt",
+        "source_sha256": "e17f024f22bf3e51854b33318e14e61058d06db55aefeb5b17d5997e2559f04e",
+        "translation_sha256": "3477187cf67f8b56e592023546600012b08861108dbbbc04a349abbac6658813"
+      }
+    ]
+  },
+  "build/ways-of-building-workflows/n8n-assistant/browser-use.md": {
+    "status": "translated",
+    "source_sha256": "435fac63585687d1c587d5ac8aaa03fe66d5e54c5cefa6b88c807698b8f1a129",
+    "translation_sha256": "2c2ee75e5fc927f401a25567c6bab8e51945f672bb09955b5fe01b733d88f261",
+    "checks": [
+      "code-examples-identical-except-reviewed-prompt-translations",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "prose_fences": [
+      {
+        "index": 0,
+        "kind": "prompt",
+        "source_sha256": "2b305fc9a22407f4f7ed7c577620c7bad5f6e3b7f043882e7d117219bada337d",
+        "translation_sha256": "600c070f964b21e2ba1edc6ebb0eb651934bfac1a70bab8a2391f6d03de178ac"
+      }
+    ]
+  },
+  "build/ways-of-building-workflows/chat-hub.md": {
+    "status": "translated",
+    "source_sha256": "75e204b67715e44d1e074607abd90ce6706773ebd9c8b7b6d79eb7007e818475",
+    "translation_sha256": "4d9efa1b8a363de047f8d98003ec5f45c1512025e1d4db529f3e9c777a200d3b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "build/ways-of-building-workflows/use-the-ai-assistant.md": {
+    "status": "translated",
+    "source_sha256": "d6364456455bebcc042332fb1e738254f52ff8435a38142e8148a806a36d739d",
+    "translation_sha256": "c9b2e4ad32a2866ef46f21cb788c5234dc66cb2b945653c167ee2c71a1600244",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "privacy-and-security/README.md": {
+    "status": "translated",
+    "source_sha256": "93fe151f7f3a0ea99e97bf8d104777b5e7a282bc7240d72ae8f8f0f4b17c5ec6",
+    "translation_sha256": "cd62ca62a22b1aa9bf705f8ab8e14476ff7c3fc8323ee7035479b92a9a6a751d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/privacy-security/gdpr-self-hosted.md": {
+    "status": "translated",
+    "source_sha256": "4d5ea345c704dc65e5c92b073cbe68e1a4e8b751a1e221427f5ee27c87a8b32d",
+    "translation_sha256": "4fb0a3e4685d2e38735fdd42f25d6f55e4d4b5f243c5586a551079fefec99319",
     "checks": [
       "code-examples-identical",
       "image-resources-preserved",

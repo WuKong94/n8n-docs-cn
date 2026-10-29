@@ -1,126 +1,126 @@
 ---
-title: Work with Browser Use
-description: >-
-  Connect the n8n Browser Use extension so n8n Assistant can work in your
-  browser and set up credentials for you.
+title: 使用 Browser Use
+description: 连接 n8n Browser Use 扩展，让 n8n Assistant 在浏览器中操作并代为设置凭据。
 status: preview
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Work with Browser Use
 
-Browser Use lets n8n Assistant work in your own browser. After you install the **n8n Browser Use** Chrome extension and connect it, n8n Assistant can open tabs, navigate sites, click, type, read pages, and set up credentials for you.
+# 使用 Browser Use <a id="work-with-browser-use"></a>
 
-Browser Use runs in your real browser profile, so it can use the sites you're already signed in to. You don't need to install any other software.
+Browser Use 让 n8n Assistant 能够在你自己的浏览器中操作。安装并连接 **n8n Browser Use** Chrome 扩展后，助手可以打开标签页、浏览网站、点击、输入、读取页面，并代为设置凭据。
+
+Browser Use 使用真实浏览器配置文件，因此可以利用你已登录的网站，无需安装其他软件。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Browser Use is available on:
+以下套餐提供 Browser Use：
 
-- **n8n Cloud:** Starter, Pro
+- **n8n Cloud：** Starter、Pro
 
-It isn't available on self-hosted n8n.
+自托管 n8n 不提供此功能。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-Browser Use is part of n8n Assistant, which is in Preview. It can make mistakes, and behavior may change while the feature is in development.
+Browser Use 属于 n8n Assistant 的一部分，目前处于预览阶段，可能出错，开发期间行为也可能变化。
 {% endhint %}
 
-## What Browser Use can do
+## Browser Use 可以做什么 <a id="what-browser-use-can-do"></a>
 
-With Browser Use connected, you can ask n8n Assistant to:
+连接 Browser Use 后，可以要求 n8n Assistant：
 
-- **Set up credentials:** create an API key or app in a service's console and save it as an n8n credential. See [Set up credentials with Browser Use](#set-up-credentials-with-browser-use).
-- **Browse and research:** open pages, follow links, and read page content.
-- **Fill in forms:** type text, select options, upload files, and submit forms.
-- **Work with tabs:** open, switch between, and close tabs.
+- **设置凭据：** 在服务控制台中创建 API 密钥或应用，并保存为 n8n 凭据。请参阅[通过 Browser Use 设置凭据](#set-up-credentials-with-browser-use)。
+- **浏览和研究：** 打开页面、访问链接并读取页面内容。
+- **填写表单：** 输入文本、选择选项、上传文件并提交表单。
+- **操作标签页：** 打开、切换和关闭标签页。
 
-## Requirements
+## 要求 <a id="requirements"></a>
 
-- Google Chrome or another Chromium-based browser, such as Microsoft Edge or Brave. Browser Use isn't available on phones and tablets.
-- An instance admin must turn on **Browser use** in **Settings** > **Assistant**.
+- 使用 Google Chrome 或其他基于 Chromium 的浏览器，例如 Microsoft Edge 或 Brave。手机和平板电脑不支持 Browser Use。
+- 实例管理员必须在 **Settings（设置）** > **Assistant** 中开启 **Browser use（浏览器操作）**。
 
-## Connect Browser Use
+## 连接 Browser Use <a id="connect-browser-use"></a>
 
-1. In n8n Assistant, select **+** beside the chat input, then select **Connect browser**.
-2. If you don't have the extension yet, select **Install Chrome extension** and add [n8n Browser Use](https://chromewebstore.google.com/detail/n8n-browser-use/cegmdpndekdfpnafgacidejijecomlhh) from the Chrome Web Store. Then return to n8n.
-3. The extension opens a popup asking you to allow n8n to access your browser. In the popup:
-   1. Optional: select **Always allow `<your-instance-host>`** to connect without this prompt next time.
-   2. Optional: expand **Allow access to existing tabs** and select tabs you want to share.
-   3. Select **Allow connection**.
+1. 在 n8n Assistant 中，选择聊天输入框旁的 **+**，再选择 **Connect browser（连接浏览器）**。
+2. 如果尚未安装扩展，选择 **Install Chrome extension（安装 Chrome 扩展）**，从 Chrome 网上应用店添加 [n8n Browser Use](https://chromewebstore.google.com/detail/n8n-browser-use/cegmdpndekdfpnafgacidejijecomlhh)，再返回 n8n。
+3. 扩展会弹出窗口，请求允许 n8n 访问浏览器。在弹窗中：
+   1. 可选：选择 **Always allow（始终允许） `<your-instance-host>`**，下次连接时不再提示。
+   2. 可选：展开 **Allow access to existing tabs（允许访问已有标签页）**，选择要共享的标签页。
+   3. 选择 **Allow connection（允许连接）**。
 
-n8n shows **Browser Use is connected** when the connection succeeds.
+连接成功后，n8n 会显示 **Browser Use is connected（Browser Use 已连接）**。
 
-If the popup closes or doesn't appear, select **Try again** in n8n.
+如果弹窗关闭或未出现，在 n8n 中选择 **Try again（重试）**。
 
-## Set up credentials with Browser Use
+## 通过 Browser Use 设置凭据 <a id="set-up-credentials-with-browser-use"></a>
 
-To have n8n Assistant create a credential for you, ask for it in the chat. For example:
+要让 n8n Assistant 代为创建凭据，在聊天中提出请求即可。例如：
 
 ```text
-Use my browser to create an OpenAI API key and save it as an n8n credential.
+使用我的浏览器创建一个 OpenAI API 密钥，并将其保存为 n8n 凭据。
 ```
 
-n8n Assistant then:
+随后，n8n Assistant 会：
 
-1. Opens the service's website and follows the steps to create the key or app. If it needs a choice from you, such as a project or app name, it asks in the chat.
-2. Pauses when you need to sign in, complete two-factor authentication, or solve a CAPTCHA, and asks you to do it in the browser. Reply in the chat when you're done.
-3. Captures the secret from the page and asks you to approve creating the credential.
+1. 打开服务网站，按照步骤创建密钥或应用。如果需要你作出选择，例如项目名或应用名，会在聊天中询问。
+2. 需要登录、完成双因素验证或处理验证码时暂停，并请你在浏览器中完成。完成后，在聊天中回复。
+3. 从页面获取机密值，并请求你批准创建凭据。
 
-The secret goes straight from the page into the n8n credential. n8n Assistant never sees it, and you never need to paste it into the chat.
+机密值从页面直接写入 n8n 凭据。n8n Assistant 不会看到，也无需你将其粘贴到聊天中。
 
-## Control what Browser Use can access
+## 控制 Browser Use 的访问范围 <a id="control-what-browser-use-can-access"></a>
 
-- **Tabs:** n8n Assistant can only use tabs it opens itself and tabs you share when you connect. Shared tabs apply to the current connection only.
-- **Sites:** before n8n Assistant uses a new site, it asks for permission. Select **Allow once** for the current response, **Allow for session** for the rest of the conversation, or **Deny**.
-- **Secrets on pages:** n8n hides API keys, passwords, and other secrets from n8n Assistant when it reads a page. It also blocks screenshots of pages that show secrets.
-- **Admin permissions:** instance admins can change these in **Settings** > **Assistant** > **Permissions**. Each can be **Allow**, **Ask first** (default), or **Block**:
-  - **Fetch URLs** (in **Web**): controls the site prompt above. **Allow** skips it, and **Block** stops n8n Assistant from opening sites. This setting also applies to n8n Assistant's web access outside Browser Use.
-  - **Create credentials from a browser session** (in **Credentials**): controls whether n8n Assistant asks before it saves a credential it set up in your browser.
+- **标签页：** n8n Assistant 只能使用自己打开的标签页，以及你连接时共享的标签页。共享仅对当前连接有效。
+- **网站：** 使用新网站前，n8n Assistant 会请求许可。选择 **Allow once（允许一次）**，仅对当前回复有效；选择 **Allow for session（在本次会话中允许）**，对剩余对话有效；也可以选择 **Deny（拒绝）**。
+- **页面上的机密信息：** n8n 读取页面时，会向助手隐藏 API 密钥、密码和其他机密信息；也会禁止对显示机密信息的页面截图。
+- **管理员权限：** 实例管理员可以在 **Settings（设置）** > **Assistant** > **Permissions（权限）** 中修改。每项可设为 **Allow（允许）**、**Ask first（先询问，默认）** 或 **Block（禁止）**：
+  - **Fetch URLs（获取 URL）**（位于 **Web（网页）** 下）：控制上述网站访问提示。**Allow** 会跳过提示，**Block** 会阻止助手打开网站。此设置也适用于 Browser Use 之外的助手网页访问。
+  - **Create credentials from a browser session（从浏览器会话创建凭据）**（位于 **Credentials（凭据）** 下）：控制助手在保存其通过浏览器设置的凭据之前，是否先询问。
 
 {% hint style="warning" %}
-Browser Use acts with your signed-in sessions. Check which site and action n8n Assistant is asking about before you approve a request.
+Browser Use 使用你已登录的会话执行操作。批准请求前，请检查助手请求访问的网站和执行的操作。
 {% endhint %}
 
-## Disconnect Browser Use
+## 断开 Browser Use <a id="disconnect-browser-use"></a>
 
-To disconnect, select **+** beside the chat input and select **Disconnect** next to Browser Use. You can also select **Disconnect** in the extension popup.
+选择聊天输入框旁的 **+**，再选择 Browser Use 旁的 **Disconnect（断开）**。也可以在扩展弹窗中选择 **Disconnect**。
 
-Disconnecting ends the current connection only. If you selected **Always allow `<your-instance-host>`** when you connected, the extension reconnects to that instance without asking the next time n8n Assistant starts a browser connection. To stop this, open the extension and remove the instance from **Allowed instances**.
+断开只结束当前连接。如果连接时选择了 **Always allow `<your-instance-host>`**，下次 n8n Assistant 发起浏览器连接时，扩展会直接重新连接该实例，不再询问。要停止此行为，打开扩展，从 **Allowed instances（允许的实例）** 中移除该实例。
 
-## Limitations
+## 限制 <a id="limitations"></a>
 
-- n8n Assistant can't sign in, complete two-factor authentication, or solve CAPTCHAs for you. It asks you to do these steps.
-- It can't read files you download or open internal browser pages, such as `chrome://` pages.
-- Browser Use only works while your browser is open and connected. It can't run as part of a published workflow.
-- You can connect one browser at a time.
+- n8n Assistant 无法代为登录、完成双因素验证或处理验证码，会请你完成这些步骤。
+- 无法读取下载的文件，也无法打开浏览器内部页面，例如 `chrome://` 页面。
+- Browser Use 仅在浏览器打开且保持连接时工作，不能作为已发布工作流的一部分运行。
+- 同一时间只能连接一个浏览器。
 
-## Troubleshooting
+## 故障排查 <a id="troubleshooting"></a>
 
-### n8n can't detect the extension
+### n8n 检测不到扩展 <a id="n8n-cant-detect-the-extension"></a>
 
-n8n can't find the n8n Browser Use extension. Check that it's installed and enabled in your browser's extension settings, then select **Try again**.
+n8n 无法找到 n8n Browser Use 扩展。请在浏览器扩展设置中确认已安装并启用，再选择 **Try again（重试）**。
 
-### Browser Use requires Google Chrome or another Chromium-based browser
+### Browser Use 要求 Google Chrome 或其他基于 Chromium 的浏览器 <a id="browser-use-requires-google-chrome-or-another-chromium-based-browser"></a>
 
-You're using a browser that doesn't support the extension, such as Safari or Firefox. Open n8n in Google Chrome, Microsoft Edge, or Brave.
+当前浏览器不支持此扩展，例如 Safari 或 Firefox。请在 Google Chrome、Microsoft Edge 或 Brave 中打开 n8n。
 
-### Browser Use setup failed
+### Browser Use 设置失败 <a id="browser-use-setup-failed"></a>
 
-n8n couldn't create a connection link. Select **Try again**. If the problem continues, reload the page.
+n8n 无法创建连接链接。选择 **Try again（重试）**；如果问题持续，刷新页面。
 
-### Can't connect to your instance
+### 无法连接到实例 <a id="cant-connect-to-your-instance"></a>
 
-The extension shows **Can't connect to `<host>`** when the instance isn't an n8n Cloud instance. Browser Use isn't available on self-hosted n8n.
+实例不是 n8n Cloud 实例时，扩展会显示 **Can't connect to `<host>`（无法连接到该实例）**。自托管 n8n 不提供 Browser Use。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use n8n Assistant](../n8n-assistant.md)
+* [使用 n8n Assistant](../n8n-assistant.md)

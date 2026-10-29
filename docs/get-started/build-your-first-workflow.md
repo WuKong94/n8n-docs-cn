@@ -233,10 +233,10 @@ n8n Assistant 提供了另一种方式：通过提示词构建工作流。你已
 3. 输入以下提示词：
 
     ```
-    Every day at 8am:
-    - Get the weather for Berlin from https://mockingbird.n8n.io/v1/weather/berlin
-    - Add a report field that contains the city, temperature, and conditions
-    - Save the report to a data table called weather_data
+    每天上午 8 点：
+    - 从 https://mockingbird.n8n.io/v1/weather/berlin 获取柏林天气
+    - 添加 report 字段，包含城市、温度和天气状况
+    - 将报告保存到名为 weather_data 的数据表
     ```
 
     ![在 n8n Assistant 中输入的提示词](.gitbook/assets/build-your-first-workflow-assistant-03.png)

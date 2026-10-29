@@ -23,81 +23,83 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Ask n8n AI
 
-Ask n8n AI helps you build, debug, and optimize your workflows. From answering questions about n8n to providing help with coding and expressions[^1], Ask n8n AI supports you as you navigate n8n's capabilities.
+# Ask n8n AI <a id="ask-n8n-ai"></a>
 
-{% hint style="info" %}
-Ask n8n AI is n8n's built-in help assistant and is no longer actively developed. To build, edit, and run workflows from a chat, see [Use n8n Assistant](n8n-assistant.md).
-{% endhint %}
-
-## Current capabilities <a href="#current-capabilities" id="current-capabilities"></a>
-
-Ask n8n AI offers a range of tools to support you:
-
-* **Debug helper**: Identify and troubleshoot node execution issues in your workflows to keep them running without issues.
-* **Answer n8n questions**: Get instant answers to your n8n-related questions, whether they're about specific features or general functionality.
-* **Coding support**: Receive guidance on coding, including SQL and JSON, to optimize your nodes and data processing.
-* **Expression assistance**: Learn how to create and refine [expressions](../work-with-data/expressions-versus-data-nodes.md) to get the most out of your workflows.
-* **Credential setup tips**: Find out how to set up and manage node [credentials](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials) securely and efficiently.
-
-## Tips for getting the most out of the Assistant <a href="#tips-for-getting-the-most-out-of-the-assistant" id="tips-for-getting-the-most-out-of-the-assistant"></a>
-
-1. **Engage in a conversation**: Ask n8n AI can collaborate with you step-by-step. If a suggestion isn't what you need, let it know! The more context you provide, the better the recommendations will be.
-2. **Ask specific questions**: For the best results, ask focused questions (for example, "How do I set up credentials for Google Sheets?"). The assistant works best with clear queries.
-3. **Iterate on suggestions**: Don't hesitate to build on the assistant's responses. Try different approaches and keep refining based on the assistant's feedback to get closer to your ideal solution.
-4. **Things to try out**:
-   * Debug any error you're seeing
-   * Ask how to setup credentials
-   * "Explain what this workflow does."
-   * "I need your help to write code: \[Explain your code here]"
-   * "How can I build X in n8n?"
-
-## AI usage settings <a href="#ai-usage-settings" id="ai-usage-settings"></a>
+Ask n8n AI 帮助你构建、调试和优化工作流。从回答 n8n 问题，到提供代码和表达式[^1]帮助，它可以协助你使用 n8n 的各项能力。
 
 {% hint style="info" %}
-**Feature availability**
-
-AI usage settings are available from n8n 2.7.0.
+Ask n8n AI 是 n8n 内置的帮助助手，目前不再积极开发。要通过聊天构建、编辑和运行工作流，请参阅[使用 n8n Assistant](n8n-assistant.md)。
 {% endhint %}
 
-You can manage your AI usage settings by navigating to **Settings** > **AI Usage** in your n8n instance. Here, you can control what data is shared with Ask n8n AI.
+## 当前能力 <a href="#current-capabilities" id="current-capabilities"></a>
 
-These settings are only available to the instance owners and administrators, and will apply to all users on the instance.
+Ask n8n AI 提供一系列辅助工具：
 
-![AI Usage settings page with the Send actual data values checkbox](../.gitbook/assets/ai_usage_settings.png)
+* **调试帮助**：识别和排查工作流中的节点执行问题，帮助保持正常运行。
+* **回答 n8n 问题**：即时回答与 n8n 相关的问题，包括具体功能和一般能力。
+* **代码支持**：提供 SQL、JSON 等代码指导，优化节点和数据处理。
+* **表达式帮助**：学习如何创建和改进[表达式](../work-with-data/expressions-versus-data-nodes.md)，充分发挥工作流能力。
+* **凭据设置建议**：了解如何安全、高效地设置和管理节点[凭据](../../integrations/builtin/credentials/README.md)。
 
-Choose whether to share actual workflow data (like node names, parameters, and structure) with Ask n8n AI. Disabling this option will limit the assistant's ability to provide context-aware help based on your workflows.
+## 充分利用助手的建议 <a href="#tips-for-getting-the-most-out-of-the-assistant" id="tips-for-getting-the-most-out-of-the-assistant"></a>
 
-Since access to workflow data is essential for the AI Workflow builder to function, **disabling this option will also disable the AI Workflow builder feature**.
+1. **展开对话**：Ask n8n AI 可以与你逐步协作。如果建议不符合需求，直接告诉它。提供的上下文越充分，建议就越有针对性。
+2. **提出具体问题**：尽量聚焦，例如“如何为 Google Sheets 设置凭据？”。清晰的问题能让助手更好地发挥作用。
+3. **迭代建议**：可以在回复基础上继续完善。尝试不同方法，根据反馈不断改进，逐步接近理想方案。
+4. **可以尝试**：
+   * 调试遇到的错误
+   * 询问如何设置凭据
+   * “解释这个工作流的作用。”
+   * “我需要你帮忙编写代码：\[在此说明代码需求]”
+   * “如何在 n8n 中构建 X？”
 
-### Disable sending data <a href="#disable-sending-data" id="disable-sending-data"></a>
+## AI 使用设置 <a href="#ai-usage-settings" id="ai-usage-settings"></a>
 
-To stop sending actual data values to Ask n8n AI, turn off the **Send actual data values** checkbox on the **AI Usage** settings page.
+{% hint style="info" %}
+**功能可用范围**
 
-## FAQs <a href="#faqs" id="faqs"></a>
+AI 使用设置从 n8n 2.7.0 起可用。
+{% endhint %}
 
-### What context does the Assistant have? <a href="#what-context-does-the-assistant-have" id="what-context-does-the-assistant-have"></a>
+在 n8n 实例中，进入 **Settings（设置）** > **AI Usage（AI 使用）**，即可管理 AI 使用设置，控制向 Ask n8n AI 共享哪些数据。
 
-Ask n8n AI has access to all elements displayed on your n8n screen, excluding actual input and output data values (like customer information). To learn more about what data n8n shares with Ask n8n AI, refer to [AI in n8n](https://app.gitbook.com/s/ukPPOMQ6NId4gpAIkPXa/#ai-in-n8n).
+这些设置仅对实例所有者和管理员开放，并适用于实例上的所有用户。
 
-### Who can use the Assistant? <a href="#who-can-use-the-assistant" id="who-can-use-the-assistant"></a>
+![AI Usage 设置页面及 Send actual data values 复选框](../.gitbook/assets/ai_usage_settings.png)
 
-The assistant is available on all n8n Cloud plans. It isn't available on self-hosted.
+选择是否向 Ask n8n AI 共享实际工作流数据，例如节点名称、参数和结构。禁用此选项会限制助手根据工作流上下文提供帮助的能力。
 
-### How does the Assistant work? <a href="#how-does-the-assistant-work" id="how-does-the-assistant-work"></a>
+AI 工作流构建器必须访问工作流数据才能运行，因此**禁用此选项也会禁用 AI 工作流构建器功能**。
 
-The underlying logic of the assistant is build with the advanced AI capabilities of n8n. It uses a combination of different agents[^2], specialized in different areas of n8n, RAG to gather knowledge from the docs and the community forum, and custom prompts, memory[^3] and context.
+### 禁止发送数据 <a href="#disable-sending-data" id="disable-sending-data"></a>
 
-[^1]: In n8n, expressions allow you to populate node parameters dynamically by executing JavaScript code. Instead of providing a static value, you can use the n8n expression syntax to define the value using data from previous nodes, other workflows, or your n8n environment.
-[^2]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
-[^3]: In an AI context, memory allows AI tools to persist message context across interactions. This allows you to have a continuing conversations with AI agents, for example, without submitting ongoing context with each message. In n8n, AI agent nodes can use memory, but AI chains can't.
+要停止向 Ask n8n AI 发送实际数据值，在 **AI Usage（AI 使用）** 设置页面关闭 **Send actual data values（发送实际数据值）** 复选框。
 
-## Related resources
+## 常见问题 <a href="#faqs" id="faqs"></a>
 
-* [Ways of building workflows](./)
-* [Use n8n Assistant](n8n-assistant.md)
-* [Use n8n MCP server](connect-to-n8n-mcp-server.md)
-* [Use templates](use-templates.md)
-* [Use Chat Hub](chat-hub.md)
+### 助手可以获取哪些上下文？ <a href="#what-context-does-the-assistant-have" id="what-context-does-the-assistant-have"></a>
+
+Ask n8n AI 可以访问 n8n 屏幕上显示的所有元素，但不包括客户信息等实际输入和输出数据值。n8n 向其共享哪些数据的更多信息，请参阅 [n8n 中的 AI](../../privacy-and-security/README.md#ai-in-n8n)。
+
+### 谁可以使用助手？ <a href="#who-can-use-the-assistant" id="who-can-use-the-assistant"></a>
+
+所有 n8n Cloud 套餐均可使用助手，自托管环境不提供。
+
+### 助手如何工作？ <a href="#how-does-the-assistant-work" id="how-does-the-assistant-work"></a>
+
+助手的底层逻辑使用 n8n 的高级 AI 能力构建，结合了专注于 n8n 不同领域的多个智能体[^2]、从文档和社区论坛收集知识的 RAG，以及自定义提示词、记忆[^3]和上下文。
+
+[^1]: 在 n8n 中，表达式通过执行 JavaScript 代码动态填充节点参数。你可以使用 n8n 表达式语法，根据前面节点、其他工作流或 n8n 环境中的数据定义值，而不是提供静态值。
+[^2]: AI 智能体是能够响应请求、作出决策并代表用户执行现实任务的人工智能系统。它们使用大语言模型（LLM）理解用户输入，并利用可用信息和资源，决定如何处理请求。
+[^3]: 在 AI 场景中，记忆让工具能够在多次交互之间保留消息上下文。例如，可以与 AI 智能体持续对话，而无需每条消息都重新提交上下文。在 n8n 中，AI 智能体节点可以使用记忆，但 AI 链不能。
+
+## 相关资源 <a id="related-resources"></a>
+
+* [构建工作流的方式](./)
+* [使用 n8n Assistant](n8n-assistant.md)
+* [使用 n8n MCP 服务器](connect-to-n8n-mcp-server.md)
+* [使用模板](use-templates.md)
+* [使用 Chat Hub](chat-hub.md)
