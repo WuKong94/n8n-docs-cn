@@ -1,10 +1,10 @@
 ---
 contentType: reference
-nodeTitle: Use the command line
+nodeTitle: 使用命令行
 originalFilePath: hosting/cli-commands.md
 originalUrl: https://docs.n8n.io/hosting/cli-commands
 url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/use-the-command-line
-description: Commands available in the Server CLI, the built-in n8n command-line interface.
+description: Server CLI，即 n8n 内置命令行界面中可用的命令。
 layout:
   width: default
   title:
@@ -24,476 +24,481 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Use the command line
 
-The **Server CLI** is a built-in command-line interface that runs on the same machine as your n8n installation. It provides direct database access for administrative tasks and can execute most commands even when n8n isn't running.
+# 使用命令行 <a id="use-the-command-line"></a>
+
+**Server CLI** 是内置命令行界面，与 n8n 安装在同一台机器上运行。它直接访问数据库以完成管理任务，即使 n8n 未运行，也能执行大多数命令。
 
 {% hint style="info" %}
 **n8n CLI**
 
-Looking to interact with n8n programmatically from a remote machine or integrate with AI agents? Check out the [n8n CLI](https://app.gitbook.com/o/gkeAaBEvbwHB2NmepVHG/s/r7wKI4I1BgdBCuq5Cvcx/).
+希望从远程机器以编程方式与 n8n 交互，或与 AI 智能体集成？请查看 [n8n CLI](https://app.gitbook.com/o/gkeAaBEvbwHB2NmepVHG/s/r7wKI4I1BgdBCuq5Cvcx/)。
 {% endhint %}
 
-## When to use Server CLI vs n8n CLI <a href="#when-to-use-server-cli-vs-n8n-cli" id="when-to-use-server-cli-vs-n8n-cli"></a>
+## 何时使用 Server CLI 或 n8n CLI <a href="#when-to-use-server-cli-vs-n8n-cli" id="when-to-use-server-cli-vs-n8n-cli"></a>
 
-| Feature                  | Server CLI                                                    | n8n CLI                                                  |
+| 功能 | Server CLI | n8n CLI |
 | ------------------------ | ------------------------------------------------------------- | -------------------------------------------------------- |
-| **Where it runs**        | Same machine as n8n                                           | Any machine with network access                          |
-| **Authentication**       | Direct database access                                        | API key                                                  |
-| **Requires running n8n** | No (most commands)                                            | Yes                                                      |
-| **Best for**             | Instance operators, backups, migrations                       | Programmers, AI agents, remote management                |
-| **Security model**       | Bypasses access controls                                      | Respects user permissions and API key scope              |
-| **Use case examples**    | Backup/restore, license management, emergency password resets | Workflow automation, credentials management through code |
+| **运行位置** | 与 n8n 相同的机器 | 任何可访问网络的机器 |
+| **身份验证** | 直接访问数据库 | API 密钥 |
+| **是否要求 n8n 正在运行** | 否，大多数命令不需要 | 是 |
+| **适合用途** | 实例运维、备份、迁移 | 编程、AI 智能体、远程管理 |
+| **安全模型** | 绕过访问控制 | 遵循用户权限和 API 密钥的权限范围 |
+| **使用场景示例** | 备份恢复、许可证管理、紧急密码重置 | 工作流自动化、通过代码管理凭据 |
 
-## Running CLI commands <a href="#running-cli-commands" id="running-cli-commands"></a>
+## 运行 CLI 命令 <a href="#running-cli-commands" id="running-cli-commands"></a>
 
-You can use CLI commands with self-hosted n8n. Depending on how you choose to install n8n, there are differences in how to run the commands:
+自托管 n8n 可以使用 CLI 命令。根据 n8n 安装方式不同，运行命令的方式也不同：
 
-* npm: the `n8n` command is directly available. The documentation uses this in the examples below.
-*   Docker: the `n8n` command is available within your Docker container:
+* npm：可以直接使用 `n8n` 命令，下文示例采用此方式。
+*   Docker：`n8n` 命令可在 Docker 容器内使用：
 
     ```sh
     docker exec -u node -it <n8n-container-name> <n8n-cli-command>
     ```
 
-## Start a workflow <a href="#start-a-workflow" id="start-a-workflow"></a>
+## 启动工作流 <a href="#start-a-workflow" id="start-a-workflow"></a>
 
-You can start workflows directly using the CLI.
+可以通过 CLI 直接启动工作流。
 
-Execute a saved workflow by its ID:
+按 ID 执行已保存的工作流：
 
 ```bash
 n8n execute --id <ID>
 ```
 
-## Publish or unpublish a workflow <a href="#publish-or-unpublish-a-workflow" id="publish-or-unpublish-a-workflow"></a>
+## 发布或取消发布工作流 <a href="#publish-or-unpublish-a-workflow" id="publish-or-unpublish-a-workflow"></a>
 
-You can publish or unpublish a workflow using the CLI. In n8n 2.0, the [previous active/inactive toggle](https://app.gitbook.com/s/hhM8Cox90Piiv0u0EgHM/v20-breaking-changes) was replaced by a publish/unpublish model. Use `publish:workflow` and `unpublish:workflow` to change a workflow's published state from the CLI.
+可以通过 CLI 发布或取消发布工作流。在 n8n 2.0 中，[原先的激活与停用开关](../../../changelog/v20-breaking-changes.md)被发布与取消发布模型取代。使用 `publish:workflow` 和 `unpublish:workflow`，可通过 CLI 更改工作流的发布状态。
 
 {% hint style="info" %}
-**Restart required**
+**需要重启**
 
-These commands operate on your n8n database. If you execute them while n8n is running, the changes don't take effect until you restart n8n.
+这些命令操作 n8n 数据库。如果在 n8n 运行时执行，必须重启 n8n 后更改才会生效。
 {% endhint %}
 
-### Publish a workflow <a href="#publish-a-workflow" id="publish-a-workflow"></a>
+### 发布工作流 <a href="#publish-a-workflow" id="publish-a-workflow"></a>
 
-Use `publish:workflow` to publish a workflow by its ID. You can optionally publish a specific historical version by passing its `versionId`.
+使用 `publish:workflow` 按 ID 发布工作流。也可以传入 `versionId`，发布指定历史版本。
 
-Command flags:
+命令标志：
 
-| Flag        | Description                                                                 |
+| 标志 | 说明 |
 | ----------- | --------------------------------------------------------------------------- |
-| --help      | Help prompt.                                                                |
-| --id        | The ID of the workflow to publish. Required.                                |
-| --versionId | Optional version ID to publish. If omitted, the current draft is published. |
+| --help | 帮助提示。 |
+| --id | 要发布的工作流 ID，必填。 |
+| --versionId | 可选的待发布版本 ID，省略时发布当前草稿。 |
 
 {% hint style="info" %}
-**No `--all` flag**
+**没有 `--all` 标志**
 
-Unlike the deprecated `update:workflow` command, `publish:workflow` doesn't support `--all`. This is intentional: it prevents accidental bulk publishing of workflows in production environments. Publish workflows individually by ID.
+与已弃用的 `update:workflow` 命令不同，`publish:workflow` 不支持 `--all`。这是有意设计，防止在生产环境中意外批量发布工作流。请按 ID 逐个发布。
 {% endhint %}
 
-Publish the current draft of a workflow by ID:
+按 ID 发布工作流的当前草稿：
 
 ```bash
 n8n publish:workflow --id=<ID>
 ```
 
-Publish a specific historical version of a workflow:
+发布工作流的指定历史版本：
 
 ```bash
 n8n publish:workflow --id=<ID> --versionId=<VERSION_ID>
 ```
 
-### Unpublish a workflow <a href="#unpublish-a-workflow" id="unpublish-a-workflow"></a>
+### 取消发布工作流 <a href="#unpublish-a-workflow" id="unpublish-a-workflow"></a>
 
-Use `unpublish:workflow` to unpublish a workflow by its ID, or all workflows at once.
+使用 `unpublish:workflow` 按 ID 取消发布某个工作流，或一次取消发布所有工作流。
 
-Command flags:
+命令标志：
 
-| Flag   | Description                                                      |
+| 标志 | 说明 |
 | ------ | ---------------------------------------------------------------- |
-| --help | Help prompt.                                                     |
-| --id   | The ID of the workflow to unpublish. Can't be used with `--all`. |
-| --all  | Unpublish all workflows. Can't be used with `--id`.              |
+| --help | 帮助提示。 |
+| --id | 要取消发布的工作流 ID，不能与 `--all` 同时使用。 |
+| --all | 取消发布所有工作流，不能与 `--id` 同时使用。 |
 
-Unpublish a workflow by its ID:
+按 ID 取消发布工作流：
 
 ```bash
 n8n unpublish:workflow --id=<ID>
 ```
 
-Unpublish all workflows:
+取消发布所有工作流：
 
 ```bash
 n8n unpublish:workflow --all
 ```
 
-### update:workflow (deprecated) <a href="#updateworkflow-deprecated" id="updateworkflow-deprecated"></a>
+### update:workflow，已弃用 <a href="#updateworkflow-deprecated" id="updateworkflow-deprecated"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-The `update:workflow` command is deprecated from n8n 2.0 and will be removed. Use [`publish:workflow`](use-the-command-line.md#publish-a-workflow) and [`unpublish:workflow`](use-the-command-line.md#unpublish-a-workflow) instead. See the [n8n 2.0 breaking changes](https://app.gitbook.com/s/hhM8Cox90Piiv0u0EgHM/v20-breaking-changes) for details.
+`update:workflow` 命令自 n8n 2.0 起已弃用，后续会移除。请改用 [`publish:workflow`](use-the-command-line.md#publish-a-workflow) 和 [`unpublish:workflow`](use-the-command-line.md#unpublish-a-workflow)，详情请参阅 [n8n 2.0 破坏性变更](../../../changelog/v20-breaking-changes.md)。
 {% endhint %}
 
-Set the active status of a workflow by its ID to false:
+按 ID 将某个工作流的活动状态设为 false：
 
 ```bash
 n8n update:workflow --id=<ID> --active=false
 ```
 
-Set the active status of a workflow by its ID to true:
+按 ID 将某个工作流的活动状态设为 true：
 
 ```bash
 n8n update:workflow --id=<ID> --active=true
 ```
 
-Set the active status to false for all the workflows:
+将所有工作流的活动状态设为 false：
 
 ```bash
 n8n update:workflow --all --active=false
 ```
 
-Set the active status to true for all the workflows:
+将所有工作流的活动状态设为 true：
 
 ```bash
 n8n update:workflow --all --active=true
 ```
 
-## Export entities <a href="#export-entities" id="export-entities"></a>
+## 导出实体 <a href="#export-entities" id="export-entities"></a>
 
-You can export your database entities from n8n using the CLI. This tooling allows you to export all entity types from one database type, such as SQLite, and import them into another database type, such as Postgres.
+可以通过 CLI 从 n8n 导出数据库实体。此工具可以从一种数据库类型，例如 SQLite，导出所有实体类型，再导入另一种数据库类型，例如 Postgres。
 
-Command flags:
+命令标志：
 
-| Flag                                | Description                                                                                    |
+| 标志 | 说明 |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
-| --help                              | Help prompt.                                                                                   |
-| --outputDir                         | Output directory path                                                                          |
-| --includeExecutionHistoryDataTables | Include execution history data tables, these are excluded by default as they can be very large |
+| --help | 帮助提示。 |
+| --outputDir | 输出目录路径。 |
+| --includeExecutionHistoryDataTables | 包含执行历史数据表。这些表可能非常大，因此默认排除。 |
 
 ```bash
 n8n export:entities --outputDir=./outputs --includeExecutionHistoryDataTables=true
 ```
 
-## Export workflows and credentials <a href="#export-workflows-and-credentials" id="export-workflows-and-credentials"></a>
+## 导出工作流和凭据 <a href="#export-workflows-and-credentials" id="export-workflows-and-credentials"></a>
 
-You can export your workflows and credentials from n8n using the CLI.
+可以通过 CLI 从 n8n 导出工作流和凭据。
 
 {% hint style="info" %}
-**Planning a full backup**
+**规划完整备份**
 
-The `--backup` flag exports workflows and credentials only. For what a complete backup of a self-hosted instance includes, and how to restore it, see [Back up and restore](../keep-n8n-running/backup-and-restore.md).
+`--backup` 标志仅导出工作流和凭据。自托管实例完整备份的内容及恢复方式，请参阅[备份与恢复](../keep-n8n-running/backup-and-restore.md)。
 {% endhint %}
 
-Command flags:
+命令标志：
 
-| Flag         | Description                                                                                                                                                                                         |
+| 标志 | 说明 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --help       | Help prompt.                                                                                                                                                                                        |
-| --all        | Exports all workflows/credentials.                                                                                                                                                                  |
-| --backup     | Sets --all --pretty --separate for backups. You can optionally set --output.                                                                                                                        |
-| --id         | The ID of the workflow to export.                                                                                                                                                                   |
-| --output, -o | Outputs file name or directory if using separate files.                                                                                                                                             |
-| --pretty     | Formats the output in an easier to read fashion.                                                                                                                                                    |
-| --separate   | Exports one file per workflow (useful for versioning). Must set a directory using --output.                                                                                                         |
-| --decrypted  | Exports the credentials in a plain text format. (Credentials only.)                                                                                                                                 |
-| --version    | The version ID of a specific historical version to export. (Workflows only, can't be used with `--all` or `--published`.)                                                                           |
-| --published  | Exports the published/active version of the workflow instead of the current draft. When combined with `--all`, unpublished workflows are skipped. (Workflows only, can't be used with `--version`.) |
+| --help | 帮助提示。 |
+| --all | 导出所有工作流或凭据。 |
+| --backup | 为备份设置 --all --pretty --separate，可以另外设置 --output。 |
+| --id | 要导出的工作流 ID。 |
+| --output, -o | 输出文件名；使用独立文件时，为输出目录。 |
+| --pretty | 将输出格式化为更便于阅读的形式。 |
+| --separate | 每个工作流导出一个文件，便于版本管理。必须使用 --output 指定目录。 |
+| --decrypted | 以明文格式导出凭据，仅适用于凭据。 |
+| --version | 要导出的指定历史版本的版本 ID。仅适用于工作流，不能与 `--all` 或 `--published` 同时使用。 |
+| --published | 导出工作流已发布或活动的版本，而非当前草稿。与 `--all` 结合时，跳过未发布的工作流。仅适用于工作流，不能与 `--version` 同时使用。 |
 
-### Workflows <a href="#workflows" id="workflows"></a>
+### 工作流 <a href="#workflows" id="workflows"></a>
 
-Export all your workflows to the standard output (terminal):
+将所有工作流导出到标准输出，即终端：
 
 ```bash
 n8n export:workflow --all
 ```
 
-Export a workflow by its ID and specify the output file name:
+按 ID 导出某个工作流，并指定输出文件名：
 
 ```bash
 n8n export:workflow --id=<ID> --output=file.json
 ```
 
-Export all workflows to a specific directory in a single file:
+将所有工作流导出为单个文件，保存到指定目录：
 
 ```bash
 n8n export:workflow --all --output=backups/latest/file.json
 ```
 
-Export all the workflows to a specific directory using the `--backup` flag (details above):
+使用 `--backup` 标志，将所有工作流导出到指定目录，详情见上文：
 
 ```bash
 n8n export:workflow --backup --output=backups/latest/
 ```
 
-#### Export a specific workflow version <a href="#export-a-specific-workflow-version" id="export-a-specific-workflow-version"></a>
+#### 导出指定工作流版本 <a href="#export-a-specific-workflow-version" id="export-a-specific-workflow-version"></a>
 
-You can export a specific historical version of a workflow by passing its `versionId` with `--version`:
+可以传入工作流的 `versionId`，搭配 `--version`，导出指定历史版本：
 
 ```bash
 n8n export:workflow --id=<ID> --version=<VERSION_ID> --output=workflow-v1.json
 ```
 
-#### Export the published version of a workflow <a href="#export-the-published-version-of-a-workflow" id="export-the-published-version-of-a-workflow"></a>
+#### 导出工作流的已发布版本 <a href="#export-the-published-version-of-a-workflow" id="export-the-published-version-of-a-workflow"></a>
 
-Use `--published` to export the currently published/active version of a workflow rather than the current draft:
+使用 `--published`，导出工作流当前已发布或活动的版本，而非当前草稿：
 
 ```bash
 n8n export:workflow --id=<ID> --published --output=published.json
 ```
 
-You can combine `--published` with `--all` to export every workflow's published version. Workflows that don't have a published version are skipped:
+可以将 `--published` 与 `--all` 结合，导出每个工作流的已发布版本。没有已发布版本的工作流会被跳过：
 
 ```bash
 n8n export:workflow --all --published --output=workflows.json
 ```
 
 {% hint style="info" %}
-**Version metadata**
+**版本元数据**
 
-When exporting a workflow, n8n includes a `versionMetadata` property containing the workflow's historical name and description for that version. The import command preserves this data in the workflow history table on import. The current workflow's name and description aren't overridden.
+导出工作流时，n8n 包含 `versionMetadata` 属性，记录该版本的历史名称和描述。导入命令会将此数据保留在工作流历史表中，不覆盖当前工作流的名称和描述。
 {% endhint %}
 
-### Credentials <a href="#credentials" id="credentials"></a>
+### 凭据 <a href="#credentials" id="credentials"></a>
 
-Export all your credentials to the standard output (terminal):
+将所有凭据导出到标准输出，即终端：
 
 ```bash
 n8n export:credentials --all
 ```
 
-Export credentials by their ID and specify the output file name:
+按 ID 导出凭据，并指定输出文件名：
 
 ```bash
 n8n export:credentials --id=<ID> --output=file.json
 ```
 
-Export all credentials to a specific directory in a single file:
+将所有凭据导出为单个文件，保存到指定目录：
 
 ```bash
 n8n export:credentials --all --output=backups/latest/file.json
 ```
 
-Export all the credentials to a specific directory using the `--backup` flag (details above):
+使用 `--backup` 标志，将所有凭据导出到指定目录，详情见上文：
 
 ```bash
 n8n export:credentials --backup --output=backups/latest/
 ```
 
-Export all the credentials in plain text format. You can use this to migrate from one installation to another that has a different secret key in the configuration file.
+以明文格式导出所有凭据。可用于从一个安装环境迁移到配置文件中使用不同密钥的另一个安装环境。
 
 {% hint style="warning" %}
-**Sensitive information**
+**敏感信息**
 
-All sensitive information is visible in the files.
+文件中可以看到所有敏感信息。
 {% endhint %}
 
 ```bash
 n8n export:credentials --all --decrypted --output=backups/decrypted.json
 ```
 
-## Import entities <a href="#import-entities" id="import-entities"></a>
+## 导入实体 <a href="#import-entities" id="import-entities"></a>
 
-You can import entities from a previous `export:entities` command using this command, it allows importing of entities into a database type that differs from the exported database type. Current supported database types include: SQLite, Postgres.
+此命令可导入先前通过 `export:entities` 命令导出的实体，支持导入到与导出时不同的数据库类型。目前支持的数据库类型包括 SQLite、Postgres。
 
-The database is expected to be empty prior to import, this can be forced with the `--truncateTables` parameter.
+导入前数据库应为空，可通过 `--truncateTables` 参数强制清空。
 
-Command flags:
+命令标志：
 
-| Flag             | Description                                        |
+| 标志 | 说明 |
 | ---------------- | -------------------------------------------------- |
-| --help           | Help prompt.                                       |
-| --inputDir       | Input directory that holds output files for import |
-| --truncateTables | Truncate tables before import                      |
+| --help | 帮助提示。 |
+| --inputDir | 存放待导入输出文件的输入目录。 |
+| --truncateTables | 导入前清空表。 |
 
 ```bash
 n8n import:entities --inputDir ./outputs --truncateTables true
 ```
 
-## Import workflows and credentials <a href="#import-workflows-and-credentials" id="import-workflows-and-credentials"></a>
+## 导入工作流和凭据 <a href="#import-workflows-and-credentials" id="import-workflows-and-credentials"></a>
 
-You can import your workflows and credentials from n8n using the CLI.
+可以通过 CLI 导入从 n8n 导出的工作流和凭据。
 
 {% hint style="warning" %}
-**Update the IDs**
+**更新 ID**
 
-When exporting workflows and credentials, n8n also exports their IDs. If you have workflows and credentials with the same IDs in your existing database, they will be overwritten. To avoid this, delete or change the IDs before importing.
+导出工作流和凭据时，n8n 也会导出其 ID。如果现有数据库中存在相同 ID 的工作流和凭据，它们会被覆盖。为避免此情况，请在导入前删除或更改 ID。
 {% endhint %}
 
-Available flags:
+可用标志：
 
-| Flag                  | Description                                                                                                                                                                                             |
+| 标志 | 说明 |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --help                | Help prompt.                                                                                                                                                                                            |
-| --input               | Input file name or directory if you use --separate.                                                                                                                                                     |
-| --projectId           | Import the workflow or credential to the specified project. Can't be used with `--userId`.                                                                                                              |
-| --separate            | Imports `*.json` files from directory provided by --input.                                                                                                                                              |
-| --userId              | Import the workflow or credential to the specified user. Can't be used with `--projectId`.                                                                                                              |
-| --skipMigrationChecks | Skip migration validation checks.                                                                                                                                                                       |
-| --activeState         | Controls the active state of imported workflows. Accepts `false` (default, deactivates all imported workflows) or `fromJson` (uses the `active` field from each workflow's JSON; multi-main mode only). |
+| --help | 帮助提示。 |
+| --input | 输入文件名；使用 --separate 时，为输入目录。 |
+| --projectId | 将工作流或凭据导入指定项目，不能与 `--userId` 同时使用。 |
+| --separate | 从 --input 指定目录导入 `*.json` 文件。 |
+| --userId | 将工作流或凭据导入指定用户，不能与 `--projectId` 同时使用。 |
+| --skipMigrationChecks | 跳过迁移验证检查。 |
+| --activeState | 控制导入工作流的活动状态。接受 `false`，默认值，会停用所有导入的工作流；或 `fromJson`，使用各工作流 JSON 中的 `active` 字段，仅限多主实例模式。 |
 
 {% hint style="info" %}
-**Migrating to SQLite**
+**迁移到 SQLite**
 
-n8n limits workflow and credential names to 128 characters, but SQLite doesn't enforce size limits.
+n8n 将工作流和凭据名称限制为 128 个字符，但 SQLite 不强制执行长度限制。
 
-This might result in errors like **Data too long for column name** during the import process.
+这可能导致导入过程中出现 **Data too long for column name**（名称列数据过长）等错误。
 
-In this case, you can edit the names from the n8n interface and export again, or edit the JSON file directly before importing.
+此时，可以在 n8n 界面中编辑名称后重新导出，或在导入前直接编辑 JSON 文件。
 {% endhint %}
 
-### Workflows <a href="#workflows" id="workflows"></a>
+### 工作流 <a href="#workflows" id="workflows"></a>
 
 {% hint style="warning" %}
-**Known issue: cron triggers keep running after import**
+**已知问题：导入后 cron 触发器继续运行**
 
-The behaviour of importing a previously active workflow differs depending on the mode you are running. This is a known bug.
+导入此前处于活动状态的工作流时，行为因运行模式而异。这是已知缺陷。
 
-On multi-main and queue-mode instances the previously active workflow's cron triggers are deactivated on import.
+在多主实例和队列模式实例上，此前活动工作流的 cron 触发器会在导入时停用。
 
-On non multi-main instances the previously active workflows cron triggers will remain running until you restart the n8n instance.
+在非多主实例上，此前活动工作流的 cron 触发器会继续运行，直到重启 n8n 实例。
 {% endhint %}
 
-Import workflows from a specific file:
+从指定文件导入工作流：
 
 ```bash
 n8n import:workflow --input=file.json
 ```
 
-Import all the workflow files as JSON from the specified directory:
+从指定目录导入所有 JSON 格式的工作流文件：
 
 ```bash
 n8n import:workflow --separate --input=backups/latest/
 ```
 
 {% hint style="info" %}
-**Version metadata on import**
+**导入时的版本元数据**
 
-If the imported file includes a `versionMetadata` property (added by exports that target a specific version or the published version), n8n preserves that historical name and description in the workflow history table. The current workflow entity's name and description are kept as-is.
+如果导入文件包含 `versionMetadata` 属性，由针对指定版本或已发布版本的导出添加，n8n 会将该历史名称和描述保留在工作流历史表中。当前工作流实体的名称和描述保持原样。
 {% endhint %}
 
-By default, `import:workflow` deactivates every imported workflow. To preserve the `active` field from each JSON file instead, pass `--activeState=fromJson` (only supported in multi-main & queue mode):
+默认情况下，`import:workflow` 会停用每个导入的工作流。要保留各 JSON 文件中的 `active` 字段，请传入 `--activeState=fromJson`，仅支持多主实例和队列模式：
+
+译注：原文的 --activeState 表格将 fromJson 标为“仅限多主实例模式”，但同页示例说明及同版本备份恢复指南均写“多主实例和队列模式”。此处保留原文差异，不据此判断实际版本兼容性。
 
 ```bash
 n8n import:workflow --separate --input=backups/latest/ --activeState=fromJson
 ```
 
-### Credentials <a href="#credentials" id="credentials"></a>
+### 凭据 <a href="#credentials" id="credentials"></a>
 
-Import credentials from a specific file:
+从指定文件导入凭据：
 
 ```bash
 n8n import:credentials --input=file.json
 ```
 
-Import all the credentials files as JSON from the specified directory:
+从指定目录导入所有 JSON 格式的凭据文件：
 
 ```bash
 n8n import:credentials --separate --input=backups/latest/
 ```
 
-## License <a href="#license" id="license"></a>
+## 许可证 <a href="#license" id="license"></a>
 
-### Clear <a href="#clear" id="clear"></a>
+### 清除 <a href="#clear" id="clear"></a>
 
-Clear your existing license from n8n's database and reset n8n to default features:
+从 n8n 数据库清除现有许可证，并将 n8n 重置为默认功能：
 
 ```sh
 n8n license:clear
 ```
 
-If your license includes [floating entitlements](#user-content-fn-1)[^1], running this command will also attempt to release them back to the pool, making them available for other instances.
+如果许可证包含[浮动权益](#user-content-fn-1)[^1]，运行此命令也会尝试将其释放回池中，供其他实例使用。
 
-### Info <a href="#info" id="info"></a>
+### 信息 <a href="#info" id="info"></a>
 
-Display information about the existing license:
+显示现有许可证信息：
 
 ```sh
 n8n license:info
 ```
 
-## User management <a href="#user-management" id="user-management"></a>
+## 用户管理 <a href="#user-management" id="user-management"></a>
 
-You can reset user management using the n8n CLI. This returns user management to its pre-setup state. It removes all user accounts.
+可以使用 n8n CLI 重置用户管理，将其恢复到初始设置之前的状态，并移除所有用户账号。
 
-Use this if you forget your password, and don't have SMTP set up to do password resets by email.
+忘记密码，且未配置 SMTP、无法通过邮件重置密码时，可使用此命令。
 
 ```sh
 n8n user-management:reset
 ```
 
-### Disable MFA for a user <a href="#disable-mfa-for-a-user" id="disable-mfa-for-a-user"></a>
+### 为用户禁用 MFA <a href="#disable-mfa-for-a-user" id="disable-mfa-for-a-user"></a>
 
-If a user loses their recovery codes you can disable MFA for a user with this command. The user will then be able to log back in to set up MFA again.
+用户丢失恢复代码时，可以使用此命令为其禁用 MFA。用户随后即可重新登录，再次设置 MFA。
 
 ```sh
 n8n mfa:disable --email=johndoe@example.com
 ```
 
-### Disable LDAP <a href="#disable-ldap" id="disable-ldap"></a>
+### 禁用 LDAP <a href="#disable-ldap" id="disable-ldap"></a>
 
-You can reset the LDAP settings using the command below.
+可以通过以下命令重置 LDAP 设置。
 
 ```sh
 n8n ldap:reset
 ```
 
-## Uninstall community nodes and credentials <a href="#uninstall-community-nodes-and-credentials" id="uninstall-community-nodes-and-credentials"></a>
+## 卸载社区节点和凭据 <a href="#uninstall-community-nodes-and-credentials" id="uninstall-community-nodes-and-credentials"></a>
 
-You can manage [community nodes](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/community-nodes/installation-and-management) using the n8n CLI. For now, you can only uninstall community nodes and credentials, which is useful if a community node causes instability.
+可以使用 n8n CLI 管理[社区节点](../../../integrations/community-nodes/installation-and-management/README.md)。目前仅支持卸载社区节点和凭据，适合处理社区节点导致实例不稳定的情况。
 
-Command flags:
+命令标志：
 
-| Flag         | Description                                                                                                                |
+| 标志 | 说明 |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| --help       | Show CLI help.                                                                                                             |
-| --credential | The credential type. Get this value by visiting the node's `<NODE>.credential.ts` file and getting the value of `name`.    |
-| --package    | Package name of the community node.                                                                                        |
-| --uninstall  | Uninstalls the node.                                                                                                       |
-| --userId     | The ID of the user who owns the credential. On self-hosted, query the database. On cloud, query the API with your API key. |
+| --help | 显示 CLI 帮助。 |
+| --credential | 凭据类型。请查看节点的 `<NODE>.credential.ts` 文件，获取 `name` 的值。 |
+| --package | 社区节点的包名称。 |
+| --uninstall | 卸载节点。 |
+| --userId | 凭据所有者的用户 ID。自托管部署可查询数据库，Cloud 可使用 API 密钥查询 API。 |
 
-### Nodes <a href="#nodes" id="nodes"></a>
+### 节点 <a href="#nodes" id="nodes"></a>
 
-Uninstall a community node by package name:
+按包名称卸载社区节点：
 
 ```sh
 n8n community-node --uninstall --package <COMMUNITY_NODE_NAME>
 ```
 
-For example, to uninstall the [Evolution API community node](https://www.npmjs.com/package/n8n-nodes-evolution-api), type:
+例如，要卸载 [Evolution API 社区节点](https://www.npmjs.com/package/n8n-nodes-evolution-api)，请输入：
 
 ```sh
 n8n community-node --uninstall --package n8n-nodes-evolution-api
 ```
 
-### Credentials <a href="#credentials" id="credentials"></a>
+### 凭据 <a href="#credentials" id="credentials"></a>
 
-Uninstall a community node credential:
+卸载社区节点凭据：
 
 ```sh
 n8n community-node --uninstall --credential <CREDENTIAL_TYPE> --userId <ID>
 ```
 
-For example, to uninstall the [Evolution API community node credential](https://www.npmjs.com/package/n8n-nodes-evolution-api), visit the [repository](https://github.com/oriondesign2015/n8n-nodes-evolution-api) and navigate to the [`credentials.ts` file](https://github.com/oriondesign2015/n8n-nodes-evolution-api/blob/main/credentials/EvolutionApi.credentials.ts) to find the `name`:
+例如，要卸载 [Evolution API 社区节点凭据](https://www.npmjs.com/package/n8n-nodes-evolution-api)，请访问[仓库](https://github.com/oriondesign2015/n8n-nodes-evolution-api)，找到 [`credentials.ts` 文件](https://github.com/oriondesign2015/n8n-nodes-evolution-api/blob/main/credentials/EvolutionApi.credentials.ts)，查看 `name`：
 
 ```sh
 n8n community-node --uninstall --credential evolutionApi --userId 1234
 ```
 
-## Security audit <a href="#security-audit" id="security-audit"></a>
+## 安全审计 <a href="#security-audit" id="security-audit"></a>
 
-You can run a [security audit](security/run-security-audits.md) on your n8n instance, to detect common security issues.
+可以在 n8n 实例上运行[安全审计](security/run-security-audits.md)，检测常见安全问题。
 
 ```sh
 n8n audit
 ```
 
-[^1]: In n8n, entitlements grant n8n instances access to plan-restricted features for a specific period of time.
+<a id="user-content-fn-1"></a>
+[^1]: 在 n8n 中，权益（entitlements）授予 n8n 实例在特定时间段内使用套餐限制功能的权限。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Configure n8n](./)
+* [配置 n8n](./)

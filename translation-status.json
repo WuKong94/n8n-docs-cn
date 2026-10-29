@@ -6032,5 +6032,99 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "deploy/host-n8n/configure-n8n/use-the-command-line.md": {
+    "status": "translated",
+    "source_sha256": "57693caa21e38c82f5a812241e0b793d54ba5dd0892b84bbf6ec35132211ed74",
+    "translation_sha256": "41b18115c21387f6d32ab659884b9f6eb43b5dae14fb2899b2c2afc75e35f659",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "cli-active-state-mode-note"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/set-up-n8n-assistant.md": {
+    "status": "translated",
+    "source_sha256": "06fb45eae2424c4fb6e7943daec1afb478365e9a4eb96ba8b0c9cadf75094ba6",
+    "translation_sha256": "282ca93afc83ef6c5f1344f73811d740a0261cb7aa33775d3da927da6ca2e47a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/deploy-as-an-oem-integration/README.md": {
+    "status": "translated",
+    "source_sha256": "9d40988b66f6e0d0419daa97308a291f2b9ec28e951ba09850fd45475981bb56",
+    "translation_sha256": "ce9177b0cc754f93fbdb9b334aee089e4b81ed40372b2fa3d7838150cf60d378",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/deploy-as-an-oem-integration/prerequisites.md": {
+    "status": "translated",
+    "source_sha256": "dbd9fed29161423b186757bd84ecb8d31dfdec0cb2202baadeec0bcc8eadac3b",
+    "translation_sha256": "2adb4522ca3601c78c17ea485062b374e4a0aafa0800803e24138f803c7d4430",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "oem-restart-durable-scheduler-note"
+    ]
+  },
+  "deploy/host-n8n/deploy-as-an-oem-integration/manage-workflows.md": {
+    "status": "translated",
+    "source_sha256": "7a38ba186953abf62c08264feb5d48dd93ef46d366a4ae2560da5f33b5c66284",
+    "translation_sha256": "06d740670cefbd477692d9359d8f4ca659fd1dd0aa57e4a4111044a9965ed7db",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/deploy-with-the-ai-starter-kit.md": {
+    "status": "translated",
+    "source_sha256": "97eac000b036d9b6d7e4f8b90f854e823266390114310ff2f76d8bd0edc73501",
+    "translation_sha256": "f44be055e10fe4c95350d55e66de0559798e3b8cb2f1a63618da044fe0845397",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/deploy-as-an-oem-integration/set-up-token-exchange.md": {
+    "status": "translated",
+    "source_sha256": "17f73c4f4687c01b5e74bfcceb29dce248a75c10f11219a1ed7e6aa352411937",
+    "translation_sha256": "d3b5d4e6097f9689e411710e43b977e49b0eb68c8b27a8261fadab0fc8fa4a47",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/oem-agreement.md": {
+    "status": "translated",
+    "source_sha256": "1809138d3382ef73ec72dd8d031dc9ef63a1a7f4e2156c2b7a4991ddf7d101b6",
+    "translation_sha256": "bb1179324f7236b5c0dd57063cdd327110a368aa9579beaf7e991c074b6cbbda",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

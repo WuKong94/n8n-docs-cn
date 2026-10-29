@@ -1,72 +1,71 @@
 ---
-title: Managing workflows
-description: >-
-  Patterns for managing workflows across multiple users or organizations in an
-  n8n OEM deployment.
+title: 管理工作流
+description: 在 n8n OEM 部署中，跨多个用户或组织管理工作流的模式。
 contentType: howto
-nodeTitle: Manage workflows
+nodeTitle: 管理工作流
 originalFilePath: hosting/oem-deployment/managing-workflows.md
-originalUrl: 'https://docs.n8n.io/hosting/oem-deployment/managing-workflows'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/deploy-as-an-oem-integration/manage-workflows
+originalUrl: https://docs.n8n.io/hosting/oem-deployment/managing-workflows
+url: https://docs.n8n.io/deploy/host-n8n/deploy-as-an-oem-integration/manage-workflows
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Managing workflows <a href="#managing-workflows" id="managing-workflows"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6kdIvlPPl0XWVn5z8UJh/" %}
+# 管理工作流 <a href="#managing-workflows" id="managing-workflows"></a>
 
-When managing an n8n OEM deployment spanning across teams or organizations, you will likely need to run the same (or similar) workflows for multiple users. There are two available options for doing so:
+{% include "../../../reusable-content/.gitbook/includes/self-hosting/oem-agreement.md" %}
 
-| Solution | Pros | Cons |
+管理跨团队或组织的 n8n OEM 部署时，通常需要为多个用户运行相同或相似的工作流。有两种方式：
+
+| 方案 | 优点 | 缺点 |
 | -------- | ---- | ---- |
-| Create a workflow for each user | No limitation on how workflow starts (can use any trigger) | Requires managing multiple workflows. |
-| Create a single workflow, and pass it user credentials when executing | Simplified workflow management (only need to change one workflow). | To run the workflow, your product must call it |
+| 为每个用户创建一个工作流 | 不限制工作流启动方式，可使用任意触发器 | 需要管理多个工作流。 |
+| 创建单个工作流，执行时传入用户凭据 | 简化工作流管理，只需修改一个工作流 | 必须由你的产品调用，才能运行工作流。 |
 
 
 
 {% hint style="warning" %}
-The APIs referenced in this document are subject to change at any time. Be sure to check for continued functionality with each version upgrade.
+本文引用的 API 可能随时更改。每次升级版本时，都应检查其功能是否仍然正常。
 {% endhint %}
 
-## Workflow per user <a href="#workflow-per-user" id="workflow-per-user"></a>
+## 每个用户一个工作流 <a href="#workflow-per-user" id="workflow-per-user"></a>
 
-There are three general steps to follow:
+一般分为三个步骤：
 
-* Obtain the credentials for each user, and any additional parameters that may be required based on the workflow.
-* Create the [n8n credentials](#user-content-fn-1)[^1] for this user.
-* Create the workflow.
+* 获取每个用户的凭据，以及工作流可能需要的其他参数。
+* 为该用户创建 [n8n 凭据](#user-content-fn-1)[^1]。
+* 创建工作流。
 
-### 1. Obtain user credentials <a href="#1-obtain-user-credentials" id="1-obtain-user-credentials"></a>
+### 1. 获取用户凭据 <a href="#1-obtain-user-credentials" id="1-obtain-user-credentials"></a>
 
-Here you need to capture all credentials for any node/service this user must authenticate with, along with any additional parameters required for the particular workflow. The credentials and any parameters needed will depend on your workflow and what you are trying to do.
+需要收集该用户在所有需身份验证的节点或服务上使用的凭据，以及特定工作流要求的其他参数。具体凭据和参数取决于工作流及要完成的任务。
 
-### 2. Create user credentials <a href="#2-create-user-credentials" id="2-create-user-credentials"></a>
+### 2. 创建用户凭据 <a href="#2-create-user-credentials" id="2-create-user-credentials"></a>
 
-After all relevant credential details have been obtained, you can proceed to create the relevant service credentials in n8n. This can be done using the Editor UI or API call.
+获取所有相关凭据详情后，可以在 n8n 中创建对应服务凭据，通过编辑器界面或 API 调用完成。
 
 
-#### Using the Editor UI <a href="#using-the-editor-ui" id="using-the-editor-ui"></a>
+#### 使用编辑器界面 <a href="#using-the-editor-ui" id="using-the-editor-ui"></a>
 
-1. From the menu select **Credentials** > **New**.
-1. Use the drop-down to select the **Credential type** to create, for example *Airtable*.
-    ![Create New Credentials drop-down](../../.gitbook/assets/create_new_credentials.png)
-1. In the **Create New Credentials** modal, enter the corresponding credentials details for the user, and select the nodes that will have access to these credentials.
-    ![Create New Credentials modal](../../.gitbook/assets/create_new_credentials2.png)
-1. Click **Create** to finish and save.
+1. 从菜单选择 **Credentials**（凭据）> **New**（新建）。
+1. 使用下拉菜单选择要创建的 **Credential type**（凭据类型），例如 *Airtable*。
+    ![创建新凭据的下拉菜单](../../.gitbook/assets/create_new_credentials.png)
+1. 在 **Create New Credentials**（创建新凭据）弹窗中，输入该用户的对应凭据详情，并选择可以访问这些凭据的节点。
+    ![创建新凭据弹窗](../../.gitbook/assets/create_new_credentials2.png)
+1. 点击 **Create**（创建）完成并保存。
 
-#### Using the API <a href="#using-the-api" id="using-the-api"></a>
+#### 使用 API <a href="#using-the-api" id="using-the-api"></a>
 
-The frontend API used by the Editor UI can also be called to achieve the same result. The API endpoint is in the format: `https://<n8n-domain>/rest/credentials`.
+也可以调用编辑器界面所用的前端 API，实现相同结果。API 端点格式为：`https://<n8n-domain>/rest/credentials`。
 
-For example, to create the credentials in the Editor UI example above, the request would be:
+例如，要创建上面编辑器界面示例中的凭据，请发送以下请求：
 ```
 POST https://<n8n-domain>/rest/credentials
 ```
 
-With the request body:
+请求体如下：
 ```json
 {
    "name":"MyAirtable",
@@ -82,7 +81,7 @@ With the request body:
 }
 ```
 
-The response will contain the ID of the new credentials, which you will use when creating the workflow for this user:
+响应包含新凭据的 ID，之后为该用户创建工作流时会用到：
 ```json
 {
    "data":{
@@ -104,31 +103,31 @@ The response will contain the ID of the new credentials, which you will use when
 }
 ```
 
-### 3. Create the workflow <a href="#3-create-the-workflow" id="3-create-the-workflow"></a>
+### 3. 创建工作流 <a href="#3-create-the-workflow" id="3-create-the-workflow"></a>
 
-Best practice is to have a “base” workflow that you then duplicate and customize for each new user with their credentials (and any other details).
+最佳实践是维护一个“基础”工作流，再为每个新用户复制，并使用其凭据和其他详情进行定制。
 
-You can duplicate and customize your template workflow using either the Editor UI or API call.
+可以通过编辑器界面或 API 调用复制和定制模板工作流。
 
-#### Using the Editor UI <a href="#using-the-editor-ui" id="using-the-editor-ui"></a>
+#### 使用编辑器界面 <a href="#using-the-editor-ui" id="using-the-editor-ui"></a>
 
-1. From the menu select **Workflows** > **Open** to open the template workflow to be duplicated.
+1. 从菜单选择 **Workflows**（工作流）> **Open**（打开），打开要复制的模板工作流。
 
-1. Select **Workflows** > **Duplicate**, then enter a name for this new workflow and click **Save**.
-    ![Duplicate workflow](../../.gitbook/assets/duplicate_workflow.png)
+1. 选择 **Workflows**（工作流）> **Duplicate**（复制），输入新工作流名称，然后点击 **Save**（保存）。
+    ![复制工作流](../../.gitbook/assets/duplicate_workflow.png)
 
-1. Update all relevant nodes to use the credentials for this user (created above).
+1. 更新所有相关节点，使用上文为此用户创建的凭据。
 
-1. **Save** this workflow and publish it by clicking **Publish** in the top-right corner.
+1. **Save**（保存）工作流，并点击右上角 **Publish**（发布）将其发布。
 
-#### Using the API <a href="#using-the-api" id="using-the-api"></a>
+#### 使用 API <a href="#using-the-api" id="using-the-api"></a>
 
-1. Fetch the JSON of the template workflow using the endpoint: `https://<n8n-domain>/rest/workflows/<workflow_id>`
+1. 使用以下端点获取模板工作流的 JSON：`https://<n8n-domain>/rest/workflows/<workflow_id>`
 ``` 
 GET https://<n8n-domain>/rest/workflows/1012
 ```
 
-The response will contain the JSON data of the selected workflow:
+响应包含所选工作流的 JSON 数据：
 ```json
 {
   "data": {
@@ -360,21 +359,21 @@ The response will contain the JSON data of the selected workflow:
 }
 ```
 
-1. Save the returned JSON data and update any relevant credentials and fields for the new user.
+1. 保存返回的 JSON 数据，并为新用户更新相关凭据和字段。
 
-1. Create a new workflow using the updated JSON as the request body at endpoint: `https://<n8n-domain>/rest/workflows`
+1. 将更新后的 JSON 作为请求体，通过以下端点创建新工作流：`https://<n8n-domain>/rest/workflows`
 ``` 
 POST https://<n8n-domain>/rest/workflows/
 ```
 
-The response will contain the ID of the new workflow, which you will use in the next step.
+响应包含新工作流的 ID，下一步会用到。
 
-1. Lastly, publish the new workflow:
+1. 最后，发布新工作流：
 ```
 PATCH https://<n8n-domain>/rest/workflows/1012
 ```
 
-Passing the additional value `active` in your JSON payload:
+在 JSON 请求体中传入额外值 `active`：
 ```json
 // ...
 "active":true,
@@ -383,32 +382,33 @@ Passing the additional value `active` in your JSON payload:
 "tags": []
 ```
 
-## Single workflow <a href="#single-workflow" id="single-workflow"></a>
+## 单个工作流 <a href="#single-workflow" id="single-workflow"></a>
 
-There are four steps to follow to implement this method:
+实现此方式分为四个步骤：
 
-* Obtain the credentials for each user, and any additional parameters that may be required based on the workflow. See [Obtain user credentials](#1-obtain-user-credentials) above.
-* Create the n8n credentials for this user. See [Create user credentials](#2-create-user-credentials) above.
-* Create the workflow.
-* Call the workflow as needed.
+* 获取各用户的凭据，以及工作流可能需要的其他参数。参阅上文[获取用户凭据](#1-obtain-user-credentials)。
+* 为该用户创建 n8n 凭据。参阅上文[创建用户凭据](#2-create-user-credentials)。
+* 创建工作流。
+* 按需调用工作流。
 
-### Create the workflow <a href="#create-the-workflow" id="create-the-workflow"></a>
+### 创建工作流 <a href="#create-the-workflow" id="create-the-workflow"></a>
 
-The details and scope of this workflow will vary greatly according to the individual use case, however there are a few design implementations to keep in mind:
+工作流的具体内容和范围会因使用场景而有很大差异，但有几个设计要点需要注意：
 
-* This workflow must be triggered by a [Webhook](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.webhook) node.
-* The incoming webhook call must contain the user’s credentials and any other workflow parameters required.
-* Each node where the user’s credentials are needed should use an [expression](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/expressions-versus-data-nodes) so that the node’s credential field reads the credential provided in the webhook call.
-* Save and publish the workflow, ensuring the production URL is selected for the Webhook node. Refer to [webhook node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.webhook) for more information.
+* 此工作流必须由 [Webhook](../../../integrations/builtin/core-nodes/n8n-nodes-base.webhook/README.md) 节点触发。
+* 入站 webhook 调用必须包含用户凭据，以及所需的其他工作流参数。
+* 每个需要用户凭据的节点都应使用[表达式](../../../build/work-with-data/expressions-versus-data-nodes.md)，让节点的凭据字段读取 webhook 调用提供的凭据。
+* 保存并发布工作流，确保 Webhook 节点选择生产 URL。更多信息请参阅 [Webhook 节点](../../../integrations/builtin/core-nodes/n8n-nodes-base.webhook/README.md)。
 
-### Call the workflow <a href="#call-the-workflow" id="call-the-workflow"></a>
+### 调用工作流 <a href="#call-the-workflow" id="call-the-workflow"></a>
 
-For each new user, or for any existing user as may be needed, call the webhook defined as the workflow trigger and provide the necessary credentials (and any other workflow parameters).
+对于每个新用户，或按需为现有用户，调用作为工作流触发器的 webhook，并提供必要凭据及其他工作流参数。
 
-[^1]: In n8n, credentials store authentication information to connect with specific apps and services. After creating credentials with your authentication information (username and password, API key, OAuth secrets, etc.), you can use the associated app node to interact with the service.
+<a id="user-content-fn-1"></a>
+[^1]: 在 n8n 中，凭据保存连接特定应用和服务所需的身份验证信息。使用用户名和密码、API 密钥、OAuth 密钥等信息创建凭据后，就可以通过相应应用节点与服务交互。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Deploy as an OEM integration](./)
-* [Prerequisites](prerequisites.md)
-* [Set up token exchange](set-up-token-exchange.md)
+* [作为 OEM 集成部署](./)
+* [前提条件](prerequisites.md)
+* [设置令牌交换](set-up-token-exchange.md)

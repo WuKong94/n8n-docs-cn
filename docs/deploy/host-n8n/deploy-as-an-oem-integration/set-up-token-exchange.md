@@ -1,59 +1,62 @@
 ---
-title: Token exchange for embedding partners
-description: Use OAuth 2.0 Token Exchange to authenticate users and act on their behalf inside an embedded n8n instance, through iframe SSO and delegated API access.
+title: 嵌入合作伙伴的令牌交换
+description: 通过 OAuth 2.0 Token Exchange，在嵌入式 n8n 实例中验证用户并代表用户操作，支持 iframe SSO 和委托
+  API 访问。
 contentType: howto
 layout:
   description:
     visible: false
 status: preview
 tags:
-  - tag: preview
-    primary: true
+- tag: preview
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Token exchange for embedding partners
+
+# 嵌入合作伙伴的令牌交换 <a id="token-exchange-for-embedding-partners"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Token exchange is available on:
+令牌交换可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 
-Enabled with the `N8N_ENV_FEAT_TOKEN_EXCHANGE` environment variable set to `true`. Self-hosted instances can set it directly. On n8n Cloud, contact n8n support to request it.
+将 `N8N_ENV_FEAT_TOKEN_EXCHANGE` 环境变量设为 `true` 即可启用。自托管实例可直接设置，n8n Cloud 用户请联系 n8n 支持团队申请启用。
 
-Intended for embedding partners who run an external identity provider (IdP) or backend that mints signed JWTs.
+面向运行外部身份提供商（IdP），或能签发已签名 JWT 的后端的嵌入合作伙伴。
 {% endhint %}
 
 {% hint style="info" %}
-**Preview status**
+**预览状态**
 
-Token exchange is a Preview feature behind an environment flag. The environment variables, endpoint paths, and JWT claim contract can change before the feature reaches general availability. Pin your n8n version and retest your integration after each upgrade.
+令牌交换是通过环境变量开关控制的预览功能。正式发布前，环境变量、端点路径和 JWT 声明约定都可能更改。请固定 n8n 版本，并在每次升级后重新测试集成。
 {% endhint %}
 
-OAuth 2.0 Token Exchange ([RFC 8693](https://datatracker.ietf.org/doc/html/rfc8693)) lets embedding partners authenticate users and act on their behalf within an embedded n8n instance. Token exchange supports two use cases:
+OAuth 2.0 Token Exchange（[RFC 8693](https://datatracker.ietf.org/doc/html/rfc8693)）允许嵌入合作伙伴在嵌入式 n8n 实例中验证用户，并代表用户操作。令牌交换支持两个场景：
 
-* **Iframe SSO**: Exchange an external JWT for an n8n session cookie, so users log in seamlessly when you embed n8n in an iframe.
-* **Delegated API access**: Exchange an external JWT for an n8n access token to call n8n APIs on behalf of a user, for example to trigger workflows or manage credentials.
+* **Iframe SSO**：将外部 JWT 交换为 n8n 会话 Cookie，让用户在 iframe 嵌入的 n8n 中无缝登录。
+* **委托 API 访问**：将外部 JWT 交换为 n8n 访问令牌，代表用户调用 n8n API，例如触发工作流或管理凭据。
 
-Both flows start the same way. Your backend mints a short-lived JWT signed with your private key. n8n verifies it using the registered public key, resolves the user, and returns either a session cookie or an access token.
+两种流程的起点相同：后端使用私钥签发短期 JWT，n8n 用已注册公钥验证它，解析用户，并返回会话 Cookie 或访问令牌。
 
-## Before you begin
+## 开始之前 <a id="before-you-begin"></a>
 
-You need:
+你需要：
 
-* An Enterprise license with the token exchange feature enabled.
-* The preview feature flag set on your instance: `N8N_ENV_FEAT_TOKEN_EXCHANGE=true`.
-* An RSA or EC key pair, or a JWKS endpoint that your IdP already publishes. See [Generate a key pair](#generate-a-key-pair).
-* An n8n instance served over HTTPS. Browsers reject the `SameSite=None; Secure` session cookie over plain HTTP, so the iframe SSO flow silently fails without it. If you run n8n behind a TLS-terminating proxy, make sure the proxy sets the `X-Forwarded-Proto` header.
+* 已启用令牌交换功能的 Enterprise 许可证。
+* 在实例上设置预览功能开关：`N8N_ENV_FEAT_TOKEN_EXCHANGE=true`。
+* RSA 或 EC 密钥对，或 IdP 已发布的 JWKS 端点。参阅[生成密钥对](#generate-a-key-pair)。
+* 通过 HTTPS 提供服务的 n8n 实例。浏览器会拒绝通过普通 HTTP 设置的 `SameSite=None; Secure` 会话 Cookie，缺少 HTTPS 时，iframe SSO 流程会无提示失败。如果 n8n 位于终止 TLS 的代理之后，请确保代理设置 `X-Forwarded-Proto` 标头。
 
-## Generate a key pair
+## 生成密钥对 <a id="generate-a-key-pair"></a>
 
-You need an asymmetric key pair. Your backend signs JWTs with the **private key**, and n8n verifies them with the **public key**.
+需要非对称密钥对。后端使用**私钥**签名 JWT，n8n 使用**公钥**验证。
 
 {% tabs %}
-{% tab title="RSA (RS256)" %}
+{% tab title="RSA（RS256）" %}
 ```bash
 # Generate a 2048-bit RSA private key
 openssl genrsa -out private.pem 2048
@@ -63,7 +66,7 @@ openssl rsa -in private.pem -pubout -out public.pem
 ```
 {% endtab %}
 
-{% tab title="EC (ES256)" %}
+{% tab title="EC（ES256）" %}
 ```bash
 # Generate an EC private key using P-256
 openssl ecparam -name prime256v1 -genkey -noout -out private.pem
@@ -74,13 +77,13 @@ openssl ec -in private.pem -pubout -out public.pem
 {% endtab %}
 {% endtabs %}
 
-Keep `private.pem` secret in your backend. You register the contents of `public.pem` in n8n's trusted keys configuration.
+在后端妥善保密 `private.pem`，将 `public.pem` 的内容注册到 n8n 的可信密钥配置中。
 
-If your IdP already publishes a JWKS endpoint, as most OAuth 2.0 and OIDC providers do, you can skip key generation and point n8n at the JWKS URL instead. See [JWKS key source](#jwks-key-source).
+如果 IdP 已发布 JWKS 端点，大多数 OAuth 2.0 和 OIDC 提供商都是如此，就可以跳过密钥生成，直接让 n8n 指向 JWKS URL。参阅 [JWKS 密钥源](#jwks-key-source)。
 
-## Environment variables
+## 环境变量 <a id="environment-variables"></a>
 
-### Required for all setups
+### 所有配置都需要的变量 <a id="required-for-all-setups"></a>
 
 ```bash
 # Enable the preview module
@@ -90,9 +93,9 @@ N8N_ENV_FEAT_TOKEN_EXCHANGE=true
 N8N_TOKEN_EXCHANGE_TRUSTED_KEYS='[{ ... }]'
 ```
 
-### Per-flow toggles
+### 各流程独立开关 <a id="per-flow-toggles"></a>
 
-The two flows are independent. Enable only the endpoint you use:
+两种流程相互独立，请仅启用所需端点：
 
 ```bash
 # Iframe SSO: enable the embed login endpoint (POST or GET /rest/auth/embed)
@@ -102,38 +105,38 @@ N8N_EMBED_LOGIN_ENABLED=true
 N8N_TOKEN_EXCHANGE_ENABLED=true
 ```
 
-The embed login endpoint doesn't require `N8N_TOKEN_EXCHANGE_ENABLED`, and the token exchange endpoint doesn't require `N8N_EMBED_LOGIN_ENABLED`.
+嵌入登录端点不需要 `N8N_TOKEN_EXCHANGE_ENABLED`，令牌交换端点也不需要 `N8N_EMBED_LOGIN_ENABLED`。
 
 {% hint style="info" %}
-**File-based configuration**
+**基于文件的配置**
 
-You can add `_FILE` to individual variables to provide their configuration in a separate file. Refer to [Keeping sensitive data in separate files](../configure-n8n/basic-configuration.md#keeping-sensitive-data-in-separate-files) for more details.
+可以为单个变量添加 `_FILE` 后缀，在独立文件中提供配置。更多信息请参阅[将敏感数据保存在独立文件中](../configure-n8n/basic-configuration.md#keeping-sensitive-data-in-separate-files)。
 {% endhint %}
 
-For example, for large or multi-line JSON, store the trusted keys in a file and set `N8N_TOKEN_EXCHANGE_TRUSTED_KEYS_FILE=/path/to/trusted-keys.json`.
+例如，对于较大或多行 JSON，可以将可信密钥保存在文件中，并设置 `N8N_TOKEN_EXCHANGE_TRUSTED_KEYS_FILE=/path/to/trusted-keys.json`。
 
-### Optional tuning settings
+### 可选调优设置 <a id="optional-tuning-settings"></a>
 
-These have sensible defaults. You don't usually need to change them:
+这些选项具有合理默认值，通常无需更改：
 
-| Variable | Default | Description |
+| 变量 | 默认值 | 说明 |
 | :------- | :------ | :---------- |
-| `N8N_TOKEN_EXCHANGE_MAX_TOKEN_TTL` | `900` (15 minutes) | Maximum lifetime in seconds for issued n8n tokens. The actual expiry is the minimum of this value, the subject token's remaining lifetime, and the actor token's remaining lifetime (if present). |
-| `N8N_TOKEN_EXCHANGE_KEY_REFRESH_INTERVAL_SECONDS` | `300` (5 minutes) | Fallback interval for refreshing JWKS keys when the endpoint doesn't provide a cache lifetime. Every instance refreshes keys at startup; in multi-main deployments, only the leader instance refreshes them periodically. |
-| `N8N_TOKEN_EXCHANGE_JTI_CLEANUP_INTERVAL_SECONDS` | `60` (1 minute) | How often n8n cleans up expired replay-protection records. |
-| `N8N_TOKEN_EXCHANGE_JTI_CLEANUP_BATCH_SIZE` | `1000` | Maximum expired records deleted per cleanup run. |
-| `N8N_TOKEN_EXCHANGE_EMBED_LOGIN_PER_MINUTE` | `20` | Rate limit for the embed login endpoint (requests per IP per minute). |
-| `N8N_TOKEN_EXCHANGE_TOKEN_EXCHANGE_PER_MINUTE` | `20` | Rate limit for the token exchange endpoint (requests per IP per minute). |
+| `N8N_TOKEN_EXCHANGE_MAX_TOKEN_TTL` | `900`，15 分钟 | 已签发 n8n 令牌的最长有效期，单位为秒。实际过期时间取此值、主体令牌剩余有效期和操作者令牌剩余有效期（如果提供）三者中的最小值。 |
+| `N8N_TOKEN_EXCHANGE_KEY_REFRESH_INTERVAL_SECONDS` | `300`，5 分钟 | 端点未提供缓存有效期时，刷新 JWKS 密钥的回退间隔。每个实例都在启动时刷新密钥；多主实例部署中，仅领导者实例定期刷新。 |
+| `N8N_TOKEN_EXCHANGE_JTI_CLEANUP_INTERVAL_SECONDS` | `60`，1 分钟 | n8n 清理过期重放保护记录的频率。 |
+| `N8N_TOKEN_EXCHANGE_JTI_CLEANUP_BATCH_SIZE` | `1000` | 每轮清理删除的最大过期记录数。 |
+| `N8N_TOKEN_EXCHANGE_EMBED_LOGIN_PER_MINUTE` | `20` | 嵌入登录端点的速率限制，每个 IP 每分钟请求数。 |
+| `N8N_TOKEN_EXCHANGE_TOKEN_EXCHANGE_PER_MINUTE` | `20` | 令牌交换端点的速率限制，每个 IP 每分钟请求数。 |
 
-## Configure trusted keys
+## 配置可信密钥 <a id="configure-trusted-keys"></a>
 
-The `N8N_TOKEN_EXCHANGE_TRUSTED_KEYS` environment variable accepts a JSON array of trusted key sources. Each entry tells n8n how to verify JWTs from your IdP.
+`N8N_TOKEN_EXCHANGE_TRUSTED_KEYS` 环境变量接受可信密钥源的 JSON 数组。每个条目告知 n8n 如何验证来自 IdP 的 JWT。
 
-There are two source types: `static` (an inline public key) and `jwks` (a remote JWKS endpoint). You can mix both types in the same array.
+有两种源类型：`static`，内联公钥；`jwks`，远程 JWKS 端点。可以在同一数组中混合使用。
 
-### Static key source
+### 静态密钥源 <a id="static-key-source"></a>
 
-Use this when you generated your own key pair and want to embed the public key directly.
+自行生成密钥对，希望直接嵌入公钥时使用。
 
 ```json
 {
@@ -147,19 +150,19 @@ Use this when you generated your own key pair and want to embed the public key d
 }
 ```
 
-| Field | Required | Description |
+| 字段 | 必填 | 说明 |
 | :---- | :------- | :---------- |
-| `type` | Yes | Must be `"static"`. |
-| `kid` | Yes | Key ID. Must match the `kid` header in incoming JWTs. |
-| `algorithms` | Yes | Array of allowed signing algorithms, for example `["RS256"]`. See [Supported algorithms](#supported-algorithms). |
-| `key` | Yes | PEM-encoded public key. Use `\n` for line breaks in JSON. |
-| `issuer` | Yes | Expected `iss` claim in incoming JWTs. |
-| `expectedAudience` | No | If set, the JWT `aud` claim must match this value. If unset, n8n skips audience verification entirely. Always set it in production, using an instance-specific value such as your n8n base URL. |
-| `allowedRoles` | No | If set, only these roles can be assigned through the `role` claim. Only include `global:admin` if you deliberately want the integration to manage admin users. See [Role handling](#role-handling). |
+| `type` | 是 | 必须为 `"static"`。 |
+| `kid` | 是 | 密钥 ID，必须与传入 JWT 中的 `kid` 标头匹配。 |
+| `algorithms` | 是 | 允许的签名算法数组，例如 `["RS256"]`。参阅[支持的算法](#supported-algorithms)。 |
+| `key` | 是 | PEM 编码的公钥。在 JSON 中使用 `\n` 表示换行。 |
+| `issuer` | 是 | 传入 JWT 中预期的 `iss` 声明。 |
+| `expectedAudience` | 否 | 设置后，JWT 的 `aud` 声明必须与此值匹配。未设置时，n8n 完全跳过受众验证。生产环境始终应设置为实例特有的值，例如 n8n 基础 URL。 |
+| `allowedRoles` | 否 | 设置后，只允许通过 `role` 声明分配这些角色。只有明确希望集成管理管理员用户时，才包含 `global:admin`。参阅[角色处理](#role-handling)。 |
 
-### JWKS key source
+### JWKS 密钥源 <a id="jwks-key-source"></a>
 
-Use this when your IdP publishes a JWKS endpoint.
+IdP 发布了 JWKS 端点时使用。
 
 ```json
 {
@@ -171,16 +174,16 @@ Use this when your IdP publishes a JWKS endpoint.
 }
 ```
 
-| Field | Required | Description |
+| 字段 | 必填 | 说明 |
 | :---- | :------- | :---------- |
-| `type` | Yes | Must be `"jwks"`. |
-| `url` | Yes | URL of the JWKS endpoint. |
-| `issuer` | Yes | Expected `iss` claim in incoming JWTs. |
-| `expectedAudience` | No | If set, the JWT `aud` claim must match this value. If unset, n8n skips audience verification entirely. Always set it in production, using an instance-specific value such as your n8n base URL. |
-| `allowedRoles` | No | If set, only these roles can be assigned through the `role` claim. See [Role handling](#role-handling). |
-| `cacheTtlSeconds` | No | Fallback cache duration when the JWKS endpoint doesn't send a `Cache-Control: max-age` header. When the header is present, it takes precedence. Defaults to 3600 seconds. The effective value is bounded between 60 and 86400 seconds. |
+| `type` | 是 | 必须为 `"jwks"`。 |
+| `url` | 是 | JWKS 端点的 URL。 |
+| `issuer` | 是 | 传入 JWT 中预期的 `iss` 声明。 |
+| `expectedAudience` | 否 | 设置后，JWT 的 `aud` 声明必须与此值匹配。未设置时，n8n 完全跳过受众验证。生产环境始终应设置为实例特有的值，例如 n8n 基础 URL。 |
+| `allowedRoles` | 否 | 设置后，只允许通过 `role` 声明分配这些角色。参阅[角色处理](#role-handling)。 |
+| `cacheTtlSeconds` | 否 | JWKS 端点未发送 `Cache-Control: max-age` 标头时的回退缓存时长。存在该标头时，优先采用标头。默认 3600 秒，有效值限制在 60 到 86400 秒之间。 |
 
-### Full example
+### 完整示例 <a id="full-example"></a>
 
 ```json
 [
@@ -202,47 +205,47 @@ Use this when your IdP publishes a JWKS endpoint.
 ]
 ```
 
-### Supported algorithms
+### 支持的算法 <a id="supported-algorithms"></a>
 
-n8n accepts only asymmetric algorithms. It excludes HMAC and `none`.
+n8n 仅接受非对称算法，排除 HMAC 和 `none`。
 
-| Family | Algorithms |
+| 算法族 | 算法 |
 | :----- | :--------- |
-| RSA | `RS256`, `RS384`, `RS512` |
-| RSA-PSS | `PS256`, `PS384`, `PS512` |
-| Elliptic Curve | `ES256`, `ES384`, `ES512` |
-| Edwards Curve | `EdDSA` |
+| RSA | `RS256`、`RS384`、`RS512` |
+| RSA-PSS | `PS256`、`PS384`、`PS512` |
+| 椭圆曲线 | `ES256`、`ES384`、`ES512` |
+| Edwards 曲线 | `EdDSA` |
 
-For static keys, the algorithms in the config must all belong to the same family and match the key type. For JWKS keys, n8n infers the algorithms from the JWK `alg` and `kty` or `crv` fields automatically.
+静态密钥配置中的算法必须属于同一算法族，并与密钥类型匹配。对于 JWKS 密钥，n8n 根据 JWK 的 `alg` 和 `kty` 或 `crv` 字段自动推断算法。
 
-## Required and optional JWT claims
+## 必需和可选 JWT 声明 <a id="required-and-optional-jwt-claims"></a>
 
-### Required claims
+### 必需声明 <a id="required-claims"></a>
 
-Your IdP tokens must include these claims for n8n to accept them:
+IdP 令牌必须包含以下声明，n8n 才会接受：
 
-| Claim | Type | Description |
+| 声明 | 类型 | 说明 |
 | :---- | :--- | :---------- |
-| `sub` | string | Subject identifier. The unique user ID at the IdP. |
-| `iss` | string (URL) | Issuer. Must match the `issuer` in your trusted key config. |
-| `aud` | string or string array | Audience. Must be present. n8n validates the value only when `expectedAudience` is configured on the trusted key source. |
-| `iat` | number | Issued-at timestamp (Unix epoch seconds). |
-| `exp` | number | Expiration timestamp (Unix epoch seconds). |
-| `jti` | string | Unique token ID. n8n accepts each value only once (replay protection). |
+| `sub` | 字符串 | 主体标识符，即 IdP 中的唯一用户 ID。 |
+| `iss` | 字符串，URL | 签发者，必须与可信密钥配置中的 `issuer` 匹配。 |
+| `aud` | 字符串或字符串数组 | 受众，必须存在。只有可信密钥源配置了 `expectedAudience` 时，n8n 才验证其值。 |
+| `iat` | 数字 | 签发时间戳，Unix 纪元秒数。 |
+| `exp` | 数字 | 过期时间戳，Unix 纪元秒数。 |
+| `jti` | 字符串 | 唯一令牌 ID。每个值 n8n 仅接受一次，用于重放保护。 |
 
-### Optional claims
+### 可选声明 <a id="optional-claims"></a>
 
-| Claim | Type | Description |
+| 声明 | 类型 | 说明 |
 | :---- | :--- | :---------- |
-| `email` | string (valid email) | The user's email, used to match existing n8n users. Required for JIT provisioning, the first login of a user n8n doesn't know yet. Always send it unless you're certain every user already exists. |
-| `given_name` | string | First name, synced to the n8n user profile. |
-| `family_name` | string | Last name, synced to the n8n user profile. |
-| `role` | string | n8n role to assign, for example `global:member` or `global:admin`. See [User provisioning](#user-provisioning). |
-| `nbf` | number | Not-before timestamp. |
+| `email` | 字符串，有效邮箱 | 用户邮箱，用于匹配已有 n8n 用户。n8n 尚不认识的用户首次登录时，即时预配（JIT）需要此字段。除非确认所有用户都已存在，否则始终应发送。 |
+| `given_name` | 字符串 | 名，同步到 n8n 用户资料。 |
+| `family_name` | 字符串 | 姓，同步到 n8n 用户资料。 |
+| `role` | 字符串 | 要分配的 n8n 角色，例如 `global:member` 或 `global:admin`。参阅[用户预配](#user-provisioning)。 |
+| `nbf` | 数字 | 不早于此时生效的时间戳。 |
 
-## Iframe SSO flow
+## Iframe SSO 流程 <a id="iframe-sso-flow"></a>
 
-Use this flow when embedding n8n in an iframe. n8n logs the user in transparently with a session cookie.
+在 iframe 中嵌入 n8n 时使用此流程。n8n 通过会话 Cookie 为用户无缝登录。
 
 ```mermaid
 sequenceDiagram
@@ -261,9 +264,9 @@ sequenceDiagram
     Browser->>n8n: 9. User is logged in, loads n8n UI
 ```
 
-### Step 1: Mint a JWT in your backend
+### 第 1 步：在后端签发 JWT <a id="step-1-mint-a-jwt-in-your-backend"></a>
 
-Your backend creates a short-lived JWT signed with your private key.
+后端使用私钥签发短期 JWT。
 
 ```javascript
 const fs = require('fs');
@@ -292,14 +295,14 @@ const token = jwt.sign(
 ```
 
 {% hint style="warning" %}
-**Maximum 60-second lifetime**
+**最长有效期为 60 秒**
 
-For the embed login flow, the JWT lifetime (`exp - iat`) must not exceed 60 seconds. n8n enforces this server-side.
+嵌入登录流程的 JWT 有效期（`exp - iat`）不能超过 60 秒，n8n 会在服务器端强制执行此限制。
 {% endhint %}
 
-### Step 2: Send the token to the embed endpoint
+### 第 2 步：将令牌发送到嵌入端点 <a id="step-2-send-the-token-to-the-embed-endpoint"></a>
 
-Send the token to `POST /rest/auth/embed` as a form submission. Point the iframe `src` at a page on your backend that returns an auto-submitting form:
+以表单提交方式，将令牌发送到 `POST /rest/auth/embed`。将 iframe 的 `src` 指向后端上的一个页面，该页面返回自动提交的表单：
 
 ```html
 <form method="POST" action="https://your-n8n.example.com/rest/auth/embed">
@@ -309,25 +312,25 @@ Send the token to `POST /rest/auth/embed` as a form submission. Point the iframe
 <script>document.forms[0].submit();</script>
 ```
 
-The optional `redirectTo` field accepts only relative paths starting with `/`. n8n falls back to `/` for absolute URLs or anything else.
+可选的 `redirectTo` 字段仅接受以 `/` 开头的相对路径。对于绝对 URL 或其他值，n8n 回退到 `/`。
 
-There's also a `GET /rest/auth/embed?token=<jwt>&redirectTo=/workflow/abc123` variant. Prefer the POST form: with GET, the token appears in server and proxy logs, browser history, and possibly `Referer` headers. If you must use GET, make sure your infrastructure scrubs query strings from logs.
+还提供 `GET /rest/auth/embed?token=<jwt>&redirectTo=/workflow/abc123` 形式。优先使用 POST 表单：使用 GET 时，令牌会出现在服务器和代理日志、浏览器历史中，也可能出现在 `Referer` 标头中。如果必须使用 GET，请确保基础设施从日志中清除查询字符串。
 
-### Step 3: n8n verifies and issues a session
+### 第 3 步：n8n 验证并签发会话 <a id="step-3-n8n-verifies-and-issues-a-session"></a>
 
-n8n verifies the JWT signature, resolves or provisions the user (see [User provisioning](#user-provisioning)), sets a secure session cookie (`SameSite=None; Secure`), and redirects to the specified path.
+n8n 验证 JWT 签名，解析或预配用户，参阅[用户预配](#user-provisioning)，设置安全会话 Cookie（`SameSite=None; Secure`），并重定向到指定路径。
 
-### Third-party cookie restrictions
+### 第三方 Cookie 限制 <a id="third-party-cookie-restrictions"></a>
 
-The session cookie is a third-party cookie when n8n runs on a different registrable domain than your product. Browser privacy features, such as Safari's Intelligent Tracking Prevention and Chrome's third-party cookie restrictions, can block or partition it, which breaks the iframe login. Host n8n on a subdomain of your product's site, for example `automation.your-product.example.com`, to avoid this.
+n8n 与产品位于不同的可注册域名时，会话 Cookie 属于第三方 Cookie。Safari 智能防跟踪和 Chrome 第三方 Cookie 限制等浏览器隐私功能，可能阻止或分区存储此 Cookie，导致 iframe 登录失败。将 n8n 托管在产品站点的子域名上，例如 `automation.your-product.example.com`，可避免此问题。
 
-## Delegated API access flow
+## 委托 API 访问流程 <a id="delegated-api-access-flow"></a>
 
-Use this flow when your backend needs to call n8n APIs on behalf of a user, for example to trigger a workflow or manage credentials programmatically.
+后端需要代表用户调用 n8n API 时使用此流程，例如通过程序触发工作流或管理凭据。
 
-This flow supports an optional **actor token** for delegation. An actor, such as a service account or admin, acts on behalf of a subject, the end user. This enables audit attribution, so n8n records both who performed the action and on whose behalf.
+此流程支持可选的**操作者令牌（actor token）**来实现委托。服务账号或管理员等操作者（actor），代表最终用户这一主体（subject）执行操作，以支持审计归属，记录谁执行了操作，以及代表谁操作。
 
-When you supply an actor token, n8n authorizes API calls with the **actor's** identity and permissions. n8n records the subject for audit attribution only, and the subject doesn't limit what the token can do. This differs from RFC 8693, where the subject usually remains the effective principal. Use an actor whose n8n role grants only the permissions your integration needs.
+提供操作者令牌时，n8n 使用**操作者的**身份和权限授权 API 调用。主体仅用于审计归属，不限制令牌能执行的操作。这与 RFC 8693 不同，后者通常仍以主体作为实际权限主体。请使用仅授予集成所需权限的 n8n 角色作为操作者。
 
 ```mermaid
 sequenceDiagram
@@ -343,9 +346,9 @@ sequenceDiagram
     Backend->>n8n: 7. Call n8n APIs with Bearer token
 ```
 
-### Step 1: Mint JWTs in your backend
+### 第 1 步：在后端签发 JWT <a id="step-1-mint-jwts-in-your-backend"></a>
 
-Create a subject token representing the end user. The 60-second limit from the embed flow doesn't apply here. The issued n8n access token expires after the minimum of the subject token's remaining lifetime, the actor token's remaining lifetime (if present), and `N8N_TOKEN_EXCHANGE_MAX_TOKEN_TTL` (default 15 minutes).
+创建代表最终用户的主体令牌。嵌入流程的 60 秒限制不适用于此处。签发的 n8n 访问令牌有效期取主体令牌剩余有效期、操作者令牌剩余有效期（如果提供）和 `N8N_TOKEN_EXCHANGE_MAX_TOKEN_TTL`，默认 15 分钟，三者中的最小值。
 
 ```javascript
 const now = Math.floor(Date.now() / 1000);
@@ -366,7 +369,7 @@ const subjectToken = jwt.sign(
 );
 ```
 
-For delegation, also mint an actor token representing the service or admin performing the action. The actor's n8n role determines the issued token's permissions, so keep it as low-privileged as possible:
+如需委托，再签发代表执行操作的服务或管理员的操作者令牌。操作者的 n8n 角色决定签发令牌的权限，因此请尽量使用最低权限：
 
 ```javascript
 const actorToken = jwt.sign(
@@ -384,7 +387,7 @@ const actorToken = jwt.sign(
 );
 ```
 
-### Step 2: Exchange for an n8n access token
+### 第 2 步：交换 n8n 访问令牌 <a id="step-2-exchange-for-an-n8n-access-token"></a>
 
 ```bash
 curl -X POST https://your-n8n.example.com/rest/auth/oauth/token \
@@ -394,27 +397,27 @@ curl -X POST https://your-n8n.example.com/rest/auth/oauth/token \
 	-d "actor_token=<actor-jwt>"
 ```
 
-Request fields (`application/x-www-form-urlencoded`):
+请求字段（`application/x-www-form-urlencoded`）：
 
-| Field | Required | Description |
+| 字段 | 必填 | 说明 |
 | :---- | :------- | :---------- |
-| `grant_type` | Yes | Must be `urn:ietf:params:oauth:grant-type:token-exchange`. |
-| `subject_token` | Yes | JWT representing the end user. |
-| `subject_token_type` | No | Token type identifier. n8n accepts and ignores this field. RFC 8693 requires it, so send `urn:ietf:params:oauth:token-type:jwt` if you use a spec-compliant client library. |
-| `actor_token` | No | JWT representing the actor (for delegation). |
-| `actor_token_type` | No | Actor token type identifier. Accepted and ignored, like `subject_token_type`. |
-| `requested_token_type` | No | Requested token type identifier. Accepted and ignored. n8n always issues an access token. |
-| `scope` | No | Requested scope (maximum 1024 characters). Recorded in the issued token and audit events, but not enforced. |
-| `audience` | No | Intended audience (maximum 1024 characters). Accepted and ignored. |
-| `resource` | No | Target resource URIs, space-separated (maximum 2048 characters). Recorded in the issued token and audit events, but not enforced. |
+| `grant_type` | 是 | 必须为 `urn:ietf:params:oauth:grant-type:token-exchange`。 |
+| `subject_token` | 是 | 代表最终用户的 JWT。 |
+| `subject_token_type` | 否 | 令牌类型标识符。n8n 接受但忽略此字段。RFC 8693 要求此字段，因此使用符合规范的客户端库时，请发送 `urn:ietf:params:oauth:token-type:jwt`。 |
+| `actor_token` | 否 | 代表操作者的 JWT，用于委托。 |
+| `actor_token_type` | 否 | 操作者令牌类型标识符，与 `subject_token_type` 一样，接受但忽略。 |
+| `requested_token_type` | 否 | 请求的令牌类型标识符，接受但忽略。n8n 始终签发访问令牌。 |
+| `scope` | 否 | 请求的权限范围，最多 1024 个字符。记录到签发令牌和审计事件中，但不强制限制权限。 |
+| `audience` | 否 | 目标受众，最多 1024 个字符，接受但忽略。 |
+| `resource` | 否 | 目标资源 URI，以空格分隔，最多 2048 个字符。记录到签发令牌和审计事件中，但不强制限制。 |
 
 {% hint style="warning" %}
-**Scopes aren't enforced**
+**不强制执行权限范围限制**
 
-The issued access token carries the acting user's full permissions: the actor's when you send an actor token, otherwise the subject's. n8n records `scope` and `resource` for auditing only and doesn't restrict the token to them. To limit what an integration can do, use a low-privileged actor and the `allowedRoles` setting instead.
+签发的访问令牌包含实际操作用户的完整权限：提供操作者令牌时为操作者权限，否则为主体权限。n8n 仅为审计记录 `scope` 和 `resource`，不会据此限制令牌。要限制集成能执行的操作，请使用低权限操作者和 `allowedRoles` 设置。
 {% endhint %}
 
-Success response (`200 OK`):
+成功响应（`200 OK`）：
 
 ```json
 {
@@ -425,99 +428,99 @@ Success response (`200 OK`):
 }
 ```
 
-### Step 3: Use the access token
+### 第 3 步：使用访问令牌 <a id="step-3-use-the-access-token"></a>
 
-Include the token in subsequent n8n API calls:
+在后续 n8n API 调用中包含令牌：
 
 ```bash
 curl https://your-n8n.example.com/api/v1/workflows \
 	-H "Authorization: Bearer <access-token>"
 ```
 
-The token expires after `expires_in` seconds. Request a new one when it expires. Don't reuse the original external JWT, since each `jti` is single-use.
+令牌在 `expires_in` 秒后过期，过期时请请求新令牌。不要复用原外部 JWT，因为每个 `jti` 只能使用一次。
 
-## User provisioning
+## 用户预配 <a id="user-provisioning"></a>
 
-When you exchange a token, n8n resolves the external identity to an n8n user in this order:
+交换令牌时，n8n 按以下顺序将外部身份解析为 n8n 用户：
 
-1. **Known identity**: n8n looks up the `sub` claim in its identity store. If a previous exchange already linked this `sub` to an n8n user, n8n returns that user.
-2. **Email fallback**: If the `sub` is unknown but the JWT contains an `email` claim, n8n searches for an existing user with that email. If found, n8n links the external identity to that user going forward.
-3. **Just-in-time (JIT) provisioning**: If neither matches, n8n creates a new user automatically. The JWT must include an `email` claim for this to work. n8n creates the new user with password login disabled, so they can only authenticate through token exchange.
+1. **已知身份**：n8n 在身份存储中查找 `sub` 声明。如果先前交换已将此 `sub` 关联到 n8n 用户，就返回该用户。
+2. **邮箱回退**：如果 `sub` 未知，但 JWT 包含 `email` 声明，n8n 会搜索使用该邮箱的已有用户。找到后，今后将外部身份关联到该用户。
+3. **即时预配（JIT）**：两者都未匹配时，n8n 自动创建新用户，JWT 必须包含 `email` 声明。新用户禁用密码登录，仅能通过令牌交换验证身份。
 
-### Role handling
+### 角色处理 <a id="role-handling"></a>
 
-If you include the `role` claim, your IdP becomes the source of truth for that user's global role: n8n applies it on every exchange, overwriting roles assigned in the n8n UI. Omit the claim unless you manage roles in your IdP.
+如果包含 `role` 声明，IdP 就成为该用户全局角色的权威来源：n8n 每次交换都应用此值，覆盖界面中分配的角色。除非在 IdP 中管理角色，否则请省略此声明。
 
-| Scenario | Behavior |
+| 场景 | 行为 |
 | :------- | :------- |
-| New user, no `role` claim | Assigned `global:member`. |
-| New user, `role` claim present | Assigned the claimed role. The exchange fails if the role is unrecognized, is `global:owner`, or isn't in `allowedRoles`. |
-| Existing user, no `role` claim | Role unchanged. |
-| Existing user, valid `role` claim | Role updated if different. The exchange fails if the role isn't in `allowedRoles`. |
-| Existing user, unrecognized or `global:owner` role claim | Claim ignored with a server-side warning. The login proceeds with the role unchanged. |
-| Existing user who is `global:owner` | Role sync skipped entirely. The owner role can't be changed through token exchange. |
+| 新用户，无 `role` 声明 | 分配 `global:member`。 |
+| 新用户，存在 `role` 声明 | 分配声明的角色。角色不受识别、为 `global:owner`，或不在 `allowedRoles` 中时，交换失败。 |
+| 已有用户，无 `role` 声明 | 角色保持不变。 |
+| 已有用户，有效的 `role` 声明 | 与现值不同时更新角色。不在 `allowedRoles` 中时，交换失败。 |
+| 已有用户，角色声明不受识别或为 `global:owner` | 忽略声明，并在服务器端记录警告。继续登录，角色不变。 |
+| 角色为 `global:owner` 的已有用户 | 完全跳过角色同步。无法通过令牌交换更改所有者角色。 |
 
-### Profile sync
+### 用户资料同步 <a id="profile-sync"></a>
 
-n8n syncs the `given_name` and `family_name` claims to the user profile on each login. It applies changes only when the values differ from what's stored, and truncates values longer than 32 characters.
+每次登录时，n8n 将 `given_name` 和 `family_name` 声明同步到用户资料，仅在与存储值不同时应用更改，并截断超过 32 个字符的值。
 
-## Security considerations
+## 安全注意事项 <a id="security-considerations"></a>
 
-### Short-lived tokens
+### 短期令牌 <a id="short-lived-tokens"></a>
 
-* External JWTs for the embed flow must have a lifetime of at most 60 seconds (`exp - iat <= 60`).
-* For the token exchange flow, the issued n8n token expiry is the minimum of the subject token's remaining lifetime, the actor token's remaining lifetime (if present), and `N8N_TOKEN_EXCHANGE_MAX_TOKEN_TTL` (default 900 seconds).
-* In the token exchange flow, n8n rejects the request when the computed expiry of the issued token is fewer than five seconds away.
+* 嵌入流程的外部 JWT 有效期不得超过 60 秒（`exp - iat <= 60`）。
+* 令牌交换流程中，签发的 n8n 令牌有效期取主体令牌剩余有效期、操作者令牌剩余有效期（如果提供）和 `N8N_TOKEN_EXCHANGE_MAX_TOKEN_TTL`，默认 900 秒，三者中的最小值。
+* 令牌交换流程中，如果计算出的签发令牌距离过期不足五秒，n8n 会拒绝请求。
 
-### Replay protection
+### 重放保护 <a id="replay-protection"></a>
 
-Every external JWT must include a unique `jti` (JWT ID) claim. n8n records each `jti` and rejects any token whose `jti` has already been consumed. n8n cleans up expired `jti` records automatically.
+每个外部 JWT 都必须包含唯一的 `jti`（JWT ID）声明。n8n 记录每个 `jti`，并拒绝 `jti` 已被使用的令牌。n8n 会自动清理过期的 `jti` 记录。
 
-### Asymmetric signatures only
+### 仅允许非对称签名 <a id="asymmetric-signatures-only"></a>
 
-n8n accepts only asymmetric algorithms (RSA, EC, EdDSA). It rejects HMAC algorithms such as `HS256` and `none` by design. This ensures that n8n never needs access to your signing secret.
+n8n 仅接受非对称算法，包括 RSA、EC、EdDSA，按设计拒绝 `HS256` 等 HMAC 算法和 `none`，确保 n8n 始终无需访问你的签名密钥。
 
-### Audience restriction
+### 受众限制 <a id="audience-restriction"></a>
 
-Always set `expectedAudience` on every trusted key source. Without it, n8n skips audience verification, and any valid token from the configured issuer can be exchanged, including tokens your IdP mints for other services or other n8n instances. Use an instance-specific value such as your n8n base URL.
+始终为每个可信密钥源设置 `expectedAudience`。未设置时，n8n 跳过受众验证，配置的签发者发出的任何有效令牌都能交换，包括 IdP 为其他服务或其他 n8n 实例签发的令牌。请使用实例特有的值，例如 n8n 基础 URL。
 
-### Role constraints
+### 角色约束 <a id="role-constraints"></a>
 
-The `allowedRoles` field on trusted key sources restricts which roles can be assigned through token exchange. Use it to enforce least privilege, for example to restrict an embedding integration to provisioning only `global:member` users. The OAuth `scope` and `resource` request fields don't restrict permissions. See [Step 2: Exchange for an n8n access token](#step-2-exchange-for-an-n8n-access-token).
+可信密钥源上的 `allowedRoles` 字段限制通过令牌交换可分配的角色。可用它强制最小权限，例如限制嵌入集成仅预配 `global:member` 用户。OAuth 请求中的 `scope` 和 `resource` 字段不会限制权限。参阅[第 2 步：交换 n8n 访问令牌](#step-2-exchange-for-an-n8n-access-token)。
 
-### Restrict framing
+### 限制嵌入来源 <a id="restrict-framing"></a>
 
-The embed session cookie uses `SameSite=None`, so the browser sends it in any third-party iframe context. Restrict which sites can frame your n8n instance: configure your reverse proxy to send a `Content-Security-Policy: frame-ancestors` header listing only your product's origins. Never disable framing protection wholesale.
+嵌入会话 Cookie 使用 `SameSite=None`，因此浏览器会在任何第三方 iframe 上下文中发送它。请限制哪些站点能嵌入 n8n 实例：配置反向代理发送 `Content-Security-Policy: frame-ancestors` 标头，仅列出产品的来源。不要完全关闭防嵌入保护。
 
-### Key rotation and compromise
+### 密钥轮换与泄露 <a id="key-rotation-and-compromise"></a>
 
-To rotate keys without downtime, add a new entry with a new `kid` to `N8N_TOKEN_EXCHANGE_TRUSTED_KEYS`, switch your backend to sign with the new key, then remove the old entry. If a private key is compromised, remove its entry immediately. This stops new exchanges, but already-issued n8n tokens and sessions stay valid until they expire, bounded by the short token lifetimes.
+要无停机轮换密钥，请使用新的 `kid`，向 `N8N_TOKEN_EXCHANGE_TRUSTED_KEYS` 添加新条目，让后端改用新密钥签名，然后移除旧条目。私钥泄露时，应立即移除对应条目。这会阻止新交换，但已签发的 n8n 令牌和会话仍会在各自短期有效期内保持有效，直到过期。
 
-### Audit attribution
+### 审计归属 <a id="audit-attribution"></a>
 
-n8n emits audit events for all token exchange activity:
+n8n 为全部令牌交换活动生成审计事件：
 
-| Event | When |
+| 事件 | 发生时机 |
 | :---- | :--- |
-| `n8n.audit.token-exchange.succeeded` | Successful token exchange. |
-| `n8n.audit.token-exchange.failed` | Failed token exchange (with failure reason). |
-| `n8n.audit.token-exchange.embed-login` | Successful embed login. |
-| `n8n.audit.token-exchange.embed-login-failed` | Failed embed login (with failure reason). |
-| `n8n.audit.token-exchange.user-provisioned` | New user created through JIT provisioning. |
-| `n8n.audit.token-exchange.identity-linked` | Existing user linked to a new external identity. |
-| `n8n.audit.token-exchange.role-updated` | User role changed through token exchange. |
+| `n8n.audit.token-exchange.succeeded` | 令牌交换成功。 |
+| `n8n.audit.token-exchange.failed` | 令牌交换失败，包含失败原因。 |
+| `n8n.audit.token-exchange.embed-login` | 嵌入登录成功。 |
+| `n8n.audit.token-exchange.embed-login-failed` | 嵌入登录失败，包含失败原因。 |
+| `n8n.audit.token-exchange.user-provisioned` | 通过 JIT 预配创建新用户。 |
+| `n8n.audit.token-exchange.identity-linked` | 已有用户关联到新的外部身份。 |
+| `n8n.audit.token-exchange.role-updated` | 用户角色通过令牌交换更改。 |
 
-When you use the actor token flow, n8n records both the subject (on whose behalf) and the actor (who performed the action), enabling full attribution in audit logs.
+使用操作者令牌流程时，n8n 同时记录主体，即代表谁，以及操作者，即谁执行操作，实现完整审计归属。
 
-## Verify your setup
+## 验证配置 <a id="verify-your-setup"></a>
 
-Mint a one-off JWT and exchange it. Save the [Step 1 example](#step-1-mint-a-jwt-in-your-backend) as `mint-token.js`, add `console.log(token);` at the end, and run it:
+签发一次性 JWT 并交换。将[第 1 步示例](#step-1-mint-a-jwt-in-your-backend)保存为 `mint-token.js`，在末尾添加 `console.log(token);`，然后运行：
 
 ```bash
 node mint-token.js
 ```
 
-Then call the token exchange endpoint:
+再调用令牌交换端点：
 
 ```bash
 curl -X POST https://your-n8n.example.com/rest/auth/oauth/token \
@@ -526,30 +529,30 @@ curl -X POST https://your-n8n.example.com/rest/auth/oauth/token \
 	-d "subject_token=<jwt>"
 ```
 
-A `200` response with an `access_token` confirms your keys, claims, and configuration work. For the embed flow, submit a fresh token to `POST /rest/auth/embed` in a browser and expect the n8n UI to load.
+返回 `200` 响应并包含 `access_token`，即可确认密钥、声明和配置有效。对于嵌入流程，请在浏览器中向 `POST /rest/auth/embed` 提交新令牌，预期会加载 n8n 界面。
 
-## Troubleshooting
+## 故障排查 <a id="troubleshooting"></a>
 
-| Symptom | Likely cause |
+| 现象 | 可能原因 |
 | :------ | :----------- |
-| `404` on both endpoints | The preview flag `N8N_ENV_FEAT_TOKEN_EXCHANGE` isn't `true`, or your license doesn't include the token exchange feature. n8n doesn't load the module at all. |
-| `501 - Token exchange is not enabled on this instance` | `N8N_TOKEN_EXCHANGE_ENABLED` isn't `true`. |
-| `501 - Embed login is not enabled on this instance` | `N8N_EMBED_LOGIN_ENABLED` isn't `true`. |
-| `400 - unsupported_grant_type` | The `grant_type` field is missing or not exactly `urn:ietf:params:oauth:grant-type:token-exchange`. |
-| `400 - invalid_grant` with description `Token exchange failed` | Any token verification failure on the token exchange endpoint: invalid signature, unknown `kid`, missing `kid` header, replayed `jti`, expired or near-expiry token, audience mismatch, or disallowed role. n8n returns a generic description by design. Check the n8n server logs for the specific reason. |
-| `400 - invalid_request` with description `Token claims validation failed` | On the token exchange endpoint: the JWT is missing a required claim (`sub`, `iss`, `aud`, `iat`, `exp`, `jti`), or a claim has the wrong type. |
-| `401` from the embed endpoint | The response includes the specific failure message, for example `Token has already been used` (replayed `jti`), `Token lifetime exceeds maximum allowed` (embed tokens must have `exp - iat <= 60` seconds), or `Token header missing kid`. |
-| `500` from the embed endpoint | The JWT is missing a required claim or a claim has the wrong type. |
-| Raw JSON error shows in the iframe | Embed login failures return a JSON response without an error redirect. Check the message against the rows above. |
-| Session cookie isn't set after embed login | The instance isn't served over HTTPS, or a TLS-terminating proxy doesn't forward `X-Forwarded-Proto`. Browsers reject `SameSite=None; Secure` cookies over plain HTTP. Third-party cookie restrictions can also block the cookie, see [Third-party cookie restrictions](#third-party-cookie-restrictions). |
-| User not created on first login | The JWT is missing the `email` claim, which is required for JIT provisioning. |
-| Role not applied | For existing users, n8n ignores unrecognized and `global:owner` role claims with a server-side warning. A valid role that's missing from `allowedRoles` rejects the exchange instead. See [Role handling](#role-handling). |
+| 两个端点都返回 `404` | 预览开关 `N8N_ENV_FEAT_TOKEN_EXCHANGE` 不是 `true`，或许可证不包含令牌交换功能。n8n 完全不加载此模块。 |
+| `501 - Token exchange is not enabled on this instance` | `N8N_TOKEN_EXCHANGE_ENABLED` 不是 `true`。 |
+| `501 - Embed login is not enabled on this instance` | `N8N_EMBED_LOGIN_ENABLED` 不是 `true`。 |
+| `400 - unsupported_grant_type` | 缺少 `grant_type` 字段，或其值不完全等于 `urn:ietf:params:oauth:grant-type:token-exchange`。 |
+| `400 - invalid_grant`，描述为 `Token exchange failed` | 令牌交换端点的任何令牌验证失败：签名无效、未知 `kid`、缺少 `kid` 标头、重放的 `jti`、令牌已过期或即将过期、受众不匹配，或角色不被允许。n8n 按设计返回通用描述，请查看 n8n 服务器日志了解具体原因。 |
+| `400 - invalid_request`，描述为 `Token claims validation failed` | 令牌交换端点上，JWT 缺少必需声明（`sub`、`iss`、`aud`、`iat`、`exp`、`jti`），或声明类型错误。 |
+| 嵌入端点返回 `401` | 响应包含具体失败消息，例如 `Token has already been used`，表示重放 `jti`；`Token lifetime exceeds maximum allowed`，表示嵌入令牌必须满足 `exp - iat <= 60` 秒；或 `Token header missing kid`。 |
+| 嵌入端点返回 `500` | JWT 缺少必需声明，或声明类型错误。 |
+| iframe 显示原始 JSON 错误 | 嵌入登录失败返回 JSON 响应，不进行错误重定向。请对照上方条目检查消息。 |
+| 嵌入登录后未设置会话 Cookie | 实例未通过 HTTPS 提供服务，或终止 TLS 的代理未转发 `X-Forwarded-Proto`。浏览器会拒绝通过普通 HTTP 设置的 `SameSite=None; Secure` Cookie。第三方 Cookie 限制也可能阻止 Cookie，参阅[第三方 Cookie 限制](#third-party-cookie-restrictions)。 |
+| 首次登录时未创建用户 | JWT 缺少 JIT 预配必需的 `email` 声明。 |
+| 角色未应用 | 对于已有用户，n8n 忽略不受识别和 `global:owner` 角色声明，并在服务器端警告。有效角色不在 `allowedRoles` 中时，则拒绝交换。参阅[角色处理](#role-handling)。 |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [OEM deployment overview](./README.md): embed and surface n8n's interface inside your product.
-* [Prerequisites](prerequisites.md)
-* [Manage workflows](manage-workflows.md)
-* [Set up SSO](../configure-n8n/security/configure-sso.md): organization-wide single sign-on through SAML or OIDC.
-* [HTTP Request credentials: Using OAuth2](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials/httprequest#using-oauth2): set up a generic OAuth 2.0 credential.
-* [OAuth 2.0 Token Exchange (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693): the token exchange specification.
+* [OEM 部署概览](./README.md)：在产品内嵌入并展示 n8n 界面。
+* [前提条件](prerequisites.md)
+* [管理工作流](manage-workflows.md)
+* [设置 SSO](../configure-n8n/security/configure-sso.md)：通过 SAML 或 OIDC 实现组织级单点登录。
+* [HTTP Request 凭据：使用 OAuth2](../../../integrations/builtin/credentials/httprequest.md#using-oauth2)：设置通用 OAuth 2.0 凭据。
+* [OAuth 2.0 Token Exchange（RFC 8693）](https://datatracker.ietf.org/doc/html/rfc8693)：令牌交换规范。

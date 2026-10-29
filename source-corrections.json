@@ -133,5 +133,23 @@
     "translated_sentence": "| `N8N_UM_EMAIL_TEMPLATES_WORKFLOW_SHARED` | String | 覆盖通知用户工作流已共享的默认 HTML 模板。提供模板的完整路径。 | 可选 |",
     "evidence": "此行变量名为 WORKFLOW_SHARED，而同页另有 CREDENTIALS_SHARED 行。同一锁定版本的 deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/user-management-and-2fa.md 对该变量明确说明 a workflow was shared。该参考文件来源哈希为 4414d5b2d43cdb29bab64b97f323c1086932ab42619f448f59ad5e6007a5f956。",
     "scope": "依据同页变量名和同版本环境变量参考纠正复制笔误；变量名、默认值、示例代码和上游原文不修改。"
+  },
+  {
+    "id": "cli-active-state-mode-note",
+    "path": "deploy/host-n8n/configure-n8n/use-the-command-line.md",
+    "source_sha256": "57693caa21e38c82f5a812241e0b793d54ba5dd0892b84bbf6ec35132211ed74",
+    "original_sentence": "| --activeState         | Controls the active state of imported workflows. Accepts `false` (default, deactivates all imported workflows) or `fromJson` (uses the `active` field from each workflow's JSON; multi-main mode only). |",
+    "translated_sentence": "译注：原文的 --activeState 表格将 fromJson 标为“仅限多主实例模式”，但同页示例说明及同版本备份恢复指南均写“多主实例和队列模式”。此处保留原文差异，不据此判断实际版本兼容性。",
+    "evidence": "同一锁定版本的本页参数表写 multi-main mode only，而下方 --activeState=fromJson 示例说明写 only supported in multi-main & queue mode；deploy/host-n8n/keep-n8n-running/backup-and-restore.md 的恢复说明也写 queue or multi-main mode。备份指南来源哈希为 9e9088581fcbbf57a529c19a0c0dfbe77ae328d8465ced35be269520b9929b7f。",
+    "scope": "保留表格、正文和命令示例，仅说明同版本文档的模式表述差异；未推断或测试实际版本兼容性。"
+  },
+  {
+    "id": "oem-restart-durable-scheduler-note",
+    "path": "deploy/host-n8n/deploy-as-an-oem-integration/prerequisites.md",
+    "source_sha256": "dbd9fed29161423b186757bd84ecb8d31dfdec0cb2202baadeec0bcc8eadac3b",
+    "original_sentence": "If your instance is down or restarting, missed executions (for example, Cron or Webhook nodes) during this time aren't recoverable. If it's important for you to maintain 100% uptime, you need to build another proxy in front of it which caches the data.",
+    "translated_sentence": "译注：本节原文未区分调度器模式。同一版本的“持久调度器”文档说明，Schedule Trigger 的运行记录可以跨重启保留，宽限期内会延迟触发，超过宽限期则遵循错过执行策略；该调度器自 n8n 2.45.0 起默认启用。这里保留原文，不将其“无法恢复”的描述推广到所有定时执行，也不推断 Webhook 请求会自动重放。",
+    "evidence": "同一锁定版本的 deploy/host-n8n/configure-n8n/durable-scheduler.md 在 Runs survive restarts、Misfire policy 和 Feature availability 中说明：持久队列中的运行记录跨重启保留，宽限期内延迟触发，超期由策略处理，自 2.45.0 默认启用。该文件来源哈希为 33dd01819827c477f15d742671f601a54126c81ad41561c233673fd7fb32744b。",
+    "scope": "保留 OEM 原文的重启描述，添加针对 Schedule Trigger 持久调度的版本内对照说明；不改写代码示例，不扩展为 Webhook 自动重放保证。"
   }
 ]
