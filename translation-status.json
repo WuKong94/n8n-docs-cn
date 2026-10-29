@@ -14153,5 +14153,118 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/credentials/aws.md": {
+    "status": "translated",
+    "source_sha256": "59bab4a18b1fdcbe8098c7b7f4894e22dbaabc993478c984ba169d1bed208dea",
+    "translation_sha256": "0cde064d870462142d205ca5ef9c843c48d21b99ee4725f87ce8ae85c35915b1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/databricks.md": {
+    "status": "translated",
+    "source_sha256": "7b959dd090c751b62bb2677e4c645e214a7e9563877f43488eeba240c9c15f18",
+    "translation_sha256": "11c54481f699e05ba3d48749c348cf187eb388e1fcd9c7bcebce30eb7d793e21",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/discord.md": {
+    "status": "translated",
+    "source_sha256": "029e2a947f3888e17f1c0546574fca6e3e38b01d693be9230ca2bf6ccdc52d79",
+    "translation_sha256": "f39416fbf02191dcb1bc2748aad759743d3f6809a584c42872091e4e278f5c23",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/facebookapp.md": {
+    "status": "translated",
+    "source_sha256": "a79639eda88308f63c1efaa3abff2ea7152ddd2b678030d4f67543909e13a254",
+    "translation_sha256": "d3f3effc34ba1902ef0801e7081b7760a763aadbc40d7b31ea26f7102aa66737",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/hubspot.md": {
+    "status": "translated",
+    "source_sha256": "4e5aa51d6dd86299867a3291e1d2e0938579ce4f7d7e21952a771d0b939ff1c1",
+    "translation_sha256": "26dee73ba0c71ddd489544160d9ae4c844a6f29aba2448723875b4483b250f58",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/linkedin.md": {
+    "status": "translated",
+    "source_sha256": "65ab8d597415ec082bc8d540a68ebf10b46647e9c3f81ea7fcde998246272b5d",
+    "translation_sha256": "cdffe1564c9d6ee4cda36e9e08aafac844b135b1f1ea4231f1bf7a775edadad6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/microsoftentra.md": {
+    "status": "translated",
+    "source_sha256": "0bc59a33541248422bd4b3cb74a027109a4323e4e4d1c17eb27f0d4132a22d14",
+    "translation_sha256": "c49bf68ce697b75213c6ba95dadaf3d2d7b08e14698acd5ec10f54b8ef9c0a5f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/s3.md": {
+    "status": "translated",
+    "source_sha256": "061ab16b61b0eda85b5bbd708b76a4c6459205a6c879422ee147a91b308803e9",
+    "translation_sha256": "d0cc084b7b91363117833001e5fdc928c69ac172a09150b5b70d5a1d9553901b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "s3-digitalocean-force-path-style-condition"
+    ]
+  },
+  "integrations/builtin/credentials/salesforce.md": {
+    "status": "translated",
+    "source_sha256": "325266c43d969b75c8dec2a212366eaa0d917a9ef5107e88ff54be36d6d96431",
+    "translation_sha256": "d2efd824174660749c891a52379c100ebb30c6f05e14e3f3b64bc8096dcb5767",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/slack.md": {
+    "status": "translated",
+    "source_sha256": "00daaa50bf034362082416143607196f102f237f50a21f55284f075a0806d8cb",
+    "translation_sha256": "6d10da4db19b2c63091f8b4f27d3b8a9b0d7b08284d3fa377e1d35047086caea",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

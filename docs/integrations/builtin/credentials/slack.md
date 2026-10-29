@@ -1,57 +1,57 @@
 ---
-title: Slack credentials
-description: >-
-  Documentation for Slack credentials. Use these credentials to authenticate
-  Slack in n8n, a workflow automation platform.
+title: Slack 凭据
+description: Slack 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Slack 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Slack credentials
+nodeTitle: Slack 凭据
 originalFilePath: integrations/builtin/credentials/slack.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/slack'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/slack'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/slack
+url: https://docs.n8n.io/integrations/builtin/credentials/slack
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Slack credentials <a href="#slack-credentials" id="slack-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Slack 凭据 <a href="#slack-credentials" id="slack-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Slack](../app-nodes/n8n-nodes-base.slack/README.md)
-- [Slack Trigger](../trigger-nodes/n8n-nodes-base.slacktrigger.md)
+- [Slack Trigger（触发器）](../trigger-nodes/n8n-nodes-base.slacktrigger.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token:
-    - Required for the [Slack Trigger](../trigger-nodes/n8n-nodes-base.slacktrigger.md) node.
-    - Works with the [Slack](../app-nodes/n8n-nodes-base.slack/README.md) node, but not recommended.
-- OAuth2:
-    - Recommended method for the [Slack](../app-nodes/n8n-nodes-base.slack/README.md) node.
-    - Doesn't work with the [Slack Trigger](../trigger-nodes/n8n-nodes-base.slacktrigger.md) node.
+- API access token（API 访问令牌）：
+    - [Slack Trigger（触发器）](../trigger-nodes/n8n-nodes-base.slacktrigger.md)节点必须使用此方式。
+    - 可用于 [Slack](../app-nodes/n8n-nodes-base.slack/README.md) 节点，但不推荐。
+- OAuth2：
+    - [Slack](../app-nodes/n8n-nodes-base.slack/README.md) 节点推荐使用此方式。
+    - 不适用于 [Slack Trigger（触发器）](../trigger-nodes/n8n-nodes-base.slacktrigger.md)节点。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Slack's API documentation](https://api.slack.com/apis) for more information about the service.
+有关该服务的更多信息，请参阅 [Slack API 文档](https://api.slack.com/apis)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need a [Slack](https://slack.com/) account and:
+配置此凭据需要一个 [Slack](https://slack.com/) 账号，以及：
 
-- An **Access Token**
+- 一个 **Access Token（访问令牌）**
 
-To generate an access token, create a Slack app. n8n recommends creating the app from a manifest, which configures all the scopes in one step:
+生成访问令牌需要创建 Slack 应用。n8n 建议通过清单创建，一步即可配置全部作用域：
 
-### Create the app from a manifest for API access token
+### 为 API 访问令牌通过清单创建应用 <a id="create-the-app-from-a-manifest-for-api-access-token"></a>
 
-1. Open your [Slack API Apps](https://api.slack.com/apps) page.
-2. Select **Create New App > From a manifest**.
-3. Select the **Workspace** where you'll be developing your app, then select **Next**.
-4. Select the **JSON** tab and replace the default manifest with the JSON below. Adjust the [scopes](#scopes) if needed.
-5. Select **Next**.
-6. Review the summary and select **Create**. The app details open.
+1. 打开 [Slack API Apps](https://api.slack.com/apps) 页面。
+2. 选择 **Create New App > From a manifest**（创建新应用 > 从清单创建）。
+3. 选择开发应用所用的 **Workspace**（工作区），再选择 **Next**（下一步）。
+4. 选择 **JSON** 选项卡，用下方 JSON 替换默认清单，并按需调整[作用域](#scopes)。
+5. 选择 **Next**（下一步）。
+6. 查看摘要，选择 **Create**（创建），随后打开应用详情。
 
 ```json
 {
@@ -94,75 +94,75 @@ To generate an access token, create a Slack app. n8n recommends creating the app
 }
 ```
 
-### Create the app from scratch for API access token
+### 为 API 访问令牌从头创建应用 <a id="create-the-app-from-scratch-for-api-access-token"></a>
 
-1. Open your [Slack API Apps](https://api.slack.com/apps) page.
-2. Select **Create New App > From scratch**.
-3. Enter an **App Name**.
-4. Select the **Workspace** where you'll be developing your app.
-5. Select **Create App**. The app details open.
-6. In the left menu under **Features**, select **OAuth & Permissions**.
-7. In the **Scopes** section, select appropriate scopes for your app. Refer to [Scopes](#scopes) for a list of recommended scopes.
+1. 打开 [Slack API Apps](https://api.slack.com/apps) 页面。
+2. 选择 **Create New App > From scratch**（创建新应用 > 从头创建）。
+3. 输入 **App Name**（应用名称）。
+4. 选择开发应用所用的 **Workspace**（工作区）。
+5. 选择 **Create App**（创建应用），随后打开应用详情。
+6. 在左侧菜单的 **Features**（功能）下，选择 **OAuth & Permissions**（OAuth 与权限）。
+7. 在 **Scopes**（作用域）部分，为应用选择适当作用域。建议列表，请参阅[作用域](#scopes)。
 
-Then install the app and copy the token:
+然后安装应用并复制令牌：
 
-1. In the left menu under **Features**, select **OAuth & Permissions**.
-2. In the **OAuth Tokens** section, select **Install to Workspace**. You must be a Slack workspace admin to complete this action.
-3. Select **Allow**.
-4. Copy the **Bot User OAuth Token** and enter it as the **Access Token** in your n8n credential.
-5. If you're using this credential for the [Slack Trigger](../trigger-nodes/n8n-nodes-base.slacktrigger.md), follow the steps in [Slack Trigger configuration](#slack-trigger-configuration) to finish setting up your app.
+1. 在左侧菜单的 **Features**（功能）下，选择 **OAuth & Permissions**（OAuth 与权限）。
+2. 在 **OAuth Tokens**（OAuth 令牌）部分，选择 **Install to Workspace**（安装到工作区）。此操作必须由 Slack 工作区管理员完成。
+3. 选择 **Allow**（允许）。
+4. 复制 **Bot User OAuth Token**（机器人用户 OAuth 令牌），填入 n8n 凭据的 **Access Token**（访问令牌）。
+5. 如果此凭据用于 [Slack Trigger（触发器）](../trigger-nodes/n8n-nodes-base.slacktrigger.md)，请按照 [Slack Trigger 配置](#slack-trigger-configuration)中的步骤完成应用设置。
 
-Refer to the Slack API [Quickstart](https://api.slack.com/quickstart) for more information.
+更多信息，请参阅 Slack API 的[快速入门](https://api.slack.com/quickstart)。
 
-### Slack Trigger configuration <a href="#slack-trigger-configuration" id="slack-trigger-configuration"></a>
+### Slack Trigger 配置 <a href="#slack-trigger-configuration" id="slack-trigger-configuration"></a>
 
-To use your Slack app with the [Slack Trigger](../trigger-nodes/n8n-nodes-base.slacktrigger.md) node:
+将 Slack 应用用于 [Slack Trigger（触发器）](../trigger-nodes/n8n-nodes-base.slacktrigger.md)节点的步骤如下：
 
-1. Go to [Your Apps](https://api.slack.com/apps/) in Slack and select the app you want to use.
-2. Go to **Features** > **Event Subscriptions**.
-3. Turn on the **Enable Events** control.
-4. In n8n, copy the **Webhook URL** and enter it as the **Request URL** in your Slack app.<br>
+1. 在 Slack 中打开 [Your Apps（你的应用）](https://api.slack.com/apps/)，选择要使用的应用。
+2. 进入 **Features**（功能）> **Event Subscriptions**（事件订阅）。
+3. 开启 **Enable Events**（启用事件）控件。
+4. 在 n8n 中复制 **Webhook URL**，填入 Slack 应用的 **Request URL**（请求 URL）。<br>
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Request URL</strong></p><p>Slack only allows one request URL per app. If you want to test your workflow, you'll need to do one of the following:</p><ul><li>Test with your <strong>Test URL</strong> first, then change your Slack app to use the <strong>Production URL</strong> once you've verified everything's working</li><li>Use the <strong>Production URL</strong> with execution logging.</li></ul></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Request URL（请求 URL）</strong></p><p>Slack 每个应用只允许一个请求 URL。测试工作流时，需要选择以下一种方式：</p><ul><li>先使用 <strong>Test URL（测试 URL）</strong>测试，确认全部正常后，再将 Slack 应用改为使用 <strong>Production URL（生产 URL）</strong></li><li>使用 <strong>Production URL（生产 URL）</strong>并启用执行日志。</li></ul></div>
 
-5. Once verified, select the bot events to subscribe to. Use the **Trigger on** field in n8n to filter these requests. 
-    - To use an event not in the list, add it as a bot event and select **Any Event** in the n8n node.
+5. 验证通过后，选择要订阅的机器人事件，使用 n8n 的 **Trigger on**（触发条件）字段过滤这些请求。
+    - 如需使用列表中没有的事件，将其添加为机器人事件，再在 n8n 节点中选择 **Any Event**（任意事件）。
 
-Refer to [Quickstart | Configuring the app for event listening](https://api.slack.com/quickstart#listening) for more information.
+更多信息，请参阅[快速入门 | 配置应用监听事件](https://api.slack.com/quickstart#listening)。
 
 {% hint style="info" %}
-After Slack verifies the **Request URL**, you can also manage the event subscription in your app's manifest: go to **Settings** > **App Manifest** and edit the `settings.event_subscriptions` block.
+Slack 验证 **Request URL**（请求 URL）后，也可在应用清单中管理事件订阅：进入 **Settings**（设置）> **App Manifest**（应用清单），编辑 `settings.event_subscriptions` 块。
 {% endhint %}
 
-n8n recommends enabling request signature verification for your Slack Trigger for additional security:
+n8n 建议为 Slack Trigger 启用请求签名验证，增强安全性：
 
-1. Go to [Your Apps](https://api.slack.com/apps/) in Slack and select the app you want to use.
-2. Go to **Settings** > **Basic Information**.
-3. Copy the value of **Signing Secret**.
-4. In n8n, Paste this value into the **Signature Secret** field for the credential.
+1. 在 Slack 中打开 [Your Apps（你的应用）](https://api.slack.com/apps/)，选择要使用的应用。
+2. 进入 **Settings**（设置）> **Basic Information**（基本信息）。
+3. 复制 **Signing Secret**（签名密钥）的值。
+4. 在 n8n 中，将该值粘贴到凭据的 **Signature Secret**（签名密钥）字段。
 
-The **Signature Secret** field is also required for [Approvals in Slack](../app-nodes/n8n-nodes-base.slack/approvals.md).
+[在 Slack 中进行审批](../app-nodes/n8n-nodes-base.slack/approvals.md)也需要 **Signature Secret**（签名密钥）字段。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're [self-hosting n8n](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n) and need to configure OAuth2 from scratch, you'll need a [Slack](https://slack.com/) account and:
+如果[自托管 n8n](../../../deploy/host-n8n/README.md)且需要从头配置 OAuth2，则需要 [Slack](https://slack.com/) 账户，以及：
 
-- A **Client ID**
-- A **Client Secret**
+- 一个 **Client ID（客户端 ID）**
+- 一个 **Client Secret（客户端密钥）**
 
-To get both, create a Slack app. n8n recommends creating the app from a manifest, which configures the scopes and redirect URL in one step:
+如需获取这两项，请创建 Slack 应用。n8n 建议通过清单创建，一步配置作用域及重定向 URL：
 
-### Create the app from a manifest for OAuth2
+### 为 OAuth2 通过清单创建应用 <a id="create-the-app-from-a-manifest-for-oauth2"></a>
 
-1. In n8n, copy the **OAuth Callback URL** from your Slack credential.
-2. Open your [Slack API Apps](https://api.slack.com/apps) page.
-3. Select **Create New App > From a manifest**.
-4. Select the **Workspace** where you'll be developing your app, then select **Next**.
-5. Select the **JSON** tab and replace the default manifest with the JSON below. Replace `<your-oauth-callback-url>` with the URL you copied from n8n and adjust the [scopes](#scopes) if needed.
-6. Select **Next**.
-7. Review the summary and select **Create**. The app details open.
+1. 在 n8n 中，从 Slack 凭据复制 **OAuth Callback URL**（OAuth 回调 URL）。
+2. 打开 [Slack API Apps](https://api.slack.com/apps) 页面。
+3. 选择 **Create New App > From a manifest**（创建新应用 > 从清单创建）。
+4. 选择开发应用所用的 **Workspace**（工作区），再选择 **Next**（下一步）。
+5. 选择 **JSON** 选项卡，用下方 JSON 替换默认清单。将 `<your-oauth-callback-url>` 替换为从 n8n 复制的 URL，并按需调整[作用域](#scopes)。
+6. 选择 **Next**（下一步）。
+7. 查看摘要，选择 **Create**（创建），随后打开应用详情。
 
 ```json
 {
@@ -222,9 +222,9 @@ To get both, create a Slack app. n8n recommends creating the app from a manifest
 
 <details>
 
-<summary>Manifest with user scopes only</summary>
+<summary>仅包含用户作用域的清单</summary>
 
-Some Slack API endpoints, including Slack's MCP endpoints, only work with user tokens and not bot tokens. If you need a user token, use this manifest instead. It requests all scopes as user scopes:
+部分 Slack API 端点（包括 Slack MCP 端点）仅支持用户令牌，不支持机器人令牌。如需用户令牌，请改用此清单，它将全部作用域作为用户作用域请求：
 
 ```json
 {
@@ -277,50 +277,50 @@ Some Slack API endpoints, including Slack's MCP endpoints, only work with user t
 
 </details>
 
-### Create the app from scratch for OAuth2
+### 为 OAuth2 从头创建应用 <a id="create-the-app-from-scratch-for-oauth2"></a>
 
-1. Open your [Slack API Apps](https://api.slack.com/apps) page.
-2. Select **Create New App > From scratch**.
-3. Enter an **App Name**.
-4. Select the **Workspace** where you'll be developing your app.
-5. Select **Create App**. The app details open.
-6. In the left menu under **Features**, select **OAuth & Permissions**.
-7. In the **Redirect URLs** section, select **Add New Redirect URL**.
-8. Copy the **OAuth Callback URL** from n8n and enter it as the new Redirect URL in Slack.
-9. Select **Add**.
-10. Select **Save URLs**.
-11. In the **Scopes** section, select appropriate scopes for your app. Refer to [Scopes](#scopes) for a list of scopes.
+1. 打开 [Slack API Apps](https://api.slack.com/apps) 页面。
+2. 选择 **Create New App > From scratch**（创建新应用 > 从头创建）。
+3. 输入 **App Name**（应用名称）。
+4. 选择开发应用所用的 **Workspace**（工作区）。
+5. 选择 **Create App**（创建应用），随后打开应用详情。
+6. 在左侧菜单的 **Features**（功能）下，选择 **OAuth & Permissions**（OAuth 与权限）。
+7. 在 **Redirect URLs**（重定向 URL）部分，选择 **Add New Redirect URL**（添加新重定向 URL）。
+8. 从 n8n 复制 **OAuth Callback URL**（OAuth 回调 URL），填入 Slack 的新重定向 URL。
+9. 选择 **Add**（添加）。
+10. 选择 **Save URLs**（保存 URL）。
+11. 在 **Scopes**（作用域）部分，为应用选择适当作用域。作用域列表，请参阅[作用域](#scopes)。
 
-Then finish connecting the app to n8n:
+然后完成应用与 n8n 的连接：
 
-1. In **Settings > Basic Information**, open the **App Credentials** section.
-2. Copy the **Client ID** and **Client Secret**. Paste these into the corresponding fields in n8n.
-3. In the left menu under **Features**, select **OAuth & Permissions**.
-4. In the **OAuth Tokens** section, select **Install to Workspace**. You must be a Slack workspace admin to complete this action.
-5. Select **Allow**.
-6. At this point, you should be able to select the OAuth button in your n8n credential to connect.
+1. 在 **Settings > Basic Information**（设置 > 基本信息）中，打开 **App Credentials**（应用凭据）部分。
+2. 复制 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥），粘贴到 n8n 的对应字段。
+3. 在左侧菜单的 **Features**（功能）下，选择 **OAuth & Permissions**（OAuth 与权限）。
+4. 在 **OAuth Tokens**（OAuth 令牌）部分，选择 **Install to Workspace**（安装到工作区）。此操作必须由 Slack 工作区管理员完成。
+5. 选择 **Allow**（允许）。
+6. 此时应可点击 n8n 凭据中的 OAuth 按钮进行连接。
 
-Refer to the Slack API [Quickstart](https://api.slack.com/quickstart) for more information. Refer to the Slack [Installing with OAuth](https://api.slack.com/authentication/oauth-v2) documentation for more details on the OAuth flow itself.
+更多信息，请参阅 Slack API 的[快速入门](https://api.slack.com/quickstart)；OAuth 流程本身的更多详情，请参阅 Slack 的[通过 OAuth 安装](https://api.slack.com/authentication/oauth-v2)文档。
 
-## Scopes <a href="#scopes" id="scopes"></a>
+## 作用域 <a href="#scopes" id="scopes"></a>
 
-Scopes determine what permissions an app has.
+作用域决定应用具有哪些权限。
 
-* If you want your app to act on behalf of users who authorize the app, add the required scopes under the **User Token Scopes** section.
-* If you're building a bot, add the required scopes under the **Bot Token Scopes** section.
+* 如需应用代表授权用户执行操作，在 **User Token Scopes**（用户令牌作用域）部分添加所需作用域。
+* 构建机器人时，在 **Bot Token Scopes**（机器人令牌作用域）部分添加所需作用域。
 
-Here's the list of scopes the OAuth credential requires, which are a good starting point. The app manifests above already include these scopes:
+以下列出 OAuth 凭据要求的作用域，可作为起点。上方应用清单已包含这些作用域：
 
-| **Scope name**        | **Notes** |
+| **作用域名称** | **说明** |
 |-----------------------| -- |
 | `channels:read`       | |
-| `channels:write`      | Not available as a bot token scope |
+| `channels:write` | 不可用作机器人令牌作用域 |
 | `channels:history`    | |
 | `chat:write`          | |
 | `files:read`          | |
 | `files:write`         | |
 | `groups:read`         | |
-| `groups:write`        | For private-channel management operations |
+| `groups:write` | 用于私密频道管理操作 |
 | `groups:history`      | |
 | `im:read`             | |
 | `im:history`          | |
@@ -328,21 +328,21 @@ Here's the list of scopes the OAuth credential requires, which are a good starti
 | `mpim:history`        | |
 | `reactions:read`      | |
 | `reactions:write`     | |
-| `stars:read`          | Not available as a bot token scope |
-| `stars:write`         | Not available as a bot token scope |
+| `stars:read` | 不可用作机器人令牌作用域 |
+| `stars:write` | 不可用作机器人令牌作用域 |
 | `usergroups:read`     | |
 | `usergroups:write`    | | 
 | `users.profile:read`  | |
-| `users.profile:write` | Not available as a bot token scope |
+| `users.profile:write` | 不可用作机器人令牌作用域 |
 | `users:read`          | |
-| `search:read`         | Deprecated by Slack; retained for node versions <= 2.6 |
-| `search:read.public`  | For public-channel message search |
-| `search:read.private` | Not available as a bot token scope |
-| `search:read.im`      | Not available as a bot token scope |
-| `search:read.mpim`    | Not available as a bot token scope |
+| `search:read` | 已被 Slack 弃用，为节点版本 <= 2.6 保留 |
+| `search:read.public` | 用于公开频道消息搜索 |
+| `search:read.private` | 不可用作机器人令牌作用域 |
+| `search:read.im` | 不可用作机器人令牌作用域 |
+| `search:read.mpim` | 不可用作机器人令牌作用域 |
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-### Token expired <a href="#token-expired" id="token-expired"></a>
+### 令牌过期 <a href="#token-expired" id="token-expired"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/aLQxqepKmNn7Oz3PDTB7/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/slack/token-rotation.md" %}

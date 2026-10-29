@@ -1,290 +1,290 @@
 ---
-title: Databricks credentials
-description: >-
-  Documentation for Databricks credentials. Use these credentials to
-  authenticate Databricks in n8n, a workflow automation platform.
+title: Databricks 凭据
+description: Databricks 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Databricks 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Databricks credentials
+- integration
+- reference
+nodeTitle: Databricks 凭据
 originalFilePath: integrations/builtin/credentials/databricks.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/databricks'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/databricks'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/databricks
+url: https://docs.n8n.io/integrations/builtin/credentials/databricks
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Databricks credentials <a href="#databricks-credentials" id="databricks-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Databricks 凭据 <a href="#databricks-credentials" id="databricks-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Databricks](../app-nodes/n8n-nodes-base.databricks.md)
-- [Databricks AI Agent](../cluster-nodes/root-nodes/n8n-nodes-langchain.databricksaiagent.md) (OAuth2 only, used for the MLflow trace export)
-- [Databricks Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md) (OAuth2 only)
-- [Databricks Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md) (OAuth2 with user login only)
-- [Databricks Lakebase Chat Memory](../cluster-nodes/sub-nodes/n8n-nodes-langchain.memorylakebasechat.md) (OAuth2 only)
-- [Databricks Trigger](../trigger-nodes/n8n-nodes-base.databrickstrigger.md)
-- [Databricks Vector Store](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md) (OAuth2 only)
-- [Embeddings Databricks](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsdatabricks.md) (OAuth2 only)
+- [Databricks AI Agent](../cluster-nodes/root-nodes/n8n-nodes-langchain.databricksaiagent.md)（仅支持 OAuth2，用于导出 MLflow 追踪记录）
+- [Databricks Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatdatabricks.md)（仅支持 OAuth2）
+- [Databricks Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md)（仅支持通过用户登录的 OAuth2）
+- [Databricks Lakebase Chat Memory](../cluster-nodes/sub-nodes/n8n-nodes-langchain.memorylakebasechat.md)（仅支持 OAuth2）
+- [Databricks Trigger（触发器）](../trigger-nodes/n8n-nodes-base.databrickstrigger.md)
+- [Databricks Vector Store](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md)（仅支持 OAuth2）
+- [Embeddings Databricks](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsdatabricks.md)（仅支持 OAuth2）
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- A [Databricks](https://www.databricks.com/) workspace on AWS, Azure, or GCP.
-- For OAuth2 with user login: a Databricks account admin who can create a custom OAuth app connection in the account console.
-- For OAuth2 with a service principal: a Databricks admin who can create a service principal and generate an OAuth secret for it.
-- The [privileges](#required-databricks-privileges) the authenticating identity needs for the operations you want to run.
+- 位于 AWS、Azure 或 GCP 上的 [Databricks](https://www.databricks.com/) 工作区。
+- 使用用户登录的 OAuth2：需要一名能够在账户控制台创建自定义 OAuth 应用连接的 Databricks 账户管理员。
+- 使用服务主体的 OAuth2：需要一名能够创建服务主体并为其生成 OAuth 密钥的 Databricks 管理员。
+- 用于身份验证的身份执行所需操作时必需的[权限](#required-databricks-privileges)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- [Personal access token](#using-a-personal-access-token): a token tied to one Databricks user. Supported by the Databricks node only, and not by its **Lakebase** resource.
-- [OAuth2 with user login](#using-oauth2-with-user-login): the credential is connected by signing in to a Databricks account in the browser. Operations run with that user's permissions and appear in Databricks audit logs under their identity. Each user can create their own credential to run workflows under their own account. Databricks recommends this for attended, interactive use.
-- [OAuth2 with a service principal](#using-oauth2-service-principal): n8n authenticates as a service principal with a client ID and secret, without user interaction. Databricks recommends this for unattended scenarios, such as fully automated production workflows.
+- [个人访问令牌](#using-a-personal-access-token)：绑定到一个 Databricks 用户的令牌。仅 Databricks 节点支持，且该节点的 **Lakebase** 资源不支持。
+- [通过用户登录的 OAuth2](#using-oauth2-with-user-login)：在浏览器中登录 Databricks 账户来连接凭据。操作使用该用户的权限执行，并以其身份记录到 Databricks 审计日志。每位用户都可创建自己的凭据，让工作流以自己的账户运行。Databricks 建议将此方式用于有人参与的交互场景。
+- [使用服务主体的 OAuth2](#using-oauth2-service-principal)：n8n 使用客户端 ID 和密钥以服务主体身份进行身份验证，无需用户交互。Databricks 建议将此方式用于无人值守场景，例如完全自动化的生产工作流。
 
-## Required Databricks privileges
+## 所需的 Databricks 权限 <a id="required-databricks-privileges"></a>
 
-The identity the credential authenticates as (the signed-in user or the service principal) needs these privileges in Databricks, depending on the operations you run:
+凭据用于身份验证的身份（已登录用户或服务主体）需要在 Databricks 中拥有以下权限，具体取决于执行的操作：
 
-| Operations | Required privileges |
+| 操作 | 所需权限 |
 |------------|--------------------|
-| All | The **Workspace access** entitlement |
-| Databricks SQL (Execute Query) | The **Databricks SQL access** entitlement and **CAN USE** on the SQL warehouse |
-| Job (Get, Get Run, Get Run Output) | **CAN VIEW** on the job |
-| Job (Run) | **CAN MANAGE RUN** on the job |
-| Lakebase | A Postgres role on the project's branch, granted to `authenticator`, with the table and function grants the operation needs. Refer to [Set up Lakebase for the Data API](#set-up-lakebase-for-the-data-api) |
-| Reading or writing Unity Catalog data | **USE CATALOG** on the catalog, **USE SCHEMA** on the schema, and **SELECT** on the tables or views you query. Functions and models also need **EXECUTE** |
-| Genie Agent (Databricks node) | **CAN RUN** on the Genie Agent and **CAN USE** on its SQL warehouse |
-| Genie One MCP server | **CAN RUN** on each Genie Agent that Genie One should answer from, and **CAN USE** on at least one SQL warehouse |
-| Model Serving (Query Endpoint) | **CAN QUERY** on the serving endpoint |
-| Unity AI Gateway model services (Databricks Chat Model, Embeddings Databricks) | **USE CATALOG** and **USE SCHEMA** on the catalog and schema that hold the model service, and **EXECUTE** on the model service. Databricks grants **EXECUTE** on the `system.ai` services to all users by default |
-| Searching a vector search index (Databricks Vector Store: Get Many, Retrieve Documents, Retrieve as Tool) | **USE CATALOG** on the catalog, **USE SCHEMA** on the schema, and **SELECT** on the index. **SELECT** on the source table of a Delta Sync index that syncs all of its columns lets the node list those columns. A self-managed index also needs the model service privileges above for the Embeddings Databricks node. **Metadata Filter** needs read access on the Vector Search endpoint |
-| Inserting documents (Databricks Vector Store: Insert Documents) | The privileges for searching, plus **MODIFY** on the index. Only Direct Access indexes accept inserts |
-| Exporting traces to MLflow (Databricks AI Agent) | **CAN EDIT** on the experiment. The default experiment the node creates under `/Shared` needs no extra grant, because all workspace users have **CAN MANAGE** on the `/Shared` folder by default |
-| Watching a job or pipeline (Databricks Trigger) | **CAN VIEW** on the job or pipeline |
+| 全部 | **Workspace access**（工作区访问）授权 |
+| Databricks SQL（Execute Query，执行查询） | **Databricks SQL access**（Databricks SQL 访问）授权，以及 SQL 仓库的 **CAN USE** 权限 |
+| Job（作业）：Get、Get Run、Get Run Output（获取作业、获取运行、获取运行输出） | 作业的 **CAN VIEW** 权限 |
+| Job（作业）：Run（运行） | 作业的 **CAN MANAGE RUN** 权限 |
+| Lakebase | 在项目分支上创建的 Postgres 角色，并将其授予 `authenticator`；该角色还需拥有操作所需的表和函数权限。请参阅[为 Data API 设置 Lakebase](#set-up-lakebase-for-the-data-api) |
+| 读取或写入 Unity Catalog 数据 | 目录的 **USE CATALOG** 权限、架构的 **USE SCHEMA** 权限，以及所查询表或视图的 **SELECT** 权限。函数和模型还需要 **EXECUTE** 权限 |
+| Genie Agent（Databricks 节点） | Genie Agent 的 **CAN RUN** 权限及其 SQL 仓库的 **CAN USE** 权限 |
+| Genie One MCP server | 对 Genie One 应据以回答问题的每个 Genie Agent 拥有 **CAN RUN** 权限，并对至少一个 SQL 仓库拥有 **CAN USE** 权限 |
+| Model Serving（模型服务）：Query Endpoint（查询端点） | 服务端点的 **CAN QUERY** 权限 |
+| Unity AI Gateway 模型服务（Databricks Chat Model、Embeddings Databricks） | 对模型服务所在的目录和架构拥有 **USE CATALOG** 和 **USE SCHEMA** 权限，并对模型服务拥有 **EXECUTE** 权限。Databricks 默认向所有用户授予 `system.ai` 服务的 **EXECUTE** 权限 |
+| 搜索向量搜索索引（Databricks Vector Store：Get Many、Retrieve Documents、Retrieve as Tool，即获取多项、检索文档、作为工具检索） | 目录的 **USE CATALOG** 权限、架构的 **USE SCHEMA** 权限及索引的 **SELECT** 权限。对于同步全部列的 Delta Sync 索引，对源表拥有 **SELECT** 权限后，节点才能列出这些列。自管理索引还需要为 Embeddings Databricks 节点授予上文所述的模型服务权限。**Metadata Filter**（元数据筛选）需要对 Vector Search 端点的读取权限 |
+| 插入文档（Databricks Vector Store：Insert Documents） | 搜索所需权限，以及索引的 **MODIFY** 权限。仅 Direct Access 索引接受插入 |
+| 将追踪记录导出到 MLflow（Databricks AI Agent） | 实验的 **CAN EDIT** 权限。节点在 `/Shared` 下创建的默认实验无需额外授权，因为所有工作区用户默认拥有 `/Shared` 文件夹的 **CAN MANAGE** 权限 |
+| 监视作业或流水线（Databricks Trigger） | 作业或流水线的 **CAN VIEW** 权限 |
 
 {% hint style="info" %}
-**New service principals start with no privileges**
+**新建服务主体最初没有任何权限**
 
-A freshly created service principal has no grants, so its first operations fail with permission errors that name the missing grant. Assign the privileges above before running workflows.
+刚创建的服务主体没有任何授权，因此首次执行操作会因权限不足而失败，错误中会指出缺失的授权。请先分配上述权限，再运行工作流。
 {% endhint %}
 
-Refer to [Databricks entitlements](https://docs.databricks.com/aws/en/security/auth/entitlements), [Access control lists](https://docs.databricks.com/aws/en/security/auth/access-control/), and [Unity Catalog privileges](https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/privileges) for more information.
+更多信息，请参阅 [Databricks 授权](https://docs.databricks.com/aws/en/security/auth/entitlements)、[访问控制列表](https://docs.databricks.com/aws/en/security/auth/access-control/)和 [Unity Catalog 权限](https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/privileges)。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Databricks' authentication documentation](https://docs.databricks.com/aws/en/dev-tools/auth/) for more information about the service.
+有关该服务的更多信息，请参阅 [Databricks 身份验证文档](https://docs.databricks.com/aws/en/dev-tools/auth/)。
 
-## Using a personal access token <a href="#using-a-personal-access-token" id="using-a-personal-access-token"></a>
+## 使用个人访问令牌 <a href="#using-a-personal-access-token" id="using-a-personal-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Host**: The URL of your Databricks workspace (for example, `https://adb-1234567890123456.7.azuredatabricks.net`).
-- A **Access Token**: A personal access token generated in your Databricks workspace.
+- **Host**（主机）：Databricks 工作区的 URL，例如 `https://adb-1234567890123456.7.azuredatabricks.net`。
+- **Access Token**（访问令牌）：在 Databricks 工作区中生成的个人访问令牌。
 
-To generate a personal access token:
+生成个人访问令牌的步骤如下：
 
-1. In your Databricks workspace, select your username in the top right corner, then select **Settings**.
-2. Select **Developer**.
-3. Next to **Access tokens**, select **Manage**.
-4. Select **Generate new token**.
-5. Optionally enter a **Comment** to identify the token, then select **Generate**.
-6. Copy the token and save it somewhere safe. You won't be able to view the token again after closing this dialog.
-7. Enter the token as the **Access Token** in your n8n credential.
+1. 在 Databricks 工作区中选择右上角的用户名，再选择 **Settings**（设置）。
+2. 选择 **Developer**（开发者）。
+3. 在 **Access tokens**（访问令牌）旁选择 **Manage**（管理）。
+4. 选择 **Generate new token**（生成新令牌）。
+5. 可选：输入 **Comment**（备注）以标识令牌，再选择 **Generate**（生成）。
+6. 复制令牌并妥善保存。关闭此对话框后，将无法再次查看该令牌。
+7. 将令牌填入 n8n 凭据的 **Access Token**（访问令牌）。
 
 {% hint style="info" %}
-**Token format**
+**令牌格式**
 
-Personal access tokens start with `dapi`, for example `dapi1234abcd5678efgh`.
+个人访问令牌以 `dapi` 开头，例如 `dapi1234abcd5678efgh`。
 {% endhint %}
 
-Refer to [Databricks personal access token authentication](https://docs.databricks.com/en/dev-tools/auth/pat.html) for more information.
+更多信息，请参阅 [Databricks 个人访问令牌身份验证](https://docs.databricks.com/en/dev-tools/auth/pat.html)。
 
-## Using OAuth2 with user login
+## 通过用户登录使用 OAuth2 <a id="using-oauth2-with-user-login"></a>
 
-This method uses the Databricks OAuth user-to-machine (U2M) flow. You connect the credential by signing in to Databricks in your browser, and operations run with your permissions. A shared credential runs as the user who connected it, so create separate credentials for separate identities.
+此方式使用 Databricks OAuth 用户到机器（U2M）流程。在浏览器中登录 Databricks 来连接凭据，操作以你的权限执行。共享凭据以连接该凭据的用户身份运行，因此不同身份应创建各自的凭据。
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Host**: The URL of your Databricks workspace (for example, `https://adb-1234567890123456.7.azuredatabricks.net`).
-- A **Client ID** and **Client Secret**: From a custom OAuth app connection a Databricks account admin creates in the account console.
+- **Host**（主机）：Databricks 工作区的 URL，例如 `https://adb-1234567890123456.7.azuredatabricks.net`。
+- **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）：来自 Databricks 账户管理员在账户控制台中创建的自定义 OAuth 应用连接。
 
-There are three steps to setting up this credential:
+设置此凭据需要三个步骤：
 
-1. [Create a custom OAuth app connection in Databricks](#create-a-custom-oauth-app-connection).
-2. Optionally [configure token lifetimes](#configure-token-lifetimes).
-3. [Set up the credential in n8n](#set-up-the-credential-in-n8n).
+1. [在 Databricks 中创建自定义 OAuth 应用连接](#create-a-custom-oauth-app-connection)。
+2. 可选：[配置令牌有效期](#configure-token-lifetimes)。
+3. [在 n8n 中设置凭据](#set-up-the-credential-in-n8n)。
 
 {% hint style="info" %}
-**Account console access required**
+**需要账户控制台访问权限**
 
-Creating a custom OAuth app connection requires the Databricks account console. Databricks Free Edition doesn't include account console access, so on Free Edition workspaces use a [service principal](#using-oauth2-service-principal) or a [personal access token](#using-a-personal-access-token) instead.
+创建自定义 OAuth 应用连接需要访问 Databricks 账户控制台。Databricks Free Edition 不提供账户控制台访问权限，因此 Free Edition 工作区应使用[服务主体](#using-oauth2-service-principal)或[个人访问令牌](#using-a-personal-access-token)。
 {% endhint %}
 
-### Create a custom OAuth app connection
+### 创建自定义 OAuth 应用连接 <a id="create-a-custom-oauth-app-connection"></a>
 
-A Databricks account admin needs to complete these steps:
+Databricks 账户管理员需要完成以下步骤：
 
-1. In n8n, open the Databricks credential and copy the **OAuth Redirect URL** (it has the form `https://<your-n8n-instance>/rest/oauth2-credential/callback`).
-2. Log in to the Databricks account console for your cloud ([AWS](https://accounts.cloud.databricks.com/), [Azure](https://accounts.azuredatabricks.net/), or [GCP](https://accounts.gcp.databricks.com/)) and select the **Settings** icon in the sidebar.
-3. On the **App connections** tab, select **Add connection**.
-4. Enter a name for the connection, for example `n8n`.
-5. Add the **OAuth Redirect URL** you copied from n8n as a redirect URL.
-6. Select the access scopes the connection needs. The **Databricks** node and the **Databricks Chat Model** node need **All APIs**. If the connection serves only the [Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md), select `genie` instead: the connection then can't reach other Databricks APIs, and users consent to a narrower grant. Databricks automatically allows the `offline_access` scope that n8n needs to stay connected. In n8n's testing, **All APIs** also covers the `genie` scope; if connecting the tile fails with a scope error, [add the `genie` scope](#add-the-genie-scope-for-the-genie-mcp-server).
-7. Enable client secret generation. n8n is a confidential client, so it needs a secret.
-8. Save the connection, then copy the **Client ID** and **Client Secret**. Databricks shows the secret only once.
+1. 在 n8n 中打开 Databricks 凭据，复制 **OAuth Redirect URL**（OAuth 重定向 URL），其格式为 `https://<your-n8n-instance>/rest/oauth2-credential/callback`。
+2. 登录所用云平台的 Databricks 账户控制台（[AWS](https://accounts.cloud.databricks.com/)、[Azure](https://accounts.azuredatabricks.net/) 或 [GCP](https://accounts.gcp.databricks.com/)），选择侧栏中的 **Settings**（设置）图标。
+3. 在 **App connections**（应用连接）选项卡中选择 **Add connection**（添加连接）。
+4. 输入连接名称，例如 `n8n`。
+5. 将从 n8n 复制的 **OAuth Redirect URL**（OAuth 重定向 URL）添加为重定向 URL。
+6. 选择连接所需的访问作用域。**Databricks** 节点和 **Databricks Chat Model** 节点需要 **All APIs**（所有 API）。如果连接仅供 [Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md) 使用，则选择 `genie`：这样连接无法访问其他 Databricks API，用户同意授予的权限范围也更小。Databricks 会自动允许 n8n 保持连接所需的 `offline_access` 作用域。在 n8n 的测试中，**All APIs** 也涵盖 `genie` 作用域；如果连接该服务卡片时出现作用域错误，请[添加 `genie` 作用域](#add-the-genie-scope-for-the-genie-mcp-server)。
+7. 启用客户端密钥生成。n8n 是机密客户端，因此需要密钥。
+8. 保存连接，复制 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。Databricks 仅显示一次密钥。
 
-Share the client ID and secret with the n8n users who'll create credentials. All users reuse the same OAuth app connection, but each user creates and connects their own n8n credential to run with their own identity.
+将客户端 ID 和密钥提供给需要创建凭据的 n8n 用户。所有用户复用同一个 OAuth 应用连接，但每位用户都创建并连接自己的 n8n 凭据，以各自的身份运行。
 
-Refer to [Enable or disable partner OAuth applications](https://docs.databricks.com/aws/en/integrations/enable-disable-oauth) for more information.
+更多信息，请参阅[启用或禁用合作伙伴 OAuth 应用](https://docs.databricks.com/aws/en/integrations/enable-disable-oauth)。
 
-### Add the genie scope for the Genie MCP server
+### 为 Genie MCP server 添加 genie 作用域 <a id="add-the-genie-scope-for-the-genie-mcp-server"></a>
 
-The [Databricks Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md) tile requests the `genie` and `offline_access` scopes. In n8n's testing, an app connection with **All APIs** satisfies the request without an explicit `genie` scope. On accounts where it doesn't, users see this error when they select **Connect my account** on the tile:
+[Databricks Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md) 服务卡片会请求 `genie` 和 `offline_access` 作用域。在 n8n 的测试中，具有 **All APIs**（所有 API）的应用连接无需显式添加 `genie` 作用域即可满足请求。对于无法满足请求的账户，用户在服务卡片上选择 **Connect my account**（连接我的账户）时会看到以下错误：
 
 ```text
 access_denied: Scopes 'genie' are not assigned to the client <client-id>
 ```
 
-To fix it, a Databricks account admin adds the `genie` scope to the app connection. If the connection's page in the account console offers `genie` in the **Add scope** picker, add it there. Otherwise, use the [Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/) authenticated against the account. The CLI update replaces the whole scope list, so include every scope the app needs. One app connection that serves the Databricks node, the Databricks Chat Model node, and the Genie One MCP server needs all three:
+要解决此问题，Databricks 账户管理员需向应用连接添加 `genie` 作用域。如果账户控制台的连接页面在 **Add scope**（添加作用域）选择器中提供 `genie`，就在其中添加。否则，使用已通过账户身份验证的 [Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/)。CLI 更新会替换整个作用域列表，因此必须包含应用所需的全部作用域。同时供 Databricks 节点、Databricks Chat Model 节点和 Genie One MCP server 使用的应用连接需要以下三个作用域：
 
 ```bash
 databricks account custom-app-integration update <integration-id> \
 	--json '{"scopes": ["all-apis", "genie", "offline_access"]}'
 ```
 
-Find `<integration-id>` with `databricks account custom-app-integration list`, or on the connection's detail page in the account console. Refer to [Update Custom OAuth App Integration](https://docs.databricks.com/api/account/customappintegration/update) for the API reference.
+`<integration-id>` 可通过 `databricks account custom-app-integration list` 查找，也可在账户控制台的连接详情页找到。API 参考请参阅[更新自定义 OAuth 应用集成](https://docs.databricks.com/api/account/customappintegration/update)。
 
-The Databricks consent screen shows the scopes assigned to the app connection, not the narrower set n8n requests. Users connecting the Genie One MCP server through an **All APIs** app see **All APIs** on the consent screen, even though the token n8n receives is scoped to `genie offline_access`.
+Databricks 的授权同意页面显示分配给应用连接的作用域，而不是 n8n 请求的较小作用域集合。用户通过 **All APIs**（所有 API）应用连接 Genie One MCP server 时，授权页面显示 **All APIs**，即使 n8n 收到的令牌仅限于 `genie offline_access` 作用域。
 
-If the app connection serves only the Genie One MCP server, set the scopes to `["genie", "offline_access"]` instead. Users then see and consent to a narrower grant. The client also can't reach other Databricks APIs.
+如果应用连接仅供 Genie One MCP server 使用，请将作用域设为 `["genie", "offline_access"]`。这样用户看到并同意的权限范围更小，客户端也无法访问其他 Databricks API。
 
-### Configure token lifetimes
+### 配置令牌有效期 <a id="configure-token-lifetimes"></a>
 
-The app connection's token access policy controls how long a user's connection to n8n stays valid:
+应用连接的令牌访问策略决定用户与 n8n 的连接可保持有效多长时间：
 
-- **Access token TTL**: How long each access token lasts. Defaults to 60 minutes. n8n renews expired access tokens automatically using the refresh token, so you can keep the default.
-- **Refresh token TTL**: How long the refresh token lasts. Defaults to 10080 minutes (7 days), with a maximum of 129600 minutes (90 days). When the refresh token expires, the credential stops working until the user opens it in n8n and signs in again.
+- **Access token TTL**（访问令牌有效期）：每个访问令牌的有效时长，默认为 60 分钟。n8n 会使用刷新令牌自动续期已过期的访问令牌，因此可以保留默认值。
+- **Refresh token TTL**（刷新令牌有效期）：刷新令牌的有效时长，默认为 10080 分钟（7 天），最长为 129600 分钟（90 天）。刷新令牌过期后，凭据将停止工作，直到用户在 n8n 中打开凭据并重新登录。
 
-Databricks account admins can also set an absolute session lifetime and single-use refresh tokens through the [account API or CLI](https://docs.databricks.com/aws/en/integrations/manage-oauth). An absolute session lifetime ends the session when it's reached, even if the refresh token is still valid.
-
-{% hint style="warning" %}
-**Short lifetimes force users to reconnect**
-
-A short refresh token TTL or absolute session lifetime means users must periodically re-open the credential in n8n and sign in again, and workflows using the credential fail in the meantime. For credentials that run scheduled workflows, set generous lifetimes or use a [service principal](#using-oauth2-service-principal) instead.
-{% endhint %}
-
-### Set up the credential in n8n
-
-1. Enter your workspace URL as the **Host**.
-2. Set **Grant Type** to **Authorization Code (User)**.
-3. Enter the **Client ID** and **Client Secret** from the custom OAuth app connection.
-4. Select **Connect my account** and sign in with your Databricks account.
-
-By default the credential requests the `all-apis` and `offline_access` scopes. The `offline_access` scope keeps the connection alive past one hour, so it's always included: if you enable **Custom Scopes** and remove it from the list, n8n adds it back automatically.
-
-## Using OAuth2 (service principal) <a href="#using-oauth2-service-principal" id="using-oauth2-service-principal"></a>
-
-This method uses a Databricks service principal with the OAuth M2M (machine-to-machine) flow. It's the recommended approach for automated workflows as it doesn't require user interaction.
-
-To configure this credential, you'll need:
-
-- A **Host**: The URL of your Databricks workspace (for example, `https://adb-1234567890123456.7.azuredatabricks.net`).
-- A **Client ID**: The application ID of your service principal.
-- A **Client Secret**: An OAuth secret generated for the service principal.
-
-There are two steps to setting up this credential:
-
-1. [Create a service principal and OAuth secret in Databricks](#create-a-service-principal-and-oauth-secret).
-2. [Set up the credential in n8n](#set-up-the-oauth2-credential).
-
-### Create a service principal and OAuth secret <a href="#create-a-service-principal-and-oauth-secret" id="create-a-service-principal-and-oauth-secret"></a>
-
-1. In the Databricks account console, select **User management**.
-2. Select **Service principals**, then select **Add service principal**.
-3. Enter a name for the service principal and select **Add**.
-4. Open the service principal, go to the **Configuration** tab, and grant it the workspace entitlements it needs.
-5. Go to the **Secrets** tab and select **Generate secret**.
-6. Set the secret's lifetime in days (maximum 730 days), then select **Generate**.
-7. Copy the displayed **Secret** and **Client ID** (the same as the application ID). The secret is shown only once.
-
-{% hint style="info" %}
-**Workspace assignment**
-
-The service principal must be assigned to the workspace it will access, with the **Workspace access** entitlement. A service principal that only exists at the account level fails with `invalid_client` from the workspace token endpoint, which looks like a wrong client secret. Go to the **Permissions** tab and grant the required users or groups access to manage and use the service principal.
-{% endhint %}
+Databricks 账户管理员还可通过[账户 API 或 CLI](https://docs.databricks.com/aws/en/integrations/manage-oauth) 设置绝对会话有效期和一次性刷新令牌。达到绝对会话有效期时，即使刷新令牌仍然有效，会话也会结束。
 
 {% hint style="warning" %}
-**OAuth secrets expire**
+**较短有效期会要求用户重新连接**
 
-Service principal secrets have a maximum lifetime of 730 days. When the secret expires, the credential stops working and workflows using it fail. Track the expiry date, generate a new secret before it's reached, and update the **Client Secret** in your n8n credential.
+较短的刷新令牌有效期或绝对会话有效期意味着用户必须定期在 n8n 中重新打开凭据并登录；在重新登录前，使用此凭据的工作流会失败。对于运行定时工作流的凭据，请设置较长有效期，或改用[服务主体](#using-oauth2-service-principal)。
 {% endhint %}
 
-Refer to [Authorize service principal access to Databricks with OAuth](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html) for more information.
+### 在 n8n 中设置凭据 <a id="set-up-the-credential-in-n8n"></a>
 
-### Set up the OAuth2 credential <a href="#set-up-the-oauth2-credential" id="set-up-the-oauth2-credential"></a>
+1. 将工作区 URL 填入 **Host**（主机）。
+2. 将 **Grant Type**（授权类型）设为 **Authorization Code (User)**（授权码，用户）。
+3. 输入自定义 OAuth 应用连接的 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
+4. 选择 **Connect my account**（连接我的账户），使用 Databricks 账户登录。
 
-In your n8n credential:
+凭据默认请求 `all-apis` 和 `offline_access` 作用域。`offline_access` 作用域让连接在一小时后仍保持有效，因此始终包含在请求中：如果启用 **Custom Scopes**（自定义作用域）并将其从列表中移除，n8n 会自动将其加回。
 
-1. Set **Authentication** to **OAuth2**.
-2. Enter your workspace URL as the **Host**.
-3. Set **Grant Type** to **Client Credentials (Service Principal)**. This is the default.
-4. Enter the **Client ID** you copied from the service principal.
-5. Enter the **Client Secret** you generated.
+## 使用 OAuth2（服务主体） <a href="#using-oauth2-service-principal" id="using-oauth2-service-principal"></a>
 
-## Set up Lakebase for the Data API
+此方式使用 Databricks 服务主体和 OAuth M2M（机器到机器）流程。它不需要用户交互，因此是自动化工作流的推荐方式。
 
-The **Lakebase** resource on the [Databricks node](../app-nodes/n8n-nodes-base.databricks.md#lakebase-operations) reads and writes rows over the Lakebase Data API. The API is off by default, and the identity the credential authenticates as needs a Postgres role before any operation works. Do these steps in this order. The steps have different scopes. You turn on the Data API and the OpenAPI specification once for each project. You create the Postgres role and grant it to `authenticator` once for each branch. You install the `databricks_auth` extension and grant privileges on tables and functions once for each database the node reaches.
+配置此凭据需要：
+
+- **Host**（主机）：Databricks 工作区的 URL，例如 `https://adb-1234567890123456.7.azuredatabricks.net`。
+- **Client ID**（客户端 ID）：服务主体的应用程序 ID。
+- **Client Secret**（客户端密钥）：为服务主体生成的 OAuth 密钥。
+
+设置此凭据需要两个步骤：
+
+1. [在 Databricks 中创建服务主体和 OAuth 密钥](#create-a-service-principal-and-oauth-secret)。
+2. [在 n8n 中设置凭据](#set-up-the-oauth2-credential)。
+
+### 创建服务主体和 OAuth 密钥 <a href="#create-a-service-principal-and-oauth-secret" id="create-a-service-principal-and-oauth-secret"></a>
+
+1. 在 Databricks 账户控制台中选择 **User management**（用户管理）。
+2. 选择 **Service principals**（服务主体），再选择 **Add service principal**（添加服务主体）。
+3. 输入服务主体名称，选择 **Add**（添加）。
+4. 打开服务主体，进入 **Configuration**（配置）选项卡，授予其所需的工作区访问授权。
+5. 进入 **Secrets**（密钥）选项卡，选择 **Generate secret**（生成密钥）。
+6. 设置密钥有效期，单位为天，最长 730 天，再选择 **Generate**（生成）。
+7. 复制显示的 **Secret**（密钥）和 **Client ID**（客户端 ID，与应用程序 ID 相同）。密钥仅显示一次。
 
 {% hint style="info" %}
-**The Data API doesn't accept personal access tokens**
+**工作区分配**
 
-The node checks this before it calls the Data API, so a personal access token fails with `Lakebase requires OAuth2 authentication` rather than anything from Databricks. Set the node's **Authentication** to **OAuth2** and use [OAuth2 with user login](#using-oauth2-with-user-login) or [OAuth2 with a service principal](#using-oauth2-service-principal).
+必须将服务主体分配到其要访问的工作区，并授予 **Workspace access**（工作区访问）授权。仅存在于账户级别的服务主体访问工作区令牌端点时会收到 `invalid_client` 错误，看起来像是客户端密钥错误。进入 **Permissions**（权限）选项卡，授权所需的用户或组管理和使用此服务主体。
 {% endhint %}
 
-### Enable the Data API
+{% hint style="warning" %}
+**OAuth 密钥会过期**
 
-In Databricks, open the Lakebase project, then select **App Backend** > **Data API** > **Enable Data API**. There's no API or CLI for this step. Databricks creates the `authenticator` role that the grant below needs.
+服务主体密钥的有效期最长为 730 天。密钥过期后，凭据将停止工作，使用它的工作流也会失败。请记录到期日，在到期前生成新密钥，并更新 n8n 凭据的 **Client Secret**（客户端密钥）。
+{% endhint %}
 
-The API exposes only the `public` schema by default. Add any other schema you want to reach in the same settings.
+更多信息，请参阅[使用 OAuth 授权服务主体访问 Databricks](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html)。
 
-### Turn on the OpenAPI specification
+### 设置 OAuth2 凭据 <a href="#set-up-the-oauth2-credential" id="set-up-the-oauth2-credential"></a>
 
-In the same project, select **Data API** > **API** > **Advanced settings** > **OpenAPI specification**, then select **Follow privileges**. Select **Save** to apply the change, which then takes effect right away.
+在 n8n 凭据中：
 
-The node reads this document to list tables, functions, a table's columns, and a function's arguments. Without it, the **Table**, **Function**, and column lists show an error, and the **Columns** and **Arguments** mappers stay empty with a notice. Each message names the same setting:
+1. 将 **Authentication**（身份验证）设为 **OAuth2**。
+2. 将工作区 URL 填入 **Host**（主机）。
+3. 将 **Grant Type**（授权类型）设为 **Client Credentials (Service Principal)**（客户端凭据，服务主体）。这是默认值。
+4. 输入从服务主体复制的 **Client ID**（客户端 ID）。
+5. 输入生成的 **Client Secret**（客户端密钥）。
+
+## 为 Data API 设置 Lakebase <a id="set-up-lakebase-for-the-data-api"></a>
+
+[Databricks 节点](../app-nodes/n8n-nodes-base.databricks.md#lakebase-operations)的 **Lakebase** 资源通过 Lakebase Data API 读写行。此 API 默认关闭，且凭据用于身份验证的身份必须拥有 Postgres 角色，操作才能成功。请按以下顺序执行。各步骤的作用范围不同：每个项目启用一次 Data API 和 OpenAPI 规范；每个分支创建一次 Postgres 角色并将其授予 `authenticator`；节点访问的每个数据库都需安装 `databricks_auth` 扩展并授予表和函数权限。
+
+{% hint style="info" %}
+**Data API 不接受个人访问令牌**
+
+节点会在调用 Data API 前检查这一点，因此使用个人访问令牌会出现 `Lakebase requires OAuth2 authentication` 错误，而不会收到 Databricks 返回的错误。将节点的 **Authentication**（身份验证）设为 **OAuth2**，并使用[通过用户登录的 OAuth2](#using-oauth2-with-user-login) 或[使用服务主体的 OAuth2](#using-oauth2-service-principal)。
+{% endhint %}
+
+### 启用 Data API <a id="enable-the-data-api"></a>
+
+在 Databricks 中打开 Lakebase 项目，依次选择 **App Backend**（应用后端）> **Data API** > **Enable Data API**（启用 Data API）。此步骤没有对应的 API 或 CLI。Databricks 会创建下文授权步骤所需的 `authenticator` 角色。
+
+此 API 默认仅公开 `public` 架构。如需访问其他架构，请在同一设置中添加。
+
+### 启用 OpenAPI 规范 <a id="turn-on-the-openapi-specification"></a>
+
+在同一项目中依次选择 **Data API** > **API** > **Advanced settings**（高级设置）> **OpenAPI specification**（OpenAPI 规范），再选择 **Follow privileges**（遵循权限）。选择 **Save**（保存）应用更改，更改会立即生效。
+
+节点会读取此文档，以列出表、函数、表的列和函数的参数。没有它，**Table**（表）、**Function**（函数）和列列表会报错，**Columns**（列）及 **Arguments**（参数）映射器会保持为空并显示提示。每条消息都会指出同一个设置：
 
 ```text
 Data API > API > Advanced settings > OpenAPI specification
 ```
 
-**Follow privileges** lists only the objects the connected identity can use. **Ignore privileges** lists everything, including the internal tables and functions Databricks creates.
+**Follow privileges**（遵循权限）仅列出已连接身份可使用的对象。**Ignore privileges**（忽略权限）会列出所有对象，包括 Databricks 创建的内部表和函数。
 
-### Create a Postgres role for the n8n identity
+### 为 n8n 使用的身份创建 Postgres 角色 <a id="create-a-postgres-role-for-the-n8n-identity"></a>
 
-Run this in the Lakebase SQL editor, as an identity that can manage the project:
+使用能够管理项目的身份，在 Lakebase SQL 编辑器中运行以下内容：
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS databricks_auth;
 SELECT databricks_create_role('<identity>', 'SERVICE_PRINCIPAL');
 ```
 
-`<identity>` is the service principal's application ID. For a user identity, pass the email address and `'USER'` instead.
+`<identity>` 是服务主体的应用程序 ID。对于用户身份，请改为传入电子邮件地址和 `'USER'`。
 
-A Postgres extension belongs to one database. Run `CREATE EXTENSION` in every database the node reaches. The role covers the whole branch, not one database. Run `databricks_create_role` again on any branch that has no role for the identity. Without a role there, the Data API returns `invalid token permissions` (`PGRST301`).
+Postgres 扩展属于单个数据库。请在节点访问的每个数据库中运行 `CREATE EXTENSION`。角色覆盖整个分支，而非单个数据库。在尚未为该身份创建角色的任何分支上，都需再次运行 `databricks_create_role`。如果分支中没有对应角色，Data API 会返回 `invalid token permissions`（`PGRST301`）。
 
-Create the role this way even if the identity already appears in the Databricks UI. The next step works only on a role created with `databricks_create_role`.
+即使该身份已显示在 Databricks 界面中，也应以此方式创建角色。下一步仅适用于通过 `databricks_create_role` 创建的角色。
 
-### Grant the role to authenticator
+### 将角色授予 authenticator <a id="grant-the-role-to-authenticator"></a>
 
-`<role>` is the identity you passed to `databricks_create_role`. Use the application ID for a service principal, or the email address for a user.
+`<role>` 是传入 `databricks_create_role` 的身份。服务主体使用应用程序 ID，用户则使用电子邮件地址。
 
 ```sql
 GRANT "<role>" TO authenticator;
 ```
 
-Run this as the identity that created the role. No role reaches the Data API without this grant. Operations fail with `permission denied to set role` until you run it.
+以创建该角色的身份运行此语句。没有此授权，任何角色都无法访问 Data API。执行前，操作都会因 `permission denied to set role` 而失败。
 
-Then grant the role what it needs on your data, the same as any other Postgres role. Run these in each database that holds a table or function the node uses:
+然后像其他 Postgres 角色一样，授予此角色访问数据所需的权限。在每个包含节点所用表或函数的数据库中运行以下语句：
 
 ```sql
 GRANT USAGE ON SCHEMA <schema> TO "<role>";
@@ -293,10 +293,10 @@ GRANT USAGE ON ALL SEQUENCES IN SCHEMA <schema> TO "<role>";
 GRANT EXECUTE ON FUNCTION <function>(<argument-types>) TO "<role>";
 ```
 
-Schema `USAGE` matters for every schema except `public`. Without the sequence grant, an insert into a `serial` column fails with `permission denied for sequence`.
+架构级 `USAGE` 权限对除 `public` 外的所有架构都很重要。没有序列授权，向 `serial` 列插入数据时会出现 `permission denied for sequence` 错误。
 
 {% hint style="warning" %}
-**Don't connect as the project owner**
+**不要以项目所有者身份连接**
 
-Databricks excludes the database owner from the Data API by design. The owner can't grant their own role to `authenticator`, and the grant fails with `permission denied to grant role`. Use an identity that doesn't own the project.
+Databricks 按设计不允许数据库所有者访问 Data API。所有者无法将自己的角色授予 `authenticator`，授权操作会因 `permission denied to grant role` 而失败。请使用不拥有该项目的身份。
 {% endhint %}

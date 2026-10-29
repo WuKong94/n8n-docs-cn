@@ -481,5 +481,17 @@
     "related_source": "integrations/builtin/credentials/mysql.md",
     "related_source_sha256": "992696dfee5028efb42f7d1759a3205b9f5d398638c6b1c00320ed129aaede46",
     "scope": "仅将秒转毫秒的乘数 100 修正为 1000；保持全部 SQL、超时字段、默认值和其他连接说明，不宣称验证了运行时超时行为。"
+  },
+  {
+    "id": "s3-digitalocean-force-path-style-condition",
+    "path": "integrations/builtin/credentials/s3.md",
+    "source_sha256": "061ab16b61b0eda85b5bbd708b76a4c6459205a6c879422ee147a91b308803e9",
+    "original_sentence": "9. Keep the **Force Path Style** toggle turned off unless you want to use subdomain/virtual calling format.",
+    "translated_sentence": "9. 使用子域名或虚拟主机风格寻址时，请保持 **Force Path Style**（强制路径风格）关闭；需要路径风格寻址时再开启。",
+    "evidence": "同一固定版本的 S3 凭据页在参数定义中明确 Force Path Style 开启时使用路径风格寻址；Tigris 小节明确关闭时使用 virtual-hosted-style addressing。DigitalOcean 步骤的 unless 条件与同页定义相反，译文据此修正条件方向。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/credentials/s3.md"
+    ],
+    "scope": "仅修正 DigitalOcean 小节 Force Path Style 开关的寻址条件；端点、区域、密钥、SSL 设置、其他服务商说明及代码保持原样，不声称验证了服务商连接或运行时行为。"
   }
 ]

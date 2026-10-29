@@ -1,160 +1,160 @@
 ---
-title: HubSpot credentials
-description: >-
-  Documentation for HubSpot credentials. Use these credentials to authenticate
-  HubSpot in n8n, a workflow automation platform.
+title: HubSpot 凭据
+description: HubSpot 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 HubSpot 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: HubSpot credentials
+nodeTitle: HubSpot 凭据
 originalFilePath: integrations/builtin/credentials/hubspot.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/hubspot'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/hubspot'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/hubspot
+url: https://docs.n8n.io/integrations/builtin/credentials/hubspot
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# HubSpot credentials <a href="#hubspot-credentials" id="hubspot-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# HubSpot 凭据 <a href="#hubspot-credentials" id="hubspot-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [HubSpot](../app-nodes/n8n-nodes-base.hubspot.md)
-- [HubSpot Trigger](../trigger-nodes/n8n-nodes-base.hubspottrigger.md)
+- [HubSpot Trigger（触发器）](../trigger-nodes/n8n-nodes-base.hubspottrigger.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Service key (recommended): Use with the [HubSpot](../app-nodes/n8n-nodes-base.hubspot.md) node.
-- Developer API key: Use with the [HubSpot Trigger](../trigger-nodes/n8n-nodes-base.hubspottrigger.md) node.
-- OAuth2: Use with the [HubSpot](../app-nodes/n8n-nodes-base.hubspot.md) node.
+- Service key（服务密钥，推荐）：用于 [HubSpot](../app-nodes/n8n-nodes-base.hubspot.md) 节点。
+- Developer API key（开发者 API 密钥）：用于 [HubSpot Trigger（触发器）](../trigger-nodes/n8n-nodes-base.hubspottrigger.md)节点。
+- OAuth2：用于 [HubSpot](../app-nodes/n8n-nodes-base.hubspot.md) 节点。
 
 {% hint style="warning" %}
-**API key deprecated**
+**API 密钥已弃用**
 
-HubSpot deprecated the regular **API Key** authentication method. The option still appears in n8n, but you should use the authentication methods listed above instead. If you have existing integrations using this API key method, refer to HubSpot's [Migrate an API key integration to a private app](https://web.archive.org/web/20240106022147/https://developers.hubspot.com/docs/api/migrate-an-api-key-integration-to-a-private-app) guide and set up a service key.
+HubSpot 已弃用普通 **API Key**（API 密钥）身份验证方式。n8n 中仍显示此选项，但应改用上述方式。如果现有集成仍使用此 API 密钥方式，请参阅 HubSpot 的[将 API 密钥集成迁移到私有应用](https://web.archive.org/web/20240106022147/https://developers.hubspot.com/docs/api/migrate-an-api-key-integration-to-a-private-app)指南，设置服务密钥。
 {% endhint %}
 
 {% hint style="warning" %}
-**UI based private apps are now legacy**
+**通过界面创建的私有应用现已归为旧版**
 
-HubSpot has moved private apps created in the UI to legacy status. If you're using a private app access token from this type of app, HubSpot recommends using a service key instead. Refer to [HubSpot's Private Apps documentation](https://developers.hubspot.com/docs/apps/legacy-apps/private-apps/overview) for more information.
+HubSpot 已将通过界面创建的私有应用归为旧版。如果使用此类应用的私有应用访问令牌，HubSpot 建议改用服务密钥。更多信息，请参阅 [HubSpot 私有应用文档](https://developers.hubspot.com/docs/apps/legacy-apps/private-apps/overview)。
 {% endhint %}
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [HubSpot's API documentation](https://developers.hubspot.com/docs/api/overview) for more information about the service. The [HubSpot Trigger](../trigger-nodes/n8n-nodes-base.hubspottrigger.md) node uses the Webhooks API; refer to [HubSpot's Webhooks API documentation](https://developers.hubspot.com/docs/api-reference/webhooks-webhooks-v3/guide) for more information about that service.
+有关该服务的更多信息，请参阅 [HubSpot API 文档](https://developers.hubspot.com/docs/api/overview)。[HubSpot Trigger（触发器）](../trigger-nodes/n8n-nodes-base.hubspottrigger.md)节点使用 Webhooks API，其更多信息请参阅 [HubSpot Webhooks API 文档](https://developers.hubspot.com/docs/api-reference/webhooks-webhooks-v3/guide)。
 
-## Using Service Key <a href="#using-service-key" id="using-service-key"></a>
+## 使用服务密钥 <a href="#using-service-key" id="using-service-key"></a>
 
-To configure this credential, you'll need a [HubSpot](https://www.hubspot.com/) account with super admin access or Developer tools access permission, and:
+配置此凭据需要具有超级管理员权限或 Developer tools access（开发者工具访问）权限的 [HubSpot](https://www.hubspot.com/) 账户，以及：
 
-- A **Service Key**
+- **Service Key**（服务密钥）
 
-To generate a service key:
+生成服务密钥的步骤如下：
 
-1. In your HubSpot account, go to **Development** > **Keys** > **Service Keys**. (You can also find **Service Keys** under **Settings** > **Account Management** > **Integrations** > **Service Keys**.)
+1. 在 HubSpot 账户中进入 **Development**（开发）> **Keys**（密钥）> **Service Keys**（服务密钥）。也可从 **Settings**（设置）> **Account Management**（账户管理）> **Integrations**（集成）> **Service Keys**（服务密钥）找到。
 
-	![The Service Keys page in HubSpot's Development menu](../../.gitbook/assets/service_keys_main.png)
+    ![HubSpot Development 菜单中的 Service Keys 页面](../../.gitbook/assets/service_keys_main.png)
 
-2. Select **Create service key**.
+2. 选择 **Create service key**（创建服务密钥）。
 
-	![The Create Service Key form with name and scopes fields](../../.gitbook/assets/service_keys_create.png)
+    ![包含名称和作用域字段的 Create Service Key 表单](../../.gitbook/assets/service_keys_create.png)
 
-3. Enter a descriptive **Name** for your key.
-4. Select **Add new scope** and choose the permissions your integration needs. Refer to [Required scopes for HubSpot node](#required-scopes-for-hubspot-node) for a list of recommended scopes.
-5. Select **Update** to confirm your scope selections.
-6. Select **Create**, then confirm in the dialog.
-7. Click on the new service key name to navigate to its details page, and select **Show** to reveal your key.
-8. Copy the key value using the copy button, and paste it as the **App Token** in your n8n credential.
+3. 输入有描述性的密钥 **Name**（名称）。
+4. 选择 **Add new scope**（添加新作用域），选取集成所需权限。建议作用域列表，请参阅 [HubSpot 节点所需作用域](#required-scopes-for-hubspot-node)。
+5. 选择 **Update**（更新），确认作用域选择。
+6. 选择 **Create**（创建），再在对话框中确认。
+7. 点击新服务密钥的名称，进入详情页，选择 **Show**（显示）查看密钥。
+8. 使用复制按钮复制密钥值，粘贴到 n8n 凭据的 **App Token**（应用令牌）。
 
 {% hint style="info" %}
-**Service keys in public beta**
+**服务密钥处于公开测试阶段**
 
-Service keys are currently in public beta and subject to change. Refer to [HubSpot's Service Keys documentation](https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/account-service-keys) for the latest information.
+服务密钥目前处于公开测试阶段，可能发生变化。最新信息，请参阅 [HubSpot 服务密钥文档](https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/account-service-keys)。
 {% endhint %}
 
-## Using Developer API key <a href="#using-developer-api-key" id="using-developer-api-key"></a>
+## 使用开发者 API 密钥 <a href="#using-developer-api-key" id="using-developer-api-key"></a>
 
-To configure this credential, you'll need a [HubSpot developer](https://developers.hubspot.com/) account and:
+配置此凭据需要一个 [HubSpot developer](https://developers.hubspot.com/)（开发者）账户，以及：
 
-- A **Client ID**: Generated once you create a public app. 
-- A **Client Secret**: Generated once you create a public app.
-- A **Developer API Key**: Generated from your Developer Apps dashboard.
-- An **App ID**: Generated once you create a public app.
+- **Client ID**（客户端 ID）：创建公开应用后生成。
+- **Client Secret**（客户端密钥）：创建公开应用后生成。
+- **Developer API Key**（开发者 API 密钥）：从 Developer Apps（开发者应用）控制台生成。
+- **App ID**（应用 ID）：创建公开应用后生成。
 
-To create the public app and set up the credential:
+创建公开应用并设置凭据的步骤如下：
 
-1. Log into your [HubSpot app developer account](https://developers.hubspot.com/).
-2. Select **Apps** from the main navigation bar.
-3. Select **Get HubSpot API key**. You may need to select the option to **Show key**.
-4. Copy the key and enter it in n8n as the **Developer API Key**.
-3. Still on the HubSpot **Apps** page, select **Create app**.
-4. On the **App Info** tab, add an **App name**, **Description**, **Logo**, and any support contact info you want to provide. Anyone encountering the app would see these.
-5. Open the **Auth** tab.
-6. Copy the **App ID** and enter it in n8n.
-6. Copy the **Client ID** and enter it in n8n.
-7. Copy the **Client Secret** and enter it in n8n.
-8. In the **Scopes** section, select **Add new scope**.
-9. Add all the scopes listed in [Required scopes for HubSpot Trigger node](#required-scopes-for-hubspot-trigger-node) to your app.
-10. Select **Update**.
-11. Copy the n8n **OAuth Redirect URL** and enter it as the **Redirect URL** in your HubSpot app.
-12. Select **Create app** to finish creating the HubSpot app.
+1. 登录 [HubSpot 应用开发者账户](https://developers.hubspot.com/)。
+2. 从主导航栏选择 **Apps**（应用）。
+3. 选择 **Get HubSpot API key**（获取 HubSpot API 密钥），可能还需要选择 **Show key**（显示密钥）。
+4. 复制密钥，填入 n8n 的 **Developer API Key**（开发者 API 密钥）。
+3. 仍在 HubSpot 的 **Apps**（应用）页面，选择 **Create app**（创建应用）。
+4. 在 **App Info**（应用信息）选项卡中，添加 **App name**（应用名称）、**Description**（描述）、**Logo**（标志）及希望提供的支持联系信息。接触到应用的用户均可看到这些内容。
+5. 打开 **Auth**（身份验证）选项卡。
+6. 复制 **App ID**（应用 ID），填入 n8n。
+6. 复制 **Client ID**（客户端 ID），填入 n8n。
+7. 复制 **Client Secret**（客户端密钥），填入 n8n。
+8. 在 **Scopes**（作用域）部分，选择 **Add new scope**（添加新作用域）。
+9. 将 [HubSpot Trigger 节点所需作用域](#required-scopes-for-hubspot-trigger-node)中列出的全部作用域添加到应用。
+10. 选择 **Update**（更新）。
+11. 从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL），填入 HubSpot 应用的 **Redirect URL**（重定向 URL）。
+12. 选择 **Create app**（创建应用），完成 HubSpot 应用创建。
 
- Refer to the [HubSpot Public Apps documentation](https://developers.hubspot.com/docs/apps/legacy-apps/public-apps/overview) for more detailed instructions.
+ 更详细的说明，请参阅 [HubSpot 公开应用文档](https://developers.hubspot.com/docs/apps/legacy-apps/public-apps/overview)。
 
-### Required scopes for HubSpot Trigger node <a href="#required-scopes-for-hubspot-trigger-node" id="required-scopes-for-hubspot-trigger-node"></a>
+### HubSpot Trigger 节点所需作用域 <a href="#required-scopes-for-hubspot-trigger-node" id="required-scopes-for-hubspot-trigger-node"></a>
 
-If you're creating an app for use with the [HubSpot Trigger](../trigger-nodes/n8n-nodes-base.hubspottrigger.md) node, n8n recommends starting with these scopes:
+如果创建的应用用于 [HubSpot Trigger（触发器）](../trigger-nodes/n8n-nodes-base.hubspottrigger.md)节点，n8n 建议先使用以下作用域：
 
-| **Element** | **Object** | **Permission** | **Scope name** |
+| **类别** | **对象** | **权限** | **作用域名称** |
 | --- | --- | --- | --- |
-| n/a | n/a | n/a | `oauth` |
-| CRM | Companies | Read | `crm.objects.companies.read` |
-| CRM | Companies schemas | Read | `crm.schemas.companies.read` |
-| CRM | Contacts | Read | `crm.objects.contacts.read` |
-| CRM | Contacts schemas | Read | `crm.schemas.contacts.read` |
-| CRM | Deals | Read | `crm.objects.deals.read` |
-| CRM | Deals schemas| Read | `crm.schemas.deals.read` |
+| 不适用 | 不适用 | 不适用 | `oauth` |
+| CRM | Companies（公司） | 读取 | `crm.objects.companies.read` |
+| CRM | Companies schemas（公司架构） | 读取 | `crm.schemas.companies.read` |
+| CRM | Contacts（联系人） | 读取 | `crm.objects.contacts.read` |
+| CRM | Contacts schemas（联系人架构） | 读取 | `crm.schemas.contacts.read` |
+| CRM | Deals（交易） | 读取 | `crm.objects.deals.read` |
+| CRM | Deals schemas（交易架构） | 读取 | `crm.schemas.deals.read` |
 
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're [self-hosting](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n) n8n, you'll need to configure OAuth2 from scratch by creating a new public app:
+如果[自托管](../../../deploy/host-n8n/README.md) n8n，需要通过创建新的公开应用，从头配置 OAuth2：
 
-1. Log into your [HubSpot app developer account](https://developers.hubspot.com/).
-2. Select **Apps** from the main navigation bar.
-3. Select **Create app**.
-4. On the **App Info** tab, add an **App name**, **Description**, **Logo**, and any support contact info you want to provide. Anyone encountering the app would see these.
-5. Open the **Auth** tab.
-6. Copy the **App ID** and enter it in n8n.
-6. Copy the **Client ID** and enter it in n8n.
-7. Copy the **Client Secret** and enter it in n8n.
-8. In the **Scopes** section, select **Add new scope**.
-9. Add all the scopes listed in [Required scopes for HubSpot node](#required-scopes-for-hubspot-node) to your app.
-10. Select **Update**.
-11. Copy the n8n **OAuth Redirect URL** and enter it as the **Redirect URL** in your HubSpot app.
-12. Select **Create app** to finish creating the HubSpot app.
+1. 登录 [HubSpot 应用开发者账户](https://developers.hubspot.com/)。
+2. 从主导航栏选择 **Apps**（应用）。
+3. 选择 **Create app**（创建应用）。
+4. 在 **App Info**（应用信息）选项卡中，添加 **App name**（应用名称）、**Description**（描述）、**Logo**（标志）及希望提供的支持联系信息。接触到应用的用户均可看到这些内容。
+5. 打开 **Auth**（身份验证）选项卡。
+6. 复制 **App ID**（应用 ID），填入 n8n。
+6. 复制 **Client ID**（客户端 ID），填入 n8n。
+7. 复制 **Client Secret**（客户端密钥），填入 n8n。
+8. 在 **Scopes**（作用域）部分，选择 **Add new scope**（添加新作用域）。
+9. 将 [HubSpot 节点所需作用域](#required-scopes-for-hubspot-node)中列出的全部作用域添加到应用。
+10. 选择 **Update**（更新）。
+11. 从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL），填入 HubSpot 应用的 **Redirect URL**（重定向 URL）。
+12. 选择 **Create app**（创建应用），完成 HubSpot 应用创建。
 
-Refer to the [HubSpot Public Apps documentation](https://developers.hubspot.com/docs/apps/legacy-apps/public-apps/overview) for more detailed instructions. If you need more detail on what's happening in the OAuth web flow, refer to the [HubSpot Working with OAuth documentation](https://developers.hubspot.com/docs/apps/legacy-apps/authentication/working-with-oauth).
+更详细的说明，请参阅 [HubSpot 公开应用文档](https://developers.hubspot.com/docs/apps/legacy-apps/public-apps/overview)。如需进一步了解 OAuth Web 流程，请参阅 [HubSpot 使用 OAuth 文档](https://developers.hubspot.com/docs/apps/legacy-apps/authentication/working-with-oauth)。
 
-## Required scopes for HubSpot node <a href="#required-scopes-for-hubspot-node" id="required-scopes-for-hubspot-node"></a>
+## HubSpot 节点所需作用域 <a href="#required-scopes-for-hubspot-node" id="required-scopes-for-hubspot-node"></a>
 
-If you're creating an app for use with the [HubSpot](../app-nodes/n8n-nodes-base.hubspot.md) node, n8n recommends starting with these scopes:
+如果创建的应用用于 [HubSpot](../app-nodes/n8n-nodes-base.hubspot.md) 节点，n8n 建议先使用以下作用域：
 
-| **Element** | **Object** | **Permission** | **Scope name(s)** |
+| **类别** | **对象** | **权限** | **作用域名称** |
 | --- | --- | --- | --- |
-| n/a | n/a | n/a |  `oauth` |
-| n/a | n/a | n/a |  `forms` |
-| n/a | n/a | n/a |  `tickets` |
-| CRM | Companies | Read <br> Write | `crm.objects.companies.read` <br> `crm.objects.companies.write`|
-| CRM | Companies schemas | Read | `crm.schemas.companies.read` |
-| CRM | Contacts schemas | Read | `crm.schemas.contacts.read` |
-| CRM | Contacts | Read <br> Write | `crm.objects.contacts.read` <br> `crm.objects.contacts.write`|
-| CRM | Deals | Read <br> Write | `crm.objects.deals.read` <br> `crm.objects.deals.write`|
-| CRM | Deals schemas | Read | `crm.schemas.deals.read` |
-| CRM | Owners | Read | `crm.objects.owners.read` |
-| CRM | Lists | Write | `crm.lists.write` |
+| 不适用 | 不适用 | 不适用 | `oauth` |
+| 不适用 | 不适用 | 不适用 | `forms` |
+| 不适用 | 不适用 | 不适用 | `tickets` |
+| CRM | Companies（公司） | 读取 <br> 写入 | `crm.objects.companies.read` <br> `crm.objects.companies.write` |
+| CRM | Companies schemas（公司架构） | 读取 | `crm.schemas.companies.read` |
+| CRM | Contacts schemas（联系人架构） | 读取 | `crm.schemas.contacts.read` |
+| CRM | Contacts（联系人） | 读取 <br> 写入 | `crm.objects.contacts.read` <br> `crm.objects.contacts.write` |
+| CRM | Deals（交易） | 读取 <br> 写入 | `crm.objects.deals.read` <br> `crm.objects.deals.write` |
+| CRM | Deals schemas（交易架构） | 读取 | `crm.schemas.deals.read` |
+| CRM | Owners（所有者） | 读取 | `crm.objects.owners.read` |
+| CRM | Lists（列表） | 写入 | `crm.lists.write` |
 
