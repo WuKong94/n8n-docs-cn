@@ -1,42 +1,42 @@
 ---
-title: F5 Big-IP credentials
-description: >-
-  Documentation for the F5 Big-IP credentials. Use these credentials to
-  authenticate F5 Big-IP in n8n, a workflow automation platform.
+title: F5 Big-IP 凭据
+description: F5 Big-IP 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 F5 Big-IP 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: F5 Big-IP credentials
+nodeTitle: F5 Big-IP 凭据
 originalFilePath: integrations/builtin/credentials/f5bigip.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/f5bigip'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/f5bigip'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/f5bigip
+url: https://docs.n8n.io/integrations/builtin/credentials/f5bigip
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# F5 Big-IP credentials <a href="#f5-big-ip-credentials" id="f5-big-ip-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# F5 Big-IP 凭据 <a href="#f5-big-ip-credentials" id="f5-big-ip-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create an [F5 Big-IP](https://www.f5.com/products/big-ip-services) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Authentication methods <a href="#authentication-methods" id="authentication-methods"></a>
+创建一个 [F5 Big-IP](https://www.f5.com/products/big-ip-services) 账号。
 
-- Account login
+## 身份验证方式 <a href="#authentication-methods" id="authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- Account login（账户登录）
 
-Refer to [F5 Big-IP's API documentation](https://clouddocs.f5.com/products/big-iq/mgmt-api/v0.0/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/f5-big-ip/) on n8n's website.
+有关该服务的更多信息，请参阅 [F5 Big-IP API 文档](https://clouddocs.f5.com/products/big-iq/mgmt-api/v0.0/)。
 
-## Using account login <a href="#using-account-login" id="using-account-login"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/f5-big-ip/)。
 
-To configure this credential, you'll need:
+## 使用账户登录 <a href="#using-account-login" id="using-account-login"></a>
 
-- A **Username**: Use the username you use to log in to F5 Big-IP.
-- A **Password**: Use the user password you use to log in to F5 Big-IP.
+配置此凭据需要：
+
+- **Username**（用户名）：使用登录 F5 Big-IP 时的用户名。
+- **Password**（密码）：使用登录 F5 Big-IP 时的用户密码。

@@ -1,44 +1,44 @@
 ---
-title: Kibana credentials
-description: >-
-  Documentation for the Kibana credentials. Use these credentials to
-  authenticate Kibana in n8n, a workflow automation platform.
+title: Kibana 凭据
+description: Kibana 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Kibana 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Kibana credentials
+nodeTitle: Kibana 凭据
 originalFilePath: integrations/builtin/credentials/kibana.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/kibana'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/kibana'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/kibana
+url: https://docs.n8n.io/integrations/builtin/credentials/kibana
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Kibana credentials <a href="#kibana-credentials" id="kibana-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Kibana 凭据 <a href="#kibana-credentials" id="kibana-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-- Create an [Elasticsearch](https://www.elastic.co/) account.
-- If you're creating a new account to test with, load some sample data into Kibana. Refer to the [Kibana quick start](https://www.elastic.co/guide/en/kibana/current/get-started.html) for more information.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- 创建一个 [Elasticsearch](https://www.elastic.co/) 账户。
+- 如果创建新账户用于测试，请向 Kibana 加载一些示例数据。更多信息请参阅 [Kibana 快速入门](https://www.elastic.co/guide/en/kibana/current/get-started.html)。
 
-- Basic auth
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- Basic auth（基本身份验证）
 
-Refer to [Kibana's API documentation](https://www.elastic.co/guide/en/kibana/current/api.html) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/kibana/) on n8n's website.
+有关该服务的更多信息，请参阅 [Kibana API 文档](https://www.elastic.co/guide/en/kibana/current/api.html)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/kibana/)。
 
-To configure this credential, you'll need:
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-- The **URL** you use to access Kibana, for example `http://localhost:5601`
-- A **Username**: Use the same username that you use to log in to Elastic.
-- A **Password**: Use the same password that you use to log in to Elastic.
+配置此凭据需要：
+
+- 访问 Kibana 所用的 **URL**，例如 `http://localhost:5601`。
+- **Username**（用户名）：使用登录 Elastic 时的用户名。
+- **Password**（密码）：使用登录 Elastic 时的密码。

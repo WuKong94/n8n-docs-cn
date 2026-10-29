@@ -1,43 +1,41 @@
 ---
-title: Unleashed Software node documentation
-description: >-
-  Learn how to use the Unleashed Software node in n8n. Follow technical
-  documentation to integrate Unleashed Software node into your workflows.
+title: Unleashed Software 节点文档
+description: 了解如何在 n8n 中使用 Unleashed Software 节点，并按照技术文档将 Unleashed Software 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Unleashed Software node documentation
+- integration
+- reference
+nodeTitle: Unleashed Software 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.unleashedsoftware.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.unleashedsoftware
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.unleashedsoftware
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.unleashedsoftware
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.unleashedsoftware
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Unleashed Software node <a href="#unleashed-software-node" id="unleashed-software-node"></a>
 
-Use the Unleashed Software node to automate work in Unleashed Software, and integrate Unleashed Software with other applications. n8n has built-in support for a wide range of Unleashed Software features, including getting sales orders and stock on hand. 
+# Unleashed Software 节点 <a href="#unleashed-software-node" id="unleashed-software-node"></a>
 
-On this page, you'll find a list of operations the Unleashed Software node supports and links to more resources.
+使用 Unleashed Software 节点自动处理 Unleashed Software 中的工作，并将其与其他应用集成。n8n 内置支持多种 Unleashed Software 功能，包括获取销售订单和现有库存。
+
+本页列出了 Unleashed Software 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Unleashed Software credentials](../credentials/unleashedsoftware.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Unleashed Software 凭据](../credentials/unleashedsoftware.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Sales Order
-    * Get all sales orders
-* Stock On Hand
-    * Get a stock on hand
-    * Get all stocks on hand
+* Sales Order（销售订单）
+    * Get all sales orders（获取全部销售订单）
+* Stock On Hand（现有库存）
+    * Get a stock on hand（获取一条现有库存记录）
+    * Get all stocks on hand（获取全部现有库存记录）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Unleashed Software node documentation integration templates](https://n8n.io/integrations/unleashed-software) or [search all templates](https://n8n.io/workflows/)
+[浏览 Unleashed Software 集成模板](https://n8n.io/integrations/unleashed-software)，或[搜索所有模板](https://n8n.io/workflows/)

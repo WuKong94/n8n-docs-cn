@@ -1,41 +1,43 @@
 ---
-title: Brave Search credentials
-description: Documentation for the Brave Search credentials. Use these credentials to authenticate Brave Search in n8n, a workflow automation platform.
+title: Brave Search 凭据
+description: Brave Search 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Brave Search 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Brave Search credentials
+
+# Brave Search 凭据 <a id="brave-search-credentials"></a>
 
 {% hint style="info" %}
-On n8n Cloud, you can skip setting up Brave Search credentials by selecting **Use Gateway credits** in the credential field of nodes that support it. Refer to [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) for details.
+在 n8n Cloud 上，可以在支持此功能的节点凭据字段中选择 **Use Gateway credits（使用 Gateway 额度）**，无需另行设置 Brave Search 凭据。详情请参阅 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)。
 {% endhint %}
 
-## Prerequisites
+## 前置条件 <a id="prerequisites"></a>
 
-Create a [Brave Search API](https://api.search.brave.com/) account.
+创建一个 [Brave Search API](https://api.search.brave.com/) 账户。
 
-## Supported authentication methods
+## 支持的身份验证方式 <a id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-Refer to [Brave Search's API documentation](https://api-dashboard.search.brave.com/documentation) for more information about the service.
+有关该服务的更多信息，请参阅 [Brave Search API 文档](https://api-dashboard.search.brave.com/documentation)。
 
-## Using API key
+## 使用 API 密钥 <a id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Your Brave Search subscription token.
+- **API Key**（API 密钥）：即 Brave Search 订阅令牌。
 
-To get your API key:
+获取 API 密钥的步骤如下：
 
-1. Go to [api.search.brave.com](https://api.search.brave.com/) and sign up or log in.
-2. Choose a subscription plan. Brave offers a free tier with limited queries per month.
-3. Navigate to the [API Keys](https://api-dashboard.search.brave.com/app/keys) page in your dashboard.
-4. Copy your API key and enter it as the **API Key** in your n8n credential.
+1. 进入 [api.search.brave.com](https://api.search.brave.com/) 并注册或登录。
+2. 选择订阅方案。Brave 提供每月查询次数有限的免费层级。
+3. 进入控制台中的 [API Keys](https://api-dashboard.search.brave.com/app/keys) 页面。
+4. 复制 API 密钥，填入 n8n 凭据的 **API Key** 字段。

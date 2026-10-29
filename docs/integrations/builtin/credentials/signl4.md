@@ -1,41 +1,41 @@
 ---
-title: SIGNL4 credentials
-description: >-
-  Documentation for SIGNL4 credentials. Use these credentials to authenticate
-  SIGNL4 in n8n, a workflow automation platform.
+title: SIGNL4 凭据
+description: SIGNL4 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 SIGNL4 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: SIGNL4 credentials
+- integration
+- reference
+nodeTitle: SIGNL4 凭据
 originalFilePath: integrations/builtin/credentials/signl4.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/signl4'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/signl4'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/signl4
+url: https://docs.n8n.io/integrations/builtin/credentials/signl4
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SIGNL4 credentials <a href="#signl4-credentials" id="signl4-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# SIGNL4 凭据 <a href="#signl4-credentials" id="signl4-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [SIGNL4](../app-nodes/n8n-nodes-base.signl4.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [SIGNL4](https://www.signl4.com/) account.
+创建一个 [SIGNL4](https://www.signl4.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Webhook secret
+- Webhook secret（Webhook 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [SIGNL4's Inbound Webhook documentation](https://connect.signl4.com/webhook/docs/index.html) for more information about the service.
+该服务的更多信息，请参阅 [SIGNL4 Inbound Webhook 文档](https://connect.signl4.com/webhook/docs/index.html)。
 
-## Using webhook secret <a href="#using-webhook-secret" id="using-webhook-secret"></a>
+## 使用 Webhook 密钥 <a href="#using-webhook-secret" id="using-webhook-secret"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Team Secret**: SIGNL4 includes this secret in the "✅ Sign up complete" email as the last part of the webhook URL. If your webhook URL is `https://connect.signl4.com/webhook/helloworld`, your team secret would be `helloworld`.
+- **Team Secret**（团队密钥）：SIGNL4 会在“✅ Sign up complete”邮件中提供此密钥，它是 Webhook URL 的最后一段。例如，Webhook URL 为 `https://connect.signl4.com/webhook/helloworld` 时，团队密钥为 `helloworld`。
 

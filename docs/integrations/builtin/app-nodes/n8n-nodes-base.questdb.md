@@ -1,47 +1,47 @@
 ---
-title: QuestDB node documentation
-description: >-
-  Learn how to use the QuestDB node in n8n. Follow technical documentation to
-  integrate QuestDB node into your workflows.
+title: QuestDB 节点文档
+description: 了解如何在 n8n 中使用 QuestDB 节点，并按照技术文档将 QuestDB 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: QuestDB node documentation
+- integration
+- reference
+nodeTitle: QuestDB 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.questdb.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.questdb'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.questdb'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.questdb
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.questdb
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# QuestDB node <a href="#questdb-node" id="questdb-node"></a>
 
-Use the QuestDB node to automate work in QuestDB, and integrate QuestDB with other applications. n8n supports executing an SQL query and inserting rows in a database with QuestDB.
+# QuestDB 节点 <a href="#questdb-node" id="questdb-node"></a>
 
-On this page, you'll find a list of operations the QuestDB node supports and links to more resources.
+使用 QuestDB 节点自动处理 QuestDB 中的工作，并将其与其他应用集成。n8n 支持通过 QuestDB 执行 SQL 查询，并向数据库插入行。
+
+本页列出了 QuestDB 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [QuestDB credentials](../credentials/questdb.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [QuestDB 凭据](../credentials/questdb.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Executes a SQL query.
-* Insert rows in database.
+* Executes a SQL query.（执行 SQL 查询）
+* Insert rows in database.（向数据库插入行）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse QuestDB node documentation integration templates](https://n8n.io/integrations/questdb) or [search all templates](https://n8n.io/workflows/)
+[浏览 QuestDB 集成模板](https://n8n.io/integrations/questdb)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Node reference <a href="#node-reference" id="node-reference"></a>
+## 节点参考 <a href="#node-reference" id="node-reference"></a>
 
-### Specify a column's data type <a href="#specify-a-columns-data-type" id="specify-a-columns-data-type"></a>
+### 指定列的数据类型 <a href="#specify-a-columns-data-type" id="specify-a-columns-data-type"></a>
 
-To specify a column's data type, append the column name with `:type`, where `type` is the data type you want for column. For example, if you want to specify the type `int` for the column **id** and type `text` for the column **name**, you can use the following snippet in the **Columns** field: `id:int,name:text`.
+要指定列的数据类型，请在列名后附加 `:type`，其中 `type` 是该列所需的数据类型。例如，为 **id** 列指定 `int` 类型、为 **name** 列指定 `text` 类型时，可在 **Columns**（列）字段中输入：`id:int,name:text`。
 
 
 

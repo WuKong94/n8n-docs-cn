@@ -1,44 +1,44 @@
 ---
-title: Beeminder credentials
-description: >-
-  Documentation for Beeminder credentials. Use these credentials to authenticate
-  Beeminder in n8n, a workflow automation platform.
+title: Beeminder 凭据
+description: Beeminder 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Beeminder 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Beeminder credentials
+- integration
+- reference
+nodeTitle: Beeminder 凭据
 originalFilePath: integrations/builtin/credentials/beeminder.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/beeminder'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/beeminder'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/beeminder
+url: https://docs.n8n.io/integrations/builtin/credentials/beeminder
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Beeminder credentials <a href="#beeminder-credentials" id="beeminder-credentials"></a>
 
-You can use these credentials to authenticate the following node:
+# Beeminder 凭据 <a href="#beeminder-credentials" id="beeminder-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Beeminder](../app-nodes/n8n-nodes-base.beeminder.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Beeminder](https://www.beeminder.com/) account.
+创建一个 [Beeminder](https://www.beeminder.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API user token
+- API user token（API 用户令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Beeminder's API documentation](https://api.beeminder.com/#beeminder-api-reference) for more information about the service.
+有关该服务的更多信息，请参阅 [Beeminder API 文档](https://api.beeminder.com/#beeminder-api-reference)。
 
-## Using API user token <a href="#using-api-user-token" id="using-api-user-token"></a>
+## 使用 API 用户令牌 <a href="#using-api-user-token" id="using-api-user-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **User** name: Should match the user who the Auth Token is generated for.
-- A personal **Auth Token** for that user. Generate this using either method below:
-    - In the GUI: From the [Apps & API](https://help.beeminder.com/article/110-apps-and-api#API-token) option within **Account Settings**
-    - In the API: From hitting the [`auth_token` API endpoint](https://api.beeminder.com/#auth)
+- **User**（用户名）：应与生成 Auth Token 的用户一致。
+- 该用户的个人 **Auth Token**（身份验证令牌），可通过以下任一方式生成：
+    - 在图形界面中：进入 **Account Settings**（账户设置）中的 [Apps & API](https://help.beeminder.com/article/110-apps-and-api#API-token)。
+    - 在 API 中：调用 [`auth_token` API 端点](https://api.beeminder.com/#auth)。
 

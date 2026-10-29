@@ -1,44 +1,44 @@
 ---
-title: GoToWebinar credentials
-description: >-
-  Documentation for GoToWebinar credentials. Use these credentials to
-  authenticate GoToWebinar in n8n, a workflow automation platform.
+title: GoToWebinar 凭据
+description: GoToWebinar 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 GoToWebinar 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: GoToWebinar credentials
+- integration
+- reference
+nodeTitle: GoToWebinar 凭据
 originalFilePath: integrations/builtin/credentials/gotowebinar.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/gotowebinar'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/gotowebinar'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/gotowebinar
+url: https://docs.n8n.io/integrations/builtin/credentials/gotowebinar
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# GoTo Webinar credentials <a href="#goto-webinar-credentials" id="goto-webinar-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# GoTo Webinar 凭据 <a href="#goto-webinar-credentials" id="goto-webinar-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [GoToWebinar](../app-nodes/n8n-nodes-base.gotowebinar.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [GoToWebinar](https://www.goto.com/webinar) account with [Developer Center](https://developer.goto.com/) access.
+创建一个 [GoToWebinar](https://www.goto.com/webinar) 账户，并确保拥有 [Developer Center](https://developer.goto.com/) 的访问权限。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [GoToWebinar's API documentation](https://developer.goto.com/GoToWebinarV2) for more information about authenticating with the service.
+有关该服务身份验证的更多信息，请参阅 [GoToWebinar API 文档](https://developer.goto.com/GoToWebinarV2)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Client ID**: Provided once you create an OAuth client
-- A **Client Secret**: Provided once you create an OAuth client
+- **Client ID**（客户端 ID）：创建 OAuth 客户端后提供。
+- **Client Secret**（客户端密钥）：创建 OAuth 客户端后提供。
 
-Refer to the [Create an OAuth client documentation](https://developer.goto.com/guides/Get%20Started/02_HOW_createClient/) for detailed instructions on creating an OAuth client. Copy the **OAuth Callback URL** from n8n to use as the **Redirect URI** in your OAuth client. The Client ID and Client secret are provided once you've finished setting up your client.
+创建 OAuth 客户端的详细步骤，请参阅[创建 OAuth 客户端文档](https://developer.goto.com/guides/Get%20Started/02_HOW_createClient/)。从 n8n 复制 **OAuth Callback URL**（OAuth 回调 URL），将其用作 OAuth 客户端的 **Redirect URI**（重定向 URI）。完成客户端设置后，即可获得 Client ID 和 Client Secret。
 

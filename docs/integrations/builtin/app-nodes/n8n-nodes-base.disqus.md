@@ -1,41 +1,41 @@
 ---
-title: Disqus node documentation
-description: >-
-  Learn how to use the Disqus node in n8n. Follow technical documentation to
-  integrate Disqus node into your workflows.
+title: Disqus 节点文档
+description: 了解如何在 n8n 中使用 Disqus 节点，并按照技术文档将 Disqus 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Disqus node documentation
+- integration
+- reference
+nodeTitle: Disqus 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.disqus.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.disqus'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.disqus'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.disqus
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.disqus
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Disqus node <a href="#disqus-node" id="disqus-node"></a>
 
-Use the Disqus node to automate work in Disqus, and integrate Disqus with other applications. n8n has built-in support for a wide range of Disqus features, including returning forums.
+# Disqus 节点 <a href="#disqus-node" id="disqus-node"></a>
 
-On this page, you'll find a list of operations the Disqus node supports and links to more resources.
+使用 Disqus 节点自动处理 Disqus 中的工作，并将其与其他应用集成。n8n 内置支持多种 Disqus 功能，包括返回论坛。
+
+本页列出了 Disqus 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Disqus credentials](../credentials/disqus.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Disqus 凭据](../credentials/disqus.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Forum
-    * Return forum details
-    * Return a list of categories within a forum
-    * Return a list of threads within a forum
-    * Return a list of posts within a forum
+* Forum（论坛）
+    * Return forum details（返回论坛详情）
+    * Return a list of categories within a forum（返回论坛中的分类列表）
+    * Return a list of threads within a forum（返回论坛中的主题列表）
+    * Return a list of posts within a forum（返回论坛中的帖子列表）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Disqus node documentation integration templates](https://n8n.io/integrations/disqus) or [search all templates](https://n8n.io/workflows/)
+[浏览 Disqus 集成模板](https://n8n.io/integrations/disqus)，或[搜索所有模板](https://n8n.io/workflows/)

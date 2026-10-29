@@ -1,44 +1,44 @@
 ---
-title: Trellix ePO credentials
-description: >-
-  Documentation for the Trellix ePO credentials. Use these credentials to
-  authenticate Trellix ePO in n8n, a workflow automation platform.
+title: Trellix ePO 凭据
+description: Trellix ePO 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Trellix ePO 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Trellix ePO credentials
+nodeTitle: Trellix ePO 凭据
 originalFilePath: integrations/builtin/credentials/trellixepo.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/trellixepo'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/trellixepo'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/trellixepo
+url: https://docs.n8n.io/integrations/builtin/credentials/trellixepo
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Trellix ePO credentials <a href="#trellix-epo-credentials" id="trellix-epo-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Trellix ePO 凭据 <a href="#trellix-epo-credentials" id="trellix-epo-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Trellix ePolicy Orchestrator](https://www.trellix.com/products/epo/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Trellix ePolicy Orchestrator](https://www.trellix.com/products/epo/) 账户。
 
-- Basic auth
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- Basic auth（基本身份验证）
 
-Refer to [Trellix ePO's documentation](https://docs.trellix.com/docs/trellix-epolicy-orchestrator-on-prem-web-api-scripting-reference-guide) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/trellix-epo/) on n8n's website.
+有关该服务的更多信息，请参阅 [Trellix ePO 文档](https://docs.trellix.com/docs/trellix-epolicy-orchestrator-on-prem-web-api-scripting-reference-guide)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/trellix-epo/)。
 
-To configure this credential, you'll need:
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-- A **Username** to connect as.
-- A **Password** for that user account.
+配置此凭据需要：
 
-n8n uses these fields to build the `-u` parameter in the format of `-u username:pw`. Refer to [Web API basics](https://docs.trellix.com/docs/web-api-basics) for more information.
+- 用于连接的 **Username**（用户名）。
+- 该用户账户的 **Password**（密码）。
+
+n8n 使用这些字段构造 `-u` 参数，格式为 `-u username:pw`。更多信息请参阅 [Web API 基础](https://docs.trellix.com/docs/web-api-basics)。

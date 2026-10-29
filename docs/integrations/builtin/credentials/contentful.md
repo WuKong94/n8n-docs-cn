@@ -1,46 +1,46 @@
 ---
-title: Contentful credentials
-description: >-
-  Documentation for Contentful credentials. Use these credentials to
-  authenticate Contentful in n8n, a workflow automation platform.
+title: Contentful 凭据
+description: Contentful 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Contentful 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Contentful credentials
+- integration
+- reference
+nodeTitle: Contentful 凭据
 originalFilePath: integrations/builtin/credentials/contentful.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/contentful'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/contentful'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/contentful
+url: https://docs.n8n.io/integrations/builtin/credentials/contentful
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Contentful credentials <a href="#contentful-credentials" id="contentful-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Contentful 凭据 <a href="#contentful-credentials" id="contentful-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Contentful](../app-nodes/n8n-nodes-base.contentful.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a [Contentful](https://www.contentful.com/) account.
-- Create a [Contentful space](https://www.contentful.com/help/getting-started/contentful-101/#step-2-create-a-space).
+- 创建一个 [Contentful](https://www.contentful.com/) 账号。
+- 创建一个 [Contentful 空间](https://www.contentful.com/help/getting-started/contentful-101/#step-2-create-a-space)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
+- API access token（API 访问令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Contentful's API documentation](https://www.contentful.com/developers/docs/references/) for more information about the service.
+有关该服务的更多信息，请参阅 [Contentful API 文档](https://www.contentful.com/developers/docs/references/)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- Your Contentful **Space ID**: The Space ID displays as you generate the tokens;  You can also refer to the [Contentful Find space ID documentation](https://www.contentful.com/help/spaces/find-space-id/) to view the Space ID.
-- A **Content Delivery API Access Token**: Required if you want to use the [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/). Leave blank if you don't intend to use this API.
-- A **Content Preview API Access Token**: Required if you want to use the [Content Preview API](https://www.contentful.com/developers/docs/references/content-preview-api/). Leave blank if you don't intend to use this API.
+- Contentful **Space ID**（空间 ID）：生成令牌时会显示 Space ID，也可以按照 [Contentful 的 Find space ID 文档](https://www.contentful.com/help/spaces/find-space-id/)查看。
+- **Content Delivery API Access Token**（内容交付 API 访问令牌）：使用 [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) 时必填，不使用此 API 时留空。
+- **Content Preview API Access Token**（内容预览 API 访问令牌）：使用 [Content Preview API](https://www.contentful.com/developers/docs/references/content-preview-api/) 时必填，不使用此 API 时留空。
 
-View and generate access tokens in Contentful in **Settings > API keys**. Contentful generates tokens for both Content Delivery API and Content Preview API as part of a single key. Refer to the [Contentful API authentication documentation](https://www.contentful.com/developers/docs/references/authentication/) for detailed instructions.
+在 Contentful 的 **Settings > API keys**（设置 > API 密钥）中查看和生成访问令牌。创建一个密钥时，Contentful 会同时生成 Content Delivery API 和 Content Preview API 的令牌。详细步骤请参阅 [Contentful API 身份验证文档](https://www.contentful.com/developers/docs/references/authentication/)。
 

@@ -1,44 +1,44 @@
 ---
-title: Microsoft Azure Monitor credentials
-description: >-
-  Documentation for the Microsoft Azure Monitor credentials. Use these
-  credentials to authenticate Microsoft Azure Monitor in n8n, a workflow
-  automation platform.
+title: Microsoft Azure Monitor 凭据
+description: Microsoft Azure Monitor 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Microsoft Azure
+  Monitor 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Microsoft Azure Monitor credentials
+- integration
+- reference
+nodeTitle: Microsoft Azure Monitor 凭据
 originalFilePath: integrations/builtin/credentials/microsoftazuremonitor.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/microsoftazuremonitor'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/microsoftazuremonitor'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/microsoftazuremonitor
+url: https://docs.n8n.io/integrations/builtin/credentials/microsoftazuremonitor
 layout:
   description:
     visible: false
 ---
-# Microsoft Azure Monitor credentials <a href="#microsoft-azure-monitor-credentials" id="microsoft-azure-monitor-credentials"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Microsoft Azure Monitor 凭据 <a href="#microsoft-azure-monitor-credentials" id="microsoft-azure-monitor-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-* Create a Microsoft Azure account or subscription
-* An app registered in Microsoft Entra ID
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+* 创建 Microsoft Azure 账户或订阅。
+* 在 Microsoft Entra ID 中注册的应用。
+
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 * OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Microsoft Azure Monitor's API documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/azure-monitor-rest-api-index) for more information about the service.
+有关该服务的更多信息，请参阅 [Microsoft Azure Monitor API 文档](https://learn.microsoft.com/en-us/azure/azure-monitor/azure-monitor-rest-api-index)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need a Microsoft Azure account and:
+配置此凭据需要一个 Microsoft Azure 账户，以及：
 
-- A **Client ID**
-- A **Client Secret**
-- A **Tenant ID**
-- The **Resource** you plan to access
+- 一个 **Client ID（客户端 ID）**
+- 一个 **Client Secret（客户端密钥）**
+- **Tenant ID**（租户 ID）
+- 要访问的 **Resource**（资源）
 
-Refer to [Microsoft Azure Monitor's API documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/api/access-api?tabs=rest#set-up-authentication) for more information about authenticating to the service.
+有关该服务身份验证的更多信息，请参阅 [Microsoft Azure Monitor API 文档](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/api/access-api?tabs=rest#set-up-authentication)。

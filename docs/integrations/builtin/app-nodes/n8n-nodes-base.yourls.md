@@ -1,41 +1,41 @@
 ---
-title: Yourls node documentation
-description: >-
-  Learn how to use the Yourls node in n8n. Follow technical documentation to
-  integrate Yourls node into your workflows.
+title: Yourls 节点文档
+description: 了解如何在 n8n 中使用 Yourls 节点，并按照技术文档将 Yourls 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Yourls node documentation
+- integration
+- reference
+nodeTitle: Yourls 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.yourls.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.yourls'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.yourls'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.yourls
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.yourls
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Yourls node <a href="#yourls-node" id="yourls-node"></a>
 
-Use the Yourls node to automate work in Yourls, and integrate Yourls with other applications. n8n has built-in support for a wide range of Yourls features, including expanding and shortening URLs. 
+# Yourls 节点 <a href="#yourls-node" id="yourls-node"></a>
 
-On this page, you'll find a list of operations the Yourls node supports and links to more resources.
+使用 Yourls 节点自动处理 Yourls 中的工作，并将其与其他应用集成。n8n 内置支持多种 Yourls 功能，包括展开和缩短 URL。
+
+本页列出了 Yourls 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Yourls credentials](../credentials/yourls.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Yourls 凭据](../credentials/yourls.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* URL
-    * Expand a URL
-    * Shorten a URL
-    * Get stats about one short URL
+* URL（URL）
+    * Expand a URL（展开 URL）
+    * Shorten a URL（缩短 URL）
+    * Get stats about one short URL（获取某个短 URL 的统计信息）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Yourls node documentation integration templates](https://n8n.io/integrations/yourls) or [search all templates](https://n8n.io/workflows/)
+[浏览 Yourls 集成模板](https://n8n.io/integrations/yourls)，或[搜索所有模板](https://n8n.io/workflows/)
 

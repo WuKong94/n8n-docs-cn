@@ -1,51 +1,51 @@
 ---
-title: Raindrop credentials
-description: >-
-  Documentation for Raindrop credentials. Use these credentials to authenticate
-  Raindrop in n8n, a workflow automation platform.
+title: Raindrop 凭据
+description: Raindrop 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Raindrop 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Raindrop credentials
+- integration
+- reference
+nodeTitle: Raindrop 凭据
 originalFilePath: integrations/builtin/credentials/raindrop.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/raindrop'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/raindrop'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/raindrop
+url: https://docs.n8n.io/integrations/builtin/credentials/raindrop
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Raindrop credentials <a href="#raindrop-credentials" id="raindrop-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Raindrop 凭据 <a href="#raindrop-credentials" id="raindrop-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Raindrop](../app-nodes/n8n-nodes-base.raindrop.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Raindrop](https://raindrop.io/) account.
+创建一个 [Raindrop](https://raindrop.io/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Raindrop's API documentation](https://developer.raindrop.io/) for more information about the service.
+有关该服务的更多信息，请参阅 [Raindrop API 文档](https://developer.raindrop.io/)。
 
-## Using OAuth <a href="#using-oauth" id="using-oauth"></a>
+## 使用 OAuth <a href="#using-oauth" id="using-oauth"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Client ID**
-- A **Client Secret**
+- 一个 **Client ID（客户端 ID）**
+- 一个 **Client Secret（客户端密钥）**
 
-Generate both by creating a Raindrop app.
+创建 Raindrop 应用即可生成这两个值。
 
-To create an app, go to **Settings >** [**Integrations**](https://app.raindrop.io/settings/integrations) and select **+ Create new app** in the **For Developers** section.
+进入 **Settings >** [**Integrations**](https://app.raindrop.io/settings/integrations)（设置 > 集成），在 **For Developers**（开发者）部分选择 **+ Create new app**（创建新应用）。
 
-Use these settings for your app:
+为应用采用以下设置：
 
-- Copy the **OAuth Redirect URL** from n8n and add it as a **Redirect URI** in your app.
-- Copy the **Client ID** and **Client Secret** from the Raindrop app and enter them in your n8n credential.
+- 从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL），将其添加为应用的 **Redirect URI**（重定向 URI）。
+- 从 Raindrop 应用复制 **Client ID** 和 **Client Secret**，填入 n8n 凭据。
 

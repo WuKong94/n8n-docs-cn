@@ -1,48 +1,48 @@
 ---
-title: Rocket.Chat credentials
-description: >-
-  Documentation for Rocket.Chat credentials. Use these credentials to
-  authenticate Rocket.Chat in n8n, a workflow automation platform.
+title: Rocket.Chat 凭据
+description: Rocket.Chat 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Rocket.Chat 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Rocket.Chat credentials
+- integration
+- reference
+nodeTitle: Rocket.Chat 凭据
 originalFilePath: integrations/builtin/credentials/rocketchat.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/rocketchat'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/rocketchat'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/rocketchat
+url: https://docs.n8n.io/integrations/builtin/credentials/rocketchat
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Rocket.Chat credentials <a href="#rocketchat-credentials" id="rocketchat-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Rocket.Chat 凭据 <a href="#rocketchat-credentials" id="rocketchat-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Rocket.Chat](../app-nodes/n8n-nodes-base.rocketchat.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a [Rocket.Chat](https://rocket.chat/) account.
-- Your account must have the `create-personal-access-tokens` permission to generate personal access tokens.
+- 创建一个 [Rocket.Chat](https://rocket.chat/) 账号。
+- 账户必须拥有 `create-personal-access-tokens` 权限，才能生成个人访问令牌。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
+- API access token（API 访问令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-
-Refer to [Rocket.Chat's API documentation](https://developer.rocket.chat/reference/api/rest-api) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+有关该服务的更多信息，请参阅 [Rocket.Chat API 文档](https://developer.rocket.chat/reference/api/rest-api)。
 
-To configure this credential, you'll need:
 
-- Your **User ID**: Displayed when you generate an access token.
-- An **Auth Key**: Your personal access token. To generate an access token, go to your **avatar > Account > Personal Access Tokens**. Copy the token and add it as the n8n **Auth Key**.
-- Your Rocket.Chat **Domain**: Also known as your default URL or workspace URL.
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-Refer to [Personal Access Tokens](https://docs.rocket.chat/docs/manage-your-account-settings#personal-access-tokens) for more information.
+配置此凭据需要：
+
+- **User ID**（用户 ID）：生成访问令牌时显示。
+- **Auth Key**（身份验证密钥）：即个人访问令牌。进入 **avatar > Account > Personal Access Tokens**（头像 > 账户 > 个人访问令牌）生成令牌，再将其复制到 n8n 的 **Auth Key** 字段。
+- Rocket.Chat **Domain**（域名）：也称默认 URL 或工作区 URL。
+
+更多信息请参阅[个人访问令牌](https://docs.rocket.chat/docs/manage-your-account-settings#personal-access-tokens)。
 

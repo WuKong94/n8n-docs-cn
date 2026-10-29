@@ -1,8 +1,10 @@
 ---
-title: hitl-tools
+title: AI 工具调用的人工审核
 ---
-{% hint style="info" %}
-**Human-in-the-loop for AI tool calls**
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-This node can be used as a human review step for AI Agent tool calls. When configured this way, the AI Agent will pause and request human approval through this service before executing tools that require oversight. Learn more in [Human-in-the-loop for AI tool calls](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/ai-examples/human-in-the-loop-for-tools).
+{% hint style="info" %}
+**AI 工具调用中的人工参与**
+
+此节点可以用作 AI Agent 工具调用的人工审核步骤。配置此方式后，AI Agent 会在执行需要监督的工具前暂停，并通过该服务请求人工批准。更多信息请参阅 [AI 工具调用中的人工参与](../../../../../../build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md)。
 {% endhint %}

@@ -1,45 +1,45 @@
 ---
-title: Taiga credentials
-description: >-
-  Documentation for Taiga credentials. Use these credentials to authenticate
-  Taiga in n8n, a workflow automation platform.
+title: Taiga 凭据
+description: Taiga 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Taiga 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Taiga credentials
+- integration
+- reference
+nodeTitle: Taiga 凭据
 originalFilePath: integrations/builtin/credentials/taiga.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/taiga'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/taiga'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/taiga
+url: https://docs.n8n.io/integrations/builtin/credentials/taiga
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Taiga credentials <a href="#taiga-credentials" id="taiga-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Taiga 凭据 <a href="#taiga-credentials" id="taiga-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Taiga](../app-nodes/n8n-nodes-base.taiga.md)
-- [Taiga Trigger](../trigger-nodes/n8n-nodes-base.taigatrigger.md)
+- [Taiga Trigger（触发器）](../trigger-nodes/n8n-nodes-base.taigatrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Taiga](https://taiga.io/) account.
+创建一个 [Taiga](https://taiga.io/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Basic auth
+- Basic auth（基本身份验证）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Taiga's API documentation](https://docs.taiga.io/api.html) for more information about the service.
+有关该服务的更多信息，请参阅 [Taiga API 文档](https://docs.taiga.io/api.html)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Username**: Enter your username or user email address. Refer to [Normal login](https://docs.taiga.io/api.html#auth-normal-login) for more information.
-- A **Password**: Enter your password.
-- The **Environment**: Choose between **Cloud** or **Self-Hosted**. For **Self-Hosted** instances, you'll also need to add:
-    - The **URL**: Enter your Taiga URL.
+- **Username**（用户名）：输入用户名或用户邮箱地址。更多信息请参阅[普通登录](https://docs.taiga.io/api.html#auth-normal-login)。
+- **Password**（密码）：输入密码。
+- **Environment**（环境）：选择 **Cloud**（云端）或 **Self-Hosted**（自托管）。自托管实例还需要添加：
+    - **URL**：输入 Taiga URL。
 

@@ -1,45 +1,45 @@
 ---
-title: Hacker News node documentation
-description: >-
-  Learn how to use the Hacker News node in n8n. Follow technical documentation
-  to integrate Hacker News node into your workflows.
+title: Hacker News 节点文档
+description: 了解如何在 n8n 中使用 Hacker News 节点，并按照技术文档将 Hacker News 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Hacker News node documentation
+nodeTitle: Hacker News 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.hackernews.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hackernews'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hackernews'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hackernews
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hackernews
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Hacker News node <a href="#hacker-news-node" id="hacker-news-node"></a>
 
-Use the Hacker News node to automate work in Hacker News, and integrate Hacker News with other applications. n8n has built-in support for a wide range of Hacker News features, including getting articles, and users. 
+# Hacker News 节点 <a href="#hacker-news-node" id="hacker-news-node"></a>
 
-On this page, you'll find a list of operations the Hacker News node supports and links to more resources.
+使用 Hacker News 节点自动处理 Hacker News 中的工作，并将其与其他应用集成。n8n 内置支持多种 Hacker News 功能，包括获取文章和用户。
+
+本页列出了 Hacker News 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-This node doesn't require authentication.
+此节点无需身份验证。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* All
-    * Get all items
-* Article
-    * Get a Hacker News article
-* User
-    * Get a Hacker News user
+* All（全部）
+    * Get all items（获取全部数据项）
+* Article（文章）
+    * 获取 Hacker News 文章
+* User（用户）
+    * 获取 Hacker News 用户
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Hacker News node documentation integration templates](https://n8n.io/integrations/hacker-news) or [search all templates](https://n8n.io/workflows/)
+[浏览 Hacker News 集成模板](https://n8n.io/integrations/hacker-news)，或[搜索所有模板](https://n8n.io/workflows/)

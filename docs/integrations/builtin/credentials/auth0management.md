@@ -1,45 +1,45 @@
 ---
-title: Auth0 Management credentials
-description: >-
-  Documentation for the Auth0 Management credentials. Use these credentials to
-  authenticate Auth0 Management in n8n, a workflow automation platform.
+title: Auth0 Management 凭据
+description: Auth0 Management 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Auth0 Management 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Auth0 Management credentials
+nodeTitle: Auth0 Management 凭据
 originalFilePath: integrations/builtin/credentials/auth0management.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/auth0management'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/auth0management'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/auth0management
+url: https://docs.n8n.io/integrations/builtin/credentials/auth0management
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Auth0 Management credentials <a href="#auth0-management-credentials" id="auth0-management-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Auth0 Management 凭据 <a href="#auth0-management-credentials" id="auth0-management-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create an [Auth0](https://auth0.com) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Auth0](https://auth0.com) 账户。
 
-- API client secret
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API client secret（API 客户端密钥）
 
-Refer to [Auth0 Management's documentation](https://auth0.com/docs/api/management/v2) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more. View [example workflows and related content](https://n8n.io/integrations/auth0-management-api/) on n8n's website.
+有关该服务的更多信息，请参阅 [Auth0 Management 文档](https://auth0.com/docs/api/management/v2)。
 
-## Using API client secret <a href="#using-api-client-secret" id="using-api-client-secret"></a>
+此节点仅提供凭据。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)，也可以在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/auth0-management-api/)。
 
-To configure this credential, you'll need:
+## 使用 API 客户端密钥 <a href="#using-api-client-secret" id="using-api-client-secret"></a>
 
-- An Auth0 **Domain**
-- A **Client ID**
-- A **Client Secret**
+配置此凭据需要：
 
-Refer to the [Auth0 Management API Get Access Tokens documentation](https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens) for instructions on obtaining the Client ID and Client Secret from the application's **Settings** tab.
+- Auth0 **Domain**（域名）
+- 一个 **Client ID（客户端 ID）**
+- 一个 **Client Secret（客户端密钥）**
+
+如何从应用的 **Settings**（设置）标签页获取 Client ID 和 Client Secret，请参阅 [Auth0 Management API 的 Get Access Tokens 文档](https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens)。

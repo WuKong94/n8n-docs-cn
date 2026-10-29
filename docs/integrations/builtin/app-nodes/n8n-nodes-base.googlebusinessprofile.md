@@ -1,58 +1,57 @@
 ---
-title: Google Business Profile node documentation
-description: >-
-  Learn how to use the Google Business Profile node in n8n. Follow technical
-  documentation to integrate Google Business Profile node into your workflows.
+title: Google Business Profile 节点文档
+description: 了解如何在 n8n 中使用 Google Business Profile 节点，并按照技术文档将 Google Business Profile
+  节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Google Business Profile node documentation
+- integration
+- reference
+nodeTitle: Google Business Profile 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebusinessprofile
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Business Profile node <a href="#google-business-profile-node" id="google-business-profile-node"></a>
 
-Use the Google Business Profile node to automate work in Google Business Profile and integrate Google Business Profile with other applications. n8n has built-in support for a wide range of Google Business Profile features, which includes creating, updating, and deleting posts and reviews.
+# Google Business Profile 节点 <a href="#google-business-profile-node" id="google-business-profile-node"></a>
 
-On this page, you'll find a list of operations the Google Business Profile node supports, and links to more resources.
+使用 Google Business Profile 节点自动处理 Google Business Profile 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Business Profile 功能，包括创建、更新和删除帖子及评价。
+
+本页列出了 Google Business Profile 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Google credentials documentation](../credentials/google/README.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Google 凭据文档](../credentials/google/README.md)。
 {% endhint %}
 
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Post
-	* Create
-	* Delete
-	* Get
-	* Get Many
-	* Update
-* Review
-	* Delete Reply
-	* Get
-	* Get Many
-	* Reply
+* Post（帖子）
+	* Create（创建）
+	* Delete（删除）
+	* Get（获取）
+	* Get Many（获取多条）
+	* Update（更新）
+* Review（评价）
+	* Delete Reply（删除回复）
+	* Get（获取）
+	* Get Many（获取多条）
+	* Reply（回复）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Google Business Profile node documentation integration templates](https://n8n.io/integrations/google-business-profile) or [search all templates](https://n8n.io/workflows/)
+[浏览 Google Business Profile 集成模板](https://n8n.io/integrations/google-business-profile)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides a trigger node for Google Business Profile. Refer to the [Google Business Profile Trigger node documentation](../trigger-nodes/n8n-nodes-base.googlebusinessprofiletrigger.md) for more information.
+n8n 为 Google Business Profile 提供触发器节点。更多信息请参阅 [Google Business Profile Trigger 节点文档](../trigger-nodes/n8n-nodes-base.googlebusinessprofiletrigger.md)。
 
-Refer to [Google Business Profile's documentation](https://developers.google.com/my-business/reference/rest) for more information about the service.
+有关该服务的更多信息，请参阅 [Google Business Profile 文档](https://developers.google.com/my-business/reference/rest)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

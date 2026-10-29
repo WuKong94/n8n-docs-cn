@@ -1,45 +1,45 @@
 ---
-title: Milvus credentials
-description: >-
-  Documentation for the Milvus credentials. Use these credentials to
-  authenticate Milvus in n8n, a workflow automation platform.
+title: Milvus 凭据
+description: Milvus 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Milvus 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Milvus credentials
+nodeTitle: Milvus 凭据
 originalFilePath: integrations/builtin/credentials/milvus.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/milvus'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/milvus'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/milvus
+url: https://docs.n8n.io/integrations/builtin/credentials/milvus
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Milvus credentials <a href="#milvus-credentials" id="milvus-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Milvus 凭据 <a href="#milvus-credentials" id="milvus-credentials"></a>
 
-* [Milvus Vector Store](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremilvus.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+* [Milvus Vector Store（向量存储）](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremilvus.md)
 
-Create and run an [Milvus](https://milvus.io/) instance. Refer to the [Install Milvus](https://milvus.io/docs/install-overview.md) for more information.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建并运行一个 [Milvus](https://milvus.io/) 实例。更多信息请参阅[安装 Milvus](https://milvus.io/docs/install-overview.md)。
 
-- Basic auth
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- Basic auth（基本身份验证）
 
-Refer to [Milvus's Authentication documentation](https://milvus.io/docs/authenticate.md?tab=docker#Authenticate-User-Access) for more information about setting up authentication.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+身份验证设置的更多信息，请参阅 [Milvus 身份验证文档](https://milvus.io/docs/authenticate.md?tab=docker#Authenticate-User-Access)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-To configure this credential, you'll need:
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-* **Base URL**: The base URL of your Milvus instance. The default is `http://localhost:19530`.
-* **Username**: The username to authenticate to your Milvus instance. The default value is `root`.
-* **Password**: The password to authenticate to your Milvus instance. The default value is `Milvus`.
+配置此凭据需要：
+
+* **Base URL**（基础 URL）：Milvus 实例的基础 URL，默认值为 `http://localhost:19530`。
+* **Username**（用户名）：向 Milvus 实例进行身份验证的用户名，默认值为 `root`。
+* **Password**（密码）：向 Milvus 实例进行身份验证的密码，默认值为 `Milvus`。

@@ -1,44 +1,44 @@
 ---
-title: Philips Hue node documentation
-description: >-
-  Learn how to use the Philips Hue node in n8n. Follow technical documentation
-  to integrate Philips Hue node into your workflows.
+title: Philips Hue 节点文档
+description: 了解如何在 n8n 中使用 Philips Hue 节点，并按照技术文档将 Philips Hue 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Philips Hue node documentation
+- integration
+- reference
+nodeTitle: Philips Hue 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.philipshue.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.philipshue'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.philipshue'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.philipshue
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.philipshue
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Philips Hue node <a href="#philips-hue-node" id="philips-hue-node"></a>
 
-Use the Philips Hue node to automate work in Philips Hue, and integrate Philips Hue with other applications. n8n has built-in support for a wide range of Philips Hue features, including deleting, retrieving, and updating lights. 
+# Philips Hue 节点 <a href="#philips-hue-node" id="philips-hue-node"></a>
 
-On this page, you'll find a list of operations the Philips Hue node supports and links to more resources.
+使用 Philips Hue 节点自动处理 Philips Hue 中的工作，并将其与其他应用集成。n8n 内置支持多种 Philips Hue 功能，包括删除、获取和更新灯光。
+
+本页列出了 Philips Hue 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Philips Hue credentials](../credentials/philipshue.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Philips Hue 凭据](../credentials/philipshue.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Light
-    * Delete a light
-    * Retrieve a light
-    * Retrieve all lights
-    * Update a light
+* Light（灯光）
+    * Delete a light（删除灯光）
+    * Retrieve a light（获取灯光）
+    * Retrieve all lights（获取全部灯光）
+    * Update a light（更新灯光）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Philips Hue node documentation integration templates](https://n8n.io/integrations/philips-hue) or [search all templates](https://n8n.io/workflows/)
+[浏览 Philips Hue 集成模板](https://n8n.io/integrations/philips-hue)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 

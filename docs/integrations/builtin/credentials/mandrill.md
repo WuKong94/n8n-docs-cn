@@ -1,44 +1,44 @@
 ---
-title: Mandrill credentials
-description: >-
-  Documentation for Mandrill credentials. Use these credentials to authenticate
-  Mandrill in n8n, a workflow automation platform.
+title: Mandrill 凭据
+description: Mandrill 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Mandrill 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Mandrill credentials
+- integration
+- reference
+nodeTitle: Mandrill 凭据
 originalFilePath: integrations/builtin/credentials/mandrill.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/mandrill'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/mandrill'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/mandrill
+url: https://docs.n8n.io/integrations/builtin/credentials/mandrill
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Mandrill credentials <a href="#mandrill-credentials" id="mandrill-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Mandrill 凭据 <a href="#mandrill-credentials" id="mandrill-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Mandrill](../app-nodes/n8n-nodes-base.mandrill.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a Mailchimp [Transactional email account](https://mailchimp.com/features/transactional-email-infrastructure/) 
-- Log in to [Mandrill](https://mandrillapp.com/login/) with your Mailchimp account.
+- 创建 Mailchimp [事务性邮件账户](https://mailchimp.com/features/transactional-email-infrastructure/)。
+- 使用 Mailchimp 账户登录 [Mandrill](https://mandrillapp.com/login/)。
 
-If you already have a Mailchimp account with a Standard plan or higher, enable [Transactional Emails](https://mailchimp.com/help/add-or-remove-transactional-email) within that account to use Mandrill.
+如果已经拥有 Standard 或更高级别的 Mailchimp 账户，请在该账户中启用 [Transactional Emails](https://mailchimp.com/help/add-or-remove-transactional-email)（事务性邮件），以使用 Mandrill。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Mailchimp's Transactional API documentation](https://mailchimp.com/developer/transactional/api/) for more information about the service.
+该服务的更多信息，请参阅 [Mailchimp Transactional API 文档](https://mailchimp.com/developer/transactional/api/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Generate an API key from the Mandrill [Settings](https://mandrillapp.com/settings). Refer to Mailchimp's [Generate your API key documentation](https://mailchimp.com/developer/transactional/guides/quick-start/#generate-your-api-key) for more detailed instructions.
+- **API Key**（API 密钥）：在 Mandrill 的[设置](https://mandrillapp.com/settings)中生成。详细步骤请参阅 Mailchimp 的[生成 API 密钥文档](https://mailchimp.com/developer/transactional/guides/quick-start/#generate-your-api-key)。
 

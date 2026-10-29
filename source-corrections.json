@@ -322,5 +322,14 @@
     "translated_sentence": "译注：此示例段落将包名分别写作 n8n-node-storms、n8n-node-weather 和 n8n-nodes-storms，彼此不一致。此处保留原始示例，请使用实际要安装的软件包名称，不要假定这三个名称指向同一软件包。",
     "evidence": "同页安装步骤第 4 步称包名为 n8n-node-storms，紧接的第一个项目又将说明中的包名称为 n8n-node-weather，但内联代码输入值为 n8n-nodes-storms；后续指定版本和 dist-tag 示例使用 n8n-node-storms。",
     "scope": "保留原始包名、版本号、dist-tag 和全部示例代码，仅添加同页命名差异译注；未查询或安装这些示例软件包。"
+  },
+  {
+    "id": "filemaker-introduction-records",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.filemaker.md",
+    "source_sha256": "8dfb1f472d9c3131f6b193b3254a1409c640b50aa9e7fff5d1583e771d09f08e",
+    "original_sentence": "Use the FileMaker node to automate work in FileMaker, and integrate FileMaker with other applications. n8n has built-in support for a wide range of FileMaker features, including creating, finding, getting, editing, and duplicating files.",
+    "translated_sentence": "使用 FileMaker 节点自动处理 FileMaker 中的工作，并将其与其他应用集成。n8n 内置支持多种 FileMaker 功能，包括创建、查找、获取、编辑和复制记录。",
+    "evidence": "同页 Operations 明确列出 Find Records、Get Records、Get Records by Id、Create Record、Edit Record、Duplicate Record、Delete Record 和 Perform Script；简介中的 files 与实际列举的记录操作不符。",
+    "scope": "仅依据同页操作列表将简介误称的文件改为记录；不增删操作，不修改代码、身份验证、链接或附件，不声称已执行节点。"
   }
 ]
