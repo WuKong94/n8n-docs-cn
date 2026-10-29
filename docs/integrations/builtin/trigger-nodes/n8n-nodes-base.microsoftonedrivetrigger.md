@@ -1,59 +1,56 @@
 ---
-title: Microsoft OneDrive Trigger node documentation
-description: >-
-  Learn how to use the Microsoft OneDrive Trigger node in n8n. Follow technical
-  documentation to integrate Microsoft OneDrive Trigger node into your
-  workflows.
+title: Microsoft OneDrive 触发器节点文档
+description: 了解如何在 n8n 中使用 Microsoft OneDrive 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Microsoft OneDrive Trigger node documentation
+nodeTitle: Microsoft OneDrive 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftonedrivetrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftonedrivetrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftonedrivetrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftonedrivetrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.microsoftonedrivetrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft OneDrive Trigger node <a href="#microsoft-onedrive-trigger-node" id="microsoft-onedrive-trigger-node"></a>
 
-Use the Microsoft OneDrive Trigger node to respond to events in [Microsoft OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) and integrate Microsoft OneDrive with other applications. n8n has built-in support for file and folder events in OneDrive.
+# Microsoft OneDrive 触发器节点 <a href="#microsoft-onedrive-trigger-node" id="microsoft-onedrive-trigger-node"></a>
 
-On this page, you'll find a list of events the Microsoft OneDrive Trigger node can respond to and links to more resources.
+使用 Microsoft OneDrive Trigger 节点响应 [Microsoft OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) 中的事件，并将其与其他应用集成。n8n 内置支持 OneDrive 的文件和文件夹事件。
+
+本页列出了 Microsoft OneDrive Trigger 节点可响应的事件，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Microsoft credentials documentation](../credentials/microsoft.md) for authentication information for this node. This node also supports the [Microsoft Entra Service Principal credentials](../credentials/microsoftentraserviceprincipal.md) for app-only access with no signed-in user: select **Microsoft Entra Service Principal (App-Only)** in the **Authentication** dropdown.
+此节点的身份验证信息，请参阅 [Microsoft 凭据文档](../credentials/microsoft.md)。它也支持 [Microsoft Entra 服务主体凭据](../credentials/microsoftentraserviceprincipal.md)，可在没有用户登录的情况下提供仅应用访问；在 **Authentication**（身份验证）下拉菜单中选择 **Microsoft Entra Service Principal (App-Only)**。
 {% endhint %}
 
 {% hint style="info" %}
-**Government Cloud Support**
+**政府云支持**
 
-If you're using a government cloud tenant (US Government, US Government DOD, or China), make sure to select the appropriate **Microsoft Graph API Base URL** in your Microsoft credentials configuration.
+如果使用政府云租户（US Government、US Government DOD 或 China），请在 Microsoft 凭据配置中选择适当的 **Microsoft Graph API Base URL**（Microsoft Graph API 基础 URL）。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Microsoft OneDrive integrations](https://n8n.io/integrations/microsoft-onedrive-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Microsoft OneDrive 集成](https://n8n.io/integrations/microsoft-onedrive-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* On File Created
-* On File Updated
-* On Folder Created
-* On Folder Updates
+* On File Created（文件已创建时）
+* On File Updated（文件已更新时）
+* On Folder Created（文件夹已创建时）
+* On Folder Updates（文件夹更新时）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Microsoft OneDrive. Refer to the [Microsoft OneDrive node documentation](../app-nodes/n8n-nodes-base.microsoftonedrive.md) for more information.
+n8n 为 Microsoft OneDrive 提供应用节点。更多信息请参阅 [Microsoft OneDrive 节点文档](../app-nodes/n8n-nodes-base.microsoftonedrive.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/microsoft-onedrive-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/microsoft-onedrive-trigger/)。
 
-Refer to [Microsoft's OneDrive API documentation](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/) for more information about the service.
+该服务的更多信息，请参阅 [Microsoft OneDrive API 文档](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/)。

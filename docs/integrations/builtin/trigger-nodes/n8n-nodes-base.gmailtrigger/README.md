@@ -1,18 +1,14 @@
 ---
-title: Gmail Trigger node documentation
+title: Gmail 触发器节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-base.gmailtrigger
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger
-description: >-
-  Learn how to use the Gmail Trigger node in n8n. Follow technical documentation
-  to integrate Gmail Trigger node into your workflows.
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.gmailtrigger
+description: 了解如何在 n8n 中使用 Gmail 触发器节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -32,55 +28,57 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Gmail Trigger
 
-[Gmail](https://www.gmail.com) is an email service developed by Google. The Gmail Trigger node can start a workflow based on events in Gmail.
+# Gmail 触发器 <a id="gmail-trigger"></a>
+
+[Gmail](https://www.gmail.com) 是 Google 开发的电子邮件服务。Gmail Trigger 节点可根据 Gmail 中的事件启动工作流。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Google credentials documentation](../../credentials/google/README.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Google 凭据文档](../../credentials/google/README.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Gmail Trigger integrations](https://n8n.io/integrations/gmail-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Gmail Trigger 集成](https://n8n.io/integrations/gmail-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* **Message Received**: The node triggers for new messages at the selected **Poll Time**.
+* **Message Received**（收到消息）：节点按照所选 **Poll Time**（轮询时间）为新邮件触发。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Configure the node with these parameters:
+使用以下参数配置节点：
 
-* **Credential to connect with**: Select or create a new Google credential to use for the trigger. Refer to [Google credentials](../../credentials/google/README.md) for more information on setting up a new credential.
-* **Poll Times**: Select a poll **Mode** to set how often to trigger the poll. Your **Mode** selection will add or remove relevant fields. Refer to [Poll Mode options](poll-mode-options.md) to configure the parameters for each mode type.
-* **Simplify**: Choose whether to return a simplified version of the response (turned on, default) or the raw data (turned off).
-  * The simplified version returns email message IDs, labels, and email headers, including: From, To, CC, BCC, and Subject.
-* **Max Emails per Poll**: Enter the maximum number of emails the node fetches per poll cycle. The default is 10, with a maximum of 50. If there are more unread emails than the limit, the node queues the remaining emails and fetches them in the next poll cycle.
+* **Credential to connect with**（连接凭据）：选择或创建供触发器使用的 Google 凭据。创建凭据的更多信息，请参阅 [Google 凭据](../../credentials/google/README.md)。
+* **Poll Times**（轮询时间）：选择轮询 **Mode**（模式），设置轮询触发频率。选择不同模式时，会添加或移除相应字段。各模式的参数配置，请参阅[轮询模式选项](poll-mode-options.md)。
+* **Simplify**（简化）：选择返回简化响应（开启，默认）或原始数据（关闭）。
+  * 简化响应包含邮件消息 ID、标签和邮件头，包括 From、To、CC、BCC 和 Subject。
+* **Max Emails per Poll**（每次轮询的最大邮件数）：输入节点每个轮询周期获取的邮件数量上限。默认值为 10，最大值为 50。如果未读邮件数量超过上限，节点会将剩余邮件加入队列，在下个轮询周期继续获取。
 
-## Node filters <a href="#node-filters" id="node-filters"></a>
+## 节点筛选条件 <a href="#node-filters" id="node-filters"></a>
 
-Use these filters to further refine the node's behavior:
+使用以下筛选条件进一步调整节点行为：
 
-* **Include Spam and Trash**: Select whether the node should trigger on new messages in the Spam and Trash folders (turned on) or not (turned off).
-* **Label Names or IDs**: Only trigger on messages with the selected labels added to them. Select the Label names you want to apply or enter an expression to specify IDs. The dropdown populates based on the **Credential** you selected.
-* **Search**: Enter Gmail search refine filters, like `from:`, to trigger the node on the filtered conditions only. Refer to [Refine searches in Gmail](https://support.google.com/mail/answer/7190?hl=en) for more information.
-* **Read Status**: Choose whether to receive **Unread and read emails**, **Unread emails only** (default), or **Read emails only**.
-* **Sender**: Enter an email or a part of a sender name to trigger only on messages from that sender.
+* **Include Spam and Trash**（包含垃圾邮件和已删除邮件）：选择是否对 Spam 和 Trash 文件夹中的新邮件触发，开启时包含，关闭时不包含。
+* **Label Names or IDs**（标签名称或 ID）：仅对添加了所选标签的邮件触发。选择所需标签名称，或输入表达式指定 ID。下拉菜单的内容根据所选 **Credential**（凭据）填充。
+* **Search**（搜索）：输入 Gmail 搜索筛选条件，例如 `from:`，只对满足筛选条件的邮件触发。更多信息请参阅[优化 Gmail 搜索](https://support.google.com/mail/answer/7190?hl=en)。
+* **Read Status**（已读状态）：选择 **Unread and read emails**（未读及已读邮件）、**Unread emails only**（仅未读邮件，默认）或 **Read emails only**（仅已读邮件）。
+* **Sender**（发件人）：输入邮箱地址或发件人名称的一部分，仅对来自该发件人的邮件触发。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Gmail. Refer to the [Gmail node documentation](../../app-nodes/n8n-nodes-base.gmail/README.md) for more information.
+n8n 为 Gmail 提供应用节点。更多信息请参阅 [Gmail 节点文档](../../app-nodes/n8n-nodes-base.gmail/README.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/gmail-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/gmail-trigger/)。
 
-Refer to [Google's Gmail API documentation](https://developers.google.com/gmail/api/guides) for details about their API.
+API 的详细信息，请参阅 [Google Gmail API 文档](https://developers.google.com/gmail/api/guides)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。

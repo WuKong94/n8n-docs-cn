@@ -1,48 +1,46 @@
 ---
-title: Copper Trigger node documentation
-description: >-
-  Learn how to use the Copper Trigger node in n8n. Follow technical
-  documentation to integrate Copper Trigger node into your workflows.
+title: Copper 触发器节点文档
+description: 了解如何在 n8n 中使用 Copper 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Copper Trigger node documentation
+- integration
+- reference
+nodeTitle: Copper 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.coppertrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.coppertrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.coppertrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.coppertrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.coppertrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Copper Trigger node <a href="#copper-trigger-node" id="copper-trigger-node"></a>
 
-[Copper](https://www.copper.com/) is a CRM that focuses on strong integration with Google Workspace. It's mainly targeted towards small and medium-sized businesses.
+# Copper 触发器节点 <a href="#copper-trigger-node" id="copper-trigger-node"></a>
+
+[Copper](https://www.copper.com/) 是注重与 Google Workspace 深度集成的 CRM，主要面向中小企业。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Copper credentials documentation](../credentials/copper.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Copper 凭据文档](../credentials/copper.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Copper Trigger integrations](https://n8n.io/integrations/copper-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Copper Trigger 集成](https://n8n.io/integrations/copper-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Delete
-* New
-* Update
+* Delete（删除）
+* New（新增）
+* Update（更新）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides an app node for Copper. Refer to the [Copper node documentation](../app-nodes/n8n-nodes-base.copper.md) for more information.
+n8n 为 Copper 提供应用节点。更多信息请参阅 [Copper 节点文档](../app-nodes/n8n-nodes-base.copper.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/copper-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/copper-trigger/)。
 
-Refer to [Copper's documentation](https://developer.copper.com/) for details about their API.
+API 的详细信息，请参阅 [Copper 文档](https://developer.copper.com/)。

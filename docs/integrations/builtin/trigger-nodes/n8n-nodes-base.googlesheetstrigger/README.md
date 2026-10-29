@@ -1,18 +1,14 @@
 ---
-title: Google Sheets Trigger node documentation
+title: Google Sheets 触发器节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-base.googlesheetstrigger
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger
-description: >-
-  Learn how to use the Google Sheets Trigger node in n8n. Follow technical
-  documentation to integrate Google Sheets Trigger node into your workflows.
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger
+description: 了解如何在 n8n 中使用 Google Sheets 触发器节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -32,37 +28,39 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Sheets Trigger
 
-[Google Sheets](https://www.google.com/sheets) is a web-based spreadsheet program that's part of Google's office software suite within its Google Drive service.
+# Google Sheets 触发器 <a id="google-sheets-trigger"></a>
+
+[Google Sheets](https://www.google.com/sheets) 是基于网页的电子表格程序，属于 Google Drive 服务中的 Google 办公软件套件。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Google credentials documentation](../../credentials/google/README.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Google 凭据文档](../../credentials/google/README.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Google Sheets Trigger integrations](https://n8n.io/integrations/google-sheets-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Google Sheets Trigger 集成](https://n8n.io/integrations/google-sheets-trigger/)页面。
 {% endhint %}
 
-## Events <a href="#events" id="events"></a>
+## 事件 <a href="#events" id="events"></a>
 
-* Row added
-* Row updated
-* Row added or updated
+* Row added（已添加行）
+* Row updated（行已更新）
+* Row added or updated（已添加或更新行）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Google Sheet's API documentation](https://developers.google.com/sheets/api) for more information about the service.
+该服务的更多信息，请参阅 [Google Sheets API 文档](https://developers.google.com/sheets/api)。
 
-n8n provides an app node for Google Sheets. Refer to the [Google Sheets node documentation](../../app-nodes/n8n-nodes-base.googlesheets/README.md) for more information.
+n8n 为 Google Sheets 提供应用节点。更多信息请参阅 [Google Sheets 节点文档](../../app-nodes/n8n-nodes-base.googlesheets/README.md)。
 
-View [example workflows and related content](https://n8n.io/integrations/google-sheets-trigger/) on n8n's website.
+在 n8n 网站查看[示例工作流和相关内容](https://n8n.io/integrations/google-sheets-trigger/)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。

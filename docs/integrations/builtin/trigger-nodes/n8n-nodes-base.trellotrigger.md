@@ -1,48 +1,46 @@
 ---
-title: Trello Trigger node documentation
-description: >-
-  Learn how to use the Trello Trigger node in n8n. Follow technical
-  documentation to integrate Trello Trigger node into your workflows.
+title: Trello 触发器节点文档
+description: 了解如何在 n8n 中使用 Trello 触发器节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Trello Trigger node documentation
+nodeTitle: Trello 触发器节点文档
 originalFilePath: integrations/builtin/trigger-nodes/n8n-nodes-base.trellotrigger.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.trellotrigger
-url: >-
-  https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.trellotrigger
+originalUrl: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.trellotrigger
+url: https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.trellotrigger
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Trello Trigger node <a href="#trello-trigger-node" id="trello-trigger-node"></a>
 
-[Trello](https://trello.com/) is a web-based Kanban-style list-making application which is a subsidiary of Atlassian. Users can create their task boards with different columns and move the tasks between them.
+# Trello 触发器节点 <a href="#trello-trigger-node" id="trello-trigger-node"></a>
+
+[Trello](https://trello.com/) 是 Atlassian 旗下基于网页的看板式列表应用。用户可以创建包含不同列的任务看板，并在列之间移动任务。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Trello credentials documentation](../credentials/trello.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Trello 凭据文档](../credentials/trello.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Examples and templates**
+**示例与模板**
 
-For usage examples and templates to help you get started, refer to n8n's [Trello Trigger integrations](https://n8n.io/integrations/trello-trigger/) page.
+入门用法示例和模板，请参阅 n8n 的 [Trello Trigger 集成](https://n8n.io/integrations/trello-trigger/)页面。
 {% endhint %}
 
-## Find the Model ID <a href="#find-the-model-id" id="find-the-model-id"></a>
+## 查找 Model ID <a href="#find-the-model-id" id="find-the-model-id"></a>
 
-The model ID is the ID of any model in Trello. Depending on the use-case, it could be the User ID, List ID, and so on.
+Model ID 是 Trello 中任意模型的 ID，具体取决于使用场景，例如 User ID、List ID 等。
 
-For this specific example, the List ID would be the Model ID:
+在此示例中，List ID 将用作 Model ID：
 
-1. Open the Trello board that contains the list.
-2. If the list doesn't have any cards, add a card to the list.
-3. Open the card, add `.json` at the end of the URL, and press enter.
-4. In the JSON file, you will see a field called `idList`.
-5. Copy `idList`and paste it in the **Model ID** field in n8n.
+1. 打开包含所需列表的 Trello 看板。
+2. 如果列表中没有卡片，先添加一张卡片。
+3. 打开卡片，在 URL 末尾添加 `.json`，然后按 Enter。
+4. 在 JSON 文件中找到名为 `idList` 的字段。
+5. 复制 `idList`，粘贴到 n8n 的 **Model ID** 字段。
 
