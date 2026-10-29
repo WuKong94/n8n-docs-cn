@@ -1,59 +1,59 @@
 ---
-title: LinkedIn node documentation
-description: >-
-  Learn how to use the LinkedIn node in n8n. Follow technical documentation to
-  integrate LinkedIn node into your workflows.
+title: LinkedIn 节点文档
+description: 了解如何在 n8n 中使用 LinkedIn 节点，并按照技术文档将 LinkedIn 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: LinkedIn node documentation
+nodeTitle: LinkedIn 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.linkedin.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linkedin'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linkedin'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linkedin
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.linkedin
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# LinkedIn node <a href="#linkedin-node" id="linkedin-node"></a>
 
-Use the LinkedIn node to automate work in LinkedIn, and integrate LinkedIn with other applications. n8n supports creating posts.
+# LinkedIn 节点 <a href="#linkedin-node" id="linkedin-node"></a>
 
-On this page, you'll find a list of operations the LinkedIn node supports and links to more resources.
+使用 LinkedIn 节点自动处理 LinkedIn 中的工作，并将其与其他应用集成。n8n 支持创建帖子。
+
+本页列出了 LinkedIn 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [LinkedIn credentials](../credentials/linkedin.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [LinkedIn 凭据](../credentials/linkedin.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Post
-    * Create
+* Post（帖子）
+    * Create（创建）
 
-## Parameters <a href="#parameters" id="parameters"></a>
+## 参数 <a href="#parameters" id="parameters"></a>
 
-* **Post As**: choose whether to post as a **Person** or **Organization**.
-* **Person Name or ID** and **Organization URN**: enter an identifier for the person or organization.<br>
+* **Post As**（发布身份）：选择以 **Person**（个人）还是 **Organization**（组织）身份发布。
+* **Person Name or ID**（个人名称或 ID）和 **Organization URN**（组织 URN）：输入个人或组织的标识符。<br>
 
-	<div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Posting as organization</strong></p><p>If posting as an Organization enter the organization number in the URN field. For example, <code>03262013</code> not <code>urn:li:company:03262013</code>.</p></div>
+	<div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>以组织身份发布</strong></p><p>以组织身份发布时，在 URN 字段输入组织编号。例如，输入 <code>03262013</code>，不要输入 <code>urn:li:company:03262013</code>。</p></div>
 	
-* **Text**: the post contents.
-* **Media Category**: use this when including images or article URLs in your post.
+* **Text**（文本）：帖子的内容。
+* **Media Category**（媒体类别）：帖子中包含图片或文章 URL 时使用。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse LinkedIn node documentation integration templates](https://n8n.io/integrations/linkedin) or [search all templates](https://n8n.io/workflows/)
+[浏览 LinkedIn 集成模板](https://n8n.io/integrations/linkedin)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LinkedIn's API documentation](https://learn.microsoft.com/en-us/linkedin/) for more information about the service.
+有关该服务的更多信息，请参阅 [LinkedIn API 文档](https://learn.microsoft.com/en-us/linkedin/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
 

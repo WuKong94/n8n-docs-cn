@@ -1,42 +1,42 @@
 ---
-title: Sysdig credentials
-description: >-
-  Documentation for the Sysdig credentials. Use these credentials to
-  authenticate Sysdig in n8n, a workflow automation platform.
+title: Sysdig 凭据
+description: Sysdig 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Sysdig 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Sysdig credentials
+- integration
+- reference
+nodeTitle: Sysdig 凭据
 originalFilePath: integrations/builtin/credentials/sysdig.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/sysdig'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/sysdig'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/sysdig
+url: https://docs.n8n.io/integrations/builtin/credentials/sysdig
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Sysdig Management credentials <a href="#sysdig-management-credentials" id="sysdig-management-credentials"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/7QbEnpnpOks3Rq0SiMFb/" %}
+# Sysdig Management 凭据 <a href="#sysdig-management-credentials" id="sysdig-management-credentials"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cred-only-statement.md" %}
 
-Create a [Sysdig](https://sysdig.com) account or configure a local instance.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建 [Sysdig](https://sysdig.com) 账户，或配置本地实例。
 
-- Access Key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- Access Key（访问密钥）
 
-Refer to [Sysdig's documentation](https://docs.sysdig.com/en/docs/developer-tools/sysdig-api/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-This is a credential-only node. Refer to [Custom API operations](../custom-api-actions-for-existing-nodes.md) to learn more.
+有关该服务的更多信息，请参阅 [Sysdig 文档](https://docs.sysdig.com/en/docs/developer-tools/sysdig-api/)。
 
-## Using API access key <a href="#using-api-access-key" id="using-api-access-key"></a>
+此节点仅提供凭据支持。更多信息请参阅[自定义 API 操作](../custom-api-actions-for-existing-nodes.md)。
 
-To configure this credential, you'll need:
+## 使用 API 访问密钥 <a href="#using-api-access-key" id="using-api-access-key"></a>
 
-- An **Access Key**
+配置此凭据需要：
 
-Refer to the [Sysdig Agent Access Keys documentation](https://docs.sysdig.com/en/docs/administration/agent_access_key/) for instructions on obtaining the Access Key from the application.
+- **Access Key**（访问密钥）
+
+如何从应用获取访问密钥，请参阅 [Sysdig Agent Access Keys 文档](https://docs.sysdig.com/en/docs/administration/agent_access_key/)。

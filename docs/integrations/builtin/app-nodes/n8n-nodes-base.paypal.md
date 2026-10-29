@@ -1,42 +1,42 @@
 ---
-title: PayPal node documentation
-description: >-
-  Learn how to use the PayPal node in n8n. Follow technical documentation to
-  integrate PayPal node into your workflows.
+title: PayPal 节点文档
+description: 了解如何在 n8n 中使用 PayPal 节点，并按照技术文档将 PayPal 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: PayPal node documentation
+- integration
+- reference
+nodeTitle: PayPal 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.paypal.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paypal'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paypal'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paypal
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paypal
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# PayPal node <a href="#paypal-node" id="paypal-node"></a>
 
-Use the PayPal node to automate work in PayPal, and integrate PayPal with other applications. n8n has built-in support for a wide range of PayPal features, including creating a batch payout and canceling unclaimed payout items. 
+# PayPal 节点 <a href="#paypal-node" id="paypal-node"></a>
 
-On this page, you'll find a list of operations the PayPal node supports and links to more resources.
+使用 PayPal 节点自动处理 PayPal 中的工作，并将其与其他应用集成。n8n 内置支持多种 PayPal 功能，包括创建批量付款和取消未领取的付款项。
+
+本页列出了 PayPal 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [PayPal credentials](../credentials/paypal.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [PayPal 凭据](../credentials/paypal.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Payout
-    * Create a batch payout
-    * Show batch payout details
-* Payout Item
-    * Cancels an unclaimed payout item
-    * Show payout item details
+* Payout（付款）
+    * Create a batch payout（创建批量付款）
+    * Show batch payout details（显示批量付款详情）
+* Payout Item（付款项）
+    * Cancels an unclaimed payout item（取消未领取的付款项）
+    * Show payout item details（显示付款项详情）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse PayPal node documentation integration templates](https://n8n.io/integrations/paypal) or [search all templates](https://n8n.io/workflows/)
+[浏览 PayPal 集成模板](https://n8n.io/integrations/paypal)，或[搜索所有模板](https://n8n.io/workflows/)

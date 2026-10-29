@@ -1,46 +1,46 @@
 ---
-title: Matrix credentials
-description: >-
-  Documentation for Matrix credentials. Use these credentials to authenticate
-  Matrix in n8n, a workflow automation platform.
+title: Matrix 凭据
+description: Matrix 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Matrix 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Matrix credentials
+- integration
+- reference
+nodeTitle: Matrix 凭据
 originalFilePath: integrations/builtin/credentials/matrix.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/matrix'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/matrix'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/matrix
+url: https://docs.n8n.io/integrations/builtin/credentials/matrix
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Matrix credentials <a href="#matrix-credentials" id="matrix-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Matrix 凭据 <a href="#matrix-credentials" id="matrix-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Matrix](../app-nodes/n8n-nodes-base.matrix.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an account on a [Matrix](https://matrix.org/) server. Refer to [Creating an account](https://matrix.org/docs/chat_basics/matrix-for-im/#creating-a-matrix-account) for more information.
+在 [Matrix](https://matrix.org/) 服务器上创建账户。更多信息请参阅[创建账户](https://matrix.org/docs/chat_basics/matrix-for-im/#creating-a-matrix-account)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
+- API access token（API 访问令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to the [Matrix Specification](https://spec.matrix.org/latest/) for more information about the service.
+该服务的更多信息，请参阅 [Matrix 规范](https://spec.matrix.org/latest/)。
 
-Refer to the documentation for the specific client you're using to access the Matrix server.
+请参阅你用来访问 Matrix 服务器的具体客户端文档。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Access Token**: This token is tied to the account you use to log into Matrix with.
-- A **Homeserver URL**: This is the URL of the [homeserver](https://matrix.org/docs/matrix-concepts/elements-of-matrix/#homeserver) you entered when you created your account. n8n prepopulates this with matrix.org's own server; adjust this if you're using a server hosted elsewhere.
+- **Access Token**（访问令牌）：此令牌与用于登录 Matrix 的账户关联。
+- **Homeserver URL**（主服务器 URL）：创建账户时填写的 [homeserver](https://matrix.org/docs/matrix-concepts/elements-of-matrix/#homeserver) 的 URL。n8n 默认填入 matrix.org 自己的服务器地址；如果使用其他托管位置的服务器，请调整该值。
 
-Instructions for getting these details vary depending on the client you're using to access the server. Both the **Access Token** and the **Homeserver URL** can most commonly be found in **Settings > Help & About > Advanced**, but refer to your client's documentation for more details. 
+获取这些信息的步骤取决于访问服务器所用的客户端。**Access Token** 和 **Homeserver URL** 通常可在 **Settings > Help & About > Advanced**（设置 > 帮助与关于 > 高级）中找到，详情请参阅客户端文档。
 

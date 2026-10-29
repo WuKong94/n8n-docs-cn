@@ -1,45 +1,45 @@
 ---
-title: Segment node documentation
-description: >-
-  Learn how to use the Segment node in n8n. Follow technical documentation to
-  integrate Segment node into your workflows.
+title: Segment 节点文档
+description: 了解如何在 n8n 中使用 Segment 节点，并按照技术文档将 Segment 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Segment node documentation
+- integration
+- reference
+nodeTitle: Segment 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.segment.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.segment'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.segment'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.segment
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.segment
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Segment node <a href="#segment-node" id="segment-node"></a>
 
-Use the Segment node to automate work in Segment, and integrate Segment with other applications. n8n has built-in support for a wide range of Segment features, including adding users to groups, creating identities, and tracking activities. 
+# Segment 节点 <a href="#segment-node" id="segment-node"></a>
 
-On this page, you'll find a list of operations the Segment node supports and links to more resources.
+使用 Segment 节点自动处理 Segment 中的工作，并将其与其他应用集成。n8n 内置支持多种 Segment 功能，包括将用户加入群组、创建身份标识和跟踪活动。
+
+本页列出了 Segment 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Segment credentials](../credentials/segment.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Segment 凭据](../credentials/segment.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Group
-    * Add a user to a group
-* Identify
-    * Create an identity
-* Track
-    * Record the actions your users perform. Every action triggers an event, which can also have associated properties.
-    * Record page views on your website, along with optional extra information about the page being viewed.
+* Group（群组）
+    * Add a user to a group（将用户添加到群组）
+* Identify（识别身份）
+    * Create an identity（创建身份标识）
+* Track（跟踪）
+    * 记录用户执行的操作。每项操作都会触发一个事件，事件也可以包含关联属性。
+    * 记录网站的页面浏览情况，并可附加所浏览页面的额外信息。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Segment node documentation integration templates](https://n8n.io/integrations/segment) or [search all templates](https://n8n.io/workflows/)
+[浏览 Segment 集成模板](https://n8n.io/integrations/segment)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

@@ -1,50 +1,50 @@
 ---
-title: UptimeRobot credentials
-description: >-
-  Documentation for UptimeRobot credentials. Use these credentials to
-  authenticate UptimeRobot in n8n, a workflow automation platform.
+title: UptimeRobot 凭据
+description: UptimeRobot 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 UptimeRobot 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: UptimeRobot credentials
+- integration
+- reference
+nodeTitle: UptimeRobot 凭据
 originalFilePath: integrations/builtin/credentials/uptimerobot.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/uptimerobot'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/uptimerobot'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/uptimerobot
+url: https://docs.n8n.io/integrations/builtin/credentials/uptimerobot
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# UptimeRobot credentials <a href="#uptimerobot-credentials" id="uptimerobot-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# UptimeRobot 凭据 <a href="#uptimerobot-credentials" id="uptimerobot-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [UptimeRobot](../app-nodes/n8n-nodes-base.uptimerobot.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [UptimeRobot](https://uptimerobot.com/) account.
+创建一个 [UptimeRobot](https://uptimerobot.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [UptimeRobot's API documentation](https://uptimerobot.com/api/) for more information about the service.
+有关该服务的更多信息，请参阅 [UptimeRobot API 文档](https://uptimerobot.com/api/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Get your API Key from **My Settings > API Settings**. Create a **Main API Key** and enter this key in your n8n credential.
+- **API Key**（API 密钥）：在 **My Settings > API Settings**（我的设置 > API 设置）中获取。创建一个 **Main API Key**（主 API 密钥），填入 n8n 凭据。
 
-### API key types <a href="#api-key-types" id="api-key-types"></a>
+### API 密钥类型 <a href="#api-key-types" id="api-key-types"></a>
 
-UptimeRobot supports three API key types:
+UptimeRobot 支持三种 API 密钥类型：
 
-- **Account-specific** (also known as **main**): Pulls data for multiple monitors.
-- **Monitor-specific**: Pulls data for a single monitor.
-- **Read-only**: Only runs `GET` API calls.
+- **Account-specific**（账户专用，也称 **main**）：获取多个监控项的数据。
+- **Monitor-specific**（监控项专用）：获取单个监控项的数据。
+- **Read-only**（只读）：仅执行 `GET` API 调用。
 
-To complete all of the operations in the UptimeRobot node, use the **Main** or **Account-specific** API key type. Refer to [API authentication](https://uptimerobot.com/api/#auth) for more information.
+要执行 UptimeRobot 节点的全部操作，请使用 **Main** 或 **Account-specific** API 密钥。更多信息请参阅 [API 身份验证](https://uptimerobot.com/api/#auth)。

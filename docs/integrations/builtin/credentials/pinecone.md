@@ -1,48 +1,48 @@
 ---
-title: Pinecone credentials
-description: >-
-  Documentation for the Pinecone credentials. Use these credentials to
-  authenticate Pinecone in n8n, a workflow automation platform.
+title: Pinecone 凭据
+description: Pinecone 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Pinecone 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Pinecone credentials
+nodeTitle: Pinecone 凭据
 originalFilePath: integrations/builtin/credentials/pinecone.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/pinecone'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/pinecone'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/pinecone
+url: https://docs.n8n.io/integrations/builtin/credentials/pinecone
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Pinecone credentials <a href="#pinecone-credentials" id="pinecone-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Pinecone 凭据 <a href="#pinecone-credentials" id="pinecone-credentials"></a>
 
-* [Pinecone Vector Store](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorepinecone.md)
+这些凭据可用于以下节点的身份验证：
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+* [Pinecone Vector Store（向量存储）](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstorepinecone.md)
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Pinecone's documentation](https://docs.pinecone.io/reference/api/introduction) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+有关该服务的更多信息，请参阅 [Pinecone 文档](https://docs.pinecone.io/reference/api/introduction)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-To configure this credential, you'll need a [Pinecone](https://www.pinecone.io/) account and:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**
+配置此凭据需要一个 [Pinecone](https://www.pinecone.io/) 账号，以及：
 
-To get an API key:
+- 一个 **API Key（API 密钥）**
 
-1. Open your [Pinecone console](https://app.pinecone.io/organizations/-/projects).
-2. Select the project you want to create an API key for. If you don't have any existing projects, create one. Refer to Pinecone's [Quickstart](https://docs.pinecone.io/guides/get-started/quickstart) for more information.
-3. Go to **API Keys**.
-4. Copy the API Key displayed there and enter it in your n8n credential.
+获取 API 密钥：
 
-Refer to Pinecone's API [Authentication documentation](https://docs.pinecone.io/guides/get-started/authentication) for more information.
+1. 打开 [Pinecone 控制台](https://app.pinecone.io/organizations/-/projects)。
+2. 选择要为其创建 API 密钥的项目。如果还没有项目，先创建一个。更多信息请参阅 Pinecone [快速入门](https://docs.pinecone.io/guides/get-started/quickstart)。
+3. 进入 **API Keys**（API 密钥）。
+4. 复制其中显示的 API 密钥，填入 n8n 凭据。
+
+更多信息请参阅 Pinecone API [身份验证文档](https://docs.pinecone.io/guides/get-started/authentication)。

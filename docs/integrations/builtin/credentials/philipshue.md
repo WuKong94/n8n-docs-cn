@@ -1,49 +1,49 @@
 ---
-title: Philips Hue credentials
-description: >-
-  Documentation for Philips Hue credentials. Use these credentials to
-  authenticate Philips Hue in n8n, a workflow automation platform.
+title: Philips Hue 凭据
+description: Philips Hue 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Philips Hue 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Philips Hue credentials
+- integration
+- reference
+nodeTitle: Philips Hue 凭据
 originalFilePath: integrations/builtin/credentials/philipshue.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/philipshue'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/philipshue'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/philipshue
+url: https://docs.n8n.io/integrations/builtin/credentials/philipshue
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Philips Hue credentials <a href="#philips-hue-credentials" id="philips-hue-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Philips Hue 凭据 <a href="#philips-hue-credentials" id="philips-hue-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Philips Hue](../app-nodes/n8n-nodes-base.philipshue.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Philips Hue](https://www.philips-hue.com/en-us) account.
+创建一个 [Philips Hue](https://www.philips-hue.com/en-us) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Philips Hue's CLIP API documentation](https://developers.meethue.com/develop/hue-api-v2/api-reference/) for more information about the service.
+该服务的更多信息，请参阅 [Philips Hue CLIP API 文档](https://developers.meethue.com/develop/hue-api-v2/api-reference/)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you're using the built-in OAuth connection, you don't need to enter an **APP ID**.
+使用内置 OAuth 连接时，无需填写 **APP ID**。
 
-If you need to configure OAuth2 from scratch, you'll need a [Philips Hue developer](https://developers.meethue.com/) account
+如果需要从头配置 OAuth2，则需要一个 [Philips Hue 开发者](https://developers.meethue.com/)账户。
 
-Create a new remote app on the [Add new Hue Remote API app](https://developers.meethue.com/add-new-hue-remote-api-app/) page.
+在 [Add new Hue Remote API app](https://developers.meethue.com/add-new-hue-remote-api-app/)（添加新的 Hue Remote API 应用）页面创建远程应用。
 
-Use these settings for your app:
+为应用采用以下设置：
 
-- Copy the **OAuth Callback URL** from n8n and add it as a **Callback URL**.
-- Copy the **AppId**, **ClientId**, and **ClientSecret** and enter these in the corresponding fields in n8n.
+- 从 n8n 复制 **OAuth Callback URL**（OAuth 回调 URL），填为 **Callback URL**（回调 URL）。
+- 复制 **AppId**、**ClientId** 和 **ClientSecret**，填入 n8n 对应字段。

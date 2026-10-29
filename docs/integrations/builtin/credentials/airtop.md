@@ -1,47 +1,47 @@
 ---
-title: Airtop credentials
-description: >-
-  Documentation for the Airtop credentials. Use these credentials to
-  authenticate Airtop in n8n, a workflow automation platform.
+title: Airtop 凭据
+description: Airtop 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Airtop 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Airtop credentials
+- integration
+- reference
+nodeTitle: Airtop 凭据
 originalFilePath: integrations/builtin/credentials/airtop.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/airtop'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/airtop'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/airtop
+url: https://docs.n8n.io/integrations/builtin/credentials/airtop
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Airtop credentials <a href="#airtop-credentials" id="airtop-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Airtop 凭据 <a href="#airtop-credentials" id="airtop-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Airtop](../app-nodes/n8n-nodes-base.airtop.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [Airtop](https://portal.airtop.ai/sign-up) account.
+创建一个 [Airtop](https://portal.airtop.ai/sign-up) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-* API key
+* API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Airtop's API documentation](https://docs.airtop.ai/api-reference/airtop-api) for more information about the service.
+有关该服务的更多信息，请参阅 [Airtop API 文档](https://docs.airtop.ai/api-reference/airtop-api)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need an [Airtop](https://portal.airtop.ai/sign-up) account and an **API key**. To generate a new key:
+配置此凭据需要一个 [Airtop](https://portal.airtop.ai/sign-up) 账户和 **API key**（API 密钥）。生成新密钥：
 
-1. Log in to the [Airtop Portal](https://portal.airtop.ai).
-2. Go to [API Keys](https://portal.airtop.ai/api-keys).
-3. Select the **+ Create new key** button.
-4. Enter a name for the API key.
-5. Select the generated key to copy the key.
-6. Enter this as the **API Key** in your n8n credential.
+1. 登录 [Airtop Portal](https://portal.airtop.ai)。
+2. 进入 [API Keys](https://portal.airtop.ai/api-keys)（API 密钥）。
+3. 选择 **+ Create new key**（创建新密钥）按钮。
+4. 输入 API 密钥名称。
+5. 选择生成的密钥以复制。
+6. 将其填入 n8n 凭据的 **API Key** 字段。
 
-Refer to [Airtop's Support](https://docs.airtop.ai/guides/misc/support) for assistance if you have any issues creating your API key.
+创建 API 密钥时如遇到问题，请联系 [Airtop 支持](https://docs.airtop.ai/guides/misc/support)寻求帮助。

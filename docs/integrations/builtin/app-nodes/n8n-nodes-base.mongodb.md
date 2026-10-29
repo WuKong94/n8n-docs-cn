@@ -1,52 +1,52 @@
 ---
-title: MongoDB node documentation
-description: >-
-  Learn how to use the MongoDB node in n8n. Follow technical documentation to
-  integrate MongoDB node into your workflows.
+title: MongoDB 节点文档
+description: 了解如何在 n8n 中使用 MongoDB 节点，并按照技术文档将 MongoDB 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: MongoDB node documentation
+nodeTitle: MongoDB 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.mongodb.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mongodb'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mongodb'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mongodb
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.mongodb
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MongoDB node <a href="#mongodb-node" id="mongodb-node"></a>
 
-Use the MongoDB node to automate work in MongoDB, and integrate MongoDB with other applications. n8n has built-in support for a wide range of MongoDB features, including aggregating, updating, finding, deleting, and getting documents as well as creating, updating, listing, and dropping search indexes.  All operations in this Node make use of the [MongoDB Node driver](https://www.mongodb.com/docs/drivers/node/current/).
+# MongoDB 节点 <a href="#mongodb-node" id="mongodb-node"></a>
 
-On this page, you'll find a list of operations the MongoDB node supports and links to more resources.
+使用 MongoDB 节点自动处理 MongoDB 中的工作，并将其与其他应用集成。n8n 内置支持多种 MongoDB 功能，包括聚合、更新、查找、删除和获取文档，以及创建、更新、列出和删除搜索索引。此节点中的所有操作都使用 [MongoDB Node 驱动](https://www.mongodb.com/docs/drivers/node/current/)。
+
+本页列出了 MongoDB 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [MongoDB credentials](../credentials/mongodb.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [MongoDB 凭据](../credentials/mongodb.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Document
-	* Aggregate documents
-	* Delete documents
-	* Find documents
-	* Find and replace documents
-	* Find and update documents
-	* Insert documents
-	* Update documents
-* Search Index
-	* Create search indexes
-	* Drop search indexes
-	* List search indexes
-	* Update search indexes
+* Document（文档）
+	* Aggregate documents（聚合文档）
+	* Delete documents（删除文档）
+	* Find documents（查找文档）
+	* Find and replace documents（查找并替换文档）
+	* Find and update documents（查找并更新文档）
+	* Insert documents（插入文档）
+	* Update documents（更新文档）
+* Search Index（搜索索引）
+	* Create search indexes（创建搜索索引）
+	* Drop search indexes（删除搜索索引）
+	* List search indexes（列出搜索索引）
+	* Update search indexes（更新搜索索引）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse MongoDB node documentation integration templates](https://n8n.io/integrations/mongodb) or [search all templates](https://n8n.io/workflows/)
+[浏览 MongoDB 集成模板](https://n8n.io/integrations/mongodb)，或[搜索所有模板](https://n8n.io/workflows/)

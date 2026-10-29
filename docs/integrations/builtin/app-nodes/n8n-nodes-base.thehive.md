@@ -1,59 +1,59 @@
 ---
-title: TheHive node documentation
-description: >-
-  Learn how to use the TheHive node in n8n. Follow technical documentation to
-  integrate TheHive node into your workflows.
+title: TheHive 节点文档
+description: 了解如何在 n8n 中使用 TheHive 节点，并按照技术文档将 TheHive 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: TheHive node documentation
+- integration
+- reference
+nodeTitle: TheHive 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.thehive.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.thehive'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.thehive'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.thehive
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.thehive
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# TheHive node <a href="#thehive-node" id="thehive-node"></a>
 
-Use the TheHive node to automate work in TheHive, and integrate TheHive with other applications. n8n has built-in support for a wide range of TheHive features, including creating alerts, counting tasks logs, cases, and observables. 
+# TheHive 节点 <a href="#thehive-node" id="thehive-node"></a>
 
-On this page, you'll find a list of operations the TheHive node supports and links to more resources.
+使用 TheHive 节点自动处理 TheHive 中的工作，并将其与其他应用集成。n8n 内置支持多种 TheHive 功能，包括创建告警，以及统计任务日志、案件和可观测对象。
+
+本页列出了 TheHive 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**TheHive and TheHive 5**
+**TheHive 与 TheHive 5**
 
-n8n provides two nodes for TheHive. Use this node (TheHive) if you want to use TheHive's version 3 or 4 API. If you want to use version 5, use [TheHive 5](n8n-nodes-base.thehive5.md).
+n8n 为 TheHive 提供两个节点。如果使用 TheHive 的版本 3 或 4 API，请使用此节点（TheHive）；如果使用版本 5，请使用 [TheHive 5](n8n-nodes-base.thehive5.md)。
 {% endhint %}
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [TheHive credentials](../credentials/thehive.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [TheHive 凭据](../credentials/thehive.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-The available operations depend on your API version. To see the operations list, create your credentials, including selecting your API version. Then return to the node, select the resource you want to use, and n8n displays the available operations for your API version. 
+可用操作取决于 API 版本。先创建凭据并选择 API 版本，再返回节点，选择所需资源，n8n 就会显示该 API 版本支持的操作。
 
-* Alert
-* Case
-* Log
-* Observable
-* Task
+* Alert（告警）
+* Case（案件）
+* Log（日志）
+* Observable（可观测对象）
+* Task（任务）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse TheHive node documentation integration templates](https://n8n.io/integrations/thehive) or [search all templates](https://n8n.io/workflows/)
+[浏览 TheHive 集成模板](https://n8n.io/integrations/thehive)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-n8n provides a trigger node for TheHive. Refer to the [TheHive Trigger node documentation](../trigger-nodes/n8n-nodes-base.thehivetrigger.md) for more information.
+n8n 为 TheHive 提供触发器节点。更多信息请参阅 [TheHive Trigger 节点文档](../trigger-nodes/n8n-nodes-base.thehivetrigger.md)。
 
-Refer to TheHive's documentation for more information about the service:
+该服务的更多信息，请参阅 TheHive 文档：
 
-* [Version 3](https://docs.thehive-project.org/thehive/legacy/thehive3/api/)
-* [Version 4](https://docs.thehive-project.org/cortex/api/api-guide/)
+* [版本 3](https://docs.thehive-project.org/thehive/legacy/thehive3/api/)
+* [版本 4](https://docs.thehive-project.org/cortex/api/api-guide/)

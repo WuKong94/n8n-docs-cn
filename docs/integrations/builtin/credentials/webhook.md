@@ -1,16 +1,14 @@
 ---
-title: Webhook credentials
+title: Webhook 凭据
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: Webhook credentials
+nodeTitle: Webhook 凭据
 originalFilePath: integrations/builtin/credentials/webhook.md
 originalUrl: https://docs.n8n.io/integrations/builtin/credentials/webhook
 url: https://docs.n8n.io/integrations/builtin/credentials/webhook
-description: >-
-  Documentation for Webhook credentials. Use these credentials to authenticate
-  Webhook in n8n, a workflow automation platform.
+description: Webhook 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Webhook 的身份验证。
 layout:
   width: default
   title:
@@ -30,28 +28,30 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Webhook credentials
 
-You can use these credentials to authenticate the following nodes:
+# Webhook 凭据 <a id="webhook-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [Webhook](../core-nodes/n8n-nodes-base.webhook/README.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-You must use the authentication method required by the app or service you want to query.
+必须使用要查询的应用或服务所要求的身份验证方式。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-* Basic auth
-* Header auth
-* JWT auth
-* None
+* Basic auth（基本身份验证）
+* Header auth（请求头身份验证）
+* JWT auth（JWT 身份验证）
+* None（无）
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/vIyn1XsEkjlolZzHTfTG/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/basic-auth.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/fjWxEWe1g0CDvsx1igf6/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/generic-auth/header-auth.md" %}
 
-## Using JWT auth <a href="#using-jwt-auth" id="using-jwt-auth"></a>
+## 使用 JWT 身份验证 <a href="#using-jwt-auth" id="using-jwt-auth"></a>
 
-[**JWT Auth**](https://jwt.io/introduction/) is a method of authentication that uses JSON Web Tokens (JWT) to digitally sign data. This authentication method uses the **JWT credential** and can use either a **Passphrase** or **PEM Key** as key type. Refer to [JWT credential](jwt.md) for more information.
+[**JWT Auth**](https://jwt.io/introduction/) 是一种使用 JSON Web Token（JWT）对数据进行数字签名的身份验证方式。它使用 **JWT credential**（JWT 凭据），密钥类型可选择 **Passphrase**（口令）或 **PEM Key**（PEM 密钥）。更多信息请参阅 [JWT 凭据](jwt.md)。

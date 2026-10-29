@@ -1,66 +1,66 @@
 ---
-title: GoToWebinar node documentation
-description: >-
-  Learn how to use the GoToWebinar node in n8n. Follow technical documentation
-  to integrate GoToWebinar node into your workflows.
+title: GoToWebinar 节点文档
+description: 了解如何在 n8n 中使用 GoToWebinar 节点，并按照技术文档将 GoToWebinar 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: GoToWebinar node documentation
+- integration
+- reference
+nodeTitle: GoToWebinar 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.gotowebinar.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gotowebinar'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gotowebinar'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gotowebinar
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gotowebinar
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# GoToWebinar node <a href="#gotowebinar-node" id="gotowebinar-node"></a>
 
-Use the GoToWebinar node to automate work in GoToWebinar, and integrate GoToWebinar with other applications. n8n has built-in support for a wide range of GoToWebinar features, including creating, getting, and deleting attendees, organizers, and registrants.
+# GoToWebinar 节点 <a href="#gotowebinar-node" id="gotowebinar-node"></a>
 
-On this page, you'll find a list of operations the GoToWebinar node supports and links to more resources.
+使用 GoToWebinar 节点自动处理 GoToWebinar 中的工作，并将其与其他应用集成。n8n 内置支持多种 GoToWebinar 功能，包括创建、获取和删除参会者、组织者及报名者。
+
+本页列出了 GoToWebinar 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [GoToWebinar credentials](../credentials/gotowebinar.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [GoToWebinar 凭据](../credentials/gotowebinar.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Attendee
-    * Get
-    * Get All
-    * Get Details
-* Co-Organizer
-    * Create
-    * Delete
-    * Get All
-    * Re-invite
-* Panelist
-    * Create
-    * Delete
-    * Get All
-    * Re-invite
-* Registrant
-    * Create
-    * Delete
-    * Get
-    * Get All
-* Session
-    * Get
-    * Get All
-    * Get Details
-* Webinar
-    * Create
-    * Get
-    * Get All
-    * Update
+* Attendee（参会者）
+    * Get（获取）
+    * Get All（获取全部）
+    * Get Details（获取详情）
+* Co-Organizer（联合组织者）
+    * Create（创建）
+    * Delete（删除）
+    * Get All（获取全部）
+    * Re-invite（重新邀请）
+* Panelist（嘉宾）
+    * Create（创建）
+    * Delete（删除）
+    * Get All（获取全部）
+    * Re-invite（重新邀请）
+* Registrant（报名者）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+* Session（场次）
+    * Get（获取）
+    * Get All（获取全部）
+    * Get Details（获取详情）
+* Webinar（网络研讨会）
+    * Create（创建）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse GoToWebinar node documentation integration templates](https://n8n.io/integrations/gotowebinar) or [search all templates](https://n8n.io/workflows/)
+[浏览 GoToWebinar 集成模板](https://n8n.io/integrations/gotowebinar)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

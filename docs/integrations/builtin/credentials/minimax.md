@@ -1,56 +1,56 @@
 ---
-title: MiniMax credentials
-description: >-
-  Documentation for MiniMax credentials. Use these credentials to authenticate
-  MiniMax in n8n, a workflow automation platform.
+title: MiniMax 凭据
+description: MiniMax 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 MiniMax 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: MiniMax credentials
+nodeTitle: MiniMax 凭据
 originalFilePath: integrations/builtin/credentials/minimax.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/minimax'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/minimax'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/minimax
+url: https://docs.n8n.io/integrations/builtin/credentials/minimax
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MiniMax credentials <a href="#minimax-credentials" id="minimax-credentials"></a>
+
+# MiniMax 凭据 <a href="#minimax-credentials" id="minimax-credentials"></a>
 
 {% hint style="info" %}
-On n8n Cloud, you can skip setting up MiniMax credentials by selecting **Use Gateway credits** in the credential field of nodes that support it. Refer to [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) for details.
+在 n8n Cloud 上，可以在支持此功能的节点凭据字段中选择 **Use Gateway credits（使用 Gateway 额度）**，无需另行设置 MiniMax 凭据。详情请参阅 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)。
 {% endhint %}
 
-You can use these credentials to authenticate the following nodes:
+这些凭据可用于以下节点的身份验证：
 
 * [MiniMax](../app-nodes/n8n-nodes-langchain.minimax.md)
-* [MiniMax Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax.md)
+* [MiniMax Chat Model（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [MiniMax](https://platform.minimax.io/) account.
+创建一个 [MiniMax](https://platform.minimax.io/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [MiniMax's API documentation](https://platform.minimax.io/docs/guides/models-intro) for more information about the service.
+有关该服务的更多信息，请参阅 [MiniMax API 文档](https://platform.minimax.io/docs/guides/models-intro)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Region**: Select **International** or **China** depending on your MiniMax account.
-- An **API Key**
+- **Region**（地区）：根据 MiniMax 账户选择 **International**（国际）或 **China**（中国）。
+- 一个 **API Key（API 密钥）**
 
-To get your API key:
+获取 API 密钥的步骤如下：
 
-1. Log in to your [MiniMax account](https://platform.minimax.io/).
-2. Go to **Account** > **API Keys**.
-3. Select **Create API Key**.
-4. Copy the key and enter it in your n8n credential.
+1. 登录 [MiniMax 账户](https://platform.minimax.io/)。
+2. 进入 **Account**（账户）> **API Keys**（API 密钥）。
+3. 选择 **Create API Key**（创建 API 密钥）。
+4. 复制密钥，填入 n8n 凭据。

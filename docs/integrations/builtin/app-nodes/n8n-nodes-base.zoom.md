@@ -1,46 +1,46 @@
 ---
-title: Zoom node documentation
-description: >-
-  Learn how to use the Zoom node in n8n. Follow technical documentation to
-  integrate Zoom node into your workflows.
+title: Zoom 节点文档
+description: 了解如何在 n8n 中使用 Zoom 节点，并按照技术文档将 Zoom 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Zoom node documentation
+- integration
+- reference
+nodeTitle: Zoom 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.zoom.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zoom'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zoom'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zoom
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.zoom
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Zoom node <a href="#zoom-node" id="zoom-node"></a>
 
-Use the Zoom node to automate work in Zoom, and integrate Zoom with other applications. n8n has built-in support for a wide range of Zoom features, including creating, retrieving, deleting, and updating meetings. 
+# Zoom 节点 <a href="#zoom-node" id="zoom-node"></a>
 
-On this page, you'll find a list of operations the Zoom node supports and links to more resources.
+使用 Zoom 节点自动处理 Zoom 中的工作，并将其与其他应用集成。n8n 内置支持多种 Zoom 功能，包括创建、获取、删除和更新会议。
+
+本页列出了 Zoom 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Zoom credentials](../credentials/zoom.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Zoom 凭据](../credentials/zoom.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Meeting
-    * Create a meeting
-    * Delete a meeting
-    * Retrieve a meeting
-    * Retrieve all meetings
-    * Update a meeting
+* Meeting（会议）
+    * Create a meeting（创建会议）
+    * Delete a meeting（删除会议）
+    * Retrieve a meeting（获取会议）
+    * Retrieve all meetings（获取全部会议）
+    * Update a meeting（更新会议）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Zoom node documentation integration templates](https://n8n.io/integrations/zoom) or [search all templates](https://n8n.io/workflows/)
+[浏览 Zoom 集成模板](https://n8n.io/integrations/zoom)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

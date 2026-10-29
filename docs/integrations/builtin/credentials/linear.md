@@ -1,57 +1,57 @@
 ---
-title: Linear credentials
-description: >-
-  Documentation for Linear credentials. Use these credentials to authenticate
-  Linear in n8n, a workflow automation platform.
+title: Linear 凭据
+description: Linear 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Linear 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Linear credentials
+- integration
+- reference
+nodeTitle: Linear 凭据
 originalFilePath: integrations/builtin/credentials/linear.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/linear'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/linear'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/linear
+url: https://docs.n8n.io/integrations/builtin/credentials/linear
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Linear credentials <a href="#linear-credentials" id="linear-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Linear 凭据 <a href="#linear-credentials" id="linear-credentials"></a>
 
-* [Linear Trigger](../trigger-nodes/n8n-nodes-base.lineartrigger.md)
+这些凭据可用于以下节点的身份验证：
+
+* [Linear Trigger（触发器）](../trigger-nodes/n8n-nodes-base.lineartrigger.md)
 * [Linear](../app-nodes/n8n-nodes-base.linear.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Linear](https://linear.app/) account.
+创建一个 [Linear](https://linear.app/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Linear's API documentation](https://developers.linear.app/docs/graphql/working-with-the-graphql-api) for more information about the service.
+有关该服务的更多信息，请参阅 [Linear API 文档](https://developers.linear.app/docs/graphql/working-with-the-graphql-api)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
-
-
-- A personal **API Key**: Create a dedicated personal API key in your [**Settings** > **Security & access**](https://linear.app/n8n/settings/account/security). Refer to the [Linear Personal API keys documentation](https://linear.app/developers/graphql#personal-api-keys) for more information.
+配置此凭据需要：
 
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+- 个人 **API Key**（API 密钥）：在 [**Settings** > **Security & access**](https://linear.app/n8n/settings/account/security)（设置 > 安全与访问）中创建专用的个人 API 密钥。更多信息请参阅 [Linear 个人 API 密钥文档](https://linear.app/developers/graphql#personal-api-keys)。
 
-To configure this credential, you'll need:
 
-- A **Client ID**: Generated when you create a new OAuth2 application.
-- A **Client Secret**: Generated when you create a new OAuth2 application.
-- Select the **Actor**: The actor defines how the OAuth2 application should create issues, comments and other changes. Options include:
-    - **User** (Linear's default): The application creates resources as the authorizing user. Use this option if you want each user to do their own authentication.
-    - **Application**: The application creates resources as itself. Use this option if you have only one user (like an admin) authorizing the application.
-- To use this credential with the [Linear Trigger](../trigger-nodes/n8n-nodes-base.lineartrigger.md) node, you must enable the **Include Admin Scope** toggle.
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-Refer to the [Linear OAuth2 Authentication documentation](https://developers.linear.app/docs/oauth/authentication) for more detailed instructions and explanations. Use the n8n **OAuth Redirect URL** as the **Redirect callback URL** in your Linear OAuth2 application.
+配置此凭据需要：
+
+- **Client ID**（客户端 ID）：创建新的 OAuth2 应用时生成。
+- **Client Secret**（客户端密钥）：创建新的 OAuth2 应用时生成。
+- 选择 **Actor**（执行身份）：决定 OAuth2 应用以何种身份创建问题、评论和其他更改，可选项：
+    - **User**（用户，Linear 默认选项）：应用以授权用户的身份创建资源。希望每位用户分别完成身份验证时，使用此选项。
+    - **Application**（应用）：应用以自身身份创建资源。只有一位用户（例如管理员）为应用授权时，使用此选项。
+- 要在 [Linear Trigger](../trigger-nodes/n8n-nodes-base.lineartrigger.md) 节点中使用此凭据，必须开启 **Include Admin Scope**（包含管理员作用域）开关。
+
+详细步骤和解释请参阅 [Linear OAuth2 身份验证文档](https://developers.linear.app/docs/oauth/authentication)。将 n8n 的 **OAuth Redirect URL**（OAuth 重定向 URL）用作 Linear OAuth2 应用的 **Redirect callback URL**（重定向回调 URL）。

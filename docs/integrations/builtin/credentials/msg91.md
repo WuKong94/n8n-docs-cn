@@ -1,49 +1,49 @@
 ---
-title: MSG91 credentials
-description: >-
-  Documentation for MSG91 credentials. Use these credentials to authenticate
-  MSG91 in n8n, a workflow automation platform.
+title: MSG91 凭据
+description: MSG91 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 MSG91 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: MSG91 credentials
+- integration
+- reference
+nodeTitle: MSG91 凭据
 originalFilePath: integrations/builtin/credentials/msg91.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/msg91'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/msg91'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/msg91
+url: https://docs.n8n.io/integrations/builtin/credentials/msg91
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MSG91 credentials <a href="#msg91-credentials" id="msg91-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# MSG91 凭据 <a href="#msg91-credentials" id="msg91-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [MSG91](../app-nodes/n8n-nodes-base.msg91.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [MSG91](https://msg91.com/) account.
+创建一个 [MSG91](https://msg91.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [MSG91's API documentation](https://docs.msg91.com/overview) for more information about the service.
+有关该服务的更多信息，请参阅 [MSG91 API 文档](https://docs.msg91.com/overview)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Authentication Key**: To get your Authentication Key, go to the user menu and select **Authkey**. Refer to MSG91's [Where can I find my authentication key? documentation](https://msg91.com/help/api/where-can-i-find-my-authentication-ke) for more information.
+- **Authentication Key**（身份验证密钥）：打开用户菜单，选择 **Authkey** 获取。更多信息请参阅 MSG91 的[在哪里查找身份验证密钥文档](https://msg91.com/help/api/where-can-i-find-my-authentication-ke)。
 
-## IP Security <a href="#ip-security" id="ip-security"></a>
+## IP 安全 <a href="#ip-security" id="ip-security"></a>
 
-MSG91 enables [IP Security](https://msg91.com/help/api/what-do-you-mean-by-api-security) by default for authkeys.
+MSG91 默认为 authkey 启用 [IP Security](https://msg91.com/help/api/what-do-you-mean-by-api-security)（IP 安全）。
 
-For the n8n credentials to function with this setting enabled, add all the [n8n IP addresses](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/configure-cloud/find-your-ip-addresses) as whitelisted IPs in MSG91. You can add them in one of two places, depending on your desired security level:
+启用此设置时，要使 n8n 凭据正常工作，需将所有 [n8n IP 地址](../../../deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)加入 MSG91 的 IP 允许名单。可以根据需要的安全级别，在以下两个位置之一添加：
 
-- To allow any/all authkeys in the account to work with n8n, add the n8n IP addresses in the **Company's whitelisted IPs** section of the **Authkey** page.
-- To allow only specific authkeys to work with n8n, add the n8n IP addresses in the **Whitelisted IPs** section of an authkey's details.
+- 要允许账户中的所有 authkey 与 n8n 配合使用，在 **Authkey** 页面的 **Company's whitelisted IPs**（公司 IP 允许名单）部分添加 n8n IP 地址。
+- 要仅允许特定 authkey 与 n8n 配合使用，在该 authkey 详情的 **Whitelisted IPs**（IP 允许名单）部分添加 n8n IP 地址。

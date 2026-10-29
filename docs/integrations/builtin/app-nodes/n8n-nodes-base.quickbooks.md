@@ -1,92 +1,92 @@
 ---
-title: QuickBooks Online node documentation
-description: >-
-  Learn how to use the QuickBooks Online node in n8n. Follow technical
-  documentation to integrate QuickBooks Online node into your workflows.
+title: QuickBooks Online 节点文档
+description: 了解如何在 n8n 中使用 QuickBooks Online 节点，并按照技术文档将 QuickBooks Online 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: QuickBooks Online node documentation
+- integration
+- reference
+nodeTitle: QuickBooks Online 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.quickbooks.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.quickbooks
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# QuickBooks Online node <a href="#quickbooks-online-node" id="quickbooks-online-node"></a>
 
-Use the QuickBooks node to automate work in QuickBooks, and integrate QuickBooks with other applications. n8n has built-in support for a wide range of QuickBooks features, including creating, updating, deleting, and getting bills, customers, employees, estimates, and invoices. 
+# QuickBooks Online 节点 <a href="#quickbooks-online-node" id="quickbooks-online-node"></a>
 
-On this page, you'll find a list of operations the QuickBooks node supports and links to more resources.
+使用 QuickBooks 节点自动处理 QuickBooks 中的工作，并将其与其他应用集成。n8n 内置支持多种 QuickBooks 功能，包括创建、更新、删除和获取账单、客户、员工、估价单及发票。
+
+本页列出了 QuickBooks 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [QuickBooks credentials](../credentials/quickbooks.md) for guidance on setting up authentication.
+身份验证设置说明，请参阅 [QuickBooks 凭据](../credentials/quickbooks.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Bill
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Update
-* Customer
-    * Create
-    * Get
-    * Get All
-    * Update
-* Employee
-    * Create
-    * Get
-    * Get All
-    * Update
-* Estimate
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Send
-    * Update
-* Invoice
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Send
-    * Update
-    * Void
-* Item
-    * Get
-    * Get All
-* Payment
-    * Create
-    * Delete
-    * Get
-    * Get All
-    * Send
-    * Update
-    * Void
-* Purchase
-    * Get
-    * Get All
-* Transaction
-    * Get Report
-* Vendor
-    * Create
-    * Get
-    * Get All
-    * Update
+* Bill（账单）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
+* Customer（客户）
+    * Create（创建）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
+* Employee（员工）
+    * Create（创建）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
+* Estimate（估价单）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Send（发送）
+    * Update（更新）
+* Invoice（发票）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Send（发送）
+    * Update（更新）
+    * Void（作废）
+* Item（数据项）
+    * Get（获取）
+    * Get All（获取全部）
+* Payment（付款）
+    * Create（创建）
+    * Delete（删除）
+    * Get（获取）
+    * Get All（获取全部）
+    * Send（发送）
+    * Update（更新）
+    * Void（作废）
+* Purchase（采购）
+    * Get（获取）
+    * Get All（获取全部）
+* Transaction（交易）
+    * Get Report（获取报告）
+* Vendor（供应商）
+    * Create（创建）
+    * Get（获取）
+    * Get All（获取全部）
+    * Update（更新）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse QuickBooks Online node documentation integration templates](https://n8n.io/integrations/quickbooks-online) or [search all templates](https://n8n.io/workflows/)
+[浏览 QuickBooks Online 集成模板](https://n8n.io/integrations/quickbooks-online)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

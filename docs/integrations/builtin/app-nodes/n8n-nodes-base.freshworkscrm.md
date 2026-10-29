@@ -1,78 +1,76 @@
 ---
-title: Freshworks CRM node documentation
-description: >-
-  Learn how to use the Freshworks CRM node in n8n. Follow technical
-  documentation to integrate Freshworks CRM node into your workflows.
+title: Freshworks CRM 节点文档
+description: 了解如何在 n8n 中使用 Freshworks CRM 节点，并按照技术文档将 Freshworks CRM 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Freshworks CRM node documentation
+- integration
+- reference
+nodeTitle: Freshworks CRM 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.freshworkscrm.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.freshworkscrm
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.freshworkscrm
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.freshworkscrm
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.freshworkscrm
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Freshworks CRM node <a href="#freshworks-crm-node" id="freshworks-crm-node"></a>
 
-Use the Freshworks CRM node to automate work in Freshworks CRM, and integrate Freshworks CRM with other applications. n8n has built-in support for a wide range of Freshworks CRM features, including creating, updating, deleting, and retrieve, accounts, appointments, contacts, deals, notes, sales activity and more. 
+# Freshworks CRM 节点 <a href="#freshworks-crm-node" id="freshworks-crm-node"></a>
 
-On this page, you'll find a list of operations the Freshworks CRM node supports and links to more resources.
+使用 Freshworks CRM 节点自动处理 Freshworks CRM 中的工作，并将其与其他应用集成。n8n 内置支持多种 Freshworks CRM 功能，包括创建、更新、删除和获取账户、预约、联系人、商机、备注、销售活动等。
+
+本页列出了 Freshworks CRM 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Freshworks CRM credentials](../credentials/freshworkscrm.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Freshworks CRM 凭据](../credentials/freshworkscrm.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Account
-    * Create an account
-    * Delete an account
-    * Retrieve an account
-    * Retrieve all accounts
-    * Update an account
-* Appointment
-    * Create an appointment
-    * Delete an appointment
-    * Retrieve an appointment
-    * Retrieve all appointments
-    * Update an appointment
-* Contact
-    * Create a contact
-    * Delete a contact
-    * Retrieve a contact
-    * Retrieve all contacts
-    * Update a contact
-* Deal
-    * Create a deal
-    * Delete a deal
-    * Retrieve a deal
-    * Retrieve all deals
-    * Update a deal
-* Note
-    * Create a note
-    * Delete a note
-    * Update a note
-* Sales Activity
-    * Retrieve a sales activity
-    * Retrieve all sales activities
-* Task
-    * Create a task
-    * Delete a task
-    * Retrieve a task
-    * Retrieve all tasks
-    * Update a task
+* Account（账户）
+    * Create an account（创建账户）
+    * Delete an account（删除账户）
+    * Retrieve an account（获取账户）
+    * Retrieve all accounts（获取全部账户）
+    * Update an account（更新账户）
+* Appointment（预约）
+    * Create an appointment（创建预约）
+    * Delete an appointment（删除预约）
+    * Retrieve an appointment（获取预约）
+    * Retrieve all appointments（获取全部预约）
+    * Update an appointment（更新预约）
+* Contact（联系人）
+    * Create a contact（创建联系人）
+    * Delete a contact（删除联系人）
+    * Retrieve a contact（获取联系人）
+    * Retrieve all contacts（获取全部联系人）
+    * Update a contact（更新联系人）
+* Deal（商机）
+    * Create a deal（创建商机）
+    * Delete a deal（删除商机）
+    * Retrieve a deal（获取商机）
+    * Retrieve all deals（获取全部商机）
+    * Update a deal（更新商机）
+* Note（备注）
+    * Create a note（创建备注）
+    * Delete a note（删除备注）
+    * Update a note（更新备注）
+* Sales Activity（销售活动）
+    * Retrieve a sales activity（获取销售活动）
+    * Retrieve all sales activities（获取全部销售活动）
+* Task（任务）
+    * Create a task（创建任务）
+    * Delete a task（删除任务）
+    * Retrieve a task（获取任务）
+    * Retrieve all tasks（获取全部任务）
+    * Update a task（更新任务）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Freshworks CRM node documentation integration templates](https://n8n.io/integrations/freshworks-crm) or [search all templates](https://n8n.io/workflows/)
+[浏览 Freshworks CRM 集成模板](https://n8n.io/integrations/freshworks-crm)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 

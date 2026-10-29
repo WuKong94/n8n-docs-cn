@@ -1,43 +1,43 @@
 ---
-title: Okta credentials
-description: >-
-  Documentation for the Okta credentials. Use these credentials to authenticate
-  Okta in n8n, a workflow automation platform.
+title: Okta 凭据
+description: Okta 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Okta 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Okta credentials
+- integration
+- reference
+nodeTitle: Okta 凭据
 originalFilePath: integrations/builtin/credentials/okta.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/okta'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/okta'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/okta
+url: https://docs.n8n.io/integrations/builtin/credentials/okta
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Okta credentials <a href="#okta-credentials" id="okta-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Okta 凭据 <a href="#okta-credentials" id="okta-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Okta](../app-nodes/n8n-nodes-base.okta.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [Okta free trial](https://www.okta.com/free-trial/) or create an admin account on an existing Okta org.
+创建 [Okta 免费试用](https://www.okta.com/free-trial/)账户，或在现有 Okta 组织中创建管理员账户。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- SSWS API Access token
+- SSWS API Access token（SSWS API 访问令牌）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Okta's documentation](https://developer.okta.com/docs/reference/) for more information about the service.
+有关该服务的更多信息，请参阅 [Okta 文档](https://developer.okta.com/docs/reference/)。
 
-## Using SSWS API access token <a href="#using-ssws-api-access-token" id="using-ssws-api-access-token"></a>
+## 使用 SSWS API 访问令牌 <a href="#using-ssws-api-access-token" id="using-ssws-api-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- The **URL**: The base URL of your Okta org, also referred to as your unique subdomain. There are two quick ways to access it:
-    1. In the Admin Console, select your **Profile**, hover over the domain listed below your username, and select the **Copy** icon. Paste this into n8n, but be sure to add `https://` before it.
-    2. Copy the base URL of your Admin Console URL, for example `https://dev-123456-admin.okta.com`. Paste it into n8n and remove `-admin`, for example: `https://dev-123456.okta.com`.
-- An **SSWS Access Token**: Create a token by going to **Security > API > Tokens > Create token**. Refer to [Create Okta API tokens](https://help.okta.com/en-us/content/topics/security/api.htm?cshid=ext-create-api-token#create-okta-api-token) for more information.
+- **URL**：Okta 组织的基础 URL，也称专属子域名。有两种快速获取方式：
+    1. 在 Admin Console（管理控制台）中选择 **Profile**（个人资料），将鼠标悬停在用户名下方的域名上，再选择 **Copy**（复制）图标。粘贴到 n8n，并确保在前面加上 `https://`。
+    2. 复制 Admin Console 地址中的基础 URL，例如 `https://dev-123456-admin.okta.com`。粘贴到 n8n，并移除 `-admin`，例如 `https://dev-123456.okta.com`。
+- **SSWS Access Token**（SSWS 访问令牌）：进入 **Security > API > Tokens > Create token**（安全 > API > 令牌 > 创建令牌）创建。更多信息请参阅[创建 Okta API 令牌](https://help.okta.com/en-us/content/topics/security/api.htm?cshid=ext-create-api-token#create-okta-api-token)。

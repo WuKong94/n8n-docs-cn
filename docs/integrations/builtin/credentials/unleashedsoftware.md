@@ -1,49 +1,49 @@
 ---
-title: Unleashed Software credentials
-description: >-
-  Documentation for Unleashed Software credentials. Use these credentials to
-  authenticate Unleashed Software in n8n, a workflow automation platform.
+title: Unleashed Software 凭据
+description: Unleashed Software 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Unleashed Software 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Unleashed Software credentials
+- integration
+- reference
+nodeTitle: Unleashed Software 凭据
 originalFilePath: integrations/builtin/credentials/unleashedsoftware.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/unleashedsoftware'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/unleashedsoftware'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/unleashedsoftware
+url: https://docs.n8n.io/integrations/builtin/credentials/unleashedsoftware
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Unleashed Software credentials <a href="#unleashed-software-credentials" id="unleashed-software-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Unleashed Software 凭据 <a href="#unleashed-software-credentials" id="unleashed-software-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Unleashed Software](../app-nodes/n8n-nodes-base.unleashedsoftware.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [Unleashed Software](https://www.unleashedsoftware.com/) account.
+创建一个 [Unleashed Software](https://www.unleashedsoftware.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Unleashed's API documentation](https://apidocs.unleashedsoftware.com/) for more information about the service.
+该服务的更多信息，请参阅 [Unleashed API 文档](https://apidocs.unleashedsoftware.com/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API ID**: Go to **Integrations > Unleashed API Access** to find your **API ID**.
-- An **API Key**: Go to **Integrations > Unleashed API Access** to find your **API Key**.
+- **API ID**：进入 **Integrations > Unleashed API Access**（集成 > Unleashed API 访问）查找 **API ID**。
+- **API Key**（API 密钥）：进入 **Integrations > Unleashed API Access**（集成 > Unleashed API 访问）查找 **API Key**。
 
-Refer to [Unleashed API Access](https://support.unleashedsoftware.com/hc/en-us/articles/4402393233689-Unleashed-API-Access) for more information.
+更多信息请参阅 [Unleashed API 访问](https://support.unleashedsoftware.com/hc/en-us/articles/4402393233689-Unleashed-API-Access)。
 
 {% hint style="info" %}
-**Account owner required**
+**必须是账户所有者**
 
-You must log in as an Unleashed account owner to view the API ID and API Key.
+必须以 Unleashed 账户所有者身份登录，才能查看 API ID 和 API Key。
 {% endhint %}

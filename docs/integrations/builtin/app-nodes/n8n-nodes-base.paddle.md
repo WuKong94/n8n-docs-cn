@@ -1,52 +1,52 @@
 ---
-title: Paddle node documentation
-description: >-
-  Learn how to use the Paddle node in n8n. Follow technical documentation to
-  integrate Paddle node into your workflows.
+title: Paddle 节点文档
+description: 了解如何在 n8n 中使用 Paddle 节点，并按照技术文档将 Paddle 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Paddle node documentation
+- integration
+- reference
+nodeTitle: Paddle 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.paddle.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paddle'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paddle'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paddle
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paddle
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Paddle node <a href="#paddle-node" id="paddle-node"></a>
 
-Use the Paddle node to automate work in Paddle, and integrate Paddle with other applications. n8n has built-in support for a wide range of Paddle features, including creating, updating, and getting coupons, as well as getting plans, products, and users. 
+# Paddle 节点 <a href="#paddle-node" id="paddle-node"></a>
 
-On this page, you'll find a list of operations the Paddle node supports and links to more resources.
+使用 Paddle 节点自动处理 Paddle 中的工作，并将其与其他应用集成。n8n 内置支持多种 Paddle 功能，包括创建、更新和获取优惠券，以及获取方案、产品和用户。
+
+本页列出了 Paddle 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Paddle credentials](../credentials/paddle.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Paddle 凭据](../credentials/paddle.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Coupon
-    * Create a coupon.
-    * Get all coupons.
-    * Update a coupon.
-* Payment
-    * Get all payment.
-    * Reschedule payment.
-* Plan
-    * Get a plan.
-    * Get all plans.
-* Product
-    * Get all products.
-* User
-    * Get all users
+* Coupon（优惠券）
+    * Create a coupon.（创建优惠券）
+    * Get all coupons.（获取全部优惠券）
+    * Update a coupon.（更新优惠券）
+* Payment（付款）
+    * Get all payment.（获取全部付款）
+    * Reschedule payment.（重新安排付款时间）
+* Plan（方案）
+    * Get a plan.（获取方案）
+    * Get all plans.（获取全部方案）
+* Product（产品）
+    * Get all products.（获取全部产品）
+* User（用户）
+    * Get all users（获取全部用户）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Paddle node documentation integration templates](https://n8n.io/integrations/paddle) or [search all templates](https://n8n.io/workflows/)
+[浏览 Paddle 集成模板](https://n8n.io/integrations/paddle)，或[搜索所有模板](https://n8n.io/workflows/)
 
 

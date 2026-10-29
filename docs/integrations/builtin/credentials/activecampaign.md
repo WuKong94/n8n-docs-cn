@@ -1,48 +1,48 @@
 ---
-title: ActiveCampaign credentials
-description: >-
-  Documentation for ActiveCampaign credentials. Use these credentials to
-  authenticate ActiveCampaign in n8n, a workflow automation platform.
+title: ActiveCampaign 凭据
+description: ActiveCampaign 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 ActiveCampaign 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: ActiveCampaign credentials
+nodeTitle: ActiveCampaign 凭据
 originalFilePath: integrations/builtin/credentials/activecampaign.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/activecampaign'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/activecampaign'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/activecampaign
+url: https://docs.n8n.io/integrations/builtin/credentials/activecampaign
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# ActiveCampaign credentials <a href="#activecampaign-credentials" id="activecampaign-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# ActiveCampaign 凭据 <a href="#activecampaign-credentials" id="activecampaign-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [ActiveCampaign](../app-nodes/n8n-nodes-base.activecampaign.md)
-- [Active Campaign Trigger](../trigger-nodes/n8n-nodes-base.activecampaigntrigger.md)
+- [Active Campaign Trigger（触发器）](../trigger-nodes/n8n-nodes-base.activecampaigntrigger.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-* API key
+* API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [ActiveCampaign's API documentation](https://help.activecampaign.com/hc/en-us/sections/360005740979-ActiveCampaign-API-Resources) for more information about working with the service.
+有关如何使用该服务的更多信息，请参阅 [ActiveCampaign API 文档](https://help.activecampaign.com/hc/en-us/sections/360005740979-ActiveCampaign-API-Resources)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need an [ActiveCampaign](https://www.activecampaign.com/) account and:
+配置此凭据需要一个 [ActiveCampaign](https://www.activecampaign.com/) 账号，以及：
 
-- An **API URL**
-- An **API Key**
+- **API URL**
+- 一个 **API Key（API 密钥）**
 
-To get both and set up the credential:
+获取这两个值并设置凭据：
 
-1. In ActiveCampaign, select **Settings** (the gear cog icon) from the left menu.
-2. Select **Developer**.
-3. Copy the **API URL** and enter it in your n8n credential.
-4. Copy the **API Key** and enter it in your n8n credential.
+1. 在 ActiveCampaign 左侧菜单中选择 **Settings**（设置，齿轮图标）。
+2. 选择 **Developer**（开发者）。
+3. 复制 **API URL**，填入 n8n 凭据。
+4. 复制 **API Key**（API 密钥），填入 n8n 凭据。
 
-Refer to [How to obtain your ActiveCampaign API URL and Key](https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API#h_01HJ6REM2YQW19KYPB189726ST) for more information or for instructions on resetting your API key.
+更多信息或重置 API 密钥的步骤，请参阅[如何获取 ActiveCampaign API URL 和密钥](https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API#h_01HJ6REM2YQW19KYPB189726ST)。

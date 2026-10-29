@@ -1,50 +1,50 @@
 ---
-title: OpenRouter credentials
-description: >-
-  Documentation for OpenRouter credentials. Use these credentials to
-  authenticate OpenRouter in n8n, a workflow automation platform.
+title: OpenRouter 凭据
+description: OpenRouter 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 OpenRouter 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: critical
-nodeTitle: OpenRouter credentials
+nodeTitle: OpenRouter 凭据
 originalFilePath: integrations/builtin/credentials/openrouter.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/openrouter'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/openrouter'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/openrouter
+url: https://docs.n8n.io/integrations/builtin/credentials/openrouter
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenRouter credentials <a href="#openrouter-credentials" id="openrouter-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# OpenRouter 凭据 <a href="#openrouter-credentials" id="openrouter-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Chat OpenRouter](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenrouter.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [OpenRouter](https://openrouter.ai/) account.
+创建一个 [OpenRouter](https://openrouter.ai/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [OpenRouter's API documentation](https://openrouter.ai/docs/quick-start) for more information about the service.
+有关该服务的更多信息，请参阅 [OpenRouter API 文档](https://openrouter.ai/docs/quick-start)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**
+- 一个 **API Key（API 密钥）**
 
-To generate your API Key:
+生成 API 密钥：
 
-1. Login to your OpenRouter account or [create](https://openrouter.ai/) an account.
-2. Open your [API keys](https://openrouter.ai/keys) page.
-3. Select **Create new secret key** to create an API key, optionally naming the key.
-4. Copy your key and add it as the **API Key** in n8n.
+1. 登录 OpenRouter 账户，或[创建](https://openrouter.ai/)账户。
+2. 打开 [API 密钥](https://openrouter.ai/keys)页面。
+3. 选择 **Create new secret key**（创建新密钥），创建 API 密钥，也可以为密钥命名。
+4. 复制密钥，填入 n8n 的 **API Key** 字段。
 
-Refer to the [OpenRouter Quick Start](https://openrouter.ai/docs/quick-start) page for more information.
+更多信息请参阅 [OpenRouter 快速入门](https://openrouter.ai/docs/quick-start)页面。

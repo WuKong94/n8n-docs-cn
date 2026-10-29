@@ -1,60 +1,60 @@
 ---
-title: SyncroMSP node documentation
-description: >-
-  Learn how to use the SyncroMSP node in n8n. Follow technical documentation to
-  integrate SyncroMSP node into your workflows.
+title: SyncroMSP 节点文档
+description: 了解如何在 n8n 中使用 SyncroMSP 节点，并按照技术文档将 SyncroMSP 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: SyncroMSP node documentation
+- integration
+- reference
+nodeTitle: SyncroMSP 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.syncromsp.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.syncromsp'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.syncromsp'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.syncromsp
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.syncromsp
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SyncroMSP node <a href="#syncromsp-node" id="syncromsp-node"></a>
 
-Use the SyncroMSP node to automate work in SyncroMSP, and integrate SyncroMSP with other applications. n8n has built-in support for a wide range of SyncroMSP features, including creating and deleting new customers, tickets, and contacts. 
+# SyncroMSP 节点 <a href="#syncromsp-node" id="syncromsp-node"></a>
 
-On this page, you'll find a list of operations the SyncroMSP node supports and links to more resources.
+使用 SyncroMSP 节点自动处理 SyncroMSP 中的工作，并将其与其他应用集成。n8n 内置支持多种 SyncroMSP 功能，包括创建和删除客户、工单及联系人。
+
+本页列出了 SyncroMSP 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [SyncroMSP credentials](../credentials/syncromsp.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [SyncroMSP 凭据](../credentials/syncromsp.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Contact
-    * Create new contact
-    * Delete contact
-    * Retrieve contact
-    * Retrieve all contacts
-    * Update contact
-* Customer
-    * Create new customer
-    * Delete customer
-    * Retrieve customer
-    * Retrieve all customers
-    * Update customer
-* RMM
-    * Create new RMM Alert
-    * Delete RMM Alert
-    * Retrieve RMM Alert
-    * Retrieve all RMM Alerts
-    * Mute RMM Alert
-* Ticket
-    * Create new ticket
-    * Delete ticket
-    * Retrieve ticket
-    * Retrieve all tickets
-    * Update ticket
+* Contact（联系人）
+    * Create new contact（创建新联系人）
+    * Delete contact（删除联系人）
+    * Retrieve contact（获取联系人）
+    * Retrieve all contacts（获取全部联系人）
+    * Update contact（更新联系人）
+* Customer（客户）
+    * Create new customer（创建新客户）
+    * Delete customer（删除客户）
+    * Retrieve customer（获取客户）
+    * Retrieve all customers（获取全部客户）
+    * Update customer（更新客户）
+* RMM（远程监控与管理）
+    * Create new RMM Alert（创建 RMM 告警）
+    * Delete RMM Alert（删除 RMM 告警）
+    * Retrieve RMM Alert（获取 RMM 告警）
+    * Retrieve all RMM Alerts（获取全部 RMM 告警）
+    * Mute RMM Alert（静默 RMM 告警）
+* Ticket（工单）
+    * Create new ticket（创建新工单）
+    * Delete ticket（删除工单）
+    * Retrieve ticket（获取工单）
+    * Retrieve all tickets（获取全部工单）
+    * Update ticket（更新工单）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse SyncroMSP node documentation integration templates](https://n8n.io/integrations/syncromsp) or [search all templates](https://n8n.io/workflows/)
+[浏览 SyncroMSP 集成模板](https://n8n.io/integrations/syncromsp)，或[搜索所有模板](https://n8n.io/workflows/)
