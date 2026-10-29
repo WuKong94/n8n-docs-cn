@@ -1,79 +1,79 @@
 ---
-title: MongoDB credentials
-description: >-
-  Documentation for MongoDB credentials. Use these credentials to authenticate
-  MongoDB in n8n, a workflow automation platform.
+title: MongoDB 凭据
+description: MongoDB 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 MongoDB 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: MongoDB credentials
+nodeTitle: MongoDB 凭据
 originalFilePath: integrations/builtin/credentials/mongodb.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/mongodb'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/mongodb'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/mongodb
+url: https://docs.n8n.io/integrations/builtin/credentials/mongodb
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MongoDB credentials <a href="#mongodb-credentials" id="mongodb-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# MongoDB 凭据 <a href="#mongodb-credentials" id="mongodb-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [MongoDB](../app-nodes/n8n-nodes-base.mongodb.md)
-- [MongoDB Atlas Vector Store](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas.md)
-- [MongoDB Chat Memory](../cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymongochat.md)
+- [MongoDB Atlas Vector Store（Atlas 向量存储）](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoremongodbatlas.md)
+- [MongoDB Chat Memory（聊天记忆）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymongochat.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a user account with the appropriate permissions on a [MongoDB](https://www.mongodb.com/) server.
-- As a Project Owner, add all the [n8n IP addresses](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/configure-cloud/find-your-ip-addresses) to the IP Access List Entries in the project's **Network Access**. Refer to [Add IP Access List entries](https://www.mongodb.com/docs/atlas/security/ip-access-list/#add-ip-access-list-entries) for detailed instructions.
+- 在 [MongoDB](https://www.mongodb.com/) 服务器上创建具有适当权限的用户账户。
+- 以项目所有者身份，将全部 [n8n IP 地址](../../../deploy/use-n8n-cloud/configure-cloud/find-your-ip-addresses.md)添加到项目 **Network Access**（网络访问）的 IP 访问列表条目中。详细说明，请参阅[添加 IP 访问列表条目](https://www.mongodb.com/docs/atlas/security/ip-access-list/#add-ip-access-list-entries)。
 
-If you are setting up MongoDB from scratch, create a cluster and a database. Refer to the [MongoDB Atlas documentation](https://www.mongodb.com/docs/atlas/) for more detailed instructions on these steps.
+如果从头设置 MongoDB，请创建集群和数据库。详细步骤，请参阅 [MongoDB Atlas 文档](https://www.mongodb.com/docs/atlas/)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Database connection - Connection string
-- Database connection - Values
+- Database connection - Connection string（数据库连接，连接字符串）
+- Database connection - Values（数据库连接，字段值）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to the [MongoDBs Atlas documentation](https://www.mongodb.com/docs/atlas/) for more information about the service.
+有关该服务的更多信息，请参阅 [MongoDB Atlas 文档](https://www.mongodb.com/docs/atlas/)。
 
-## Using database connection - Connection string <a href="#using-database-connection-connection-string" id="using-database-connection-connection-string"></a>
+## 使用数据库连接：连接字符串 <a href="#using-database-connection-connection-string" id="using-database-connection-connection-string"></a>
 
-To configure this credential, you'll need the [Prerequisites](#prerequisites) listed above. Then:
+配置此凭据需要满足上述[前置条件](#prerequisites)，然后：
 
-1. Select **Connection String** as the **Configuration Type**.
-2. Enter your MongoDB **Connection String**. To get your connection string in MongoDB, go to **Database > Connect**.
-    1. Select **Drivers**.
-    2. Copy the code you see in **Add your connection string into your application code**. It will be something like: `mongodb+srv://yourName:yourPassword@clusterName.mongodb.net/?retryWrites=true&w=majority`.
-    3. Replace the `<password>` and `<username>` in the connection string with the database user's credentials you'll be using.
-    4. Enter that connection string into n8n.
-    5. Refer to [Connection String](https://www.mongodb.com/docs/manual/reference/connection-string/) for information on finding and formatting your connection string.
-3. Enter your **Database** name. This is the name of the database that the user whose details you added to the connection string is logging into.
-4. Select whether to **Use TLS**: Turn on to use TLS. You must have your MongoDB database configured to use TLS and have an x.509 certificate generated. Add information for these certificate fields in n8n:
-    - **CA Certificate**
-    - **Public Client Certificate**
-    - **Private Client Key**
-    - **Passphrase**
+1. 将 **Configuration Type**（配置类型）设为 **Connection String**（连接字符串）。
+2. 输入 MongoDB **Connection String**（连接字符串）。在 MongoDB 中，进入 **Database > Connect**（数据库 > 连接）获取此字符串。
+    1. 选择 **Drivers**（驱动程序）。
+    2. 复制 **Add your connection string into your application code**（将连接字符串添加到应用代码）中显示的代码，格式类似：`mongodb+srv://yourName:yourPassword@clusterName.mongodb.net/?retryWrites=true&w=majority`。
+    3. 将连接字符串中的 `<password>` 和 `<username>` 替换为要使用的数据库用户的凭据信息。
+    4. 将该连接字符串填入 n8n。
+    5. 查找和格式化连接字符串的相关信息，请参阅[连接字符串](https://www.mongodb.com/docs/manual/reference/connection-string/)。
+3. 输入 **Database**（数据库）名称，即连接字符串所填用户要登录的数据库的名称。
+4. 选择是否 **Use TLS**（使用 TLS）：开启时使用 TLS。必须先将 MongoDB 数据库配置为使用 TLS，并生成 x.509 证书。在 n8n 中添加以下证书字段的信息：
+    - **CA Certificate**（CA 证书）
+    - **Public Client Certificate**（客户端公钥证书）
+    - **Private Client Key**（客户端私钥）
+    - **Passphrase**（口令）
 
-Refer to [MongoDB's x.509 documentation](https://www.mongodb.com/docs/manual/core/security-x.509/#std-label-client-x509-certificates-requirements) for more information on working with x.509 certificates.
+使用 x.509 证书的更多信息，请参阅 [MongoDB x.509 文档](https://www.mongodb.com/docs/manual/core/security-x.509/#std-label-client-x509-certificates-requirements)。
 
-## Using database connection - Values <a href="#using-database-connection-values" id="using-database-connection-values"></a>
+## 使用数据库连接：字段值 <a href="#using-database-connection-values" id="using-database-connection-values"></a>
 
-To configure this credential, you'll need the [Prerequisites](#prerequisites) listed above. Then:
+配置此凭据需要满足上述[前置条件](#prerequisites)，然后：
 
-1. Select **Values** as the **Configuration Type**.
-2. Enter the database **Host** name or address.
-3. Enter the **Database** name.
-4. Enter the **User** you'd like to log in as.
-5. Enter the user's **Password**.
-6. Enter the **Port** to connect over. This is the port number your server uses to listen for incoming connections.
-7. Select whether to **Use TLS**: Turn on to use TLS. You must have your MongoDB database configured to use TLS and have an x.509 certificate generated. Add information for these certificate fields in n8n:
-    - **CA Certificate**
-    - **Public Client Certificate**
-    - **Private Client Key**
-    - **Passphrase**
+1. 将 **Configuration Type**（配置类型）设为 **Values**（字段值）。
+2. 输入数据库的 **Host**（主机）名称或地址。
+3. 输入 **Database**（数据库）名称。
+4. 输入登录使用的 **User**（用户）。
+5. 输入该用户的 **Password**（密码）。
+6. 输入连接使用的 **Port**（端口），即服务器监听传入连接的端口号。
+7. 选择是否 **Use TLS**（使用 TLS）：开启时使用 TLS。必须先将 MongoDB 数据库配置为使用 TLS，并生成 x.509 证书。在 n8n 中添加以下证书字段的信息：
+    - **CA Certificate**（CA 证书）
+    - **Public Client Certificate**（客户端公钥证书）
+    - **Private Client Key**（客户端私钥）
+    - **Passphrase**（口令）
 
-Refer to [MongoDB's x.509 documentation](https://www.mongodb.com/docs/manual/core/security-x.509/#std-label-client-x509-certificates-requirements) for more information on working with x.509 certificates.
+使用 x.509 证书的更多信息，请参阅 [MongoDB x.509 文档](https://www.mongodb.com/docs/manual/core/security-x.509/#std-label-client-x509-certificates-requirements)。

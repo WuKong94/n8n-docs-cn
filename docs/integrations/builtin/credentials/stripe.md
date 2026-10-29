@@ -1,109 +1,109 @@
 ---
-title: Stripe credentials
-description: >-
-  Documentation for Stripe credentials. Use these credentials to authenticate
-  Stripe in n8n, a workflow automation platform.
+title: Stripe 凭据
+description: Stripe 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Stripe 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Stripe credentials
+nodeTitle: Stripe 凭据
 originalFilePath: integrations/builtin/credentials/stripe.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/stripe'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/stripe'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/stripe
+url: https://docs.n8n.io/integrations/builtin/credentials/stripe
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Stripe credentials <a href="#stripe-credentials" id="stripe-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Stripe 凭据 <a href="#stripe-credentials" id="stripe-credentials"></a>
 
-- [Stripe Trigger](../trigger-nodes/n8n-nodes-base.stripetrigger.md)
+这些凭据可用于以下节点的身份验证：
+
+- [Stripe Trigger（触发器）](../trigger-nodes/n8n-nodes-base.stripetrigger.md)
 - [Stripe](../app-nodes/n8n-nodes-base.stripe.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Secret key
+- Secret key（秘密密钥）
 
-n8n strongly recommends also setting a **Signature Secret** (sometimes called an endpoint secret), a unique key for each webhook endpoint. This allows the [Stripe Trigger](../trigger-nodes/n8n-nodes-base.stripetrigger.md) node to verify that incoming requests genuinely come from Stripe. For setup steps, refer to [Verify incoming requests](#verify-incoming-requests).
+n8n 还强烈建议设置 **Signature Secret**（签名密钥，有时也称端点密钥）。每个 webhook 端点具有唯一密钥，使 [Stripe Trigger（触发器）](../trigger-nodes/n8n-nodes-base.stripetrigger.md)节点能够验证传入请求确实来自 Stripe。设置步骤，请参阅[验证传入请求](#verify-incoming-requests)。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-To configure this credential, you'll need a Stripe admin or developer account. Refer to [Stripe's API documentation](https://docs.stripe.com/api) for more information about the service.
+配置此凭据需要一个 Stripe 管理员或开发者账户。有关该服务的更多信息，请参阅 [Stripe API 文档](https://docs.stripe.com/api)。
 
-Before you generate an API key, decide whether to generate it in live mode or test mode. Refer to [Test mode and live mode](#test-mode-and-live-mode) for more information about the two modes.
+生成 API 密钥之前，先决定使用正式模式还是测试模式。两种模式的更多信息，请参阅[测试模式与正式模式](#test-mode-and-live-mode)。
 
-### Live mode Secret key <a href="#live-mode-secret-key" id="live-mode-secret-key"></a>
+### 正式模式 Secret key（秘密密钥） <a href="#live-mode-secret-key" id="live-mode-secret-key"></a>
 
-To generate a Secret key in live mode:
+在正式模式生成 Secret key 的步骤如下：
 
-1. Open the [Stripe developer dashboard](https://dashboard.stripe.com/developers) and select [**API Keys**](https://dashboard.stripe.com/apikeys).
-2. In the **Standard Keys** section, select **Create secret key**.
-3. Enter a **Key name**, like `n8n integration`.
-4. Select **Create**. The new API key displays.
-4. Copy the key and enter it in your n8n credential as the **Secret Key**.
+1. 打开 [Stripe 开发者控制台](https://dashboard.stripe.com/developers)，选择 [**API Keys**（API 密钥）](https://dashboard.stripe.com/apikeys)。
+2. 在 **Standard Keys**（标准密钥）部分，选择 **Create secret key**（创建秘密密钥）。
+3. 输入 **Key name**（密钥名称），例如 `n8n integration`。
+4. 选择 **Create**（创建），随后显示新的 API 密钥。
+4. 复制密钥，填入 n8n 凭据的 **Secret Key**（秘密密钥）。
 
-Refer to Stripe's [Create a secret API key](https://docs.stripe.com/keys#create-api-secret-key) for more information.
+更多信息，请参阅 Stripe 的[创建秘密 API 密钥](https://docs.stripe.com/keys#create-api-secret-key)。
 
-### Test mode Secret key <a href="#test-mode-secret-key" id="test-mode-secret-key"></a>
+### 测试模式 Secret key（秘密密钥） <a href="#test-mode-secret-key" id="test-mode-secret-key"></a>
 
-To use a Secret key in test mode, you must copy the existing one:
+如需在测试模式使用 Secret key，必须复制已有密钥：
 
-1. Go to your [Stripe test mode developer dashboard](https://dashboard.stripe.com/test/developers) and select [**API Keys**](https://dashboard.stripe.com/test/apikeys).
-2. In the **Standard Keys** section, select **Reveal test key** for the **Secret key**.
-3. Copy the key and enter it in your n8n credential as the **Secret Key**.
+1. 打开 [Stripe 测试模式开发者控制台](https://dashboard.stripe.com/test/developers)，选择 [**API Keys**（API 密钥）](https://dashboard.stripe.com/test/apikeys)。
+2. 在 **Standard Keys**（标准密钥）部分，为 **Secret key**（秘密密钥）选择 **Reveal test key**（显示测试密钥）。
+3. 复制密钥，填入 n8n 凭据的 **Secret Key**（秘密密钥）。
 
-Refer to Stripe's [Create a secret API key](https://docs.stripe.com/keys#create-api-secret-key) for more information.
+更多信息，请参阅 Stripe 的[创建秘密 API 密钥](https://docs.stripe.com/keys#create-api-secret-key)。
 
-## Verify incoming requests <a href="#verify-incoming-requests" id="verify-incoming-requests"></a>
-
-{% hint style="info" %}
-**Feature availability**
-
-Verification of incoming requests is available from n8n 2.25.7 and n8n 2.26.2.
-{% endhint %}
-
-The Stripe Trigger node can verify that incoming webhook requests genuinely come from Stripe.
-
-n8n strongly recommends setting a **Signature Secret** so others can't send forged events to your workflow, even if they know your webhook URL.
-
-n8n creates and manages the Stripe webhook endpoint for you when you publish a workflow, so you set the **Signature Secret** after the endpoint exists:
-
-1. Build your workflow with the **Stripe Trigger** node and publish it. n8n creates a webhook endpoint in your Stripe account.
-2. In the Stripe Dashboard, go to **Workbench** > **Webhooks**. In older dashboards, go to **Developers** > **Webhooks**.
-3. Select the endpoint n8n created. You can identify it by the description `Created by n8n for workflow ID: <workflow-id>` and by the webhook URL, which matches your n8n production webhook URL.
-4. Under **Signing secret**, select **Click to reveal** and copy the value. It starts with `whsec_`.
-5. In n8n, open your Stripe credential, paste the value into the **Signature Secret** field, and save.
-
-Stripe generates a unique signing secret for each endpoint, and a separate one for test mode and live mode. Copy the secret from the endpoint that matches the credential you're using. Refer to Stripe's [Webhooks documentation](https://docs.stripe.com/webhooks) for more information.
-
-## Test mode and live mode <a href="#test-mode-and-live-mode" id="test-mode-and-live-mode"></a>
-
-All Stripe API requests happen within either [test mode](https://docs.stripe.com/test-mode) or live mode. Each mode has its own API key. 
-
-Use test mode to access simulated test data and live mode to access actual account data. Objects in one mode aren’t accessible to the other.
-
-Refer to [API keys | Test mode versus live mode](https://docs.stripe.com/keys#test-live-modes) for more information about what's available in each mode and guidance on when to use each.
+## 验证传入请求 <a href="#verify-incoming-requests" id="verify-incoming-requests"></a>
 
 {% hint style="info" %}
-**n8n credentials for both modes**
+**功能可用范围**
 
-If you want to work with both live mode and test mode keys, store each mode's key in a separate n8n credential.
+传入请求验证从 n8n 2.25.7 和 n8n 2.26.2 起可用。
 {% endhint %}
 
-## Key prefixes <a href="#key-prefixes" id="key-prefixes"></a>
+Stripe Trigger 节点可验证传入的 webhook 请求确实来自 Stripe。
 
-Stripes' Secret keys always begin with `sk_`:
+n8n 强烈建议设置 **Signature Secret**（签名密钥），这样即使其他人知道 webhook URL，也无法向工作流发送伪造事件。
 
-- Live keys begin with `sk_live_`.
-- Test keys begin with `sk_test_`.
+发布工作流时，n8n 会为你创建并管理 Stripe webhook 端点，因此应在端点存在后设置 **Signature Secret**（签名密钥）：
 
-n8n hasn't tested these credentials with Restricted keys (prefixed `rk_`).
+1. 使用 **Stripe Trigger** 节点构建工作流并发布。n8n 会在 Stripe 账户中创建 webhook 端点。
+2. 在 Stripe 控制台中，进入 **Workbench**（工作台）> **Webhooks**。较旧控制台中，进入 **Developers**（开发者）> **Webhooks**。
+3. 选择 n8n 创建的端点。可通过描述 `Created by n8n for workflow ID: <workflow-id>` 和 webhook URL 识别，它的 URL 与 n8n 生产 webhook URL 一致。
+4. 在 **Signing secret**（签名密钥）下，选择 **Click to reveal**（点击显示），复制该值。它以 `whsec_` 开头。
+5. 在 n8n 中打开 Stripe 凭据，将该值粘贴到 **Signature Secret**（签名密钥）字段并保存。
+
+Stripe 为每个端点生成唯一签名密钥，测试模式和正式模式也各不相同。请从与你使用的凭据匹配的端点复制密钥。更多信息，请参阅 Stripe 的 [Webhook 文档](https://docs.stripe.com/webhooks)。
+
+## 测试模式与正式模式 <a href="#test-mode-and-live-mode" id="test-mode-and-live-mode"></a>
+
+所有 Stripe API 请求都发生在[测试模式](https://docs.stripe.com/test-mode)或正式模式下，每种模式有自己的 API 密钥。
+
+测试模式用于访问模拟测试数据，正式模式用于访问真实账户数据。一种模式中的对象无法从另一种模式访问。
+
+各模式的可用功能及使用建议，请参阅 [API 密钥 | 测试模式与正式模式](https://docs.stripe.com/keys#test-live-modes)。
+
+{% hint style="info" %}
+**为两种模式分别保存 n8n 凭据**
+
+如需同时使用正式模式和测试模式的密钥，请为每种模式分别创建 n8n 凭据，保存各自的密钥。
+{% endhint %}
+
+## 密钥前缀 <a href="#key-prefixes" id="key-prefixes"></a>
+
+Stripe 的 Secret key 始终以 `sk_` 开头：
+
+- 正式密钥以 `sk_live_` 开头。
+- 测试密钥以 `sk_test_` 开头。
+
+n8n 尚未使用 Restricted（受限）密钥（前缀 `rk_`）测试这些凭据。
 
 {% hint style="warning" %}
-**Publishable keys**
+**Publishable key（可发布密钥）**
 
-Don't use the Publishable keys (prefixed `pk_`) with your n8n credential.
+请勿将 Publishable key（前缀 `pk_`）用于 n8n 凭据。
 {% endhint %}

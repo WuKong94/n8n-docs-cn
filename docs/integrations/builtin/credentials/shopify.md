@@ -1,134 +1,134 @@
 ---
-title: Shopify credentials
-description: >-
-  Documentation for Shopify credentials. Use these credentials to authenticate
-  Shopify in n8n, a workflow automation platform.
+title: Shopify 凭据
+description: Shopify 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Shopify 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Shopify credentials
+nodeTitle: Shopify 凭据
 originalFilePath: integrations/builtin/credentials/shopify.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/shopify'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/shopify'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/shopify
+url: https://docs.n8n.io/integrations/builtin/credentials/shopify
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Shopify credentials <a href="#shopify-credentials" id="shopify-credentials"></a>
 
-You can use these credentials to authenticate the following nodes with Shopify.
+# Shopify 凭据 <a href="#shopify-credentials" id="shopify-credentials"></a>
+
+这些凭据可用于以下节点与 Shopify 之间的身份验证。
 
 - [Shopify](../app-nodes/n8n-nodes-base.shopify.md)
-- [Shopify Trigger](../trigger-nodes/n8n-nodes-base.shopifytrigger.md)
+- [Shopify Trigger（触发器）](../trigger-nodes/n8n-nodes-base.shopifytrigger.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Access token (recommended): For private apps/single store use. Can be created by regular admins.
-- OAuth2: For public apps. Must be created by partner accounts.
-- API key: Deprecated. Use Access token instead.
+- Access token（访问令牌，推荐）：用于私有应用或单个商店，普通管理员即可创建。
+- OAuth2：用于公开应用，必须由合作伙伴账户创建。
+- API key（API 密钥）：已弃用，请改用访问令牌。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Shopify's authentication documentation](https://shopify.dev/docs/apps/auth) for more information about the service.
+有关该服务的更多信息，请参阅 [Shopify 身份验证文档](https://shopify.dev/docs/apps/auth)。
 
-## Using access token <a href="#using-access-token" id="using-access-token"></a>
+## 使用访问令牌 <a href="#using-access-token" id="using-access-token"></a>
 
-To configure this credential, you'll need a [Shopify](https://shopify.com/) admin account and:
+配置此凭据需要一个 [Shopify](https://shopify.com/) 管理员账户，以及：
 
-- Your **Shop Subdomain**
-- An **Access Token**: Generated when you create a custom app.
-- An **APP Secret Key**: Generated when you create a custom app.
+- **Shop Subdomain**（商店子域名）
+- **Access Token**（访问令牌）：创建自定义应用时生成。
+- **APP Secret Key**（应用秘密密钥）：创建自定义应用时生成。
 
-To set up the credential, you'll need to create and install a custom app:
+设置此凭据需要创建并安装自定义应用：
 
-1. Enter your **Shop Subdomain**.
-    - Your subdomain is within the URL: `https://<subdomain>.myshopify.com`. For example, if the full URL is `https://n8n.myshopify.com`, the Shop Subdomain is `n8n`.
-2. In Shopify, go to **Admin > Settings >** [**Apps and sales channels**](https://admin.shopify.com/settings/apps).
-3. Select **Develop apps**.
-4. Select **Create a custom app**.<br>
+1. 输入 **Shop Subdomain**（商店子域名）。
+    - 子域名位于 URL 中：`https://<subdomain>.myshopify.com`。例如，完整 URL 为 `https://n8n.myshopify.com` 时，商店子域名为 `n8n`。
+2. 在 Shopify 中进入 **Admin > Settings >** [**Apps and sales channels**](https://admin.shopify.com/settings/apps)（管理 > 设置 > 应用与销售渠道）。
+3. 选择 **Develop apps**（开发应用）。
+4. 选择 **Create a custom app**（创建自定义应用）。<br>
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Don't see this option?</strong></p><p>If you don't see this option, your store probably doesn't have custom app development enabled. Refer to <a href="#enable-custom-app-development">Enable custom app development</a> for more information.</p></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>未看到此选项？</strong></p><p>如果未看到此选项，商店可能尚未启用自定义应用开发。更多信息，请参阅<a href="#enable-custom-app-development">启用自定义应用开发</a>。</p></div>
 
-5. In the modal window, enter the **App name**.
-6. Select an **App developer**. The app developer can be the store owner or any account with the **Develop apps** permission.
-7. Select **Create app**.
-8. Select **Select scopes**. In the **Admin API access scopes** section, select the API scopes you want for your app.
-    - To use all functionality in the [Shopify](../app-nodes/n8n-nodes-base.shopify.md) node, add the `read_orders`, `write_orders`, `read_products`, and `write_products` scopes.
-    - Refer to [Shopify API Access Scopes](https://shopify.dev/docs/api/usage/access-scopes) for more information on the available scopes.
-9. Select **Save**.
-10. Select **Install app**.
-11. In the modal window, select **Install app**.
-12. Open the app's **API Credentials** section.
-13. Copy the **Admin API Access Token**. Enter this in your n8n credential as the **Access Token**.
-14. Copy the **API Secret Key**. Enter this in your n8n credential as the **APP Secret Key**.
+5. 在弹窗中输入 **App name**（应用名称）。
+6. 选择 **App developer**（应用开发者），可以是商店所有者，或具有 **Develop apps**（开发应用）权限的任意账户。
+7. 选择 **Create app**（创建应用）。
+8. 选择 **Select scopes**（选择作用域）。在 **Admin API access scopes**（Admin API 访问作用域）部分，为应用选择所需 API 作用域。
+    - 如需使用 [Shopify](../app-nodes/n8n-nodes-base.shopify.md) 节点的全部功能，请添加 `read_orders`、`write_orders`、`read_products` 和 `write_products` 作用域。
+    - 可用作用域的更多信息，请参阅 [Shopify API 访问作用域](https://shopify.dev/docs/api/usage/access-scopes)。
+9. 选择 **Save**（保存）。
+10. 选择 **Install app**（安装应用）。
+11. 在弹窗中选择 **Install app**（安装应用）。
+12. 打开应用的 **API Credentials**（API 凭据）部分。
+13. 复制 **Admin API Access Token**（Admin API 访问令牌），填入 n8n 凭据的 **Access Token**（访问令牌）。
+14. 复制 **API Secret Key**（API 秘密密钥），填入 n8n 凭据的 **APP Secret Key**（应用秘密密钥）。
 
-Refer to [Creating a custom app](https://help.shopify.com/en/manual/apps/app-types/custom-apps) and [Generate access tokens for custom apps in the Shopify admin](https://shopify.dev/docs/apps/build/authentication-authorization/access-token-types/generate-app-access-tokens-admin) for more information on these steps.
+这些步骤的更多信息，请参阅[创建自定义应用](https://help.shopify.com/en/manual/apps/app-types/custom-apps)和[在 Shopify 管理后台为自定义应用生成访问令牌](https://shopify.dev/docs/apps/build/authentication-authorization/access-token-types/generate-app-access-tokens-admin)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need a [Shopify partner](https://www.shopify.com/partners) account and:
+配置此凭据需要一个 [Shopify 合作伙伴](https://www.shopify.com/partners)账户，以及：
 
-- A **Client ID**: Generated when you create a custom app.
-- A **Client Secret**: Generated when you create a custom app.
-- Your **Shop Subdomain**
+- **Client ID**（客户端 ID）：创建自定义应用时生成。
+- **Client Secret**（客户端密钥）：创建自定义应用时生成。
+- **Shop Subdomain**（商店子域名）
 
-To set up the credential, you'll need to create and install a custom app:
+设置此凭据需要创建并安装自定义应用：
 
 {% hint style="info" %}
-**Custom app development**
+**自定义应用开发**
 
-Shopify provides templates for creating new apps. The instructions below only cover the elements necessary to set up your n8n credential. Refer to Shopify's [Build dev docs](https://shopify.dev/docs/apps/build) for more information on building apps and working with app templates.
+Shopify 提供创建新应用的模板。以下说明仅涉及设置 n8n 凭据所需的内容。构建应用及使用应用模板的更多信息，请参阅 Shopify 的[构建开发文档](https://shopify.dev/docs/apps/build)。
 {% endhint %}
 
-1. Open your [Shopify Partner dashboard](https://partners.shopify.com/).
-2. Select **Apps** from the left navigation.
-3. Select **Create app**.
-4. In the **Use Shopify Partners** section, enter an **App name**.
-6. Select **Create app**.
-7. When the app details open, copy the **Client ID**. Enter this in your n8n credential.
-8. Copy the **Client Secret**. Enter this in your n8n credential.
-9. In the left menu, select **Configuration**.
-10. In n8n, copy the **OAuth Redirect URL** and paste it into the **Allowed redirection URL(s)** in the **URLs** section.
-10. In the **URLs** section, enter an **App URL** for your app. The host entered here needs to match the host for the **Allowed redirection URL(s)**, like the base URL for your n8n instance.
-8. Select **Save and release**.
-1. Select **Overview** from the left menu. At this point, you can choose to **Test your app** by installing it to one of your stores, or **Choose distribution** to distribute it publicly.
-1. In n8n, enter the **Shop Subdomain** of the store you installed the app to, either as a test or as a distribution.
-    - Your subdomain is within the URL: `https://<subdomain>.myshopify.com`. For example, if the full URL is `https://n8n.myshopify.com`, the Shop Subdomain is `n8n`.
+1. 打开 [Shopify Partner 控制台](https://partners.shopify.com/)。
+2. 从左侧导航栏选择 **Apps**（应用）。
+3. 选择 **Create app**（创建应用）。
+4. 在 **Use Shopify Partners**（使用 Shopify Partners）部分，输入 **App name**（应用名称）。
+6. 选择 **Create app（创建应用）**。
+7. 打开应用详情后，复制 **Client ID**（客户端 ID），填入 n8n 凭据。
+8. 复制 **Client Secret**（客户端密钥），填入 n8n 凭据。
+9. 在左侧菜单选择 **Configuration**（配置）。
+10. 在 n8n 中复制 **OAuth Redirect URL**（OAuth 重定向 URL），粘贴到 **URLs** 部分的 **Allowed redirection URL(s)**（允许的重定向 URL）。
+10. 在 **URLs** 部分，输入应用的 **App URL**（应用 URL）。此处主机必须与 **Allowed redirection URL(s)**（允许的重定向 URL）的主机一致，例如使用 n8n 实例的基础 URL。
+8. 选择 **Save and release**（保存并发布）。
+1. 从左侧菜单选择 **Overview**（概览）。此时可选择 **Test your app**（测试应用），将其安装到自己的某个商店中，或选择 **Choose distribution**（选择分发方式）公开分发应用。
+1. 在 n8n 中输入已安装应用的商店的 **Shop Subdomain**（商店子域名），无论该应用用于测试还是分发。
+    - 子域名位于 URL 中：`https://<subdomain>.myshopify.com`。例如，完整 URL 为 `https://n8n.myshopify.com` 时，商店子域名为 `n8n`。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用范围**
 
-Shopify no longer generates API keys with passwords. Use the [Access token](#using-access-token) method instead.
+Shopify 不再生成附带密码的 API 密钥，请改用[访问令牌](#using-access-token)方式。
 {% endhint %}
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**
-- A **Password**
-- Your **Shop Subdomain**: Your subdomain is within the URL: `https://<subdomain>.myshopify.com`. For example, if the full URL is `https://n8n.myshopify.com`, the Shop Subdomain is `n8n`.
-- _Optional:_ A **Shared Secret**
+- 一个 **API Key（API 密钥）**
+- 一个 **Password（密码）**
+- **Shop Subdomain**（商店子域名）：子域名位于 URL 中：`https://<subdomain>.myshopify.com`。例如，完整 URL 为 `https://n8n.myshopify.com` 时，商店子域名为 `n8n`。
+- _可选：_ **Shared Secret**（共享秘密值）
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-Here are some common issues setting up the Shopify credential and steps to resolve or troubleshoot them.
+以下列出设置 Shopify 凭据时的常见问题，以及解决或排查步骤。
 
-### Enable custom app development <a href="#enable-custom-app-development" id="enable-custom-app-development"></a>
+### 启用自定义应用开发 <a href="#enable-custom-app-development" id="enable-custom-app-development"></a>
 
-If you don't see the option to **Create a custom app**, no one's enabled custom app development for your store.
+如果未看到 **Create a custom app**（创建自定义应用）选项，说明商店尚未启用自定义应用开发。
 
-To enable custom app development, you must log in either as a store owner or as a user with the **Enable app development** permission:
+启用自定义应用开发，必须以商店所有者身份，或具有 **Enable app development**（启用应用开发）权限的用户身份登录：
 
-1. In Shopify, go to **Admin > Settings >** [**Apps and sales channels**](https://admin.shopify.com/settings/apps).
-2. Select **Develop apps**.
-3. Select **Allow custom app development**.
-4. Read the warning and information provided and select **Allow custom app development**.
+1. 在 Shopify 中进入 **Admin > Settings >** [**Apps and sales channels**](https://admin.shopify.com/settings/apps)（管理 > 设置 > 应用与销售渠道）。
+2. 选择 **Develop apps**（开发应用）。
+3. 选择 **Allow custom app development**（允许自定义应用开发）。
+4. 阅读警告及提供的信息，选择 **Allow custom app development**（允许自定义应用开发）。
 
-### Forbidden credentials error <a href="#forbidden-credentials-error" id="forbidden-credentials-error"></a>
+### Forbidden（禁止访问）凭据错误 <a href="#forbidden-credentials-error" id="forbidden-credentials-error"></a>
 
 
-If you get a **Couldn't connect with these settings / Forbidden - perhaps check your credentials** warning when you test the credentials, this may be due to your app's [access scope](https://shopify.dev/docs/api/usage/access-scopes) dependencies. For example, the `read_orders` scope also requires `read_products` scope. Review the scopes you have assigned and the action you're trying to complete.
+测试凭据时，如果出现 **Couldn't connect with these settings / Forbidden - perhaps check your credentials**（无法使用这些设置连接 / 禁止访问，请检查凭据）警告，可能与应用的[访问作用域](https://shopify.dev/docs/api/usage/access-scopes)依赖关系有关。例如，`read_orders` 作用域还需要 `read_products`。请检查已分配的作用域及要完成的操作。
 

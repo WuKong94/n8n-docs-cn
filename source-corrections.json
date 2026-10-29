@@ -450,5 +450,36 @@
     "credential_blob_sha": "5ea71e07430c8515834e99450a060a46f9fb1149",
     "implementation_blob_sha": "50c3fb14f9cf81c92b4ad743e8be5ec6482739c6",
     "scope": "仅修正 Passwordless 说明中的机制与开关状态关联；保留 SSL、客户端证书、私钥、口令、CA、guest 用户限制和错误示例，不宣称已建立真实连接。"
+  },
+  {
+    "path": "integrations/builtin/credentials/microsoftsql.md",
+    "source_sha256": "0a728f3e68dfed2718ee1bb9e2f2cb8471af47087e7025716ed0c348883e65d5",
+    "implementation_commit": "1faf2acf9e8a7f5e829db6271532880f64751c82",
+    "implementation_blob_sha": "13a7e2f0126bc62de663b8151614947543ff2105",
+    "id": "microsoft-sql-database-not-instance-name",
+    "original_sentence": "2. Enter the SQL Server Instance Name as the **Database** name. Find this name using the same steps listed above for finding the host name.",
+    "translated_sentence": "2. 在 **Database**（数据库）中输入要连接的数据库名称。数据库名称与 SQL Server 实例名不同，不应将实例名作为此字段的值。",
+    "evidence": "n8n 官方 MicrosoftSql 凭据定义分别提供 Server 和 Database 字段，Database 的示例默认值为 master；Microsoft 官方 DB_NAME 文档明确将数据库名称作为独立概念。原文把实例名当作 Database 字段，与字段定义不符。2026-10-29 核对，固定实现提交仅作为此项说明的证据。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/credentials/MicrosoftSql.credentials.ts",
+      "https://learn.microsoft.com/en-us/sql/t-sql/functions/db-name-transact-sql?view=sql-server-ver17"
+    ],
+    "scope": "仅修正 Database 字段应填写数据库名的说明，原服务器与实例说明、默认实例名称、连接字段、SQL、协议版本和引用均保留；不新增数据库默认值或示例查询，不声称已建立真实连接。"
+  },
+  {
+    "path": "integrations/builtin/credentials/microsoftsql.md",
+    "source_sha256": "0a728f3e68dfed2718ee1bb9e2f2cb8471af47087e7025716ed0c348883e65d5",
+    "implementation_commit": "1faf2acf9e8a7f5e829db6271532880f64751c82",
+    "implementation_blob_sha": "13a7e2f0126bc62de663b8151614947543ff2105",
+    "id": "microsoft-sql-timeout-seconds-to-milliseconds",
+    "original_sentence": "- SQL Server stores this timeout as seconds, while n8n stores it as milliseconds. If you're copying your SQL Server defaults, multiple by 100 before entering the number here.",
+    "translated_sentence": "- SQL Server 以秒存储此超时值，n8n 以毫秒存储。如果复制 SQL Server 的默认值，请先乘以 1000，再填入此处。",
+    "evidence": "同页前一句明确 Connect Timeout 的单位为毫秒，本句又明确待转换的值为秒；秒与毫秒的换算系数为 1000。n8n 官方 MicrosoftSql 凭据也将 Connect Timeout 描述为 Connection timeout in ms。同版本 MySQL 凭据页的对应说明明确写 multiply by 1000。原文 multiple by 100 为换算笔误。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n/blob/1faf2acf9e8a7f5e829db6271532880f64751c82/packages/nodes-base/credentials/MicrosoftSql.credentials.ts"
+    ],
+    "related_source": "integrations/builtin/credentials/mysql.md",
+    "related_source_sha256": "992696dfee5028efb42f7d1759a3205b9f5d398638c6b1c00320ed129aaede46",
+    "scope": "仅将秒转毫秒的乘数 100 修正为 1000；保持全部 SQL、超时字段、默认值和其他连接说明，不宣称验证了运行时超时行为。"
   }
 ]

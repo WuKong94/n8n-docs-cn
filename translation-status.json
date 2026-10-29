@@ -13984,5 +13984,174 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "integrations/builtin/credentials/azureopenai.md": {
+    "status": "translated",
+    "source_sha256": "66991918715bdf107e1c5062c9793c905326f58f5b4e5a68cdae7fead2992cd4",
+    "translation_sha256": "341058d5f74f6d40f47327facc6195f1a5afbc695fb1b698280e8f48229b038d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/dropbox.md": {
+    "status": "translated",
+    "source_sha256": "6826fcfb0939485cb8898a251aa8966aece86b6ebaf92068c77316104f1f11c1",
+    "translation_sha256": "2f7397cb502bbe05dc99dbd5159e0aef88f2fc52371a81fefba5bbef3788c3d8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/facebookgraph.md": {
+    "status": "translated",
+    "source_sha256": "63d0b2529b95b9d2c2a48bae7eaba612814b207c79c5da4fc3a61733ea97cf12",
+    "translation_sha256": "dcb5fdf6b8c8ba2274563e1a2dec7b944dcb26e9ae9f060eaa8a119a98421b73",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/github.md": {
+    "status": "translated",
+    "source_sha256": "499840bb780671ece743e91c13532d61a3b08ae0a67aab0232c4d8015d76d5f7",
+    "translation_sha256": "31d9ad18955581a1f3c5b8a56c6a24c6bbcccb58118aed110d7806fff0a58aaa",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/jira.md": {
+    "status": "translated",
+    "source_sha256": "e7de4a7e9b404632ff4d826db98810c2ecd6c19d2160b0859b8379e82c7e178b",
+    "translation_sha256": "72a5855dee1d1695baa50c953550bfb3f07be80da6ee0d1dedf4f98d1b8b2b25",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/microsoftsql.md": {
+    "status": "translated",
+    "source_sha256": "0a728f3e68dfed2718ee1bb9e2f2cb8471af47087e7025716ed0c348883e65d5",
+    "translation_sha256": "eddb809f566d5fbfe68aa847c75c39be329dea0725c0eb5ec9b0dd6b29c633f3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "microsoft-sql-database-not-instance-name",
+      "microsoft-sql-timeout-seconds-to-milliseconds"
+    ]
+  },
+  "integrations/builtin/credentials/mongodb.md": {
+    "status": "translated",
+    "source_sha256": "8b62a13df0ccac1104c029bace0fa5692cc8b9783774776d8052ccf96b031805",
+    "translation_sha256": "f29266a25914bd2d06232265e011d48f7e2e79b833462f85bb6a21e006f7aec3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/notion.md": {
+    "status": "translated",
+    "source_sha256": "f0570957bfdbb611ed88955792a6a549414dc6c83fcdd1c31390bf80c2cdc9a6",
+    "translation_sha256": "c5fdc2d86108cec86ecf024a066ef43c5d507b609e6fcabf0b16b92409b91510",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/pipedrive.md": {
+    "status": "translated",
+    "source_sha256": "67989cb535cb6958abee89096a8e488aa6e6df72cca078b2d57130cf3c05bcf3",
+    "translation_sha256": "67cf1436f5c548dab9bad16887478fbd3d9a381077a3f968f189adc3373c6100",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/postgres.md": {
+    "status": "translated",
+    "source_sha256": "f15c46119cc235321e9ffed7d9f443b208b59a2ed78444bd17bd4ae0a30384d3",
+    "translation_sha256": "0358eecbfde0c392a490cf26eaae3fc61484225d58508826f24538c2e15209ca",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/shopify.md": {
+    "status": "translated",
+    "source_sha256": "5364e15bd6c70260da8967b5ef1f28056fff4a3b8dd2e7f9bccea115427bad41",
+    "translation_sha256": "318be7f883327903c1d0ca66bf0d49cc12b9680b3dc366bcd0fde5ad1ba4c066",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/strapi.md": {
+    "status": "translated",
+    "source_sha256": "e7134a4990694e36764203e51b13dd91636ddceb13cfa9310fea7bb15eb5e1e5",
+    "translation_sha256": "36ba882e882865860d30581e25eeead7b2951efe581019f1d5d2f6f540581d9d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/stripe.md": {
+    "status": "translated",
+    "source_sha256": "cedaee4d54243e404fa59afbff74aa228b8ff9f654196b7912d48ad04920d274",
+    "translation_sha256": "62c8e4f826d846b38ecc8ce488d8e334fa603eee5a1b716b6dd70a1613fa674a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/supabase.md": {
+    "status": "translated",
+    "source_sha256": "2f0db7c8c8dc014e954d9b6c302885775103839d253631c3187868e16073178c",
+    "translation_sha256": "62c46ccfbefe9c1a59c8952c322f49f9704e43cbedec874585e71d8ffc4e3546",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/credentials/wordpress.md": {
+    "status": "translated",
+    "source_sha256": "c2a7f54ec1e86a073746bca24dcb1cfa4b128b613400c3f50bd231f548ecdee9",
+    "translation_sha256": "eea06fc7ff90499a903c17cc707ab233b465fcf931f1773052b6ecf2a2e96395",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

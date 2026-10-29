@@ -1,133 +1,133 @@
 ---
-title: Microsoft Foundry credentials
-description: >-
-  Documentation for Microsoft Foundry credentials. Use these credentials to
-  authenticate Microsoft Foundry in n8n, a workflow automation platform.
+title: Microsoft Foundry 凭据
+description: Microsoft Foundry 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Microsoft Foundry 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Microsoft Foundry credentials
+nodeTitle: Microsoft Foundry 凭据
 originalFilePath: integrations/builtin/credentials/azureopenai.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/azureopenai'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/azureopenai'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/azureopenai
+url: https://docs.n8n.io/integrations/builtin/credentials/azureopenai
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Foundry credentials <a href="#azure-openai-credentials" id="azure-openai-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Microsoft Foundry 凭据 <a href="#azure-openai-credentials" id="azure-openai-credentials"></a>
 
-- [Microsoft Foundry Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatazureopenai.md)
-- [Microsoft Foundry Embeddings](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai.md)
+这些凭据可用于以下节点的身份验证：
 
-These credentials were previously called **Azure OpenAI credentials** (API key) and **Azure Entra ID (Azure Active Directory) API** (Entra ID).
+- [Microsoft Foundry Chat Model（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatazureopenai.md)
+- [Microsoft Foundry Embeddings（嵌入模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsazureopenai.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+这些凭据此前称为 **Azure OpenAI credentials**（API 密钥）和 **Azure Entra ID (Azure Active Directory) API**（Entra ID）。
 
-- Create an [Azure](https://azure.microsoft.com) subscription.
-- Access to Azure OpenAI or Microsoft Foundry within that subscription. For Azure OpenAI, you may need to [request access](https://aka.ms/oai/access) if your organization doesn't yet have it.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- 创建 [Azure](https://azure.microsoft.com) 订阅。
+- 在该订阅中具有 Azure OpenAI 或 Microsoft Foundry 的访问权限。如果组织尚无 Azure OpenAI 访问权限，可能需要[申请访问](https://aka.ms/oai/access)。
 
-- API key
-- Microsoft Foundry (Entra ID): the app signs in with a client ID and secret. No user sign-in is needed.
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
+- Microsoft Foundry（Entra ID）：应用使用客户端 ID 和密钥登录，无需用户登录。
 
-Refer to [Azure OpenAI's API documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Endpoint type <a href="#endpoint-type" id="endpoint-type"></a>
+有关该服务的更多信息，请参阅 [Azure OpenAI API 文档](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)。
 
-Both credential types have an **Endpoint Type** setting. It sets which Azure endpoint the nodes call.
+## 端点类型 <a href="#endpoint-type" id="endpoint-type"></a>
 
-* **Classic**: Use this for an Azure OpenAI resource at `*.openai.azure.com`. The credential needs a **Resource Name** and an **API Version**. You can also enter an optional **Endpoint**.
-* **Microsoft Foundry**: Use this for a Microsoft Foundry resource at `*.services.ai.azure.com`. The credential needs the full **Endpoint** URL, for example `https://<resource>.services.ai.azure.com/openai/v1`. You can also enter an optional [**Project**](#project).
+两种凭据类型都有 **Endpoint Type**（端点类型）设置，用于决定节点调用哪个 Azure 端点。
 
-### Project
+* **Classic**（经典）：用于位于 `*.openai.azure.com` 的 Azure OpenAI 资源。凭据需要 **Resource Name**（资源名称）和 **API Version**（API 版本），还可填写可选的 **Endpoint**（端点）。
+* **Microsoft Foundry**：用于位于 `*.services.ai.azure.com` 的 Microsoft Foundry 资源。凭据需要完整的 **Endpoint**（端点）URL，例如 `https://<resource>.services.ai.azure.com/openai/v1`，还可填写可选的 [**Project**（项目）](#project)。
 
-The **Project** field is optional. It shows only for the **Microsoft Foundry** endpoint type. Enter the name of the Microsoft Foundry project that owns your deployments. The project overview page in the Foundry portal shows the name.
+### Project（项目） <a id="project"></a>
 
-n8n uses the project to list your deployments. In the Chat Model node, the node's own **Project** field overrides this value. Leave the node field empty to use the project from the credential.
+**Project**（项目）字段可选，仅在 **Microsoft Foundry** 端点类型下显示。输入拥有部署的 Microsoft Foundry 项目名称，可在 Foundry 门户的项目概览页查看。
 
-Some Chat Model node features need the **Microsoft Foundry** endpoint type: the deployment list, Claude models, and the Responses API. Refer to [Microsoft Foundry Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatazureopenai.md) for details.
+n8n 使用此项目列出部署。Chat Model 节点自身的 **Project**（项目）字段会覆盖此值。将节点字段留空，可使用凭据中的项目。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+部分 Chat Model 节点功能需要 **Microsoft Foundry** 端点类型，包括部署列表、Claude 模型和 Responses API。详情请参阅 [Microsoft Foundry Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatazureopenai.md)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **Endpoint Type**: **Classic** or **Microsoft Foundry**.
-- An **API key**: **Key 1** works well. This can be accessed before deployment in **Keys and Endpoint**.
-- For the **Classic** endpoint type:
-    - A **Resource Name**: the **Name** you give the resource.
-    - The **API Version** the credentials should use. See the [Azure OpenAI API preview lifecycle documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation) for more information about API versioning in Azure OpenAI.
-- For the **Microsoft Foundry** endpoint type: the full **Endpoint** URL of your resource, and an optional **Project**.
+配置此凭据需要：
 
-To get the information above, create and deploy a resource:
+- **Endpoint Type**（端点类型）：**Classic**（经典）或 **Microsoft Foundry**。
+- **API key**（API 密钥）：可使用 **Key 1**，部署前可在 **Keys and Endpoint**（密钥与端点）中获取。
+- 对于 **Classic**（经典）端点类型：
+    - **Resource Name**（资源名称）：你为资源设置的 **Name**（名称）。
+    - 凭据应使用的 **API Version**（API 版本）。Azure OpenAI API 版本管理的更多信息，请参阅 [Azure OpenAI API 预览生命周期文档](https://learn.microsoft.com/en-us/azure/ai-services/openai/api-version-deprecation)。
+- 对于 **Microsoft Foundry** 端点类型：资源的完整 **Endpoint**（端点）URL，以及可选的 **Project**（项目）。
 
-- **Classic**: [create and deploy an Azure OpenAI Service resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource).
-- **Microsoft Foundry**: [create a Microsoft Foundry resource](https://learn.microsoft.com/en-us/azure/foundry/tutorials/quickstart-create-foundry-resources) and deploy a model to it.
+如需获取上述信息，请创建并部署资源：
+
+- **Classic**（经典）：[创建并部署 Azure OpenAI Service 资源](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource)。
+- **Microsoft Foundry**：[创建 Microsoft Foundry 资源](https://learn.microsoft.com/en-us/azure/foundry/tutorials/quickstart-create-foundry-resources)，并在其中部署模型。
 
 {% hint style="info" %}
-**Model name for Microsoft Foundry nodes**
+**Microsoft Foundry 节点的模型名称**
 
-Once you deploy the resource, use the **Deployment name** as the model name for the Microsoft Foundry nodes where you're using this credential.
+部署资源后，在使用此凭据的 Microsoft Foundry 节点中，将 **Deployment name**（部署名称）用作模型名称。
 {% endhint %}
 
-## Using Microsoft Foundry (Entra ID) <a href="#using-azure-entra-id-oauth2" id="using-azure-entra-id-oauth2"></a>
+## 使用 Microsoft Foundry（Entra ID） <a href="#using-azure-entra-id-oauth2" id="using-azure-entra-id-oauth2"></a>
 
-The Microsoft Foundry (Entra ID) credential signs in as your Entra application. It uses the client credentials grant. You don't sign in with a browser, and there is no **Connect** button or redirect URI.
+Microsoft Foundry（Entra ID）凭据以 Entra 应用的身份登录，使用客户端凭据授权，无需通过浏览器登录，也没有 **Connect**（连接）按钮或重定向 URI。
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **Endpoint Type** and the matching endpoint fields. Refer to [Endpoint type](#endpoint-type).
-- A **Tenant ID**: the **Directory (tenant) ID** of your app registration. It has no default value.
-- A **Client ID** and a **Client Secret** for the app registration.
+- **Endpoint Type**（端点类型）及对应端点字段。请参阅[端点类型](#endpoint-type)。
+- **Tenant ID**（租户 ID）：应用注册的 **Directory (tenant) ID**（目录，租户 ID），没有默认值。
+- 应用注册的 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
 
-Follow these steps:
+按以下步骤操作：
 
-1. [Register an application](#register-an-application) with the Microsoft Identity Platform.
-2. [Generate a client secret](#generate-a-client-secret) for that application.
-3. [Give the application access](#give-the-application-access) to your resource.
+1. 向 Microsoft 标识平台注册[应用](#register-an-application)。
+2. 为该应用[生成客户端密钥](#generate-a-client-secret)。
+3. [授予应用访问资源的权限](#give-the-application-access)。
 
-Existing credentials keep working. The **Connect** button and the scope settings no longer show. The stored sign-in token is no longer used.
+现有凭据仍可使用。**Connect**（连接）按钮和作用域设置不再显示，已存储的登录令牌也不再使用。
 
-### Register an application <a href="#register-an-application" id="register-an-application"></a>
+### 注册应用 <a href="#register-an-application" id="register-an-application"></a>
 
-Register an application with the Microsoft Identity Platform:
+向 Microsoft 标识平台注册应用：
 
-1. Open the [Microsoft Application Registration Portal](https://aka.ms/appregistrations).
-2. Select **Register an application**.
-3. Enter a **Name** for your app.
-4. In **Supported account types**, select an option that includes your tenant.
-5. Select **Register** to finish creating your application. You don't need a **Redirect URI**.
-6. Copy the **Application (client) ID** and paste it into n8n as the **Client ID**.
-7. Copy the **Directory (tenant) ID** and paste it into n8n as the **Tenant ID**.
+1. 打开 [Microsoft 应用注册门户](https://aka.ms/appregistrations)。
+2. 选择 **Register an application**（注册应用）。
+3. 输入应用的 **Name**（名称）。
+4. 在 **Supported account types**（支持的账户类型）中，选择包含你的租户的选项。
+5. 选择 **Register**（注册），完成应用创建，无需 **Redirect URI**（重定向 URI）。
+6. 复制 **Application (client) ID**（应用程序，客户端 ID），填入 n8n 的 **Client ID**（客户端 ID）。
+7. 复制 **Directory (tenant) ID**（目录，租户 ID），填入 n8n 的 **Tenant ID**（租户 ID）。
 
-Refer to [Register an application with the Microsoft Identity Platform](https://learn.microsoft.com/en-us/graph/auth-register-app-v2) for more information.
+更多信息，请参阅[向 Microsoft 标识平台注册应用](https://learn.microsoft.com/en-us/graph/auth-register-app-v2)。
 
-### Generate a client secret <a href="#generate-a-client-secret" id="generate-a-client-secret"></a>
+### 生成客户端密钥 <a href="#generate-a-client-secret" id="generate-a-client-secret"></a>
 
-With your application created, generate a client secret for it:
+应用创建完成后，为其生成客户端密钥：
 
-1. On your Microsoft application page, select **Certificates & secrets** in the left navigation.
-1. In **Client secrets**, select **+ New client secret**.
-1. Enter a **Description** for your client secret, such as `n8n credential`.
-1. Select **Add**.
-1. Copy the **Secret** in the **Value** column.
-1. Paste it into n8n as the **Client Secret**.
+1. 在 Microsoft 应用页面的左侧导航栏，选择 **Certificates & secrets**（证书与秘密）。
+1. 在 **Client secrets**（客户端密钥）中，选择 **+ New client secret**（新建客户端密钥）。
+1. 输入客户端密钥的 **Description**（描述），例如 `n8n credential`。
+1. 选择 **Add**（添加）。
+1. 复制 **Value**（值）列中的 **Secret**（秘密值）。
+1. 将其粘贴到 n8n 的 **Client Secret**（客户端密钥）。
 
-Refer to Microsoft's [Add credentials](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials) for more information on adding a client secret.
+添加客户端密钥的更多信息，请参阅 Microsoft 的[添加凭据](https://learn.microsoft.com/en-us/graph/auth-register-app-v2#add-credentials)。
 
-### Give the application access <a href="#give-the-application-access" id="give-the-application-access"></a>
+### 授予应用访问权限 <a href="#give-the-application-access" id="give-the-application-access"></a>
 
-The application needs a role on your Azure resource. Without the role, model calls fail with a `403` error. Role assignments can take up to five minutes to start.
+应用需要具有 Azure 资源上的角色。缺少角色时，模型调用会失败并返回 `403` 错误。角色分配最多可能需要五分钟才生效。
 
-In the Azure portal, open your resource and go to **Access control (IAM)**. Assign the role to your application. Select **User, group, or service principal** as the member type.
+在 Azure 门户中打开资源，进入 **Access control (IAM)**（访问控制，IAM），为应用分配角色，成员类型选择 **User, group, or service principal**（用户、组或服务主体）。
 
-* **Classic** endpoint type: Assign the **Cognitive Services OpenAI User** role.
-* **Microsoft Foundry** endpoint type: Assign the **Foundry User** role on the Foundry resource. Microsoft previously named this role **Azure AI User**, and you may still see that name in the portal.
+* **Classic**（经典）端点类型：分配 **Cognitive Services OpenAI User** 角色。
+* **Microsoft Foundry** 端点类型：在 Foundry 资源上分配 **Foundry User** 角色。Microsoft 此前将其命名为 **Azure AI User**，门户中可能仍显示旧名称。
 
-Refer to Microsoft's documentation on [Entra ID authentication for Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/managed-identity) and [role-based access control for Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry) for more information.
+更多信息，请参阅 Microsoft 文档中的 [Azure OpenAI 的 Entra ID 身份验证](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/managed-identity)和 [Microsoft Foundry 的基于角色的访问控制](https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry)。
