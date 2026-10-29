@@ -1,81 +1,81 @@
 ---
-title: Kafka node documentation
-description: >-
-  Learn how to use the Kafka node in n8n. Follow technical documentation to
-  integrate Kafka node into your workflows.
+title: Kafka 节点文档
+description: 了解如何在 n8n 中使用 Kafka 节点，并按照技术文档将 Kafka 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Kafka node documentation
+nodeTitle: Kafka 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.kafka.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kafka'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kafka'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kafka
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.kafka
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Kafka node <a href="#kafka-node" id="kafka-node"></a>
 
-Use the Kafka node to automate work in Kafka, and integrate Kafka with other applications. n8n has built-in support for a wide range of Kafka features, including sending messages. 
+# Kafka 节点 <a href="#kafka-node" id="kafka-node"></a>
 
-On this page, you'll find a list of operations the Kafka node supports and links to more resources.
+使用 Kafka 节点自动处理 Kafka 中的工作，并将其与其他应用集成。n8n 内置支持多种 Kafka 功能，包括发送消息。
+
+本页列出了 Kafka 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Kafka credentials](../credentials/kafka.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Kafka 凭据](../credentials/kafka.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Schema Registry**
+**Schema Registry（架构注册表）**
 
-To encode messages with an authenticated Confluent Schema Registry (for example, Confluent Cloud), enable **Use Schema Registry** in the node and add a [Schema Registry credential](../credentials/schemaregistry.md).
+要通过需要身份验证的 Confluent Schema Registry（例如 Confluent Cloud）编码消息，请在节点中启用 **Use Schema Registry**（使用架构注册表），并添加 [Schema Registry 凭据](../credentials/schemaregistry.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-- Send message
+- Send message（发送消息）
 
-## Kafka node version 2
+## Kafka 节点版本 2 <a id="kafka-node-version-2"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Version 2 of the Kafka node is the default from n8n 2.45.0: nodes you add from the Nodes panel use version 2. Version 2 is available from n8n 2.36.0 for workflows that opt in. Existing workflows keep the version they were built with until you switch them.
+从 n8n 2.45.0 起，Kafka 节点的默认版本为 2：通过节点面板添加的节点使用版本 2。从 n8n 2.36.0 起，工作流便可选择使用版本 2。现有工作流在主动切换前，仍保持创建时使用的版本。
 {% endhint %}
 
-Version 2 runs on a new, actively maintained Kafka engine. The node keeps the same operation, fields, and credential as version 1. Two things change:
+版本 2 使用全新的、持续维护的 Kafka 引擎。节点保留了版本 1 的操作、字段和凭据，有以下两处变化：
 
-- **Compression** becomes a dropdown with **GZIP**, **LZ4**, **Snappy**, **Zstd**, and **None** (the default). Version 1 offers a GZIP on/off toggle only. A version 1 Kafka Trigger can't decode **LZ4**, **Snappy**, or **Zstd**, so keep **GZIP** or **None** while version 1 triggers consume the topic.
-- With **Acks** on, version 2 waits for acknowledgment from all in-sync replicas, as the option's description states. Version 1 waited for the topic leader only. With **Acks** off (the default), neither version waits.
+- **Compression**（压缩）改为下拉菜单，提供 **GZIP**、**LZ4**、**Snappy**、**Zstd** 和 **None**（无压缩，默认）选项。版本 1 仅提供 GZIP 开关。版本 1 的 Kafka Trigger 无法解码 **LZ4**、**Snappy** 或 **Zstd**，因此如果仍有版本 1 触发器消费该主题，请继续使用 **GZIP** 或 **None**。
+- 开启 **Acks**（确认）后，版本 2 会按该选项描述，等待所有同步副本的确认。版本 1 只等待主题主副本的确认。关闭 **Acks** 时（默认），两个版本都不会等待。
 
-### Switch a workflow to Kafka node version 2
+### 将工作流切换至 Kafka 节点版本 2 <a id="switch-a-workflow-to-kafka-node-version-2"></a>
 
-Nodes you add from the Nodes panel are already version 2. The editor has no version picker, so to move an existing version 1 workflow:
+通过节点面板添加的节点已经使用版本 2。编辑器没有版本选择器，因此迁移现有版本 1 工作流时，请按以下步骤操作：
 
-1. Download the workflow (**Workflow menu** > **Download**) and keep that file unchanged: it's your rollback point.
-2. In a copy of the file, set `"typeVersion": 2` on the Kafka node.
-3. Import the copy into a new, empty workflow (**Workflow menu** > **Import from File**). Importing adds nodes next to any already on the canvas, so don't import into the workflow that still holds the version 1 node.
-4. Re-select the Kafka credential on the node if the import cleared it. To move production to version 2, unpublish the version 1 workflow, then publish the version 2 workflow.
+1. 下载工作流（**Workflow menu** > **Download**，即工作流菜单 > 下载），保留该文件不作修改，作为回滚时的恢复点。
+2. 在该文件的副本中，将 Kafka 节点设置为 `"typeVersion": 2`。
+3. 将副本导入一个新的空工作流（**Workflow menu** > **Import from File**，即工作流菜单 > 从文件导入）。导入会将节点添加到画布现有节点旁边，因此不要导入仍包含版本 1 节点的工作流。
+4. 如果导入后节点的 Kafka 凭据被清空，请重新选择。要将生产环境迁至版本 2，请取消发布版本 1 工作流，再发布版本 2 工作流。
 
-Refer to [Export and import workflows](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/export-and-import) for details on the menu.
+有关菜单的详细信息，请参阅[导出和导入工作流](../../../build/manage-workflows/export-and-import.md)。
 
-n8n checks with every build that version 2's native component loads in the official n8n Docker images, on both amd64 and arm64. Other install methods, such as npm or custom images, aren't checked.
+n8n 在每次构建时，都会检查版本 2 的原生组件能否在 amd64 和 arm64 架构的官方 n8n Docker 镜像中加载。npm 或自定义镜像等其他安装方式不在此检查范围内。
 
-### Roll back to Kafka node version 1
+### 回滚至 Kafka 节点版本 1 <a id="roll-back-to-kafka-node-version-1"></a>
 
-The editor has no control to change an existing node's version. If the original version 1 workflow still exists, unpublish the version 2 workflow, then publish the original again. Otherwise, use one of these paths. Prefer the first if you still have the export from step 1 of the switch. Use the second for a workflow that started on version 2 and has no version 1 export.
+编辑器没有修改现有节点版本的控件。如果原来的版本 1 工作流仍然存在，先取消发布版本 2 工作流，再重新发布原工作流。否则，请选择以下一种方式。如果仍保留切换步骤 1 中的导出文件，优先选择第一种；如果工作流最初就使用版本 2，没有版本 1 的导出文件，则使用第二种。
 
-- **Restore the export:** unpublish the version 2 workflow. Then import the file from step 1 of the switch into a new, empty workflow (**Workflow menu** > **Import from File**), or restore the previous version from [workflow history](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/view-change-history), if your plan keeps it. Re-select the Kafka credential if the import cleared it, then publish the restored workflow.
-- **Edit the workflow JSON:** unpublish the version 2 workflow and download it (**Workflow menu** > **Download**). In a copy of the file, set `"typeVersion": 1` on the Kafka node, then import the copy into a new, empty workflow. Re-select the Kafka credential if the import cleared it, then publish the restored workflow. A node you add from the Nodes panel is version 2, so adding a new node doesn't roll you back.
+- **恢复导出文件：**取消发布版本 2 工作流。然后将切换步骤 1 中的文件导入一个新的空工作流（**Workflow menu** > **Import from File**，即工作流菜单 > 从文件导入），或者在你的套餐保留相应记录的情况下，通过[工作流历史记录](../../../build/manage-workflows/view-change-history.md)恢复先前版本。如果导入后 Kafka 凭据被清空，请重新选择，再发布恢复后的工作流。
+- **编辑工作流 JSON：**取消发布版本 2 工作流并下载（**Workflow menu** > **Download**，即工作流菜单 > 下载）。在文件副本中，将 Kafka 节点设置为 `"typeVersion": 1`，再将副本导入一个新的空工作流。如果导入后 Kafka 凭据被清空，请重新选择，再发布恢复后的工作流。通过节点面板添加的节点为版本 2，因此添加新节点无法完成回滚。
 
-To consume messages with version 2, including how to choose the consumer group ID, refer to [Kafka Trigger version 2](../trigger-nodes/n8n-nodes-base.kafkatrigger.md#kafka-trigger-version-2).
+使用版本 2 消费消息的方法，包括如何选择消费组 ID，请参阅 [Kafka Trigger 版本 2](../trigger-nodes/n8n-nodes-base.kafkatrigger.md#kafka-trigger-version-2)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Kafka node documentation integration templates](https://n8n.io/integrations/kafka) or [search all templates](https://n8n.io/workflows/)
+[浏览 Kafka 集成模板](https://n8n.io/integrations/kafka)，或[搜索所有模板](https://n8n.io/workflows/)

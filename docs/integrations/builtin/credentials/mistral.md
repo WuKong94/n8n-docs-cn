@@ -1,63 +1,63 @@
 ---
-title: Mistral Cloud credentials
-description: >-
-  Documentation for the Mistral Cloud credentials. Use these credentials to
-  authenticate Mistral Cloud in n8n, a workflow automation platform.
+title: Mistral Cloud 凭据
+description: Mistral Cloud 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Mistral Cloud 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Mistral Cloud credentials
+nodeTitle: Mistral Cloud 凭据
 originalFilePath: integrations/builtin/credentials/mistral.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/mistral'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/mistral'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/mistral
+url: https://docs.n8n.io/integrations/builtin/credentials/mistral
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Mistral Cloud credentials <a href="#mistral-cloud-credentials" id="mistral-cloud-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Mistral Cloud 凭据 <a href="#mistral-cloud-credentials" id="mistral-cloud-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [Mistral AI](../app-nodes/n8n-nodes-base.mistralai.md)
 * [Mistral Cloud](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud.md)
-* [Embeddings Mistral Cloud](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud.md)
+* [Embeddings Mistral Cloud（嵌入模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingsmistralcloud.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
-
-
-- Create a [Mistral](https://mistral.ai/) La Plateforme account.
-- You must add payment information in **Workspace >** [**Billing**](https://admin.mistral.ai/organization/billing) and activate payments to enable API keys. Refer to [Account setup](https://docs.mistral.ai/getting-started/quickstart/#account-setup) for more information.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- 创建 [Mistral](https://mistral.ai/) La Plateforme 账户。
+- 必须在 **Workspace >** [**Billing**](https://admin.mistral.ai/organization/billing)（工作区 > 账单）中添加付款信息并启用付款，才能启用 API 密钥。更多信息请参阅[账户设置](https://docs.mistral.ai/getting-started/quickstart/#account-setup)。
 
-- API key
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-Refer to [Mistral's API documentation](https://docs.mistral.ai/api/) for more information about the APIs.
+- API key（API 密钥）
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+有关这些 API 的更多信息，请参阅 [Mistral API 文档](https://docs.mistral.ai/api/)。
 
-To configure this credential, you'll need:
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-- An **API Key**
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-Once you've added payment information to your Mistral Cloud account:
+配置此凭据需要：
 
-1. Sign in to your [Mistral account](https://console.mistral.ai/home).
-2. Go to the **API Keys** page.
-3. Select **Create new key**.
-4. Copy the API key and enter it in your n8n credential.
+- 一个 **API Key（API 密钥）**
 
-Refer to [Account setup](https://docs.mistral.ai/getting-started/quickstart/#account-setup) for more information.
+为 Mistral Cloud 账户添加付款信息后：
+
+1. 登录你的 [Mistral 账户](https://console.mistral.ai/home)。
+2. 进入 **API Keys**（API 密钥）页面。
+3. 选择 **Create new key**（创建新密钥）。
+4. 复制 API 密钥，填入 n8n 凭据。
+
+更多信息请参阅[账户设置](https://docs.mistral.ai/getting-started/quickstart/#account-setup)。
 
 {% hint style="info" %}
-**Paid account required**
+**需要付费账户**
 
-Mistral requires you to add payment information and activate payments to use API keys. Refer to the [Prerequisites](#prerequisites) section above for more information.
+Mistral 要求添加付款信息并启用付款，才能使用 API 密钥。更多信息请参阅上方的[前置条件](#prerequisites)。
 {% endhint %}

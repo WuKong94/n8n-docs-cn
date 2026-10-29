@@ -1,59 +1,59 @@
 ---
-title: Xero credentials
-description: >-
-  Documentation for Xero credentials. Use these credentials to authenticate Xero
-  in n8n, a workflow automation platform.
+title: Xero 凭据
+description: Xero 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Xero 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Xero credentials
+- integration
+- reference
+nodeTitle: Xero 凭据
 originalFilePath: integrations/builtin/credentials/xero.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/xero'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/xero'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/xero
+url: https://docs.n8n.io/integrations/builtin/credentials/xero
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Xero credentials <a href="#xero-credentials" id="xero-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Xero 凭据 <a href="#xero-credentials" id="xero-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Xero](../app-nodes/n8n-nodes-base.xero.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Xero](https://www.xero.com/) account.
+创建一个 [Xero](https://www.xero.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Zero's API documentation](https://developer.xero.com/documentation/api/accounting/overview) for more information about the service.
+有关该服务的更多信息，请参阅 [Xero API 文档](https://developer.xero.com/documentation/api/accounting/overview)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Client ID**: Generated when you create a new app for a custom connection.
-- A **Client Secret**: Generated when you create a new app for a custom connection.
+- 一个 **Client ID**（客户端 ID）：为自定义连接创建新应用时生成。
+- 一个 **Client Secret**（客户端密钥）：为自定义连接创建新应用时生成。
 
-To generate your Client ID and Client Secret, [create an OAuth2 custom connection app](https://developer.xero.com/documentation/guides/oauth2/custom-connections/) in your Xero developer portal [**My Apps**](https://developer.xero.com/app/manage).
+要生成 Client ID（客户端 ID）和 Client Secret（客户端密钥），请在 Xero 开发者门户的 [**My Apps**（我的应用）](https://developer.xero.com/app/manage)中[创建 OAuth2 自定义连接应用](https://developer.xero.com/documentation/guides/oauth2/custom-connections/)。
 
-Use these settings for your app:
+为应用采用以下设置：
 
 {% hint style="info" %}
-**Xero App Name**
+**Xero 应用名称**
 
-Xero doesn't support app instances within the Xero Developer Centre that contain `n8n` in their name.
+Xero 不支持在 Xero Developer Centre 中使用名称包含 `n8n` 的应用实例。
 {% endhint %}
 
-- Select **Web app** as the **Integration Type**.
-- For the **Company or Application URL**, enter the URL of your n8n server or reverse proxy address. For cloud users, for example, this is: `https://your-username.app.n8n.cloud/`.
-- Copy the **OAuth Redirect URL** from n8n and add it as an **OAuth 2.0 redirect URI** in your app.
-- Select appropriate **scopes** for your app. Refer to [OAuth2 Scopes](https://developer.xero.com/documentation/guides/oauth2/scopes/) for more information.
-    - To use all functionality in the [Xero](../app-nodes/n8n-nodes-base.xero.md) node, add the `accounting.contacts` and `accounting.transactions` scopes.
+- 将 **Integration Type**（集成类型）设为 **Web app**（网页应用）。
+- 在 **Company or Application URL**（公司或应用 URL）中输入 n8n 服务器或反向代理地址的 URL。例如，云用户可使用 `https://your-username.app.n8n.cloud/`。
+- 从 n8n 复制 **OAuth Redirect URL**（OAuth 重定向 URL），将其添加为应用中的 **OAuth 2.0 redirect URI**（OAuth 2.0 重定向 URI）。
+- 为应用选择适当的 **scopes**（作用域）。更多信息请参阅 [OAuth2 作用域](https://developer.xero.com/documentation/guides/oauth2/scopes/)。
+    - 要使用 [Xero](../app-nodes/n8n-nodes-base.xero.md) 节点的全部功能，请添加 `accounting.contacts` 和 `accounting.transactions` 作用域。
 
-Refer to Xero's [OAuth Custom Connections](https://developer.xero.com/documentation/guides/oauth2/custom-connections) documentation for more information.
+更多信息请参阅 Xero 的 [OAuth 自定义连接](https://developer.xero.com/documentation/guides/oauth2/custom-connections)文档。

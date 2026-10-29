@@ -1,56 +1,56 @@
 ---
-title: Storyblok credentials
-description: >-
-  Documentation for Storyblok credentials. Use these credentials to authenticate
-  Storyblok in n8n, a workflow automation platform.
+title: Storyblok 凭据
+description: Storyblok 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Storyblok 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Storyblok credentials
+- integration
+- reference
+nodeTitle: Storyblok 凭据
 originalFilePath: integrations/builtin/credentials/storyblok.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/storyblok'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/storyblok'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/storyblok
+url: https://docs.n8n.io/integrations/builtin/credentials/storyblok
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Storyblok credentials <a href="#storyblok-credentials" id="storyblok-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Storyblok 凭据 <a href="#storyblok-credentials" id="storyblok-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Storyblok](../app-nodes/n8n-nodes-base.storyblok.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Storyblok](https://www.storyblok.com/) account.
+创建一个 [Storyblok](https://www.storyblok.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Content API key: For read-only access
-- Management API key: For full CRUD operations
+- Content API key（内容 API 密钥）：用于只读访问。
+- Management API key（管理 API 密钥）：用于完整的创建、读取、更新和删除操作。
 
 {% hint style="info" %}
-**Content API support**
+**Content API 支持**
 
-n8n supports Content API v1 only.
+n8n 仅支持 Content API v1。
 {% endhint %}
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to Storyblok's [Content v1 API documentation](https://www.storyblok.com/docs/api/content-delivery/v1) and [Management API documentation](https://www.storyblok.com/docs/api/management) for more information about the services.
+这些服务的更多信息，请参阅 Storyblok 的 [Content v1 API 文档](https://www.storyblok.com/docs/api/content-delivery/v1)和 [Management API 文档](https://www.storyblok.com/docs/api/management)。
 
-## Using Content API key <a href="#using-content-api-key" id="using-content-api-key"></a>
+## 使用 Content API 密钥 <a href="#using-content-api-key" id="using-content-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A Content **API Key**: Go to your Storyblok workspace's **Settings > Access Tokens** to get an API key. Choose an **Access Level** of either **Public** (`version=published`) or **Preview** (`version-published` and `version=draft`). Enter this access token as your **API Key**. Refer to [How to retrieve and generate access tokens](https://www.storyblok.com/faq/retrieve-and-generate-access-tokens) for more detailed instructions.
+- 一个内容 **API Key**（API 密钥）：在 Storyblok 工作区的 **Settings > Access Tokens**（设置 > 访问令牌）中获取 API 密钥。将 **Access Level**（访问级别）设为 **Public**（公开，`version=published`）或 **Preview**（预览，`version-published` 和 `version=draft`），并将此访问令牌填入 **API Key**。详细步骤请参阅[获取和生成访问令牌的方法](https://www.storyblok.com/faq/retrieve-and-generate-access-tokens)。
 
-Refer to [Content v1 API Authentication](https://www.storyblok.com/docs/api/content-delivery/v1#topics/authentication) for more information about supported operations with each Access Level.
+各访问级别支持的操作，请参阅 [Content v1 API 身份验证](https://www.storyblok.com/docs/api/content-delivery/v1#topics/authentication)。
 
-## Using Management API key <a href="#using-management-api-key" id="using-management-api-key"></a>
+## 使用 Management API 密钥 <a href="#using-management-api-key" id="using-management-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Personal Access Token**: Go to [**My Account**](https://app.storyblok.com/#!/me/account) **> Personal access tokens** to generate a new access token. Enter this access token as your **Personal Access Token**.
+- 一个 **Personal Access Token**（个人访问令牌）：进入 [**My Account**](https://app.storyblok.com/#!/me/account) **> Personal access tokens**（我的账户 > 个人访问令牌）生成新的访问令牌，将其填入 **Personal Access Token**。
 

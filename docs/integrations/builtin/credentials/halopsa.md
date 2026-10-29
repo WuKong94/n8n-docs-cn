@@ -1,51 +1,51 @@
 ---
-title: HaloPSA credentials
-description: >-
-  Documentation for HaloPSA credentials. Use these credentials to authenticate
-  HaloPSA in n8n, a workflow automation platform.
+title: HaloPSA 凭据
+description: HaloPSA 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 HaloPSA 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: HaloPSA credentials
+- integration
+- reference
+nodeTitle: HaloPSA 凭据
 originalFilePath: integrations/builtin/credentials/halopsa.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/halopsa'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/halopsa'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/halopsa
+url: https://docs.n8n.io/integrations/builtin/credentials/halopsa
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# HaloPSA credentials <a href="#halopsa-credentials" id="halopsa-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# HaloPSA 凭据 <a href="#halopsa-credentials" id="halopsa-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [HaloPSA](../app-nodes/n8n-nodes-base.halopsa.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [HaloPSA](https://halopsa.com/) account.
+创建一个 [HaloPSA](https://halopsa.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [HaloPSA's API documentation](https://usehalo.com/halopsa/guides/1823/) for more information about the service.
+有关该服务的更多信息，请参阅 [HaloPSA API 文档](https://usehalo.com/halopsa/guides/1823/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- To select your **Hosting Type**:
-    - **On Premise Solution**: Choose this option if you're hosting the Halo application on your own server
-    - **Hosted Solution Of Halo**: Choose this option if your application is hosted by Halo. If this option is selected, you'll need to provide your **Tenant**.
-- The **HaloPSA Authorisation Server URL**: Your Authorisation Server URL is displayed within HaloPSA in **Configuration > Integrations > Halo API** in [API Details](https://halopsa.com/guides/article/?kbid=1737).
-- The **Resource Server** URL: Your Resource Server is displayed within HaloPSA in **Configuration > Integrations > Halo API** in [API Details](https://halopsa.com/guides/article/?kbid=1737).
-- A **Client ID**: Obtained by registering the application in the Halo API settings. Refer to [HaloPSA's Authorisation documentation](https://usehalo.com/halopsa/guides/1823/) for detailed instructions. n8n recommends using these settings:
-    - Choose `Client Credentials` as your **Authentication Method**.
-    - Use the `all` permission.
-- A **Client Secret**: Obtained by registering the application in the Halo API settings.
-- Your **Tenant** name: If **Hosted Solution of Halo** is selected as the **Hosting Type**, you must provide your tenant name. Your tenant name is displayed within HaloPSA in **Configuration > Integrations > Halo API** in [API Details](https://halopsa.com/guides/article/?kbid=1737).
+- 选择 **Hosting Type**（托管类型）：
+    - **On Premise Solution**（本地部署方案）：如果在自己的服务器上托管 Halo 应用，选择此项。
+    - **Hosted Solution Of Halo**（Halo 托管方案）：如果应用由 Halo 托管，选择此项。选择后还需提供 **Tenant**（租户）。
+- **HaloPSA Authorisation Server URL**（授权服务器 URL）：可在 HaloPSA 的 **Configuration > Integrations > Halo API**（配置 > 集成 > Halo API）中的 [API Details（API 详情）](https://halopsa.com/guides/article/?kbid=1737)查看授权服务器 URL。
+- **Resource Server**（资源服务器）URL：可在 HaloPSA 的 **Configuration > Integrations > Halo API**（配置 > 集成 > Halo API）中的 [API Details（API 详情）](https://halopsa.com/guides/article/?kbid=1737)查看资源服务器。
+- 一个 **Client ID**（客户端 ID）：在 Halo API 设置中注册应用后获得。详细步骤请参阅 [HaloPSA 授权文档](https://usehalo.com/halopsa/guides/1823/)。n8n 建议使用以下设置：
+    - 将 **Authentication Method**（身份验证方式）设为 `Client Credentials`。
+    - 使用 `all` 权限。
+- 一个 **Client Secret**（客户端密钥）：在 Halo API 设置中注册应用后获得。
+- 你的 **Tenant**（租户）名称：**Hosting Type**（托管类型）为 **Hosted Solution of Halo**（Halo 托管方案）时，必须提供租户名称。可在 HaloPSA 的 **Configuration > Integrations > Halo API**（配置 > 集成 > Halo API）中的 [API Details（API 详情）](https://halopsa.com/guides/article/?kbid=1737)查看。
 
-HaloPSA uses both the application permissions and the agent's permissions to determine API access.
+HaloPSA 综合应用权限与客服人员权限确定 API 的访问权限。

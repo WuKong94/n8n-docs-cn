@@ -1,53 +1,53 @@
 ---
-title: TheHive credentials
-description: >-
-  Documentation for TheHive credentials. Use these credentials to authenticate
-  TheHive in n8n, a workflow automation platform.
+title: TheHive 凭据
+description: TheHive 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 TheHive 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: TheHive credentials
+- integration
+- reference
+nodeTitle: TheHive 凭据
 originalFilePath: integrations/builtin/credentials/thehive.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/thehive'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/thehive'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/thehive
+url: https://docs.n8n.io/integrations/builtin/credentials/thehive
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# TheHive credentials <a href="#thehive-credentials" id="thehive-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# TheHive 凭据 <a href="#thehive-credentials" id="thehive-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [TheHive](../app-nodes/n8n-nodes-base.thehive.md)
 
 {% hint style="info" %}
-**TheHive and TheHive 5**
+**TheHive 与 TheHive 5**
 
-n8n provides two nodes for TheHive. Use these credentials with TheHive node for TheHive 3 or TheHive 4. If you're using TheHive5 node, use [TheHive 5 credentials](thehive5.md).
+n8n 为 TheHive 提供两个节点。将此凭据用于支持 TheHive 3 或 TheHive 4 的 TheHive 节点。如果使用 TheHive5 节点，请改用 [TheHive 5 凭据](thehive5.md)。
 {% endhint %}
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Install [TheHive](https://docs.strangebee.com/thehive/installation/installation-methods/) on your server.
+在服务器上安装 [TheHive](https://docs.strangebee.com/thehive/installation/installation-methods/)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [TheHive 3's API documentation](https://docs.thehive-project.org/thehive/legacy/thehive3/api/) and [TheHive 4's API documentation](https://docs.thehive-project.org/thehive/) for more information about the services.
+这些服务的更多信息，请参阅 [TheHive 3 API 文档](https://docs.thehive-project.org/thehive/legacy/thehive3/api/)和 [TheHive 4 API 文档](https://docs.thehive-project.org/thehive/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: Create an API key from **Organization > Create API Key**. Refer to [API Authentication](https://docs.thehive-project.org/thehive/legacy/thehive3/api/authentication/) for more information.
-- Your **URL**: The URL of your TheHive server.
-- An **API Version**: Choose between:
-    - **TheHive 3 (api v0)**
-    - **TheHive 4 (api v1)**
-    - For TheHive 5, use [TheHive 5 credentials](thehive5.md) instead.
-- **Ignore SSL Issues**: When turned on, n8n will connect even if SSL certificate validation fails.
+- 一个 **API Key**（API 密钥）：在 **Organization > Create API Key**（组织 > 创建 API 密钥）中创建 API 密钥。更多信息请参阅 [API 身份验证](https://docs.thehive-project.org/thehive/legacy/thehive3/api/authentication/)。
+- 你的 **URL**：TheHive 服务器的 URL。
+- 一个 **API Version**（API 版本），可选择：
+    - **TheHive 3 (api v0)**（TheHive 3，API v0）
+    - **TheHive 4 (api v1)**（TheHive 4，API v1）
+    - 对于 TheHive 5，请改用 [TheHive 5 凭据](thehive5.md)。
+- **Ignore SSL Issues**（忽略 SSL 问题）：开启后，即使 SSL 证书验证失败，n8n 仍会连接。
 

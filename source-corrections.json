@@ -340,5 +340,14 @@
     "translated_sentence": "六字段 Cron 表达式的第一个字段表示秒。该字段可选，即使不设置秒值，节点也会执行。",
     "evidence": "同页六列表格从左到右依次为 second、minute、hour、day of month、month、day of week；04:08:30 的示例为 30 8 4 * * *，秒位于第一列。另一个 04:08 示例为 8 4 * * *，说明秒字段可省略。原句将额外的秒字段称为第六个星号，易误解为末列。",
     "scope": "依据同页字段顺序与两个完整示例，明确秒字段位于六字段表达式的最前面；所有范围、代码、Cron 示例和其他说明保留原样，未执行调度器或验证其他范围的运行兼容性。"
+  },
+  {
+    "id": "aws-iam-group-delete-description",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.awsiam.md",
+    "source_sha256": "101b534fd1efd4168e5da2d1eadb5f568f84ebdd21a49e53410f0c3733fe110d",
+    "original_sentence": "* **Delete**: Create a new group.",
+    "translated_sentence": "* **Delete**（删除）：删除群组。",
+    "evidence": "同页 Group 操作列表已单独列出 Create: Create a new group，紧接的 Delete 操作却重复了相同的创建说明；User 列表中 Create 与 Delete 分别描述创建和删除用户。此处依据同页资源和操作标签修正复制错误。",
+    "scope": "仅将 Group 的 Delete 操作中复制的创建说明改为删除群组；保留 Delete 标签、其余操作、凭据、链接和代码，不声称已执行 IAM 操作。"
   }
 ]

@@ -1,60 +1,60 @@
 ---
-title: AWS Cognito node documentation
-description: >-
-  Learn how to use the AWS Cognito node in n8n. Follow technical documentation
-  to integrate AWS Cognito node into your workflows.
+title: AWS Cognito 节点文档
+description: 了解如何在 n8n 中使用 AWS Cognito 节点，并按照技术文档将 AWS Cognito 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: AWS Cognito node documentation
+- integration
+- reference
+nodeTitle: AWS Cognito 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.awscognito.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscognito'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscognito'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscognito
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.awscognito
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AWS Cognito node <a href="#aws-cognito-node" id="aws-cognito-node"></a>
 
-Use the AWS Cognito node to automate work in AWS Cognito and integrate AWS Cognito with other applications. n8n has built-in support for a wide range of AWS Cognito features, which includes creating, retrieving, updating, and deleting groups, users, and user pools.
+# AWS Cognito 节点 <a href="#aws-cognito-node" id="aws-cognito-node"></a>
 
-On this page, you'll find a list of operations the AWS Cognito node supports, and links to more resources.
+使用 AWS Cognito 节点自动处理 AWS Cognito 中的工作，并将其与其他应用集成。n8n 内置支持多种 AWS Cognito 功能，包括创建、获取、更新和删除群组、用户及用户池。
+
+本页列出了 AWS Cognito 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [AWS credentials documentation](../credentials/aws.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [AWS 凭据文档](../credentials/aws.md)。
 {% endhint %}
 
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Group:
-	* Create: Create a new group.
-	* Delete: Delete an existing group.
-	* Get: Retrieve details about an existing group.
-	* Get Many: Retrieve a list of groups.
-	* Update: Update an existing group.
-* User:
-	* Add to Group: Add an existing user to a group.
-	* Create: Create a new user.
-	* Delete: Delete a user.
-	* Get: Retrieve information about an existing user.
-	* Get Many: Retrieve a list of users.
-	* Remove From Group: Remove a user from a group.
-	* Update: Update an existing user.
-* User Pool:
-	* Get: Retrieve information about an existing user pool.
+* Group（群组）：
+    * Create（创建）：创建新群组。
+    * Delete（删除）：删除已有群组。
+    * Get（获取）：获取已有群组的详情。
+    * Get Many（获取多条）：获取群组列表。
+    * Update（更新）：更新已有群组。
+* User（用户）：
+    * Add to Group（添加到群组）：将已有用户添加到群组。
+    * Create（创建）：创建新用户。
+    * Delete（删除）：删除用户。
+    * Get（获取）：获取已有用户的信息。
+    * Get Many（获取多条）：获取用户列表。
+    * Remove From Group（从群组移除）：将用户从群组移除。
+    * Update（更新）：更新已有用户。
+* User Pool（用户池）：
+    * Get（获取）：获取已有用户池的信息。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse AWS Cognito node documentation integration templates](https://n8n.io/integrations/aws-cognito) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-Refer to [AWS Cognito's documentation](https://docs.aws.amazon.com/cognito/) for more information about the service.
+[浏览 AWS Cognito 集成模板](https://n8n.io/integrations/aws-cognito)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+
+有关该服务的更多信息，请参阅 [AWS Cognito 文档](https://docs.aws.amazon.com/cognito/)。
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

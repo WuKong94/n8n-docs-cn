@@ -1,56 +1,56 @@
 ---
-title: Elasticsearch credentials
-description: >-
-  Documentation for Elasticsearch credentials. Use these credentials to
-  authenticate Elasticsearch in n8n, a workflow automation platform.
+title: Elasticsearch 凭据
+description: Elasticsearch 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Elasticsearch 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Elasticsearch credentials
+nodeTitle: Elasticsearch 凭据
 originalFilePath: integrations/builtin/credentials/elasticsearch.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/elasticsearch'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/elasticsearch'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/elasticsearch
+url: https://docs.n8n.io/integrations/builtin/credentials/elasticsearch
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Elasticsearch credentials <a href="#elasticsearch-credentials" id="elasticsearch-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Elasticsearch 凭据 <a href="#elasticsearch-credentials" id="elasticsearch-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Elasticsearch](../app-nodes/n8n-nodes-base.elasticsearch.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Basic auth
+- Basic auth（基本身份验证）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Elasticsearch's documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html) for more information about the service.
+有关该服务的更多信息，请参阅 [Elasticsearch 文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)。
 
-## Using basic auth <a href="#using-basic-auth" id="using-basic-auth"></a>
+## 使用基本身份验证 <a href="#using-basic-auth" id="using-basic-auth"></a>
 
-To configure this credential, you'll need an [Elasticsearch](https://www.elastic.co/) account with a [deployment](https://www.elastic.co/guide/en/cloud/current/ec-create-deployment.html) and:
+配置此凭据需要一个具有[部署](https://www.elastic.co/guide/en/cloud/current/ec-create-deployment.html)的 [Elasticsearch](https://www.elastic.co/) 账户，以及：
 
-- A **Username**
-- A **Password**
-- Your Elasticsearch application's **Base URL** (also known as the Elasticsearch application endpoint)
+- 一个 **Username（用户名）**
+- 一个 **Password（密码）**
+- Elasticsearch 应用的 **Base URL**（基础 URL），也称为 Elasticsearch 应用端点。
 
-To set up the credential:
+设置凭据的步骤如下：
 
-1. Enter your Elasticsearch **Username**.
-2. Enter your Elasticsearch **Password**.
-3. In Elasticsearch, go to **Deployments**.
-4. Select your deployment.
-5. Select **Manage this deployment**.
-6. In the **Applications** section, copy the endpoint of the **Elasticsearch** application.
-7. Enter this in n8n as the **Base URL**.
-8. By default, n8n connects only if SSL certificate validation succeeds. If you'd like to connect even if SSL certificate validation fails, turn on **Ignore SSL Issues**.
+1. 输入 Elasticsearch 的 **Username**（用户名）。
+2. 输入 Elasticsearch 的 **Password**（密码）。
+3. 在 Elasticsearch 中进入 **Deployments**（部署）。
+4. 选择你的部署。
+5. 选择 **Manage this deployment**（管理此部署）。
+6. 在 **Applications**（应用）部分，复制 **Elasticsearch** 应用的端点。
+7. 将其填入 n8n 的 **Base URL**（基础 URL）。
+8. 默认情况下，n8n 仅在 SSL 证书验证成功时连接。如果希望在 SSL 证书验证失败时仍连接，请开启 **Ignore SSL Issues**（忽略 SSL 问题）。
 
 {% hint style="info" %}
-**Custom endpoint aliases**
+**自定义端点别名**
 
-If you add a [custom endpoint alias](https://www.elastic.co/guide/en/cloud/current/ec-regional-deployment-aliases.html) to a deployment, update your n8n credential **Base URL** with the new endpoint.
+如果为部署添加了[自定义端点别名](https://www.elastic.co/guide/en/cloud/current/ec-regional-deployment-aliases.html)，请将 n8n 凭据的 **Base URL**（基础 URL）更新为新端点。
 {% endhint %}

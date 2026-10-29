@@ -1,77 +1,75 @@
 ---
-title: Microsoft Entra ID node documentation
-description: >-
-  Learn how to use the Microsoft Entra ID node in n8n. Follow technical
-  documentation to integrate Microsoft Entra ID node into your workflows.
+title: Microsoft Entra ID 节点文档
+description: 了解如何在 n8n 中使用 Microsoft Entra ID 节点，并按照技术文档将 Microsoft Entra ID 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Microsoft Entra ID node documentation
+- integration
+- reference
+nodeTitle: Microsoft Entra ID 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.microsoftentra.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftentra
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftentra
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftentra
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftentra
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Entra ID node <a href="#microsoft-entra-id-node" id="microsoft-entra-id-node"></a>
 
-Use the Microsoft Entra ID node to automate work in Microsoft Entra ID and integrate Microsoft Entra ID with other applications. n8n has built-in support for a wide range of Microsoft Entra ID features, which includes creating, getting, updating, and deleting users and groups, as well as adding users to and removing them from groups.
+# Microsoft Entra ID 节点 <a href="#microsoft-entra-id-node" id="microsoft-entra-id-node"></a>
 
-On this page, you'll find a list of operations the Microsoft Entra ID node supports, and links to more resources.
+使用 Microsoft Entra ID 节点自动处理 Microsoft Entra ID 中的工作，并将其与其他应用集成。n8n 内置支持多种 Microsoft Entra ID 功能，包括创建、获取、更新和删除用户及群组，以及将用户添加到群组或从中移除。
+
+本页列出了 Microsoft Entra ID 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Microsoft Entra ID credentials documentation](../credentials/microsoftentra.md) for authentication information for this node.
+该节点的身份验证信息，请参阅 [Microsoft Entra ID 凭据文档](../credentials/microsoftentra.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Government Cloud Support**
+**政府云支持**
 
-If you're using a government cloud tenant (US Government, US Government DOD, or China), make sure to select the appropriate **Microsoft Graph API Base URL** in your Microsoft Entra ID credentials configuration.
+如果使用政府云租户（US Government、US Government DOD 或 China），请在 Microsoft Entra ID 凭据配置中选择适当的 **Microsoft Graph API Base URL**（Microsoft Graph API 基础 URL）。
 {% endhint %}
 
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* **Group**
-	* **Create**: Create a new group
-	* **Delete**: Delete an existing group
-	* **Get**: Retrieve data for a specific group
-	* **Get Many**: Retrieve a list of groups
-	* **Update**: Update a group
-* **User**
-	* **Create**: Create a new user
-	* **Delete**: Delete an existing user
-	* **Get**: Retrieve data for a specific user
-	* **Get Many**: Retrieve a list of users
-	* **Update**: Update a user
-	* **Add to Group**: Add user to a group
-	* **Remove from Group**: Remove user from a group
+* **Group**（群组）
+    * **Create**（创建）：创建新群组。
+    * **Delete**（删除）：删除已有群组。
+    * **Get**（获取）：获取指定群组的数据。
+    * **Get Many**（获取多条）：获取群组列表。
+    * **Update**（更新）：更新群组。
+* **User**（用户）
+    * **Create**（创建）：创建新用户。
+    * **Delete**（删除）：删除已有用户。
+    * **Get**（获取）：获取指定用户的数据。
+    * **Get Many**（获取多条）：获取用户列表。
+    * **Update**（更新）：更新用户。
+    * **Add to Group**（添加到群组）：将用户添加到群组。
+    * **Remove from Group**（从群组移除）：将用户从群组移除。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse Microsoft Entra ID node documentation integration templates](https://n8n.io/integrations/microsoft-entra-id-azure-active-directory) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-Refer to [Microsoft Entra ID's documentation](https://learn.microsoft.com/en-us/graph/api/resources/identity-network-access-overview?view=graph-rest-1.0) for more information about the service.
+[浏览 Microsoft Entra ID 集成模板](https://n8n.io/integrations/microsoft-entra-id-azure-active-directory)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+有关该服务的更多信息，请参阅 [Microsoft Entra ID 文档](https://learn.microsoft.com/en-us/graph/api/resources/identity-network-access-overview?view=graph-rest-1.0)。
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
 
-Here are some common errors and issues with the Microsoft Entra ID node and steps to resolve or troubleshoot them.
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
-### Updating the Allow External Senders and Auto Subscribe New Members options fails <a href="#updating-the-allow-external-senders-and-auto-subscribe-new-members-options-fails" id="updating-the-allow-external-senders-and-auto-subscribe-new-members-options-fails"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-You can't update the **Allow External Senders** and **Auto Subscribe New Members** options directly after creating a new group. You must wait after creating a group before you can change the values of these options.
+以下列出 Microsoft Entra ID 节点的常见错误和问题，以及解决或排查步骤。
 
-When designing workflows that use multiple Microsoft Entra ID nodes to first create groups and then update these options, add a [Wait](../core-nodes/n8n-nodes-base.wait.md) node between the two operations. A Wait node configured to pause for at least two seconds allows time for the group to fully initialize. After the wait, the update operation can complete without erroring.
+### 更新 Allow External Senders 和 Auto Subscribe New Members 选项失败 <a href="#updating-the-allow-external-senders-and-auto-subscribe-new-members-options-fails" id="updating-the-allow-external-senders-and-auto-subscribe-new-members-options-fails"></a>
+
+创建新群组后，无法立即更新 **Allow External Senders**（允许外部发件人）和 **Auto Subscribe New Members**（自动订阅新成员）选项。必须在创建群组后等待一段时间，才能更改这些选项的值。
+
+设计工作流，使用多个 Microsoft Entra ID 节点先创建群组再更新这些选项时，请在两个操作之间添加 [Wait](../core-nodes/n8n-nodes-base.wait.md) 节点。将 Wait 节点配置为暂停至少两秒，为群组完成初始化留出时间。等待后，更新操作即可完成而不报错。

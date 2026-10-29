@@ -1,63 +1,63 @@
 ---
-title: PagerDuty credentials
-description: >-
-  Documentation for PagerDuty credentials. Use these credentials to authenticate
-  PagerDuty in n8n, a workflow automation platform.
+title: PagerDuty 凭据
+description: PagerDuty 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 PagerDuty 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: PagerDuty credentials
+- integration
+- reference
+nodeTitle: PagerDuty 凭据
 originalFilePath: integrations/builtin/credentials/pagerduty.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/pagerduty'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/pagerduty'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/pagerduty
+url: https://docs.n8n.io/integrations/builtin/credentials/pagerduty
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# PagerDuty credentials <a href="#pagerduty-credentials" id="pagerduty-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# PagerDuty 凭据 <a href="#pagerduty-credentials" id="pagerduty-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [PagerDuty](../app-nodes/n8n-nodes-base.pagerduty.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [PagerDuty](https://pagerduty.com/) account.
+创建一个 [PagerDuty](https://pagerduty.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API token
+- API token（API 令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [PagerDuty's API documentation](https://developer.pagerduty.com/docs/531092d4c6658-rest-api-v2-overview) for more information about the service.
+有关该服务的更多信息，请参阅 [PagerDuty API 文档](https://developer.pagerduty.com/docs/531092d4c6658-rest-api-v2-overview)。
 
-## Using API token <a href="#using-api-token" id="using-api-token"></a>
+## 使用 API 令牌 <a href="#using-api-token" id="using-api-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A general access **API Token**: To generate an API token, go to **Integrations > Developer Tools > API Access Keys > Create New API Key**. Refer to [Generate a General Access REST API key](https://support.pagerduty.com/docs/api-access-keys#generate-a-general-access-rest-api-key) for more information.
+- 一个通用访问 **API Token**（API 令牌）：在 **Integrations > Developer Tools > API Access Keys > Create New API Key**（集成 > 开发者工具 > API 访问密钥 > 创建新 API 密钥）中生成 API 令牌。更多信息请参阅[生成通用访问 REST API 密钥](https://support.pagerduty.com/docs/api-access-keys#generate-a-general-access-rest-api-key)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you need to configure OAuth2 from scratch, [register a new Pagerduty app](https://developer.pagerduty.com/docs/dd91fbd09a1a1-register-an-app).
+如果需要从头配置 OAuth2，请[注册新的 PagerDuty 应用](https://developer.pagerduty.com/docs/dd91fbd09a1a1-register-an-app)。
 
-Use these settings for registering your app:
+注册应用时使用以下设置：
 
-- In the **Category** dropdown list, select **Infrastructure Automation**.
-- In the **Functionality** section, select **OAuth 2.0**.
+- 在 **Category**（类别）下拉菜单中选择 **Infrastructure Automation**（基础设施自动化）。
+- 在 **Functionality**（功能）部分选择 **OAuth 2.0**。
 
-Once you **Save** your app, open the app details and [edit your app configuration](https://developer.pagerduty.com/docs/dd91fbd09a1a1-register-an-app#editing-your-app-configuration) to use these settings:
+**Save**（保存）应用后，打开应用详情，[编辑应用配置](https://developer.pagerduty.com/docs/dd91fbd09a1a1-register-an-app#editing-your-app-configuration)并使用以下设置：
 
-- Within the **OAuth 2.0** section, select **Add**.
-- Copy the **OAuth Callback URL** from n8n and paste it into the **Redirect URL** field.
-- Copy the **Client ID** and **Client Secret** from PagerDuty and add these to your n8n credentials.
-- Select **Read/Write** from the **Set Permission Scopes** dropdown list.
+- 在 **OAuth 2.0** 部分选择 **Add**（添加）。
+- 从 n8n 复制 **OAuth Callback URL**（OAuth 回调 URL），粘贴到 **Redirect URL**（重定向 URL）字段。
+- 从 PagerDuty 复制 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥），添加到 n8n 凭据。
+- 在 **Set Permission Scopes**（设置权限作用域）下拉菜单中选择 **Read/Write**（读写）。
 
-Refer to the instructions in [App functionality](https://developer.pagerduty.com/docs/b25fd1b8acb1b-app-functionality) for more information on available functionality. Refer to the PagerDuty [OAuth Functionality documentation](https://developer.pagerduty.com/docs/f59fdbd94ceab-o-auth-functionality) for more information on the OAuth flow.
+可用功能的更多信息，请参阅[应用功能](https://developer.pagerduty.com/docs/b25fd1b8acb1b-app-functionality)中的说明。OAuth 流程的更多信息，请参阅 PagerDuty 的 [OAuth 功能文档](https://developer.pagerduty.com/docs/f59fdbd94ceab-o-auth-functionality)。
 
 

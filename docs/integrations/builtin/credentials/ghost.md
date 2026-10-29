@@ -1,52 +1,52 @@
 ---
-title: Ghost credentials
-description: >-
-  Documentation for Ghost credentials. Use these credentials to authenticate
-  Ghost in n8n, a workflow automation platform.
+title: Ghost 凭据
+description: Ghost 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Ghost 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Ghost credentials
+- integration
+- reference
+nodeTitle: Ghost 凭据
 originalFilePath: integrations/builtin/credentials/ghost.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/ghost'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/ghost'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/ghost
+url: https://docs.n8n.io/integrations/builtin/credentials/ghost
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Ghost credentials <a href="#ghost-credentials" id="ghost-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Ghost 凭据 <a href="#ghost-credentials" id="ghost-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Ghost](../app-nodes/n8n-nodes-base.ghost.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Ghost](https://ghost.org/) account.
+创建一个 [Ghost](https://ghost.org/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Admin API key
-- Content API key
+- Admin API key（管理 API 密钥）
+- Content API key（内容 API 密钥）
 
-The keys are generated following the same steps, but the authorization flows and key format are different, so n8n stores the credentials separately. The Content API uses an API key; the Admin API uses an API key to generate a token for authentication.
+两种密钥的生成步骤相同，但授权流程和密钥格式不同，因此 n8n 将凭据分别存储。Content API 使用 API 密钥；Admin API 使用 API 密钥生成用于身份验证的令牌。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to Ghost's [Admin API documentation](https://ghost.org/docs/admin-api/) for more information about the Admin API service. Refer to Ghost's [Content API documentation](https://ghost.org/docs/content-api/) for more information about the Content API service.
+Admin API 服务的更多信息，请参阅 Ghost 的 [Admin API 文档](https://ghost.org/docs/admin-api/)。Content API 服务的更多信息，请参阅 Ghost 的 [Content API 文档](https://ghost.org/docs/content-api/)。
 
-## Using Admin API key <a href="#using-admin-api-key" id="using-admin-api-key"></a>
+## 使用 Admin API 密钥 <a href="#using-admin-api-key" id="using-admin-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- The **URL** of your Ghost admin domain. Your [admin domain](https://ghost.org/docs/admin-api/#base-url) can be different to your main domain and may include a subdirectory. All Ghost(Pro) blogs have a `*.ghost.io` domain as their admin domain and require https.
-- An **API Key**: To generate a new API key, create a new Custom Integration. Refer to the [Ghost Admin API Token Authentication Key documentation](https://ghost.org/docs/admin-api/#token-authentication) for more detailed instructions. Copy the **Admin API Key** and use this as the **API Key** in the Ghost Admin n8n credential.
+- Ghost 管理域名的 **URL**。你的[管理域名](https://ghost.org/docs/admin-api/#base-url)可能与主域名不同，也可能包含子目录。所有 Ghost(Pro) 博客都以 `*.ghost.io` 域名作为管理域名，并要求使用 HTTPS。
+- 一个 **API Key**（API 密钥）：创建新的 Custom Integration（自定义集成）以生成新 API 密钥。详细步骤请参阅 [Ghost Admin API 令牌身份验证密钥文档](https://ghost.org/docs/admin-api/#token-authentication)。复制 **Admin API Key**，将其填入 n8n 的 Ghost Admin 凭据的 **API Key** 字段。
 
-## Using Content API key <a href="#using-content-api-key" id="using-content-api-key"></a>
+## 使用 Content API 密钥 <a href="#using-content-api-key" id="using-content-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- The **URL** of your Ghost admin domain. Your [admin domain](https://ghost.org/docs/content-api/#url) can be different to your main domain and may include a subdirectory. All Ghost(Pro) blogs have a `*.ghost.io` domain as their admin domain and require https.
-- An **API Key**: To generate a new API key, create a new Custom Integration. Refer to the [Ghost Content API Key documentation](https://ghost.org/docs/content-api/#key) for more detailed instructions. Copy the **Content API Key** and use this as the **API Key** in the Ghost Content n8n credential.
+- Ghost 管理域名的 **URL**。你的[管理域名](https://ghost.org/docs/content-api/#url)可能与主域名不同，也可能包含子目录。所有 Ghost(Pro) 博客都以 `*.ghost.io` 域名作为管理域名，并要求使用 HTTPS。
+- 一个 **API Key**（API 密钥）：创建新的 Custom Integration（自定义集成）以生成新 API 密钥。详细步骤请参阅 [Ghost Content API 密钥文档](https://ghost.org/docs/content-api/#key)。复制 **Content API Key**，将其填入 n8n 的 Ghost Content 凭据的 **API Key** 字段。
 

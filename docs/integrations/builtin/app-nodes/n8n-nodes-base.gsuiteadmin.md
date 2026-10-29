@@ -1,70 +1,71 @@
 ---
-title: Google Workspace Admin node documentation
-description: >-
-  Learn how to use the Google Workspace Admin node in n8n. Follow technical
-  documentation to integrate Google Workspace Admin node into your workflows.
+title: Google Workspace Admin 节点文档
+description: 了解如何在 n8n 中使用 Google Workspace Admin 节点，并按照技术文档将 Google Workspace Admin
+  节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Google Workspace Admin node documentation
+- integration
+- reference
+nodeTitle: Google Workspace Admin 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.gsuiteadmin.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gsuiteadmin'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gsuiteadmin'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gsuiteadmin
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gsuiteadmin
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Workspace Admin node <a href="#google-workspace-admin-node" id="google-workspace-admin-node"></a>
 
-Use the Google Workspace Admin node to automate work in Google Workspace Admin, and integrate Google Workspace Admin with other applications. n8n has built-in support for a wide range of Google Workspace Admin features, including creating, updating, deleting, and getting users, groups, and ChromeOS devices. 
+# Google Workspace Admin 节点 <a href="#google-workspace-admin-node" id="google-workspace-admin-node"></a>
 
-On this page, you'll find a list of operations the Google Workspace Admin node supports and links to more resources.
+使用 Google Workspace Admin 节点自动处理 Google Workspace Admin 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Workspace Admin 功能，包括创建、更新、删除和获取用户、群组及 ChromeOS 设备。
+
+本页列出了 Google Workspace Admin 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Google credentials](../credentials/google/README.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Google 凭据](../credentials/google/README.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* ChromeOS Device
-	* Get a ChromeOS device
-	* Get many ChromeOS devices
-	* Update a ChromeOS device
-	* Change the status of a ChromeOS device
-* Group
-    * Create a group
-    * Delete a group
-    * Get a group
-    * Get many groups
-    * Update a group
-* User
-	* Add an existing user to a group
-    * Create a user
-    * Delete a user
-    * Get a user
-    * Get many users
-	* Remove a user from a group
-    * Update a user
+* ChromeOS Device（ChromeOS 设备）
+    * Get a ChromeOS device（获取 ChromeOS 设备）
+    * Get many ChromeOS devices（获取多个 ChromeOS 设备）
+    * Update a ChromeOS device（更新 ChromeOS 设备）
+    * Change the status of a ChromeOS device（更改 ChromeOS 设备的状态）
+* Group（群组）
+    * Create a group（创建群组）
+    * Delete a group（删除群组）
+    * Get a group（获取群组）
+    * Get many groups（获取多条群组）
+    * Update a group（更新群组）
+* User（用户）
+    * Add an existing user to a group（将已有用户添加到群组）
+    * Create a user（创建用户）
+    * Delete a user（删除用户）
+    * Get a user（获取用户）
+    * Get many users（获取多条用户）
+    * Remove a user from a group（将用户从群组移除）
+    * Update a user（更新用户）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Google Workspace Admin node documentation integration templates](https://n8n.io/integrations/google-workspace-admin) or [search all templates](https://n8n.io/workflows/)
+[浏览 Google Workspace Admin 集成模板](https://n8n.io/integrations/google-workspace-admin)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## How to control which custom fields to fetch for a user <a href="#how-to-control-which-custom-fields-to-fetch-for-a-user" id="how-to-control-which-custom-fields-to-fetch-for-a-user"></a>
+## 控制获取用户的哪些自定义字段 <a href="#how-to-control-which-custom-fields-to-fetch-for-a-user" id="how-to-control-which-custom-fields-to-fetch-for-a-user"></a>
 
-There are three different ways to control which custom fields to retrieve when getting a user's information. Use the **Custom Fields** parameter to select one of the following:
+获取用户信息时，可通过三种方式控制要获取的自定义字段。使用 **Custom Fields**（自定义字段）参数选择以下选项之一：
 
-- **Don't Include**: Doesn't include any custom fields.
-- **Custom**: Includes the custom fields from schemas in **Custom Schema Names or IDs**.
-- **Include All**: Include all the fields associated with the user.
+- **Don't Include**（不包含）：不包含任何自定义字段。
+- **Custom**（自定义）：包含 **Custom Schema Names or IDs**（自定义架构名称或 ID）中指定架构的自定义字段。
+- **Include All**（包含全部）：包含与用户关联的所有字段。
 
-To include custom fields, follow these steps:
+包含自定义字段的步骤：
 
-1. Select **Custom** from the **Custom Fields** dropdown list.
-2. Select the schema names you want to include in the **Custom Schema Names or IDs** dropdown list.
+1. 从 **Custom Fields**（自定义字段）下拉菜单中选择 **Custom**（自定义）。
+2. 在 **Custom Schema Names or IDs**（自定义架构名称或 ID）下拉菜单中选择要包含的架构名称。

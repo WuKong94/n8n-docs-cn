@@ -1,66 +1,65 @@
 ---
-title: Microsoft Excel (OneDrive) node documentation
-description: >-
-  Learn how to use the Microsoft Excel (OneDrive) node in n8n. Follow technical
-  documentation to integrate Microsoft Excel (OneDrive) node into your workflows.
+title: Microsoft Excel (OneDrive) 节点文档
+description: 了解如何在 n8n 中使用 Microsoft Excel (OneDrive) 节点，并按照技术文档将 Microsoft Excel
+  (OneDrive) 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Microsoft Excel (OneDrive) node documentation
+nodeTitle: Microsoft Excel (OneDrive) 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Microsoft Excel (OneDrive) node <a href="#microsoft-excel-365-node" id="microsoft-excel-365-node"></a>
 
-Use the Microsoft Excel (OneDrive) node to automate work in Microsoft Excel, and integrate Microsoft Excel with other applications. n8n has built-in support for a wide range of Microsoft Excel features, including adding and retrieving lists of table data, and workbooks, as well as getting worksheets. The node operates on workbooks stored in OneDrive.
+# Microsoft Excel (OneDrive) 节点 <a href="#microsoft-excel-365-node" id="microsoft-excel-365-node"></a>
 
-On this page, you'll find a list of operations the Microsoft Excel (OneDrive) node supports and links to more resources.
+使用 Microsoft Excel (OneDrive) 节点自动处理 Microsoft Excel 中的工作，并将 Microsoft Excel 与其他应用集成。n8n 内置支持多种 Microsoft Excel 功能，包括添加和获取表数据列表及工作簿，以及获取工作表。节点操作存储在 OneDrive 中的工作簿。
+
+本页列出了 Microsoft Excel (OneDrive) 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-This node's **Authentication** dropdown offers three options:
+此节点的 **Authentication**（身份验证）下拉菜单提供三个选项：
 
-- **Excel OAuth2**: the Microsoft Excel-specific OAuth2 credential (default).
-- **Microsoft OAuth2 (Graph)**: a generic Microsoft Graph credential that you can reuse across other Microsoft nodes. When you select this option, make sure you grant the credential the scopes this node needs (for example, `Files.ReadWrite`, or `Files.ReadWrite.All` if that's the permission your administrator has consented).
-- **Microsoft Entra Service Principal (App-Only)**: app-only access through a Microsoft Entra app registration, with no signed-in user, available from version 2 of the node. Refer to [Microsoft Entra Service Principal credentials](../credentials/microsoftentraserviceprincipal.md) for setup and required application permissions.
+- **Excel OAuth2**：专用于 Microsoft Excel 的 OAuth2 凭据，为默认选项。
+- **Microsoft OAuth2 (Graph)**：通用 Microsoft Graph 凭据，可在其他 Microsoft 节点中复用。选择此选项时，确保凭据获得该节点所需的作用域，例如 `Files.ReadWrite`；如果管理员已同意的权限是 `Files.ReadWrite.All`，也可使用该权限。
+- **Microsoft Entra Service Principal (App-Only)**：通过 Microsoft Entra 应用注册提供仅应用访问，无需用户登录，从节点版本 2 起可用。配置方法和所需应用权限，请参阅 [Microsoft Entra 服务主体凭据](../credentials/microsoftentraserviceprincipal.md)。
 
-Refer to [Microsoft credentials](../credentials/microsoft.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Microsoft 凭据](../credentials/microsoft.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Government Cloud Support**
+**政府云支持**
 
-If you're using a government cloud tenant (US Government, US Government DOD, or China), make sure to select the appropriate **Microsoft Graph API Base URL** in your Microsoft credentials configuration.
+如果使用政府云租户（美国政府、美国国防部或中国），请确保在 Microsoft 凭据配置中选择正确的 **Microsoft Graph API Base URL（Microsoft Graph API 基础 URL）**。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Table
-    * Adds rows to the end of the table
-    * Retrieve a list of table columns
-    * Retrieve a list of table rows
-    * Looks for a specific column value and then returns the matching row
-* Workbook
-    * Adds a new worksheet to the workbook.
-    * Get data of all workbooks
-* Worksheet
-    * Get all worksheets
-    * Get worksheet content
+* Table（表）
+    * Adds rows to the end of the table（在表的末尾添加行）
+    * Retrieve a list of table columns（获取表的列列表）
+    * Retrieve a list of table rows（获取表的行列表）
+    * Looks for a specific column value and then returns the matching row（查找指定列值并返回匹配行）
+* Workbook（工作簿）
+    * Adds a new worksheet to the workbook.（向工作簿添加新工作表）
+    * Get data of all workbooks（获取全部工作簿的数据）
+* Worksheet（工作表）
+    * Get all worksheets（获取全部工作表）
+    * Get worksheet content（获取工作表内容）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Microsoft Excel (OneDrive) node documentation integration templates](https://n8n.io/integrations/microsoft-excel) or [search all templates](https://n8n.io/workflows/)
+[浏览 Microsoft Excel (OneDrive) 集成模板](https://n8n.io/integrations/microsoft-excel)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

@@ -1,62 +1,62 @@
 ---
-title: Grist node documentation
-description: >-
-  Learn how to use the Grist node in n8n. Follow technical documentation to
-  integrate Grist node into your workflows.
+title: Grist 节点文档
+description: 了解如何在 n8n 中使用 Grist 节点，并按照技术文档将 Grist 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Grist node documentation
+- integration
+- reference
+nodeTitle: Grist 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.grist.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.grist'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.grist'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.grist
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.grist
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Grist node <a href="#grist-node" id="grist-node"></a>
 
-Use the Grist node to automate work in Grist, and integrate Grist with other applications. n8n has built-in support for a wide range of Grist features, including creating, updating, deleting, and reading rows in a table. 
+# Grist 节点 <a href="#grist-node" id="grist-node"></a>
 
-On this page, you'll find a list of operations the Grist node supports and links to more resources.
+使用 Grist 节点自动处理 Grist 中的工作，并将其与其他应用集成。n8n 内置支持多种 Grist 功能，包括创建、更新、删除和读取表中的行。
+
+本页列出了 Grist 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Grist credentials](../credentials/grist.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Grist 凭据](../credentials/grist.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Create rows in a table
-* Delete rows from a table
-* Read rows from a table
-* Update rows in a table
+* Create rows in a table（在表中创建行）
+* Delete rows from a table（从表中删除行）
+* Read rows from a table（读取表中的行）
+* Update rows in a table（更新表中的行）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Grist node documentation integration templates](https://n8n.io/integrations/grist) or [search all templates](https://n8n.io/workflows/)
+[浏览 Grist 集成模板](https://n8n.io/integrations/grist)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Get the Row ID <a href="#get-the-row-id" id="get-the-row-id"></a>
+## 获取行 ID <a href="#get-the-row-id" id="get-the-row-id"></a>
 
-To update or delete a particular record, you need the Row ID. There are two ways to get the Row ID:
+更新或删除特定记录时，需要行 ID。获取行 ID 有两种方式：
 
-**Create a Row ID column in Grist**
+**在 Grist 中创建行 ID 列**
 
-Create a new column in your Grist table with the formula `$id`.
+在 Grist 表中创建新列，并使用公式 `$id`。
 
-**Use the Get All operation**
+**使用 Get All（获取全部）操作**
 
-The **Get All** operation returns the Row ID of each record along with the fields.
+**Get All**（获取全部）操作会随字段一并返回每条记录的行 ID。
  
-You can get it with the expression `{{$("GristNodeName").item.json.id}}`.
+可通过表达式 `{{$("GristNodeName").item.json.id}}` 获取。
 
 
-## Filter records when using the Get All operation <a href="#filter-records-when-using-the-get-all-operation" id="filter-records-when-using-the-get-all-operation"></a>
+## 使用 Get All 操作时筛选记录 <a href="#filter-records-when-using-the-get-all-operation" id="filter-records-when-using-the-get-all-operation"></a>
 
-- Select **Add Option** and select **Filter** from the dropdown list.
-- You can add filters for any number of columns. The result will only include records which match all the columns.
-- For each column, you can enter any number of values separated by commas. The result will include records which match any of the values for that column.
+- 选择 **Add Option**（添加选项），再从下拉菜单选择 **Filter**（筛选）。
+- 可为任意数量的列添加筛选条件。结果仅包含与所有列条件都匹配的记录。
+- 每列可输入任意数量的值，以逗号分隔。结果包含与该列任意一个值匹配的记录。
 

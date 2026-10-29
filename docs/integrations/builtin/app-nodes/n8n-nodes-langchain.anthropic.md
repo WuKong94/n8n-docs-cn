@@ -1,65 +1,63 @@
 ---
-title: Anthropic node documentation
-description: >-
-  Learn how to use the Anthropic node in n8n. Follow technical documentation to
-  integrate Anthropic node into your workflows.
+title: Anthropic 节点文档
+description: 了解如何在 n8n 中使用 Anthropic 节点，并按照技术文档将 Anthropic 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Anthropic node documentation
+- integration
+- reference
+nodeTitle: Anthropic 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-langchain.anthropic.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.anthropic
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.anthropic
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.anthropic
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-langchain.anthropic
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Anthropic node <a href="#anthropic-node" id="anthropic-node"></a>
 
-{% hint style="info" %}
-On n8n Cloud, you can use the Anthropic node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own Anthropic API key. Select **Use Gateway credits** in the node's credential field to run the node without an Anthropic account.
-{% endhint %}
-
-Use the Anthropic node to automate work in Anthropic and integrate Anthropic with other applications. n8n has built-in support for a wide range of Anthropic features, including analyzing, uploading, getting, and deleting documents, files, and images,  and generating, improving, or templatizing prompts.
-
-On this page, you'll find a list of operations the Anthropic node supports, and links to more resources.
+# Anthropic 节点 <a href="#anthropic-node" id="anthropic-node"></a>
 
 {% hint style="info" %}
-**Credentials**
+在 n8n Cloud 上，可以使用 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 Anthropic 节点，无需自己的 Anthropic API 密钥。在节点的凭据字段选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 Anthropic 账户的情况下运行节点。
+{% endhint %}
 
-Refer to the [Anthropic credentials documentation](../credentials/anthropic.md) for authentication information for this node.
+使用 Anthropic 节点自动处理 Anthropic 中的工作，并将其与其他应用集成。n8n 内置支持多种 Anthropic 功能，包括分析、上传、获取和删除文档、文件及图像，以及生成、改进提示词或将提示词模板化。
+
+本页列出了 Anthropic 节点支持的操作，并提供更多资源的链接。
+
+{% hint style="info" %}
+**凭据**
+
+该节点的身份验证信息，请参阅 [Anthropic 凭据文档](../credentials/anthropic.md)。
 {% endhint %}
 
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Document:
-	* Analyze Document: Take in documents and answer questions about them.
-* File:
-	* Upload File: Upload a file to the Anthropic API for later user.
-	* Get File Metadata: Get metadata for a file from the Anthropic API.
-	* List Files: List files from the Anthropic API.
-	* Delete File: Delete a file from the Anthropic API.
-* Image:
-	* Analyze Image: Take in images and answer questions about them.
-* Prompt:
-	* Generate Prompt: Generate a prompt for a model.
-	* Improve Prompt: Improve a prompt for a model.
-	* Templatize Prompt: Templatize a prompt for a model.
-* Text:
-	* Message a Model: Create a completion with an Anthropic model.
+* Document（文档）：
+    * Analyze Document（分析文档）：接收文档并回答相关问题。
+* File（文件）：
+    * Upload File（上传文件）：将文件上传到 Anthropic API，供后续使用。
+    * Get File Metadata（获取文件元数据）：从 Anthropic API 获取文件元数据。
+    * List Files（列出文件）：列出 Anthropic API 中的文件。
+    * Delete File（删除文件）：从 Anthropic API 删除文件。
+* Image（图像）：
+    * Analyze Image（分析图像）：接收图像并回答相关问题。
+* Prompt（提示词）：
+    * Generate Prompt（生成提示词）：为模型生成提示词。
+    * Improve Prompt（改进提示词）：改进模型的提示词。
+    * Templatize Prompt（将提示词模板化）：将模型的提示词转换为模板。
+* Text（文本）：
+    * Message a Model（向模型发送消息）：使用 Anthropic 模型生成补全结果。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse Anthropic node documentation integration templates](https://n8n.io/integrations/anthropic) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-Refer to [Anthropic's documentation](https://docs.anthropic.com/en/api/overview) for more information about the service.
+[浏览 Anthropic 集成模板](https://n8n.io/integrations/anthropic)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+
+有关该服务的更多信息，请参阅 [Anthropic 文档](https://docs.anthropic.com/en/api/overview)。
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

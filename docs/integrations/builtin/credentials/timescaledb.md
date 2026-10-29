@@ -1,51 +1,51 @@
 ---
-title: TimescaleDB credentials
-description: >-
-  Documentation for TimescaleDB credentials. Use these credentials to
-  authenticate TimescaleDB in n8n, a workflow automation platform.
+title: TimescaleDB 凭据
+description: TimescaleDB 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 TimescaleDB 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: TimescaleDB credentials
+- integration
+- reference
+nodeTitle: TimescaleDB 凭据
 originalFilePath: integrations/builtin/credentials/timescaledb.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/timescaledb'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/timescaledb'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/timescaledb
+url: https://docs.n8n.io/integrations/builtin/credentials/timescaledb
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# TimescaleDB credentials <a href="#timescaledb-credentials" id="timescaledb-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# TimescaleDB 凭据 <a href="#timescaledb-credentials" id="timescaledb-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [TimescaleDB](../app-nodes/n8n-nodes-base.timescaledb.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-An available instance of [TimescaleDB](https://www.timescale.com/).
+一个可用的 [TimescaleDB](https://www.timescale.com/) 实例。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- Database connection
+- Database connection（数据库连接）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to the [Timescale documentation](https://docs.timescale.com/) for more information about the service.
+有关该服务的更多信息，请参阅 [Timescale 文档](https://docs.timescale.com/)。
 
-## Using database connection <a href="#using-database-connection" id="using-database-connection"></a>
+## 使用数据库连接 <a href="#using-database-connection" id="using-database-connection"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- The **Host**: The fully qualified server name or IP address of your TimescaleDB server.
-- The **Database**: The name of the database to connect to.
-- A **User**: The user name you want to log in with.
-- A **Password**: Enter the password for the database user you are connecting to.
-- **Ignore SSL Issues**: If turned on, n8n will connect even if SSL certificate validation fails and you won't see the **SSL** selector.
-- **SSL**: This setting controls the `ssl-mode` connection string for the connection. Options include:
-    - **Allow**: Sets the `ssl-mode` parameter to `allow`. First try a non-SSL connection; if that fails, try an SSL connection.
-    - **Disable**: Sets the `ssl-mode` parameter to `disable`. Only try a non-SSL connection.
-    - **Require**: Sets the `ssl-mode` parameter to `require`, which is the default for TimescaleDB connection strings. Only try an SSL connection. If a root CA file is present, verify that a trusted certificate authority (CA) issued the server certificate.
-- **Port**: The port number of the TimescaleDB server.
+- **Host**（主机）：TimescaleDB 服务器的完全限定服务器名称或 IP 地址。
+- **Database**（数据库）：要连接的数据库名称。
+- 一个 **User**（用户）：要用于登录的用户名。
+- 一个 **Password**（密码）：输入所连接数据库用户的密码。
+- **Ignore SSL Issues**（忽略 SSL 问题）：开启后，即使 SSL 证书验证失败，n8n 仍会连接，此时不会显示 **SSL** 选择器。
+- **SSL**：此设置控制连接的 `ssl-mode` 连接字符串，可选：
+    - **Allow**（允许）：将 `ssl-mode` 参数设为 `allow`。先尝试非 SSL 连接，失败后再尝试 SSL 连接。
+    - **Disable**（禁用）：将 `ssl-mode` 参数设为 `disable`，仅尝试非 SSL 连接。
+    - **Require**（要求）：将 `ssl-mode` 参数设为 `require`，这是 TimescaleDB 连接字符串的默认值。仅尝试 SSL 连接。如果存在根 CA 文件，则验证服务器证书是否由可信的证书颁发机构（CA）签发。
+- **Port**（端口）：TimescaleDB 服务器的端口号。
 
-Refer to the [Timescale connection settings documentation](https://docs.tigerdata.com/integrations/latest/find-connection-details/) for more information about the non-SSL fields. Refer to [Connect with a stricter SSL](https://docs.tigerdata.com/use-timescale/latest/security/strict-ssl/) for more information about the SSL options.
+非 SSL 字段的更多信息，请参阅 [Timescale 连接设置文档](https://docs.tigerdata.com/integrations/latest/find-connection-details/)。SSL 选项的更多信息，请参阅[使用更严格的 SSL 连接](https://docs.tigerdata.com/use-timescale/latest/security/strict-ssl/)。

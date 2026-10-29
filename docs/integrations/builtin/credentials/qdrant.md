@@ -1,52 +1,52 @@
 ---
-title: Qdrant credentials
-description: >-
-  Documentation for the Qdrant credentials. Use these credentials to
-  authenticate Qdrant in n8n, a workflow automation platform.
+title: Qdrant 凭据
+description: Qdrant 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Qdrant 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Qdrant credentials
+nodeTitle: Qdrant 凭据
 originalFilePath: integrations/builtin/credentials/qdrant.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/qdrant'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/qdrant'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/qdrant
+url: https://docs.n8n.io/integrations/builtin/credentials/qdrant
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Qdrant credentials <a href="#qdrant-credentials" id="qdrant-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Qdrant 凭据 <a href="#qdrant-credentials" id="qdrant-credentials"></a>
 
-* [Qdrant Vector Store](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreqdrant.md)
+这些凭据可用于以下节点的身份验证：
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+* [Qdrant Vector Store（向量存储）](../cluster-nodes/root-nodes/n8n-nodes-langchain.vectorstoreqdrant.md)
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Qdrant's documentation](https://qdrant.tech/documentation/) for more information.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+更多信息请参阅 [Qdrant 文档](https://qdrant.tech/documentation/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-To configure this credential, you'll need a [Qdrant cluster](https://qdrant.tech/documentation/cloud/create-cluster/) and:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**
-- Your **Qdrant URL**
+配置此凭据需要一个 [Qdrant 集群](https://qdrant.tech/documentation/cloud/create-cluster/)，以及：
 
-To set it up:
+- 一个 **API Key（API 密钥）**
+- 你的 **Qdrant URL**
 
-1. Go to the [Cloud Dashboard](https://qdrant.to/cloud).
-2. Select **Access Management** to display available API keys (or go to the **API Keys** section of the **Cluster detail** page).
-3. Select **Create**.
-4. Select the cluster you want the key to have access to in the dropdown.
-5. Select **OK**.
-6. Copy the API Key and enter it in your n8n credential.
-7. Enter the URL for your Qdrant cluster in the **Qdrant URL**. Refer to [Qdrant Web UI](https://qdrant.tech/documentation/interfaces/web-ui/) for more information.
+设置步骤如下：
 
-Refer to [Qdrant's authentication documentation](https://qdrant.tech/documentation/cloud/authentication/) for more information on creating and using API keys.
+1. 进入 [Cloud Dashboard（云控制台）](https://qdrant.to/cloud)。
+2. 选择 **Access Management**（访问管理）查看可用的 API 密钥，或进入 **Cluster detail**（集群详情）页面的 **API Keys**（API 密钥）部分。
+3. 选择 **Create**（创建）。
+4. 在下拉菜单中选择该密钥可访问的集群。
+5. 选择 **OK**（确定）。
+6. 复制 API Key（API 密钥），填入 n8n 凭据。
+7. 在 **Qdrant URL** 中输入 Qdrant 集群的 URL。更多信息请参阅 [Qdrant Web UI](https://qdrant.tech/documentation/interfaces/web-ui/)。
+
+创建和使用 API 密钥的更多信息，请参阅 [Qdrant 身份验证文档](https://qdrant.tech/documentation/cloud/authentication/)。

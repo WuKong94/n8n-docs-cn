@@ -1,56 +1,56 @@
 ---
-title: Action Network credentials
-description: >-
-  Documentation for Action Network credentials. Use these credentials to
-  authenticate Action Network in n8n, a workflow automation platform.
+title: Action Network 凭据
+description: Action Network 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Action Network 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Action Network credentials
+nodeTitle: Action Network 凭据
 originalFilePath: integrations/builtin/credentials/actionnetwork.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/actionnetwork'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/actionnetwork'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/actionnetwork
+url: https://docs.n8n.io/integrations/builtin/credentials/actionnetwork
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Action Network credentials <a href="#action-network-credentials" id="action-network-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Action Network 凭据 <a href="#action-network-credentials" id="action-network-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Action Network](../app-nodes/n8n-nodes-base.actionnetwork.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Action Network's API documentation](https://actionnetwork.org/docs/) for more information about working with the service.
+有关如何使用该服务的更多信息，请参阅 [Action Network API 文档](https://actionnetwork.org/docs/)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need an [Action Network](https://actionnetwork.org/) account with [API key access enabled](#request-api-access) and:
+配置此凭据需要一个[已启用 API 密钥访问](#request-api-access)的 [Action Network](https://actionnetwork.org/) 账户，以及：
 
-- An **API Key**
+- 一个 **API Key（API 密钥）**
 
-To get an API key:
+获取 API 密钥：
 
-1. Log in to your Action Network account.
-2. From the **Start Organizing** menu, select **Details >** [**API & Sync**](https://actionnetwork.org/apis).
-3. Select the list you want to generate an API key for.
-4. Generate an API key for that list.
-5. Copy the **API Key** and enter it in your n8n credential.
+1. 登录你的 Action Network 账户。
+2. 从 **Start Organizing**（开始组织活动）菜单选择 **Details >** [**API & Sync**](https://actionnetwork.org/apis)（详情 > API 与同步）。
+3. 选择要为其生成 API 密钥的列表。
+4. 为该列表生成 API 密钥。
+5. 复制 **API Key**（API 密钥），填入 n8n 凭据。
 
-Refer to the [Action Network API Authentication instructions](https://actionnetwork.org/docs/v2/#auth) for more information.
+更多信息请参阅 [Action Network API 身份验证说明](https://actionnetwork.org/docs/v2/#auth)。
 
-## Request API access <a href="#request-api-access" id="request-api-access"></a>
+## 申请 API 访问权限 <a href="#request-api-access" id="request-api-access"></a>
 
-Each user account and group on the Action Network has a separate API key to access that user or group's data.
+Action Network 中的每个用户账户和群组都有独立的 API 密钥，用于访问该用户或群组的数据。
 
-You must explicitly request API access from Action Network, which you can do in one of two ways:
+必须明确向 Action Network 申请 API 访问权限，可通过以下两种方式之一：
 
-1. If you're already a paying customer, [contact them](https://actionnetwork.org/contact) to request partner access. Partner access includes API key access.
-2. If you're a developer, [request a developer account](https://actionnetwork.org/developers). Once your account request is granted, you'll have API key access.
+1. 如果已经是付费客户，请[联系他们](https://actionnetwork.org/contact)申请合作伙伴访问权限。合作伙伴访问包含 API 密钥访问。
+2. 如果是开发者，请[申请开发者账户](https://actionnetwork.org/developers)。账户申请获批后，即可获得 API 密钥访问权限。

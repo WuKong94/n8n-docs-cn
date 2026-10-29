@@ -1,56 +1,54 @@
 ---
-title: Elastic Security node documentation
-description: >-
-  Learn how to use the Elastic Security node in n8n. Follow technical
-  documentation to integrate Elastic Security node into your workflows.
+title: Elastic Security 节点文档
+description: 了解如何在 n8n 中使用 Elastic Security 节点，并按照技术文档将 Elastic Security 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Elastic Security node documentation
+- integration
+- reference
+nodeTitle: Elastic Security 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.elasticsecurity.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.elasticsecurity
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.elasticsecurity
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.elasticsecurity
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.elasticsecurity
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Elastic Security node <a href="#elastic-security-node" id="elastic-security-node"></a>
 
-Use the Elastic Security node to automate work in Elastic Security, and integrate Elastic Security with other applications. n8n's has built-in support for a wide range of Elastic Security features, including creating, updating, deleting, retrieving, and getting cases.
+# Elastic Security 节点 <a href="#elastic-security-node" id="elastic-security-node"></a>
 
-On this page, you'll find a list of operations the Elastic Security node supports and links to more resources.
+使用 Elastic Security 节点自动处理 Elastic Security 中的工作，并将其与其他应用集成。n8n 内置支持多种 Elastic Security 功能，包括创建、更新、删除和获取案件。
+
+本页列出了 Elastic Security 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Elastic Security credentials](../credentials/elasticsecurity.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Elastic Security 凭据](../credentials/elasticsecurity.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Case
-    * Create a case
-    * Delete a case
-    * Get a case
-    * Retrieve all cases
-    * Retrieve a summary of all case activity
-    * Update a case
-* Case Comment
-    * Add a comment to a case
-    * Get a case comment
-    * Retrieve all case comments
-    * Remove a comment from a case
-    * Update a comment in a case
-* Case Tag
-    * Add a tag to a case
-    * Remove a tag from a case
-* Connector
-    * Create a connector
+* Case（案件）
+    * Create a case（创建案件）
+    * Delete a case（删除案件）
+    * Get a case（获取案件）
+    * Retrieve all cases（获取全部案件）
+    * Retrieve a summary of all case activity（获取全部案件活动的摘要）
+    * Update a case（更新案件）
+* Case Comment（案件评论）
+    * Add a comment to a case（为案件添加评论）
+    * Get a case comment（获取案件评论）
+    * Retrieve all case comments（获取全部案件评论）
+    * Remove a comment from a case（从案件移除评论）
+    * Update a comment in a case（更新案件中的评论）
+* Case Tag（案件标签）
+    * Add a tag to a case（为案件添加标签）
+    * Remove a tag from a case（从案件移除标签）
+* Connector（连接器）
+    * Create a connector（创建连接器）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Elastic Security node documentation integration templates](https://n8n.io/integrations/elastic-security) or [search all templates](https://n8n.io/workflows/)
+[浏览 Elastic Security 集成模板](https://n8n.io/integrations/elastic-security)，或[搜索所有模板](https://n8n.io/workflows/)

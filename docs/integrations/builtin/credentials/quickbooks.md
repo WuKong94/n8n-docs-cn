@@ -1,58 +1,58 @@
 ---
-title: QuickBooks credentials
-description: >-
-  Documentation for QuickBooks credentials. Use these credentials to
-  authenticate QuickBooks in n8n, a workflow automation platform.
+title: QuickBooks 凭据
+description: QuickBooks 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 QuickBooks 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: QuickBooks credentials
+- integration
+- reference
+nodeTitle: QuickBooks 凭据
 originalFilePath: integrations/builtin/credentials/quickbooks.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/quickbooks'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/quickbooks'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/quickbooks
+url: https://docs.n8n.io/integrations/builtin/credentials/quickbooks
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# QuickBooks credentials <a href="#quickbooks-credentials" id="quickbooks-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# QuickBooks 凭据 <a href="#quickbooks-credentials" id="quickbooks-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [QuickBooks](../app-nodes/n8n-nodes-base.quickbooks.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create an [Intuit developer](https://developer.intuit.com/) account.
+创建 [Intuit 开发者](https://developer.intuit.com/)账户。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Intuit's API documentation](https://developer.intuit.com/app/developer/qbo/docs/develop) for more information about the service.
+有关该服务的更多信息，请参阅 [Intuit API 文档](https://developer.intuit.com/app/developer/qbo/docs/develop)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Client ID**: Generated when you create an app.
-- A **Client Secret**: Generated when you create an app.
-- An **Environment**: Select whether this credential should access your **Production** or **Sandbox** environment. 
+- **Client ID**（客户端 ID）：创建应用时生成。
+- 一个 **Client Secret**（客户端密钥）：创建应用时生成。
+- 一个 **Environment**（环境）：选择此凭据访问 **Production**（生产）还是 **Sandbox**（沙箱）环境。
 
-To generate your **Client ID** and **Client Secret**, [create an app](https://developer.intuit.com/app/developer/qbo/docs/get-started/start-developing-your-app#create-an-app).
+要生成 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥），请[创建应用](https://developer.intuit.com/app/developer/qbo/docs/get-started/start-developing-your-app#create-an-app)。
 
-Use these settings when creating your app:
+创建应用时使用以下设置：
 
-- Select appropriate scopes for your app. Refer to [Learn about scopes](https://developer.intuit.com/app/developer/qbo/docs/learn/scopes) for more information.
-- Enter the **OAuth Redirect URL** from n8n as a **Redirect URI** in the app's **Development > Keys & OAuth** section.
-- Copy the **Client ID** and **Client Secret** from the app's **Development > Keys & OAuth** section to enter in n8n. Refer to [Get the Client ID and Client Secret for your app](https://developer.intuit.com/app/developer/qbo/docs/get-started/get-client-id-and-client-secret) for more information.
+- 为应用选择适当的作用域。更多信息请参阅[了解作用域](https://developer.intuit.com/app/developer/qbo/docs/learn/scopes)。
+- 将 n8n 的 **OAuth Redirect URL**（OAuth 重定向 URL）填入应用 **Development > Keys & OAuth**（开发 > 密钥与 OAuth）部分的 **Redirect URI**（重定向 URI）。
+- 从应用的 **Development > Keys & OAuth**（开发 > 密钥与 OAuth）部分复制 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥），填入 n8n。更多信息请参阅[获取应用的客户端 ID 和客户端密钥](https://developer.intuit.com/app/developer/qbo/docs/get-started/get-client-id-and-client-secret)。
 
-Refer to Intuit's [Set up OAuth 2.0 documentation](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0) for more information on the entire process.
+完整流程的更多信息，请参阅 Intuit 的[设置 OAuth 2.0 文档](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0)。
 
 {% hint style="info" %}
-**Environment selection**
+**环境选择**
 
-If you're creating a new app from scratch, start with the **Sandbox** environment. Production apps need to fulfill all Intuit's requirements. Refer to Intuit's [Publish your app documentation](https://developer.intuit.com/app/developer/qbo/docs/go-live/publish-app) for more information.
+如果从头创建新应用，请先使用 **Sandbox**（沙箱）环境。生产应用必须满足 Intuit 的所有要求，更多信息请参阅 Intuit 的[发布应用文档](https://developer.intuit.com/app/developer/qbo/docs/go-live/publish-app)。
 {% endhint %}
