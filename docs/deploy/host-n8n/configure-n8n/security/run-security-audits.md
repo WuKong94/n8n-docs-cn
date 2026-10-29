@@ -1,77 +1,79 @@
 ---
-title: Security audit
-description: Run a security audit on your n8n instance.
+title: 安全审计
+description: 在 n8n 实例上运行安全审计。
 contentType: howto
-nodeTitle: Run security audits
+nodeTitle: 运行安全审计
 originalFilePath: hosting/securing/security-audit.md
-originalUrl: 'https://docs.n8n.io/hosting/securing/security-audit'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/run-security-audits'
+originalUrl: https://docs.n8n.io/hosting/securing/security-audit
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/run-security-audits
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Security audit <a href="#security-audit" id="security-audit"></a>
 
-You can run a security audit on your n8n instance, to detect common security issues.
+# 安全审计 <a href="#security-audit" id="security-audit"></a>
 
-## How do I run a security audit in n8n? <a href="#run-an-audit" id="run-an-audit"></a>
+可以在 n8n 实例上运行安全审计，检测常见安全问题。
 
-You can run an audit using the CLI, the public API, or the n8n node.
+## 如何在 n8n 中运行安全审计？ <a href="#run-an-audit" id="run-an-audit"></a>
+
+可以通过 CLI、公共 API 或 n8n 节点运行审计。
 
 
 ### CLI <a href="#cli" id="cli"></a>
 
-Run `n8n audit`.
+运行 `n8n audit`。
 
 ### API <a href="#api" id="api"></a>
 
-Make a `POST` call to the `/audit` endpoint. You must authenticate as the instance owner.
+发送 `POST` 请求到 `/audit` 端点，必须以实例所有者身份验证。
 
-### n8n node <a href="#n8n-node" id="n8n-node"></a>
+### n8n 节点 <a href="#n8n-node" id="n8n-node"></a>
 
-Add the [n8n node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.n8n) to your workflow. Select **Resource** > **Audit** and **Operation** > **Generate**.
+在工作流中添加 [n8n 节点](../../../../integrations/builtin/core-nodes/n8n-nodes-base.n8n.md)。选择 **Resource（资源）** > **Audit（审计）**，以及 **Operation（操作）** > **Generate（生成）**。
 
-## What's in the security audit report? <a href="#report-contents" id="report-contents"></a>
+## 安全审计报告包含什么？ <a href="#report-contents" id="report-contents"></a>
 
-The audit generates five risk reports:
+审计会生成五份风险报告：
 
-### Credentials <a href="#credentials" id="credentials"></a>
+### 凭据 <a href="#credentials" id="credentials"></a>
 
-This report shows:
+此报告显示：
 
-* Credentials not used in a workflow.
-* Credentials not used in an active workflow.
-* Credentials not use in a recently active workflow.
+* 未在任何工作流中使用的凭据。
+* 未在激活工作流中使用的凭据。
+* 未在近期活动的工作流中使用的凭据。
 
-### Database <a href="#database" id="database"></a>
+### 数据库 <a href="#database" id="database"></a>
 
-This report shows:
+此报告显示：
 
-* Expressions used in **Execute Query** fields in SQL nodes.
-* Expressions used in **Query Parameters** fields in SQL nodes.
-* Unused **Query Parameters** fields in SQL nodes.
+* SQL 节点的 **Execute Query（执行查询）**字段中使用的表达式。
+* SQL 节点的 **Query Parameters（查询参数）**字段中使用的表达式。
+* SQL 节点中未使用的 **Query Parameters（查询参数）**字段。
 
-### File system <a href="#file-system" id="file-system"></a>
+### 文件系统 <a href="#file-system" id="file-system"></a>
 
-This report lists nodes that interact with the file system.
+此报告列出与文件系统交互的节点。
 
-### Nodes <a href="#nodes" id="nodes"></a>
+### 节点 <a href="#nodes" id="nodes"></a>
 
-This report shows:
+此报告显示：
 
-* Official risky nodes. These are n8n built in nodes. You can use them to fetch and run any code on the host system, which exposes the instance to exploits. You can view the list in [n8n code | Audit constants](https://github.com/n8n-io/n8n/blob/master/packages/cli/src/security-audit/constants.ts#L51), under `OFFICIAL_RISKY_NODE_TYPES`.
-* Community nodes.
-* Custom nodes.
+* 官方高风险节点。这些 n8n 内置节点可以在主机系统上获取并运行任意代码，使实例面临被利用的风险。可在 [n8n 代码 | 审计常量](https://github.com/n8n-io/n8n/blob/master/packages/cli/src/security-audit/constants.ts#L51)的 `OFFICIAL_RISKY_NODE_TYPES` 下查看列表。
+* 社区节点。
+* 自定义节点。
 
-### Instance <a href="#instance" id="instance"></a>
+### 实例 <a href="#instance" id="instance"></a>
 
-This report shows:
+此报告显示：
 
-* Unprotected webhooks in the instance.
-* Missing security settings
-* If your instance is outdated.
+* 实例中未受保护的 Webhook。
+* 缺失的安全设置。
+* 实例是否过时。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Security](../security.md)
+* [安全](../security.md)

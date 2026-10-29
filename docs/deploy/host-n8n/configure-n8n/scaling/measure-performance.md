@@ -1,74 +1,76 @@
 ---
-description: n8n performance and resource consumption benchmarking.
+description: n8n 性能和资源消耗基准测试。
 contentType: explanation
-nodeTitle: Measure performance
+nodeTitle: 衡量性能
 originalFilePath: hosting/scaling/performance-benchmarking.md
-originalUrl: 'https://docs.n8n.io/hosting/scaling/performance-benchmarking'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/measure-performance'
+originalUrl: https://docs.n8n.io/hosting/scaling/performance-benchmarking
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/measure-performance
 layout:
   description:
     visible: false
 ---
-
-# Performance and benchmarking <a href="#performance-and-benchmarking" id="performance-and-benchmarking"></a>
-
-n8n can handle up to 220 workflow executions per second on a single instance, with the ability to scale up further by adding more instances.
-
-This document outlines n8n's performance benchmarking. It describes the factors that affect performance, and includes two example benchmarks.
-
-## Performance factors <a href="#performance-factors" id="performance-factors"></a>
-
-The performance of n8n depends on factors including: 
-
-* The workflow type
-* The resources available to n8n
-* How you configure n8n's scaling options
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-## Run your own benchmarking <a href="#run-your-own-benchmarking" id="run-your-own-benchmarking"></a>
+# 性能与基准测试 <a href="#performance-and-benchmarking" id="performance-and-benchmarking"></a>
 
-To get an accurate estimate for your use case, run n8n's [benchmarking framework](https://github.com/n8n-io/n8n/tree/master/packages/quality/efficiency/scale/benchmark). The repository contains more information about the benchmarking.
+单个 n8n 实例每秒最多可处理 220 次工作流执行，还可以通过增加实例进一步扩展。
 
-## Example: Single instance performance <a href="#example-single-instance-performance" id="example-single-instance-performance"></a>
+本文介绍 n8n 的性能基准测试，说明影响性能的因素，并提供两个基准测试示例。
 
-This test measures how response time increases as requests per second increase. It looks at the response time when calling the Webhook Trigger node.
+## 性能影响因素 <a href="#performance-factors" id="performance-factors"></a>
 
-Setup:
+n8n 性能受以下因素影响：
 
-- Hardware: ECS c5a.large instance (4GB RAM)
-- n8n setup: Single n8n instance (running in main mode, with Postgres database)
-- Workflow: Webhook Trigger node, Edit Fields node
+* 工作流类型。
+* n8n 可用的资源。
+* n8n 扩展选项的配置方式。
+
+
+## 运行你自己的基准测试 <a href="#run-your-own-benchmarking" id="run-your-own-benchmarking"></a>
+
+要准确估算你的使用场景，请运行 n8n 的[基准测试框架](https://github.com/n8n-io/n8n/tree/master/packages/quality/efficiency/scale/benchmark)。仓库中提供了更多基准测试说明。
+
+## 示例：单实例性能 <a href="#example-single-instance-performance" id="example-single-instance-performance"></a>
+
+此测试衡量每秒请求数增加时，响应时间如何变化，观察调用 Webhook Trigger 节点时的响应时间。
+
+测试配置：
+
+- 硬件：ECS c5a.large 实例，4 GB RAM。
+- n8n 配置：单个 n8n 实例，以主进程模式运行，使用 Postgres 数据库。
+- 工作流：Webhook Trigger 节点、Edit Fields 节点。
 
 <figure markdown>
   <img src="../../../.gitbook/assets/benchmarking-single-instance-100-250.png" alt="">
-  <figcaption>This graph shows the percentage of requests to the Webhook Trigger node getting a response within 100 seconds, and how that varies with load. Under higher loads n8n usually still processes the data, but takes over 100s to respond.</figcaption>
+  <figcaption>此图显示向 Webhook Trigger 节点发出的请求中，在 100 秒内收到响应的百分比，以及该比例如何随负载变化。负载较高时，n8n 通常仍会处理数据，但响应时间会超过 100 秒。</figcaption>
 </figure>
 
 
 
-## Example: Multi-instance performance <a href="#example-multi-instance-performance" id="example-multi-instance-performance"></a>
+## 示例：多实例性能 <a href="#example-multi-instance-performance" id="example-multi-instance-performance"></a>
 
-This test measures how response time increases as requests per second increase. It looks at the response time when calling the Webhook Trigger node.
+此测试衡量每秒请求数增加时，响应时间如何变化，观察调用 Webhook Trigger 节点时的响应时间。
 
-Setup:
+测试配置：
 
-- Hardware: seven ECS c5a.4xlarge instances (8GB RAM each)
-- n8n setup: two webhook instances, four worker instances, one database instance (MySQL), one main instance running n8n and Redis
-- Workflow: Webhook Trigger node, Edit Fields node
-- Multi-instance setups use [Queue mode](enable-queue-mode.md)
+- 硬件：七个 ECS c5a.4xlarge 实例，每个 8 GB RAM。
+- n8n 配置：两个 webhook 实例、四个工作进程实例、一个数据库实例（MySQL），以及一个运行 n8n 和 Redis 的主实例。
+- 工作流：Webhook Trigger 节点、Edit Fields 节点。
+- 多实例配置使用[队列模式](enable-queue-mode.md)。
 
 <figure markdown>
   <img src="../../../.gitbook/assets/benchmarking-multi-instance-500-2500.png" alt="">
-  <figcaption>This graph shows the percentage of requests to the Webhook Trigger node getting a response within 100 seconds, and how that varies with load. Under higher loads n8n usually still processes the data, but takes over 100s to respond.</figcaption>
+  <figcaption>此图显示向 Webhook Trigger 节点发出的请求中，在 100 秒内收到响应的百分比，以及该比例如何随负载变化。负载较高时，n8n 通常仍会处理数据，但响应时间会超过 100 秒。</figcaption>
 </figure>
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Scaling](../scaling.md)
-* [Enable queue mode](enable-queue-mode.md)
-* [Control concurrency](control-concurrency.md)
-* [Manage execution data](manage-execution-data.md)
-* [Handle binary data](handle-binary-data.md)
-* [Use external storage](use-external-storage.md)
-* [Fix memory issues](fix-memory-issues.md)
+* [扩展](../scaling.md)
+* [启用队列模式](enable-queue-mode.md)
+* [控制并发](control-concurrency.md)
+* [管理执行数据](manage-execution-data.md)
+* [处理二进制数据](handle-binary-data.md)
+* [使用外部存储](use-external-storage.md)
+* [解决内存问题](fix-memory-issues.md)

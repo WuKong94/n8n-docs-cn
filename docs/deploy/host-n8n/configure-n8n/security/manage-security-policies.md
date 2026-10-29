@@ -1,161 +1,160 @@
 ---
-description: >-
-  Manage instance-wide security policies including MFA enforcement and personal
-  space controls.
+description: 管理实例级安全策略，包括强制 MFA 和个人空间控制。
 contentType: howto
-nodeTitle: Manage security policies
+nodeTitle: 管理安全策略
 originalFilePath: security-settings.md
-originalUrl: 'https://docs.n8n.io/security-settings'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/manage-security-policies
+originalUrl: https://docs.n8n.io/security-settings
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/manage-security-policies
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Security settings <a href="#security-settings" id="security-settings"></a>
 
-{% hint style="info" %}
-**Feature availability**
-
-Security settings are available on:
-
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Business, Enterprise
-
-Some settings require specific license features. Settings that aren't available on your plan display an **Upgrade** badge.
-{% endhint %}
-
-Security settings let you manage instance-wide security policies. You can enforce two-factor authentication for all users and control what users can do in their personal spaces.
-
-To access security settings, navigate to **Settings** > **Security**.
-
-## Enforce two-factor authentication <a href="#enforce-two-factor-authentication" id="enforce-two-factor-authentication"></a>
-
-You can require all users on your instance to set up two-factor authentication (2FA) when they sign in with email and password.
+# 安全设置 <a href="#security-settings" id="security-settings"></a>
 
 {% hint style="info" %}
-**Applies to email and password logins only**
+**功能可用范围**
 
-2FA enforcement applies to users authenticating with email and password. Users signing in through SSO (SAML or OIDC) aren't affected by this setting.
+安全设置可用于：
+
+- **n8n Cloud：**Enterprise。
+- **自托管：**商业版、企业版。
+
+部分设置需要特定的许可证功能。当前套餐不支持的设置会显示 **Upgrade**（升级）标记。
 {% endhint %}
 
-To enforce 2FA:
+安全设置允许你管理实例级安全策略。你可以为所有用户强制要求双因素身份验证，并控制用户在个人空间中能进行的操作。
 
-1. Navigate to **Settings** > **Security**.
-2. In the **Enforce two-factor authentication** section, toggle the switch on.
+要访问安全设置，请前往 **Settings**（设置）> **Security**（安全）。
 
-When you enable this setting:
+## 强制双因素身份验证 <a href="#enforce-two-factor-authentication" id="enforce-two-factor-authentication"></a>
 
-- All users must set up 2FA before they can continue using the instance.
-- Users who haven't configured 2FA yet are prompted to do so on their next sign-in.
-
-To stop enforcing 2FA, toggle the switch off. Users who already set up 2FA keep it enabled but new users are no longer required to configure it.
-
-Refer to [Two-factor authentication](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/verify-user-identity/require-two-factor-auth) for more information on how individual users can set up 2FA.
-
-## Personal space policies <a href="#personal-space-policies" id="personal-space-policies"></a>
-
-Personal space policies let instance admins control whether users can share and publish workflows and credentials from their personal spaces.
-
-### Sharing workflows and credentials <a href="#sharing-workflows-and-credentials" id="sharing-workflows-and-credentials"></a>
-
-Controls whether users can share workflows and credentials from their personal space with other users or projects.
-
-To manage sharing:
-
-1. Navigate to **Settings** > **Security**.
-2. In the **Personal Space** section, find **Sharing workflows and credentials**.
-3. Toggle the switch to enable or disable sharing.
-
-When you disable sharing:
-
-- Existing shares remain in place. The setting only affects new sharing actions.
-- The number of currently shared workflows and credentials is displayed below the toggle.
-
-### Publishing workflows <a href="#publishing-workflows" id="publishing-workflows"></a>
-
-Controls whether users can publish workflows from their personal space to make them available for execution.
-
-To manage publishing:
-
-1. Navigate to **Settings** > **Security**.
-2. In the **Personal Space** section, find **Publishing workflows**.
-3. Toggle the switch to enable or disable publishing.
-
-When you disable publishing:
-
-- Currently published workflows remain published. The setting only affects new publish actions.
-- The number of currently published personal workflows is displayed below the toggle.
-
-## Workflow reviews <a href="#workflow-reviews" id="workflow-reviews"></a>
+你可以要求实例上通过邮箱和密码登录的所有用户设置双因素身份验证（2FA）。
 
 {% hint style="info" %}
-**Preview status**
+**仅适用于邮箱和密码登录**
 
-Workflow reviews are in Preview and may change before general availability. Avoid relying on them in production workflows.
+强制 2FA 适用于通过邮箱和密码验证身份的用户。通过 SSO（SAML 或 OIDC）登录的用户不受此设置影响。
+{% endhint %}
+
+要强制要求 2FA：
+
+1. 前往 **Settings**（设置）> **Security**（安全）。
+2. 在 **Enforce two-factor authentication**（强制双因素身份验证）区域打开开关。
+
+启用此设置后：
+
+- 所有用户必须设置 2FA 才能继续使用实例。
+- 尚未配置 2FA 的用户会在下次登录时收到设置提示。
+
+要停止强制要求 2FA，请关闭开关。已设置 2FA 的用户仍保持启用，新用户则不再需要配置。
+
+个人用户如何设置 2FA，请参阅[双因素身份验证](../../../../administer/manage-users-and-access/verify-user-identity/require-two-factor-auth.md)。
+
+## 个人空间策略 <a href="#personal-space-policies" id="personal-space-policies"></a>
+
+个人空间策略允许实例管理员控制用户能否从个人空间共享工作流和凭据，以及发布工作流。
+
+### 共享工作流和凭据 <a href="#sharing-workflows-and-credentials" id="sharing-workflows-and-credentials"></a>
+
+控制用户能否将个人空间中的工作流和凭据共享给其他用户或项目。
+
+要管理共享：
+
+1. 前往 **Settings**（设置）> **Security**（安全）。
+2. 在 **Personal Space**（个人空间）区域找到 **Sharing workflows and credentials**（共享工作流和凭据）。
+3. 使用开关启用或禁用共享。
+
+禁用共享后：
+
+- 现有共享保持有效，此设置仅影响新的共享操作。
+- 开关下方显示当前已共享的工作流和凭据数量。
+
+### 发布工作流 <a href="#publishing-workflows" id="publishing-workflows"></a>
+
+控制用户能否发布个人空间中的工作流，使其可执行。
+
+要管理发布：
+
+1. 前往 **Settings**（设置）> **Security**（安全）。
+2. 在 **Personal Space**（个人空间）区域找到 **Publishing workflows**（发布工作流）。
+3. 使用开关启用或禁用发布。
+
+禁用发布后：
+
+- 当前已发布的工作流保持发布状态，此设置仅影响新的发布操作。
+- 开关下方显示当前已发布的个人工作流数量。
+
+## 工作流审核 <a href="#workflow-reviews" id="workflow-reviews"></a>
+
+{% hint style="info" %}
+**预览状态**
+
+工作流审核处于预览阶段，正式发布前可能更改。请避免在生产工作流中依赖此功能。
 {% endhint %}
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Workflow reviews are available on:
+工作流审核可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 
-Workflow reviews are available from n8n 2.37.0.
+自 n8n 2.37.0 起提供工作流审核。
 {% endhint %}
 
-With workflow reviews, teams can submit a workflow version for approval before publishing. Instance admins enable the feature for the whole instance.
+使用工作流审核，团队可以在发布前提交工作流版本以供批准。实例管理员为整个实例启用此功能。
 
-To enable workflow reviews:
+要启用工作流审核：
 
-1. Navigate to **Settings** > **Security & policies**.
-2. In the **Workflow reviews** section, turn on **Enable workflow reviews**.
+1. 前往 **Settings**（设置）> **Security & policies**（安全与策略）。
+2. 在 **Workflow reviews**（工作流审核）区域打开 **Enable workflow reviews**（启用工作流审核）。
 
-When the setting is off, users can't create or manage reviews. Turning the feature off also lifts the publish block for workflows that still have an open review. For how to submit, approve, and publish after you enable the feature, refer to [Workflow reviews](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/workflow-reviews).
+关闭此设置后，用户无法创建或管理审核。关闭功能还会解除仍有未完成审核的工作流的发布限制。启用后如何提交、批准和发布，请参阅[工作流审核](../../../../build/manage-workflows/workflow-reviews.md)。
 
-## Enforce execution data redaction <a href="#enforce-execution-data-redaction" id="enforce-execution-data-redaction"></a>
+## 强制执行数据脱敏 <a href="#enforce-execution-data-redaction" id="enforce-execution-data-redaction"></a>
 
-You can enforce [execution data redaction](redact-execution-data.md) for all workflows on the instance. Enforcement sets an instance-wide minimum redaction policy that individual workflow settings can't weaken.
+你可以对实例上的所有工作流强制要求[执行数据脱敏](redact-execution-data.md)。此功能设置实例级最低脱敏策略，单个工作流的设置不能弱化此策略。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Data redaction enforcement is available on:
+强制数据脱敏可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**企业版。
 
-Available from n8n 2.26.0.
+自 n8n 2.26.0 起提供。
 {% endhint %}
 
-To enforce data redaction:
+要强制要求数据脱敏：
 
-1. Navigate to **Settings** > **Security**.
-2. In the **Data redaction** section, toggle **Enforce data redaction** on.
-3. Under **Redact executions**, select the enforcement scope:
-	- **Production executions (Recommended)**: n8n redacts data from production executions in all workflows.
-	- **Manual and production executions**: n8n redacts data from both manual and production executions in all workflows.
-4. Confirm your choice in the dialog.
+1. 前往 **Settings**（设置）> **Security**（安全）。
+2. 在 **Data redaction**（数据脱敏）区域打开 **Enforce data redaction**（强制数据脱敏）。
+3. 在 **Redact executions**（执行脱敏）下选择强制范围：
+	- **Production executions (Recommended)**（生产执行，推荐）：n8n 对所有工作流的生产执行数据进行脱敏。
+	- **Manual and production executions**（手动执行和生产执行）：n8n 对所有工作流的手动执行和生产执行数据进行脱敏。
+4. 在对话框中确认选择。
 
-When you enable enforcement:
+启用强制脱敏后：
 
-- n8n redacts execution data for all workflows within the selected scope, including workflows that don't have redaction enabled in their own settings.
-- Users can't set workflow-level redaction settings weaker than the enforced scope. Workflows can still opt into stricter redaction, for example redacting manual executions when only production enforcement is active.
-- New workflows start with the enforced scope as their redaction policy.
+- n8n 会对所有工作流中属于所选范围的执行数据进行脱敏，包括未在自身设置中启用脱敏的工作流。
+- 用户不能将工作流级脱敏设置改为比强制范围更宽松的策略。工作流仍可以采用更严格的脱敏策略，例如仅强制生产执行脱敏时，也对手动执行脱敏。
+- 新工作流默认采用强制范围作为脱敏策略。
 
-Redaction enforcement requires an Enterprise license with the data redaction feature. For details on what redaction covers, revealing data, and permissions, refer to [Execution data redaction](redact-execution-data.md).
+强制脱敏需要包含数据脱敏功能的 Enterprise 许可证。脱敏覆盖范围、查看原始数据及权限的详情，请参阅[执行数据脱敏](redact-execution-data.md)。
 
-## Configure security policy with environment variables <a href="#configure-security-policy-with-environment-variables" id="configure-security-policy-with-environment-variables"></a>
+## 通过环境变量配置安全策略 <a href="#configure-security-policy-with-environment-variables" id="configure-security-policy-with-environment-variables"></a>
 
-You can also manage security policy settings from environment variables instead of through the UI. This option is available from n8n 2.18.0. Set `N8N_SECURITY_POLICY_MANAGED_BY_ENV` to `true` and provide the variables below. See [Manage instance settings using environment variables](../manage-settings-using-environment-variables.md) for how the activation pattern works.
+你也可以通过环境变量管理安全策略设置，而非通过界面。此选项自 n8n 2.18.0 起提供。将 `N8N_SECURITY_POLICY_MANAGED_BY_ENV` 设为 `true`，并提供以下变量。启用机制请参阅[通过环境变量管理实例设置](../manage-settings-using-environment-variables.md)。
 
-When `N8N_SECURITY_POLICY_MANAGED_BY_ENV` is `true`, the **Enforce two-factor authentication** and **Personal Space** toggles on this page become read-only.
+当 `N8N_SECURITY_POLICY_MANAGED_BY_ENV` 为 `true` 时，本页的 **Enforce two-factor authentication**（强制双因素身份验证）和 **Personal Space**（个人空间）开关变为只读。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/xVIddGVtWAPFZlRYTrwL/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/security-policy.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Security](../security.md)
+* [安全](../security.md)

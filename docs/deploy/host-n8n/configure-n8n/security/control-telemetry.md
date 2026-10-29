@@ -1,11 +1,11 @@
 ---
-title: Opt out of data collection
+title: 退出数据收集
 contentType: howto
-nodeTitle: Control telemetry
+nodeTitle: 控制遥测
 originalFilePath: hosting/securing/telemetry-opt-out.md
 originalUrl: https://docs.n8n.io/hosting/securing/telemetry-opt-out
 url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/control-telemetry
-description: Opt out of data telemetry collection on your n8n instance.
+description: 在 n8n 实例中退出遥测数据收集。
 layout:
   width: default
   title:
@@ -25,45 +25,47 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Control telemetry
 
-n8n collects anonymous telemetry data from self-hosted n8n installations. You can opt out of data telemetry collection.
+# 控制遥测 <a id="control-telemetry"></a>
 
-## Collected data <a href="#collected-data" id="collected-data"></a>
+n8n 从自托管安装中收集匿名遥测数据。你可以选择退出。
 
-Refer to [Privacy | Data collection in self-hosted n8n](https://app.gitbook.com/s/ukPPOMQ6NId4gpAIkPXa/#data-collection-in-self-hosted-n8n) for details on the data n8n collects.
+## 收集的数据 <a href="#collected-data" id="collected-data"></a>
 
-## How collection works <a href="#how-collection-works" id="how-collection-works"></a>
+n8n 收集的数据详情，请参阅[隐私 | 自托管 n8n 的数据收集](../../../../privacy-and-security/README.md#data-collection-in-self-hosted-n8n)。
 
-n8n sends most data when events occur. Workflow execution counts and an instance pulse are sent periodically (every 6 hours).
+## 收集方式 <a href="#how-collection-works" id="how-collection-works"></a>
 
-## Opting out of data collection <a href="#opting-out-of-data-collection" id="opting-out-of-data-collection"></a>
+大多数数据在事件发生时发送。工作流执行次数和实例心跳每六小时定期发送。
 
-n8n enables telemetry collection by default. To disable it, configure the following environment variables.
+## 退出数据收集 <a href="#opting-out-of-data-collection" id="opting-out-of-data-collection"></a>
 
-### Opt out of telemetry events <a href="#opt-out-of-telemetry-events" id="opt-out-of-telemetry-events"></a>
+n8n 默认启用遥测收集。要禁用，请配置以下环境变量。
 
-To opt out of diagnostic telemetry, set the `N8N_DIAGNOSTICS_ENABLED` environment variable to false:
+### 退出遥测事件收集 <a href="#opt-out-of-telemetry-events" id="opt-out-of-telemetry-events"></a>
+
+要退出诊断遥测，将 `N8N_DIAGNOSTICS_ENABLED` 环境变量设为 false：
 
 ```bash
 export N8N_DIAGNOSTICS_ENABLED=false
 ```
 
-### Opt out of checking for new versions of n8n <a href="#opt-out-of-checking-for-new-versions-of-n8n" id="opt-out-of-checking-for-new-versions-of-n8n"></a>
+### 退出 n8n 新版本检查 <a href="#opt-out-of-checking-for-new-versions-of-n8n" id="opt-out-of-checking-for-new-versions-of-n8n"></a>
 
-To opt out of version notifications, set the `N8N_VERSION_NOTIFICATIONS_ENABLED` environment variable to false:
+要退出版本通知，将 `N8N_VERSION_NOTIFICATIONS_ENABLED` 环境变量设为 false：
 
 ```bash
 export N8N_VERSION_NOTIFICATIONS_ENABLED=false
 ```
 
-## Disable all connection to n8n servers <a href="#disable-all-connection-to-n8n-servers" id="disable-all-connection-to-n8n-servers"></a>
+## 禁止连接 n8n 服务器 <a href="#disable-all-connection-to-n8n-servers" id="disable-all-connection-to-n8n-servers"></a>
 
-To prevent all communication with n8n's servers, refer to [Isolate n8n](../basic-configuration/configuration-examples/isolate-n8n.md).
+要禁止与 n8n 服务器的全部通信，请参阅[隔离 n8n](../basic-configuration/configuration-examples/isolate-n8n.md)。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-* [Security](../security.md): audit, harden, and restrict a self-hosted instance.
-* [Deployment environment variables](../basic-configuration/use-environment-variables/deployment.md): More information on these environment variables.
-* [Configuration](../basic-configuration.md): How to set environment variables.
+* [安全](../security.md)：审计、加固并限制自托管实例。
+* [部署环境变量](../basic-configuration/use-environment-variables/deployment.md)：这些环境变量的更多信息。
+* [配置](../basic-configuration.md)：如何设置环境变量。

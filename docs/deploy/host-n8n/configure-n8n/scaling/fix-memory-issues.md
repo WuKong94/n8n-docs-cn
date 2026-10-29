@@ -1,71 +1,73 @@
 ---
 contentType: explanation
-nodeTitle: Fix memory issues
+nodeTitle: 解决内存问题
 originalFilePath: hosting/scaling/memory-errors.md
-originalUrl: 'https://docs.n8n.io/hosting/scaling/memory-errors'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/fix-memory-issues'
+originalUrl: https://docs.n8n.io/hosting/scaling/memory-errors
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/fix-memory-issues
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Memory-related errors <a href="#memory-related-errors" id="memory-related-errors"></a>
 
-n8n doesn't restrict the amount of data each node can fetch and process. While this gives you freedom, it can lead to errors when workflow executions require more memory than available. This page explains how to identify and avoid these errors.
+# 内存相关错误 <a href="#memory-related-errors" id="memory-related-errors"></a>
+
+n8n 不限制各节点可获取和处理的数据量。这提供了灵活性，但当工作流执行所需内存超过可用内存时，可能导致错误。本页介绍如何识别并避免这些错误。
 
 {% hint style="info" %}
-**Only for self-hosted n8n**
+**仅适用于自托管 n8n**
 
-This page describes memory-related errors when [self-hosting n8n](../../README.md). Visit [Cloud data management](../../../use-n8n-cloud/configure-cloud/manage-your-data.md) to learn about memory limits for [n8n Cloud](../../../use-n8n-cloud/README.md).
+本页介绍[自托管 n8n](../../README.md)时的内存相关错误。[n8n Cloud](../../../use-n8n-cloud/README.md) 的内存限制请参阅 [Cloud 数据管理](../../../use-n8n-cloud/configure-cloud/manage-your-data.md)。
 {% endhint %}
 
-## Identifying out of memory situations <a href="#identifying-out-of-memory-situations" id="identifying-out-of-memory-situations"></a>
+## 识别内存不足的情况 <a href="#identifying-out-of-memory-situations" id="identifying-out-of-memory-situations"></a>
 
-n8n provides error messages that warn you in some out of memory situations. For example, messages such as **Execution stopped at this node (n8n may have run out of memory while executing it)**.
+部分内存不足情况会由 n8n 错误消息提示，例如 **Execution stopped at this node (n8n may have run out of memory while executing it)**（执行在此节点停止，n8n 可能在执行时内存不足）。
 
-Error messages including **Problem running workflow**, **Connection Lost**, or **503 Service Temporarily Unavailable** suggest that an n8n instance has become unavailable. 
+**Problem running workflow**（运行工作流时出现问题）、**Connection Lost**（连接丢失）或 **503 Service Temporarily Unavailable**（服务暂时不可用）等错误消息，表明 n8n 实例可能已不可用。
 
-When self-hosting n8n, you may also see error messages such as **Allocation failed - JavaScript heap out of memory** in your server logs. 
+自托管 n8n 时，服务器日志还可能出现 **Allocation failed - JavaScript heap out of memory**（分配失败，JavaScript 堆内存不足）等错误消息。
 
-On n8n Cloud, or when using n8n's Docker image, n8n restarts automatically when encountering such an issue. However, when running n8n with npm you might need to restart it manually.
+在 n8n Cloud 或使用 n8n Docker 镜像时，遇到此类问题后 n8n 会自动重启。但通过 npm 运行时，可能需要手动重启。
 
-## Typical causes <a href="#typical-causes" id="typical-causes"></a>
+## 常见原因 <a href="#typical-causes" id="typical-causes"></a>
 
-Such problems occur when a workflow execution requires more memory than available to an n8n instance. Factors increasing the memory usage for a workflow execution include:
+当工作流执行所需内存超过 n8n 实例的可用内存时，就会出现此类问题。增加工作流执行内存用量的因素包括：
 
-- Amount of [JSON data](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/work-with-data/understand-n8ns-data-structure).
-- Size of binary data.
-- Number of nodes in a workflow.
-- Some nodes are memory-heavy: the [Code](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.code) node and the older Function node can increase memory consumption significantly.
-- Manual or automatic workflow executions: manual executions increase memory consumption as n8n makes a copy of the data for the frontend.
-- Additional workflows running at the same time.
+- [JSON 数据](../../../../build/work-with-data/understand-n8ns-data-structure.md)的数量。
+- 二进制数据的大小。
+- 工作流中的节点数量。
+- 部分节点的内存开销较大：[Code](../../../../integrations/builtin/core-nodes/n8n-nodes-base.code/README.md) 节点和旧版 Function 节点可能显著增加内存消耗。
+- 工作流是手动执行还是自动执行：手动执行时，n8n 会为前端复制一份数据，因此内存消耗更高。
+- 同时运行的其他工作流。
 
-## Avoiding out of memory situations <a href="#avoiding-out-of-memory-situations" id="avoiding-out-of-memory-situations"></a>
+## 避免内存不足 <a href="#avoiding-out-of-memory-situations" id="avoiding-out-of-memory-situations"></a>
 
-When encountering an out of memory situation, there are two options: either increase the amount of memory available to n8n or reduce the memory consumption.
+遇到内存不足时有两种选择：增加 n8n 可用内存，或减少内存消耗。
 
-### Increase available memory <a href="#increase-available-memory" id="increase-available-memory"></a>
+### 增加可用内存 <a href="#increase-available-memory" id="increase-available-memory"></a>
 
-When self-hosting n8n, increasing the amount of memory available to n8n means provisioning your n8n instance with more memory. This may incur additional costs with your hosting provider.
+自托管 n8n 时，增加可用内存意味着为实例分配更多内存，可能产生额外的托管费用。
 
-On n8n cloud you need to upgrade to a larger plan.
+在 n8n Cloud 上，需要升级到更高规格的套餐。
 
-### Reduce memory consumption <a href="#reduce-memory-consumption" id="reduce-memory-consumption"></a>
+### 减少内存消耗 <a href="#reduce-memory-consumption" id="reduce-memory-consumption"></a>
 
-This approach is more complex and means re-building the workflows causing the issue. This section provides some guidelines on how to reduce memory consumption. Not all suggestions are applicable to all workflows.
+这种方法更复杂，需要重新构建导致问题的工作流。本节提供一些减少内存消耗的建议，并非所有建议都适用于每个工作流。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/EzVIOV8i2lmQ5HW3xFoo/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/scaling/reduce-memory-consumption.md" %}
 
-### Increase old memory <a href="#increase-old-memory" id="increase-old-memory"></a>
+### 增加老生代内存 <a href="#increase-old-memory" id="increase-old-memory"></a>
 
-This applies to self-hosting n8n. When encountering **JavaScript heap out of memory** errors, it's often useful to allocate additional memory to the old memory section of the V8 JavaScript engine. To do this, set the appropriate [V8 option](https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes) `--max-old-space-size=SIZE` either through the CLI or through the `NODE_OPTIONS` [environment variable](https://nodejs.org/api/cli.html#node_optionsoptions).
+此方法适用于自托管 n8n。遇到 **JavaScript heap out of memory**（JavaScript 堆内存不足）错误时，为 V8 JavaScript 引擎的老生代区域分配更多内存通常有帮助。请通过 CLI 设置相应的 [V8 选项](https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes) `--max-old-space-size=SIZE`，或通过 `NODE_OPTIONS` [环境变量](https://nodejs.org/api/cli.html#node_optionsoptions)设置。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Scaling](../scaling.md)
-* [Measure performance](measure-performance.md)
-* [Enable queue mode](enable-queue-mode.md)
-* [Control concurrency](control-concurrency.md)
-* [Manage execution data](manage-execution-data.md)
-* [Handle binary data](handle-binary-data.md)
-* [Use external storage](use-external-storage.md)
+* [扩展](../scaling.md)
+* [衡量性能](measure-performance.md)
+* [启用队列模式](enable-queue-mode.md)
+* [控制并发](control-concurrency.md)
+* [管理执行数据](manage-execution-data.md)
+* [处理二进制数据](handle-binary-data.md)
+* [使用外部存储](use-external-storage.md)

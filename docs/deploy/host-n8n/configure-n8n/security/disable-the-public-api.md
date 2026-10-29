@@ -1,39 +1,40 @@
 ---
-title: Disable the public REST API
-description: Disable the n8n public REST API to prevent others from using it.
+title: 禁用公共 REST API
+description: 禁用 n8n 公共 REST API，防止其他人使用。
 contentType: howto
-nodeTitle: Disable the public API
+nodeTitle: 禁用公共 API
 originalFilePath: hosting/securing/disable-public-api.md
-originalUrl: 'https://docs.n8n.io/hosting/securing/disable-public-api'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/disable-the-public-api
+originalUrl: https://docs.n8n.io/hosting/securing/disable-public-api
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/disable-the-public-api
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Disable the public REST API <a href="#disable-the-public-rest-api" id="disable-the-public-rest-api"></a>
 
-The [n8n public REST API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api) allows you to programmatically perform many of the same tasks as you can in the n8n GUI.
+# 禁用公共 REST API <a href="#disable-the-public-rest-api" id="disable-the-public-rest-api"></a>
 
-If you don't plan on using this API, n8n recommends disabling it to improve the security of your n8n installation.
+[n8n 公共 REST API](../../../../connect/n8n-api/README.md)允许你通过程序完成许多与图形界面中相同的任务。
 
-To disable the [public REST API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api), set the `N8N_PUBLIC_API_DISABLED` environment variable to `true`, for example:
+如果不打算使用此 API，n8n 建议禁用，以提高安装环境的安全性。
+
+要禁用[公共 REST API](../../../../connect/n8n-api/README.md)，将 `N8N_PUBLIC_API_DISABLED` 环境变量设为 `true`，例如：
 
 ```bash
 export N8N_PUBLIC_API_DISABLED=true
 ```
 
-## Disable the API playground <a href="#disable-the-api-playground" id="disable-the-api-playground"></a>
+## 禁用 API 调试界面 <a href="#disable-the-api-playground" id="disable-the-api-playground"></a>
 
-To disable the [API playground](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api/use-an-api-playground), set the `N8N_PUBLIC_API_SWAGGERUI_DISABLED` environment variable to `true`, for example:
+要禁用 [API 调试界面](../../../../connect/n8n-api/use-an-api-playground.md)，将 `N8N_PUBLIC_API_SWAGGERUI_DISABLED` 环境变量设为 `true`，例如：
 
 ```bash
 export N8N_PUBLIC_API_SWAGGERUI_DISABLED=true
 ```
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-* [Security](../security.md): audit, harden, and restrict a self-hosted instance.
-* [Deployment environment variables](../basic-configuration/use-environment-variables/deployment.md): more information on these environment variables.
-* [Configuration](../basic-configuration.md): how to set environment variables.
+* [安全](../security.md)：审计、加固并限制自托管实例。
+* [部署环境变量](../basic-configuration/use-environment-variables/deployment.md)：这些环境变量的更多信息。
+* [配置](../basic-configuration.md)：如何设置环境变量。

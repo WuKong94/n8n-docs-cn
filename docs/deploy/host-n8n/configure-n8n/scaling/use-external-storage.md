@@ -1,56 +1,58 @@
 ---
-description: External storage of binary data and execution data for your n8n instance.
+description: 将 n8n 实例的二进制数据和执行数据存储到外部。
 contentType: howto
 tags:
-  - external storage
-  - storage
+- external storage
+- storage
 hide:
-  - tags
+- tags
 search:
   boost: 1.5
-nodeTitle: Use external storage
+nodeTitle: 使用外部存储
 originalFilePath: hosting/scaling/external-storage.md
-originalUrl: 'https://docs.n8n.io/hosting/scaling/external-storage'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/use-external-storage'
+originalUrl: https://docs.n8n.io/hosting/scaling/external-storage
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/use-external-storage
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# External storage <a href="#external-storage" id="external-storage"></a>
+
+# 外部存储 <a href="#external-storage" id="external-storage"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-External storage is available on:
+外部存储可用于：
 
-- **Self-hosted:** Business, Enterprise
+- **自托管：**商业版、企业版。
 
-It isn't available on n8n Cloud.
+n8n Cloud 不提供此功能。
 
 {% endhint %}
 
-n8n can store binary data and execution data produced by workflow executions externally. This feature is useful to avoid relying on the database or filesystem for storing large amounts of data.
+n8n 可以将工作流执行产生的二进制数据和执行数据存储到外部，避免依赖数据库或文件系统存储大量数据。
 
-## Storing n8n's binary data in S3 <a href="#storing-n8ns-binary-data-in-s3" id="storing-n8ns-binary-data-in-s3"></a>
+## 将 n8n 的二进制数据存储到 S3 <a href="#storing-n8ns-binary-data-in-s3" id="storing-n8ns-binary-data-in-s3"></a>
 
-n8n supports [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) as an external store for binary data produced by workflow executions. You can use other S3-compatible services like Cloudflare R2 and Backblaze B2, but n8n doesn't officially support these.
+n8n 支持使用 [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) 作为工作流执行产生的二进制数据的外部存储。也可以使用 Cloudflare R2、Backblaze B2 等其他兼容 S3 的服务，但 n8n 不提供官方支持。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-S3 binary data storage is available on:
+S3 二进制数据存储可用于：
 
-- **Self-hosted:** Business, Enterprise
+- **自托管：**商业版、企业版。
 
-It isn't available on n8n Cloud.
+n8n Cloud 不提供此功能。
 
-Activate your [license key](../manage-your-license.md) before you enable external storage. n8n won't start in `s3` binary data mode without a valid license: set `N8N_DEFAULT_BINARY_DATA_MODE` to another mode or upgrade your plan.
+启用外部存储前，请激活[许可证密钥](../manage-your-license.md)。没有有效许可证时，n8n 无法以 `s3` 二进制数据模式启动；请将 `N8N_DEFAULT_BINARY_DATA_MODE` 设为其他模式，或升级套餐。
 {% endhint %}
 
-### Setup <a href="#setup" id="setup"></a>
+### 设置 <a href="#setup" id="setup"></a>
 
-Create and configure a bucket following the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html). You can use the following policy, replacing `<bucket-name>` with the name of the bucket you created:
+按照 [AWS 文档](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)创建并配置存储桶。可以使用以下策略，将 `<bucket-name>` 替换为所创建存储桶的名称：
 
 ```json
 {
@@ -66,9 +68,9 @@ Create and configure a bucket following the [AWS documentation](https://docs.aws
 }
 ```
 
-Set a bucket-level lifecycle configuration so that S3 automatically deletes old binary data. n8n delegates pruning of binary data to S3, so setting a lifecycle configuration is required unless you want to preserve binary data indefinitely.
+设置存储桶级生命周期配置，让 S3 自动删除旧二进制数据。n8n 将二进制数据清理交由 S3 处理，因此除非希望永久保留二进制数据，否则必须设置生命周期配置。
 
-Once you finish creating the bucket, you will have a host, bucket name and region, and an access key ID and secret access key. You need to set them in n8n's environment:
+创建存储桶后，你会获得主机地址、存储桶名称、区域，以及访问密钥 ID 和秘密访问密钥。需要在 n8n 的环境中设置：
 
 ```sh
 export N8N_EXTERNAL_STORAGE_S3_HOST=... # example: s3.us-east-1.amazonaws.com
@@ -79,23 +81,23 @@ export N8N_EXTERNAL_STORAGE_S3_ACCESS_SECRET=...
 ```
 
 {% hint style="info" %}
-**No region**
+**无区域**
 
-If your provider doesn't require a region, you can set `N8N_EXTERNAL_STORAGE_S3_BUCKET_REGION` to `'auto'`.
+如果提供商不要求区域，可以将 `N8N_EXTERNAL_STORAGE_S3_BUCKET_REGION` 设为 `'auto'`。
 {% endhint %}
 
-## Validate and update your S3 bucket region format (from n8n 2.6.4) <a href="#validate-and-update-your-s3-bucket-region-format-v264-onward" id="validate-and-update-your-s3-bucket-region-format-v264-onward"></a>
+## 验证并更新 S3 存储桶区域格式，自 n8n 2.6.4 起 <a href="#validate-and-update-your-s3-bucket-region-format-v264-onward" id="validate-and-update-your-s3-bucket-region-format-v264-onward"></a>
 
-Starting from n8n 2.6.4, the value of the environment variable `N8N_EXTERNAL_STORAGE_S3_BUCKET_REGION` must meet these conditions:
+自 n8n 2.6.4 起，环境变量 `N8N_EXTERNAL_STORAGE_S3_BUCKET_REGION` 的值必须满足以下条件：
 
-- Only contain alphanumeric characters (`a-z`, `A-Z`, `0-9`) and hyphens (`-`).
-- Not contain underscores (`_`) or other special characters.
+- 仅包含字母数字字符（`a-z`、`A-Z`、`0-9`）和连字符（`-`）。
+- 不包含下划线（`_`）或其他特殊字符。
 
-If these conditions are not met, n8n will fail startup with connection errors even if the storage endpoint is reachable and was previously working in older versions.
+不满足这些条件时，即使存储端点可访问，且在旧版本中正常工作，n8n 也会因连接错误启动失败。
 
-If S3 connection fails after upgrading n8n to 2.6.4, verify your region value matches these conditions and redeploy n8n.
+如果升级到 n8n 2.6.4 后 S3 连接失败，请确认区域值符合这些条件，然后重新部署 n8n。
 
-Tell n8n to store binary data in S3:
+指示 n8n 将二进制数据存储到 S3：
 
 ```sh
 export N8N_AVAILABLE_BINARY_DATA_MODES=filesystem,s3
@@ -104,122 +106,122 @@ export N8N_DEFAULT_BINARY_DATA_MODE=s3
 
 
 {% hint style="info" %}
-**Auth autodetection**
+**自动检测身份验证信息**
 
-To automatically detect credentials to authenticate your S3 calls, set `N8N_EXTERNAL_STORAGE_S3_AUTH_AUTO_DETECT` to `true`. This will use the default [credential provider chain](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials-node.html#credchain).
+要自动检测 S3 调用所需的凭据，将 `N8N_EXTERNAL_STORAGE_S3_AUTH_AUTO_DETECT` 设为 `true`，即可使用默认的[凭据提供程序链](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials-node.html#credchain)。
 {% endhint %}
 
-Restart the server to load the new configuration.
+重启服务器以加载新配置。
 
-### Usage <a href="#usage" id="usage"></a>
+### 使用 <a href="#usage" id="usage"></a>
 
-After you enable S3, n8n writes and reads any new binary data to and from the S3 bucket. n8n writes binary data to your S3 bucket in this format:
+启用 S3 后，n8n 会将所有新的二进制数据写入 S3 存储桶，并从中读取。写入存储桶时使用以下格式：
 
 ```
 workflows/{workflowId}/executions/{executionId}/binary_data/{binaryFileId}
 ```
 
-n8n continues to read older binary data stored in the filesystem from the filesystem, if `filesystem` remains listed as an option in `N8N_AVAILABLE_BINARY_DATA_MODES`.
+只要 `filesystem` 仍列为 `N8N_AVAILABLE_BINARY_DATA_MODES` 中的选项，n8n 就会继续从文件系统读取此前存储在其中的旧二进制数据。
 
-If you store binary data in S3 and later switch to filesystem mode, the instance continues to read any data stored in S3, as long as `s3` remains listed in `N8N_AVAILABLE_BINARY_DATA_MODES` and your S3 credentials remain valid.
+如果将二进制数据存入 S3 后又切换为文件系统模式，只要 `s3` 仍列在 `N8N_AVAILABLE_BINARY_DATA_MODES` 中，且 S3 凭据仍有效，实例就会继续读取 S3 中的数据。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/kct3MUrE5xSbDyeytQIX/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/scaling/binary-data-pruning.md" %}
 
-### Upgrade best practices for S3 storage <a href="#upgrade-best-practices-for-s3-storage" id="upgrade-best-practices-for-s3-storage"></a>
+### S3 存储升级最佳实践 <a href="#upgrade-best-practices-for-s3-storage" id="upgrade-best-practices-for-s3-storage"></a>
 
-When using S3 or S3-compatible storage:
+使用 S3 或兼容 S3 的存储时：
 
-1. Upgrade all n8n components (main, worker, runner) to the same version simultaneously to avoid protocol incompatibilities.
-2. For on-premise or S3-compatible storage over HTTP, set `N8N_EXTERNAL_STORAGE_S3_PROTOCOL=http` and include the protocol in the host configuration.
-3. Use only supported environment variable names: for access key, use `N8N_EXTERNAL_STORAGE_S3_ACCESS_KEY`.
+1. 同时将所有 n8n 组件，包括主实例、工作进程和任务运行器，升级到同一版本，以避免协议不兼容。
+2. 对于通过 HTTP 访问的本地部署或兼容 S3 的存储，设置 `N8N_EXTERNAL_STORAGE_S3_PROTOCOL=http`，并在主机配置中包含协议。
+3. 仅使用受支持的环境变量名：访问密钥使用 `N8N_EXTERNAL_STORAGE_S3_ACCESS_KEY`。
 
-Newer n8n versions have stricter validation and protocol handling. Older configurations may need updates after upgrading.
+新版 n8n 的验证和协议处理更严格，升级后可能需要更新旧配置。
 
-## Storing n8n's binary data in Azure Blob Storage
+## 将 n8n 的二进制数据存储到 Azure Blob Storage <a id="storing-n8ns-binary-data-in-azure-blob-storage"></a>
 
-n8n supports [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) as an external store for binary data produced by workflow executions. This uses the same Azure Blob configuration as [external execution data storage](../basic-configuration/use-environment-variables/external-data-storage.md#azure-blob-storage), so a single container can hold both binary data and execution data.
+n8n 支持使用 [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) 作为工作流执行产生的二进制数据的外部存储。它使用与[外部执行数据存储](../basic-configuration/use-environment-variables/external-data-storage.md#azure-blob-storage)相同的 Azure Blob 配置，因此单个容器可同时存放二进制数据和执行数据。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Azure Blob Storage for binary data is available on:
+Azure Blob Storage 二进制数据存储可用于：
 
-- **Self-hosted:** Business, Enterprise
+- **自托管：**商业版、企业版。
 
-It isn't available on n8n Cloud.
+n8n Cloud 不提供此功能。
 
-Activate your [license key](../manage-your-license.md) before you enable external storage. n8n won't start in `azure` binary data mode without a valid license: set `N8N_DEFAULT_BINARY_DATA_MODE` to another mode or upgrade your plan.
+启用外部存储前，请激活[许可证密钥](../manage-your-license.md)。没有有效许可证时，n8n 无法以 `azure` 二进制数据模式启动；请将 `N8N_DEFAULT_BINARY_DATA_MODE` 设为其他模式，或升级套餐。
 {% endhint %}
 
-### Azure setup
+### Azure 设置 <a id="azure-setup"></a>
 
-Create a blob container in your Azure storage account following the [Azure documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal).
+按照 [Azure 文档](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal)在 Azure 存储账号中创建 Blob 容器。
 
-Set the container name in n8n's environment. `N8N_EXTERNAL_STORAGE_AZURE_CONTAINER_NAME` is always required:
+在 n8n 环境中设置容器名称。`N8N_EXTERNAL_STORAGE_AZURE_CONTAINER_NAME` 始终为必填项：
 
 ```sh
 export N8N_EXTERNAL_STORAGE_AZURE_CONTAINER_NAME=...
 ```
 
-For authentication, n8n supports a connection string, an account name and key, or managed identity (`DefaultAzureCredential`). Refer to [External data storage environment variables | Azure Blob Storage](../basic-configuration/use-environment-variables/external-data-storage.md#azure-blob-storage) for the full list of authentication variables and the order in which n8n checks them.
+身份验证方面，n8n 支持连接字符串、账号名称和密钥，或托管标识（`DefaultAzureCredential`）。完整的身份验证变量列表及 n8n 检查这些变量的顺序，请参阅[外部数据存储环境变量 | Azure Blob Storage](../basic-configuration/use-environment-variables/external-data-storage.md#azure-blob-storage)。
 
-n8n delegates pruning of binary data to Azure, so set a [lifecycle management policy](https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview) on the container to automatically delete old binary data. Setting a lifecycle policy is required unless you want to preserve binary data indefinitely.
+n8n 将二进制数据清理交由 Azure 处理，因此请为容器设置[生命周期管理策略](https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview)，自动删除旧二进制数据。除非希望永久保留二进制数据，否则必须设置生命周期策略。
 
-Tell n8n to store binary data in Azure Blob Storage:
+指示 n8n 将二进制数据存储到 Azure Blob Storage：
 
 ```sh
 export N8N_AVAILABLE_BINARY_DATA_MODES=filesystem,azure
 export N8N_DEFAULT_BINARY_DATA_MODE=azure
 ```
 
-Restart the server to load the new configuration.
+重启服务器以加载新配置。
 
-### Azure usage
+### Azure 使用 <a id="azure-usage"></a>
 
-After you enable Azure Blob Storage, n8n writes and reads any new binary data to and from the container. n8n writes binary data to your container in this format:
+启用 Azure Blob Storage 后，n8n 会将所有新的二进制数据写入容器，并从中读取。写入容器时使用以下格式：
 
 ```
 workflows/{workflowId}/executions/{executionId}/binary_data/{binaryFileId}
 ```
 
-n8n continues to read older binary data stored in the filesystem from the filesystem, if `filesystem` remains listed as an option in `N8N_AVAILABLE_BINARY_DATA_MODES`.
+只要 `filesystem` 仍列为 `N8N_AVAILABLE_BINARY_DATA_MODES` 中的选项，n8n 就会继续从文件系统读取此前存储在其中的旧二进制数据。
 
-If you store binary data in Azure Blob Storage and later switch to filesystem mode, the instance continues to read any data stored in Azure, as long as `azure` remains listed in `N8N_AVAILABLE_BINARY_DATA_MODES` and your Azure credentials remain valid.
+如果将二进制数据存入 Azure Blob Storage 后又切换为文件系统模式，只要 `azure` 仍列在 `N8N_AVAILABLE_BINARY_DATA_MODES` 中，且 Azure 凭据仍有效，实例就会继续读取 Azure 中的数据。
 
-## Storing n8n's execution data in S3
+## 将 n8n 的执行数据存储到 S3 <a id="storing-n8ns-execution-data-in-s3"></a>
 
-n8n can also store execution data in S3.
+n8n 也可以将执行数据存储到 S3。
 
-Configure the S3 bucket and credentials as described in the binary data [setup](#setup) section, then tell n8n to store execution data in S3:
+按照二进制数据[设置](#setup)一节配置 S3 存储桶和凭据，然后指示 n8n 将执行数据存储到 S3：
 
 ```sh
 export N8N_EXECUTION_DATA_STORAGE_MODE=s3
 ```
 
-In [queue mode](enable-queue-mode.md), set `N8N_EXECUTION_DATA_STORAGE_MODE` and the `N8N_EXTERNAL_STORAGE_S3_*` variables on all instances, including workers.
+在[队列模式](enable-queue-mode.md)下，需要在包括工作进程在内的所有实例上设置 `N8N_EXECUTION_DATA_STORAGE_MODE` 和 `N8N_EXTERNAL_STORAGE_S3_*` 变量。
 
 {% hint style="warning" %}
-**License required to start**
+**启动需要许可证**
 
-S3 execution data storage requires a Business or Enterprise plan with an active [license key](../manage-your-license.md). If you set `N8N_EXECUTION_DATA_STORAGE_MODE=s3` without a valid license, n8n won't start. To start n8n again, switch the mode back to `database` or `filesystem`, or restore a valid license.
+S3 执行数据存储需要 Business 或 Enterprise 套餐，以及已激活的[许可证密钥](../manage-your-license.md)。没有有效许可证时，如果设置了 `N8N_EXECUTION_DATA_STORAGE_MODE=s3`，n8n 将无法启动。要重新启动，请将模式改回 `database` 或 `filesystem`，或恢复有效许可证。
 {% endhint %}
 
-After you enable S3 execution data storage, n8n writes the data of any new execution to your S3 bucket in this format:
+启用 S3 执行数据存储后，n8n 会将所有新执行的数据按以下格式写入 S3 存储桶：
 
 ```
 workflows/{workflowId}/executions/{executionId}/execution_data/bundle.json
 ```
 
-n8n records where each execution's data is stored, so switching modes is non-destructive. Older executions stay readable from the database or filesystem, and if you later switch back to another mode, executions stored in S3 stay readable as long as the bucket remains configured.
+n8n 会记录每次执行的数据存储位置，因此切换模式不会破坏数据。旧执行仍可从数据库或文件系统读取；以后切回其他模式时，只要存储桶仍配置有效，S3 中的执行也保持可读。
 
-n8n prunes execution data in S3 itself, using the standard [executions pruning](manage-execution-data.md#enable-executions-pruning) settings (the `EXECUTIONS_DATA_*` variables). Unlike binary data, execution data doesn't rely on an S3 lifecycle rule. Don't add a lifecycle rule for execution data, as it could delete data that n8n still references.
+n8n 会使用标准[执行清理](manage-execution-data.md#enable-executions-pruning)设置，即 `EXECUTIONS_DATA_*` 变量，自行清理 S3 中的执行数据。与二进制数据不同，执行数据不依赖 S3 生命周期规则。不要为执行数据添加生命周期规则，否则可能删除 n8n 仍在引用的数据。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Scaling](../scaling.md)
-* [Measure performance](measure-performance.md)
-* [Enable queue mode](enable-queue-mode.md)
-* [Control concurrency](control-concurrency.md)
-* [Manage execution data](manage-execution-data.md)
-* [Handle binary data](handle-binary-data.md)
-* [Fix memory issues](fix-memory-issues.md)
+* [扩展](../scaling.md)
+* [衡量性能](measure-performance.md)
+* [启用队列模式](enable-queue-mode.md)
+* [控制并发](control-concurrency.md)
+* [管理执行数据](manage-execution-data.md)
+* [处理二进制数据](handle-binary-data.md)
+* [解决内存问题](fix-memory-issues.md)

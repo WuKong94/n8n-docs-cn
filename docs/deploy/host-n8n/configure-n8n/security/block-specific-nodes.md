@@ -1,56 +1,57 @@
 ---
-title: Block access to nodes
-description: Prevent your n8n users from accessing specific nodes.
+title: 阻止访问节点
+description: 防止 n8n 用户访问指定节点。
 contentType: howto
-nodeTitle: Block specific nodes
+nodeTitle: 阻止特定节点
 originalFilePath: hosting/securing/blocking-nodes.md
-originalUrl: 'https://docs.n8n.io/hosting/securing/blocking-nodes'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/block-specific-nodes
+originalUrl: https://docs.n8n.io/hosting/securing/blocking-nodes
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/block-specific-nodes
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Block access to nodes <a href="#block-access-to-nodes" id="block-access-to-nodes"></a>
 
-For security reasons, you may want to block your users from accessing or working with specific n8n nodes. This is helpful if your users might be untrustworthy.
+# 阻止访问节点 <a href="#block-access-to-nodes" id="block-access-to-nodes"></a>
 
-Use the `NODES_EXCLUDE` environment variable to prevent your users from accessing specific nodes.
+出于安全原因，你可能希望禁止用户访问或使用特定 n8n 节点。用户可能不可信时，这种限制尤其有用。
 
-To block nodes per project, or without restarting n8n, use [node type policies](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-users-and-access/control-node-availability) instead. `NODES_EXCLUDE` stops n8n from loading a node at all, so it's the stronger option for nodes that must never run.
+使用 `NODES_EXCLUDE` 环境变量，阻止用户访问指定节点。
 
-## Exclude nodes <a href="#exclude-nodes" id="exclude-nodes"></a>
+如需按项目阻止节点，或不重启 n8n 就应用限制，请使用[节点类型策略](../../../../administer/manage-users-and-access/control-node-availability.md)。`NODES_EXCLUDE` 会完全阻止 n8n 加载节点，因此对于绝不应运行的节点，这是更强的限制方式。
 
-Update your `NODES_EXCLUDE` environment variable to include an array of strings containing any nodes you want to block your users from using.
+## 排除节点 <a href="#exclude-nodes" id="exclude-nodes"></a>
 
-For example, setting the variable this way:
+更新 `NODES_EXCLUDE` 环境变量，将所有要禁止用户使用的节点写入字符串数组。
+
+例如，按以下方式设置变量：
 
 ```
 NODES_EXCLUDE: "[\"n8n-nodes-base.executeCommand\", \"n8n-nodes-base.readWriteFile\"]"
 ```
 
-Blocks the [Execute Command](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executecommand) and [Read/Write Files from Disk](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.readwritefile) nodes.
+会阻止 [Execute Command](../../../../integrations/builtin/core-nodes/n8n-nodes-base.executecommand/README.md) 和 [Read/Write Files from Disk](../../../../integrations/builtin/core-nodes/n8n-nodes-base.readwritefile.md) 节点。
 
-Your n8n users won't be able to search for or use these nodes.
+n8n 用户将无法搜索或使用这些节点。
 
-## Suggested nodes to block <a href="#suggested-nodes-to-block" id="suggested-nodes-to-block"></a>
+## 建议阻止的节点 <a href="#suggested-nodes-to-block" id="suggested-nodes-to-block"></a>
 
-The nodes that can pose security risks vary based on your use case and user profile. Here are some nodes you might want to start with:
+可能带来安全风险的节点取决于使用场景和用户类型。可以先考虑以下节点：
 
-* [Execute Command](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.executecommand)
-* [Read/Write Files from Disk](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.readwritefile)
+* [Execute Command](../../../../integrations/builtin/core-nodes/n8n-nodes-base.executecommand/README.md)
+* [Read/Write Files from Disk](../../../../integrations/builtin/core-nodes/n8n-nodes-base.readwritefile.md)
 
-## Enable nodes that are blocked by default <a href="#enable-nodes-that-are-blocked-by-default" id="enable-nodes-that-are-blocked-by-default"></a>
+## 启用默认被阻止的节点 <a href="#enable-nodes-that-are-blocked-by-default" id="enable-nodes-that-are-blocked-by-default"></a>
 
-Some nodes, like Execute Command, are blocked by default. Remove them from the exclude list to enable them:
+Execute Command 等部分节点默认被阻止。要启用，请将它们从排除列表中移除：
 
 ```
 NODES_EXCLUDE: "[]"
 ```
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-* [Security](../security.md): audit, harden, and restrict a self-hosted instance.
-* [Nodes environment variables](../basic-configuration/use-environment-variables/nodes.md): more information on this environment variable.
-* [Configuration](../basic-configuration.md): how to set environment variables.
+* [安全](../security.md)：审计、加固并限制自托管实例。
+* [节点环境变量](../basic-configuration/use-environment-variables/nodes.md)：此环境变量的更多信息。
+* [配置](../basic-configuration.md)：如何设置环境变量。

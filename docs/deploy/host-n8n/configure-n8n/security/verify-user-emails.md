@@ -1,30 +1,32 @@
 ---
-title: Restrict account registration to email-verified users
-description: Require all new accounts to be verified by email.
+title: 仅允许邮箱已验证的用户注册账号
+description: 要求所有新账号通过邮箱验证。
 contentType: howto
-nodeTitle: Verify user emails
+nodeTitle: 验证用户邮箱
 originalFilePath: hosting/securing/restrict-by-email-verification.md
-originalUrl: 'https://docs.n8n.io/hosting/securing/restrict-by-email-verification'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/verify-user-emails'
+originalUrl: https://docs.n8n.io/hosting/securing/restrict-by-email-verification
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/verify-user-emails
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Restrict account registration to email-verified users <a href="#restrict-account-registration-to-email-verified-users" id="restrict-account-registration-to-email-verified-users"></a>
 
-You can require all new accounts to be verified by email. This prevents malicious admins from registering accounts without email verification.
+# 仅允许邮箱已验证的用户注册账号 <a href="#restrict-account-registration-to-email-verified-users" id="restrict-account-registration-to-email-verified-users"></a>
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+可以要求所有新账号通过邮箱验证，防止恶意管理员在未经邮箱验证的情况下注册账号。
 
-* SMTP must be set up and n8n must be able to send emails.
+## 前提条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## How to restrict account registration <a href="#how-to-restrict-account-registration" id="how-to-restrict-account-registration"></a>
+* 必须配置 SMTP，并确保 n8n 能发送邮件。
 
-Set the environment variable `N8N_INVITE_LINKS_EMAIL_ONLY` to `true`. This locks down your instance so that only users with verified email addresses can register.
+## 如何限制账号注册 <a href="#how-to-restrict-account-registration" id="how-to-restrict-account-registration"></a>
 
-For more details on configuring SMTP, see [Set up SMTP](../user-management.md#step-one-smtp).
+将环境变量 `N8N_INVITE_LINKS_EMAIL_ONLY` 设为 `true`。这样可以限制实例，仅允许邮箱已验证的用户注册。
 
-## Related resources
+SMTP 配置详情请参阅[设置 SMTP](../user-management.md#step-one-smtp)。
 
-* [Security](../security.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [安全](../security.md)

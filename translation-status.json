@@ -3765,7 +3765,7 @@
   "privacy-and-security/README.md": {
     "status": "translated",
     "source_sha256": "93fe151f7f3a0ea99e97bf8d104777b5e7a282bc7240d72ae8f8f0f4b17c5ec6",
-    "translation_sha256": "cd62ca62a22b1aa9bf705f8ab8e14476ff7c3fc8323ee7035479b92a9a6a751d",
+    "translation_sha256": "dd8c9b9c2cbbd9357653bb6989258c8128890d628fda4ae4d38b5d9d00efae47",
     "checks": [
       "code-examples-identical",
       "image-resources-preserved",
@@ -5652,6 +5652,259 @@
     "status": "translated",
     "source_sha256": "84d996774c2246027df9c66826435db3d9ad736dde56bda3e000056969f43e2c",
     "translation_sha256": "03c615e4cb2b1af36666587232cdf51c34833ffc24f919e6f957701930f0435d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security.md": {
+    "status": "translated",
+    "source_sha256": "76bd3d36d79046d9a2cf948087b6172d4215e922c48ea03d297be8ec2f13ba0f",
+    "translation_sha256": "56828de3499902207d16ddb33ed3718f4a41ec18b9a7200b2056195d5d24799a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/block-specific-nodes.md": {
+    "status": "translated",
+    "source_sha256": "4dfa3779c9439a831627e25a0feab002025de5118bc28a9c5c1f2ff341ea0953",
+    "translation_sha256": "390989b5ab6fc8a248c2e95801c3c20a2a6ba7f319ef65cfa9b2e3b82bf7d3a3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/configure-sso.md": {
+    "status": "translated",
+    "source_sha256": "1da41090b22b5a50589a9f739e7292264e6361f693dcba65370e7c132120dd75",
+    "translation_sha256": "3da7118fa4ddd60fc4dca4020f9f2e7c56c6e632b5d6e5eae03a3bd357151a39",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/control-telemetry.md": {
+    "status": "translated",
+    "source_sha256": "3d1ffa04a4f02c0bb31eb1e65fb68a861f8912a65b26cf343d7c5b7fe0a41d17",
+    "translation_sha256": "78caf23234b25ce8b8b0b18ec93c70e150606bfb29a11ffbf87ff96dcf6edea4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/disable-the-public-api.md": {
+    "status": "translated",
+    "source_sha256": "3b72a61f183eea9d8c3a93bf12d528388bcdee951d897051b2034de1cac0deda",
+    "translation_sha256": "3a56bdf8a910edd93028ea0437a7d9eaf4689b82e7ea1d83dd70e452c9aa305d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/enable-ssrf-protection.md": {
+    "status": "translated",
+    "source_sha256": "67024fedff71b3c3db7ce8f706ba82c0dd500793998633f0f9baa3777bc892f5",
+    "translation_sha256": "27c453e170e685d153b19b33024f0aeedabe5a246eb5d78dd6716972d80d6085",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/harden-task-runners.md": {
+    "status": "translated",
+    "source_sha256": "5265938c830568f64a52d22ba36394cf0ec147c472257e8f7681c08578b4ffbf",
+    "translation_sha256": "554e63095b95a4cd58ef29b7b99ebae2d0423a41440730f75ee9f4133a48599d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/run-security-audits.md": {
+    "status": "translated",
+    "source_sha256": "c7c427fdaed6fc101d2ef39e74ac984e6599cda57ac8daa1e591fb749b52f181",
+    "translation_sha256": "90a51fae71dbc90fbd93adbe0cf45db255da7dae1b4b08f437e02da72ac99896",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/set-up-ssl.md": {
+    "status": "translated",
+    "source_sha256": "4a97a87c96ffbeb62847888bd3274ec59025f175bee546a53d21764fcbf56a30",
+    "translation_sha256": "80485a703252a481be84d2eff15c628f6683bb943321ab0838f828d53d8cb133",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/verify-user-emails.md": {
+    "status": "translated",
+    "source_sha256": "7bf4a7af876b7d21ae84894184b5ecb76becaefb61f01d279f318667c0a37b79",
+    "translation_sha256": "08e14dcc22a2283f3c69ef4a24955332046a8bffabefa1abf2c99f6048a8c4d3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/decrypt-oauth-20-tokens-with-jwe.md": {
+    "status": "translated",
+    "source_sha256": "89951eeef6cb0ec61aa9106aabbcd9cde347226351f0636fad5a6f953624c0f8",
+    "translation_sha256": "c6e567e77fd8182c368684787d701fb567098048fc2940d8175f25174fcdd9ee",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/manage-security-policies.md": {
+    "status": "translated",
+    "source_sha256": "e58f23a3b447402fb971f2253f3a548ffb48bf36037770a15a2dff9a27fe0ae3",
+    "translation_sha256": "ef7727f4bcab1d27fafaa1066aea31038802546026f850fe5d135d14f2dc7c9c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/rotate-encryption-keys.md": {
+    "status": "translated",
+    "source_sha256": "82e5baa47835d6667dc1b63f695a76b024e0ad55687aa749c0a3c4a86243860c",
+    "translation_sha256": "45fcab665677bd18257ec7f3e8a1ee9c06154d694b11ead9b12cffa440110ba4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/security/redact-execution-data.md": {
+    "status": "translated",
+    "source_sha256": "36a221081af7ea3a4347c9e46b48db142d7a9fe136432b11a7a1e2e430d87e98",
+    "translation_sha256": "b24007519ffa6085639ccf1400c1eac8b6fda2321cc8c2ee92ad999b7fac1a0f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling.md": {
+    "status": "translated",
+    "source_sha256": "a9a9f22f9c5c0c2b8a4842ec798f0e54247ea86753e7eeb73d8c203cd66b5b65",
+    "translation_sha256": "aaa3692592a9d0c9a868afd0980d00bd033aad7fa36dc75eef0a85365f3b2535",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling/control-concurrency.md": {
+    "status": "translated",
+    "source_sha256": "4ca7a24324f5ed7caf0af011ac97c090ab8f74d37e9a53b03507ead713e954fe",
+    "translation_sha256": "0dea567ee4c666cee259d8a0dcd430734329598132e1bf8b35d493ed025c5a60",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling/fix-memory-issues.md": {
+    "status": "translated",
+    "source_sha256": "16023603979d2481ea5af73fccf763292c68557eace74ff24bdacaa40b9bf406",
+    "translation_sha256": "b616e21621d7170b66970c76a6b5bde4767ba521dd13879b692e75b0657896c4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling/handle-binary-data.md": {
+    "status": "translated",
+    "source_sha256": "5b76e6bde7d35f55e271d83f66c6987eee7e266510861d30933b7dc047113712",
+    "translation_sha256": "74867c8cab979de7bb10fb39b451402f5b08ed1482e20a9eaf52c546e4f03ac8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling/manage-execution-data.md": {
+    "status": "translated",
+    "source_sha256": "db09e33c91d11474f20fdb8f99c4a153b0902f786af85e98f2cdbd8a0ceeffde",
+    "translation_sha256": "1f58162c6a5e8343dad9451055780fb45ac28f75d565680fa9cb244e2e980dd0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling/measure-performance.md": {
+    "status": "translated",
+    "source_sha256": "897b391b923cbc343ecdc1caf253316cad58f512581a2aa48c81c776991b5fe4",
+    "translation_sha256": "2b677b3e9ac5e013fd6ad0b6914bfa717db1e5784f06d3e50d6544d28d18a5e2",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling/use-external-storage.md": {
+    "status": "translated",
+    "source_sha256": "42dad7a6d6a2bf92b220d2904ccebfa60207e7e7d0bd4dffed3da566d29db163",
+    "translation_sha256": "cfc784fb16a2ab4fa1816e9f5a27dbe6a58e85aa0e2f5855898c0d760b0e5d03",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/scaling/enable-queue-mode.md": {
+    "status": "translated",
+    "source_sha256": "1aa1882693649914ea665650a4d74a7e1760059a5823be34af7418d917acecf0",
+    "translation_sha256": "3c2c7ccdf4721b15ec3e0f50ebb0a89622414cd1a937d72ac755968371210c8f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/scaling/binary-data-pruning.md": {
+    "status": "translated",
+    "source_sha256": "641ec8c2dba6cc8467f64535b7453997400697b57ed96bef5ee8a1a637c53e0a",
+    "translation_sha256": "2e01abcad1eaca7232c062b3d440e08df9fcbe41792bd4e1840c86fb8dd190bd",
     "checks": [
       "code-examples-identical",
       "image-resources-preserved",

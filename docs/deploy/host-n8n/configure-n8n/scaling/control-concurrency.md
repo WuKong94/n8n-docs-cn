@@ -1,61 +1,63 @@
 ---
 contentType: explanation
-nodeTitle: Control concurrency
+nodeTitle: 控制并发
 originalFilePath: hosting/scaling/concurrency-control.md
-originalUrl: 'https://docs.n8n.io/hosting/scaling/concurrency-control'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/control-concurrency'
+originalUrl: https://docs.n8n.io/hosting/scaling/concurrency-control
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/control-concurrency
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Self-hosted concurrency control <a href="#self-hosted-concurrency-control" id="self-hosted-concurrency-control"></a>
+
+# 自托管并发控制 <a href="#self-hosted-concurrency-control" id="self-hosted-concurrency-control"></a>
 
 {% hint style="info" %}
-**Only for self-hosted n8n**
+**仅适用于自托管 n8n**
 
-This document is for self-hosted concurrency control. Read [Cloud concurrency](../../../use-n8n-cloud/understand-concurrency.md) to learn how concurrency works with n8n Cloud accounts.
+本文介绍自托管部署的并发控制。n8n Cloud 账号的并发机制，请参阅 [Cloud 并发](../../../use-n8n-cloud/understand-concurrency.md)。
 {% endhint %}
 
-In regular mode, n8n doesn't limit how many production executions may run at the same time. This can lead to a scenario where too many concurrent executions thrash the event loop, causing performance degradation and unresponsiveness. 
+在常规模式下，n8n 不限制同时运行的生产执行数量。这可能导致过多并发执行使事件循环过载，造成性能下降和无响应。
 
-To prevent this, you can set a concurrency limit for production executions in regular mode. Use this to control how many production executions run concurrently, and queue up any concurrent production executions over the limit. These executions remain in the queue until concurrency capacity frees up, and are then processed in FIFO order.
+为避免这种情况，可以在常规模式下为生产执行设置并发上限，以控制同时运行的数量，并将超出上限的生产执行加入队列。这些执行会留在队列中，直到有空闲并发容量，再按先进先出（FIFO）顺序处理。
 
-Concurrency control is disabled by default. To enable it:
+默认禁用并发控制。要启用：
 
 ```sh
 export N8N_CONCURRENCY_PRODUCTION_LIMIT=20
 ```
 
-Keep in mind:
+请注意：
 
-- Concurrency control applies only to production executions: those started from a webhook or trigger[^1] node. It doesn't apply to any other kinds, such as manual executions, sub-workflow executions, error executions, or started from CLI.
-- You can't retry queued executions. Cancelling or deleting a queued execution also removes it from the queue.
-- On instance startup, n8n resumes queued executions up to the concurrency limit and re-enqueues the rest.
+- 并发控制仅适用于生产执行，即由 webhook 或触发器[^1]节点启动的执行。不适用于手动执行、子工作流执行、错误执行或通过 CLI 启动的执行等其他类型。
+- 无法重试排队中的执行。取消或删除排队中的执行，也会将其移出队列。
+- 实例启动时，n8n 会在并发上限内恢复排队的执行，并将其余执行重新加入队列。
 
-- To monitor concurrency control, watch logs for executions being added to the queue and released. In a future version, n8n will show concurrency control in the UI.
+- 要监控并发控制，请查看日志中执行加入队列和移出队列的记录。未来版本会在界面中显示并发控制信息。
 
 
-When you enable concurrency control, you can view the number of active executions and the configured limit at the top of a project's or workflow's executions tab.
+启用并发控制后，可以在项目或工作流的执行选项卡顶部查看活动执行数量和配置的上限。
 
-## Comparison to queue mode <a href="#comparison-to-queue-mode" id="comparison-to-queue-mode"></a>
+## 与队列模式的比较 <a href="#comparison-to-queue-mode" id="comparison-to-queue-mode"></a>
 
-In queue mode, you can control how many jobs a worker may run concurrently using the [`--concurrency` flag](enable-queue-mode.md#configure-worker-concurrency).
+在队列模式下，可以通过 [`--concurrency` 标志](enable-queue-mode.md#configure-worker-concurrency)控制单个工作进程同时运行的作业数量。
 
-Concurrency control in queue mode is a separate mechanism from concurrency control in regular mode, but the environment variable `N8N_CONCURRENCY_PRODUCTION_LIMIT` controls both of them. In queue mode, n8n takes the limit from this variable if set to a value other than `-1`, falling back to the `--concurrency` flag or its default.
+队列模式和常规模式的并发控制是独立机制，但两者都受 `N8N_CONCURRENCY_PRODUCTION_LIMIT` 环境变量控制。在队列模式下，如果此变量设为非 `-1` 的值，n8n 会将其作为上限；否则使用 `--concurrency` 标志或其默认值。
 
-## Evaluation concurrency <a href="#evaluation-concurrency" id="evaluation-concurrency"></a>
+## 评估并发 <a href="#evaluation-concurrency" id="evaluation-concurrency"></a>
 
-Evaluation test runs use a separate concurrency limit from production executions. By default, the limit follows the instance's license tier (Community/Pro 1, Business 3, Enterprise 5). Override it with [`N8N_CONCURRENCY_EVALUATION_LIMIT`](../basic-configuration/use-environment-variables/executions.md). Refer to [Metric-based evaluations](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/test-and-improve-ai-workflows/use-metrics-to-measure-quality#run-test-cases-in-parallel) for how the slider behaves in the UI.
+评估测试运行使用独立于生产执行的并发上限。默认上限取决于实例的许可证层级：Community/Pro 为 1，Business 为 3，Enterprise 为 5。可通过 [`N8N_CONCURRENCY_EVALUATION_LIMIT`](../basic-configuration/use-environment-variables/executions.md) 覆盖。界面中滑块的行为请参阅[基于指标的评估](../../../../build/integrate-ai/test-and-improve-ai-workflows/use-metrics-to-measure-quality.md#run-test-cases-in-parallel)。
 
-[^1]: A trigger node is a special node responsible for executing the workflow in response to certain conditions. All production workflows need at least one trigger to determine when the workflow should run.
+[^1]: 触发器节点是一种特殊节点，用于在满足特定条件时执行工作流。所有生产工作流都至少需要一个触发器，以决定工作流何时运行。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Scaling](../scaling.md)
-* [Measure performance](measure-performance.md)
-* [Enable queue mode](enable-queue-mode.md)
-* [Manage execution data](manage-execution-data.md)
-* [Handle binary data](handle-binary-data.md)
-* [Use external storage](use-external-storage.md)
-* [Fix memory issues](fix-memory-issues.md)
+* [扩展](../scaling.md)
+* [衡量性能](measure-performance.md)
+* [启用队列模式](enable-queue-mode.md)
+* [管理执行数据](manage-execution-data.md)
+* [处理二进制数据](handle-binary-data.md)
+* [使用外部存储](use-external-storage.md)
+* [解决内存问题](fix-memory-issues.md)

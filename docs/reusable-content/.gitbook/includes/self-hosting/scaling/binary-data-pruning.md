@@ -1,8 +1,10 @@
 ---
-title: binary-data-pruning
+title: 二进制数据清理
 ---
-{% hint style="info" %}
-**Binary data pruning**
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-Binary data pruning operates on the active binary data mode. For example, if your instance stored data in S3, and you later switched to filesystem mode, n8n only prunes binary data in the filesystem. This may change in future.
+{% hint style="info" %}
+**二进制数据清理**
+
+二进制数据清理仅作用于当前启用的二进制数据模式。例如，实例此前在 S3 中存储数据，后来切换为文件系统模式，n8n 就仅清理文件系统中的二进制数据。这一行为未来可能更改。
 {% endhint %}

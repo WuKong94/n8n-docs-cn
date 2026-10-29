@@ -81,7 +81,7 @@ n8n 会收集有限的产品使用信息，用于保持产品正常运行、修�
 
 遥测则不同。如果实例向 n8n 发送使用和诊断数据，n8n 是这些数据的控制者，并决定使用方式。
 
-### n8n 为遥测收集哪些内容 <a id="what-n8n-collects-for-telemetry"></a>
+### n8n 为遥测收集哪些内容 <a id="data-collection-in-self-hosted-n8n"></a> <a id="what-n8n-collects-for-telemetry"></a>
 
 n8n 尽可能对遥测数据进行假名化，并避免收集敏感数据。收集类别如下。
 

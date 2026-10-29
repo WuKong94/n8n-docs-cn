@@ -1,31 +1,32 @@
 ---
 contentType: howto
-nodeTitle: Manage execution data
+nodeTitle: 管理执行数据
 originalFilePath: hosting/scaling/execution-data.md
-originalUrl: 'https://docs.n8n.io/hosting/scaling/execution-data'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/manage-execution-data
+originalUrl: https://docs.n8n.io/hosting/scaling/execution-data
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/manage-execution-data
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Execution data <a href="#execution-data" id="execution-data"></a>
 
-Depending on your executions settings and volume, your n8n database can grow in size and run out of storage.
+# 执行数据 <a href="#execution-data" id="execution-data"></a>
 
-To avoid this, n8n recommends that you don't save unnecessary data, and enable pruning of old executions data.
+根据执行设置和执行量的不同，n8n 数据库可能不断增大，耗尽存储空间。
 
-To do this, configure the corresponding [environment variables](../basic-configuration/use-environment-variables/executions.md).
+为避免此问题，n8n 建议不保存不必要的数据，并启用旧执行数据清理。
 
-## Reduce saved data <a href="#reduce-saved-data" id="reduce-saved-data"></a>
+请配置相应的[环境变量](../basic-configuration/use-environment-variables/executions.md)。
+
+## 减少保存的数据 <a href="#reduce-saved-data" id="reduce-saved-data"></a>
 
 {% hint style="info" %}
-**Configuration at workflow level**
+**工作流级配置**
 
-You can also configure these settings on an individual workflow basis using the [workflow settings](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/configure-workflow-settings).
+也可以通过[工作流设置](../../../../build/manage-workflows/configure-workflow-settings.md)，为各个工作流单独配置这些选项。
 {% endhint %}
-You can select which executions data n8n saves. For example, you can save only executions that result in an `Error`.
+可以选择 n8n 保存哪些执行数据。例如，只保存以 `Error` 结束的执行。
 
 ```sh
 # npm <a href="#npm" id="npm"></a>
@@ -65,20 +66,20 @@ n8n:
       - EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS=false
 ```
 
-## Enable executions pruning <a href="#enable-executions-pruning" id="enable-executions-pruning"></a>
+## 启用执行清理 <a href="#enable-executions-pruning" id="enable-executions-pruning"></a>
 
-Executions pruning deletes finished executions along with their execution data and binary data on a regular schedule. n8n enables pruning by default. For performance reasons, pruning first marks targets for deletion, and then later permanently removes them.
+执行清理会定期删除已完成的执行及其执行数据和二进制数据。n8n 默认启用清理。出于性能考虑，清理会先将目标标记为待删除，之后再永久移除。
 
-n8n prunes executions when **either** of the following condition occur:
+满足以下**任一**条件时，n8n 会清理执行：
 
-- **Age**: The execution finished more than `EXECUTIONS_DATA_MAX_AGE` hours ago (default: 336 hours -> 14 days).
-- **Count**: The total number of executions exceeds `EXECUTIONS_DATA_PRUNE_MAX_COUNT` (default: 10,000). When this occurs, n8n deletes executions from oldest to newest.
+- **时间**：执行已结束超过 `EXECUTIONS_DATA_MAX_AGE` 小时，默认 336 小时，即 14 天。
+- **数量**：执行总数超过 `EXECUTIONS_DATA_PRUNE_MAX_COUNT`，默认为 10,000。此时 n8n 按从旧到新的顺序删除执行。
 
-Keep in mind:
+请注意：
 
-- Executions with the `new`, `running`, or `waiting` status aren't eligible for pruning.
-- Annotated executions (for example, executions with tags or ratings) are never pruned.
-- Pruning honors a safety buffer period of `EXECUTIONS_DATA_HARD_DELETE_BUFFER` hours (default: 1h), to ensure recent data remains available while the user is building or debugging a workflow.
+- 状态为 `new`、`running` 或 `waiting` 的执行不符合清理条件。
+- 带注释的执行，例如带有标签或评分的执行，永远不会被清理。
+- 清理会遵循 `EXECUTIONS_DATA_HARD_DELETE_BUFFER` 小时的安全缓冲期，默认为 1 小时，确保用户构建或调试工作流时仍可访问近期数据。
 
 ```sh
 # Enable executions pruning <a href="#enable-executions-pruning" id="enable-executions-pruning"></a>
@@ -113,17 +114,17 @@ n8n:
 {% hint style="info" %}
 **SQLite**
 
-If you run n8n using the default SQLite database, the disk space of any pruned data isn't automatically freed up but rather reused for future executions data. To free up this space configure the `DB_SQLITE_VACUUM_ON_STARTUP` [environment variable](../basic-configuration/use-environment-variables/database.md#sqlite) or manually run the [VACUUM](https://www.sqlite.org/lang_vacuum.html) operation.
+如果使用默认的 SQLite 数据库运行 n8n，已清理数据所占的磁盘空间不会自动释放，而是留给未来的执行数据复用。要释放空间，请配置 `DB_SQLITE_VACUUM_ON_STARTUP` [环境变量](../basic-configuration/use-environment-variables/database.md#sqlite)，或手动执行 [VACUUM](https://www.sqlite.org/lang_vacuum.html) 操作。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/kct3MUrE5xSbDyeytQIX/" %}
+{% include "../../../../reusable-content/.gitbook/includes/self-hosting/scaling/binary-data-pruning.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Scaling](../scaling.md)
-* [Measure performance](measure-performance.md)
-* [Enable queue mode](enable-queue-mode.md)
-* [Control concurrency](control-concurrency.md)
-* [Handle binary data](handle-binary-data.md)
-* [Use external storage](use-external-storage.md)
-* [Fix memory issues](fix-memory-issues.md)
+* [扩展](../scaling.md)
+* [衡量性能](measure-performance.md)
+* [启用队列模式](enable-queue-mode.md)
+* [控制并发](control-concurrency.md)
+* [处理二进制数据](handle-binary-data.md)
+* [使用外部存储](use-external-storage.md)
+* [解决内存问题](fix-memory-issues.md)

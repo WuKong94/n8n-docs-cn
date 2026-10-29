@@ -1,125 +1,124 @@
 ---
-title: Encryption key rotation
-description: >-
-  Enable and rotate the data encryption key that protects credentials and other
-  sensitive data on your self-hosted n8n instance.
+title: 加密密钥轮换
+description: 启用并轮换用于保护自托管 n8n 实例中凭据和其他敏感数据的数据加密密钥。
 contentType: howto
-nodeTitle: Rotate encryption keys
+nodeTitle: 轮换加密密钥
 originalFilePath: hosting/securing/encryption-key-rotation.md
-originalUrl: 'https://docs.n8n.io/hosting/securing/encryption-key-rotation'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/rotate-encryption-keys
+originalUrl: https://docs.n8n.io/hosting/securing/encryption-key-rotation
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/security/rotate-encryption-keys
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Encryption key rotation <a href="#encryption-key-rotation" id="encryption-key-rotation"></a>
+
+# 加密密钥轮换 <a href="#encryption-key-rotation" id="encryption-key-rotation"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Encryption key rotation is available on:
+加密密钥轮换可用于：
 
-- **Self-hosted:** All editions
+- **自托管：**所有版本。
 
-It isn't available on n8n Cloud.
+n8n Cloud 不提供此功能。
 
-Encryption key rotation is on by default from n8n 3.0. On earlier versions, you turn it on with an environment variable.
+自 n8n 3.0 起，默认启用加密密钥轮换。更早版本需通过环境变量启用。
 
-You need to be the instance owner to turn the feature on or off and to rotate keys.
+只有实例所有者才能启用或禁用此功能，以及轮换密钥。
 {% endhint %}
 
-Encryption key rotation lets you periodically replace the key that encrypts your n8n data, like credentials, OAuth tokens, and other sensitive content, without changing your instance's master encryption key.
+加密密钥轮换允许你定期更换用于加密 n8n 数据的密钥，例如凭据、OAuth 令牌及其他敏感内容，而无需更改实例的主加密密钥。
 
-## How encryption key rotation works <a href="#how-encryption-key-rotation-works" id="how-encryption-key-rotation-works"></a>
+## 加密密钥轮换的工作原理 <a href="#how-encryption-key-rotation-works" id="how-encryption-key-rotation-works"></a>
 
-n8n uses a two-layer key model:
+n8n 使用两层密钥模型：
 
-* **Instance encryption key** (`N8N_ENCRYPTION_KEY`): your master key, set at deployment time. This key never changes. n8n uses it only to protect the data encryption keys.
-* **Data encryption key**: the key that directly encrypts your credential data. This is the key you rotate. n8n stores it encrypted in the database, protected by the instance key.
+* **实例加密密钥**（`N8N_ENCRYPTION_KEY`）：部署时设置的主密钥，始终保持不变。n8n 仅用它保护数据加密密钥。
+* **数据加密密钥**：直接加密凭据数据的密钥，也是轮换的对象。n8n 将其加密后存储在数据库中，由实例密钥保护。
 
-When you rotate, n8n generates a new data encryption key and uses it for all future writes. Existing data encrypted with the previous key remains readable. n8n silently re-encrypts each record to the new key the next time you update it.
+轮换时，n8n 会生成新的数据加密密钥，用于此后的所有写入。使用旧密钥加密的现有数据仍然可读。下次更新每条记录时，n8n 会自动使用新密钥重新加密。
 
-## Before you begin <a href="#before-you-begin" id="before-you-begin"></a>
+## 开始之前 <a href="#before-you-begin" id="before-you-begin"></a>
 
 {% hint style="warning" %}
-**Take a full database backup first**
+**请先完整备份数据库**
 
-Once n8n writes data with a data encryption key, older n8n versions can't read it. Back up your database before you turn the feature on, and before you upgrade to n8n 3.0, which turns it on for you. See [Backwards compatibility and rollback](#backwards-compatibility-and-rollback) for details.
+一旦 n8n 使用数据加密密钥写入数据，旧版 n8n 就无法读取。启用此功能前，以及升级到会自动启用此功能的 n8n 3.0 前，请备份数据库。详情请参阅[向后兼容与回滚](#backwards-compatibility-and-rollback)。
 {% endhint %}
 
-You also need to make sure that:
+你还需要确保：
 
-* All n8n instances, main and all workers, share the same `N8N_ENCRYPTION_KEY` value.
-* You have direct control over your environment variables and your n8n database. This is only possible on self-hosted deployments.
+* 所有 n8n 实例，包括主实例和所有工作进程，都使用相同的 `N8N_ENCRYPTION_KEY` 值。
+* 你可以直接控制环境变量和 n8n 数据库。只有自托管部署满足此条件。
 
-## Enable encryption key rotation <a href="#enable-encryption-key-rotation" id="enable-encryption-key-rotation"></a>
+## 启用加密密钥轮换 <a href="#enable-encryption-key-rotation" id="enable-encryption-key-rotation"></a>
 
-From n8n 3.0, encryption key rotation is on by default. You don't need to set anything. On first startup after the upgrade, n8n generates the initial data encryption key and stores it, encrypted, in your database.
+自 n8n 3.0 起，默认启用加密密钥轮换，无需额外设置。升级后首次启动时，n8n 会生成初始数据加密密钥，并加密存储在数据库中。
 
-On n8n 2.x, turn the feature on yourself:
+在 n8n 2.x 中，请手动启用此功能：
 
-1. Set the following environment variable on **all** n8n instances, both main and workers:
+1. 在**所有** n8n 实例上设置以下环境变量，包括主实例和工作进程：
 
     ```sh
     N8N_ENV_FEAT_ENCRYPTION_KEY_ROTATION=true
     ```
 
-2. Restart all instances. On startup, n8n automatically generates the initial data encryption key and stores it, encrypted, in your database.
+2. 重启所有实例。n8n 会在启动时自动生成初始数据加密密钥，并加密存储在数据库中。
 
-To confirm the feature is active, go to **Settings** > **Data Encryption Keys**. You should see the active key listed.
+要确认功能已生效，请前往 **Settings**（设置）> **Data Encryption Keys**（数据加密密钥），应能看到列出的当前活动密钥。
 
-## Rotate the active key <a href="#rotate-the-active-key" id="rotate-the-active-key"></a>
+## 轮换当前活动密钥 <a href="#rotate-the-active-key" id="rotate-the-active-key"></a>
 
-Once the feature is enabled, you can rotate to a new data encryption key at any time.
+启用此功能后，你可以随时轮换为新的数据加密密钥。
 
-### Using the UI <a href="#using-the-ui" id="using-the-ui"></a>
+### 使用界面 <a href="#using-the-ui" id="using-the-ui"></a>
 
-Go to **Settings** > **Data Encryption Keys** and select **Rotate key**.
+前往 **Settings**（设置）> **Data Encryption Keys**（数据加密密钥），选择 **Rotate key**（轮换密钥）。
 
-### Using the API <a href="#using-the-api" id="using-the-api"></a>
+### 使用 API <a href="#using-the-api" id="using-the-api"></a>
 
-Make a `POST` call to the `/encryption/keys` endpoint. The request requires the `encryptionKey:manage` global scope. n8n never returns key material in API responses, only metadata such as the ID, algorithm, status, and timestamps.
+发送 `POST` 请求到 `/encryption/keys` 端点。请求需要 `encryptionKey:manage` 全局权限范围。n8n 的 API 响应不会返回密钥内容，只返回 ID、算法、状态和时间戳等元数据。
 
-After rotation, n8n uses the new active key for all new writes. Records encrypted with previous keys remain readable. n8n re-encrypts them to the new key the next time you update each record.
+轮换后，所有新写入都使用新的活动密钥。使用旧密钥加密的记录仍然可读。下次更新每条记录时，n8n 会使用新密钥重新加密。
 
-## Turn off encryption key rotation
+## 关闭加密密钥轮换 <a id="turn-off-encryption-key-rotation"></a>
 
-From n8n 2.40.3, you can turn encryption key rotation off again. Set the following environment variable on **all** n8n instances, both main and workers, then restart them:
+自 n8n 2.40.3 起，可以再次关闭加密密钥轮换。在**所有** n8n 实例上设置以下环境变量，包括主实例和工作进程，然后重启：
 
 ```sh
 N8N_ENV_FEAT_ENCRYPTION_KEY_ROTATION=false
 ```
 
-On versions earlier than n8n 2.40.3, turning the feature off after n8n has written data in the new format makes that data permanently inaccessible. Upgrade to n8n 2.40.3 first.
+在早于 n8n 2.40.3 的版本中，如果 n8n 已用新格式写入数据，再关闭此功能会导致这些数据永久无法访问。请先升级到 n8n 2.40.3。
 
-## Backwards compatibility and rollback <a href="#backwards-compatibility-and-rollback" id="backwards-compatibility-and-rollback"></a>
+## 向后兼容与回滚 <a href="#backwards-compatibility-and-rollback" id="backwards-compatibility-and-rollback"></a>
 
 {% hint style="danger" %}
-**Don't downgrade n8n after encryption key rotation writes data**
+**加密密钥轮换写入数据后，请勿降级 n8n**
 
-Read this section before you turn the feature on, and before you upgrade to n8n 3.0, which turns it on for you.
+启用此功能前，以及升级到会自动启用此功能的 n8n 3.0 前，请阅读本节。
 {% endhint %}
 
-Once encryption key rotation is on, n8n writes credentials and other sensitive data in a new format that includes a key identifier. Older versions of n8n can't read this format.
+启用加密密钥轮换后，n8n 会使用包含密钥标识符的新格式写入凭据和其他敏感数据。旧版 n8n 无法读取此格式。
 
-* **Don't downgrade your n8n version** after n8n writes data in the new format. Older versions can't decrypt it.
-* **Turning the feature off is safe from n8n 2.40.3.** On earlier versions, setting `N8N_ENV_FEAT_ENCRYPTION_KEY_ROTATION` to `false` makes all data encrypted since you turned the feature on permanently inaccessible.
+* n8n 使用新格式写入数据后，**请勿降级 n8n 版本**。旧版无法解密这些数据。
+* **自 n8n 2.40.3 起，可以安全关闭此功能。**在更早版本中，将 `N8N_ENV_FEAT_ENCRYPTION_KEY_ROTATION` 设为 `false`，会使启用此功能后加密的所有数据永久无法访问。
 
-There's no automated tool to convert data encrypted in the new format back to the legacy format. If you end up on an n8n version that can't read it, the only recovery path is restoring from a database backup.
+目前没有自动化工具将新格式加密的数据转换回旧格式。如果最终使用的 n8n 版本无法读取数据，唯一恢复方式是还原数据库备份。
 
-## Recommended steps <a href="#recommended-steps" id="recommended-steps"></a>
+## 建议步骤 <a href="#recommended-steps" id="recommended-steps"></a>
 
-1. **Back up your database**. Take a full snapshot before any changes, including before you upgrade to n8n 3.0.
-2. **Try staging first**. Turn the feature on, or upgrade to n8n 3.0, in a non-production environment, restart, and verify that credentials still decrypt correctly.
-3. **Then do production**. Only do this after validating staging behavior.
-4. **Don't downgrade**. Once production data has been written in the new format, stay on the same or a newer n8n version.
+1. **备份数据库**。任何更改之前都先创建完整快照，包括升级到 n8n 3.0 之前。
+2. **先在预发布环境尝试**。在非生产环境启用此功能或升级到 n8n 3.0，重启后验证凭据仍能正确解密。
+3. **再应用到生产环境**。仅在验证预发布环境行为后进行。
+4. **不要降级**。一旦生产数据使用新格式写入，就保持当前 n8n 版本或使用更新版本。
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-* [Security](../security.md): audit, harden, and restrict a self-hosted instance.
-* [Set a custom encryption key](../basic-configuration/configuration-examples/set-a-custom-encryption-key.md): set the instance-level `N8N_ENCRYPTION_KEY` value.
-* [Deployment environment variables](../basic-configuration/use-environment-variables/deployment.md): reference for `N8N_ENCRYPTION_KEY` and `N8N_ENV_FEAT_ENCRYPTION_KEY_ROTATION`.
-* [Configuring queue mode](../scaling/enable-queue-mode.md): make sure all workers share the same instance encryption key.
-* [n8n 3.0 breaking changes](https://app.gitbook.com/s/hhM8Cox90Piiv0u0EgHM/v30-breaking-changes): what changes when you upgrade, including encryption key rotation.
+* [安全](../security.md)：审计、加固并限制自托管实例。
+* [设置自定义加密密钥](../basic-configuration/configuration-examples/set-a-custom-encryption-key.md)：设置实例级 `N8N_ENCRYPTION_KEY` 值。
+* [部署环境变量](../basic-configuration/use-environment-variables/deployment.md)：`N8N_ENCRYPTION_KEY` 和 `N8N_ENV_FEAT_ENCRYPTION_KEY_ROTATION` 的参考。
+* [配置队列模式](../scaling/enable-queue-mode.md)：确保所有工作进程使用相同的实例加密密钥。
+* [n8n 3.0 破坏性变更](../../../../changelog/v30-breaking-changes.md)：升级带来的变化，包括加密密钥轮换。

@@ -1,260 +1,262 @@
 ---
 contentType: howto
-nodeTitle: Enable queue mode
+nodeTitle: 启用队列模式
 originalFilePath: hosting/scaling/queue-mode.md
-originalUrl: 'https://docs.n8n.io/hosting/scaling/queue-mode'
-url: 'https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/enable-queue-mode'
+originalUrl: https://docs.n8n.io/hosting/scaling/queue-mode
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/enable-queue-mode
 layout:
   description:
     visible: false
 ---
-
-# Queue mode <a href="#queue-mode" id="queue-mode"></a>
-
-You can run n8n in different modes depending on your needs. The queue mode provides the best scalability.
-
-{% hint style="info" %}
-**Binary data storage**
-
-n8n doesn't support queue mode with binary data storage in filesystem. If your workflows need to persist binary data in queue mode, you can use [S3 external storage](use-external-storage.md).
-{% endhint %}
-
-## How it works <a href="#how-it-works" id="how-it-works"></a>
-
-When running in queue mode, you have multiple n8n instances set up, with one main instance receiving workflow information (such as triggers) and the worker instances performing the executions. 
-
-Each worker is its own Node.js instance, running in `main` mode, but able to handle multiple simultaneous workflow executions due to their high IOPS (input-output operations per second). 
-
-By using worker instances and running in queue mode, you can scale n8n up (by adding workers) and down (by removing workers) as needed to handle the workload.
-
-This is the process flow:
-
-1. The main n8n instance handles timers and webhook calls, generating (but not running) a workflow execution. 
-1. It passes the execution ID to a message broker, [Redis](#start-redis), which maintains the queue of pending executions and allows the next available worker to pick them up.
-1. A worker in the pool picks up message from Redis.
-1. The worker uses the execution ID to get workflow information from the database.
-1. After completing the workflow execution, the worker:
-	- Writes the results to the database.
-	- Posts to Redis, saying that the execution has finished.
-1. Redis notifies the main instance.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-![Diagram showing the flow of data between the main n8n instance, Redis, the n8n workers, and the n8n database](../../../.gitbook/assets/queue-mode-flow.png)
+# 队列模式 <a href="#queue-mode" id="queue-mode"></a>
 
-## Configuring workers <a href="#configuring-workers" id="configuring-workers"></a>
-
-Workers are n8n instances that do the actual work. They receive information from the main n8n process about the workflows that have to get executed, execute the workflows, and update the status after each execution is complete.
+你可以根据需要以不同模式运行 n8n。队列模式提供最佳扩展能力。
 
 {% hint style="info" %}
-**Per-process event log files**
+**二进制数据存储**
 
-If your workers share a writable filesystem, give each worker process a unique event log path. Refer to [Per-process event log files](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/stream-logs-to-external-systems#per-process-event-log-files) for details.
+n8n 不支持在队列模式下将二进制数据存储到文件系统。如果工作流需要在队列模式下持久化二进制数据，可以使用 [S3 外部存储](use-external-storage.md)。
 {% endhint %}
 
-### Set encryption key <a href="#set-encryption-key" id="set-encryption-key"></a>
+## 工作原理 <a href="#how-it-works" id="how-it-works"></a>
 
-n8n automatically generates an encryption key upon first startup. You can also provide your own custom key using [environment variable](../basic-configuration/use-environment-variables/README.md) if desired.
+队列模式下需要设置多个 n8n 实例：一个主实例接收触发器等工作流信息，工作进程实例负责执行。
 
-The encryption key of the main n8n instance must be shared with all worker and webhooks processor nodes to ensure these worker nodes are able to access credentials stored in the database.
+每个工作进程都是独立的 Node.js 实例，以 `main` 模式运行；由于每秒输入输出操作数（IOPS）较高，可以同时处理多个工作流执行。
 
-Set the encryption key for each worker node in a [configuration file](../basic-configuration.md) or by setting the corresponding environment variable:
+通过工作进程实例和队列模式，可以按需增加或移除工作进程，扩大或缩小 n8n 规模，以应对工作负载。
+
+处理流程如下：
+
+1. n8n 主实例处理定时器和 webhook 调用，生成工作流执行，但不运行。
+1. 主实例将执行 ID 传递给消息代理 [Redis](#start-redis)。Redis 维护待执行队列，让下一个可用工作进程领取执行。
+1. 工作进程池中的一个工作进程从 Redis 领取消息。
+1. 工作进程使用执行 ID，从数据库获取工作流信息。
+1. 工作流执行完成后，工作进程会：
+	- 将结果写入数据库。
+	- 向 Redis 发送执行已完成的通知。
+1. Redis 通知主实例。
+
+
+![n8n 主实例、Redis、n8n 工作进程和 n8n 数据库之间的数据流示意图](../../../.gitbook/assets/queue-mode-flow.png)
+
+## 配置工作进程 <a href="#configuring-workers" id="configuring-workers"></a>
+
+工作进程是实际完成任务的 n8n 实例。它们从 n8n 主进程接收需要运行的工作流信息，执行工作流，并在每次执行完成后更新状态。
+
+{% hint style="info" %}
+**每个进程的事件日志文件**
+
+如果工作进程共享可写文件系统，请为每个工作进程配置唯一的事件日志路径。详情请参阅[每个进程的事件日志文件](../../../../administer/observe-and-log/stream-logs-to-external-systems.md#per-process-event-log-files)。
+{% endhint %}
+
+### 设置加密密钥 <a href="#set-encryption-key" id="set-encryption-key"></a>
+
+n8n 首次启动时会自动生成加密密钥。也可以根据需要通过[环境变量](../basic-configuration/use-environment-variables/README.md)提供自定义密钥。
+
+n8n 主实例的加密密钥必须与所有工作进程和 webhook 处理器节点共享，确保这些工作节点能访问数据库中存储的凭据。
+
+通过[配置文件](../basic-configuration.md)或相应环境变量，为每个工作节点设置加密密钥：
 
 ```bash
 export N8N_ENCRYPTION_KEY=<main_instance_encryption_key>
 ```
 
-### Set executions mode <a href="#set-executions-mode" id="set-executions-mode"></a>
+### 设置执行模式 <a href="#set-executions-mode" id="set-executions-mode"></a>
 
 {% hint style="info" %}
-**Database considerations**
-Refer to [Supported PostgreSQL versions](../choose-n8ns-database.md#supported-postgresql-versions) for n8n's supported PostgreSQL versions.
+**数据库注意事项**
+n8n 支持的 PostgreSQL 版本，请参阅[支持的 PostgreSQL 版本](../choose-n8ns-database.md#supported-postgresql-versions)。
 
-Running n8n with execution mode set to `queue` with an SQLite database isn't recommended. 
+不建议在使用 SQLite 数据库时，将 n8n 执行模式设为 `queue`。
 {% endhint %}
 
-Set the environment variable `EXECUTIONS_MODE` to `queue` on the main instance and any workers using the following command.
+使用以下命令，在主实例和所有工作进程上将环境变量 `EXECUTIONS_MODE` 设为 `queue`。
 
 ```bash
 export EXECUTIONS_MODE=queue
 ```
 
-Alternatively, you can set `executions.mode` to `queue` in the [configuration file](../basic-configuration/use-environment-variables/README.md).
+也可以在[配置文件](../basic-configuration/use-environment-variables/README.md)中将 `executions.mode` 设为 `queue`。
 
-### Start Redis <a href="#start-redis" id="start-redis"></a>
+### 启动 Redis <a href="#start-redis" id="start-redis"></a>
 
 {% hint style="info" %}
-**Running Redis on a separate machine**
+**在独立机器上运行 Redis**
 
-You can run Redis on a separate machine, just make sure that it's accessible by the n8n instance.
+可以在独立机器上运行 Redis，只需确保 n8n 实例能访问它。
 {% endhint %}
 
-To run Redis in a Docker container, follow the instructions below:
+要在 Docker 容器中运行 Redis，请按以下说明操作：
 
-Run the following command to start a Redis instance:
+运行以下命令启动 Redis 实例：
 
 ```
 docker run --name some-redis -p 6379:6379  -d redis
 ```
 
-By default, Redis runs on `localhost` on port `6379` with no password. Based on your Redis configuration, set the following configurations for the main n8n process. These will allow n8n to interact with Redis.
+Redis 默认运行在 `localhost`，端口为 `6379`，且未设置密码。根据 Redis 配置，为 n8n 主进程设置以下配置，使 n8n 能与 Redis 交互。
 
-| Using configuration file | Using environment variables | Description |
+| 使用配置文件 | 使用环境变量 | 说明 |
 | ------ | ------ | ----- |
-| `queue.bull.redis.host:localhost` | `QUEUE_BULL_REDIS_HOST=localhost` | By default, Redis runs on `localhost`. |
-| `queue.bull.redis.port:6379` | `QUEUE_BULL_REDIS_PORT=6379` | The default port is `6379`. If Redis is running on a different port, configure the value. |
+| `queue.bull.redis.host:localhost` | `QUEUE_BULL_REDIS_HOST=localhost` | Redis 默认运行在 `localhost`。 |
+| `queue.bull.redis.port:6379` | `QUEUE_BULL_REDIS_PORT=6379` | 默认端口为 `6379`。如果 Redis 使用其他端口，请配置此值。 |
 
-You can also set the following optional configurations:
+还可以设置以下可选配置：
 
-| Using configuration file | Using environment variables | Description |
+| 使用配置文件 | 使用环境变量 | 说明 |
 | ------ | ------ | ----- |
-| `queue.bull.redis.username:USERNAME` | `QUEUE_BULL_REDIS_USERNAME` | By default, Redis doesn't require a username. If you're using a specific user, configure it variable. |
-| `queue.bull.redis.password:PASSWORD` | `QUEUE_BULL_REDIS_PASSWORD` | By default, Redis doesn't require a password. If you're using a password, configure it variable. |
-| `queue.bull.redis.db:0` | `QUEUE_BULL_REDIS_DB` | The default value is `0`. If you change this value, update the configuration. |
-| `queue.bull.redis.timeoutThreshold:10000ms` | `QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD` | Tells n8n how long it should wait if Redis is unavailable before exiting. The default value is `10000` (ms). |
-| `queue.bull.gracefulShutdownTimeout:30` | `N8N_GRACEFUL_SHUTDOWN_TIMEOUT` | A graceful shutdown timeout for workers to finish executing jobs before terminating the process. The default value is `30` seconds. |
+| `queue.bull.redis.username:USERNAME` | `QUEUE_BULL_REDIS_USERNAME` | Redis 默认不要求用户名。如果使用特定用户，请配置此变量。 |
+| `queue.bull.redis.password:PASSWORD` | `QUEUE_BULL_REDIS_PASSWORD` | Redis 默认不要求密码。如果使用密码，请配置此变量。 |
+| `queue.bull.redis.db:0` | `QUEUE_BULL_REDIS_DB` | 默认值为 `0`。如果更改此值，请更新配置。 |
+| `queue.bull.redis.timeoutThreshold:10000ms` | `QUEUE_BULL_REDIS_TIMEOUT_THRESHOLD` | 指定 Redis 不可用时，n8n 在退出前等待的时长，默认 `10000` 毫秒。 |
+| `queue.bull.gracefulShutdownTimeout:30` | `N8N_GRACEFUL_SHUTDOWN_TIMEOUT` | 工作进程在终止前等待作业执行完毕的优雅关闭超时时间，默认 `30` 秒。 |
 
 
-Now you can start your n8n instance and it will connect to your Redis instance.
+现在可以启动 n8n 实例，它会连接到 Redis 实例。
 
-### Start workers <a href="#start-workers" id="start-workers"></a>
+### 启动工作进程 <a href="#start-workers" id="start-workers"></a>
 
-You will need to start worker processes to allow n8n to execute workflows. If you want to host workers on a separate machine, install n8n on the machine and make sure that it's connected to your Redis instance and the n8n database.
+需要启动工作进程，n8n 才能执行工作流。要在独立机器上托管工作进程，请在该机器上安装 n8n，并确保它连接到 Redis 实例和 n8n 数据库。
 
-Start worker processes by running the following command from the root directory:
+在根目录运行以下命令，启动工作进程：
 
 ```
 ./packages/cli/bin/n8n worker
 ```
 
-If you're using Docker, use the following command:
+如果使用 Docker，请运行以下命令：
 
 ```
 docker run --name n8n-queue -p 5679:5678 n8nio/n8n worker
 ```
 
-You can set up multiple worker processes. Make sure that all the worker processes have access to Redis and the n8n database.
+可以设置多个工作进程。确保所有工作进程都能访问 Redis 和 n8n 数据库。
 
-#### Worker server <a href="#worker-server" id="worker-server"></a>
+#### 工作进程服务器 <a href="#worker-server" id="worker-server"></a>
 
-Each worker process runs a server that exposes optional endpoints:
+每个工作进程都运行一个服务器，提供以下可选端点：
 
-- `/healthz`: returns whether the worker is up, if you enable the `QUEUE_HEALTH_CHECK_ACTIVE` environment variable
-- `/healthz/readiness`: returns whether worker's DB and Redis connections are ready, if you enable the `QUEUE_HEALTH_CHECK_ACTIVE` environment variable
-- [credentials overwrite endpoint](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/manage-credentials/credential-overwrites)
+- `/healthz`：启用 `QUEUE_HEALTH_CHECK_ACTIVE` 环境变量后，返回工作进程是否运行。
+- `/healthz/readiness`：启用 `QUEUE_HEALTH_CHECK_ACTIVE` 环境变量后，返回工作进程的数据库和 Redis 连接是否就绪。
+- [凭据覆盖端点](../../../../administer/manage-credentials/credential-overwrites.md)。
 - [`/metrics`](../basic-configuration/configuration-examples/enable-prometheus-metrics.md)
 
 {% hint style="info" %}
-**Customizing health check endpoints**
+**自定义健康检查端点**
 
-You can customize the health check endpoint path using the [`N8N_ENDPOINT_HEALTH`](../basic-configuration/use-environment-variables/endpoints.md) environment variable.
+可以通过 [`N8N_ENDPOINT_HEALTH`](../basic-configuration/use-environment-variables/endpoints.md) 环境变量自定义健康检查端点路径。
 {% endhint %}
 
-#### View running workers <a href="#view-running-workers" id="view-running-workers"></a>
+#### 查看运行中的工作进程 <a href="#view-running-workers" id="view-running-workers"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Viewing running workers is available on:
+查看运行中工作进程的功能可用于：
 
-- **Self-hosted:** Enterprise
+- **自托管：**企业版。
 
-On n8n Cloud Enterprise, [contact n8n](https://n8n-community.typeform.com/to/y9X2YuGa) to enable it.
+n8n Cloud Enterprise 用户请[联系 n8n](https://n8n-community.typeform.com/to/y9X2YuGa) 启用。
 {% endhint %}
 
-You can view running workers and their performance metrics in n8n by selecting **Settings** > **Workers**.
+在 n8n 中选择 **Settings**（设置）> **Workers**（工作进程），即可查看运行中的工作进程及其性能指标。
 
-## Running n8n with queues <a href="#running-n8n-with-queues" id="running-n8n-with-queues"></a>
+## 使用队列运行 n8n <a href="#running-n8n-with-queues" id="running-n8n-with-queues"></a>
 
-When running n8n with queues, all the production workflow executions get processed by worker processes. For webhooks, this means the HTTP request is received by the main/webhook process, but the actual workflow execution is passed to a worker, which can add some overhead and latency.
+使用队列运行 n8n 时，所有生产工作流执行都由工作进程处理。对于 webhook，主进程或 webhook 进程接收 HTTP 请求，但将实际工作流执行交给工作进程，这可能带来一些额外开销和延迟。
 
-Redis acts as the message broker, and the database persists data, so access to both is required. Running a distributed system with this setup over SQLite isn't supported.
+Redis 作为消息代理，数据库负责持久化数据，因此两者都必须可访问。不支持使用 SQLite 运行这种配置的分布式系统。
 
 {% hint style="info" %}
-**Migrate data**
+**迁移数据**
 
-If you want to migrate data from one database to another, you can use the Export and Import commands. Refer to the [CLI commands for n8n](../use-the-command-line.md#export-workflows-and-credentials) documentation to learn how to use these commands.
+如果要将数据从一个数据库迁移到另一个数据库，可以使用导出和导入命令。使用方式请参阅 [n8n CLI 命令](../use-the-command-line.md#export-workflows-and-credentials)文档。
 {% endhint %}
 
-## Webhook processors <a href="#webhook-processors" id="webhook-processors"></a>
+## Webhook 处理器 <a href="#webhook-processors" id="webhook-processors"></a>
 
 {% hint style="info" %}
-**Keep in mind**
+**请注意**
 
-Webhook processes rely on Redis and need the `EXECUTIONS_MODE` environment variable set too. Follow the [configure the workers](#configuring-workers) section above to setup webhook processor nodes.
+Webhook 进程依赖 Redis，也需要设置 `EXECUTIONS_MODE` 环境变量。请按上文[配置工作进程](#configuring-workers)一节设置 webhook 处理器节点。
 {% endhint %}
 
-Webhook processors are another layer of scaling in n8n. Configuring the webhook processor is optional, and allows you to scale the incoming webhook requests.
+Webhook 处理器是 n8n 的另一层扩展方式。配置 webhook 处理器是可选项，可用于扩展入站 webhook 请求的处理能力。
 
-This method allows n8n to process a huge number of parallel requests. All you have to do is add more webhook processes and workers accordingly. The webhook process will listen to requests on the same port (default: `5678`). Run these processes in containers or separate machines, and have a load balancing system to route requests accordingly.
+这种方式允许 n8n 处理大量并行请求。只需相应增加 webhook 进程和工作进程即可。Webhook 进程会在相同端口监听请求，默认为 `5678`。请在容器或独立机器中运行这些进程，并使用负载均衡系统分发请求。
 
-n8n doesn't recommend adding the main process to the load balancer pool. If you add the main process to the pool, it will receive requests and possibly a heavy load. This will result in degraded performance for editing, viewing, and interacting with the n8n UI.
+n8n 不建议将主进程加入负载均衡池，否则主进程也会接收请求，可能承受高负载，导致 n8n 界面的编辑、查看和交互性能下降。
 
-You can start the webhook processor by executing the following command from the root directory:
+在根目录执行以下命令，启动 webhook 处理器：
 
 ```
 ./packages/cli/bin/n8n webhook
 ```
 
-If you're using Docker, use the following command:
+如果使用 Docker，请运行以下命令：
 
 ```
 docker run --name n8n-queue -p 5679:5678 -e "EXECUTIONS_MODE=queue" n8nio/n8n webhook
 ```
 
-### Configure webhook URL <a href="#configure-webhook-url" id="configure-webhook-url"></a>
+### 配置 webhook URL <a href="#configure-webhook-url" id="configure-webhook-url"></a>
 
-To configure your webhook URL, execute the following command on the machine running the main n8n instance:
+要配置 webhook URL，请在运行 n8n 主实例的机器上执行以下命令：
 
 ```bash
 export N8N_WEBHOOK_URL=https://your-webhook-url.com
 ```
 
-`N8N_WEBHOOK_URL` is available from n8n 2.30.0; on earlier versions, use `WEBHOOK_URL`.
+自 n8n 2.30.0 起可使用 `N8N_WEBHOOK_URL`；更早版本请使用 `WEBHOOK_URL`。
 
-You can also set this value in the configuration file.
+也可以在配置文件中设置此值。
 
-### Configure load balancer <a href="#configure-load-balancer" id="configure-load-balancer"></a>
+### 配置负载均衡器 <a href="#configure-load-balancer" id="configure-load-balancer"></a>
 
-When using multiple webhook processes you will need a load balancer to route requests. If you are using the same domain name for your n8n instance and the webhooks, you can set up your load balancer to route requests as follows:
+使用多个 webhook 进程时，需要负载均衡器分发请求。如果 n8n 实例和 webhook 使用相同域名，可以按以下方式配置负载均衡器：
 
-- Redirect webhook triggers to the webhook servers pool. Paths to consider:
-  - `/webhook/*`: Webhook trigger node endpoints
-  - `/webhook-waiting/*`: Human-in-the-loop webhook endpoints used by nodes that perform "send and wait" operations (for example, the Slack node).
-- All other paths (the n8n internal API, the static files for the editor, etc.) should get routed to the main process
+- 将 webhook 触发器请求分发到 webhook 服务器池，需考虑的路径：
+  - `/webhook/*`：Webhook 触发器节点端点。
+  - `/webhook-waiting/*`：执行“发送并等待”操作的节点所使用的人工参与 webhook 端点，例如 Slack 节点。
+- 其他所有路径，包括 n8n 内部 API、编辑器静态文件等，都应路由到主进程。
 
-**Note:** The default URL for manual workflow executions is `/webhook-test/*`. Make sure that these URLs route to your main process.
+**注意：**手动工作流执行的默认 URL 为 `/webhook-test/*`，请确保这些 URL 路由到主进程。
 
-You can change this path in the configuration file `endpoints.webhook` or using the `N8N_ENDPOINT_WEBHOOK` environment variable. If you change these, update your load balancer accordingly.
+可以通过配置文件中的 `endpoints.webhook` 或 `N8N_ENDPOINT_WEBHOOK` 环境变量更改此路径。如果更改，请相应更新负载均衡器。
 
-### Disable webhook processing in the main process (optional) <a href="#disable-webhook-processing-in-the-main-process-optional" id="disable-webhook-processing-in-the-main-process-optional"></a>
+### 禁用主进程中的 webhook 处理，可选 <a href="#disable-webhook-processing-in-the-main-process-optional" id="disable-webhook-processing-in-the-main-process-optional"></a>
 
-You have webhook processors to execute the workflows. You can disable the webhook processing in the main process. This will make sure to execute all webhook executions in the webhook processors. In the configuration file set `endpoints.disableProductionWebhooksOnMainProcess` to `true` so that n8n doesn't process webhook requests on the main process.
+你已有 webhook 处理器来执行工作流，可以禁用主进程中的 webhook 处理，确保所有 webhook 执行都由 webhook 处理器处理。在配置文件中将 `endpoints.disableProductionWebhooksOnMainProcess` 设为 `true`，使 n8n 不在主进程中处理 webhook 请求。
 
-Alternatively, you can use the following command:
+也可以使用以下命令：
 
 ```bash
 export N8N_DISABLE_PRODUCTION_MAIN_PROCESS=true
 ```
 
-When disabling the webhook process in the main process, run the main process and don't add it to the load balancer's webhook pool.
+禁用主进程的 webhook 处理后，仍需运行主进程，但不要将其加入负载均衡器的 webhook 池。
 
-## Large webhook responses
+## 大型 webhook 响应 <a id="large-webhook-responses"></a>
 
-In queue mode, a worker runs the execution, but the client that sent the webhook request stays connected to the main or webhook instance. A response from a **Respond to Webhook** node travels from the worker back to that instance inside a queue message, so Redis holds the whole response while the message is in flight.
+队列模式下，工作进程负责执行，但发送 webhook 请求的客户端始终连接到主实例或 webhook 实例。**Respond to Webhook** 节点的响应会包含在队列消息中，从工作进程传回该实例，因此消息传递期间 Redis 会保存完整响应。
 
-`N8N_WEBHOOK_RESPONSE_RELAY_SIZE_MAX` sets how large that message can be, in MiB. It defaults to `64`. Redis holds several copies of a response in flight, so budget about 1.5 times this value in Redis memory for each response in flight. Without offloading, a response above the limit fails the node.
+`N8N_WEBHOOK_RESPONSE_RELAY_SIZE_MAX` 以 MiB 为单位设置此消息的大小上限，默认 `64`。Redis 在消息传递期间会保存响应的多个副本，因此每个传递中的响应应预留约为此值 1.5 倍的 Redis 内存。未启用外部存储卸载时，响应超限会导致节点失败。
 
-The same limit applies to a tool result an MCP Trigger workflow returns from a worker. You can't offload a tool result, so an oversized one reaches the MCP client as a tool error naming the limit.
+MCP Trigger 工作流从工作进程返回的工具结果也受此上限约束。工具结果无法卸载到存储，因此结果过大时，MCP 客户端会收到指出该上限的工具错误。
 
-### Offload a large response body to storage
+### 将大型响应体卸载到存储 <a id="offload-a-large-response-body-to-storage"></a>
 
 {% hint style="info" %}
-**Available from n8n 2.34.0**
+**自 n8n 2.34.0 起提供**
 {% endhint %}
 
-Set `N8N_WEBHOOK_RESPONSE_RELAY_OFFLOAD_ENABLED=true` on your workers to store a response body above the limit in [binary data storage](../basic-configuration/use-environment-variables/binary-data.md) instead of failing the node. The queue message then carries a reference, the main instance streams the body from storage to the client, and n8n deletes the stored body once it delivers the response.
+在工作进程上设置 `N8N_WEBHOOK_RESPONSE_RELAY_OFFLOAD_ENABLED=true`，将超出上限的响应体保存到[二进制数据存储](../basic-configuration/use-environment-variables/binary-data.md)，避免节点失败。此时队列消息携带存储引用，主实例从存储中将响应体流式传输给客户端，n8n 会在响应发送完成后删除已存储的响应体。
 
-Offloading needs storage that every instance can read. Every mode except `default` stores, so set `N8N_DEFAULT_BINARY_DATA_MODE` to `filesystem`, `database`, `s3`, or `azure`:
+卸载需要每个实例都能读取的存储。除 `default` 外的每种模式都会存储数据，因此请将 `N8N_DEFAULT_BINARY_DATA_MODE` 设为 `filesystem`、`database`、`s3` 或 `azure`：
 
 ```bash
 export N8N_WEBHOOK_RESPONSE_RELAY_SIZE_MAX=64
@@ -262,87 +264,87 @@ export N8N_WEBHOOK_RESPONSE_RELAY_OFFLOAD_ENABLED=true
 export N8N_DEFAULT_BINARY_DATA_MODE=s3
 ```
 
-n8n recommends `s3` or `azure` for large responses. Both stream the body, so the main instance holds one chunk at a time. Refer to [External storage](use-external-storage.md) for how to configure them. In `database` mode, the main instance loads the whole body into memory before sending it, and the response passes through your primary database. In `filesystem` mode, every instance needs to mount the same disk, which n8n doesn't recommend. The `default` mode keeps binary data in memory, so there's nothing for the main instance to read, and a response above the limit still fails the node.
+对于大型响应，n8n 推荐 `s3` 或 `azure`。两者都支持流式传输响应体，使主实例每次仅在内存中保留一个数据块。配置方式请参阅[外部存储](use-external-storage.md)。在 `database` 模式下，主实例先将整个响应体载入内存，再发送，且响应会经过主数据库。在 `filesystem` 模式下，每个实例都需要挂载同一磁盘，n8n 不推荐这种方式。`default` 模式将二进制数据保留在内存中，主实例无从读取，因此超出上限的响应仍会导致节点失败。
 
-n8n only offloads the response body. It measures the rest of the response, its headers and status code, against the same limit, so a response whose headers alone exceed the limit fails either way.
+n8n 仅卸载响应体，仍按相同上限衡量响应的其余部分，包括标头和状态码。因此，如果仅标头就已超限，无论是否启用卸载，响应都会失败。
 
-### Turn on offloading during an upgrade
+### 升级过程中启用卸载 <a id="turn-on-offloading-during-an-upgrade"></a>
 
-Only a main instance running n8n 2.34.0 or later reads an offloaded body. An older one returns the storage reference to the client instead of the response body. Upgrade every main and webhook instance first, then set `N8N_WEBHOOK_RESPONSE_RELAY_OFFLOAD_ENABLED` on your workers. A worker with the variable unset sends every response inline and fails one above the limit.
+只有运行 n8n 2.34.0 或更高版本的主实例才能读取卸载后的响应体。旧版会将存储引用而非响应体返回给客户端。请先升级所有主实例和 webhook 实例，再在工作进程上设置 `N8N_WEBHOOK_RESPONSE_RELAY_OFFLOAD_ENABLED`。未设置此变量的工作进程仍将每个响应内联发送，超过上限时就会失败。
 
-### Troubleshoot large webhook responses
+### 排查大型 webhook 响应问题 <a id="troubleshoot-large-webhook-responses"></a>
 
-| Error | Cause | Fix |
+| 错误 | 原因 | 解决方法 |
 | :---- | :---- | :-- |
-| `The response is too large to be sent back from the worker`, naming `N8N_WEBHOOK_RESPONSE_RELAY_OFFLOAD_ENABLED` | Offloading is off on the worker. | Set the variable on your workers, or raise `N8N_WEBHOOK_RESPONSE_RELAY_SIZE_MAX`. |
-| `The response is too large to be sent back from the worker`, naming `N8N_DEFAULT_BINARY_DATA_MODE` | Binary data storage keeps data in memory, so there's nowhere to offload to. | Set `N8N_DEFAULT_BINARY_DATA_MODE` to `filesystem`, `database`, `s3`, or `azure`. |
-| `The response is too large for the binary-data store to hold` | `database` mode refused the body for its own size limit. | Raise `N8N_BINARY_DATA_DATABASE_MAX_FILE_SIZE`, up to the 1 GB a database column holds, or switch to `filesystem`, `s3`, or `azure`, which apply no limit of their own. |
-| `The stored webhook response body could not be read` | The main instance can't read the storage the worker wrote to. | Point every instance at the same storage. In `filesystem` mode, every instance needs to mount the same disk, which n8n doesn't recommend. |
+| `The response is too large to be sent back from the worker`，指出 `N8N_WEBHOOK_RESPONSE_RELAY_OFFLOAD_ENABLED` | 工作进程未启用卸载。 | 在工作进程上设置此变量，或提高 `N8N_WEBHOOK_RESPONSE_RELAY_SIZE_MAX`。 |
+| `The response is too large to be sent back from the worker`，指出 `N8N_DEFAULT_BINARY_DATA_MODE` | 二进制数据存储将数据保留在内存中，无法卸载到其他位置。 | 将 `N8N_DEFAULT_BINARY_DATA_MODE` 设为 `filesystem`、`database`、`s3` 或 `azure`。 |
+| `The response is too large for the binary-data store to hold` | `database` 模式因自身大小上限拒绝了响应体。 | 提高 `N8N_BINARY_DATA_DATABASE_MAX_FILE_SIZE`，最高为数据库列可容纳的 1 GB；或切换为自身不设上限的 `filesystem`、`s3` 或 `azure`。 |
+| `The stored webhook response body could not be read` | 主实例无法读取工作进程写入的存储。 | 让每个实例都指向同一存储。在 `filesystem` 模式下，每个实例都需要挂载同一磁盘，n8n 不推荐这种方式。 |
 
-## Configure worker concurrency <a href="#configure-worker-concurrency" id="configure-worker-concurrency"></a>
+## 配置工作进程并发 <a href="#configure-worker-concurrency" id="configure-worker-concurrency"></a>
 
-You can define the number of jobs a worker can run in parallel by using the `concurrency` flag. It defaults to `10`. To change it:
+可以使用 `concurrency` 标志，定义工作进程并行运行的作业数量，默认为 `10`。更改方式：
 
 ```bash
 n8n worker --concurrency=5
 ```
 
-## Concurrency and scaling recommendations <a href="#concurrency-and-scaling-recommendations" id="concurrency-and-scaling-recommendations"></a>
+## 并发与扩展建议 <a href="#concurrency-and-scaling-recommendations" id="concurrency-and-scaling-recommendations"></a>
 
-n8n recommends setting concurrency to 5 or higher for your worker instances. Setting low concurrency values with a large numbers of workers can exhaust your database's connection pool, leading to processing delays and failures.
+n8n 建议将工作进程实例的并发数设为 5 或更高。使用大量工作进程但设置较低并发数，可能耗尽数据库连接池，导致处理延迟和失败。
 
-## Multi-main setup <a href="#multi-main-setup" id="multi-main-setup"></a>
+## 多主实例配置 <a href="#multi-main-setup" id="multi-main-setup"></a>
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Multi-main setup is available on:
+多主实例配置可用于：
 
-- **Self-hosted:** Enterprise
+- **自托管：**企业版。
 
-It isn't available on n8n Cloud.
+n8n Cloud 不提供此功能。
 {% endhint %}
 
-In queue mode you can run more than one `main` process for high availability.
+在队列模式下，可以运行多个 `main` 进程以实现高可用。
 
-In a single-mode setup, the `main` process does two sets of tasks: 
+在单主实例配置中，`main` 进程执行两类任务：
 
-- **regular tasks**, such as running the API, serving the UI, and listening for webhooks, and 
-- **at-most-once tasks**, such as running non-HTTP triggers (timers, pollers, and persistent connections like RabbitMQ and IMAP), and pruning executions and binary data.
+- **常规任务**，例如运行 API、提供界面和监听 webhook；
+- **至多执行一次的任务**，例如运行非 HTTP 触发器，包括定时器、轮询器，以及 RabbitMQ、IMAP 等持久连接，还包括清理执行和二进制数据。
 
-In a multi-main setup, there are two kinds of `main` processes:
+在多主实例配置中，有两类 `main` 进程：
 
-- **followers**, which run **regular tasks**, and
-- the **leader**, which runs **both regular and at-most-once tasks**.
+- **跟随者（follower）**，执行**常规任务**；
+- **领导者（leader）**，**同时执行常规任务和至多执行一次的任务**。
 
-### Leader designation <a href="#leader-designation" id="leader-designation"></a>
+### 领导者指定 <a href="#leader-designation" id="leader-designation"></a>
 
-In a multi-main setup, all main instances handle the leadership process transparently to users. In case the current leader becomes unavailable, for example because it crashed or its event loop became too busy, other followers can take over. If the previous leader becomes responsive again, it becomes a follower.
+在多主实例配置中，所有主实例会自动处理领导者机制，对用户透明。如果当前领导者不可用，例如崩溃或事件循环过于繁忙，其他跟随者就可以接管。先前的领导者恢复响应后，会成为跟随者。
 
-### Configuring multi-main setup <a href="#configuring-multi-main-setup" id="configuring-multi-main-setup"></a>
+### 配置多主实例部署 <a href="#configuring-multi-main-setup" id="configuring-multi-main-setup"></a>
 
-To deploy n8n in multi-main setup, ensure: 
+要部署多主实例 n8n，请确保：
 
-- All `main` processes are running in queue mode and are connected to Postgres and Redis.
-- All `main` and `worker` processes are running the same version of n8n.
-- All `main` processes have set the environment variable `N8N_MULTI_MAIN_SETUP_ENABLED` to `true`.
-- All `main` processes are running behind a load balancer with session persistence (sticky sessions) enabled.
+- 所有 `main` 进程都以队列模式运行，并连接到 Postgres 和 Redis。
+- 所有 `main` 和 `worker` 进程都运行相同版本的 n8n。
+- 所有 `main` 进程都将环境变量 `N8N_MULTI_MAIN_SETUP_ENABLED` 设为 `true`。
+- 所有 `main` 进程都位于启用会话保持，即粘性会话的负载均衡器之后。
 
-If needed, you can adjust the leader key options:
+如有需要，可以调整领导者键的选项：
 
-| Using configuration file | Using environment variables | Description |
+| 使用配置文件 | 使用环境变量 | 说明 |
 | ------ | ------ | ----- |
-| `multiMainSetup.ttl:10` | `N8N_MULTI_MAIN_SETUP_KEY_TTL=10` | Time to live (in seconds) for leader key in multi-main setup. |
-| `multiMainSetup.interval:3` | `N8N_MULTI_MAIN_SETUP_CHECK_INTERVAL=3` | Interval (in seconds) for leader check in multi-main setup. |
+| `multiMainSetup.ttl:10` | `N8N_MULTI_MAIN_SETUP_KEY_TTL=10` | 多主实例配置中领导者键的生存时间，单位为秒。 |
+| `multiMainSetup.interval:3` | `N8N_MULTI_MAIN_SETUP_CHECK_INTERVAL=3` | 多主实例配置中检查领导者的间隔，单位为秒。 |
 
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Scaling](../scaling.md)
-* [Measure performance](measure-performance.md)
-* [Control concurrency](control-concurrency.md)
-* [Manage execution data](manage-execution-data.md)
-* [Handle binary data](handle-binary-data.md)
-* [Use external storage](use-external-storage.md)
-* [Fix memory issues](fix-memory-issues.md)
+* [扩展](../scaling.md)
+* [衡量性能](measure-performance.md)
+* [控制并发](control-concurrency.md)
+* [管理执行数据](manage-execution-data.md)
+* [处理二进制数据](handle-binary-data.md)
+* [使用外部存储](use-external-storage.md)
+* [解决内存问题](fix-memory-issues.md)
