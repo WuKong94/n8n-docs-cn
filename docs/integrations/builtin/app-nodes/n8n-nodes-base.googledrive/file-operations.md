@@ -1,239 +1,236 @@
 ---
-title: Google Drive File operations
-description: >-
-  Documentation for the File operations in Google Drive node in n8n, a workflow
-  automation platform. Includes details of operations and configuration, and
-  links to examples and credentials information.
+title: Google Drive 文件操作
+description: 了解 n8n 工作流自动化平台中 Google Drive 节点的文件操作，包括操作及配置详情，以及示例和凭据信息链接。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Google Drive File operations
+nodeTitle: Google Drive 文件操作
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Drive File operations <a href="#google-drive-file-operations" id="google-drive-file-operations"></a>
 
-Use this operation to create, delete, change, and manage files in Google Drive. Refer to [Google Drive](README.md) for more information on the Google Drive node itself.
+# Google Drive 文件操作 <a href="#google-drive-file-operations" id="google-drive-file-operations"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+使用这些操作在 Google Drive 中创建、删除、修改和管理文件。有关 Google Drive 节点本身的更多信息，请参阅 [Google Drive](README.md)。
 
-## Copy a file <a href="#copy-a-file" id="copy-a-file"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-Use this operation to copy a file to a drive.
+## 复制文件 <a href="#copy-a-file" id="copy-a-file"></a>
 
-Enter these parameters:
+此操作用于将文件复制到云端硬盘。
 
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Copy**.
-- **File**: Choose a file you want to copy. 
-    - Select **From list** to choose the title from the dropdown list, **By URL** to enter the URL of the file, or **By ID** to enter the `fileId`. 
-    - You can find the `fileId` in a shareable Google Drive file URL: `https://docs.google.com/document/d/fileId/edit#gid=0`. In your Google Drive, select **Share > Copy link** to get the shareable file URL.
-- **File Name**: The name to use for the new copy of the file.
-- **Copy In The Same Folder**: Choose whether to copy the file to the same folder. If disabled, set the following:
-	- **Parent Drive**: Select **From list** to choose the drive from the dropdown list, **By URL** to enter the URL of the drive, or **By ID** to enter the `driveId`. 
-	- **Parent Folder**: Select **From list** to choose the folder from the dropdown list, **By URL** to enter the URL of the folder, or **By ID** to enter the `folderId`. 
-	- You can find the `driveId` and `folderID` by visiting the shared drive or folder in your browser and copying the last URL component: `https://drive.google.com/drive/u/1/folders/driveId`.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Copy**（复制）。
+- **File**（文件）：选择要复制的文件。
+    - 选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By URL**（按 URL）可输入文件 URL，选择 **By ID**（按 ID）可输入 `fileId`。
+    - 可在可分享的 Google Drive 文件 URL 中找到 `fileId`：`https://docs.google.com/document/d/fileId/edit#gid=0`。在 Google Drive 中选择 **Share > Copy link**（共享 > 复制链接），即可获取可分享的文件 URL。
+- **File Name**（文件名）：文件新副本使用的名称。
+- **Copy In The Same Folder**（复制到同一文件夹）：是否将文件复制到同一个文件夹。关闭时，需设置：
+    - **Parent Drive**（父级云端硬盘）：选择 **From list**（从列表）可在下拉列表中选择云端硬盘，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `driveId`。
+    - **Parent Folder**（父文件夹）：选择 **From list**（从列表）可在下拉列表中选择文件夹，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `folderId`。
+    - 在浏览器中打开共享云端硬盘或文件夹，复制 URL 的最后一部分，即可找到 `driveId` 和 `folderID`：`https://drive.google.com/drive/u/1/folders/driveId`。
 
-- **Copy Requires Writer Permissions**: Select whether to enable readers and commenters to copy, print, or download the new file.
-- **Description**: A short description of the file.
+### 选项 <a href="#options" id="options"></a>
 
-Refer to the [Method: files.copy | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/copy) API documentation for more information.
+- **Copy Requires Writer Permissions**（复制需要写入者权限）：是否禁止读取者和评论者复制、打印或下载新文件。
+- **Description**（描述）：文件的简短描述。
 
-## Create from text <a href="#create-from-text" id="create-from-text"></a>
+更多信息，请参阅 [Method: files.copy | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/copy) API 文档。
 
-Use this operation to create a new file in a drive from provided text.
+## 从文本创建文件 <a href="#create-from-text" id="create-from-text"></a>
 
-Enter these parameters:
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Create From Text**.
-- **File Content**: Enter the file content to use to create the new file.
-- **File Name**: The name to use for the new file.
-- **Parent Drive**: Select **From list** to choose the drive from the dropdown list, **By URL** to enter the URL of the drive, or **By ID** to enter the `driveId`. 
-- **Parent Folder**: Select **From list** to choose the folder from the dropdown list, **By URL** to enter the URL of the folder, or **By ID** to enter the `folderId`. 
+此操作用于根据提供的文本，在云端硬盘中创建新文件。
 
-You can find the `driveId` and `folderID` by visiting the shared drive or folder in your browser and copying the last URL component: `https://drive.google.com/drive/u/1/folders/driveId`.
+填写以下参数：
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Create From Text**（从文本创建）。
+- **File Content**（文件内容）：输入创建新文件所用的内容。
+- **File Name**（文件名）：新文件使用的名称。
+- **Parent Drive**（父级云端硬盘）：选择 **From list**（从列表）可在下拉列表中选择云端硬盘，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `driveId`。
+- **Parent Folder**（父文件夹）：选择 **From list**（从列表）可在下拉列表中选择文件夹，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `folderId`。
 
-### Options <a href="#options" id="options"></a>
+在浏览器中打开共享云端硬盘或文件夹，复制 URL 的最后一部分，即可找到 `driveId` 和 `folderID`：`https://drive.google.com/drive/u/1/folders/driveId`。
 
-- **APP Properties**: A bundle of arbitrary key-value pairs which are private to the requesting app.
-- **Properties**: A bundle of arbitrary key-value pairs which are visible to all apps.
-- **Keep Revision Forever**: Choose whether to set the `keepForever` field in the new head revision. This only applies to files with binary content. You can keep a maximum of 200 revisions, after which you must delete the pinned revisions.
+### 选项 <a href="#options" id="options"></a>
 
+- **APP Properties**（应用属性）：仅请求应用可见的一组任意键值对。
+- **Properties**（属性）：所有应用均可见的一组任意键值对。
+- **Keep Revision Forever**（永久保留修订版本）：是否设置最新修订版本中的 `keepForever` 字段。仅适用于包含二进制内容的文件。最多可保留 200 个修订版本，达到上限后必须删除已固定保留的修订版本。
 
-- **OCR Language**: An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code to help the OCR interpret the content during import.
 
+- **OCR Language**（OCR 语言）：用于帮助 OCR 在导入时解析内容的 [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) 语言代码。
 
-- **Use Content As Indexable Text**: Choose whether to mark the uploaded content as indexable text.
-- **Convert to Google Document**: Choose whether to create a Google Document instead of the default `.txt` format. You must enable the Google Docs API in the [Google API Console](https://console.cloud.google.com/apis/library/docs.googleapis.com) for this to work.
 
-Refer to the [Method: files.insert | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/insert) API documentation for more information.
+- **Use Content As Indexable Text**（将内容用作可索引文本）：是否将上传内容标记为可索引文本。
+- **Convert to Google Document**（转换为 Google 文档）：是否创建 Google 文档，而非默认的 `.txt` 格式。必须在 [Google API Console](https://console.cloud.google.com/apis/library/docs.googleapis.com)（Google API 控制台）中启用 Google Docs API，此功能才能工作。
 
-## Delete a file <a href="#delete-a-file" id="delete-a-file"></a>
+更多信息，请参阅 [Method: files.insert | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/insert) API 文档。
 
-Use this operation to delete a file from a drive.
+## 删除文件 <a href="#delete-a-file" id="delete-a-file"></a>
 
-Enter these parameters:
+此操作用于从云端硬盘删除文件。
 
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Delete**.
-- **File**: Choose a file you want to delete. 
-    - Select **From list** to choose the title from the dropdown list, **By URL** to enter the URL of the file, or **By ID** to enter the `fileId`. 
-    - You can find the `fileId` in a shareable Google Drive file URL: `https://docs.google.com/document/d/fileId/edit#gid=0`. In your Google Drive, select **Share > Copy link** to get the shareable file URL.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Delete**（删除）。
+- **File**（文件）：选择要删除的文件。
+    - 选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By URL**（按 URL）可输入文件 URL，选择 **By ID**（按 ID）可输入 `fileId`。
+    - 可在可分享的 Google Drive 文件 URL 中找到 `fileId`：`https://docs.google.com/document/d/fileId/edit#gid=0`。在 Google Drive 中选择 **Share > Copy link**（共享 > 复制链接），即可获取可分享的文件 URL。
 
-- **Delete Permanently**: Choose whether to delete the file now instead of moving it to the trash.
+### 选项 <a href="#options" id="options"></a>
 
-Refer to the [Method: files.delete | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/delete) API documentation for more information.
+- **Delete Permanently**（永久删除）：是否立即删除文件，而非将其移至垃圾箱。
 
-## Download a file <a href="#download-a-file" id="download-a-file"></a>
+更多信息，请参阅 [Method: files.delete | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/delete) API 文档。
 
-Use this operation to download a file from a drive.
+## 下载文件 <a href="#download-a-file" id="download-a-file"></a>
 
-Enter these parameters:
+此操作用于从云端硬盘下载文件。
 
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Download**.
-- **File**: Choose a file you want to download. 
-    - Select **From list** to choose the title from the dropdown list, **By URL** to enter the URL of the file, or **By ID** to enter the `fileId`. 
-    - You can find the `fileId` in a shareable Google Drive file URL: `https://docs.google.com/document/d/fileId/edit#gid=0`. In your Google Drive, select **Share > Copy link** to get the shareable file URL.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Download**（下载）。
+- **File**（文件）：选择要下载的文件。
+    - 选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By URL**（按 URL）可输入文件 URL，选择 **By ID**（按 ID）可输入 `fileId`。
+    - 可在可分享的 Google Drive 文件 URL 中找到 `fileId`：`https://docs.google.com/document/d/fileId/edit#gid=0`。在 Google Drive 中选择 **Share > Copy link**（共享 > 复制链接），即可获取可分享的文件 URL。
 
-- **Put Output File in Field**: Choose the field name to place the binary file contents to make it available to following nodes.
-- **Google File Conversion**: Choose the formats to export as when downloading Google Files:
-	* **Google Docs**: Choose the export format to use when downloading Google Docs files:  **HTML**, **MS Word Document**, **Open Office Document**, **PDF**, **Rich Text (rtf)**, or **Text (txt)**.
-	* **Google Drawings**: Choose the export format to use when downloading Google Drawing files: **JPEG**, **PDF**, **PNG**, or **SVG**.
-	* **Google Slides**: Choose the export format to use when downloading Google Slides files: **MS PowerPoint**, **OpenOffice Presentation**, or **PDF**.
-	* **Google Sheets**: Choose the export format to use when downloading Google Sheets files: **CSV**, **MS Excel**, **Open Office Sheet**, or **PDF**.
-- **File Name**: The name to use for the downloaded file.
+### 选项 <a href="#options" id="options"></a>
 
-Refer to the [Method: files.get | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/get) API documentation for more information.
+- **Put Output File in Field**（输出文件所在字段）：选择保存二进制文件内容的字段名，供后续节点使用。
+- **Google File Conversion**（Google 文件转换）：选择下载 Google 文件时使用的导出格式：
+    * **Google Docs**（Google 文档）：选择下载 Google 文档文件时的导出格式：**HTML**、**MS Word Document**（Word 文档）、**Open Office Document**（OpenOffice 文档）、**PDF**、**Rich Text (rtf)**（富文本）或 **Text (txt)**（纯文本）。
+    * **Google Drawings**（Google 绘图）：选择下载 Google 绘图文件时的导出格式：**JPEG**、**PDF**、**PNG** 或 **SVG**。
+    * **Google Slides**（Google 幻灯片）：选择下载 Google 幻灯片文件时的导出格式：**MS PowerPoint**（PowerPoint 演示文稿）、**OpenOffice Presentation**（OpenOffice 演示文稿）或 **PDF**。
+    * **Google Sheets**（Google 表格）：选择下载 Google 表格文件时的导出格式：**CSV**、**MS Excel**（Excel 电子表格）、**Open Office Sheet**（OpenOffice 电子表格）或 **PDF**。
+- **File Name**（文件名）：下载文件使用的名称。
 
-## Move a file <a href="#move-a-file" id="move-a-file"></a>
+更多信息，请参阅 [Method: files.get | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/get) API 文档。
 
-Use this operation to move a file to a different location in a drive.
+## 移动文件 <a href="#move-a-file" id="move-a-file"></a>
 
-Enter these parameters:
+此操作用于将文件移至云端硬盘中的其他位置。
 
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Move**.
-- **File**: Choose a file you want to move. 
-    - Select **From list** to choose the title from the dropdown list, **By URL** to enter the URL of the file, or **By ID** to enter the `fileId`. 
-    - You can find the `fileId` in a shareable Google Drive file URL: `https://docs.google.com/document/d/fileId/edit#gid=0`. In your Google Drive, select **Share > Copy link** to get the shareable file URL.
-- **Parent Drive**: Select **From list** to choose the drive from the dropdown list, **By URL** to enter the URL of the drive, or **By ID** to enter the `driveId`. 
-- **Parent Folder**: Select **From list** to choose the folder from the dropdown list, **By URL** to enter the URL of the folder, or **By ID** to enter the `folderId`. 
+填写以下参数：
 
-You can find the `driveId` and `folderID` by visiting the shared drive or folder in your browser and copying the last URL component: `https://drive.google.com/drive/u/1/folders/driveId`.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Move**（移动）。
+- **File**（文件）：选择要移动的文件。
+    - 选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By URL**（按 URL）可输入文件 URL，选择 **By ID**（按 ID）可输入 `fileId`。
+    - 可在可分享的 Google Drive 文件 URL 中找到 `fileId`：`https://docs.google.com/document/d/fileId/edit#gid=0`。在 Google Drive 中选择 **Share > Copy link**（共享 > 复制链接），即可获取可分享的文件 URL。
+- **Parent Drive**（父级云端硬盘）：选择 **From list**（从列表）可在下拉列表中选择云端硬盘，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `driveId`。
+- **Parent Folder**（父文件夹）：选择 **From list**（从列表）可在下拉列表中选择文件夹，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `folderId`。
 
-Refer to the [Method: parents.insert | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/parents/insert) API documentation for more information.
+在浏览器中打开共享云端硬盘或文件夹，复制 URL 的最后一部分，即可找到 `driveId` 和 `folderID`：`https://drive.google.com/drive/u/1/folders/driveId`。
 
-## Share a file <a href="#share-a-file" id="share-a-file"></a>
+更多信息，请参阅 [Method: parents.insert | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/parents/insert) API 文档。
 
-Use this operation to add sharing permissions to a file.
+## 共享文件 <a href="#share-a-file" id="share-a-file"></a>
 
-Enter these parameters:
+此操作用于为文件添加共享权限。
 
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Share**.
-- **File**: Choose a file you want to share. 
-    - Select **From list** to choose the title from the dropdown list, **By URL** to enter the URL of the file, or **By ID** to enter the `fileId`. 
-    - You can find the `fileId` in a shareable Google Drive file URL: `https://docs.google.com/document/d/fileId/edit#gid=0`. In your Google Drive, select **Share > Copy link** to get the shareable file URL.
-- **Permissions**: The permissions to add to the file:
-	- **Role**: Select what users can do with the file. Can be one of **Commenter**, **File Organizer**, **Organizer**, **Owner**, **Reader**, **Writer**.
-	- **Type**: Select the scope of the new permission:
-		- **User**: Grant permission to a specific user, defined by entering their **Email Address**.
-		- **Group**: Grant permission to a specific group, defined by entering its **Email Address**.
-		- **Domain**: Grant permission to a complete domain, defined by the **Domain**.
-		- **Anyone**: Grant permission to anyone. Can optionally **Allow File Discovery** to make the file discoverable through search.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Share**（共享）。
+- **File**（文件）：选择要共享的文件。
+    - 选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By URL**（按 URL）可输入文件 URL，选择 **By ID**（按 ID）可输入 `fileId`。
+    - 可在可分享的 Google Drive 文件 URL 中找到 `fileId`：`https://docs.google.com/document/d/fileId/edit#gid=0`。在 Google Drive 中选择 **Share > Copy link**（共享 > 复制链接），即可获取可分享的文件 URL。
+- **Permissions**（权限）：要添加到文件的权限：
+    - **Role**（角色）：选择用户可以对文件执行的操作，可选 **Commenter**（评论者）、**File Organizer**（文件整理者）、**Organizer**（管理者）、**Owner**（所有者）、**Reader**（读取者）或 **Writer**（写入者）。
+    - **Type**（类型）：选择新权限的授予范围：
+        - **User**（用户）：授予指定用户权限，通过 **Email Address**（邮箱地址）指定用户。
+        - **Group**（群组）：授予指定群组权限，通过 **Email Address**（邮箱地址）指定群组。
+        - **Domain**（网域）：授予整个网域权限，通过 **Domain**（网域）指定。
+        - **Anyone**（任何人）：授予任何人权限。可选择启用 **Allow File Discovery**（允许发现文件），使文件能通过搜索被发现。
 
-- **Email Message**: A plain text custom message to include in the notification email.
+### 选项 <a href="#options" id="options"></a>
 
-- **Move to New Owners Root**: Available when trying to transfer ownership while sharing an item not in a shared drive. When enabled, moves the file to the new owner's My Drive root folder.
+- **Email Message**（邮件消息）：通知邮件中包含的纯文本自定义消息。
 
-- **Send Notification Email**: Whether to send a notification email when sharing to users or groups.
-- **Transfer Ownership**: Whether to transfer ownership to the specified user and downgrade the current owner to writer permissions.
-- **Use Domain Admin Access**: Whether to perform the action as a domain administrator.
+- **Move to New Owners Root**（移至新所有者的根目录）：共享不属于共享云端硬盘的项目，且尝试转移所有权时可用。开启后，将文件移至新所有者的 My Drive（我的云端硬盘）根文件夹。
 
-Refer to the [REST Resources: files | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files) API documentation for more information.
+- **Send Notification Email**（发送通知邮件）：向用户或群组共享时，是否发送通知邮件。
+- **Transfer Ownership**（转移所有权）：是否将所有权转移给指定用户，并将当前所有者降为写入者权限。
+- **Use Domain Admin Access**（使用网域管理员权限）：是否以网域管理员身份执行操作。
 
-## Update a file <a href="#update-a-file" id="update-a-file"></a>
+更多信息，请参阅 [REST Resources: files | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files) API 文档。
 
-Use this operation to update a file.
+## 更新文件 <a href="#update-a-file" id="update-a-file"></a>
 
-Enter these parameters:
+此操作用于更新文件。
 
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Update**.
-- **File to Update**: Choose a file you want to update. 
-    - Select **From list** to choose the title from the dropdown list, **By URL** to enter the URL of the file, or **By ID** to enter the `fileId`. 
-    - You can find the `fileId` in a shareable Google Drive file URL: `https://docs.google.com/document/d/fileId/edit#gid=0`. In your Google Drive, select **Share > Copy link** to get the shareable file URL.
-- **Change File Content**: Choose whether to send new binary data to replace the existing file content. If enabled, fill in the following:
-	- **Input Data Field Name**: The name of the input field that contains the binary file data you wish to use.
-- **New Updated File Name**: A new name for the file if you want to update the filename.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Update**（更新）。
+- **File to Update**（待更新文件）：选择要更新的文件。
+    - 选择 **From list**（从列表）可在下拉列表中按标题选择，选择 **By URL**（按 URL）可输入文件 URL，选择 **By ID**（按 ID）可输入 `fileId`。
+    - 可在可分享的 Google Drive 文件 URL 中找到 `fileId`：`https://docs.google.com/document/d/fileId/edit#gid=0`。在 Google Drive 中选择 **Share > Copy link**（共享 > 复制链接），即可获取可分享的文件 URL。
+- **Change File Content**（更改文件内容）：是否发送新的二进制数据，替换已有文件内容。开启时，需填写：
+    - **Input Data Field Name**（输入数据字段名）：包含所需二进制文件数据的输入字段名称。
+- **New Updated File Name**（更新后的新文件名）：如需更改文件名，填写新的名称。
 
-- **APP Properties**: A bundle of arbitrary key-value pairs which are private to the requesting app.
-- **Properties**: A bundle of arbitrary key-value pairs which are visible to all apps.
-- **Keep Revision Forever**: Choose whether to set the `keepForever` field in the new head revision. This only applies to files with binary content. You can keep a maximum of 200 revisions, after which you must delete the pinned revisions.
+### 选项 <a href="#options" id="options"></a>
 
+- **APP Properties**（应用属性）：仅请求应用可见的一组任意键值对。
+- **Properties**（属性）：所有应用均可见的一组任意键值对。
+- **Keep Revision Forever**（永久保留修订版本）：是否设置最新修订版本中的 `keepForever` 字段。仅适用于包含二进制内容的文件。最多可保留 200 个修订版本，达到上限后必须删除已固定保留的修订版本。
 
-- **OCR Language**: An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code to help the OCR interpret the content during import.
 
+- **OCR Language**（OCR 语言）：用于帮助 OCR 在导入时解析内容的 [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) 语言代码。
 
-- **Use Content As Indexable Text**: Choose whether to mark the uploaded content as indexable text.
-- **Move to Trash**: Whether to move the file to the trash. Only possible for the file owner.
-- **Return Fields**: Return metadata fields about the file. Can be one or more of the following: **[All]**, **explicitlyTrashed**, **exportLinks**, **hasThumbnail**, **iconLink**, **ID**, **Kind**, **mimeType**, **Name**, **Permissions**, **Shared**, **Spaces**, **Starred**, **thumbnailLink**, **Trashed**, **Version**, or **webViewLink**.
 
-Refer to the [Method: files.update | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/update) API documentation for more information.
+- **Use Content As Indexable Text**（将内容用作可索引文本）：是否将上传内容标记为可索引文本。
+- **Move to Trash**（移至垃圾箱）：是否将文件移至垃圾箱。仅文件所有者可执行。
+- **Return Fields**（返回字段）：返回文件的元数据字段，可选择以下一项或多项：**[All]**、**explicitlyTrashed**、**exportLinks**、**hasThumbnail**、**iconLink**、**ID**、**Kind**、**mimeType**、**Name**、**Permissions**、**Shared**、**Spaces**、**Starred**、**thumbnailLink**、**Trashed**、**Version** 或 **webViewLink**。
 
-## Upload a file <a href="#upload-a-file" id="upload-a-file"></a>
+更多信息，请参阅 [Method: files.update | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/update) API 文档。
 
-Use this operation to upload a file.
+## 上传文件 <a href="#upload-a-file" id="upload-a-file"></a>
 
-Enter these parameters:
+此操作用于上传文件。
 
-- **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-- **Resource**: Select **File**.
-- **Operation**: Select **Upload**.
-- **Input Data Field Name**: The name of the input field that contains the binary file data you wish to use.
-- **File Name**: The name to use for the new file.
-- **Parent Drive**: Select **From list** to choose the drive from the dropdown list, **By URL** to enter the URL of the drive, or **By ID** to enter the `driveId`. 
-- **Parent Folder**: Select **From list** to choose the folder from the dropdown list, **By URL** to enter the URL of the folder, or **By ID** to enter the `folderId`. 
+填写以下参数：
 
-You can find the `driveId` and `folderID` by visiting the shared drive or folder in your browser and copying the last URL component: `https://drive.google.com/drive/u/1/folders/driveId`.
+- **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+- **Resource**（资源）：选择 **File**（文件）。
+- **Operation**（操作）：选择 **Upload**（上传）。
+- **Input Data Field Name**（输入数据字段名）：包含所需二进制文件数据的输入字段名称。
+- **File Name**（文件名）：新文件使用的名称。
+- **Parent Drive**（父级云端硬盘）：选择 **From list**（从列表）可在下拉列表中选择云端硬盘，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `driveId`。
+- **Parent Folder**（父文件夹）：选择 **From list**（从列表）可在下拉列表中选择文件夹，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `folderId`。
 
-### Options <a href="#options" id="options"></a>
+在浏览器中打开共享云端硬盘或文件夹，复制 URL 的最后一部分，即可找到 `driveId` 和 `folderID`：`https://drive.google.com/drive/u/1/folders/driveId`。
 
-- **APP Properties**: A bundle of arbitrary key-value pairs which are private to the requesting app.
-- **Properties**: A bundle of arbitrary key-value pairs which are visible to all apps.
-- **Keep Revision Forever**: Choose whether to set the `keepForever` field in the new head revision. This only applies to files with binary content. You can keep a maximum of 200 revisions, after which you must delete the pinned revisions.
+### 选项 <a href="#options" id="options"></a>
 
+- **APP Properties**（应用属性）：仅请求应用可见的一组任意键值对。
+- **Properties**（属性）：所有应用均可见的一组任意键值对。
+- **Keep Revision Forever**（永久保留修订版本）：是否设置最新修订版本中的 `keepForever` 字段。仅适用于包含二进制内容的文件。最多可保留 200 个修订版本，达到上限后必须删除已固定保留的修订版本。
 
-- **OCR Language**: An [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code to help the OCR interpret the content during import.
 
+- **OCR Language**（OCR 语言）：用于帮助 OCR 在导入时解析内容的 [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) 语言代码。
 
-- **Use Content As Indexable Text**: Choose whether to mark the uploaded content as indexable text.
-- **Simplify Output**: Choose whether to return a simplified version of the response instead of including all fields.
 
-Refer to the [Method: files.insert | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/insert) API documentation for more information.
+- **Use Content As Indexable Text**（将内容用作可索引文本）：是否将上传内容标记为可索引文本。
+- **Simplify Output**（简化输出）：是否返回简化后的响应，而非包含所有字段。
+
+更多信息，请参阅 [Method: files.insert | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/insert) API 文档。

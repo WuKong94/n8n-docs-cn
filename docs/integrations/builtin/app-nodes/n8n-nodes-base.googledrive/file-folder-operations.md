@@ -1,20 +1,14 @@
 ---
-title: Google Drive File and Folder operations
+title: Google Drive 文件和文件夹操作
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Google Drive File and Folder operations
-originalFilePath: >-
-  integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-folder-operations.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-folder-operations
-url: >-
-  https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-folder-operations
-description: >-
-  Documentation for the File and Folder operations in Google Drive node in n8n,
-  a workflow automation platform. Includes details of operations and
-  configuration, and links to examples and credentials in
+nodeTitle: Google Drive 文件和文件夹操作
+originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-folder-operations.md
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-folder-operations
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-folder-operations
+description: 了解 n8n 工作流自动化平台中 Google Drive 节点的文件和文件夹操作，包括操作及配置详情，以及示例和凭据信息链接。
 layout:
   width: default
   title:
@@ -34,37 +28,39 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# File and Folder operations
 
-Use this operation to search for files and folders in Google Drive. Refer to [Google Drive](./README.md) for more information on the Google Drive node itself.
+# 文件和文件夹操作 <a id="file-and-folder-operations"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+此操作用于在 Google Drive 中搜索文件和文件夹。有关 Google Drive 节点本身的更多信息，请参阅 [Google Drive](./README.md)。
 
-## Search files and folders <a href="#search-files-and-folders" id="search-files-and-folders"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-Use this operation to search for files and folders in a drive.
+## 搜索文件和文件夹 <a href="#search-files-and-folders" id="search-files-and-folders"></a>
 
-Enter these parameters:
+此操作用于在云端硬盘中搜索文件和文件夹。
 
-* **Credential to connect with**: Create or select an existing [Google Drive credentials](../../credentials/google/README.md).
-* **Resource**: Select **File/Folder**.
-* **Operation**: Select **Search**.
-* **Search Method**: Choose how you want to search:
-  * **Search File/Folder Name**: Fill out the **Search Query** with the name of the file or folder you want to search for. Returns files and folders that are partial matches for the query as well.
-  * **Advanced Search**: Fill out the **Query String** to search for files and folders using [Google query string syntax](https://developers.google.com/drive/api/guides/search-files).
-* **Return All**: Choose whether to return all results or only up to a given limit.
-* **Limit**: The maximum number of items to return when **Return All** is disabled.
-* **Filter**: Choose whether to limit the scope of your search:
-  * **Drive**: The drive you want to search in. By default, uses your personal "My Drive". Select **From list** to choose the drive from the dropdown list, **By URL** to enter the URL of the drive, or **By ID** to enter the `driveId`.
-    * You can find the `driveId` by visiting the shared drive in your browser and copying the last URL component: `https://drive.google.com/drive/u/1/folders/driveId`.
-  * **Folder**: The folder to search in. Select **From list** to choose the folder from the dropdown list, **By URL** to enter the URL of the folder, or **By ID** to enter the `folderId`.
-    * You can find the `folderId` by visiting the shared folder in your browser and copying the last URL component: `https://drive.google.com/drive/u/1/folders/folderId`.
-  * **What to Search**: Whether to search for **Files and Folders**, **Files**, or **Folders**.
-  * **Include Trashed Items**: Whether to also return items in the Drive's trash.
+填写以下参数：
 
-### Options <a href="#options" id="options"></a>
+* **Credential to connect with**（连接所用凭据）：创建或选择已有的 [Google Drive 凭据](../../credentials/google/README.md)。
+* **Resource**（资源）：选择 **File/Folder**（文件/文件夹）。
+* **Operation**（操作）：选择 **Search**（搜索）。
+* **Search Method**（搜索方式）：选择搜索方式：
+  * **Search File/Folder Name**（按文件/文件夹名称搜索）：在 **Search Query**（搜索查询）中填写要搜索的文件或文件夹名称。也会返回名称部分匹配的文件和文件夹。
+  * **Advanced Search**（高级搜索）：使用 [Google 查询字符串语法](https://developers.google.com/drive/api/guides/search-files)填写 **Query String**（查询字符串），搜索文件和文件夹。
+* **Return All**（返回全部）：选择返回所有结果，或仅返回指定数量以内的结果。
+* **Limit**（数量限制）：关闭 **Return All**（返回全部）时，返回的最大数据项数量。
+* **Filter**（筛选）：选择是否限制搜索范围：
+  * **Drive**（云端硬盘）：要搜索的云端硬盘，默认使用个人的 My Drive（我的云端硬盘）。选择 **From list**（从列表）可在下拉列表中选择，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `driveId`。
+    * 在浏览器中打开共享云端硬盘，复制 URL 的最后一部分，即可找到 `driveId`：`https://drive.google.com/drive/u/1/folders/driveId`。
+  * **Folder**（文件夹）：要搜索的文件夹。选择 **From list**（从列表）可在下拉列表中选择文件夹，选择 **By URL**（按 URL）可输入其 URL，选择 **By ID**（按 ID）可输入 `folderId`。
+    * 在浏览器中打开共享文件夹，复制 URL 的最后一部分，即可找到 `folderId`：`https://drive.google.com/drive/u/1/folders/folderId`。
+  * **What to Search**（搜索对象）：选择搜索 **Files and Folders**（文件和文件夹）、**Files**（文件）或 **Folders**（文件夹）。
+  * **Include Trashed Items**（包含垃圾箱内容）：是否同时返回云端硬盘垃圾箱中的内容。
 
-* **Fields**: Select the fields to return. Can be one or more of the following: **\[All]**, **explicitlyTrashed**, **exportLinks**, **hasThumbnail**, **iconLink**, **ID**, **Kind**, **mimeType**, **Name**, **Permissions**, **Shared**, **Spaces**, **Starred**, **thumbnailLink**, **Trashed**, **Version**, or **webViewLink**.
+### 选项 <a href="#options" id="options"></a>
 
-Refer to the [Method: files.list | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/list) API documentation for more information.
+* **Fields**（字段）：选择要返回的字段，可选择以下一项或多项：**\[All]**、**explicitlyTrashed**、**exportLinks**、**hasThumbnail**、**iconLink**、**ID**、**Kind**、**mimeType**、**Name**、**Permissions**、**Shared**、**Spaces**、**Starred**、**thumbnailLink**、**Trashed**、**Version** 或 **webViewLink**。
+
+更多信息，请参阅 [Method: files.list | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/files/list) API 文档。

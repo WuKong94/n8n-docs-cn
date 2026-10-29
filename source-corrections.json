@@ -674,5 +674,69 @@
     "evidence_sources": [
       "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.gmail/draft-operations.md"
     ]
+  },
+  {
+    "id": "google-drive-copy-requires-writer-permission-direction",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations.md",
+    "original_sentence": "- **Copy Requires Writer Permissions**: Select whether to enable readers and commenters to copy, print, or download the new file.",
+    "translated_sentence": "- **Copy Requires Writer Permissions**（复制需要写入者权限）：是否禁止读取者和评论者复制、打印或下载新文件。",
+    "evidence": "文件复制选项将 Copy Requires Writer Permissions 说明为允许读取者与评论者复制、打印和下载，与字段名及共享云端硬盘同类限制说明相反。Google Files 资源将 copyRequiresWriterPermission 明确定义为是否对读取者和评论者禁用这些操作，译文据此修正限制方向。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations.md",
+      "https://developers.google.com/workspace/drive/api/reference/rest/v3/files"
+    ],
+    "scope": "仅修正或说明已核实的字段语义与引用上下文，保留原字段清单、界面名称、ID、链接、代码及源快照；不升级 API，不执行权限变更或真实文件操作。",
+    "source_sha256": "645c49cc66be6d348a2f2ef19bb30030575bb8ce4d9824b44ce700eea5099bc5"
+  },
+  {
+    "id": "google-drive-folder-share-selection-context",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/folder-operations.md",
+    "original_sentence": "* **Folder**: Choose a file you want to move.",
+    "translated_sentence": "* **Folder**（文件夹）：选择要共享的文件夹。",
+    "evidence": "Folder 页 Share a folder 章节说明为文件夹添加共享权限，Resource 为 Folder、Operation 为 Share，但 Folder 字段沿用了选择待移动文件的描述。译文据同章节上下文修正为选择要共享的文件夹。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/folder-operations.md"
+    ],
+    "scope": "仅修正或说明已核实的字段语义与引用上下文，保留原字段清单、界面名称、ID、链接、代码及源快照；不升级 API，不执行权限变更或真实文件操作。",
+    "source_sha256": "5f52745233c507870d5b74fbd2da7a91edf6d1da0eb466362581108e7e6522d5"
+  },
+  {
+    "id": "google-drive-admin-managed-restrictions-description",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/shared-drive-operations.md",
+    "original_sentence": "  * **Admin Managed Restrictions**: When enabled, restrictions here will override the similarly named fields to true for any file inside of this shared drive.",
+    "translated_sentence": "  * **Admin Managed Restrictions**（由管理员管理限制）：是否要求具备此共享云端硬盘的管理权限才能修改限制。",
+    "evidence": "创建与更新部分的 Admin Managed Restrictions 两处说明都错用了将同名文件字段覆盖为 true 的语句。Google Drives 资源明确 restrictions.adminManagedRestrictions 控制修改限制是否需要管理权限，而覆盖文件同名字段的说明属于 restrictions.copyRequiresWriterPermission。译文仅修正此字段说明，不将两者混为一项。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/shared-drive-operations.md",
+      "https://developers.google.com/workspace/drive/api/reference/rest/v3/drives"
+    ],
+    "scope": "仅修正或说明已核实的字段语义与引用上下文，保留原字段清单、界面名称、ID、链接、代码及源快照；不升级 API，不执行权限变更或真实文件操作。",
+    "source_sha256": "ec21fb05adc9550f42495f25d787797d6bf6bf36e7056bcdc27de87b71aabe46"
+  },
+  {
+    "id": "google-drive-capabilities-output-only-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/shared-drive-operations.md",
+    "original_sentence": "* **Capabilities**: The capabilities to set for the new shared drive (see [REST Resources: drives | Google Drive](https://developers.google.com/drive/api/reference/rest/v3/drives) for more details):",
+    "translated_sentence": "* **Capabilities**（能力）：原文在此列出新共享云端硬盘的能力选项，详情请参阅 [REST Resources: drives | Google Drive](https://developers.google.com/drive/api/reference/rest/v3/drives)。译注：Google Drive API 将 capabilities 定义为仅输出字段，表示当前用户已有的能力，不可通过设置此对象授予权限：",
+    "evidence": "创建共享云端硬盘部分将 Capabilities 描述为可设置的能力；Google Drives 资源将 capabilities 及各能力字段定义为 Output only，反映当前用户已有的能力。译文保留原字段清单与原链接，并添加明确译注，说明不可通过设置此对象授予权限，不声称已更改或验证节点的实际请求行为。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/shared-drive-operations.md",
+      "https://developers.google.com/workspace/drive/api/reference/rest/v3/drives"
+    ],
+    "scope": "仅修正或说明已核实的字段语义与引用上下文，保留原字段清单、界面名称、ID、链接、代码及源快照；不升级 API，不执行权限变更或真实文件操作。",
+    "source_sha256": "ec21fb05adc9550f42495f25d787797d6bf6bf36e7056bcdc27de87b71aabe46"
+  },
+  {
+    "id": "google-drive-get-many-reference-source-note",
+    "path": "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/shared-drive-operations.md",
+    "original_sentence": "Refer to the [Method: drives.get | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/drives/get) API documentation for more information.",
+    "translated_sentence": "更多信息，原文引用了 [Method: drives.get | Google Drive](https://developers.google.com/drive/api/reference/rest/v2/drives/get) API 文档。译注：该链接是单项获取接口；Google 的批量列表方法为 drives.list。",
+    "evidence": "Get many shared drives 章节的参考链接和文字沿用了单项获取的 drives.get。Google 官方 API 将 drives.list 定义为列出用户的共享云端硬盘。译文保留原链接作为原文引用，并明确标注单项获取与批量列表的区别，不静默替换原有 API 链接或升级版本。",
+    "evidence_sources": [
+      "https://github.com/n8n-io/n8n-docs/blob/dd9fe89b8e687ca5eb7c27c8cd112ba8999d8941/docs/integrations/builtin/app-nodes/n8n-nodes-base.googledrive/shared-drive-operations.md",
+      "https://developers.google.com/workspace/drive/api/reference/rest/v3/drives/list"
+    ],
+    "scope": "仅修正或说明已核实的字段语义与引用上下文，保留原字段清单、界面名称、ID、链接、代码及源快照；不升级 API，不执行权限变更或真实文件操作。",
+    "source_sha256": "ec21fb05adc9550f42495f25d787797d6bf6bf36e7056bcdc27de87b71aabe46"
   }
 ]

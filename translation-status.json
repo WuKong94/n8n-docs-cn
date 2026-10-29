@@ -15250,5 +15250,82 @@
       "gmail-thread-add-label-operation-description",
       "gmail-thread-untrash-id-direction"
     ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/README.md": {
+    "status": "translated",
+    "source_sha256": "f373c6c14ac5855a34293b93332cd7d3c65321e47b1c7c0ba85a97488e3639c4",
+    "translation_sha256": "a84408dc6c774bd991933187a42f2162a504b53c70a64b32d5813e4763bbb419",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/common-issues.md": {
+    "status": "translated",
+    "source_sha256": "2cecf1e2738a82c3a473c2c0628d65f6b19e53152af65fa54cb3a1327a5bec01",
+    "translation_sha256": "5e79449d9f86170e36f431b8ddd9e8d5c115d49d25c4fb23a1eff12443b57ec0",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-folder-operations.md": {
+    "status": "translated",
+    "source_sha256": "149cd4cd60eeb7fad8d8493ff2f9cfa9b21b04423430a3fadf621dbc2c07f784",
+    "translation_sha256": "1c73d839fa954a65e2a587a2ab2a2434ac916cb4aad32d45fa707d1ad9b76c80",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/file-operations.md": {
+    "status": "translated",
+    "source_sha256": "645c49cc66be6d348a2f2ef19bb30030575bb8ce4d9824b44ce700eea5099bc5",
+    "translation_sha256": "49267f7788f6b2baa7db3808c63ca51d191794061ca424587dd006d33a3941b5",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "google-drive-copy-requires-writer-permission-direction"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/folder-operations.md": {
+    "status": "translated",
+    "source_sha256": "5f52745233c507870d5b74fbd2da7a91edf6d1da0eb466362581108e7e6522d5",
+    "translation_sha256": "fc406185ea961c49506dbe044c725c7f2935aa1f907e02e07c43554438365499",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "google-drive-folder-share-selection-context"
+    ]
+  },
+  "integrations/builtin/app-nodes/n8n-nodes-base.googledrive/shared-drive-operations.md": {
+    "status": "translated",
+    "source_sha256": "ec21fb05adc9550f42495f25d787797d6bf6bf36e7056bcdc27de87b71aabe46",
+    "translation_sha256": "af18a40dc7db2659b5fccf0746c7c9361cb94691f4c0a161ed443f0343ea5f34",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "google-drive-admin-managed-restrictions-description",
+      "google-drive-capabilities-output-only-source-note",
+      "google-drive-get-many-reference-source-note"
+    ]
   }
 }
