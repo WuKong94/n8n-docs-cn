@@ -1,19 +1,14 @@
 ---
-title: Moonshot Kimi Chat Model node
+title: Moonshot Kimi Chat Model 节点
 contentType:
-  - integration
-  - reference
-nodeTitle: Moonshot Kimi Chat Model node
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmoonshot.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmoonshot
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmoonshot
-description: >-
-  Integrate the Moonshot Kimi Chat Model into n8n workflows to generate chat
-  responses for AI chains. Common uses include generating conversational
-  replies, integrating with LangChain-style workflows, a
+- integration
+- reference
+nodeTitle: Moonshot Kimi Chat Model 节点
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmoonshot.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmoonshot
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmoonshot
+description: 将 Moonshot Kimi Chat Model 集成到 n8n 工作流，为 AI 链生成聊天响应，包括生成对话回复和集成 LangChain
+  风格工作流。
 layout:
   width: default
   title:
@@ -33,48 +28,50 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Moonshot Kimi Chat Model node
 
-{% hint style="info" %}
-On n8n Cloud, you can use the Moonshot Kimi Chat Model node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own Moonshot API key. Select **Use Gateway credits** in the node's credential field to run the node without a Moonshot account.
-{% endhint %}
-
-Use the Moonshot Kimi Chat Model node to send chat requests to the Kimi chat API and generate conversational responses. Use it when you need an AI chat model in a workflow. For example, you can power assistants, build multi-step AI chains, or produce model-driven content with tunable sampling and token settings.
+# Moonshot Kimi Chat Model（月之暗面 Kimi 聊天模型）节点 <a id="moonshot-kimi-chat-model-node"></a>
 
 {% hint style="info" %}
-**Credentials**
-
-Refer to the [Moonshot credentials documentation](../../credentials/moonshot.md) for authentication information for this node.
+在 n8n Cloud 上，可使用 [Gateway 额度](../../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 Moonshot Kimi Chat Model 节点，无需自己的 Moonshot API 密钥。在节点的凭据字段选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 Moonshot 账户的情况下运行节点。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+使用 Moonshot Kimi Chat Model 节点，向 Kimi 聊天 API 发送请求并生成对话响应。需要在工作流中使用 AI 聊天模型时，可用此节点驱动助手、构建多步骤 AI 链，或通过可调整的采样和 token 设置生成模型内容。
 
-## Operations <a href="#operations" id="operations"></a>
+{% hint style="info" %}
+**凭据**
 
-### Generate chat response <a href="#generate-chat-response" id="generate-chat-response"></a>
+此节点的身份验证信息，请参阅 [Moonshot 凭据文档](../../credentials/moonshot.md)。
+{% endhint %}
 
-Sends a chat request to the selected Kimi model and returns the model's response.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-**Parameters**
+## 操作 <a href="#operations" id="operations"></a>
 
-* **Model** (type: options, field: `model`): The model that generates the completion. Default: `kimi-k2.5`. Learn more at [Moonshot Kimi Chat API docs](https://platform.kimi.ai/docs/api/chat).
+### 生成聊天响应 <a href="#generate-chat-response" id="generate-chat-response"></a>
 
-**Options**
+向所选 Kimi 模型发送聊天请求，并返回模型响应。
 
-* **Frequency Penalty** (type: number, field: `frequencyPenalty`): Positive values penalize new tokens based on their existing frequency, so the model repeats less. Default: `0`.
-* **Maximum number of tokens** (type: number, field: `maxTokens`): The maximum number of tokens to generate in the completion. A value of -1 uses the model default. The token limit depends on the selected model. Default: `-1`.
-* **Response format** (type: options, field: `responseFormat`): Format of the model response. Default: `text`.
-* **Presence penalty** (type: number, field: `presencePenalty`): Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. Default: `0`.
-* **Sampling temperature** (type: number, field: `temperature`): Controls randomness. Lower values make outputs less random; near zero the model becomes more deterministic. Default: `0.7`.
-* **Timeout** (type: number, field: `timeout`): Maximum time a request can take, in milliseconds. Default: 360000 (six minutes).
-* **Max retries** (type: number, field: `maxRetries`): Maximum number of retries to attempt for failed requests. Default: two.
-* **Top P** (type: number, field: `topP`): Nucleus sampling parameter controlling diversity. A value of zero point five means the model considers half of the likelihood-weighted options. We recommend changing either **Top P** or **Sampling Temperature**, don't change both. Default: `1`.
+**参数**
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+* **Model**（模型，类型：options，字段：`model`）：生成补全的模型，默认为 `kimi-k2.5`。更多信息请参阅 [Moonshot Kimi Chat API 文档](https://platform.kimi.ai/docs/api/chat)。
 
-[Browse Moonshot Kimi Chat Model node integration templates](https://n8n.io/integrations/moonshot-kimi-chat-model) or [search all templates](https://n8n.io/workflows/)
+**选项**
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+* **Frequency Penalty**（频率惩罚，类型：number，字段：`frequencyPenalty`）：正值根据新 token 已出现的频率施加惩罚，减少模型重复。默认值：`0`。
+* **Maximum number of tokens**（最大 token 数，类型：number，字段：`maxTokens`）：补全中生成的最大 token 数。-1 表示使用模型默认值，token 上限取决于所选模型。默认值：`-1`。
+* **Response format**（响应格式，类型：options，字段：`responseFormat`）：模型响应格式，默认为 `text`。
+* **Presence penalty**（存在惩罚，类型：number，字段：`presencePenalty`）：正值根据新 token 是否已在文本中出现施加惩罚，增加模型讨论新话题的可能性。默认值：`0`。
+* **Sampling temperature**（采样温度，类型：number，字段：`temperature`）：控制随机性。较低值使输出更少随机，接近零时模型趋于确定。默认值：`0.7`。
+* **Timeout**（超时，类型：number，字段：`timeout`）：请求的最长耗时，单位为毫秒，默认为 360000（六分钟）。
+* **Max retries**（最大重试次数，类型：number，字段：`maxRetries`）：失败请求的最大重试次数，默认为两次。
+* **Top P**（类型：number，字段：`topP`）：控制多样性的核采样参数。0.5 表示模型考虑按可能性加权的一半候选选项。建议仅调整 **Top P** 或 **Sampling Temperature**（采样温度）之一，不要同时调整。默认值：`1`。
 
-Refer to [Moonshot Kimi Chat Model's documentation](https://platform.kimi.ai/docs/api/chat) for more information about the service and available model options.
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+[浏览 Moonshot Kimi Chat Model（月之暗面 Kimi 聊天模型）集成模板](https://n8n.io/integrations/moonshot-kimi-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+该服务及可用模型选项的更多信息，请参阅 [Moonshot Kimi Chat Model 文档](https://platform.kimi.ai/docs/api/chat)。

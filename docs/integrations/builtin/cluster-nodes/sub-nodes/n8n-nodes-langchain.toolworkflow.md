@@ -1,78 +1,75 @@
 ---
-title: Call n8n Workflow Tool node documentation
-description: >-
-  Learn how to use the Call n8n Workflow Tool node in n8n. Follow technical
-  documentation to integrate Call n8n Workflow Tool node into your workflows.
+title: Call n8n Workflow Tool（调用 n8n 工作流工具） 节点文档
+description: 了解如何在 n8n 中使用 Call n8n Workflow Tool（调用 n8n 工作流工具） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Call n8n Workflow Tool node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow
+nodeTitle: Call n8n Workflow Tool（调用 n8n 工作流工具） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Call n8n Workflow Tool node <a href="#call-n8n-workflow-tool-node" id="call-n8n-workflow-tool-node"></a>
 
-The Call n8n Workflow Tool node is a tool[^1] that allows an agent[^2] to run another n8n workflow and fetch its output data. 
+# Call n8n Workflow Tool（调用 n8n 工作流工具） 节点 <a href="#call-n8n-workflow-tool-node" id="call-n8n-workflow-tool-node"></a>
 
-On this page, you'll find the node parameters for the Call n8n Workflow Tool node, and links to more resources.
+Call n8n Workflow Tool 节点是一种工具[^1]，让智能体[^2]能够运行另一个 n8n 工作流并获取其输出数据。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+本页列出了 Call n8n Workflow Tool 节点的参数，并提供更多资源的链接。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-### Description <a href="#description" id="description"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Enter a custom code a description. This tells the agent when to use this tool. For example:
+### 描述 <a href="#description" id="description"></a>
 
-> Call this tool to get a random color. The input should be a string with comma separated names of colors to exclude.
+为此工作流工具输入描述，告诉智能体何时使用它。例如：
 
-### Source <a href="#source" id="source"></a>
+> 调用此工具获取随机颜色。输入应为字符串，用逗号分隔要排除的颜色名称。
 
-Tell n8n which workflow to call. You can choose either:
+### Source（来源） <a href="#source" id="source"></a>
 
-* **Database** to select the workflow from a list or enter a workflow ID.
-* **Define Below** and copy in a complete [workflow JSON](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/manage-workflows/export-and-import).
+指定 n8n 要调用的工作流，可选择以下任一方式：
+
+* **Database**（数据库）：从列表选择工作流，或输入工作流 ID。
+* **Define Below**（在下方定义）：复制完整的[工作流 JSON](../../../../build/manage-workflows/export-and-import.md)。
 
 {% hint style="warning" %}
-When using **Database** as the workflow source and running the agent in production (not the manual/chat test panel), the sub-workflow must be published. If it isn't, the tool call fails with the error `Workflow is not active and cannot be executed`. The error text is returned to the agent as the tool result. This can be easy to miss inside a longer agent response. If the agent reports it couldn't retrieve data, check that the sub-workflow has been published and that its execution list shows a run.
+工作流来源为 **Database**（数据库），且智能体在生产环境运行而非手动或聊天测试面板时，子工作流必须已发布。否则，工具调用会以 `Workflow is not active and cannot be executed` 错误失败，错误文本作为工具结果返回智能体，在较长的智能体回复中可能被忽略。如果智能体报告无法获取数据，请检查子工作流是否已发布，以及其执行记录列表是否有运行记录。
 {% endhint %}
 
-### Workflow Inputs <a href="#workflow-inputs" id="workflow-inputs"></a>
+### Workflow Inputs（工作流输入） <a href="#workflow-inputs" id="workflow-inputs"></a>
 
-When using **Database** as workflow source, once you choose a sub-workflow (and define the **Workflow Input Schema** in the sub-workflow), you can define the **Workflow Inputs**.
+工作流来源为 **Database**（数据库）时，选择子工作流并在其中定义 **Workflow Input Schema**（工作流输入架构）后，即可定义 **Workflow Inputs**（工作流输入）。
 
-Select the **Refresh** button to pull in the input fields from the sub-workflow.
+选择 **Refresh**（刷新）按钮，从子工作流获取输入字段。
 
-You can define the workflow input values using any combination of the following options:
+可组合以下任意方式定义工作流输入值：
 
-* providing fixed values
-* using expressions to reference data from the current workflow
-* [letting the AI model specify the parameter](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/ai-examples/use-ai-for-parameters) by selecting the button AI button on the right side of the field
-* using the [`$fromAI()` function](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/ai-examples/use-ai-for-parameters#use-the-fromai-function) in expressions to control the way the model fills in data and to mix AI generated input with other custom input
+* 提供固定值。
+* 使用表达式引用当前工作流的数据。
+* 选择字段右侧的 AI 按钮，[让 AI 模型指定参数](../../../../build/integrate-ai/ai-examples/use-ai-for-parameters.md)。
+* 在表达式中使用 [`$fromAI()` 函数](../../../../build/integrate-ai/ai-examples/use-ai-for-parameters.md#use-the-fromai-function)，控制模型填充数据的方式，并混合 AI 生成的输入与其他自定义输入。
 
-To reference data from the current workflow, drag fields from the input panel to the field with the Expressions mode selected.
+要引用当前工作流的数据，请先选择 Expressions（表达式）模式，再将输入面板中的字段拖到目标字段。
 
-To get started with the `$fromAI()` function, select the "Let the model define this parameter" button on the right side of the field and then use the **X** on the box to revert to user-defined values. The field will change to an expression field pre-populated with the `$fromAI()` expression. From here, you can customize the expression to add other static or dynamic content, or tweak the `$fromAI()` function parameters.
+开始使用 `$fromAI()` 函数时，选择字段右侧的“Let the model define this parameter”（让模型定义此参数）按钮，再使用框中的 **X** 恢复为用户定义值。字段会变成表达式字段，并预填 `$fromAI()` 表达式。随后可自定义表达式，添加其他静态或动态内容，或调整 `$fromAI()` 函数参数。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Call n8n Workflow Tool node documentation integration templates](https://n8n.io/integrations/workflow-tool) or [search all templates](https://n8n.io/workflows/)
+[浏览 Call n8n Workflow Tool（调用 n8n 工作流工具） 集成模板](https://n8n.io/integrations/workflow-tool)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Yl56nEscwQQAbBUeWfvp/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/tools-link.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: In an AI context, a tool is an add-on resource that the AI can refer to for specific information or functionality when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks.
-[^2]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+[^1]: 在 AI 场景中，工具是附加资源，AI 可在响应请求时调用它获取特定信息或功能。AI 模型可以通过工具与外部系统交互，或完成具体、专门的任务。
+[^2]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

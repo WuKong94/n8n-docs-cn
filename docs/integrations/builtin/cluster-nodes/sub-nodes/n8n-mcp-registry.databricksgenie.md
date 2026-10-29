@@ -1,114 +1,114 @@
 ---
-description: >-
-  Connect an n8n AI agent to Databricks Genie One through the Databricks Genie
-  One MCP server in n8n's MCP servers registry, and tune the agent for Genie's
-  polling.
+description: 通过 n8n MCP 服务器注册表中的 Databricks Genie One MCP 服务器，将 AI 智能体连接到 Databricks
+  Genie One，并针对其轮询行为调整智能体。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Databricks Genie One MCP server
 
-The **Databricks Genie One** tile in n8n's [MCP servers](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/mcp-servers) registry connects an AI agent to the [Genie One MCP server](https://docs.databricks.com/aws/en/agents/mcp-tools/genie-mcp) in your Databricks workspace. Genie One is the Databricks assistant for business users. It routes each question to the relevant Genie Agent in your workspace, or to other governed data assets when no agent matches, then generates and runs SQL to answer it. To call one specific Genie Agent (formerly a Genie space) by its **Agent ID**, use the [Databricks node](../../app-nodes/n8n-nodes-base.databricks.md) instead. The agent appends the **Powered by Databricks Genie** label to replies that used Genie One, and every answer links back to the conversation in Databricks. Refer to [Genie attribution](#genie-attribution) for which agents add the label and when they skip it.
+# Databricks Genie One MCP 服务器 <a id="databricks-genie-one-mcp-server"></a>
 
-On this page, you'll find the prerequisites, setup steps, agent settings, and known issues for using Genie with an n8n agent.
+n8n 的 [MCP 服务器](../../../../build/integrate-ai/mcp-servers.md)注册表中的 **Databricks Genie One** 卡片，将 AI 智能体连接到 Databricks 工作区的 [Genie One MCP 服务器](https://docs.databricks.com/aws/en/agents/mcp-tools/genie-mcp)。Genie One 是面向业务用户的 Databricks 助手，会将每个问题路由到工作区中相关的 Genie Agent；没有匹配智能体时，则路由到其他受治理的数据资产，再生成并运行 SQL 来回答问题。要通过 **Agent ID** 调用特定 Genie Agent（旧称 Genie space），请改用 [Databricks 节点](../../app-nodes/n8n-nodes-base.databricks.md)。智能体会为使用了 Genie One 的回复附上 **Powered by Databricks Genie** 标签，每个答案都会链接回 Databricks 对话。哪些智能体添加标签、何时跳过，请参阅 [Genie 署名](#genie-attribution)。
+
+本页介绍通过 n8n 智能体使用 Genie 的前置条件、配置步骤、智能体设置及已知问题。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-The tile uses a [Databricks OAuth2 credential](../../credentials/databricks.md#using-oauth2-with-user-login) with user login. It doesn't offer service principals or personal access tokens.
+此卡片使用通过用户登录的 [Databricks OAuth2 凭据](../../credentials/databricks.md#using-oauth2-with-user-login)，不提供服务主体或个人访问令牌选项。
 {% endhint %}
 
-## Prerequisites
+## 前置条件 <a id="prerequisites"></a>
 
-- A Databricks account admin has [created a custom OAuth app connection](../../credentials/databricks.md#create-a-custom-oauth-app-connection) whose scopes cover the tile's request. The tile requests the `genie` and `offline_access` scopes. An app connection with just those two scopes is the narrowest setup and n8n recommends it when the connection serves only Genie. **All APIs** also covers the request in n8n's testing. Use it only when the same app connection serves the Databricks node or the Databricks Chat Model node, which need it. If connecting fails with a `genie` scope error, the admin [adds the `genie` scope](../../credentials/databricks.md#add-the-genie-scope-for-the-genie-mcp-server) to the app connection.
-- You have **CAN RUN** on each Genie Agent that Genie One should answer from, and **CAN USE** on at least one SQL warehouse. Refer to [Required Databricks privileges](../../credentials/databricks.md#required-databricks-privileges).
-- A chat model that calls tools reliably. n8n recommends the [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md) node with Llama 3.3 70B or Qwen 3.5. Refer to [Choose a model for agents](n8n-nodes-langchain.lmchatdatabricks.md#choose-a-model-for-agents).
+- Databricks 账户管理员已[创建自定义 OAuth 应用连接](../../credentials/databricks.md#create-a-custom-oauth-app-connection)，其作用域覆盖卡片请求。卡片请求 `genie` 和 `offline_access` 作用域。仅包含这两个作用域的应用连接是最小权限配置；连接仅用于 Genie 时，n8n 建议采用此配置。n8n 测试中，**All APIs**（所有 API）也可覆盖请求，但仅应在同一应用连接还供需要此权限的 Databricks 节点或 Databricks Chat Model 节点使用时选择。如果连接因 `genie` 作用域错误失败，管理员需为应用连接[添加 `genie` 作用域](../../credentials/databricks.md#add-the-genie-scope-for-the-genie-mcp-server)。
+- 对 Genie One 应使用的每个 Genie Agent 拥有 **CAN RUN** 权限，并对至少一个 SQL warehouse 拥有 **CAN USE** 权限。请参阅[所需 Databricks 权限](../../credentials/databricks.md#required-databricks-privileges)。
+- 可可靠调用工具的聊天模型。n8n 建议通过 [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md) 节点使用 Llama 3.3 70B 或 Qwen 3.5。请参阅[为智能体选择模型](n8n-nodes-langchain.lmchatdatabricks.md#choose-a-model-for-agents)。
 
-## Connect Genie to an agent
+## 将 Genie 连接到智能体 <a id="connect-genie-to-an-agent"></a>
 
-The Genie MCP server uses one authentication type, user login. The agent asks Genie questions as the Databricks user who connected the credential, so each n8n user creates their own credential.
+Genie MCP 服务器仅使用用户登录这一种身份验证方式。智能体以连接凭据的 Databricks 用户身份向 Genie 提问，因此每位 n8n 用户都需要创建自己的凭据。
 
-1. Open an [AI Agent](../root-nodes/n8n-nodes-langchain.agent/README.md) node on the canvas and select the **+** on its **Tool** connector.
-2. Search for `Databricks Genie One`, or open the **MCP Servers** section to browse the registry.
-3. Select the **Databricks Genie One** tile. n8n adds a node named **Databricks Genie One MCP** to the agent and opens its settings.
-4. Under **Credential to connect with**, select **Create new credential**.
-5. Enter your workspace URL as the **Host**, for example `https://adb-1234567890123456.7.azuredatabricks.net`.
-6. Enter the **Client ID** and **Client Secret** from the custom OAuth app connection your admin created.
-7. Select **Connect my account** and sign in to Databricks.
-8. In **Tools to Include**, keep **All** so the agent can ask, poll, fetch results, and cancel. Refer to [Tools](#tools).
-9. Set the agent's **Max Iterations** option to 30 or more. Refer to [Configure the agent for Genie](#configure-the-agent-for-genie).
+1. 在画布上打开 [AI Agent](../root-nodes/n8n-nodes-langchain.agent/README.md) 节点，选择 **Tool**（工具）连接器上的 **+**。
+2. 搜索 `Databricks Genie One`，或打开 **MCP Servers**（MCP 服务器）部分浏览注册表。
+3. 选择 **Databricks Genie One** 卡片。n8n 会向智能体添加名为 **Databricks Genie One MCP** 的节点，并打开设置。
+4. 在 **Credential to connect with**（连接凭据）下选择 **Create new credential**（创建新凭据）。
+5. 将工作区 URL 填入 **Host**（主机），例如 `https://adb-1234567890123456.7.azuredatabricks.net`。
+6. 输入管理员创建的自定义 OAuth 应用连接的 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
+7. 选择 **Connect my account**（连接我的账户），登录 Databricks。
+8. 在 **Tools to Include**（要包含的工具）中保持 **All**（全部），以便智能体提问、轮询、获取结果及取消。请参阅[工具](#tools)。
+9. 将智能体的 **Max Iterations**（最大迭代次数）设为 30 或以上。请参阅[为 Genie 配置智能体](#configure-the-agent-for-genie)。
 
-Send the agent a question about your data, for example "How many trips are in the trips table?". The reply includes Genie's answer and an **Explore in Databricks** link.
+向智能体提出数据问题，例如“trips 表中有多少条行程？”。回复会包含 Genie 的答案及 **Explore in Databricks**（在 Databricks 中探索）链接。
 
-## Tools
+## 工具 <a id="tools"></a>
 
-Genie One exposes four tools. Databricks routes each question to a Genie Agent, or to other workspace data when none matches, so there's no agent parameter. The table shows Databricks' short tool names. In n8n, the agent sees each name prefixed with the node's name, for example `Databricks_Genie_One_MCP_genie_ask` for the default node name. A node you renamed, or added before the tile was renamed, keeps its own name as the prefix, for example `Databricks_Genie_MCP_genie_ask`. Don't reference the short names in prompts.
+Genie One 提供四个工具。Databricks 将每个问题路由到某个 Genie Agent，没有匹配项时则使用其他工作区数据，因此没有智能体参数。下表列出 Databricks 的工具短名称。在 n8n 中，智能体看到的名称以节点名称为前缀；默认节点名称对应的示例为 `Databricks_Genie_One_MCP_genie_ask`。如果重命名了节点，或节点在卡片改名前已添加，会保留自身名称作为前缀，例如 `Databricks_Genie_MCP_genie_ask`。不要在提示词中引用工具短名称。
 
-| Tool | What it does |
+| 工具 | 作用 |
 |------|--------------|
-| `genie_ask` | Starts a Genie conversation with a question, or continues one with a `conversation_id`. Returns a status without waiting for the answer. |
-| `genie_poll_response` | Checks whether Genie has finished. Databricks recommends waiting 2 to 5 seconds between polls. |
-| `genie_get_query_result` | Fetches the full result rows of the SQL Genie ran, when the answer summary isn't enough. |
-| `genie_cancel_response` | Cancels a running Genie turn. |
+| `genie_ask` | 使用问题开始 Genie 对话，或通过 `conversation_id` 继续现有对话。无需等待答案即可返回状态。 |
+| `genie_poll_response` | 检查 Genie 是否完成。Databricks 建议两次轮询之间等待 2 到 5 秒。 |
+| `genie_get_query_result` | 答案摘要不足时，获取 Genie 所运行 SQL 的完整结果行。 |
+| `genie_cancel_response` | 取消正在运行的 Genie 轮次。 |
 
-## Configure the agent for Genie
+## 为 Genie 配置智能体 <a id="configure-the-agent-for-genie"></a>
 
-Genie answers asynchronously. The agent calls `genie_ask`, then calls `genie_poll_response` until Genie reports it has finished. Each poll costs one agent iteration: the `genie_poll_response` call plus the model turn that decides to poll again. Databricks states that Genie turns typically complete in 70 to 260 seconds and recommends 2 to 5 seconds between polls, so one answer can take from 14 to 130 iterations.
+Genie 异步回答。智能体先调用 `genie_ask`，再调用 `genie_poll_response`，直到 Genie 报告完成。每次轮询消耗一次智能体迭代，即一次 `genie_poll_response` 调用加上决定是否继续轮询的模型轮次。Databricks 表示，Genie 轮次通常在 70 到 260 秒完成，建议两次轮询之间等待 2 到 5 秒，因此一个答案可能消耗 14 到 130 次迭代。
 
-- **Raise Max Iterations.** The AI Agent's default of 10 fails on realistic questions. Set **Max Iterations** to 30 or more. Questions at the slow end of Databricks' range can still hit the limit, so raise it further if you see cutoffs.
-- **Know how the cutoff looks.** AI Agent node version 3 fails the execution with `Max iterations (30) reached`. Older AI Agent versions succeed with the reply `Agent stopped due to max iterations.`, which looks like an answer but isn't one. Genie keeps running the turn on the Databricks side after a cutoff.
-- **Guide the model.** A system message like the following keeps the loop tight and preserves the attribution link:
+- **提高最大迭代次数。** AI Agent 默认的 10 次不足以处理实际问题。将 **Max Iterations**（最大迭代次数）设为 30 或以上。Databricks 耗时范围较慢一端的问题仍可能达到上限，出现截断时请进一步提高。
+- **了解截断的表现。** AI Agent 节点版本 3 会以 `Max iterations (30) reached` 使执行失败。较早版本会执行成功，但回复 `Agent stopped due to max iterations.`，看似答案，实际并非答案。截断后，Genie 仍会在 Databricks 端继续运行该轮次。
+- **引导模型。** 类似以下内容的系统消息，可使循环保持紧凑，并保留署名链接：
 
 	```text
-	To answer data questions, ask Genie the question, then poll until the status is completed.
-	Fetch the full result rows only if you need them.
-	Include any [Explore in Databricks](url) link from the tool result in your reply, verbatim.
+	回答数据问题时，先向 Genie 提问，再轮询直到状态为完成。
+	仅在需要时获取完整结果行。
+	在回复中原样包含工具结果中的任何 [Explore in Databricks](url) 链接。
 	```
 
-	Don't name the tools in the system message. A model that follows the prompt literally then calls the short names, which don't match the names n8n registers, and no tool runs.
+    不要在系统消息中写出工具名称。模型若逐字遵循提示词，就会调用工具短名称，而这些名称与 n8n 注册的名称不匹配，导致工具无法运行。
 
-- **Watch chat model rate limits.** Genie itself didn't throttle in n8n's tests, but pay-per-token model endpoints do. Three concurrent agent runs are enough to fail the execution with a rate limit error from the chat model. Use a provisioned throughput endpoint or keep concurrency low.
+- **留意聊天模型速率限制。** n8n 测试中 Genie 本身没有限流，但按 token 付费的模型端点会限流。三个并发智能体运行就足以触发聊天模型的速率限制错误，使执行失败。请使用预配吞吐量端点，或保持较低并发。
 
-## Genie attribution
+## Genie 署名 <a id="genie-attribution"></a>
 
-Databricks requires Genie-powered integrations to identify Genie. In n8n:
+Databricks 要求由 Genie 提供支持的集成标明 Genie。在 n8n 中：
 
-- The AI Agent node (version 3 or later) and n8n Agents append the **Powered by Databricks Genie** label after the reply when the run called a Genie One tool. n8n adds the label in code after the model answers, so a system message can't drop it. The AI Agent node skips the label when **Require Specific Output Format** is on, because the structured output must stay parseable.
-- Every completed Genie answer includes an **Explore in Databricks** link that opens the conversation in Genie in your workspace, so users can inspect the SQL and results. Genie instructs the model to render this link verbatim, and n8n passes the tool result through unchanged. Don't strip the link in your system message or output parsing.
+- 当运行调用过 Genie One 工具时，AI Agent 节点版本 3 及以上和 n8n Agents 会在回复后附加 **Powered by Databricks Genie** 标签。n8n 在模型回答后通过代码添加标签，系统消息无法移除。启用 **Require Specific Output Format**（要求指定输出格式）时，AI Agent 节点会跳过标签，因为结构化输出必须保持可解析。
+- 每个已完成的 Genie 答案都包含 **Explore in Databricks** 链接，可打开工作区中的 Genie 对话，供用户查看 SQL 和结果。Genie 指示模型原样呈现链接，n8n 也原样传递工具结果。不要在系统消息或输出解析中移除此链接。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-- [Databricks credentials](../../credentials/databricks.md), including the `genie` scope setup for admins
-- [Databricks Chat Model node](n8n-nodes-langchain.lmchatdatabricks.md)
-- [Databricks node](../../app-nodes/n8n-nodes-base.databricks.md) for calling a Genie Agent's REST API directly without an AI agent
-- [MCP servers](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/mcp-servers) for how the registry works
-- [Genie One MCP server](https://docs.databricks.com/aws/en/agents/mcp-tools/genie-mcp) in the Databricks documentation
+- [Databricks 凭据](../../credentials/databricks.md)，包括管理员设置 `genie` 作用域的方法。
+- [Databricks Chat Model 节点](n8n-nodes-langchain.lmchatdatabricks.md)。
+- [Databricks 节点](../../app-nodes/n8n-nodes-base.databricks.md)，用于直接调用 Genie Agent REST API，无需 AI 智能体。
+- [MCP 服务器](../../../../build/integrate-ai/mcp-servers.md)，介绍注册表的工作方式。
+- Databricks 文档中的 [Genie One MCP 服务器](https://docs.databricks.com/aws/en/agents/mcp-tools/genie-mcp)。
 
-## Common issues
+## 常见问题 <a id="common-issues"></a>
 
-### Connect fails with a genie scope error
+### 连接因 genie 作用域错误而失败 <a id="connect-fails-with-a-genie-scope-error"></a>
 
-Selecting **Connect my account** fails with:
+选择 **Connect my account**（连接我的账户）后报错：
 
 ```text
 access_denied: Scopes 'genie' are not assigned to the client <client-id>
 ```
 
-The custom OAuth app connection doesn't have the `genie` scope, and on this Databricks account **All APIs** doesn't stand in for it. A Databricks account admin needs to [add the `genie` scope](../../credentials/databricks.md#add-the-genie-scope-for-the-genie-mcp-server) to the app connection, in the account console's scope picker or with the Databricks CLI.
+自定义 OAuth 应用连接没有 `genie` 作用域，且此 Databricks 账户中的 **All APIs**（所有 API）不能代替该作用域。Databricks 账户管理员需要在账户控制台的作用域选择器中，或通过 Databricks CLI，为应用连接[添加 `genie` 作用域](../../credentials/databricks.md#add-the-genie-scope-for-the-genie-mcp-server)。
 
-### Max iterations reached
+### 达到最大迭代次数 <a id="max-iterations-reached"></a>
 
-The execution fails with `Max iterations (10) reached` or the agent replies `Agent stopped due to max iterations.`. Genie hadn't finished when the agent ran out of iterations. Raise **Max Iterations** to 30 or more on the AI Agent node. Refer to [Configure the agent for Genie](#configure-the-agent-for-genie).
+执行以 `Max iterations (10) reached` 失败，或智能体回复 `Agent stopped due to max iterations.`。智能体用尽迭代次数时，Genie 尚未完成。请将 AI Agent 节点的 **Max Iterations**（最大迭代次数）提高到 30 或以上。请参阅[为 Genie 配置智能体](#configure-the-agent-for-genie)。
 
-### The agent never calls Genie
+### 智能体始终不调用 Genie <a id="the-agent-never-calls-genie"></a>
 
-The agent uses all its iterations without a single tool call. Two causes look the same in the execution log:
+智能体用尽所有迭代次数，却没有一次工具调用。以下两种原因在执行日志中的表现相同：
 
-- Your system message names the tools, for example `genie_ask`. The model calls the short names, which don't match the prefixed names n8n registers, and no tool runs. Describe the flow without tool names, as in [Configure the agent for Genie](#configure-the-agent-for-genie).
-- The chat model isn't returning tool calls the agent can execute. Switch to a model that calls tools reliably, such as Llama 3.3 70B or Qwen 3.5 through the [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md#choose-a-model-for-agents) node.
+- 系统消息中写出了工具名称，例如 `genie_ask`。模型调用短名称，而它们与 n8n 注册的带前缀名称不匹配，导致工具无法运行。请按[为 Genie 配置智能体](#configure-the-agent-for-genie)中的方式描述流程，不要写工具名称。
+- 聊天模型未返回智能体可执行的工具调用。请通过 [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md#choose-a-model-for-agents) 节点切换为可可靠调用工具的模型，例如 Llama 3.3 70B 或 Qwen 3.5。
 
-### Genie reports a SQL or permission error
+### Genie 报告 SQL 或权限错误 <a id="genie-reports-a-sql-or-permission-error"></a>
 
-Genie returns its own error text, for example `[TABLE_OR_VIEW_NOT_FOUND] The table or view samples.nyctaxi.does_not_exist cannot be found`, and the agent relays it. Fix the underlying data or grant issue in Databricks. The connected user needs **CAN RUN** on the Genie Agent that answered and the Unity Catalog privileges on the tables it uses.
+Genie 返回自己的错误文本，例如 `[TABLE_OR_VIEW_NOT_FOUND] The table or view samples.nyctaxi.does_not_exist cannot be found`，智能体将其转达。请在 Databricks 中修复底层数据或授权问题。连接用户需要对回答问题的 Genie Agent 拥有 **CAN RUN** 权限，并具有所用表的 Unity Catalog 权限。

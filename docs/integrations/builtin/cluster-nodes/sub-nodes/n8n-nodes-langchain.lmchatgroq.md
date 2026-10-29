@@ -1,54 +1,52 @@
 ---
-title: Groq Chat Model node documentation
-description: >-
-  Learn how to use the Groq Chat Model node in n8n. Follow technical
-  documentation to integrate Groq Chat Model node into your workflows.
+title: Groq Chat Model（Groq 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 Groq Chat Model（Groq 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Groq Chat Model node documentation
+nodeTitle: Groq Chat Model（Groq 聊天模型） 节点文档
 originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgroq.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgroq
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgroq
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgroq
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgroq
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Groq Chat Model node <a href="#groq-chat-model-node" id="groq-chat-model-node"></a>
 
-Use the Groq Chat Model node to access Groq's large language models for conversational AI and text generation tasks.
+# Groq Chat Model（Groq 聊天模型） 节点 <a href="#groq-chat-model-node" id="groq-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the Groq Chat Model node, and links to more resources.
+使用 Groq Chat Model 节点，访问 Groq 的大型语言模型，执行对话式 AI 和文本生成任务。
+
+本页列出了 Groq Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Groq credentials documentation](../../credentials/groq.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Groq 凭据文档](../../credentials/groq.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model which will generate the completion. n8n dynamically loads available models from the Groq API. Learn more in the [Groq model documentation](https://console.groq.com/docs/models).
+* **Model**（模型）：选择生成补全的模型。n8n 从 Groq API 动态加载可用模型。更多信息请参阅 [Groq 模型文档](https://console.groq.com/docs/models)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Groq Chat Model node documentation integration templates](https://n8n.io/integrations/groq-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 Groq Chat Model（Groq 聊天模型） 集成模板](https://n8n.io/integrations/groq-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Groq's API documentation](https://console.groq.com/docs/quickstart) for more information about the service.
+该服务的更多信息，请参阅 [Groq API 文档](https://console.groq.com/docs/quickstart)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

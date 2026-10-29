@@ -1,64 +1,61 @@
 ---
-title: SerpApi (Google Search) node documentation
-description: >-
-  Learn how to use the SerpApi (Google Search) node in n8n. Follow technical
-  documentation to integrate SerpApi (Google Search) node into your workflows.
+title: SerpApi (Google Search)（Google 搜索） 节点文档
+description: 了解如何在 n8n 中使用 SerpApi (Google Search)（Google 搜索） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: SerpApi (Google Search) node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolserpapi.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolserpapi
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolserpapi
+nodeTitle: SerpApi (Google Search)（Google 搜索） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolserpapi.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolserpapi
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolserpapi
 layout:
   description:
     visible: false
 tags:
-  - tag: deprecated
-    primary: true
+- tag: deprecated
+  primary: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SerpApi (Google Search) node <a href="#serpapi-google-search-node" id="serpapi-google-search-node"></a>
+
+# SerpApi (Google Search)（Google 搜索） 节点 <a href="#serpapi-google-search-node" id="serpapi-google-search-node"></a>
 
 {% hint style="warning" %}
-**Feature availability**
+**功能可用性**
 
-The SerpApi (Google Search) node is deprecated from n8n 2.35.0. Use the verified **SerpApi Official** community node instead. Refer to [Deprecated and versioned nodes](../../deprecated-nodes.md) for more information.
+SerpApi (Google Search) 节点从 n8n 2.35.0 起弃用。请改用经过验证的 **SerpApi Official** 社区节点。更多信息请参阅[已弃用和具有版本的节点](../../deprecated-nodes.md)。
 {% endhint %}
 
-The SerpAPI node allows an agent[^1] in your workflow to call Google's Search API.
+SerpAPI 节点支持工作流中的智能体[^1]调用 Google Search API。
 
-On this page, you'll find the node parameters for the SerpAPI node, and links to more resources.
+本页列出了 SerpAPI 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Serp credentials documentation](../../credentials/serp.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Serp 凭据文档](../../credentials/serp.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Country**: Enter the country code you'd like to use. Refer to [Google GL Parameter: Supported Google Countries](https://serpapi.com/google-countries) for supported countries and country codes.
-* **Device**: Select the device to use to get the search results.
-* **Explicit Array**: Choose whether to force SerpApi to fetch the Google results even if a cached version is already present (turned on) or not (turned off).
-* **Google Domain**: Enter the Google Domain to use. Refer to [Supported Google Domains](https://serpapi.com/google-domains) for supported domains.
-* **Language**: Enter the language code you'd like to use. Refer to [Google HL Parameter: Supported Google Languages](https://serpapi.com/google-languages) for supported languages and language codes.
+* **Country**（国家或地区）：输入要使用的国家或地区代码。支持的国家或地区及代码，请参阅 [Google GL 参数：支持的 Google 国家或地区](https://serpapi.com/google-countries)。
+* **Device**（设备）：选择用于获取搜索结果的设备。
+* **Explicit Array**（显式数组）：选择是否强制 SerpApi 获取 Google 结果，即使已有缓存版本；开启时强制获取，关闭时不强制。
+* **Google Domain**（Google 域名）：输入要使用的 Google 域名。支持的域名请参阅[支持的 Google 域名](https://serpapi.com/google-domains)。
+* **Language**（语言）：输入要使用的语言代码。支持的语言及代码，请参阅 [Google HL 参数：支持的 Google 语言](https://serpapi.com/google-languages)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse SerpApi (Google Search) node documentation integration templates](https://n8n.io/integrations/serpapi) or [search all templates](https://n8n.io/workflows/)
+[浏览 SerpApi (Google Search)（Google 搜索） 集成模板](https://n8n.io/integrations/serpapi)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Serp's documentation](https://serpapi.com/search-api) for more information about the service.
+该服务的更多信息，请参阅 [Serp 文档](https://serpapi.com/search-api)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

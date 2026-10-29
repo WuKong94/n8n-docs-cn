@@ -41,7 +41,7 @@ layout:
 启用此功能会覆盖此前添加的任何手动定义。
 {% endhint %}
 
-## 使用 `$fromAI()` 函数 <a href="#use-the-dollarfromai-function" id="use-the-dollarfromai-function"></a>
+## 使用 `$fromAI()` 函数 <a href="#use-the-dollarfromai-function" id="use-the-dollarfromai-function"></a> <a id="use-the-fromai-function"></a>
 
 `$fromAI()` 函数通过 AI，为连接到 [Tools AI 智能体](../../../integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md)的工具动态填写参数。
 

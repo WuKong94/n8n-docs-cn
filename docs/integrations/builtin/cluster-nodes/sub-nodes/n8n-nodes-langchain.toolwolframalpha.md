@@ -1,46 +1,43 @@
 ---
-title: Wolfram|Alpha tool node documentation
-description: >-
-  Learn how to use the Wolfram|Alpha tool node in n8n. Follow technical
-  documentation to integrate Wolfram|Alpha tool node into your workflows.
+title: Wolfram|Alpha tool（Wolfram|Alpha 工具） 节点文档
+description: 了解如何在 n8n 中使用 Wolfram|Alpha tool（Wolfram|Alpha 工具） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Wolfram|Alpha tool node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolwolframalpha.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolwolframalpha
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolwolframalpha
+nodeTitle: Wolfram|Alpha tool（Wolfram|Alpha 工具） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolwolframalpha.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolwolframalpha
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolwolframalpha
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Wolfram|Alpha tool node <a href="#wolframoralpha-tool-node" id="wolframoralpha-tool-node"></a>
 
-Use the Wolfram|Alpha tool node to connect your agents[^1] and chains[^2] to Wolfram|Alpha's computational intelligence engine.
+# Wolfram|Alpha tool（Wolfram|Alpha 工具） 节点 <a href="#wolframoralpha-tool-node" id="wolframoralpha-tool-node"></a>
+
+使用 Wolfram|Alpha tool 节点，将智能体[^1]和链[^2]连接到 Wolfram|Alpha 的计算智能引擎。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Wolfram|Alpha credentials documentation](../../credentials/wolframalpha.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Wolfram|Alpha 凭据文档](../../credentials/wolframalpha.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Wolfram|Alpha tool node documentation integration templates](https://n8n.io/integrations/wolframoralpha) or [search all templates](https://n8n.io/workflows/)
+[浏览 Wolfram|Alpha tool（Wolfram|Alpha 工具） 集成模板](https://n8n.io/integrations/wolframoralpha)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Wolfram|Alpha's documentation](https://products.wolframalpha.com/api) for more information about the service.
+该服务的更多信息，请参阅 [Wolfram|Alpha 文档](https://products.wolframalpha.com/api)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
-[^2]: AI chains allow you to interact with large language models (LLMs) and other resources in sequences of calls to components. AI chains in n8n don't use persistent memory, so you can't use them to reference previous context (use AI agents for this).
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。
+[^2]: AI 链通过一系列组件调用，让你与大型语言模型（LLM）及其他资源交互。n8n 中的 AI 链不使用持久记忆，因此不能用它们引用之前的上下文；此类需求请使用 AI 智能体。

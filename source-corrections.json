@@ -367,5 +367,32 @@
     "translated_sentence": "了解如何在 n8n 中使用 Google Vertex 嵌入模型节点，并将其集成到工作流中。",
     "evidence": "同页 title、nodeTitle、H1、简介以及 Google Vertex AI 凭据、项目和区域参数均明确对应 Embeddings Google Vertex；仅 description 第二句误称 Embeddings Google Gemini。",
     "scope": "仅修正页面元描述中的节点名称，不修改 Google Gemini 独立页面、模型参数、代码、凭据选择、链接或端点。"
+  },
+  {
+    "id": "lemonade-chat-model-sub-node",
+    "path": "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatlemonade.md",
+    "source_sha256": "a3e4bfb549b6524d821bdb654b01594f247cca9e854012524ab1ed76de906733",
+    "original_sentence": "This node functions as a LangChain-compatible chat model root node and is suitable for chat-style workloads.",
+    "translated_sentence": "此节点是兼容 LangChain 的聊天模型子节点，适用于聊天式任务。",
+    "evidence": "该页位于官方 sub-nodes 节点库，并直接引用 sub-node-expression-resolution 共用说明，明确应用子节点逐项表达式解析规则；同版本集群节点索引将模型类附属节点归为连接根节点的子节点。简介误称 root node 与其自身引用的分类及参数规则不符。",
+    "scope": "仅将简介中的根节点分类改为子节点；保留 LangChain 兼容性、用途、模型、采样参数、默认值、凭据、代码和链接，不声称已运行 Lemonade。"
+  },
+  {
+    "id": "lemonade-model-sub-node",
+    "path": "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmlemonade.md",
+    "source_sha256": "ebc5c72c4eed776377398ffcb364b99985d65e6bc966214e7df108961d35837d",
+    "original_sentence": "This node is a simple LangChain-compatible language model root node suitable for text completion tasks within n8n workflows.",
+    "translated_sentence": "此节点是兼容 LangChain 的简单语言模型子节点，适用于 n8n 工作流中的文本补全任务。",
+    "evidence": "该页位于官方 sub-nodes 节点库，并直接引用 sub-node-expression-resolution 共用说明，明确应用子节点逐项表达式解析规则；同版本集群节点索引将模型类附属节点归为连接根节点的子节点。简介误称 root node 与其自身引用的分类及参数规则不符。",
+    "scope": "仅将简介中的根节点分类改为子节点；保留 LangChain 兼容性、用途、模型、采样参数、默认值、凭据、代码和链接，不声称已运行 Lemonade。"
+  },
+  {
+    "id": "workflow-tool-description-copy-error",
+    "path": "integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolworkflow.md",
+    "source_sha256": "fe0226405e50f5dd1f860546fc74b4996a332929a305b84e98e6f2dc3db0f949",
+    "original_sentence": "Enter a custom code a description. This tells the agent when to use this tool. For example:",
+    "translated_sentence": "为此工作流工具输入描述，告诉智能体何时使用它。例如：",
+    "evidence": "本页节点是 Call n8n Workflow Tool，简介明确调用其他 n8n 工作流，后续参数为 Source 和 Workflow Inputs；Description 小节误沿用了 Custom Code Tool 的自定义代码表述。",
+    "scope": "仅修正 Description 小节中复制的自定义代码措辞；保留工具描述用途、示例提示词、工作流来源、发布要求、输入参数、代码和链接。"
   }
 ]

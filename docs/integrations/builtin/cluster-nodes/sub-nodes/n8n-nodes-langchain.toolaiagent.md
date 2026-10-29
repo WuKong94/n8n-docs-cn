@@ -1,62 +1,59 @@
 ---
-title: AI Agent Tool node documentation
-description: >-
-  Learn how to use the AI Agent Tool node in n8n. Follow technical documentation
-  to integrate the AI Agent Tool node into your workflows.
+title: AI Agent Tool（AI 智能体工具） 节点文档
+description: 了解如何在 n8n 中使用 AI Agent Tool 节点，并按照技术文档将 AI 智能体工具集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: AI Agent Tool node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolaiagent.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolaiagent
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolaiagent
+nodeTitle: AI Agent Tool（AI 智能体工具） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolaiagent.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolaiagent
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolaiagent
 layout:
   description:
     visible: false
 ---
-
-# AI Agent Tool node <a href="#ai-agent-tool-node" id="ai-agent-tool-node"></a>
-
-The AI Agent Tool node allows a root-level agent[^1] in your workflow to call other agents as tools to simplify multi-agent orchestration.
-
-The [primary agent](../root-nodes/n8n-nodes-langchain.agent/tools-agent.md) can supervise and delegate work to AI Agent Tool nodes that specialize in different tasks and knowledge. This allows you to use multiple agents in a single workflow without the complexity of managing context and variables that sub-workflows require. You can nest AI Agent Tool nodes into multiple layers for more complex multi-tiered use cases.
-
-On this page, you'll find the node parameters for the AI Agent Tool node, and links to more resources.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-Configure the AI Agent Tool node using these parameters:
-
-* **Description**: Give a description to the LLM of this agent's purpose and scope of responsibility. A good, specific description tells the parent agent when to delegate tasks to this agent for processing.
-* **Prompt (User Message)**: The prompt to the LLM explaining what actions to perform and what information to return.
-* **Require Specific Output Format**: Whether you want the node to require a specific output format. When turned on, n8n prompts you to connect one of the output parsers [described on the main agent page](../root-nodes/n8n-nodes-langchain.agent/tools-agent.md#require-specific-output-format).
-* **Enable Fallback Model**: Whether to enable a fallback model. When enabled, n8n prompts you to connect a backup chat model to use in case the primary model fails or isn't available.
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-Refine the AI Agent Tool node's behavior using these options:
-
-* **System Message**: A message to send to the agent before the conversation starts.
-* **Max Iterations**: The maximum number of times the model should run to generate a response before stopping.
-* **Return Intermediate Steps**: Whether to include intermediate steps the agent took in the final output.
-* **Automatically Passthrough Binary Images**: Whether binary images should be automatically passed through to the agent as image type messages.
-* **Batch Processing**: Whether to enable the following batch processing options for rate limiting:
-	* **Batch Size**: The number of items to process in parallel. This helps with rate limiting but may impact the log output ordering.
-	* **Delay Between Batches**: The number of milliseconds to wait between batches.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse AI Agent Tool node documentation integration templates](https://n8n.io/integrations/ai-agent-tool) or [search all templates](https://n8n.io/workflows/)
+# AI Agent Tool（AI 智能体工具） 节点 <a href="#ai-agent-tool-node" id="ai-agent-tool-node"></a>
 
-## Dynamic parameters for tools with `$fromAI()` <a href="#dynamic-parameters-for-tools-with-dollarfromai" id="dynamic-parameters-for-tools-with-dollarfromai"></a>
+AI Agent Tool 节点允许工作流中的根级智能体[^1]将其他智能体作为工具调用，简化多智能体编排。
 
-To learn how to dynamically populate parameters for app node tools, refer to [Let AI specify tool parameters with `$fromAI()`](https://app.gitbook.com/s/rPN1zU5jaYNvwH7RzxqA/integrate-ai/ai-examples/use-ai-for-parameters).
+[主智能体](../root-nodes/n8n-nodes-langchain.agent/tools-agent.md)可以监督专长于不同任务和知识的 AI Agent Tool 节点，并向它们分派工作。这样即可在单个工作流中使用多个智能体，无需处理子工作流所要求的复杂上下文和变量管理。还可将 AI Agent Tool 节点嵌套为多层，满足更复杂的分层场景。
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+本页列出了 AI Agent Tool 节点的参数，并提供更多资源的链接。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+使用以下参数配置 AI Agent Tool 节点：
+
+* **Description**（描述）：向 LLM 描述此智能体的目的和职责范围。具体、清晰的描述可告诉父智能体何时将任务交给此智能体处理。
+* **Prompt (User Message)**（提示词，用户消息）：向 LLM 说明要执行什么操作、返回哪些信息的提示词。
+* **Require Specific Output Format**（要求指定输出格式）：选择是否要求特定输出格式。开启后，n8n 会提示连接[主智能体页面介绍的输出解析器](../root-nodes/n8n-nodes-langchain.agent/tools-agent.md#require-specific-output-format)之一。
+* **Enable Fallback Model**（启用后备模型）：选择是否启用后备模型。开启后，n8n 会提示连接备用聊天模型，在主模型失败或不可用时使用。
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+使用以下选项调整 AI Agent Tool 节点的行为：
+
+* **System Message**（系统消息）：对话开始前发送给智能体的消息。
+* **Max Iterations**（最大迭代次数）：停止前，模型为生成响应最多运行多少次。
+* **Return Intermediate Steps**（返回中间步骤）：是否在最终输出中包含智能体执行的中间步骤。
+* **Automatically Passthrough Binary Images**（自动传递二进制图像）：是否将二进制图像自动作为图像类型消息传给智能体。
+* **Batch Processing**（批处理）：是否启用以下用于速率限制的批处理选项：
+    * **Batch Size**（批次大小）：并行处理的数据项数量。有助于控制请求速率，但可能影响日志输出顺序。
+    * **Delay Between Batches**（批次间延迟）：批次之间等待的毫秒数。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 AI Agent Tool（AI 智能体工具） 集成模板](https://n8n.io/integrations/ai-agent-tool)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 使用 `$fromAI()` 动态设置工具参数 <a href="#dynamic-parameters-for-tools-with-dollarfromai" id="dynamic-parameters-for-tools-with-dollarfromai"></a>
+
+动态填充应用节点工具参数的方法，请参阅[让 AI 使用 `$fromAI()` 指定工具参数](../../../../build/integrate-ai/ai-examples/use-ai-for-parameters.md)。
+
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

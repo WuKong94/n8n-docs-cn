@@ -1,61 +1,58 @@
 ---
-title: xAI Grok Chat Model node documentation
-description: >-
-  Learn how to use the xAI Grok Chat Model node in n8n. Follow technical
-  documentation to integrate xAI Grok Chat Model node into your workflows.
+title: xAI Grok Chat Model（xAI Grok 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 xAI Grok Chat Model（xAI Grok 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: xAI Grok Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok
+nodeTitle: xAI Grok Chat Model（xAI Grok 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatxaigrok
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# xAI Grok Chat Model node <a href="#xai-grok-chat-model-node" id="xai-grok-chat-model-node"></a>
 
-Use the xAI Grok Chat Model node to access xAI Grok's large language models for conversational AI and text generation tasks.
+# xAI Grok Chat Model（xAI Grok 聊天模型） 节点 <a href="#xai-grok-chat-model-node" id="xai-grok-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the xAI Grok Chat Model node, and links to more resources.
+使用 xAI Grok Chat Model 节点，访问 xAI Grok 的大型语言模型，执行对话式 AI 和文本生成任务。
+
+本页列出了 xAI Grok Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [xAI credentials documentation](../../credentials/xai.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [xAI 凭据文档](../../credentials/xai.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model which will generate the completion. n8n dynamically loads available models from the xAI Grok API. Learn more in the [xAI Grok model documentation](https://docs.x.ai/docs/models).
+* **Model**（模型）：选择生成补全的模型。n8n 从 xAI Grok API 动态加载可用模型。更多信息请参阅 [xAI Grok 模型文档](https://docs.x.ai/docs/models)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Frequency Penalty**: Use this option to control the chances of the model repeating itself. Higher values reduce the chance of the model repeating itself.
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length. Most models have a context length of 2048 tokens with the newest models supporting up to 32,768 tokens. 
-* **Response Format**: Choose **Text** or **JSON**. **JSON** ensures the model returns valid JSON.
-* **Presence Penalty**: Use this option to control the chances of the model talking about new topics. Higher values increase the chance of the model talking about new topics.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Timeout**: Enter the maximum request time in milliseconds.
-* **Max Retries**: Enter the maximum number of times to retry a request.
-* **Top P**: Use this option to set the probability the completion should use. Use a lower value to ignore less probable options. 
+* **Frequency Penalty**（频率惩罚）：控制模型重复自身内容的可能性。值越高，重复的可能性越低。
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。大多数模型的上下文长度为 2048 token，最新模型支持最多 32,768 token。
+* **Response Format**（响应格式）：选择 **Text**（文本）或 **JSON**。**JSON** 确保模型返回有效 JSON。
+* **Presence Penalty**（存在惩罚）：控制模型谈论新话题的可能性。值越高，谈论新话题的可能性越高。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Timeout**（超时）：输入请求的最长耗时，单位为毫秒。
+* **Max Retries**（最大重试次数）：输入请求的最大重试次数。
+* **Top P**：设置补全使用的概率范围。较低值会忽略概率较低的选项。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse xAI Grok Chat Model node documentation integration templates](https://n8n.io/integrations/xai-grok-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 xAI Grok Chat Model（xAI Grok 聊天模型） 集成模板](https://n8n.io/integrations/xai-grok-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [xAI Grok's API documentation](https://docs.x.ai/docs/api-reference) for more information about the service.
+该服务的更多信息，请参阅 [xAI Grok API 文档](https://docs.x.ai/docs/api-reference)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

@@ -1,63 +1,60 @@
 ---
-title: Google Vertex Chat Model node documentation
-description: >-
-  Learn how to use the Google Vertex Chat Model node in n8n. Follow technical
-  documentation to integrate Google Vertex Chat Model node into your workflows.
+title: Google Vertex Chat Model（Google Vertex 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 Google Vertex Chat Model（Google Vertex 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Google Vertex Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglevertex.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglevertex
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglevertex
+- integration
+- reference
+nodeTitle: Google Vertex Chat Model（Google Vertex 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglevertex.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglevertex
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglevertex
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Vertex Chat Model node <a href="#google-vertex-chat-model-node" id="google-vertex-chat-model-node"></a>
 
-Use the Google Vertex AI Chat Model node to use Google's Vertex AI chat models with conversational agents[^1].
+# Google Vertex Chat Model（Google Vertex 聊天模型） 节点 <a href="#google-vertex-chat-model-node" id="google-vertex-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the Google Vertex AI Chat Model node, and links to more resources.
+使用 Google Vertex AI Chat Model 节点，将 Google 的 Vertex AI 聊天模型与对话智能体[^1]配合使用。
+
+本页列出了 Google Vertex AI Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Use [Google Vertex AI credentials](../../credentials/googlevertexai.md) to store the project and region with your service account details. This node also supports [Google Service Account credentials](../../credentials/google/service-account.md).
+使用 [Google Vertex AI 凭据](../../credentials/googlevertexai.md)，将项目、区域和服务账户详情一并存储。此节点也支持 [Google 服务账户凭据](../../credentials/google/service-account.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Authentication**: Select **Google Service Account** (the default) or **Google Vertex AI**.
-* **Project ID**: For **Google Service Account** authentication, n8n loads the project list using the service account's access. Select a listed project, or enter the project ID manually. For **Google Vertex AI** authentication, configure the project in the credential.
-* **Model Name**: Enter the name of the model to use for completions, for example `gemini-2.5-flash`. Refer to [Google models](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) for a list of available models.
-* **Region**: Select **Default (Use Credential Region)** to use the region set in the credential. To override it, select **Global**, **EU (Multi-Region)**, or **US (Multi-Region)**.
+* **Authentication**（身份验证）：选择 **Google Service Account**（Google 服务账户，默认）或 **Google Vertex AI**。
+* **Project ID**（项目 ID）：使用 **Google Service Account** 身份验证时，n8n 根据服务账户的访问权限加载项目列表。可选择列表中的项目，也可手动输入项目 ID。使用 **Google Vertex AI** 身份验证时，在凭据中配置项目。
+* **Model Name**（模型名称）：输入用于生成补全的模型名称，例如 `gemini-2.5-flash`。可用模型列表，请参阅 [Google 模型](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)。
+* **Region**（区域）：选择 **Default (Use Credential Region)**（默认，使用凭据区域），使用凭据中设置的区域。要覆盖此值，选择 **Global**（全球）、**EU (Multi-Region)**（欧盟，多区域）或 **US (Multi-Region)**（美国，多区域）。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Thinking Budget**: Controls reasoning tokens for thinking models. Set to `0` to disable automatic thinking. Set to `-1` for dynamic thinking. Leave empty for auto mode.
-* **Top K**: Enter the number of token choices the model uses to generate the next token.
-* **Top P**: Use this option to set the probability the completion should use. Use a lower value to ignore less probable options.
-* **Safety Settings**: Gemini supports adjustable safety settings. Refer to Google's [Gemini API safety settings](https://ai.google.dev/docs/safety_setting_gemini) for information on the available filters and levels.
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Thinking Budget**（思考预算）：控制思考模型的推理 token。设为 `0` 可禁用自动思考，设为 `-1` 则动态思考，留空为自动模式。
+* **Top K**：输入模型生成下一个 token 时考虑的候选 token 数量。
+* **Top P**：设置补全使用的概率范围。较低值会忽略概率较低的选项。
+* **Safety Settings**（安全设置）：Gemini 支持可调整的安全设置。可用筛选器及级别的详情，请参阅 Google 的 [Gemini API 安全设置](https://ai.google.dev/docs/safety_setting_gemini)。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse Google Vertex Chat Model node documentation integration templates](https://n8n.io/integrations/google-vertex-chat-model) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-Refer to [LangChain's Google Vertex AI documentation](https://docs.langchain.com/oss/javascript/integrations/chat/google_vertex_ai) for more information about the service.
+[浏览 Google Vertex Chat Model（Google Vertex 聊天模型） 集成模板](https://n8n.io/integrations/google-vertex-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+
+该服务的更多信息，请参阅 [LangChain 的 Google Vertex AI 文档](https://docs.langchain.com/oss/javascript/integrations/chat/google_vertex_ai)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
+
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

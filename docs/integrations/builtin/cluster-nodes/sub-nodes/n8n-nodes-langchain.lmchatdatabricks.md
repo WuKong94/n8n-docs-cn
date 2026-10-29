@@ -1,113 +1,113 @@
 ---
-description: >-
-  Learn how to use the Databricks Chat Model node in n8n. Follow technical
-  documentation to integrate Databricks Chat Model node into your workflows.
+description: 了解如何在 n8n 中使用 Databricks Chat Model（Databricks 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Databricks Chat Model node
 
-Use the Databricks Chat Model node to run AI agents and chains on models served by your Databricks workspace. The node queries [Unity AI Gateway model services](https://docs.databricks.com/aws/en/ai-gateway/model-services), so it works with Databricks-hosted foundation models and with external providers you route through the gateway.
+# Databricks Chat Model（Databricks 聊天模型） 节点 <a id="databricks-chat-model-node"></a>
 
-On this page, you'll find the prerequisites, setup steps, node parameters, and known limitations for the Databricks Chat Model node.
+使用 Databricks Chat Model 节点，通过 Databricks 工作区提供的模型运行 AI 智能体和链。节点查询 [Unity AI Gateway 模型服务](https://docs.databricks.com/aws/en/ai-gateway/model-services)，因此支持 Databricks 托管的基础模型，以及通过网关路由的外部提供方。
+
+本页介绍 Databricks Chat Model 节点的前置条件、配置步骤、参数及已知限制。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Databricks credentials](../../credentials/databricks.md) for guidance on setting up authentication.
+身份验证设置方法，请参阅 [Databricks 凭据](../../credentials/databricks.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Prerequisites
+## 前置条件 <a id="prerequisites"></a>
 
-- A Databricks workspace with Unity AI Gateway enabled.
-- A [Databricks OAuth2 credential](../../credentials/databricks.md#supported-authentication-methods) in n8n, using either a service principal or user login. The node doesn't support personal access tokens.
-- The identity the credential authenticates as needs **USE CATALOG** and **USE SCHEMA** on the catalog and schema that hold the model service, and **EXECUTE** on the model service. Databricks grants **EXECUTE** on the `system.ai` model services to all workspace users by default.
+- 已启用 Unity AI Gateway 的 Databricks 工作区。
+- n8n 中的 [Databricks OAuth2 凭据](../../credentials/databricks.md#supported-authentication-methods)，使用服务主体或用户登录。节点不支持个人访问令牌。
+- 凭据对应的身份需要对模型服务所在的目录和架构具有 **USE CATALOG** 和 **USE SCHEMA** 权限，并对模型服务具有 **EXECUTE** 权限。Databricks 默认向所有工作区用户授予 `system.ai` 模型服务的 **EXECUTE** 权限。
 
-## Set up the node
+## 配置节点 <a id="set-up-the-node"></a>
 
-1. Add an [AI Agent](../root-nodes/n8n-nodes-langchain.agent/README.md) node (or another root node that takes a chat model) to your workflow.
-2. Select the **+** on the node's **Chat Model** connector, then select **Databricks Chat Model**.
-3. Under **Credential to connect with**, select an existing Databricks OAuth2 credential or create a new one. Follow the steps for your authentication type below.
-4. In **Model**, open the list and pick a model service. n8n loads the chat-capable model services the credential can access. To use a service that isn't listed, switch to **ID** and enter its full name, for example `system.ai.databricks-meta-llama-3-3-70b-instruct`.
+1. 向工作流添加 [AI Agent](../root-nodes/n8n-nodes-langchain.agent/README.md) 节点，或其他接受聊天模型的根节点。
+2. 选择节点 **Chat Model**（聊天模型）连接器上的 **+**，再选择 **Databricks Chat Model**。
+3. 在 **Credential to connect with**（连接凭据）下，选择现有 Databricks OAuth2 凭据或创建新凭据。按下方与你的身份验证类型对应的步骤配置。
+4. 在 **Model**（模型）中打开列表，选择模型服务。n8n 加载凭据可访问、支持聊天的模型服务。要使用未列出的服务，切换为 **ID** 并输入完整名称，例如 `system.ai.databricks-meta-llama-3-3-70b-instruct`。
 
-### Set up with a service principal
+### 使用服务主体配置 <a id="set-up-with-a-service-principal"></a>
 
-Use a service principal for unattended workflows, such as scheduled or webhook-triggered agents.
+无人值守的工作流，例如定时或 Webhook 触发的智能体，应使用服务主体。
 
-1. Have a Databricks admin [create a service principal and OAuth secret](../../credentials/databricks.md#create-a-service-principal-and-oauth-secret), and grant it **EXECUTE** on the model services you want to use.
-2. In the n8n credential, enter the workspace URL as the **Host**, keep **Grant Type** as **Client Credentials (Service Principal)**, and enter the **Client ID** and **Client Secret**.
-3. Save the credential and select it in the node.
+1. 请 Databricks 管理员[创建服务主体和 OAuth 密钥](../../credentials/databricks.md#create-a-service-principal-and-oauth-secret)，并向其授予所需模型服务的 **EXECUTE** 权限。
+2. 在 n8n 凭据中，将工作区 URL 填入 **Host**（主机），保持 **Grant Type**（授权类型）为 **Client Credentials (Service Principal)**（客户端凭据，服务主体），输入 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
+3. 保存凭据，并在节点中选择它。
 
-### Set up with user login
+### 使用用户登录配置 <a id="set-up-with-user-login"></a>
 
-Use user login when the agent should run with your own Databricks permissions and appear under your identity in Databricks audit logs.
+希望智能体以你自己的 Databricks 权限运行，并在 Databricks 审计日志中显示为你的身份时，使用用户登录。
 
-1. Have a Databricks account admin [create a custom OAuth app connection](../../credentials/databricks.md#create-a-custom-oauth-app-connection) and share its client ID and secret with you.
-2. In the n8n credential, enter the workspace URL as the **Host**, set **Grant Type** to **Authorization Code (User)**, and enter the **Client ID** and **Client Secret**.
-3. Select **Connect my account** and sign in to Databricks.
-4. Select the credential in the node. n8n refreshes the access token during long executions, so agents can run past the one-hour token lifetime.
+1. 请 Databricks 账户管理员[创建自定义 OAuth 应用连接](../../credentials/databricks.md#create-a-custom-oauth-app-connection)，并向你提供客户端 ID 和密钥。
+2. 在 n8n 凭据中，将工作区 URL 填入 **Host**（主机），将 **Grant Type**（授权类型）设为 **Authorization Code (User)**（授权码，用户），输入 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
+3. 选择 **Connect my account**（连接我的账户），登录 Databricks。
+4. 在节点中选择该凭据。长时间执行时，n8n 会刷新访问令牌，因此智能体可运行超过一小时的令牌有效期。
 
-## Node parameters
+## 节点参数 <a id="node-parameters"></a>
 
-- **Model**: The Unity AI Gateway model service that generates the completion, named `catalog.schema.service`.
-	- **From List**: Choose from the model services the credential can access that support chat completions. Databricks-hosted foundation models in `system.ai` and external provider routes both appear.
-	- **ID**: Enter the full name of a model service directly. Use this for a service that supports chat but isn't advertised as chat-capable.
+- **Model**（模型）：生成补全的 Unity AI Gateway 模型服务，名称格式为 `catalog.schema.service`。
+    - **From List**（从列表选择）：选择凭据可访问、支持聊天补全的模型服务。列表同时包含 `system.ai` 中 Databricks 托管的基础模型和外部提供方路由。
+    - **ID**：直接输入模型服务的完整名称。适用于支持聊天、但未声明具备聊天能力的服务。
 
-## Node options
+## 节点选项 <a id="node-options"></a>
 
-- **Frequency Penalty**: Penalize new tokens based on how often they already appear in the text, to reduce verbatim repetition. Range from `-2` to `2`, default `0`.
-- **Maximum Number of Tokens**: The maximum number of tokens to generate in the completion. Default `-1` (no limit set by n8n).
-- **Response Format**: **Text** (default) or **JSON**. JSON mode requires the word `json` in your prompt and a model service that supports JSON mode.
-- **Presence Penalty**: Penalize new tokens based on whether they appear in the text so far, to encourage new topics. Range from `-2` to `2`, default `0`.
-- **Sampling Temperature**: Control randomness. Lower values give more deterministic completions. Range from 0 to 2, default 0.7.
-- **Timeout**: The maximum time a request may take, in milliseconds. Default 360000 (six minutes).
-- **Max Retries**: How many times to retry a failed request. Default 2.
-- **Top P**: Nucleus sampling. Adjust this or **Sampling Temperature**, not both. Range from 0 to 1, default 1.
+- **Frequency Penalty**（频率惩罚）：根据新 token 已在文本中出现的频率施加惩罚，减少逐字重复。范围为 `-2` 至 `2`，默认值为 `0`。
+- **Maximum Number of Tokens**（最大 token 数）：补全中生成的最大 token 数，默认为 `-1`，即 n8n 不设置上限。
+- **Response Format**（响应格式）：**Text**（文本，默认）或 **JSON**。JSON 模式要求提示词包含 `json` 一词，且模型服务支持 JSON 模式。
+- **Presence Penalty**（存在惩罚）：根据新 token 是否已在文本中出现施加惩罚，鼓励新话题。范围为 `-2` 至 `2`，默认值为 `0`。
+- **Sampling Temperature**（采样温度）：控制随机性，较低值使补全更确定。范围为 0 到 2，默认为 0.7。
+- **Timeout**（超时）：请求的最长耗时，单位为毫秒，默认为 360000（六分钟）。
+- **Max Retries**（最大重试次数）：失败请求的重试次数，默认为 2。
+- **Top P**：核采样参数。调整此项或 **Sampling Temperature**（采样温度）之一，不要同时调整。范围为 0 到 1，默认为 1。
 
-## Choose a model for agents
+## 为智能体选择模型 <a id="choose-a-model-for-agents"></a>
 
-Not every model service works as an agent's tool-calling model through this node. The model must support tool calling, and some endpoints that advertise it don't return tool calls the AI Agent can execute. In n8n's testing:
+并非每个模型服务都能通过此节点作为智能体的工具调用模型。模型必须支持工具调用，而一些声称支持的端点并不返回 AI Agent 可执行的工具调用。n8n 的测试结果如下：
 
-- **Llama 3.3 70B** and **Qwen 3.5** call tools reliably and are a good default for the [Databricks Genie One MCP server](n8n-mcp-registry.databricksgenie.md) and other tools.
-- **gpt-oss** and **Llama 4 Maverick** endpoints don't return tool calls the AI Agent can execute. Agents using them loop until they hit **Max Iterations** without calling any tool.
+- **Llama 3.3 70B** 和 **Qwen 3.5** 可可靠地调用工具，是 [Databricks Genie One MCP 服务器](n8n-mcp-registry.databricksgenie.md)及其他工具的良好默认选择。
+- **gpt-oss** 和 **Llama 4 Maverick** 端点不返回 AI Agent 可执行的工具调用。使用它们的智能体会持续循环，直到达到 **Max Iterations**（最大迭代次数），却未调用任何工具。
 
-Your workspace may list other model services. To test one, ask the agent a question that requires a tool call and check the execution log. A model that doesn't work shows the same symptom: the agent uses all its iterations without a single tool call.
+工作区可能还列出其他模型服务。测试时，向智能体提出必须调用工具才能回答的问题，再检查执行日志。不适用的模型会表现为相同症状：耗尽全部迭代次数，却没有一次工具调用。
 
-Pay-per-token model services are rate limited per workspace. Three concurrent agent runs are enough to hit the limit, and the node uses up its two default retries within seconds. For demos, pilots, and production agents, use a [provisioned throughput](https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/deploy-prov-throughput-foundation-model-apis) endpoint or keep agent concurrency low.
+按 token 付费的模型服务按工作区实施速率限制。三个并发智能体运行就足以达到限制，节点会在数秒内用完默认的两次重试。演示、试点和生产智能体应使用[预配吞吐量](https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/deploy-prov-throughput-foundation-model-apis)端点，或保持较低的智能体并发。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-- [Databricks credentials](../../credentials/databricks.md)
-- [Databricks node](../../app-nodes/n8n-nodes-base.databricks.md) for SQL, Unity Catalog, and Genie Agent REST operations
-- [Databricks Genie One MCP server](n8n-mcp-registry.databricksgenie.md) to give an agent access to Genie One
-- [Databricks Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md) and [Embeddings Databricks](n8n-nodes-langchain.embeddingsdatabricks.md) to let an agent search a Databricks Vector Search index
-- [Databricks AI Agent](../root-nodes/n8n-nodes-langchain.databricksaiagent.md) to export agent runs to MLflow Tracing
-- [Unity AI Gateway model services](https://docs.databricks.com/aws/en/ai-gateway/model-services) in the Databricks documentation
+- [Databricks 凭据](../../credentials/databricks.md)
+- [Databricks 节点](../../app-nodes/n8n-nodes-base.databricks.md)：用于 SQL、Unity Catalog 和 Genie Agent REST 操作。
+- [Databricks Genie One MCP 服务器](n8n-mcp-registry.databricksgenie.md)：为智能体提供 Genie One 访问。
+- [Databricks Vector Store](../root-nodes/n8n-nodes-langchain.vectorstoredatabricks/README.md) 和 [Embeddings Databricks](n8n-nodes-langchain.embeddingsdatabricks.md)：让智能体搜索 Databricks Vector Search 索引。
+- [Databricks AI Agent](../root-nodes/n8n-nodes-langchain.databricksaiagent.md)：将智能体运行导出到 MLflow Tracing。
+- Databricks 文档中的 [Unity AI Gateway 模型服务](https://docs.databricks.com/aws/en/ai-gateway/model-services)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Common issues
+## 常见问题 <a id="common-issues"></a>
 
-### No model services found
+### No model services found（未找到模型服务） <a id="no-model-services-found"></a>
 
-The model list is empty and the node reports `No model services found`. Unity AI Gateway isn't enabled on the workspace, or the credential's identity can't access any model service. Check the workspace settings, then grant **USE CATALOG**, **USE SCHEMA**, and **EXECUTE** on at least one model service.
+模型列表为空，节点报告 `No model services found`。工作区未启用 Unity AI Gateway，或凭据对应的身份无法访问任何模型服务。请检查工作区设置，再为至少一个模型服务授予 **USE CATALOG**、**USE SCHEMA** 和 **EXECUTE** 权限。
 
-### No chat-capable model services found
+### No chat-capable model services found（未找到支持聊天的模型服务） <a id="no-chat-capable-model-services-found"></a>
 
-The credential can see model services, but none advertises chat completions. Switch **Model** to **ID** and enter the service name directly. This node doesn't support embeddings-only services.
+凭据可以访问模型服务，但没有任何服务声明支持聊天补全。将 **Model**（模型）切换为 **ID**，直接输入服务名称。此节点不支持仅提供嵌入的服务。
 
-### Rate limit reached
+### 达到速率限制 <a id="rate-limit-reached"></a>
 
-The execution fails with `Rate limit reached` or a 429 status. Databricks rejected the request with `REQUEST_LIMIT_EXCEEDED` because the request exceeded the pay-per-token endpoint's workspace rate limit. Reduce concurrent agent runs, or use a provisioned throughput endpoint. The error text names OpenAI because the node uses an OpenAI-compatible client to call the gateway.
+执行以 `Rate limit reached` 或 429 状态失败。请求超过按 token 付费端点的工作区速率限制，Databricks 以 `REQUEST_LIMIT_EXCEEDED` 拒绝请求。请减少并发智能体运行，或使用预配吞吐量端点。错误文本中出现 OpenAI，是因为节点使用兼容 OpenAI 的客户端调用网关。
 
-### Host must use HTTPS
+### 主机必须使用 HTTPS <a id="host-must-use-https"></a>
 
-The node fails with `Databricks host must use https` because the credential's **Host** starts with `http://`. Every request carries a token, so the node refuses plain HTTP. Change the host to `https://`.
+节点以 `Databricks host must use https` 失败，因为凭据的 **Host**（主机）以 `http://` 开头。每次请求都携带令牌，因此节点拒绝纯 HTTP。请将主机改为 `https://`。
 
-### Requests fail with 403 after the credential worked before
+### 凭据此前可用，但请求开始返回 403 <a id="requests-fail-with-403-after-the-credential-worked-before"></a>
 
-For user-login credentials, the refresh token or the OAuth app's absolute session lifetime has expired. Open the credential in n8n and select **Connect my account** again. To avoid this for scheduled workflows, use a service principal or ask your admin to [extend the token lifetimes](../../credentials/databricks.md#configure-token-lifetimes).
+对于用户登录凭据，刷新令牌或 OAuth 应用的绝对会话有效期已过期。在 n8n 中打开凭据，重新选择 **Connect my account**（连接我的账户）。定时工作流要避免此问题，可使用服务主体，或请管理员[延长令牌有效期](../../credentials/databricks.md#configure-token-lifetimes)。

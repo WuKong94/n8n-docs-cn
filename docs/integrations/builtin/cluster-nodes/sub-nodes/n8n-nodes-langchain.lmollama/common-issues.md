@@ -1,104 +1,101 @@
 ---
-title: Ollama Model node common issues
-description: >-
-  Documentation for common issues and questions in the Ollama Model node in n8n,
-  a workflow automation platform. Includes details of the issue and suggested
-  solutions.
+title: Ollama Model 节点常见问题
+description: 工作流自动化平台 n8n 中 Ollama Model 节点的常见错误和问题，包括问题详情及建议的解决办法。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Ollama Model node common issues
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/common-issues.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/common-issues
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/common-issues
+nodeTitle: Ollama Model 节点常见问题
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/common-issues.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/common-issues
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/common-issues
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Ollama Model node common issues <a href="#ollama-model-node-common-issues" id="ollama-model-node-common-issues"></a>
 
-Here are some common errors and issues with the [Ollama Model node](README.md) and steps to resolve or troubleshoot them.
+# Ollama Model 节点常见问题 <a href="#ollama-model-node-common-issues" id="ollama-model-node-common-issues"></a>
 
-## Processing parameters <a href="#processing-parameters" id="processing-parameters"></a>
+以下列出 [Ollama Model 节点](README.md)的常见错误和问题，以及解决或排查步骤。
 
-The Ollama Model node is a sub-node[^1]. Sub-nodes behave differently than other nodes when processing multiple items using expressions.
+## 参数处理 <a href="#processing-parameters" id="processing-parameters"></a>
 
-Most nodes, including [root nodes](#user-content-fn-2)[^2], take any number of items as input, process these items, and output the results. You can use expressions to refer to input items, and the node resolves the expression for each item in turn. For example, given an input of five name values, the expression `{{ $json.name }}` resolves to each name in turn.
+Ollama Model 是子节点[^1]。使用表达式处理多个数据项时，子节点的行为与其他节点不同。
 
-In sub-nodes, the expression always resolves to the first item. For example, given an input of five name values, the expression `{{ $json.name }}` always resolves to the first name.
+多数节点，包括[根节点](#user-content-fn-2)[^2]，可以接收任意数量的输入数据项，处理后输出结果。你可以用表达式引用输入数据项，节点会依次对每个数据项解析表达式。例如，输入包含五个名称值时，表达式 `{{ $json.name }}` 会依次解析为每个名称。
 
-## Can't connect to a remote Ollama instance <a href="#cant-connect-to-a-remote-ollama-instance" id="cant-connect-to-a-remote-ollama-instance"></a>
+在子节点中，表达式始终解析为第一个数据项。例如，输入包含五个名称值时，表达式 `{{ $json.name }}` 始终解析为第一个名称。
 
-The Ollama Model node supports Bearer token authentication for connecting to remote Ollama instances behind authenticated proxies (such as Open WebUI).
+## 无法连接远程 Ollama 实例 <a href="#cant-connect-to-a-remote-ollama-instance" id="cant-connect-to-a-remote-ollama-instance"></a>
 
-For remote authenticated connections, configure both the remote URL and API key in your Ollama credentials. 
+Ollama Model 节点支持 Bearer 令牌身份验证，可连接位于身份验证代理（例如 Open WebUI）后的远程 Ollama 实例。
 
-Follow the [Ollama credentials instructions](../../../credentials/ollama.md) for more information.
+使用经过身份验证的远程连接时，请在 Ollama 凭据中同时配置远程 URL 和 API 密钥。
 
-## Can't connect to a local Ollama instance when using Docker <a href="#cant-connect-to-a-local-ollama-instance-when-using-docker" id="cant-connect-to-a-local-ollama-instance-when-using-docker"></a>
+更多信息请参阅 [Ollama 凭据说明](../../../credentials/ollama.md)。
 
-The Ollama Model node connects to a locally hosted Ollama instance using the base URL defined by [Ollama credentials](../../../credentials/ollama.md). When you run either n8n or Ollama in Docker, you need to configure the network so that n8n can connect to Ollama.
+## 使用 Docker 时无法连接本地 Ollama 实例 <a href="#cant-connect-to-a-local-ollama-instance-when-using-docker" id="cant-connect-to-a-local-ollama-instance-when-using-docker"></a>
 
-Ollama typically listens for connections on `localhost`, the local network address. In Docker, by default, each container has its own `localhost` which is only accessible from within the container. If either n8n or Ollama are running in containers, they won't be able to connect over `localhost`.
+Ollama Model 节点通过 [Ollama 凭据](../../../credentials/ollama.md)中定义的基础 URL 连接本地托管的 Ollama 实例。n8n 或 Ollama 任一组件在 Docker 中运行时，都需要配置网络，使 n8n 能连接到 Ollama。
 
-The solution depends on how you're hosting the two components.
+Ollama 通常在本地网络地址 `localhost` 上监听连接。Docker 中，每个容器默认都有自己的 `localhost`，只能从该容器内部访问。n8n 或 Ollama 任一组件在容器中运行时，都无法通过 `localhost` 相互连接。
 
-### If only Ollama is in Docker <a href="#if-only-ollama-is-in-docker" id="if-only-ollama-is-in-docker"></a>
+解决方法取决于两个组件的托管方式。
 
-If only Ollama is running in Docker, configure Ollama to listen on all interfaces by binding to `0.0.0.0` inside of the container (the official images are already configured this way).
+### 仅 Ollama 在 Docker 中运行 <a href="#if-only-ollama-is-in-docker" id="if-only-ollama-is-in-docker"></a>
 
-When running the container, [publish the ports](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/) with the `-p` flag. By default, Ollama runs on port 11434, so your Docker command should look like this:
+如果只有 Ollama 在 Docker 中运行，请在容器内将其绑定到 `0.0.0.0`，以监听所有网络接口；官方镜像已采用此配置。
+
+运行容器时，使用 `-p` 标志[发布端口](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/)。Ollama 默认运行在 11434 端口，因此 Docker 命令应如下所示：
 
 ```shell
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 ```
 
-When configuring [Ollama credentials](../../../credentials/ollama.md), the `localhost` address should work without a problem (set the **base URL** to `http://localhost:11434`).
+配置 [Ollama 凭据](../../../credentials/ollama.md)时，`localhost` 地址应可正常使用，将 **base URL**（基础 URL）设为 `http://localhost:11434`。
 
-### If only n8n is in Docker <a href="#if-only-n8n-is-in-docker" id="if-only-n8n-is-in-docker"></a>
+### 仅 n8n 在 Docker 中运行 <a href="#if-only-n8n-is-in-docker" id="if-only-n8n-is-in-docker"></a>
 
-If only n8n is running in Docker, configure Ollama to listen on all interfaces by binding to `0.0.0.0` on the host.
+如果只有 n8n 在 Docker 中运行，请在宿主机上将 Ollama 绑定到 `0.0.0.0`，以监听所有网络接口。
 
-If you are running n8n in Docker on **Linux**, use the `--add-host` flag to map `host.docker.internal` to `host-gateway` when you start the container. For example:
+如果在 **Linux** 上通过 Docker 运行 n8n，请在启动容器时使用 `--add-host` 标志，将 `host.docker.internal` 映射到 `host-gateway`。例如：
 
 ```shell
 docker run -it --rm --add-host host.docker.internal:host-gateway --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n
 ```
 
-If you are using Docker Desktop, this is automatically configured for you.
+使用 Docker Desktop 时，会自动完成此配置。
 
-When configuring [Ollama credentials](../../../credentials/ollama.md), use `host.docker.internal` as the host address instead of `localhost`. For example, to bind to the default port 11434, you could set the base URL to `http://host.docker.internal:11434`.
+配置 [Ollama 凭据](../../../credentials/ollama.md)时，使用 `host.docker.internal` 作为主机地址，替代 `localhost`。例如，使用默认端口 11434 时，可将基础 URL 设为 `http://host.docker.internal:11434`。
 
-### If Ollama and n8n are running in separate Docker containers <a href="#if-ollama-and-n8n-are-running-in-separate-docker-containers" id="if-ollama-and-n8n-are-running-in-separate-docker-containers"></a>
+### Ollama 和 n8n 在不同 Docker 容器中运行 <a href="#if-ollama-and-n8n-are-running-in-separate-docker-containers" id="if-ollama-and-n8n-are-running-in-separate-docker-containers"></a>
 
-If both n8n and Ollama are running in Docker in separate containers, you can use Docker networking to connect them.
+如果 n8n 和 Ollama 在不同 Docker 容器中运行，可通过 Docker 网络连接它们。
 
-Configure Ollama to listen on all interfaces by binding to `0.0.0.0` inside of the container (the official images are already configured this way).
+在容器内将 Ollama 绑定到 `0.0.0.0`，以监听所有网络接口；官方镜像已采用此配置。
 
-When configuring [Ollama credentials](../../../credentials/ollama.md), use the Ollama container's name as the host address instead of `localhost`. For example, if you call the Ollama container `my-ollama` and it listens on the default port 11434, you would set the base URL to `http://my-ollama:11434`.
+配置 [Ollama 凭据](../../../credentials/ollama.md)时，使用 Ollama 容器名称作为主机地址，替代 `localhost`。例如，Ollama 容器名为 `my-ollama`，并监听默认端口 11434 时，可将基础 URL 设为 `http://my-ollama:11434`。
 
-### If Ollama and n8n are running in the same Docker container <a href="#if-ollama-and-n8n-are-running-in-the-same-docker-container" id="if-ollama-and-n8n-are-running-in-the-same-docker-container"></a>
+### Ollama 和 n8n 在同一 Docker 容器中运行 <a href="#if-ollama-and-n8n-are-running-in-the-same-docker-container" id="if-ollama-and-n8n-are-running-in-the-same-docker-container"></a>
 
-If Ollama and n8n are running in the same Docker container, the `localhost` address doesn't need any special configuration. You can configure Ollama to listen on localhost and configure the base URL in the [Ollama credentials in n8n](../../../credentials/ollama.md) to use localhost: `http://localhost:11434`.
-
-
-## Error: connect ECONNREFUSED ::1:11434 <a href="#error-connect-econnrefused-111434" id="error-connect-econnrefused-111434"></a>
+如果 Ollama 和 n8n 在同一个 Docker 容器中运行，`localhost` 地址无需特殊配置。可将 Ollama 配置为监听 localhost，并在 [n8n 的 Ollama 凭据](../../../credentials/ollama.md)中将基础 URL 配置为 localhost：`http://localhost:11434`。
 
 
-This error occurs when your computer has IPv6 enabled, but Ollama is listening to an IPv4 address.
+## 错误：connect ECONNREFUSED ::1:11434 <a href="#error-connect-econnrefused-111434" id="error-connect-econnrefused-111434"></a>
 
-To fix this, change the base URL in your [Ollama credentials](../../../credentials/ollama.md) to connect to `127.0.0.1`, the IPv4-specific local address, instead of the `localhost` alias that can resolve to either IPv4 or IPv6: `http://127.0.0.1:11434`.
 
-## Ollama and HTTP/HTTPS proxies <a href="#ollama-and-httphttps-proxies" id="ollama-and-httphttps-proxies"></a>
+计算机启用了 IPv6，而 Ollama 监听 IPv4 地址时，会出现此错误。
 
-Ollama doesn't support custom HTTP agents in its configuration. This makes it difficult to use Ollama behind custom HTTP/HTTPS proxies. Depending on your proxy configuration, it might not work at all, despite setting the `HTTP_PROXY` or `HTTPS_PROXY` environment variables.
+解决方法是在 [Ollama 凭据](../../../credentials/ollama.md)中修改基础 URL，连接 IPv4 专用本地地址 `127.0.0.1`，替代可能解析为 IPv4 或 IPv6 的 `localhost` 别名：`http://127.0.0.1:11434`。
 
-Refer to [Ollama's FAQ](https://docs.ollama.com/faq#how-do-i-use-ollama-behind-a-proxy) for more information.
+## Ollama 与 HTTP/HTTPS 代理 <a href="#ollama-and-httphttps-proxies" id="ollama-and-httphttps-proxies"></a>
 
-[^1]: n8n cluster nodes consist of one or more sub-nodes connected to a root node. Sub-nodes extend the functionality of the root node, providing access to specific services or resources or offering specific types of dedicated processing, like calculator functionality, for example.
-[^2]: Each n8n cluster node contains a single root node that defines the main functionality of the cluster. One or more sub-nodes attach to the root node to extend its functionality.
+Ollama 的配置不支持自定义 HTTP agent，因此难以通过自定义 HTTP/HTTPS 代理使用。根据代理配置的不同，即使设置了 `HTTP_PROXY` 或 `HTTPS_PROXY` 环境变量，也可能完全无法工作。
+
+更多信息请参阅 [Ollama 常见问题](https://docs.ollama.com/faq#how-do-i-use-ollama-behind-a-proxy)。
+
+[^1]: n8n 集群节点由连接到根节点的一个或多个子节点组成。子节点通过访问特定服务或资源，或提供特定类型的专用处理（例如计算器功能），扩展根节点的功能。
+<a id="user-content-fn-2"></a>
+[^2]: 每个 n8n 集群节点都包含一个根节点，用于定义集群的主要功能。一个或多个子节点连接到根节点，以扩展其功能。

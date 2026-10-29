@@ -1,65 +1,62 @@
 ---
-title: Anthropic Chat Model node documentation
-description: >-
-  Learn how to use the Anthropic Chat Model node in n8n. Follow technical
-  documentation to integrate Anthropic Chat Model node into your workflows.
+title: Anthropic Chat Model（Anthropic 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 Anthropic Chat Model（Anthropic 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Anthropic Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic
+nodeTitle: Anthropic Chat Model（Anthropic 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Anthropic Chat Model node <a href="#anthropic-chat-model-node" id="anthropic-chat-model-node"></a>
 
-{% hint style="info" %}
-On n8n Cloud, you can use the Anthropic Chat Model node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own Anthropic API key. Select **Use Gateway credits** in the node's credential field to run the node without an Anthropic account.
-{% endhint %}
-
-Use the Anthropic Chat Model node to use Anthropic's Claude family of chat models with conversational agents[^1].
-
-On this page, you'll find the node parameters for the Anthropic Chat Model node, and links to more resources.
+# Anthropic Chat Model（Anthropic 聊天模型） 节点 <a href="#anthropic-chat-model-node" id="anthropic-chat-model-node"></a>
 
 {% hint style="info" %}
-**Credentials**
-
-Refer to the [Anthropic credentials documentation](../../credentials/anthropic.md) for authentication information for this node.
+在 n8n Cloud 上，可使用 [Gateway 额度](../../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 Anthropic Chat Model 节点，无需自己的 Anthropic API 密钥。在节点的凭据字段选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 Anthropic 账户的情况下运行节点。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+使用 Anthropic Chat Model 节点，将 Anthropic 的 Claude 系列聊天模型与对话智能体[^1]配合使用。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+本页列出了 Anthropic Chat Model 节点的参数，并提供更多资源的链接。
 
-* **Model**: Select the model that generates the completion. Choose from:
-	* **Claude**
-	* **Claude Instant**
+{% hint style="info" %}
+**凭据**
 
-## Node options <a href="#node-options" id="node-options"></a>
+此节点的身份验证信息，请参阅 [Anthropic 凭据文档](../../credentials/anthropic.md)。
+{% endhint %}
 
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Top K**: Enter the number of token choices the model uses to generate the next token.
-* **Top P**: Use this option to set the probability the completion should use. Use a lower value to ignore less probable options. 
-* **Prompt Caching**: Cache the system prompt, tool definitions, and conversation history between requests using [Anthropic prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching). Choose **Disabled** (the default), **5 Minutes**, or **1 Hour**. The value sets how long cached content stays valid before it has to be written again.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Model**（模型）：选择用于生成补全的模型，可选：
+    * **Claude**（Claude 模型）
+    * **Claude Instant**（Claude Instant 模型）
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Top K**：输入模型生成下一个 token 时考虑的候选 token 数量。
+* **Top P**：设置补全使用的概率范围。较低值会忽略概率较低的选项。
+* **Prompt Caching**（提示词缓存）：通过 [Anthropic 提示词缓存](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)，在请求间缓存系统提示词、工具定义和对话历史。可选择 **Disabled**（禁用，默认）、**5 Minutes**（5 分钟）或 **1 Hour**（1 小时），决定缓存内容在需要重新写入前的有效时长。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Anthropic Chat Model node documentation integration templates](https://n8n.io/integrations/anthropic-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 Anthropic Chat Model（Anthropic 聊天模型） 集成模板](https://n8n.io/integrations/anthropic-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Anthropic documentation](https://docs.langchain.com/oss/javascript/integrations/chat/anthropic) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Anthropic 文档](https://docs.langchain.com/oss/javascript/integrations/chat/anthropic)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

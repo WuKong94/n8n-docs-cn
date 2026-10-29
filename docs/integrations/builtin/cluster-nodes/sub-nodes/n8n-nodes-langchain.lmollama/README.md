@@ -1,19 +1,14 @@
 ---
-title: Ollama Model node documentation
+title: Ollama Model（Ollama 模型） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-langchain.lmollama
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama
-description: >-
-  Learn how to use the Ollama Model node in n8n. Follow technical documentation
-  to integrate Ollama Model node into your workflows.
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama/index.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmollama
+description: 了解如何在 n8n 中使用 Ollama Model（Ollama 模型） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -33,51 +28,53 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Ollama Model
 
-The Ollama Model node allows you use local Llama 2 models.
+# Ollama Model（Ollama 模型） <a id="ollama-model"></a>
 
-On this page, you'll find the node parameters for the Ollama Model node, and links to more resources.
+Ollama Model 节点支持使用本地 Llama 2 模型。
 
-This node lacks tools support, so it won't work with the [AI Agent](../../root-nodes/n8n-nodes-langchain.agent/README.md) node. Instead, connect it with the [Basic LLM Chain](../../root-nodes/n8n-nodes-langchain.chainllm.md) node.
+本页列出了 Ollama Model 节点的参数，并提供更多资源的链接。
+
+此节点不支持工具，因此无法与 [AI Agent](../../root-nodes/n8n-nodes-langchain.agent/README.md) 节点配合使用。请将其连接到 [Basic LLM Chain](../../root-nodes/n8n-nodes-langchain.chainllm.md) 节点。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Ollama credentials documentation](../../../credentials/ollama.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Ollama 凭据文档](../../../credentials/ollama.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model that generates the completion. Choose from:
-  * **Llama2**
-  * **Llama2 13B**
-  * **Llama2 70B**
-  * **Llama2 Uncensored**
+* **Model**（模型）：选择用于生成补全的模型，可选：
+  * **Llama2**（Llama2 模型）
+  * **Llama2 13B**（130 亿参数）
+  * **Llama2 70B**（700 亿参数）
+  * **Llama2 Uncensored**（未审查版本）
 
-Refer to the Ollama [Models Library documentation](https://ollama.com/library) for more information about available models.
+可用模型的更多信息，请参阅 Ollama 的[模型库文档](https://ollama.com/library)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Top K**: Enter the number of token choices the model uses to generate the next token.
-* **Top P**: Use this option to set the probability the completion should use. Use a lower value to ignore less probable options.
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Top K**：输入模型生成下一个 token 时考虑的候选 token 数量。
+* **Top P**：设置补全使用的概率范围。较低值会忽略概率较低的选项。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse n8n-nodes-langchain.lmollama integration templates](https://n8n.io/integrations/ollama-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 Ollama Model（Ollama 模型）集成模板](https://n8n.io/integrations/ollama-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Ollama documentation](https://docs.langchain.com/oss/javascript/integrations/llms/ollama) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Ollama 文档](https://docs.langchain.com/oss/javascript/integrations/llms/ollama)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dN5Se1JVH7wYGtmN4n0v/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/starter-kits/self-hosted-ai-starter-kit.md" %}

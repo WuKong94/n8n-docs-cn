@@ -1,49 +1,46 @@
 ---
-title: SearXNG Tool node documentation
-description: >-
-  Learn how to use the SearXNG Tool node in n8n. Follow technical documentation
-  to integrate SearXNG Tool node into your workflows.
+title: SearXNG Tool（SearXNG 工具） 节点文档
+description: 了解如何在 n8n 中使用 SearXNG Tool（SearXNG 工具） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: SearXNG Tool node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng
+- integration
+- reference
+nodeTitle: SearXNG Tool（SearXNG 工具） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolsearxng
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SearXNG Tool node <a href="#searxng-tool-node" id="searxng-tool-node"></a>
 
-The SearXNG Tool node allows you to integrate search capabilities into your workflows using SearXNG. SearXNG aggregates results from multiple search engines without tracking you.
+# SearXNG Tool（SearXNG 工具） 节点 <a href="#searxng-tool-node" id="searxng-tool-node"></a>
 
-On this page, you'll find the node options for the SearXNG Tool node, and links to more resources.
+SearXNG Tool 节点支持将 SearXNG 搜索功能集成到工作流中。SearXNG 汇总多个搜索引擎的结果，不跟踪用户。
+
+本页列出了 SearXNG Tool 节点的选项，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [SearXNG credentials documentation](../../credentials/searxng.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [SearXNG 凭据文档](../../credentials/searxng.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node Options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Number of Results**: The number of results to retrieve. The default is 10.
-* **Page Number**: The page number of the search results to retrieve. The default is 1.
-* **Language**: A two-letter [language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) to filter search results by language. For example: `en` for English, `fr` for French. The default is `en`.
-* **Safe Search**: Enables or disables filtering explicit content in the search results. Can be None, Moderate, or Strict. The default is None.
+* **Number of Results**（结果数量）：要获取的结果数量，默认为 10。
+* **Page Number**（页码）：要获取的搜索结果页码，默认为 1。
+* **Language**（语言）：用于按语言筛选搜索结果的两字母[语言代码](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)，例如 `en` 表示英语，`fr` 表示法语。默认为 `en`。
+* **Safe Search**（安全搜索）：启用或禁用搜索结果中的露骨内容筛选。可选 None（无）、Moderate（适中）或 Strict（严格），默认为 None。
 
-## Running a SearXNG instance <a href="#running-a-searxng-instance" id="running-a-searxng-instance"></a>
+## 运行 SearXNG 实例 <a href="#running-a-searxng-instance" id="running-a-searxng-instance"></a>
 
-This node requires running the SearXNG service on the same network as your n8n instance. Ensure your n8n instance has network access to the SearXNG service.
+此节点要求 SearXNG 服务与 n8n 实例位于同一网络。请确保 n8n 实例可通过网络访问 SearXNG 服务。
 
-This node requires results in JSON format, which isn't enabled in the default SearXNG configuration. To enable JSON output, add `json` to the `search.formats` section of your SearXNG instance's `settings.yml` file:
+此节点要求 JSON 格式结果，而 SearXNG 默认配置未启用。要启用 JSON 输出，请将 `json` 添加到 `search.formats` 部分；该部分位于 SearXNG 实例的 `settings.yml` 文件中：
 
 ```yaml
 search:
@@ -53,18 +50,18 @@ search:
     - json
 ```
 
-If the `formats` section isn't there, add it. The exact location of the `settings.yml` file depends on how you installed SearXNG. You can find more by visiting the [SearXNG configuration documentation](https://docs.searxng.org/admin/installation-searxng.html#configuration).
+如果没有 `formats` 部分，请添加。`settings.yml` 文件的确切位置取决于 SearXNG 的安装方式。更多信息请参阅 [SearXNG 配置文档](https://docs.searxng.org/admin/installation-searxng.html#configuration)。
 
-The quality and availability of search results depend on the configuration and health of the SearXNG instance you use. 
+搜索结果的质量和可用性取决于所用 SearXNG 实例的配置和健康状态。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse SearXNG Tool node documentation integration templates](https://n8n.io/integrations/searxng) or [search all templates](https://n8n.io/workflows/)
+[浏览 SearXNG Tool（SearXNG 工具） 集成模板](https://n8n.io/integrations/searxng)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [SearXNG's documentation](https://docs.searxng.org/) for more information about the service.
+该服务的更多信息，请参阅 [SearXNG 文档](https://docs.searxng.org/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

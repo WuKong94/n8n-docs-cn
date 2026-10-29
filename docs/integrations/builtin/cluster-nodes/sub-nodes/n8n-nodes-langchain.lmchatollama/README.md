@@ -1,71 +1,68 @@
 ---
-title: Ollama Chat Model node documentation
-description: >-
-  Learn how to use the Ollama Chat Model node in n8n. Follow technical
-  documentation to integrate Ollama Chat Model node into your workflows.
+title: Ollama Chat Model（Ollama 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 Ollama Chat Model（Ollama 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-langchain.lmchatollama
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama/index.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatollama
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Ollama Chat Model node <a href="#ollama-chat-model-node" id="ollama-chat-model-node"></a>
 
-The Ollama Chat Model node allows you use local Llama 2 models with conversational agents[^1].
+# Ollama Chat Model（Ollama 聊天模型） 节点 <a href="#ollama-chat-model-node" id="ollama-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the Ollama Chat Model node, and links to more resources.
+Ollama Chat Model 节点支持将本地 Llama 2 模型与对话智能体[^1]配合使用。
+
+本页列出了 Ollama Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Ollama credentials documentation](../../../credentials/ollama.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Ollama 凭据文档](../../../credentials/ollama.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model that generates the completion. Choose from:
-	* **Llama2**
-	* **Llama2 13B**
-	* **Llama2 70B**
-	* **Llama2 Uncensored**
+* **Model**（模型）：选择用于生成补全的模型，可选：
+    * **Llama2**（Llama2 模型）
+    * **Llama2 13B**（130 亿参数）
+    * **Llama2 70B**（700 亿参数）
+    * **Llama2 Uncensored**（未审查版本）
 
-Refer to the Ollama [Models Library documentation](https://ollama.com/library) for more information about available models.
+可用模型的更多信息，请参阅 Ollama 的[模型库文档](https://ollama.com/library)。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Top K**: Enter the number of token choices the model uses to generate the next token.
-* **Top P**: Use this option to set the probability the completion should use. Use a lower value to ignore less probable options. 
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Top K**：输入模型生成下一个 token 时考虑的候选 token 数量。
+* **Top P**：设置补全使用的概率范围。较低值会忽略概率较低的选项。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse n8n-nodes-langchain.lmchatollama integration templates](https://n8n.io/integrations/ollama-chat-model) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
-
-Refer to [LangChain's Ollama Chat Model documentation](https://docs.langchain.com/oss/javascript/integrations/chat/ollama) for more information about the service.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
-
-## Common issues <a href="#common-issues" id="common-issues"></a>
-
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
+[浏览 Ollama Chat Model（Ollama 聊天模型）集成模板](https://n8n.io/integrations/ollama-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/dN5Se1JVH7wYGtmN4n0v/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+该服务的更多信息，请参阅 [LangChain 的 Ollama Chat Model 文档](https://docs.langchain.com/oss/javascript/integrations/chat/ollama)。
+
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
+
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
+
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。
+
+
+
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/starter-kits/self-hosted-ai-starter-kit.md" %}
+
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

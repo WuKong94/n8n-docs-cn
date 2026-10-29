@@ -1,91 +1,88 @@
 ---
-title: AWS Bedrock Chat Model node documentation
-description: >-
-  Learn how to use the AWS Bedrock Chat Model node in n8n. Follow technical
-  documentation to integrate AWS Bedrock Chat Model node into your workflows.
+title: AWS Bedrock Chat Model（AWS Bedrock 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 AWS Bedrock Chat Model（AWS Bedrock 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: AWS Bedrock Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatawsbedrock.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatawsbedrock
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatawsbedrock
+- integration
+- reference
+nodeTitle: AWS Bedrock Chat Model（AWS Bedrock 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatawsbedrock.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatawsbedrock
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatawsbedrock
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# AWS Bedrock Chat Model node <a href="#aws-bedrock-chat-model-node" id="aws-bedrock-chat-model-node"></a>
 
-The AWS Bedrock Chat Model node allows you use LLM models utilising AWS Bedrock platform.
+# AWS Bedrock Chat Model（AWS Bedrock 聊天模型） 节点 <a href="#aws-bedrock-chat-model-node" id="aws-bedrock-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the AWS Bedrock Chat Model node, and links to more resources.
+AWS Bedrock Chat Model 节点支持通过 AWS Bedrock 平台使用大型语言模型。
+
+本页列出了 AWS Bedrock Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [AWS credentials documentation](../../credentials/aws.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [AWS 凭据文档](../../credentials/aws.md)。
 
-If you route Bedrock through a [VPC interface endpoint (PrivateLink)](https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html) without private DNS, set the **Bedrock Endpoint** and **Bedrock Runtime Endpoint** custom endpoints in the credential.
+如果通过未启用私有 DNS 的 [VPC 接口端点（PrivateLink）](https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html)访问 Bedrock，请在凭据中设置 **Bedrock Endpoint**（Bedrock 端点）和 **Bedrock Runtime Endpoint**（Bedrock 运行时端点）自定义端点。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 	
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Authentication**: Select the authentication method:
-    * **AWS (IAM)**: Use an IAM access key. Select an **AWS** credential.
-    * **AWS (Assume Role)**: Temporarily assume an IAM role. Select an **AWS (Assume Role)** credential.
-* **Model**: Select the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html) that generates the completion. The dropdown lists on-demand foundation models and cross-region inference profiles together. The newest models (for example Claude Sonnet 4.x) are only available as inference profiles. If part of the list is missing, your IAM role may lack the `bedrock:ListFoundationModels` or `bedrock:ListInferenceProfiles` permission. You can also switch the field to **Expression** mode and enter a model ID, inference profile ID, or ARN directly.
-
-{% hint style="info" %}
-On node version 1.1, the dropdown shows one list at a time: use the **Model Source** parameter to switch between on-demand foundation models and inference profiles. Node version 1 only supports on-demand foundation models.
-{% endhint %}
-
-Learn more about available models in the [Amazon Bedrock model documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html).
-
-## Node options <a href="#node-options" id="node-options"></a>
-
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Top P**: Set the probability threshold for token selection. A lower value limits the pool to more probable tokens; a higher value allows more diverse options.
-* **Max Retries**: Enter the maximum number of times to retry a request.
-* **Timeout**: Enter the maximum time in milliseconds to wait for a request to complete. Increase this for long generations. Set it to `0` to disable the timeout.
-* **Additional Model Request Fields**: Enter model-family-specific inference parameters as JSON, for example Claude's `top_k` or Nova's `inferenceConfig`. Refer to the [AWS model parameters documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) for the parameters each model family supports.
-* **Latency Optimization**: Choose whether requests use **Standard** or **Optimized** latency. Optimized mode can reduce response time for supported models and regions. Refer to the [AWS latency-optimized inference documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/latency-optimized-inference.html) for availability.
-* **Guardrail**: Apply an [Amazon Bedrock guardrail](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) to requests. Refer to [Using AWS Guardrails](#using-aws-guardrails) for details.
-
-### Using AWS Guardrails <a href="#using-aws-guardrails" id="using-aws-guardrails"></a>
-
-Guardrails let your organization enforce content and safety policies on model invocations. The guardrail must exist in the same AWS region as the model. The **Guardrail** option has these fields:
-
-* **Guardrail Identifier**: The ID or full ARN of the guardrail to apply.
-* **Guardrail Version**: The guardrail version to use: a numeric version string (for example `1`) or `DRAFT` for the working draft. Defaults to `DRAFT`.
-* **Trace**: Whether AWS includes diagnostic trace information about the guardrail's evaluation in the response: **Disabled** (default), **Enabled**, or **Enabled (Full)**. Note: enabling trace makes AWS include guardrail assessment details (which can echo matched input content, e.g. PII findings) in responses; n8n doesn't currently surface these in the AI log.
-
-When a guardrail intervenes, the node returns the guardrail's configured blocked message in place of the model output, as a normal response rather than an error. n8n doesn't expose the underlying stop reason: to detect an intervention downstream, match on your guardrail's blocked message text. An invalid guardrail identifier or version fails the node with the AWS validation error. Guardrails apply to both streaming and non-streaming requests.
+* **Authentication**（身份验证）：选择身份验证方式：
+    * **AWS (IAM)**：使用 IAM 访问密钥，选择 **AWS** 凭据。
+    * **AWS (Assume Role)**：临时扮演 IAM 角色，选择 **AWS (Assume Role)** 凭据。
+* **Model**（模型）：选择生成补全的模型或[推理配置文件](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html)。下拉菜单同时列出按需基础模型和跨区域推理配置文件。最新模型（例如 Claude Sonnet 4.x）仅通过推理配置文件提供。列表不完整时，IAM 角色可能缺少 `bedrock:ListFoundationModels` 或 `bedrock:ListInferenceProfiles` 权限。也可切换为 **Expression**（表达式）模式，直接输入模型 ID、推理配置文件 ID 或 ARN。
 
 {% hint style="info" %}
-**IAM permissions**
-
-The credential needs the `bedrock:ApplyGuardrail` permission on the guardrail resource in addition to the invoke permissions. Without it, requests fail with an `AccessDeniedException` once a guardrail is set. If your organization requires guardrails on every invocation, enforce the `bedrock:GuardrailIdentifier` condition key on invoke permissions in IAM rather than relying on this optional node field.
+节点版本 1.1 的下拉菜单每次仅显示一个列表，通过 **Model Source**（模型来源）参数在按需基础模型和推理配置文件之间切换。节点版本 1 仅支持按需基础模型。
 {% endhint %}
 
-## Proxy limitations <a href="#proxy-limitations" id="proxy-limitations"></a>
+可用模型的更多信息，请参阅 [Amazon Bedrock 模型文档](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)。
 
-This node doesn't support the [`NO_PROXY` environment variable](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration/use-environment-variables/deployment).
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Top P**：设置 token 选择的概率阈值。较低值将候选集限制为更高概率的 token，较高值允许更多样的选项。
+* **Max Retries**（最大重试次数）：输入请求的最大重试次数。
+* **Timeout**（超时）：输入等待请求完成的最长时间，单位为毫秒。生成耗时较长时，可提高此值。设为 `0` 可禁用超时。
+* **Additional Model Request Fields**（附加模型请求字段）：以 JSON 输入模型系列专用的推理参数，例如 Claude 的 `top_k` 或 Nova 的 `inferenceConfig`。各模型系列支持的参数，请参阅 [AWS 模型参数文档](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html)。
+* **Latency Optimization**（延迟优化）：选择请求使用 **Standard**（标准）还是 **Optimized**（优化）延迟模式。对于支持的模型和区域，优化模式可缩短响应时间。可用性请参阅 [AWS 延迟优化推理文档](https://docs.aws.amazon.com/bedrock/latest/userguide/latency-optimized-inference.html)。
+* **Guardrail**（护栏）：为请求应用 [Amazon Bedrock 护栏](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)。详情请参阅[使用 AWS 护栏](#using-aws-guardrails)。
+
+### 使用 AWS 护栏 <a href="#using-aws-guardrails" id="using-aws-guardrails"></a>
+
+护栏让组织能够对模型调用实施内容和安全策略。护栏必须与模型位于同一个 AWS 区域。**Guardrail**（护栏）选项包含以下字段：
+
+* **Guardrail Identifier**（护栏标识符）：要应用的护栏 ID 或完整 ARN。
+* **Guardrail Version**（护栏版本）：使用的护栏版本，可为数字版本字符串（例如 `1`），或使用 `DRAFT` 指定工作草稿。默认为 `DRAFT`。
+* **Trace**（追踪）：选择 AWS 是否在响应中包含护栏评估的诊断追踪信息，可选 **Disabled**（禁用，默认）、**Enabled**（启用）或 **Enabled (Full)**（完全启用）。注意，启用追踪会使 AWS 在响应中包含护栏评估详情，其中可能回显匹配到的输入内容，例如个人身份信息的检测结果；n8n 目前不会在 AI 日志中显示这些详情。
+
+护栏介入时，节点以护栏配置的阻止消息替代模型输出，作为正常响应返回，而不是报错。n8n 不暴露底层停止原因；要在下游检测护栏介入，请匹配护栏的阻止消息文本。护栏标识符或版本无效时，节点会以 AWS 验证错误失败。护栏同时适用于流式和非流式请求。
+
+{% hint style="info" %}
+**IAM 权限**
+
+除调用权限外，凭据还需要对护栏资源拥有 `bedrock:ApplyGuardrail` 权限。否则，设置护栏后请求会以 `AccessDeniedException` 失败。如果组织要求每次调用都使用护栏，请在 IAM 调用权限中强制执行 `bedrock:GuardrailIdentifier` 条件键，而不是仅依赖此可选节点字段。
+{% endhint %}
+
+## 代理限制 <a href="#proxy-limitations" id="proxy-limitations"></a>
+
+此节点不支持 [`NO_PROXY` 环境变量](../../../../deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/deployment.md)。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse AWS Bedrock Chat Model node documentation integration templates](https://n8n.io/integrations/aws-bedrock-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 AWS Bedrock Chat Model（AWS Bedrock 聊天模型） 集成模板](https://n8n.io/integrations/aws-bedrock-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's AWS Bedrock Chat Model documentation](https://docs.langchain.com/oss/javascript/integrations/chat/bedrock_converse) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 AWS Bedrock Chat Model 文档](https://docs.langchain.com/oss/javascript/integrations/chat/bedrock_converse)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

@@ -1,61 +1,58 @@
 ---
-title: Mistral Cloud Chat Model node documentation
-description: >-
-  Learn how to use the Mistral Cloud Chat Model node in n8n. Follow technical
-  documentation to integrate Mistral Cloud Chat Model node into your workflows.
+title: Mistral Cloud Chat Model（Mistral Cloud 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 Mistral Cloud Chat Model（Mistral Cloud 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Mistral Cloud Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud
+nodeTitle: Mistral Cloud Chat Model（Mistral Cloud 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatmistralcloud
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Mistral Cloud Chat Model node <a href="#mistral-cloud-chat-model-node" id="mistral-cloud-chat-model-node"></a>
 
-Use the Mistral Cloud Chat Model node to combine Mistral Cloud's chat models with conversational agents[^1].
+# Mistral Cloud Chat Model（Mistral Cloud 聊天模型） 节点 <a href="#mistral-cloud-chat-model-node" id="mistral-cloud-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the Mistral Cloud Chat Model node, and links to more resources.
+使用 Mistral Cloud Chat Model 节点，将 Mistral Cloud 聊天模型与对话智能体[^1]配合使用。
+
+本页列出了 Mistral Cloud Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Mistral Cloud credentials documentation](../../credentials/mistral.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Mistral Cloud 凭据文档](../../credentials/mistral.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-* **Model**: Select the model to use to generate the completion. n8n dynamically loads models from Mistral Cloud and you'll only see the models available to your account.
+* **Model**（模型）：选择用于生成补全的模型。n8n 从 Mistral Cloud 动态加载模型，你只会看到自己的账户可用的模型。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Timeout**: Enter the maximum request time in milliseconds.
-* **Max Retries**: Enter the maximum number of times to retry a request.
-* **Top P**: Use this option to set the probability the completion should use. Use a lower value to ignore less probable options. 
-* **Enable Safe Mode**: Enable safe mode by injecting a safety prompt at the beginning of the completion. This helps prevent the model from generating offensive content.
-* **Random Seed**: Enter a seed to use for random sampling. If set, different calls will generate deterministic results.
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Timeout**（超时）：输入请求的最长耗时，单位为毫秒。
+* **Max Retries**（最大重试次数）：输入请求的最大重试次数。
+* **Top P**：设置补全使用的概率范围。较低值会忽略概率较低的选项。
+* **Enable Safe Mode**（启用安全模式）：在补全开头注入安全提示词以启用安全模式，有助于防止模型生成冒犯性内容。
+* **Random Seed**（随机种子）：输入随机采样的种子。设置后，不同调用会生成确定性结果。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Mistral Cloud Chat Model node documentation integration templates](https://n8n.io/integrations/mistral-cloud-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 Mistral Cloud Chat Model（Mistral Cloud 聊天模型） 集成模板](https://n8n.io/integrations/mistral-cloud-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Mistral documentation](https://docs.langchain.com/oss/javascript/integrations/chat/mistral) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Mistral 文档](https://docs.langchain.com/oss/javascript/integrations/chat/mistral)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

@@ -1,92 +1,88 @@
 ---
-title: NVIDIA Nemotron Chat Model node documentation
-description: >-
-  Learn how to use the NVIDIA Nemotron Chat Model node in n8n. Follow technical
-  documentation to integrate NVIDIA Nemotron Chat Model node into your
-  workflows.
+title: NVIDIA Nemotron Chat Model（NVIDIA Nemotron 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 NVIDIA Nemotron Chat Model（NVIDIA Nemotron 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: NVIDIA Nemotron Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia
+nodeTitle: NVIDIA Nemotron Chat Model（NVIDIA Nemotron 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatnvidia
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# NVIDIA Nemotron Chat Model node <a href="#nvidia-nemotron-chat-model-node" id="nvidia-nemotron-chat-model-node"></a>
 
-Use the NVIDIA Nemotron Chat Model node to access [NVIDIA Nemotron](https://build.nvidia.com/models) models with conversational agents[^1]. The node works with Nemotron models hosted on [build.nvidia.com](https://build.nvidia.com/) and with self-hosted NVIDIA Inference Microservices (NIM).
+# NVIDIA Nemotron Chat Model（NVIDIA Nemotron 聊天模型） 节点 <a href="#nvidia-nemotron-chat-model-node" id="nvidia-nemotron-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the NVIDIA Nemotron Chat Model node and links to more resources.
+使用 NVIDIA Nemotron Chat Model 节点，将 [NVIDIA Nemotron](https://build.nvidia.com/models) 模型与对话智能体[^1]配合使用。节点支持 [build.nvidia.com](https://build.nvidia.com/) 托管的 Nemotron 模型，以及自行托管的 NVIDIA Inference Microservices（NIM）。
+
+本页列出了 NVIDIA Nemotron Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [NVIDIA Nemotron credentials documentation](../../credentials/nvidia.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [NVIDIA Nemotron 凭据文档](../../credentials/nvidia.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Model <a href="#model" id="model"></a>
+### Model（模型） <a href="#model" id="model"></a>
 
-Select the Nemotron model to use to generate the completion.
+选择用于生成补全的 Nemotron 模型。
 
-n8n dynamically loads Nemotron models from the endpoint configured in your credential. If n8n can't reach the endpoint, it falls back to a curated list of well-known Nemotron model IDs.
+n8n 从凭据配置的端点动态加载 Nemotron 模型。如果无法访问端点，会回退到经过整理的常见 Nemotron 模型 ID 列表。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Use these options to further refine the node's behavior.
+使用以下选项进一步调整节点行为。
 
-### Frequency Penalty <a href="#frequency-penalty" id="frequency-penalty"></a>
+### Frequency Penalty（频率惩罚） <a href="#frequency-penalty" id="frequency-penalty"></a>
 
-Use this option to control the chances of the model repeating itself. Higher values reduce the chance of the model repeating itself.
+使用此选项控制模型重复自身内容的可能性。值越高，重复的可能性越低。
 
-### Maximum Number of Tokens <a href="#maximum-number-of-tokens" id="maximum-number-of-tokens"></a>
+### Maximum Number of Tokens（最大 token 数） <a href="#maximum-number-of-tokens" id="maximum-number-of-tokens"></a>
 
-Enter the maximum number of tokens used, which sets the completion length. Use `-1` for the model default.
+输入使用的最大 token 数，以设置补全长度。使用 `-1` 表示模型默认值。
 
-### Response Format <a href="#response-format" id="response-format"></a>
+### Response Format（响应格式） <a href="#response-format" id="response-format"></a>
 
-Choose **Text** or **JSON**. **JSON** ensures the model returns valid JSON. When you choose **JSON**, include the word `json` in your prompt in the chain or agent.
+选择 **Text**（文本）或 **JSON**。**JSON** 确保模型返回有效 JSON。选择 **JSON** 时，请在链或智能体的提示词中包含 `json` 一词。
 
-### Presence Penalty <a href="#presence-penalty" id="presence-penalty"></a>
+### Presence Penalty（存在惩罚） <a href="#presence-penalty" id="presence-penalty"></a>
 
-Use this option to control the chances of the model talking about new topics. Higher values increase the chance of the model talking about new topics.
+使用此选项控制模型谈论新话题的可能性。值越高，谈论新话题的可能性越高。
 
-### Sampling Temperature <a href="#sampling-temperature" id="sampling-temperature"></a>
+### Sampling Temperature（采样温度） <a href="#sampling-temperature" id="sampling-temperature"></a>
 
-Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
+使用此选项控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
 
-### Timeout <a href="#timeout" id="timeout"></a>
+### Timeout（超时） <a href="#timeout" id="timeout"></a>
 
-Enter the maximum request time in milliseconds.
+输入请求的最长耗时，单位为毫秒。
 
-### Max Retries <a href="#max-retries" id="max-retries"></a>
+### Max Retries（最大重试次数） <a href="#max-retries" id="max-retries"></a>
 
-Enter the maximum number of times to retry a request.
+输入请求的最大重试次数。
 
 ### Top P <a href="#top-p" id="top-p"></a>
 
-Use this option to set the probability the completion should use. Use a lower value to ignore less probable options.
+使用此选项设置补全使用的概率范围。较低值会忽略概率较低的选项。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse NVIDIA Nemotron Chat Model node documentation integration templates](https://n8n.io/integrations/nvidia-nemotron-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 NVIDIA Nemotron Chat Model（NVIDIA Nemotron 聊天模型） 集成模板](https://n8n.io/integrations/nvidia-nemotron-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [NVIDIA's build catalogue](https://build.nvidia.com/models) for the list of Nemotron models and to the [NIM documentation](https://docs.nvidia.com/nim/) for guidance on self-hosting. As the NVIDIA API is OpenAI-spec compatible, you can refer to [LangChain's OpenAI documentation](https://docs.langchain.com/oss/javascript/integrations/chat/openai) for more information about the underlying client.
+Nemotron 模型列表请参阅 [NVIDIA 构建目录](https://build.nvidia.com/models)，自行托管指南请参阅 [NIM 文档](https://docs.nvidia.com/nim/)。NVIDIA API 与 OpenAI 规范兼容，底层客户端的更多信息可参阅 [LangChain 的 OpenAI 文档](https://docs.langchain.com/oss/javascript/integrations/chat/openai)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

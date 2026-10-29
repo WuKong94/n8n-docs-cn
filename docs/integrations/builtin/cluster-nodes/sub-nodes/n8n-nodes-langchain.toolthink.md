@@ -1,72 +1,70 @@
 ---
-title: Think Tool node documentation
-description: >-
-  Learn how to use the Think Tool node in n8n. Follow technical documentation to
-  integrate the Tool Think node into your workflows.
+title: Think Tool（思考工具） 节点文档
+description: 了解如何在 n8n 中使用 Think Tool 节点，并按照技术文档将思考工具集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Think Tool node documentation
+nodeTitle: Think Tool（思考工具） 节点文档
 originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolthink.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolthink
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolthink
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolthink
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolthink
 layout:
   description:
     visible: false
 ---
-
-# Think Tool node <a href="#think-tool-node" id="think-tool-node"></a>
-
-The Think Tool node is a tool[^1] that invites an agent[^2] to do some thinking before answering. Essentially, it allows the agent to reflect on the question by talking to itself before providing an answer. In particular, this is useful for complex queries that require a thoughtful response.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+# Think Tool（思考工具） 节点 <a href="#think-tool-node" id="think-tool-node"></a>
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse Think Tool node documentation integration templates](https://n8n.io/integrations/think-tool) or [search all templates](https://n8n.io/workflows/)
-
-### Prompting example <a href="#prompting-example" id="prompting-example"></a>
-
-As an example, say you ask the agent:
+Think Tool 节点是一种工具[^1]，让智能体[^2]在回答前先思考。它允许智能体先通过自我对话思考问题，再给出答案，特别适合需要仔细考虑的复杂查询。
 
 
-> *Jack is looking at Anne. Anne is looking at George. Jack is married, George is not, and we don't know if Anne is married. Is a married person looking at an unmarried person?*
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-	
-The agent will do its thinking with the tool:
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-> *We have the following information: 1. Jack is looking at Anne. 2. Anne is looking at George. 3. Jack is married. 4. George is not married. 5. We don't know if Anne is married or not.*
+[浏览 Think Tool（思考工具） 集成模板](https://n8n.io/integrations/think-tool)，或[搜索所有模板](https://n8n.io/workflows/)
 
-> *We need to determine if a married person is looking at an unmarried person. Let's consider both cases for Anne:*
+### 提示词示例 <a href="#prompting-example" id="prompting-example"></a>
 
-> *Case 1: Anne is married.*
+例如，向智能体提出以下问题：
 
-> - *If Anne is married, then she (married) is looking at George (unmarried). In this case, a married person (Anne) is looking at an unmarried person (George).*
 
-> *Case 2: Anne is unmarried.*
-
-> - *If Anne is unmarried, then Jack (married) is looking at Anne (unmarried). In this case, a married person (Jack) is looking at an unmarried person (Anne).*
-
-> *In both scenarios, we find that a married person is looking at an unmarried person. Therefore, the answer to the question is yes.*
+> *Jack 正看着 Anne，Anne 正看着 George。Jack 已婚，George 未婚，不知道 Anne 是否已婚。是否有已婚者正在看着未婚者？*
 
 	
-and then afterward provide the answer:
+智能体会使用工具进行思考：
 
 
-> *Yes, a married person is looking at an unmarried person. In both possible scenarios regarding Anne's marital status, we find that a married individual (either Jack or Anne) is looking at an unmarried individual (either George or Anne).*
+> *已知信息：1. Jack 正看着 Anne。2. Anne 正看着 George。3. Jack 已婚。4. George 未婚。5. 不知道 Anne 是否已婚。*
+
+> *需要判断是否有已婚者正在看着未婚者。考虑 Anne 的两种情况：*
+
+> *情况 1：Anne 已婚。*
+
+> - *如果 Anne 已婚，那么她（已婚）正看着 George（未婚）。此时，已婚者 Anne 正看着未婚者 George。*
+
+> *情况 2：Anne 未婚。*
+
+> - *如果 Anne 未婚，那么 Jack（已婚）正看着 Anne（未婚）。此时，已婚者 Jack 正看着未婚者 Anne。*
+
+> *两种情况下，都有已婚者正看着未婚者。因此，答案是肯定的。*
+
+	
+随后给出答案：
 
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+> *是的，有已婚者正在看着未婚者。无论 Anne 的婚姻状况是哪一种，都会有已婚者（Jack 或 Anne）正看着未婚者（George 或 Anne）。*
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Yl56nEscwQQAbBUeWfvp/" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-[^1]: In an AI context, a tool is an add-on resource that the AI can refer to for specific information or functionality when responding to a request. The AI model can use a tool to interact with external systems or complete specific, focused tasks.
-[^2]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/tools-link.md" %}
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
+
+[^1]: 在 AI 场景中，工具是附加资源，AI 可在响应请求时调用它获取特定信息或功能。AI 模型可以通过工具与外部系统交互，或完成具体、专门的任务。
+[^2]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

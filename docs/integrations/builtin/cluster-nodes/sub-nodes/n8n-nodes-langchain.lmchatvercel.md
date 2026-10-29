@@ -1,92 +1,88 @@
 ---
-title: Vercel AI Gateway Chat Model node documentation
-description: >-
-  Learn how to use the Vercel AI Gateway Chat Model node in n8n. Follow
-  technical documentation to integrate Vercel AI Gateway Chat Model node into
-  your workflows.
+title: Vercel AI Gateway Chat Model（Vercel AI Gateway 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 Vercel AI Gateway Chat Model（Vercel AI Gateway 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: Vercel AI Gateway Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatvercel.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatvercel
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatvercel
+nodeTitle: Vercel AI Gateway Chat Model（Vercel AI Gateway 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatvercel.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatvercel
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatvercel
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Vercel AI Gateway Chat Model node <a href="#vercel-ai-gateway-chat-model-node" id="vercel-ai-gateway-chat-model-node"></a>
 
-Use the Vercel AI Gateway Chat Model node to use AI Gateway chat models with conversational agents.
+# Vercel AI Gateway Chat Model（Vercel AI Gateway 聊天模型） 节点 <a href="#vercel-ai-gateway-chat-model-node" id="vercel-ai-gateway-chat-model-node"></a>
 
-On this page, you'll find the node parameters for the Vercel AI Gateway Chat Model node and links to more resources.
+使用 Vercel AI Gateway Chat Model 节点，将 AI Gateway 聊天模型与对话智能体配合使用。
+
+本页列出了 Vercel AI Gateway Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Vercel AI Gateway credentials documentation](../../credentials/vercel.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Vercel AI Gateway 凭据文档](../../credentials/vercel.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Model <a href="#model" id="model"></a>
+### Model（模型） <a href="#model" id="model"></a>
 
-Select the model to use to generate the completion.
+选择用于生成补全的模型。
 
-n8n dynamically loads models from the AI Gateway and you'll only see the models available to your account.
+n8n 从 AI Gateway 动态加载模型，你只会看到自己的账户可用的模型。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Use these options to further refine the node's behavior.
+使用以下选项进一步调整节点行为。
 
-### Frequency Penalty <a href="#frequency-penalty" id="frequency-penalty"></a>
+### Frequency Penalty（频率惩罚） <a href="#frequency-penalty" id="frequency-penalty"></a>
 
-Use this option to control the chance of the model repeating itself. Higher values reduce the chance of the model repeating itself.
+使用此选项控制模型重复自身内容的可能性。值越高，重复的可能性越低。
 
-### Maximum Number of Tokens <a href="#maximum-number-of-tokens" id="maximum-number-of-tokens"></a>
+### Maximum Number of Tokens（最大 token 数） <a href="#maximum-number-of-tokens" id="maximum-number-of-tokens"></a>
 
-Enter the maximum number of tokens used, which sets the completion length.
+输入使用的 token 数量上限，以设置补全长度。
 
-### Response Format <a href="#response-format" id="response-format"></a>
+### Response Format（响应格式） <a href="#response-format" id="response-format"></a>
 
-Choose **Text** or **JSON**. **JSON** ensures the model returns valid JSON.
+选择 **Text**（文本）或 **JSON**。**JSON** 确保模型返回有效 JSON。
 
-### Presence Penalty <a href="#presence-penalty" id="presence-penalty"></a>
+### Presence Penalty（存在惩罚） <a href="#presence-penalty" id="presence-penalty"></a>
 
-Use this option to control the chance of the model talking about new topics. Higher values increase the chance of the model talking about new topics.
+使用此选项控制模型谈论新话题的可能性。值越高，谈论新话题的可能性越高。
 
-### Sampling Temperature <a href="#sampling-temperature" id="sampling-temperature"></a>
+### Sampling Temperature（采样温度） <a href="#sampling-temperature" id="sampling-temperature"></a>
 
-Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
+使用此选项控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
 
-### Timeout <a href="#timeout" id="timeout"></a>
+### Timeout（超时） <a href="#timeout" id="timeout"></a>
 
-Enter the maximum request time in milliseconds.
+输入请求的最长耗时，单位为毫秒。
 
-### Max Retries <a href="#max-retries" id="max-retries"></a>
+### Max Retries（最大重试次数） <a href="#max-retries" id="max-retries"></a>
 
-Enter the maximum number of times to retry a request.
+输入请求的最大重试次数。
 
 ### Top P <a href="#top-p" id="top-p"></a>
 
-Use this option to set the probability the completion should use. Use a lower value to ignore less probable options. 
+使用此选项设置补全使用的概率范围。较低值会忽略概率较低的选项。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Vercel AI Gateway Chat Model node documentation integration templates](https://n8n.io/integrations/vercel-ai-gateway-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 Vercel AI Gateway Chat Model（Vercel AI Gateway 聊天模型） 集成模板](https://n8n.io/integrations/vercel-ai-gateway-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-As the Vercel AI Gateway is API-compatible with OpenAI, you can refer to [LangChain's OpenAI documentation](https://docs.langchain.com/oss/javascript/integrations/chat/openai) for more information about the service.
+Vercel AI Gateway 的 API 与 OpenAI 兼容，该服务的更多信息可参阅 [LangChain 的 OpenAI 文档](https://docs.langchain.com/oss/javascript/integrations/chat/openai)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
 

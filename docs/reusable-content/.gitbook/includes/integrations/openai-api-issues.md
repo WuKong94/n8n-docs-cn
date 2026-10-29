@@ -1,13 +1,15 @@
 ---
-title: openai-api-issues
+title: OpenAI API 常见问题
 ---
-## The service is receiving too many requests from you <a href="#the-service-is-receiving-too-many-requests-from-you" id="the-service-is-receiving-too-many-requests-from-you"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-This error displays when you've exceeded [OpenAI's rate limits](https://platform.openai.com/docs/guides/rate-limits).
+## The service is receiving too many requests from you（服务收到的请求过多） <a href="#the-service-is-receiving-too-many-requests-from-you" id="the-service-is-receiving-too-many-requests-from-you"></a>
 
-There are two ways to work around this issue:
+超过 [OpenAI 速率限制](https://platform.openai.com/docs/guides/rate-limits)时，会显示此错误。
 
-1. Split your data up into smaller chunks using the [Loop Over Items](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.splitinbatches) node and add a [Wait](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.wait) node at the end for a time amount that will help. Copy the code below and paste it into a workflow to use as a template.
+可通过以下两种方式处理：
+
+1. 使用 [Loop Over Items](../../../../integrations/builtin/core-nodes/n8n-nodes-base.splitinbatches.md) 节点将数据拆成较小批次，并在末尾添加 [Wait](../../../../integrations/builtin/core-nodes/n8n-nodes-base.wait.md) 节点，设置合适的等待时间。复制下方代码，粘贴到工作流中作为模板使用。
     ```
     {
         "nodes": [
@@ -116,42 +118,42 @@ There are two ways to work around this issue:
         "pinData": {}
     }
     ```
-2. Use the [HTTP Request](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.httprequest) node with the built-in batch-limit option against the [OpenAI API](https://platform.openai.com/docs/quickstart) instead of using the OpenAI node.
+2. 使用带有内置批次限制选项的 [HTTP Request](../../../../integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md) 节点调用 [OpenAI API](https://platform.openai.com/docs/quickstart)，替代 OpenAI 节点。
 
-## Insufficient quota <a href="#insufficient-quota" id="insufficient-quota"></a>
-
-{% hint style="info" %}
-**Quota issues**
-
-There are a number of OpenAI issues surrounding quotas, including failures when quotas have been recently topped up. To avoid these issues, ensure that there is credit in the account and issue a new API key from the [API keys screen](https://platform.openai.com/settings/organization/api-keys).
-{% endhint %}
-
-This error displays when your OpenAI account doesn't have enough credits or capacity to fulfill your request. This may mean that your OpenAI trial period has ended, that your account needs more credit, or that you've gone over a usage limit.
-
-To troubleshoot this error, on your [OpenAI settings](https://platform.openai.com/settings/organization/billing/overview) page:
-
-* Select the correct organization for your API key in the first selector in the upper-left corner.
-* Select the correct project for your API key in the second selector in the upper-left corner.
-* Check the organization-level [billing overview](https://platform.openai.com/settings/organization/billing/overview) page to ensure that the organization has enough credit. Double-check that you select the correct organization for this page.
-* Check the organization-level [usage limits](https://platform.openai.com/settings/organization/limits) page. Double-check that you select the correct organization for this page and scroll to the **Usage limits** section to verify that you haven't exceeded your organization's usage limits.
-* Check your OpenAI project's usage limits. Double-check that you select the correct project in the second selector in the upper-left corner. Select **Project** > **Limits** to view or change the project limits.
-* Check that the [OpenAI API](https://status.openai.com/) is operating as expected.
+## Insufficient quota（配额不足） <a href="#insufficient-quota" id="insufficient-quota"></a>
 
 {% hint style="info" %}
-**Balance waiting period**
+**配额问题**
 
-After topping up your balance, there may be a delay before your OpenAI account reflects the new balance.
+OpenAI 存在多种与配额相关的问题，包括刚充值后仍失败。为避免这些问题，请确保账户有可用余额，并在 [API 密钥页面](https://platform.openai.com/settings/organization/api-keys)签发新的 API 密钥。
 {% endhint %}
 
-In n8n:
+OpenAI 账户没有足够余额或容量完成请求时，会显示此错误。可能是试用期已结束、账户需要充值，或超过了使用限额。
 
-* check that the [OpenAI credentials](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials/openai) use a valid [OpenAI API key](https://platform.openai.com/api-keys) for the account you've added money to
-* ensure that you connect the [OpenAI node](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/app-nodes/n8n-nodes-langchain.openai) to the correct [OpenAI credentials](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/credentials/openai)
+排查此错误时，请在 [OpenAI 设置](https://platform.openai.com/settings/organization/billing/overview)页面中：
 
-If you find yourself frequently running out of account credits, consider turning on auto recharge in your [OpenAI billing settings](https://platform.openai.com/settings/organization/billing/overview) to automatically reload your account with credits when your balance reaches $0.
+* 在左上角第一个选择器中，选择 API 密钥对应的正确组织。
+* 在左上角第二个选择器中，选择 API 密钥对应的正确项目。
+* 检查组织级别的[账单概览](https://platform.openai.com/settings/organization/billing/overview)页面，确保组织余额充足，并再次确认此页面选择的是正确组织。
+* 检查组织级别的[使用限额](https://platform.openai.com/settings/organization/limits)页面，再次确认选择的是正确组织，并滚动到 **Usage limits**（使用限额）部分，核对是否超过组织的使用限额。
+* 检查 OpenAI 项目的使用限额。再次确认左上角第二个选择器中选择的是正确项目。选择 **Project**（项目）> **Limits**（限额），查看或修改项目限额。
+* 检查 [OpenAI API](https://status.openai.com/) 是否正常运行。
 
-## Bad request - please check your parameters <a href="#bad-request-please-check-your-parameters" id="bad-request-please-check-your-parameters"></a>
+{% hint style="info" %}
+**余额等待时间**
 
-This error displays when the request results in an error but n8n wasn't able to interpret the error message from OpenAI.
+充值后，OpenAI 账户显示新余额可能存在延迟。
+{% endhint %}
 
-To begin troubleshooting, try running the same operation using the [HTTP Request](https://app.gitbook.com/s/BKcbOzIWja8NfqKDcqHc/builtin/core-nodes/n8n-nodes-base.httprequest) node, which should provide a more detailed error message.
+在 n8n 中：
+
+* 检查 [OpenAI 凭据](../../../../integrations/builtin/credentials/openai.md)使用的 [OpenAI API 密钥](https://platform.openai.com/api-keys)是否有效，并对应你充值的账户。
+* 确保 [OpenAI 节点](../../../../integrations/builtin/app-nodes/n8n-nodes-langchain.openai/README.md)连接到正确的 [OpenAI 凭据](../../../../integrations/builtin/credentials/openai.md)。
+
+如果账户余额经常耗尽，可考虑在 [OpenAI 账单设置](https://platform.openai.com/settings/organization/billing/overview)中开启自动充值，使余额降至 $0 时自动为账户充值。
+
+## Bad request - please check your parameters（请求错误，请检查参数） <a href="#bad-request-please-check-your-parameters" id="bad-request-please-check-your-parameters"></a>
+
+请求出错，但 n8n 无法解析 OpenAI 返回的错误消息时，会显示此错误。
+
+排查时，可先尝试使用 [HTTP Request](../../../../integrations/builtin/core-nodes/n8n-nodes-base.httprequest/README.md) 节点运行相同操作，通常能获得更详细的错误消息。

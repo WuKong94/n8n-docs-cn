@@ -1,116 +1,114 @@
 ---
-title: Lemonade Model node documentation
-description: >-
-  Learn how to use the Lemonade Model node in n8n. Follow technical
-  documentation to integrate Lemonade Model node into your workflows.
+title: Lemonade Model（Lemonade 模型） 节点文档
+description: 了解如何在 n8n 中使用 Lemonade Model（Lemonade 模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Lemonade Model node documentation
+- integration
+- reference
+nodeTitle: Lemonade Model（Lemonade 模型） 节点文档
 originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmlemonade.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmlemonade
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmlemonade
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmlemonade
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmlemonade
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Lemonade Model node <a href="#lemonade-model-node" id="lemonade-model-node"></a>
 
-Use the Lemonade Model node to generate text completions using language models hosted and managed by a Lemonade server. This node is a simple LangChain-compatible language model root node suitable for text completion tasks within n8n workflows.
+# Lemonade Model（Lemonade 模型） 节点 <a href="#lemonade-model-node" id="lemonade-model-node"></a>
 
-On this page, you'll find a list of operations the Lemonade Model node supports, and links to more resources.
+使用 Lemonade Model 节点，通过 Lemonade 服务器托管和管理的语言模型生成文本补全。此节点是兼容 LangChain 的简单语言模型子节点，适用于 n8n 工作流中的文本补全任务。
+
+本页列出了 Lemonade Model 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Lemonade credentials documentation](../../credentials/lemonade.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Lemonade 凭据文档](../../credentials/lemonade.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-Configure the node with the following parameters.
+使用以下参数配置节点。
 
-### Model <a href="#model" id="model"></a>
+### Model（模型） <a href="#model" id="model"></a>
 
-The model which will generate the completion. Models are loaded and managed through the Lemonade server; select the model you want to use from the list provided by the node.
+生成补全的模型。模型通过 Lemonade 服务器加载和管理，请从节点提供的列表选择所需模型。
 
-## Node options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-Use these options to further refine the node's behavior.
+使用以下选项进一步调整节点行为。
 
-### Sampling Temperature <a href="#sampling-temperature" id="sampling-temperature"></a>
+### Sampling Temperature（采样温度） <a href="#sampling-temperature" id="sampling-temperature"></a>
 
-Controls the randomness of the generated text. Lower values make the output more focused and deterministic, while higher values make it more diverse and random.
+控制生成文本的随机性。较低值使输出更集中、更确定，较高值使输出更多样、更随机。
 
-| Property | Value |
+| 属性 | 值 |
 |----------|-------|
-| Type | number |
-| Required | no |
-| Default | 0.7 |
+| 类型 | number（数字） |
+| 必填 | 否 |
+| 默认值 | 0.7 |
 
 ### Top P <a href="#top-p" id="top-p"></a>
 
-Controls which words the model can choose from when generating text. Lower values progressively remove the least likely options, so the model can only pick from a smaller, higher-confidence pool.
+控制模型生成文本时可选择的词。较低值会逐步排除最不可能的选项，使模型只能从较小、置信度较高的候选集中选择。
 
-| Property | Value |
+| 属性 | 值 |
 |----------|-------|
-| Type | number |
-| Required | no |
-| Default | 1 |
+| 类型 | number（数字） |
+| 必填 | 否 |
+| 默认值 | 1 |
 
-### Frequency Penalty <a href="#frequency-penalty" id="frequency-penalty"></a>
+### Frequency Penalty（频率惩罚） <a href="#frequency-penalty" id="frequency-penalty"></a>
 
-Adjusts the penalty for tokens that have already appeared in the generated text. Positive values discourage repetition, negative values encourage it.
+调整对生成文本中已出现 token 的惩罚。正值减少重复，负值鼓励重复。
 
-| Property | Value |
+| 属性 | 值 |
 |----------|-------|
-| Type | number |
-| Required | no |
-| Default | 0 |
+| 类型 | number（数字） |
+| 必填 | 否 |
+| 默认值 | 0 |
 
-### Presence Penalty <a href="#presence-penalty" id="presence-penalty"></a>
+### Presence Penalty（存在惩罚） <a href="#presence-penalty" id="presence-penalty"></a>
 
-Adjusts the penalty for tokens based on their presence in the generated text so far. Positive values penalize tokens that have already appeared, encouraging diversity.
+根据 token 是否已在生成文本中出现来调整惩罚。正值惩罚已出现的 token，鼓励多样性。
 
-| Property | Value |
+| 属性 | 值 |
 |----------|-------|
-| Type | number |
-| Required | no |
-| Default | 0 |
+| 类型 | number（数字） |
+| 必填 | 否 |
+| 默认值 | 0 |
 
-### Max Tokens to Generate <a href="#max-tokens-to-generate" id="max-tokens-to-generate"></a>
+### Max Tokens to Generate（生成 token 上限） <a href="#max-tokens-to-generate" id="max-tokens-to-generate"></a>
 
-The maximum number of tokens to generate. Set to -1 for no limit. Be cautious when setting this to a large value, as it can lead to very long outputs.
+要生成的最大 token 数，设为 -1 表示不限制。设置较大值时请谨慎，因为可能产生非常长的输出。
 
-| Property | Value |
+| 属性 | 值 |
 |----------|-------|
-| Type | number |
-| Required | no |
-| Default | -1 |
+| 类型 | number（数字） |
+| 必填 | 否 |
+| 默认值 | -1 |
 
-### Stop Sequences <a href="#stop-sequences" id="stop-sequences"></a>
+### Stop Sequences（停止序列） <a href="#stop-sequences" id="stop-sequences"></a>
 
-Comma-separated list of sequences where the model will stop generating text.
+以逗号分隔的序列列表，模型遇到其中的序列时停止生成文本。
 
-| Property | Value |
+| 属性 | 值 |
 |----------|-------|
-| Type | string |
-| Required | no |
-| Default | "" |
+| 类型 | string（字符串） |
+| 必填 | 否 |
+| 默认值 | "" |
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Lemonade Model node documentation integration templates](https://n8n.io/integrations/lemonade-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 Lemonade Model（Lemonade 模型） 集成模板](https://n8n.io/integrations/lemonade-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Lemonade Server's documentation](https://lemonade-server.ai/docs/) for more information about the service.
+该服务的更多信息，请参阅 [Lemonade Server 文档](https://lemonade-server.ai/docs/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 

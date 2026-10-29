@@ -1,17 +1,13 @@
 ---
-title: Cohere Model node documentation
+title: Cohere Model（Cohere 模型） 节点文档
 contentType:
-  - integration
-  - reference
-nodeTitle: Cohere Model node documentation
+- integration
+- reference
+nodeTitle: Cohere Model（Cohere 模型） 节点文档
 originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmcohere.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmcohere
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmcohere
-description: >-
-  Learn how to use the Cohere Model node in n8n. Follow technical documentation
-  to integrate Cohere Model node into your workflows.
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmcohere
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmcohere
+description: 了解如何在 n8n 中使用 Cohere Model（Cohere 模型） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -31,34 +27,36 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Cohere Model
 
-Use the Cohere Model node to use Cohere's models.
+# Cohere Model（Cohere 模型） <a id="cohere-model"></a>
 
-On this page, you'll find the node parameters for the Cohere Model node, and links to more resources.
+使用 Cohere Model 节点来使用 Cohere 模型。
 
-This node lacks tools support, so it won't work with the [AI Agent](../root-nodes/n8n-nodes-langchain.agent/README.md) node. Instead, connect it with the [Basic LLM Chain](../root-nodes/n8n-nodes-langchain.chainllm.md) node.
+本页列出了 Cohere Model 节点的参数，并提供更多资源的链接。
+
+此节点不支持工具，因此无法与 [AI Agent](../root-nodes/n8n-nodes-langchain.agent/README.md) 节点配合使用。请将其连接到 [Basic LLM Chain](../root-nodes/n8n-nodes-langchain.chainllm.md) 节点。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Cohere credentials documentation](../../credentials/cohere.md) for authentication information for this node.
+此节点的身份验证信息，请参阅 [Cohere 凭据文档](../../credentials/cohere.md)。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Node Options <a href="#node-options" id="node-options"></a>
+## 节点选项 <a href="#node-options" id="node-options"></a>
 
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse Cohere Model node documentation integration templates](https://n8n.io/integrations/cohere-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 Cohere Model（Cohere 模型） 集成模板](https://n8n.io/integrations/cohere-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's Cohere documentation](https://docs.langchain.com/oss/javascript/integrations/llms/cohere) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 Cohere 文档](https://docs.langchain.com/oss/javascript/integrations/llms/cohere)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}

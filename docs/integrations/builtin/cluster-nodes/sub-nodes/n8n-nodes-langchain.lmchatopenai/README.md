@@ -1,19 +1,14 @@
 ---
-title: OpenAI Chat Model node documentation
+title: OpenAI Chat Model（OpenAI 聊天模型） 节点文档
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
 nodeTitle: n8n-nodes-langchain.lmchatopenai
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/index.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai
-description: >-
-  Learn how to use the OpenAI Chat Model node in n8n. Follow technical
-  documentation to integrate OpenAI Chat Model node into your workflows.
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai/index.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatopenai
+description: 了解如何在 n8n 中使用 OpenAI Chat Model（OpenAI 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 layout:
   width: default
   title:
@@ -33,140 +28,142 @@ layout:
   actions:
     visible: true
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# OpenAI Chat Model
 
-{% hint style="info" %}
-On n8n Cloud, you can use the OpenAI Chat Model node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own OpenAI API key. Select **Use Gateway credits** in the node's credential field to run the node without an OpenAI account.
-{% endhint %}
-
-Use the OpenAI Chat Model node to use OpenAI's chat models with conversational agents[^1].
-
-On this page, you'll find the node parameters for the OpenAI Chat Model node and links to more resources.
+# OpenAI Chat Model（OpenAI 聊天模型） <a id="openai-chat-model"></a>
 
 {% hint style="info" %}
-**Credentials**
-
-Refer to the [OpenAI credentials documentation](../../../credentials/openai.md) for authentication information for this node.
+在 n8n Cloud 上，可使用 [Gateway 额度](../../../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 OpenAI Chat Model 节点，无需自己的 OpenAI API 密钥。在节点的凭据字段选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 OpenAI 账户的情况下运行节点。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+使用 OpenAI Chat Model 节点，将 OpenAI 聊天模型与对话智能体[^1]配合使用。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-### Model <a href="#model" id="model"></a>
-
-Select the model to use to generate the completion.
-
-n8n dynamically loads models from OpenAI, and you'll only see the models available to your account.
-
-### Use Responses API <a href="#use-responses-api" id="use-responses-api"></a>
-
-OpenAI provides two endpoints for generating output from a model:
-
-* **Chat Completions**: The Chat Completions API endpoint generates a model response from a list of messages that comprise a conversation. The API requires the user to handle conversation state manually, for example by adding a [Simple Memory](../n8n-nodes-langchain.memorybufferwindow/README.md) subnode. For new projects, OpenAI recommends to use the Responses API.
-* **Responses**: The Responses API is an agentic loop, allowing the model to call multiple built-in tools within the span of one API request. It also supports persistent conversations by passing a `conversation_id`.
-
-Toggle to **Use Responses API** if you want the model to generate output using the Responses API. Otherwise, the OpenAI Chat Model node will default to using the Chat Completions API.
-
-Refer to the OpenAI documentation for a [comparison of the Chat Completions and Responses APIs](https://platform.openai.com/docs/guides/migrate-to-responses).
-
-### Built-in Tools <a href="#built-in-tools" id="built-in-tools"></a>
-
-The OpenAI Responses API provides a range of [built-in tools](https://platform.openai.com/docs/guides/tools) to enrich the model's response. Toggle to **Use Responses API** if you want the model to have access to the following built-in tools:
-
-* **Web Search**: Allows models to search the web for the latest information before generating a response.
-* **File Search**: Allow models to search your knowledgebase from previously uploaded files for relevant information before generating a response. Refer to the [OpenAI documentation](https://platform.openai.com/docs/guides/tools-file-search) for more information.
-* **Code Interpreter**: Allows models to write and run Python code in a sandboxed environment.
+本页列出了 OpenAI Chat Model 节点的参数，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Use with AI Agent node**
+**凭据**
 
-Built-in tools are only supported when using the OpenAI Chat Model node in combination with the AI Agent node. Built-in tools aren't available when using the OpenAI Chat Model node in combination with a Basic LLM Chain node, for example.
+此节点的身份验证信息，请参阅 [OpenAI 凭据文档](../../../credentials/openai.md)。
 {% endhint %}
 
-## Node options <a href="#node-options" id="node-options"></a>
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-Use these options to further refine the node's behavior. The following options are available whether you use the Responses API to generate model output or not.
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
 
-### Frequency Penalty <a href="#frequency-penalty" id="frequency-penalty"></a>
+### Model（模型） <a href="#model" id="model"></a>
 
-Use this option to control the chances of the model repeating itself. Higher values reduce the chance of the model repeating itself.
+选择用于生成补全的模型。
 
-### Maximum Number of Tokens <a href="#maximum-number-of-tokens" id="maximum-number-of-tokens"></a>
+n8n 从 OpenAI 动态加载模型，你只会看到自己的账户可用的模型。
 
-Enter the maximum number of tokens used, which sets the completion length.
+### Use Responses API（使用 Responses API） <a href="#use-responses-api" id="use-responses-api"></a>
 
-### Presence Penalty <a href="#presence-penalty" id="presence-penalty"></a>
+OpenAI 提供两个用于生成模型输出的端点：
 
-Use this option to control the chances of the model talking about new topics. Higher values increase the chance of the model talking about new topics.
+* **Chat Completions**：Chat Completions API 根据组成对话的消息列表生成模型响应。用户需要手动管理对话状态，例如添加 [Simple Memory](../n8n-nodes-langchain.memorybufferwindow/README.md) 子节点。对于新项目，OpenAI 建议使用 Responses API。
+* **Responses**：Responses API 提供智能体循环，使模型可在一次 API 请求内调用多个内置工具。它还支持通过传入 `conversation_id` 实现持久会话。
 
-### Sampling Temperature <a href="#sampling-temperature" id="sampling-temperature"></a>
+如果希望模型使用 Responses API 生成输出，请开启 **Use Responses API**（使用 Responses API）。否则，OpenAI Chat Model 节点默认使用 Chat Completions API。
 
-Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
+两者的对比，请参阅 OpenAI 文档中的 [Chat Completions 与 Responses API 比较](https://platform.openai.com/docs/guides/migrate-to-responses)。
 
-### Timeout <a href="#timeout" id="timeout"></a>
+### 内置工具 <a href="#built-in-tools" id="built-in-tools"></a>
 
-Enter the maximum request time in milliseconds.
+OpenAI Responses API 提供多种[内置工具](https://platform.openai.com/docs/guides/tools)，用于丰富模型响应。开启 **Use Responses API**（使用 Responses API）后，模型可访问以下内置工具：
 
-### Max Retries <a href="#max-retries" id="max-retries"></a>
+* **Web Search**（网页搜索）：模型可先搜索互联网获取最新信息，再生成响应。
+* **File Search**（文件搜索）：模型可在先前上传的文件构成的知识库中搜索相关信息，再生成响应。更多信息请参阅 [OpenAI 文档](https://platform.openai.com/docs/guides/tools-file-search)。
+* **Code Interpreter**（代码解释器）：模型可在沙箱环境中编写并运行 Python 代码。
 
-Enter the maximum number of times to retry a request.
+{% hint style="info" %}
+**与 AI Agent 节点配合使用**
+
+仅当 OpenAI Chat Model 节点与 AI Agent 节点配合使用时，才支持内置工具。例如，与 Basic LLM Chain 节点配合时，内置工具不可用。
+{% endhint %}
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+使用以下选项进一步调整节点行为。无论是否使用 Responses API 生成模型输出，下列选项都可用。
+
+### Frequency Penalty（频率惩罚） <a href="#frequency-penalty" id="frequency-penalty"></a>
+
+使用此选项控制模型重复自身内容的可能性。值越高，重复的可能性越低。
+
+### Maximum Number of Tokens（最大 token 数） <a href="#maximum-number-of-tokens" id="maximum-number-of-tokens"></a>
+
+输入使用的 token 数量上限，以设置补全长度。
+
+### Presence Penalty（存在惩罚） <a href="#presence-penalty" id="presence-penalty"></a>
+
+使用此选项控制模型谈论新话题的可能性。值越高，谈论新话题的可能性越高。
+
+### Sampling Temperature（采样温度） <a href="#sampling-temperature" id="sampling-temperature"></a>
+
+使用此选项控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+
+### Timeout（超时） <a href="#timeout" id="timeout"></a>
+
+输入请求的最长耗时，单位为毫秒。
+
+### Max Retries（最大重试次数） <a href="#max-retries" id="max-retries"></a>
+
+输入请求的最大重试次数。
 
 ### Top P <a href="#top-p" id="top-p"></a>
 
-Use this option to set the probability the completion should use. Use a lower value to ignore less probable options.
+使用此选项设置补全使用的概率范围。较低值会忽略概率较低的选项。
 
-## Additional node options (Responses API only) <a href="#additional-node-options-responses-api-only" id="additional-node-options-responses-api-only"></a>
+## 附加节点选项，仅适用于 Responses API <a href="#additional-node-options-responses-api-only" id="additional-node-options-responses-api-only"></a>
 
-The following, additional options are available when toggling to **Use Responses API**.
+开启 **Use Responses API**（使用 Responses API）后，可使用以下附加选项。
 
-### Conversation ID <a href="#conversation-id" id="conversation-id"></a>
+### Conversation ID（会话 ID） <a href="#conversation-id" id="conversation-id"></a>
 
-The conversation that this response belongs to. Input items and output items from this response are automatically added to this conversation after this response completes.
+此响应所属的会话。响应完成后，该响应的输入数据项和输出数据项会自动添加到此会话。
 
-### Prompt Cache Key <a href="#prompt-cache-key" id="prompt-cache-key"></a>
+### Prompt Cache Key（提示词缓存键） <a href="#prompt-cache-key" id="prompt-cache-key"></a>
 
-Use this key for caching similar requests to optimize cache hit rates.
+使用此键缓存相似请求，优化缓存命中率。
 
-### Safety Identifier <a href="#safety-identifier" id="safety-identifier"></a>
+### Safety Identifier（安全标识符） <a href="#safety-identifier" id="safety-identifier"></a>
 
-Apply an identifier to track users who may violate usage policies.
+应用标识符，以跟踪可能违反使用政策的用户。
 
-### Service Tier <a href="#service-tier" id="service-tier"></a>
+### Service Tier（服务层级） <a href="#service-tier" id="service-tier"></a>
 
-Select the service tier that fits your needs: Auto, Flex, Default, or Priority.
+选择符合需求的服务层级：Auto（自动）、Flex（灵活）、Default（默认）或 Priority（优先）。
 
-### Metadata <a href="#metadata" id="metadata"></a>
+### Metadata（元数据） <a href="#metadata" id="metadata"></a>
 
-A set of key-value pairs for storing structured information. You can attach up to 16 pairs to an object, which is useful for adding custom data that can be used for searching by the API or in the dashboard.
+用于存储结构化信息的一组键值对。每个对象最多可附加 16 对，便于添加自定义数据，并通过 API 或控制台搜索。
 
-### Top Logprobs <a href="#top-logprobs" id="top-logprobs"></a>
+### Top Logprobs（最高对数概率） <a href="#top-logprobs" id="top-logprobs"></a>
 
-Define an integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability.
+设置 0 到 20 之间的整数，指定每个 token 位置返回多少个最可能的 token，每个 token 都附带对应的对数概率。
 
-### Output Format <a href="#output-format" id="output-format"></a>
+### Output Format（输出格式） <a href="#output-format" id="output-format"></a>
 
-Choose a response format: Text, JSON Schema, or JSON Object. Use of JSON Schema is recommended, if you want to receive data in JSON format.
+选择响应格式：Text（文本）、JSON Schema 或 JSON Object（JSON 对象）。希望接收 JSON 格式数据时，建议使用 JSON Schema。
 
-### Prompt <a href="#prompt" id="prompt"></a>
+### Prompt（提示词） <a href="#prompt" id="prompt"></a>
 
-Configure the prompt filled with a unique ID, its version, and substitutable variables. Prompts are configured through the OpenAI dashboard.
+配置提示词的唯一 ID、版本及可替换变量。提示词通过 OpenAI 控制台配置。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-[Browse n8n-nodes-langchain.lmchatopenai integration templates](https://n8n.io/integrations/openai-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 OpenAI Chat Model（OpenAI 聊天模型）集成模板](https://n8n.io/integrations/openai-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [LangChain's OpenAI documentation](https://docs.langchain.com/oss/javascript/integrations/chat/openai) for more information about the service.
+该服务的更多信息，请参阅 [LangChain 的 OpenAI 文档](https://docs.langchain.com/oss/javascript/integrations/chat/openai)。
 
-Refer to [OpenAI documentation](https://platform.openai.com/docs/api-reference/responses/create) for more information about the parameters.
+参数的更多信息，请参阅 [OpenAI 文档](https://platform.openai.com/docs/api-reference/responses/create)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Common issues <a href="#common-issues" id="common-issues"></a>
+## 常见问题 <a href="#common-issues" id="common-issues"></a>
 
-For common questions or issues and suggested solutions, refer to [Common issues](common-issues.md).
+常见问题及建议的解决办法，请参阅[常见问题](common-issues.md)。
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。

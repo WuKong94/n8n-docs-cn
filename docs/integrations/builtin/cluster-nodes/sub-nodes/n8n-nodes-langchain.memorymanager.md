@@ -1,63 +1,61 @@
 ---
-title: Chat Memory Manager node documentation
-description: >-
-  Learn how to use the Chat Memory Manager node in n8n. Follow technical
-  documentation to integrate Chat Memory Manager node into your workflows.
+title: Chat Memory Manager（聊天记忆管理器） 节点文档
+description: 了解如何在 n8n 中使用 Chat Memory Manager（聊天记忆管理器） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Chat Memory Manager node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymanager.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymanager
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymanager
+nodeTitle: Chat Memory Manager（聊天记忆管理器） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymanager.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymanager
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorymanager
 layout:
   description:
     visible: false
 ---
-
-# Chat Memory Manager node <a href="#chat-memory-manager-node" id="chat-memory-manager-node"></a>
-
-The Chat Memory Manager node manages chat message memories[^1] within your workflows. Use this node to load, insert, and delete chat messages in an in-memory [vector store](#user-content-fn-2)[^2].
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ipTfg43EHN14P930L6JP/" %}
-
-On this page, you'll find a list of operations that the Chat Memory Manager node supports, along with links to more resources.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
-
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
-
-* **Operation Mode**: Choose between **Get Many Messages**, **Insert Messages**, and **Delete Messages** operations.
-* **Insert Mode**: Available in **Insert Messages** mode. Choose from:
-    * **Insert Messages**: Insert messages alongside existing messages.
-    * **Override All Messages**: Replace current memory.
-* **Delete Mode**: available in **Delete Messages** mode. Choose from:
-    * **Last N**: Delete the last N messages.
-    * **All Messages**: Delete messages from memory.
-* **Chat Messages**: available in **Insert Messages** mode. Define the chat messages to insert into the memory, including:
-	* **Type Name or ID**: Set the message type. Select one of:
-		* **AI**: Use this for messages from the AI.
-		* **System**: Add a message containing instructions for the AI.
-		* **User**: Use this for messages from the user. This message type is sometimes called the 'human' message in other AI tools and guides.
-	* **Message**: Enter the message contents.
-	* **Hide Message in Chat**: Select whether n8n should display the message to the user in the chat UI (turned off) or not (turned on).
-* **Messages Count**: Available in **Delete Messages** mode when you select **Last N**. Enter the number of latest messages to delete.
-* **Simplify Output**: Available in **Get Many Messages** mode. Turn on to simplify the output to include only the sender (AI, user, or system) and the text.
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse Chat Memory Manager node documentation integration templates](https://n8n.io/integrations/chat-memory-manager) or [search all templates](https://n8n.io/workflows/)
+# Chat Memory Manager（聊天记忆管理器） 节点 <a href="#chat-memory-manager-node" id="chat-memory-manager-node"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+Chat Memory Manager 节点管理工作流中的聊天消息记忆[^1]。使用此节点加载、插入和删除内存[向量存储](#user-content-fn-2)[^2]中的聊天消息。
 
-Refer to [LangChain's Memory documentation](https://langchain-ai.github.io/langgraphjs/concepts/memory/) for more information about the service.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-sub-nodes/chat-memory-manager-purpose.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+本页列出了 Chat Memory Manager 节点支持的操作，并提供更多资源的链接。
 
-[^1]: In an AI context, memory allows AI tools to persist message context across interactions. This allows you to have a continuing conversations with AI agents, for example, without submitting ongoing context with each message. In n8n, AI agent nodes can use memory, but AI chains can't.
-[^2]: A vector store, or vector database, stores mathematical representations of information. Use with embeddings and retrievers to create a database that your AI can access when answering questions.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
+
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Operation Mode**（操作模式）：选择 **Get Many Messages**（获取多条消息）、**Insert Messages**（插入消息）或 **Delete Messages**（删除消息）。
+* **Insert Mode**（插入模式）：适用于 **Insert Messages**（插入消息）模式，可选：
+    * **Insert Messages**（插入消息）：在现有消息之外插入新消息。
+    * **Override All Messages**（覆盖全部消息）：替换当前记忆。
+* **Delete Mode**（删除模式）：适用于 **Delete Messages**（删除消息）模式，可选：
+    * **Last N**（最后 N 条）：删除最后 N 条消息。
+    * **All Messages**（全部消息）：从记忆中删除消息。
+* **Chat Messages**（聊天消息）：适用于 **Insert Messages**（插入消息）模式。定义要插入记忆的聊天消息，包括：
+    * **Type Name or ID**（类型名称或 ID）：设置消息类型，可选择：
+        * **AI**：用于来自 AI 的消息。
+        * **System**（系统）：添加包含 AI 指令的消息。
+        * **User**（用户）：用于来自用户的消息。其他 AI 工具和指南有时将此类型称为“human”消息。
+    * **Message**（消息）：输入消息内容。
+    * **Hide Message in Chat**（在聊天中隐藏消息）：关闭时，n8n 在聊天界面向用户显示消息；开启时不显示。
+* **Messages Count**（消息数量）：在 **Delete Messages**（删除消息）模式中选择 **Last N**（最后 N 条）时可用，输入要删除的最新消息数量。
+* **Simplify Output**（简化输出）：适用于 **Get Many Messages**（获取多条消息）模式。开启后，输出仅包含发件方（AI、用户或系统）及文本。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Chat Memory Manager（聊天记忆管理器） 集成模板](https://n8n.io/integrations/chat-memory-manager)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+该服务的更多信息，请参阅 [LangChain 记忆文档](https://langchain-ai.github.io/langgraphjs/concepts/memory/)。
+
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
+
+[^1]: 在 AI 场景中，记忆让 AI 工具能够在多次交互之间保存消息上下文。例如，与 AI 智能体持续对话时，无需在每条消息中重复提交上下文。在 n8n 中，AI 智能体节点可以使用记忆，而 AI 链不能。
+<a id="user-content-fn-2"></a>
+[^2]: 向量存储或向量数据库用于存储信息的数学表示。将其与嵌入模型和检索器配合使用，可创建供 AI 在回答问题时访问的数据库。

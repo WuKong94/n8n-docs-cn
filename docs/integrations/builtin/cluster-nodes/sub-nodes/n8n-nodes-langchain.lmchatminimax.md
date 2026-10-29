@@ -1,64 +1,61 @@
 ---
-title: MiniMax Chat Model node documentation
-description: >-
-  Learn how to use the MiniMax Chat Model node in n8n. Follow technical
-  documentation to integrate MiniMax Chat Model node into your workflows.
+title: MiniMax Chat Model（MiniMax 聊天模型） 节点文档
+description: 了解如何在 n8n 中使用 MiniMax Chat Model（MiniMax 聊天模型） 节点，并按照技术文档将其集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: MiniMax Chat Model node documentation
-originalFilePath: >-
-  integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax.md
-originalUrl: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax
-url: >-
-  https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax
+nodeTitle: MiniMax Chat Model（MiniMax 聊天模型） 节点文档
+originalFilePath: integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax.md
+originalUrl: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax
+url: https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatminimax
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# MiniMax Chat Model node <a href="#minimax-chat-model-node" id="minimax-chat-model-node"></a>
 
-{% hint style="info" %}
-On n8n Cloud, you can use the MiniMax Chat Model node with [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) instead of your own MiniMax API key. Select **Use Gateway credits** in the node's credential field to run the node without a MiniMax account.
-{% endhint %}
-
-Use the MiniMax Chat Model node to use MiniMax's chat models with conversational agents[^1].
-
-On this page, you'll find the node parameters for the MiniMax Chat Model node, and links to more resources.
+# MiniMax Chat Model（MiniMax 聊天模型） 节点 <a href="#minimax-chat-model-node" id="minimax-chat-model-node"></a>
 
 {% hint style="info" %}
-**Credentials**
-
-Refer to the [MiniMax credentials documentation](../../credentials/minimax.md) for authentication information for this node.
+在 n8n Cloud 上，可使用 [Gateway 额度](../../../../deploy/use-n8n-cloud/gateway-credits/README.md)运行 MiniMax Chat Model 节点，无需自己的 MiniMax API 密钥。在节点的凭据字段选择 **Use Gateway credits**（使用 Gateway 额度），即可在没有 MiniMax 账户的情况下运行节点。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/X6JM1Mgg5iwvZLDpGEB0/" %}
+使用 MiniMax Chat Model 节点，将 MiniMax 聊天模型与对话智能体[^1]配合使用。
 
-## Node parameters <a href="#node-parameters" id="node-parameters"></a>
+本页列出了 MiniMax Chat Model 节点的参数，并提供更多资源的链接。
 
-* **Model**: Select the model that generates the completion. Refer to [MiniMax's model documentation](https://platform.minimax.io/docs/guides/models-intro) for the available models.
+{% hint style="info" %}
+**凭据**
 
-## Node options <a href="#node-options" id="node-options"></a>
+此节点的身份验证信息，请参阅 [MiniMax 凭据文档](../../credentials/minimax.md)。
+{% endhint %}
 
-* **Hide Thinking**: When turned on (default), the node strips `<think>` tags from the model's response. Turn this off to include the model's reasoning in the output.
-* **Maximum Number of Tokens**: Enter the maximum number of tokens used, which sets the completion length.
-* **Sampling Temperature**: Use this option to control the randomness of the sampling process. A higher temperature creates more diverse sampling, but increases the risk of hallucinations.
-* **Timeout**: Enter the maximum request time in milliseconds.
-* **Max Retries**: Enter the maximum number of times to retry a request.
-* **Top P**: Use this option to set the probability the completion should use. Use a lower value to ignore less probable options.
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/sub-node-expression-resolution.md" %}
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 节点参数 <a href="#node-parameters" id="node-parameters"></a>
+
+* **Model**（模型）：选择生成补全的模型。可用模型请参阅 [MiniMax 模型文档](https://platform.minimax.io/docs/guides/models-intro)。
+
+## 节点选项 <a href="#node-options" id="node-options"></a>
+
+* **Hide Thinking**（隐藏思考）：开启时（默认），节点会从模型响应中移除 `<think>` 标签。关闭此项可在输出中包含模型推理。
+* **Maximum Number of Tokens**（最大 token 数）：输入使用的 token 数量上限，以设置补全长度。
+* **Sampling Temperature**（采样温度）：控制采样过程的随机性。温度越高，采样结果越多样，但产生幻觉的风险也越高。
+* **Timeout**（超时）：输入请求的最长耗时，单位为毫秒。
+* **Max Retries**（最大重试次数）：输入请求的最大重试次数。
+* **Top P**：设置补全使用的概率范围。较低值会忽略概率较低的选项。
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse MiniMax Chat Model node documentation integration templates](https://n8n.io/integrations/minimax-chat-model) or [search all templates](https://n8n.io/workflows/)
+[浏览 MiniMax Chat Model（MiniMax 聊天模型） 集成模板](https://n8n.io/integrations/minimax-chat-model)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [MiniMax's documentation](https://platform.minimax.io/docs/guides/models-intro) for more information about the service.
+该服务的更多信息，请参阅 [MiniMax 文档](https://platform.minimax.io/docs/guides/models-intro)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-[^1]: AI agents are artificial intelligence systems capable of responding to requests, making decisions, and performing real-world tasks for users. They use large language models (LLMs) to interpret user input and make decisions about how to best process requests using the information and resources they have available.
+[^1]: AI 智能体是能够响应请求、作出决策并为用户执行现实任务的人工智能系统。它们使用大型语言模型（LLM）理解用户输入，并根据可用的信息和资源，决定如何最好地处理请求。
