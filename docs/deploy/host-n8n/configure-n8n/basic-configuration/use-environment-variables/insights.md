@@ -1,66 +1,65 @@
 ---
-title: Insights environment variables
-description: >-
-  Configure insights metrics collection with environment variables for your
-  self-hosted n8n instance.
+title: Insights 环境变量
+description: 通过环境变量配置自托管 n8n 实例的 Insights 指标收集。
 contentType: reference
 tags:
-  - environment variables
+- environment variables
 hide:
-  - toc
-  - tags
-nodeTitle: Insights
+- toc
+- tags
+nodeTitle: 洞察
 originalFilePath: hosting/configuration/environment-variables/insights.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/environment-variables/insights'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/insights
+originalUrl: https://docs.n8n.io/hosting/configuration/environment-variables/insights
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/insights
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Insights environment variables <a href="#insights-environment-variables" id="insights-environment-variables"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ASsLuMLGKMy2O0q7awMF/" %}
+# Insights 环境变量 <a href="#insights-environment-variables" id="insights-environment-variables"></a>
 
-Insights gives instance owners and admins visibility into how workflows perform over time. Refer to [Insights](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/track-usage-with-insights) for details.
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/file-based-configuration.md" %}
+
+Insights 让实例所有者和管理员了解工作流表现随时间的变化。详情请参阅[洞察](../../../../../administer/observe-and-log/track-usage-with-insights.md)。
 
 {% hint style="warning" %}
-**Storage and compaction thresholds**
+**存储与聚合压缩阈值**
 
-`N8N_INSIGHTS_COMPACTION_HOURLY_TO_DAILY_THRESHOLD_DAYS` and `N8N_INSIGHTS_COMPACTION_DAILY_TO_WEEKLY_THRESHOLD_DAYS` set how many days n8n keeps high-resolution insights (metrics stored in one-hour buckets) before each compaction step (from the hour bucket to the day bucket, then from the day bucket to the week bucket). You configure those day counts on your instance.
+`N8N_INSIGHTS_COMPACTION_HOURLY_TO_DAILY_THRESHOLD_DAYS` 和 `N8N_INSIGHTS_COMPACTION_DAILY_TO_WEEKLY_THRESHOLD_DAYS` 指定每次聚合压缩前，高分辨率 Insights 数据的保留天数。数据最初按小时存储，再从小时聚合为天，最后从天聚合为周。保留天数可在实例中配置。
 
-Raising the values delays compaction. That adds more rows to `insights_by_period` and increases database usage. For how this relates to retention, see [Insights](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/track-usage-with-insights#disable-or-configure-insights-metrics-collection).
+增大这些值会推迟聚合压缩，增加 `insights_by_period` 中的记录行数及数据库占用。它与保留期限的关系请参阅[洞察](../../../../../administer/observe-and-log/track-usage-with-insights.md#disable-or-configure-insights-metrics-collection)。
 {% endhint %}
 
-If you encounter database load issues during compaction, tune how often compaction runs and how much work n8n does in each run:
+如果聚合压缩造成数据库负载问题，可以调整运行频率和单次工作量：
 
-- Decrease `N8N_INSIGHTS_COMPACTION_INTERVAL_MINUTES` to run compaction more often. This can reduce the amount of data that builds up between runs.
-- Increase `N8N_INSIGHTS_COMPACTION_BATCH_DELAY_MILLISECONDS` to wait longer between batches.
-- Decrease `N8N_INSIGHTS_COMPACTION_MAX_BATCHES_PER_RUN` to process fewer batches in each run.
-- Decrease `N8N_INSIGHTS_COMPACTION_MAX_RUNTIME_SECONDS` to stop each run sooner.
+- 减小 `N8N_INSIGHTS_COMPACTION_INTERVAL_MINUTES`，提高运行频率，减少两次运行之间积累的数据。
+- 增大 `N8N_INSIGHTS_COMPACTION_BATCH_DELAY_MILLISECONDS`，延长批次之间的等待时间。
+- 减小 `N8N_INSIGHTS_COMPACTION_MAX_BATCHES_PER_RUN`，减少每次运行处理的批次数。
+- 减小 `N8N_INSIGHTS_COMPACTION_MAX_RUNTIME_SECONDS`，让每次运行更早停止。
 
-These settings only control compaction workload and scheduling. They don't change retention or the age thresholds for each compaction step.
+这些设置只控制聚合压缩的工作量和调度，不改变保留期限，也不改变各聚合步骤的数据年龄阈值。
 
 
 
- | Variable                                                 | Type   | Default | Description                                                                             |
+| 变量 | 类型 | 默认值 | 说明 |
  |:---------------------------------------------------------|:-------|:--------|:----------------------------------------------------------------------------------------|
- | `N8N_DISABLED_MODULES`                                   | String | -       | Set to `insights` to disable the feature and metrics collection for an instance.        |
- | `N8N_INSIGHTS_COMPACTION_BATCH_SIZE`                     | Number | 500     | The number of raw insights data to compact in a single batch.                           |
- | `N8N_INSIGHTS_COMPACTION_BATCH_DELAY_MILLISECONDS`       | Number | 100     | Delay in milliseconds between full compaction batches. Increase this to wait longer between batches. Set to `0` to skip the delay. |
- | `N8N_INSIGHTS_COMPACTION_DAILY_TO_WEEKLY_THRESHOLD_DAYS` | Number | 180     | Age in days after which n8n compacts daily insights rows to weekly. |
- | `N8N_INSIGHTS_COMPACTION_HOURLY_TO_DAILY_THRESHOLD_DAYS` | Number | 90      | Age in days after which n8n compacts hourly insights rows to daily. |
- | `N8N_INSIGHTS_COMPACTION_INTERVAL_MINUTES`               | Number | 60      | Interval (in minutes) at which compaction should run. Decrease this to run compaction more often and reduce how much data builds up between runs. |
- | `N8N_INSIGHTS_COMPACTION_MAX_BATCHES_PER_RUN`            | Number | 1000    | Maximum number of compaction batches to process in one run. Decrease this to process fewer batches per run. Set to `0` to disable this limit. |
- | `N8N_INSIGHTS_COMPACTION_MAX_RUNTIME_SECONDS`            | Number | 300     | Maximum runtime in seconds for one compaction run. Decrease this to stop each run sooner. Set to `0` to disable this limit. |
- | `N8N_INSIGHTS_FLUSH_BATCH_SIZE`                          | Number | 1000    | The maximum number of insights data to keep in the buffer before flushing.              |
- | `N8N_INSIGHTS_FLUSH_INTERVAL_SECONDS`                    | Number | 30      | The interval (in seconds) at which n8n flushes insights data to the database. |
- | `N8N_INSIGHTS_MAX_AGE_DAYS`                              | Number | 365     | Number of days n8n keeps compacted insights data before pruning. The maximum value is 730 (two years). |
- | `N8N_INSIGHTS_PRUNE_CHECK_INTERVAL_HOURS`                | Number | 24      | How often (in hours) the instance checks for insights data older than the effective max age and deletes it. |
+| `N8N_DISABLED_MODULES` | String | - | 设为 `insights`，禁用实例的此功能及指标收集。 |
+| `N8N_INSIGHTS_COMPACTION_BATCH_SIZE` | Number | 500 | 单个批次聚合压缩的原始 Insights 数据条数。 |
+| `N8N_INSIGHTS_COMPACTION_BATCH_DELAY_MILLISECONDS` | Number | 100 | 完整聚合压缩批次之间的延迟，单位为毫秒。增大可延长批次间等待，设为 `0` 可跳过延迟。 |
+| `N8N_INSIGHTS_COMPACTION_DAILY_TO_WEEKLY_THRESHOLD_DAYS` | Number | 180 | 按天存储的 Insights 记录经过多少天后聚合为周。 |
+| `N8N_INSIGHTS_COMPACTION_HOURLY_TO_DAILY_THRESHOLD_DAYS` | Number | 90 | 按小时存储的 Insights 记录经过多少天后聚合为天。 |
+| `N8N_INSIGHTS_COMPACTION_INTERVAL_MINUTES` | Number | 60 | 运行聚合压缩的间隔，单位为分钟。减小可提高频率，减少运行间积累的数据。 |
+| `N8N_INSIGHTS_COMPACTION_MAX_BATCHES_PER_RUN` | Number | 1000 | 单次运行最多处理的聚合压缩批次数。减小可减少每次运行的批次数，设为 `0` 可禁用限制。 |
+| `N8N_INSIGHTS_COMPACTION_MAX_RUNTIME_SECONDS` | Number | 300 | 单次聚合压缩的最长运行时长，单位为秒。减小可更早停止，设为 `0` 可禁用限制。 |
+| `N8N_INSIGHTS_FLUSH_BATCH_SIZE` | Number | 1000 | 刷新缓冲区前，最多保留的 Insights 数据条数。 |
+| `N8N_INSIGHTS_FLUSH_INTERVAL_SECONDS` | Number | 30 | 将 Insights 数据写入数据库的间隔，单位为秒。 |
+| `N8N_INSIGHTS_MAX_AGE_DAYS` | Number | 365 | 聚合后的 Insights 数据保留多少天后清理。最大为 730 天，即两年。 |
+| `N8N_INSIGHTS_PRUNE_CHECK_INTERVAL_HOURS` | Number | 24 | 实例检查并删除超过有效最长保留时长的 Insights 数据的频率，单位为小时。 |
 
 
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Environment variables](./)
+* [环境变量](./)

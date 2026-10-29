@@ -1,32 +1,33 @@
 ---
-title: Source control environment variables
-description: Environment variable to set the default SSH key type for source control setup.
+title: 源代码控制环境变量
+description: 设置源代码控制默认 SSH 密钥类型的环境变量。
 contentType: reference
 tags:
-  - environment variables
+- environment variables
 hide:
-  - toc
-  - tags
-nodeTitle: Source control
+- toc
+- tags
+nodeTitle: 源代码控制
 originalFilePath: hosting/configuration/environment-variables/source-control.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/environment-variables/source-control'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/source-control
+originalUrl: https://docs.n8n.io/hosting/configuration/environment-variables/source-control
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/source-control
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Source control environment variables <a href="#source-control-environment-variables" id="source-control-environment-variables"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ASsLuMLGKMy2O0q7awMF/" %}
+# 源代码控制环境变量 <a href="#source-control-environment-variables" id="source-control-environment-variables"></a>
 
-n8n uses Git-based source control to support environments. Refer to [Source control and environments](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/use-source-control-and-environments/set-up-source-control) for more information on how to link a Git repository to an n8n instance and configure your source control.
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/file-based-configuration.md" %}
 
-| Variable | Type  | Default  | Description |
+n8n 通过基于 Git 的源代码控制支持多环境。有关连接 Git 仓库到实例及配置源代码控制的说明，请参阅[源代码控制与环境](../../../../../administer/use-source-control-and-environments/set-up-source-control.md)。
+
+| 变量 | 类型 | 默认值 | 说明 |
 | :------- | :---- | :------- | :---------- |
-| `N8N_SOURCECONTROL_DEFAULT_SSH_KEY_TYPE` | String | `ed25519` | Set to `rsa` to make RSA the default SSH key type for [Source control setup](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/use-source-control-and-environments/set-up-source-control). |
+| `N8N_SOURCECONTROL_DEFAULT_SSH_KEY_TYPE` | String | `ed25519` | 设为 `rsa`，将[源代码控制设置](../../../../../administer/use-source-control-and-environments/set-up-source-control.md)中的默认 SSH 密钥类型设为 RSA。 |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Environment variables](./)
+* [环境变量](./)

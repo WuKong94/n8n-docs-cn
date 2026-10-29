@@ -5339,5 +5339,324 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/README.md": {
+    "status": "translated",
+    "source_sha256": "cb363ee638f4cda603c3ee48e050c49ad0f97cc8acc73deb658160a1f8f32911",
+    "translation_sha256": "2c7d486736be9b9bc643c369f888e68b745169e8f1f151b436223fb224b1aeb3",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/ai-assistant.md": {
+    "status": "translated",
+    "source_sha256": "bee7a5f5b0b670821ee9a54871babe0263ae61168142ff2bef35956b3643ccab",
+    "translation_sha256": "312d4dbf002d82d35dfa3ecb9b2b820389ed639e115b9f61d9aaa51aca05edb8",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/binary-data.md": {
+    "status": "translated",
+    "source_sha256": "b30d4a76bf222dffc6497022d060f3dcae14b82f2937e40daabea232c4f6f9a4",
+    "translation_sha256": "40ccc13a54a32d34642ef040a9373b7576d234653f56367db648caa49d8c22ff",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/credentials.md": {
+    "status": "translated",
+    "source_sha256": "05d02d9c04ea6a936265cb53b5efd67db9514ba976bce1ca73b06f7adfe203e0",
+    "translation_sha256": "657165d4a6b24781ad2dfe2687422d0ff93c8cb41e81ecb08f634e116932a317",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/database.md": {
+    "status": "translated",
+    "source_sha256": "93891f71f38079783397c4f482101c0ec28fe6f8a74c86f61e95efe31557648a",
+    "translation_sha256": "90ef585c5c5c365420be3305f57be38c8ef36f095881bacb560ecc3b032bde82",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/deployment.md": {
+    "status": "translated",
+    "source_sha256": "d0252d7c46cc016d2b8390cf4f7a0d231d06ad48161231e0a55248aa2e08a657",
+    "translation_sha256": "1611b6e66c61c8a7f93486047e60b00199fdd956835f44b3b43b14998f57641c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/endpoints.md": {
+    "status": "translated",
+    "source_sha256": "5f2da8b0cda6b9f0a7859e1eaa89b3773d524be8103096f04734bf3bc00f4d47",
+    "translation_sha256": "d74671f39cb894e0e9cf5079f301e6c4fbf33155c80c79b1393092c1ff134a79",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/executions.md": {
+    "status": "translated",
+    "source_sha256": "8da41b3302e343d1b27797e29f3843795c698984a24ee9a7be7538cc8db86abd",
+    "translation_sha256": "2e75e8ceee60caa34470639ab0ece906443f1906e9dda1ca2336fef9f4293455",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/expression-engine.md": {
+    "status": "translated",
+    "source_sha256": "d75236c9ca2da7c9232111e41e40473172f1ccdf8cb663e9793f44c7db5973b1",
+    "translation_sha256": "e5025b4e12a617d73cfed6e409ab6f0da4266d29f3253dd80dd53dd30c8e5628",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/external-data-storage.md": {
+    "status": "translated",
+    "source_sha256": "220a4793ca795e4bf7e0300588f1a752f703fff700d312c1d79b838ab9b9bde9",
+    "translation_sha256": "d7ed79f81ebf649ca74e253a9855b2be1a0a7cd191ca41cd1b703070d5b81a7f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/external-hooks.md": {
+    "status": "translated",
+    "source_sha256": "787ca65904e6dda10469cdba0499b3b6512dd5d0de5f906bbf4c9df154bd9a04",
+    "translation_sha256": "235a9d805e88e73b327688236a372a57ba883a21a08f0ff4e7fe7566c511eadd",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/external-secrets.md": {
+    "status": "translated",
+    "source_sha256": "86d2171108beeed508a4a98b4a2e9e4af014943bab54f98628e662635383c7d8",
+    "translation_sha256": "9204b03b8226d42d729c65d965b7ba7b013b49702eb43d54a057c07be8f0d388",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/insights.md": {
+    "status": "translated",
+    "source_sha256": "99e3d6c70fb4f424cb70e1cdc115844fabf4037ec38494446a39f58aa7ce6a1e",
+    "translation_sha256": "a1dd9bfd1ff9eda6b3f6e9de8e82e26e52b8614533e9c0a6d10f008d57437ca4",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/license.md": {
+    "status": "translated",
+    "source_sha256": "3205ea548d5060c983daa7493ffecc1443520609864e2658a07db35aa5aca665",
+    "translation_sha256": "e10b25195b18dcd919f48a5d779c740376917ae581955a55bd35acff73f33537",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/logs.md": {
+    "status": "translated",
+    "source_sha256": "e8f6c15d4d98a683661789ccba2441dcde42191abe90ca07830a2fa790984fd9",
+    "translation_sha256": "09d2cb1108994b0ff111ed09e781080cb3d97be4b2e7869896c78696e940f221",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/nodes.md": {
+    "status": "translated",
+    "source_sha256": "4bbd5043eaac26d03722451086cdcc7d7e77b5ba376a0ca213c501b0e24adc76",
+    "translation_sha256": "08cdb337256cd1099738656bdafaa9eaa25f21e6a6639977d2d09053eff84517",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/opentelemetry.md": {
+    "status": "translated",
+    "source_sha256": "4bb3d9b4499599856e4179d9e3191a066cd0686d84f4445696abb39fb3995b58",
+    "translation_sha256": "2836fba79fe8c4888a4b02143cc92e4bf45c8c2af4061d3a8dbbb206ee4fdcb1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/queue-mode.md": {
+    "status": "translated",
+    "source_sha256": "5e40b6690e1ca674ef7c25968eadaa3ba22cbf74f9c3261e3b077ef0e81b1d4b",
+    "translation_sha256": "dacb66ab54c3e2857b15563a189283251765ce512eb40c4d1e7b40b77bfecbb1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/security.md": {
+    "status": "translated",
+    "source_sha256": "48e355b92060f2937dfd496ed4c1f646bc85c9737be33888a083a770e3534dac",
+    "translation_sha256": "7a1fb32ead092049eb0ea2982d16e7b24fa99f98a0b1c981ab0132d8a7815052",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/source-control.md": {
+    "status": "translated",
+    "source_sha256": "59d9d134cb756da02ac0f8e6d359a9b2164b190d17ceb1d179b87d4515983e71",
+    "translation_sha256": "af2d24ffdd89cc220b9f275adf79a7de0941952a6159295e080ddaf077dd73a7",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/sso.md": {
+    "status": "translated",
+    "source_sha256": "26abef4973c60d3fa0046aab7a6fb6195887153977660ffb8164fe94df4e439c",
+    "translation_sha256": "071fbaad0e92c570a16de2ec138ea2cd0fb0f675d45e734d08d68f58857d4912",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/scheduler.md": {
+    "status": "translated",
+    "source_sha256": "90969293e3c88eb12af79614eee79c00321a32f8229f2219a0e1c29634953295",
+    "translation_sha256": "97796c90f02ee9287bdb4874ac1c3499806fcd2c050d724993b6d674c32bf77a",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/ssrf-protection.md": {
+    "status": "translated",
+    "source_sha256": "d427129bf781e613431397baa315a5cfce3140d96d6c44ba10bb60bd5b281bc9",
+    "translation_sha256": "58d0a4ff2d812d6829e9027a89c1183bda131a3f4bc63009eed6cf7785dbcf1c",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/task-runners.md": {
+    "status": "translated",
+    "source_sha256": "5ad9141d4d63e6600a7828d60ca6eaf9c96a1d9dd9b51fc1408c376410a08388",
+    "translation_sha256": "4025ddbb708f171f5d6ed2efead97824b1033ccab33a12f9de83835918c3dfa1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/timezone-and-localization.md": {
+    "status": "translated",
+    "source_sha256": "e1992dce133a342afab2f12f28f2159676b2b051762a1a9ef13abcca27bffadd",
+    "translation_sha256": "2a9af65cbb22d88dfc96b3d4dcb9b68c644f446018ad27af4215be5cd7575e58",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/user-management-and-2fa.md": {
+    "status": "translated",
+    "source_sha256": "4414d5b2d43cdb29bab64b97f323c1086932ab42619f448f59ad5e6007a5f956",
+    "translation_sha256": "9dbe76f9e332ccf5e3453ef742320c86d3822b1467e8466b4fb517be8a3cd0e6",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/workflows.md": {
+    "status": "translated",
+    "source_sha256": "1d68d43a61c9044971ff7c63178234a732fe893604654000c57bcdf75a850f2e",
+    "translation_sha256": "74887907412bc5daef719cac087f39e4c6538e3b14feeab2a5a7f4b0bc1a6b07",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/workflow-history.md": {
+    "status": "translated",
+    "source_sha256": "f5c49459e47443e38f1807ec3e2fb837aaeb62e8509fd8dd94e7c115f4aebf71",
+    "translation_sha256": "9edcb12ae927667b219b735c944d1ec05cc7d3c80e3c612d9e665d39a55fea31",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/self-hosting/file-based-configuration.md": {
+    "status": "translated",
+    "source_sha256": "84d996774c2246027df9c66826435db3d9ad736dde56bda3e000056969f43e2c",
+    "translation_sha256": "03c615e4cb2b1af36666587232cdf51c34833ffc24f919e6f957701930f0435d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
   }
 }

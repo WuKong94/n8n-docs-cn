@@ -1,18 +1,14 @@
 ---
-title: License environment variables
+title: 许可证环境变量
 contentType: reference
 hide:
-  - toc
-  - tags
-nodeTitle: License
+- toc
+- tags
+nodeTitle: 许可证
 originalFilePath: hosting/configuration/environment-variables/licenses.md
 originalUrl: https://docs.n8n.io/hosting/configuration/environment-variables/licenses
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/license
-description: >-
-  Environment variables to configure license settings in n8n, including options
-  to hide the usage page, manage license activation and auto-renewal settings,
-  and specify the server URL for license retrie
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/license
+description: 配置 n8n 许可证设置的环境变量，包括隐藏使用情况页面、激活和自动续订，以及指定许可证服务器 URL。
 layout:
   width: default
   title:
@@ -32,26 +28,28 @@ layout:
   actions:
     visible: true
 tags:
-  - environment variables
+- environment variables
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# License
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ASsLuMLGKMy2O0q7awMF/" %}
+# 许可证 <a id="license"></a>
 
-To enable certain licensed features, you must first activate your license. You can do this either through the UI or by setting environment variables. For more information, see [license key](../../manage-your-license.md).
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/file-based-configuration.md" %}
 
-| Variable                                  | Type    | Default                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+要启用某些需要许可的功能，必须先激活许可证。可以通过界面或环境变量完成。更多信息请参阅[许可证密钥](../../manage-your-license.md)。
+
+| 变量 | 类型 | 默认值 | 说明 |
 | ----------------------------------------- | ------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `N8N_HIDE_USAGE_PAGE`                     | boolean | `false`                        | Hide the usage and plans page in the app.                                                                                                                                                                                                                                                                                                                                                                                           |
-| `N8N_LICENSE_ACTIVATION_KEY`              | String  | `''`                           | Activation key to initialize license. Not applicable if the n8n instance was already activated.                                                                                                                                                                                                                                                                                                                                     |
-| `N8N_LICENSE_AUTO_RENEW_ENABLED`          | Boolean | `true`                         | <p>Enables (true) or disables (false) autorenewal for licenses.<br>If disabled, you need to manually renew the license every 10 days by navigating to <strong>Settings</strong> > <strong>Usage and plan</strong>, and pressing <code>F5</code>. Failure to renew the license will disable all licensed features.</p>                                                                                                               |
-| `N8N_LICENSE_CERT`                        | String  | `''`                           | Base64-encoded license certificate provided by n8n. Used instead of `N8N_LICENSE_ACTIVATION_KEY` for special use cases, e.g. air-gapped environments.                                                                                             |
-| `N8N_LICENSE_DETACH_FLOATING_ON_SHUTDOWN` | Boolean | `true`                         | <p>Controls whether the instance releases <a href="https://app.gitbook.com/s/CxSeOtVxqqhfxMSac0AV/key-concept-glossary#entitlement-n8n">floating entitlements</a> back to the pool upon shutdown. Set to <code>true</code> to allow other instances to reuse the entitlements, or <code>false</code> to retain them.<br>For production instances that must always keep their licensed features, set this to <code>false</code>.<br>Ignored when multi-main mode is enabled: all main instances share one seat, and a main instance that shuts down does not release it.</p> |
-| `N8N_LICENSE_SERVER_URL`                  | String  | `https://license.n8n.io/v1`    | Server URL to retrieve license.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `N8N_LICENSE_TENANT_ID`                   | Number  | `1`                            | Tenant ID associated with the license. Only set this variable if explicitly instructed by n8n.                                                                                                                                                                                                                                                                                                                                      |
-| `https_proxy_license_server`              | String  | `https://user:pass@proxy:port` | Proxy server URL for HTTPS requests to retrieve license. This variable name needs to be lowercase.                                                                                                                                                                                                                                                                                                                                  |
+| `N8N_HIDE_USAGE_PAGE` | boolean | `false` | 隐藏应用中的使用情况与套餐页面。 |
+| `N8N_LICENSE_ACTIVATION_KEY` | String | `''` | 用于初始化许可证的激活密钥。实例已激活时不适用。 |
+| `N8N_LICENSE_AUTO_RENEW_ENABLED` | Boolean | `true` | <p>是否自动续订许可证，true 表示启用，false 表示禁用。<br>禁用后，需要每十天手动续订一次：进入 <strong>Settings（设置）</strong> > <strong>Usage and plan（使用情况与套餐）</strong>，按 <code>F5</code>。未续订会禁用所有需要许可的功能。</p> |
+| `N8N_LICENSE_CERT` | String | `''` | n8n 提供的 base64 编码许可证证书。在隔离网络等特殊场景中，替代 `N8N_LICENSE_ACTIVATION_KEY` 使用。 |
+| `N8N_LICENSE_DETACH_FLOATING_ON_SHUTDOWN` | Boolean | `true` | <p>控制实例关闭时是否将<a href="../../../../../get-started/key-concept-glossary.md#entitlement-n8n">浮动授权额度</a>释放回资源池。设为 <code>true</code>，允许其他实例复用授权；设为 <code>false</code> 则保留。<br>对于必须始终保留许可功能的生产实例，请设为 <code>false</code>。<br>多主节点模式下会忽略此设置：所有主实例共享一个席位，关闭的主实例不会释放该席位。</p> |
+| `N8N_LICENSE_SERVER_URL` | String | `https://license.n8n.io/v1` | 用于获取许可证的服务器 URL。 |
+| `N8N_LICENSE_TENANT_ID` | Number | `1` | 与许可证关联的租户 ID。仅在 n8n 明确要求时设置此变量。 |
+| `https_proxy_license_server` | String | `https://user:pass@proxy:port` | 获取许可证时，HTTPS 请求所用的代理服务器 URL。此变量名必须为小写。 |
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Environment variables](./)
+* [环境变量](./)

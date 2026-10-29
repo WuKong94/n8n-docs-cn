@@ -1,67 +1,68 @@
 ---
-title: Logs environment variables
-description: Environment variables to configure logging and diagnostic data.
+title: 日志环境变量
+description: 配置日志记录和诊断数据的环境变量。
 contentType: reference
 tags:
-  - environment variables
+- environment variables
 hide:
-  - toc
-  - tags
-nodeTitle: Logs
+- toc
+- tags
+nodeTitle: 日志
 originalFilePath: hosting/configuration/environment-variables/logs.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/environment-variables/logs'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/logs
+originalUrl: https://docs.n8n.io/hosting/configuration/environment-variables/logs
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/logs
 layout:
   description:
     visible: false
 ---
-
-# Logs environment variables <a href="#logs-environment-variables" id="logs-environment-variables"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ASsLuMLGKMy2O0q7awMF/" %}
-
-This page lists environment variables to set up logging for debugging. Refer to [Logging in n8n](../../../keep-n8n-running/set-up-logging.md) for details. 
-
-## n8n logs <a href="#n8n-logs" id="n8n-logs"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-| Variable | Type  | Default  | Description |
+# 日志环境变量 <a href="#logs-environment-variables" id="logs-environment-variables"></a>
+
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/file-based-configuration.md" %}
+
+本页列出用于配置调试日志的环境变量。详情请参阅 [n8n 中的日志记录](../../../keep-n8n-running/set-up-logging.md)。
+
+## n8n 日志 <a href="#n8n-logs" id="n8n-logs"></a>
+
+
+| 变量 | 类型 | 默认值 | 说明 |
 | :------- | :---- | :------- | :---------- |
-| `N8N_LOG_LEVEL` | Enum string: `info`, `warn`, `error`, `debug` | `info` | Log output level. Refer to [Log levels](../../../keep-n8n-running/set-up-logging.md#log-levels) for details. |
-| `N8N_LOG_OUTPUT` | Enum string: `console`, `file` | `console` | Where to output logs. Provide multiple values as a comma-separated list. |
-| `N8N_LOG_FORMAT` | Enum string: `text`, `json` | `text` | The log format to use. `text` prints human readable messages. `json` prints one JSON object per line containing the message, level, timestamp, and all metadata. This is useful for production monitoring as well as debugging. |
-| `N8N_LOG_CRON_ACTIVE_INTERVAL` | Number | `0` | Interval in minutes to log currently active cron jobs. Set to `0` to disable. |
-| `N8N_LOG_FILE_COUNT_MAX` | Number | `100` | Max number of log files to keep. |
-| `N8N_LOG_FILE_SIZE_MAX` | Number | `16` | Max size of each log file in MB. |
-| `N8N_LOG_FILE_LOCATION` | String | `<n8n-directory-path>/logs/n8n.log` | Log file location. Requires N8N_LOG_OUTPUT set to `file`. |
-| `DB_LOGGING_ENABLED` | Boolean | `false` | Whether to enable database-specific logging. |
-| `DB_LOGGING_OPTIONS` | Enum string: `query`, `error`, `schema`, `warn`, `info`, `log`  | `error` | Database log output level. To enable all logging, specify `all`. Refer to [TypeORM logging options](https://orkhan.gitbook.io/typeorm/docs/docs/advanced-topics/5-logging#logging-options) |
-| `DB_LOGGING_MAX_EXECUTION_TIME` | Number | `1000` | Maximum execution time (in milliseconds) before n8n logs a warning. Set to `0` to disable long running query warning. |
-| `CODE_ENABLE_STDOUT` | Boolean | `false` | Set to `true` to send Code node logs from `console.log` or `print` to the process's stdout, only for production executions. |
-| `NO_COLOR` | any | `undefined` | Set to any value to output logs without ANSI colors. For more information, see the [no-color.org website](https://no-color.org/). |
+| `N8N_LOG_LEVEL` | 枚举字符串： `info`, `warn`, `error`, `debug` | `info` | 日志输出级别。详情请参阅[日志级别](../../../keep-n8n-running/set-up-logging.md#log-levels)。 |
+| `N8N_LOG_OUTPUT` | 枚举字符串： `console`, `file` | `console` | 日志输出位置。多个值以逗号分隔。 |
+| `N8N_LOG_FORMAT` | 枚举字符串： `text`, `json` | `text` | 使用的日志格式。`text` 输出适合人阅读的消息；`json` 每行输出一个 JSON 对象，包含消息、级别、时间戳和全部元数据，适合生产监控及调试。 |
+| `N8N_LOG_CRON_ACTIVE_INTERVAL` | Number | `0` | 记录当前激活 cron 任务的间隔，单位为分钟。设为 `0` 可禁用。 |
+| `N8N_LOG_FILE_COUNT_MAX` | Number | `100` | 保留的日志文件数量上限。 |
+| `N8N_LOG_FILE_SIZE_MAX` | Number | `16` | 每个日志文件的大小上限，单位为 MB。 |
+| `N8N_LOG_FILE_LOCATION` | String | `<n8n-directory-path>/logs/n8n.log` | 日志文件位置。需要将 N8N_LOG_OUTPUT 设为 `file`。 |
+| `DB_LOGGING_ENABLED` | Boolean | `false` | 是否启用数据库专用日志。 |
+| `DB_LOGGING_OPTIONS` | 枚举字符串： `query`, `error`, `schema`, `warn`, `info`, `log` | `error` | 数据库日志输出级别。要启用全部日志，指定 `all`。参阅 [TypeORM 日志选项](https://orkhan.gitbook.io/typeorm/docs/docs/advanced-topics/5-logging#logging-options)。 |
+| `DB_LOGGING_MAX_EXECUTION_TIME` | Number | `1000` | 超过指定执行时长后，n8n 会记录警告，单位为毫秒。设为 `0` 可禁用长查询警告。 |
+| `CODE_ENABLE_STDOUT` | Boolean | `false` | 设为 `true`，将 Code 节点中 `console.log` 或 `print` 产生的日志发送到进程标准输出，仅适用于生产执行。 |
+| `NO_COLOR` | any | `undefined` | 设置任意值，以不带 ANSI 颜色的方式输出日志。更多信息请参阅 [no-color.org 网站](https://no-color.org/)。 |
 
 
-## Log streaming <a href="#log-streaming" id="log-streaming"></a>
+## 日志流 <a href="#log-streaming" id="log-streaming"></a>
 
-Refer to [Log streaming](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/stream-logs-to-external-systems) for more information on this feature.
+此功能的更多信息请参阅[日志流](../../../../../administer/observe-and-log/stream-logs-to-external-systems.md)。
 
-| Variable | Type  | Default  | Description |
+| 变量 | 类型 | 默认值 | 说明 |
 | :------- | :---- | :------- | :---------- |
-| `N8N_EVENTBUS_CHECKUNSENTINTERVAL` | Number | `0` | How often (in milliseconds) to check for unsent event messages. Can in rare cases send message twice. Set to `0` to disable it. |
-| `N8N_EVENTBUS_LOGWRITER_SYNCFILEACCESS` | Boolean | `false` | Whether all file access happens synchronously within the thread (true) or not (false). |
-| `N8N_EVENTBUS_LOGWRITER_KEEPLOGCOUNT` | Number | `3` | Number of event log files to keep. |
-| `N8N_EVENTBUS_LOGWRITER_MAXFILESIZEINKB` | Number | `10240` | Maximum size (in kilo-bytes) of an event log file before a new one starts. |
-| `N8N_EVENTBUS_LOGWRITER_LOGBASENAME` | String | `n8nEventLog` | Basename of the event log file. Ignored when `N8N_EVENTBUS_LOGWRITER_LOGFULLPATH` is set. |
-| `N8N_EVENTBUS_LOGWRITER_LOGFULLPATH` | String | `''` | Absolute path to the event log file. Must end in `.log`. When set, this path is used verbatim and overrides `N8N_EVENTBUS_LOGWRITER_LOGBASENAME` and the default per-process suffix. Use this to give each n8n process a unique event log path when multiple processes share a writable filesystem. Refer to [Per-process event log files](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/stream-logs-to-external-systems#per-process-event-log-files) for details. |
-| `N8N_EVENTBUS_LOGWRITER_MAXTOTALMESSAGESPERFILE` | Number | `500000` | Maximum number of lines parsed from a single event log file during recovery. Bounds memory use when an event log file contains many invalid lines. |
+| `N8N_EVENTBUS_CHECKUNSENTINTERVAL` | Number | `0` | 检查未发送事件消息的频率，单位为毫秒。极少数情况下可能重复发送消息。设为 `0` 可禁用。 |
+| `N8N_EVENTBUS_LOGWRITER_SYNCFILEACCESS` | Boolean | `false` | 是否在线程内同步执行所有文件访问，true 表示同步，false 表示不同步。 |
+| `N8N_EVENTBUS_LOGWRITER_KEEPLOGCOUNT` | Number | `3` | 保留的事件日志文件数量。 |
+| `N8N_EVENTBUS_LOGWRITER_MAXFILESIZEINKB` | Number | `10240` | 创建新事件日志文件前，单个文件允许的最大大小，单位为 KB。 |
+| `N8N_EVENTBUS_LOGWRITER_LOGBASENAME` | String | `n8nEventLog` | 事件日志文件的基础名称。设置 `N8N_EVENTBUS_LOGWRITER_LOGFULLPATH` 时忽略此值。 |
+| `N8N_EVENTBUS_LOGWRITER_LOGFULLPATH` | String | `''` | 事件日志文件的绝对路径，必须以 `.log` 结尾。设置后会原样使用此路径，覆盖 `N8N_EVENTBUS_LOGWRITER_LOGBASENAME` 和默认的进程后缀。多个进程共享可写文件系统时，可用此设置为每个 n8n 进程指定独立日志路径。详情请参阅[每个进程独立的事件日志文件](../../../../../administer/observe-and-log/stream-logs-to-external-systems.md#per-process-event-log-files)。 |
+| `N8N_EVENTBUS_LOGWRITER_MAXTOTALMESSAGESPERFILE` | Number | `500000` | 恢复时从单个事件日志文件解析的最大行数。当文件包含大量无效行时，用于限制内存使用。 |
 
-### Manage log streaming destinations from environment variables <a href="#manage-log-streaming-destinations-from-environment-variables" id="manage-log-streaming-destinations-from-environment-variables"></a>
+### 通过环境变量管理日志流目标 <a href="#manage-log-streaming-destinations-from-environment-variables" id="manage-log-streaming-destinations-from-environment-variables"></a>
 
-Set `N8N_LOG_STREAMING_MANAGED_BY_ENV` to `true` to manage log streaming destinations from environment variables. See [Manage instance settings using environment variables](../../manage-settings-using-environment-variables.md) for how the activation pattern works, and [Configure log streaming destinations using environment variables](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/observe-and-log/stream-logs-to-external-systems#configure-using-environment-variables) for the per-destination JSON shape.
+将 `N8N_LOG_STREAMING_MANAGED_BY_ENV` 设为 `true`，通过环境变量管理日志流目标。启用机制请参阅[通过环境变量管理实例设置](../../manage-settings-using-environment-variables.md)，各类目标的 JSON 结构请参阅[通过环境变量配置日志流目标](../../../../../administer/observe-and-log/stream-logs-to-external-systems.md#configure-using-environment-variables)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/JvN9TDUUWTwpWaT83YrH/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/log-streaming.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Environment variables](./)
+* [环境变量](./)

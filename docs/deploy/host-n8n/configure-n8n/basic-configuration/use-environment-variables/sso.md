@@ -1,50 +1,51 @@
 ---
-title: SSO environment variables
-description: Configure single sign-on for self-hosted n8n using environment variables.
+title: SSO 环境变量
+description: 通过环境变量配置自托管 n8n 的单点登录。
 contentType: reference
 tags:
-  - environment variables
+- environment variables
 hide:
-  - toc
-  - tags
+- toc
+- tags
 nodeTitle: SSO
 originalFilePath: hosting/configuration/environment-variables/sso.md
-originalUrl: 'https://docs.n8n.io/hosting/configuration/environment-variables/sso'
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/sso
+originalUrl: https://docs.n8n.io/hosting/configuration/environment-variables/sso
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/sso
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SSO environment variables <a href="#sso-environment-variables" id="sso-environment-variables"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ASsLuMLGKMy2O0q7awMF/" %}
+# SSO 环境变量 <a href="#sso-environment-variables" id="sso-environment-variables"></a>
+
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/file-based-configuration.md" %}
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Single sign-on is available on:
+单点登录可用于：
 
-- **Self-hosted:** Business, Enterprise
+- **自托管：**商业版、企业版。
 
-n8n Cloud Enterprise also supports single sign-on, but not through the environment variables on this page.
+n8n Cloud Enterprise 也支持单点登录，但不通过本页的环境变量配置。
 {% endhint %}
 
-Refer to [Set up SSO](../../security/configure-sso.md) for in-app setup steps and identity provider guides. See [Manage instance settings using environment variables](../../manage-settings-using-environment-variables.md) for how the activation pattern works.
+应用内设置步骤及身份提供商指南请参阅[设置 SSO](../../security/configure-sso.md)。启用机制请参阅[通过环境变量管理实例设置](../../manage-settings-using-environment-variables.md)。
 
-## Activation and shared settings <a href="#activation-and-shared-settings" id="activation-and-shared-settings"></a>
+## 启用与共享设置 <a href="#activation-and-shared-settings" id="activation-and-shared-settings"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/TJ7IUBpRrfLoXyEn4T4d/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/sso-activation.md" %}
 
 ## OIDC <a href="#oidc" id="oidc"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/SBpz79jvy94Y5dKIvxqR/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/sso-oidc.md" %}
 
 ## SAML <a href="#saml" id="saml"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/NnYMdwgkElS7TK37owd0/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/sso-saml.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Environment variables](./)
+* [环境变量](./)

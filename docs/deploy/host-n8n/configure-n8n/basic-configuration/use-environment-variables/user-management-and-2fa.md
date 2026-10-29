@@ -1,59 +1,59 @@
 ---
-title: 'User management SMTP, and two-factor authentication environment variables'
-description: Environment variables to set up user management and emails.
+title: 用户管理 SMTP 与双因素身份验证环境变量
+description: 设置用户管理和邮件的环境变量。
 contentType: reference
 tags:
-  - environment variables
+- environment variables
 hide:
-  - toc
-  - tags
-nodeTitle: User management and 2FA
+- toc
+- tags
+nodeTitle: 用户管理与 2FA
 originalFilePath: hosting/configuration/environment-variables/user-management-smtp-2fa.md
-originalUrl: >-
-  https://docs.n8n.io/hosting/configuration/environment-variables/user-management-smtp-2fa
-url: >-
-  https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/user-management-and-2fa
+originalUrl: https://docs.n8n.io/hosting/configuration/environment-variables/user-management-smtp-2fa
+url: https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/user-management-and-2fa
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# User management SMTP, and two-factor authentication environment variables <a href="#user-management-smtp-and-two-factor-authentication-environment-variables" id="user-management-smtp-and-two-factor-authentication-environment-variables"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/ASsLuMLGKMy2O0q7awMF/" %}
+# 用户管理 SMTP 与双因素身份验证环境变量 <a href="#user-management-smtp-and-two-factor-authentication-environment-variables" id="user-management-smtp-and-two-factor-authentication-environment-variables"></a>
 
-Refer to [User management](../../user-management.md) for more information on setting up user management and emails.
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/file-based-configuration.md" %}
 
-| Variable | Type | Default | Description |
+用户管理及邮件设置的更多信息请参阅[用户管理](../../user-management.md)。
+
+| 变量 | 类型 | 默认值 | 说明 |
 | :------- | :--- | :------ | :---------- |
-| `N8N_EMAIL_MODE` | String | `smtp` | Enable emails. |
-| `N8N_SMTP_HOST` | String | - | _your_SMTP_server_name_ |
-| `N8N_SMTP_PORT` | Number | - | _your_SMTP_server_port_ |
-| `N8N_SMTP_USER` | String | - | _your_SMTP_username_ |
-| `N8N_SMTP_PASS` | String | - | _your_SMTP_password_ |
-| `N8N_SMTP_OAUTH_SERVICE_CLIENT` | String | - | If using 2LO with a service account this is your client ID |
-| `N8N_SMTP_OAUTH_PRIVATE_KEY` | String | - | If using 2LO with a service account this is your private key |
-| `N8N_SMTP_SENDER` | String | - | Sender email address. You can optionally include the sender name. Example with name: _n8n `<contact@n8n.com>`_ |
-| `N8N_SMTP_SSL` | Boolean | `true` | Whether to use SSL for SMTP (true) or not (false). |
-| `N8N_SMTP_STARTTLS` | Boolean | `true` | Whether to use STARTTLS for SMTP (true) or not (false). |
-| `N8N_UM_EMAIL_TEMPLATES_INVITE` | String | - | Full path to your HTML email template. This overrides the default template for invite emails. |
-| `N8N_UM_EMAIL_TEMPLATES_PWRESET` | String | - | Full path to your HTML email template. This overrides the default template for password reset emails. |
-| `N8N_UM_EMAIL_TEMPLATES_WORKFLOW_SHARED` | String | - | Overrides the default HTML template for notifying users that a workflow was shared. Provide the full path to the template. |
-| `N8N_UM_EMAIL_TEMPLATES_CREDENTIALS_SHARED` | String | - | Overrides the default HTML template for notifying users that a credential was shared. Provide the full path to the template.  |
-| `N8N_UM_EMAIL_TEMPLATES_PROJECT_SHARED` | String | - | Overrides the default HTML template for notifying users that a project was shared. Provide the full path to the template.  |
-| `N8N_USER_MANAGEMENT_JWT_SECRET` | String | - | Set a specific JWT secret. By default, n8n generates one on start. |
-| `N8N_USER_MANAGEMENT_JWT_DURATION_HOURS` | Number | 168 | Set an expiration date for the JWTs in hours. |
-| `N8N_USER_MANAGEMENT_JWT_REFRESH_TIMEOUT_HOURS` | Number | 0 | How many hours before the JWT expires to automatically refresh it. 0 means 25% of `N8N_USER_MANAGEMENT_JWT_DURATION_HOURS`. -1 means it will never refresh, which forces users to log in again after the period defined in `N8N_USER_MANAGEMENT_JWT_DURATION_HOURS`. |
-| `N8N_MFA_ENABLED` | Boolean | `true` | Whether to enable two-factor authentication (true) or disable (false). n8n ignores this if existing users have 2FA enabled. |
-| `N8N_INVITE_LINKS_EMAIL_ONLY` | Boolean | `false` | When set to true, n8n will only deliver invite links via email and will not expose them through the API. This option enhances security by preventing invite URLs from being accessible programmatically, or to high privileged users. |
+| `N8N_EMAIL_MODE` | String | `smtp` | 启用邮件。 |
+| `N8N_SMTP_HOST` | String | - | _SMTP 服务器名称_。 |
+| `N8N_SMTP_PORT` | Number | - | _SMTP 服务器端口_。 |
+| `N8N_SMTP_USER` | String | - | _SMTP 用户名_。 |
+| `N8N_SMTP_PASS` | String | - | _SMTP 密码_。 |
+| `N8N_SMTP_OAUTH_SERVICE_CLIENT` | String | - | 通过服务账号使用 2LO 时，填写客户端 ID。 |
+| `N8N_SMTP_OAUTH_PRIVATE_KEY` | String | - | 通过服务账号使用 2LO 时，填写私钥。 |
+| `N8N_SMTP_SENDER` | String | - | 发件人邮箱地址，可以包含发件人名称。带名称的示例：_n8n `<contact@n8n.com>`_。 |
+| `N8N_SMTP_SSL` | Boolean | `true` | 是否对 SMTP 使用 SSL，true 表示使用，false 表示不使用。 |
+| `N8N_SMTP_STARTTLS` | Boolean | `true` | 是否对 SMTP 使用 STARTTLS，true 表示使用，false 表示不使用。 |
+| `N8N_UM_EMAIL_TEMPLATES_INVITE` | String | - | HTML 邮件模板的完整路径，用于覆盖邀请邮件的默认模板。 |
+| `N8N_UM_EMAIL_TEMPLATES_PWRESET` | String | - | HTML 邮件模板的完整路径，用于覆盖密码重置邮件的默认模板。 |
+| `N8N_UM_EMAIL_TEMPLATES_WORKFLOW_SHARED` | String | - | 覆盖通知用户工作流已共享的默认 HTML 模板。提供模板的完整路径。 |
+| `N8N_UM_EMAIL_TEMPLATES_CREDENTIALS_SHARED` | String | - | 覆盖通知用户凭据已共享的默认 HTML 模板。提供模板的完整路径。 |
+| `N8N_UM_EMAIL_TEMPLATES_PROJECT_SHARED` | String | - | 覆盖通知用户项目已共享的默认 HTML 模板。提供模板的完整路径。 |
+| `N8N_USER_MANAGEMENT_JWT_SECRET` | String | - | 设置指定的 JWT 密钥。默认由 n8n 在启动时生成。 |
+| `N8N_USER_MANAGEMENT_JWT_DURATION_HOURS` | Number | 168 | JWT 的有效期，单位为小时。 |
+| `N8N_USER_MANAGEMENT_JWT_REFRESH_TIMEOUT_HOURS` | Number | 0 | JWT 到期前多少小时自动刷新。0 表示 `N8N_USER_MANAGEMENT_JWT_DURATION_HOURS` 的 25%；-1 表示从不刷新，用户必须在 `N8N_USER_MANAGEMENT_JWT_DURATION_HOURS` 指定的时长后重新登录。 |
+| `N8N_MFA_ENABLED` | Boolean | `true` | 是否启用双因素身份验证，true 表示启用，false 表示禁用。如果现有用户已经启用 2FA，n8n 会忽略此设置。 |
+| `N8N_INVITE_LINKS_EMAIL_ONLY` | Boolean | `false` | 设为 true 时，n8n 只通过邮件发送邀请链接，不通过 API 暴露，避免程序或高权限用户获取邀请 URL，以提高安全性。 |
 
 
-## Instance owner using environment variables <a href="#instance-owner-using-environment-variables" id="instance-owner-using-environment-variables"></a>
+## 通过环境变量管理实例所有者 <a href="#instance-owner-using-environment-variables" id="instance-owner-using-environment-variables"></a>
 
-Set `N8N_INSTANCE_OWNER_MANAGED_BY_ENV` to `true` to pre-provision the instance owner from environment variables. See [Manage instance settings using environment variables](../../manage-settings-using-environment-variables.md) for how the activation pattern works.
+将 `N8N_INSTANCE_OWNER_MANAGED_BY_ENV` 设为 `true`，通过环境变量预配置实例所有者。启用机制请参阅[通过环境变量管理实例设置](../../manage-settings-using-environment-variables.md)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/75cM0VtFejV1gnDTFOSV/" %}
+{% include "../../../../../reusable-content/.gitbook/includes/self-hosting/configuration/environment-variables/settings-env-vars/instance-owner.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Environment variables](./)
+* [环境变量](./)
