@@ -1,76 +1,75 @@
 ---
-title: Branch patterns
-description: >-
-  Understand the different relationships between n8n instances and Git branches
-  that are possible with source control.
+title: 分支模式
+description: 了解源代码管理中 n8n 实例与 Git 分支之间的不同关系。
 contentType: explanation
-nodeTitle: Choose branching patterns
+nodeTitle: 选择分支模式
 originalFilePath: source-control-environments/understand/patterns.md
-originalUrl: 'https://docs.n8n.io/source-control-environments/understand/patterns'
-url: >-
-  https://docs.n8n.io/administer/use-source-control-and-environments/choose-branching-patterns
+originalUrl: https://docs.n8n.io/source-control-environments/understand/patterns
+url: https://docs.n8n.io/administer/use-source-control-and-environments/choose-branching-patterns
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Branch patterns <a href="#branch-patterns" id="branch-patterns"></a>
 
-The relationship between n8n instances and Git branches is flexible. You can create different setups depending on your needs. 
+# 分支模式 <a href="#branch-patterns" id="branch-patterns"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/sVOSvjfqJPLqOGb1x77B/" %}
+n8n 实例与 Git 分支之间的关系很灵活，可以根据需要建立不同配置。
 
-## Multiple instances, multiple branches <a href="#multiple-instances-multiple-branches" id="multiple-instances-multiple-branches"></a>
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/one-direction.md" %}
 
-This pattern involves having multiple n8n instances, each one linked to its own branch. 
+## 多实例、多分支 <a href="#multiple-instances-multiple-branches" id="multiple-instances-multiple-branches"></a>
 
-You can use this pattern for environments. For example, create two n8n instances, development and production. Link them to their own branches. Push work from your development instance to its branch, do a pull request to move work to the production branch, then pull to the production instance.
+此模式使用多个 n8n 实例，每个实例连接自己的分支。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/O5AqRfApNuiINXZOe5j1/" %}
+可以使用此模式建立环境。例如，创建开发和生产两个 n8n 实例，分别连接各自的分支。从开发实例推送工作到其分支，通过拉取请求将工作合并到生产分支，然后拉取到生产实例。
 
-![Development and production n8n instances, each connected to its own Git branch, with a pull request moving work between the branches](../.gitbook/assets/vc-multi-multi.png)
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/multi-instance-multi-branch-pros-cons.md" %}
 
-## Multiple instances, one branch <a href="#multiple-instances-one-branch" id="multiple-instances-one-branch"></a>
+![开发和生产 n8n 实例分别连接各自的 Git 分支，通过拉取请求在分支间迁移工作](../.gitbook/assets/vc-multi-multi.png)
 
-Use this pattern if you want the same workflows, tags, and variables everywhere, but want to use them in different n8n instances. 
+## 多实例、单分支 <a href="#multiple-instances-one-branch" id="multiple-instances-one-branch"></a>
 
-You can use this pattern for environments. For example, create two n8n instances, development and production. Link them both to the same branch. Push work from development, and pull it into production.
+如果希望各处使用相同的工作流、标签和变量，但在不同 n8n 实例中使用，可以选择此模式。
 
-This pattern is also useful when testing a new version of n8n: you can create a new n8n instance with the new version, connect it to the Git branch and test it, while your production instance remains on the older version until you're confident it's safe to upgrade.
+可以使用此模式建立环境。例如，创建开发和生产两个 n8n 实例，都连接到同一分支。从开发实例推送工作，再拉取到生产实例。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Vo4DpZeEyTa0iuufMDB8/" %}
+此模式也适合测试 n8n 新版本：创建运行新版本的 n8n 实例，连接到 Git 分支进行测试。生产实例则继续运行旧版本，直到确认可以安全升级。
 
-![Development and production n8n instances both connected to the same single Git branch](../.gitbook/assets/vc-multi-one.png)
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/multi-instance-one-branch-pros-cons.md" %}
 
-## One instance, multiple branches <a href="#one-instance-multiple-branches" id="one-instance-multiple-branches"></a>
+![开发和生产 n8n 实例连接到同一个 Git 分支](../.gitbook/assets/vc-multi-one.png)
 
-The instance owner can change which Git branch connects to the instance. The full setup in this case is likely to be a [Multiple instances, multiple branches](#multiple-instances-multiple-branches) pattern, but with one instance switching between branches.
+## 单实例、多分支 <a href="#one-instance-multiple-branches" id="one-instance-multiple-branches"></a>
 
-This is useful to review work. For example, different users could work on their own instance and push to their own branch. The reviewer could work in a review instance, and switch between branches to load work from different users.
+实例所有者可以更改实例连接的 Git 分支。整体配置可能仍采用[多实例、多分支](#multiple-instances-multiple-branches)模式，但其中一个实例会在分支间切换。
+
+这适合审核工作。例如，不同用户可在各自的实例中工作，并推送到各自的分支。审核者在审核实例中切换分支，加载不同用户的工作。
 
 {% hint style="info" %}
-**No cleanup**
+**不会清理内容**
 
-n8n doesn't clean up the existing contents of an instance when changing branches. Switching branches in this pattern results in all the workflows from each branch being in your instance.
+更换分支时，n8n 不会清理实例中已有内容。在此模式下切换分支，会使各分支中的工作流都留在实例中。
 {% endhint %}
 
-![One n8n instance switching between several Git branches to review work pushed by different users](../.gitbook/assets/vc-one-multi.png)
+![一个 n8n 实例在多个 Git 分支间切换，审核不同用户推送的工作](../.gitbook/assets/vc-one-multi.png)
 
-## One instance, one branch <a href="#one-instance-one-branch" id="one-instance-one-branch"></a>
+## 单实例、单分支 <a href="#one-instance-one-branch" id="one-instance-one-branch"></a>
 
-This is the simplest pattern.
+这是最简单的模式。
 
-![Single n8n instance connected to a single Git branch](../.gitbook/assets/vc-one-one.png)
+![一个 n8n 实例连接到一个 Git 分支](../.gitbook/assets/vc-one-one.png)
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use source control and environments](./)
-* [Understand source control](understand-source-control.md)
-* [Work with environments](work-with-environments.md)
-* [Use Git in n8n](use-git-in-n8n.md)
-* [Set up source control](set-up-source-control.md)
-* [Push and pull changes](push-and-pull-changes.md)
-* [Compare versions](compare-versions.md)
-* [Move work between environments](move-work-between-environments.md)
-* [Use environments programmatically with the public API](use-environments-via-api.md)
-* [Tutorial: Create environments with source control](tutorial-create-environments-with-source-control.md)
+* [使用源代码管理与环境](./)
+* [理解源代码管理](understand-source-control.md)
+* [使用环境](work-with-environments.md)
+* [在 n8n 中使用 Git](use-git-in-n8n.md)
+* [设置源代码管理](set-up-source-control.md)
+* [推送和拉取更改](push-and-pull-changes.md)
+* [比较版本](compare-versions.md)
+* [在环境间迁移工作](move-work-between-environments.md)
+* [通过公共 API 以编程方式使用环境](use-environments-via-api.md)
+* [教程：使用源代码管理创建环境](tutorial-create-environments-with-source-control.md)

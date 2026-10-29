@@ -1,11 +1,13 @@
 ---
-title: feature-availability
+title: 源代码管理功能可用范围
 ---
-{% hint style="info" %}
-**Feature availability**
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-* Available on Business and Enterprise plans.
-* You must be an n8n instance owner or instance admin to enable and configure source control.
-* Instance owners and instance admins can push changes to and pull changes from the connected repository.
-* Project admins can push changes to the connected repository. They can't pull changes from the repository.
+{% hint style="info" %}
+**功能可用范围**
+
+* 适用于 Business 和 Enterprise 方案。
+* 必须是 n8n 实例所有者或实例管理员，才能启用和配置源代码管理。
+* 实例所有者和实例管理员可以向已连接的仓库推送更改，也可以从仓库拉取更改。
+* 项目管理员可以向已连接的仓库推送更改，但不能从仓库拉取更改。
 {% endhint %}

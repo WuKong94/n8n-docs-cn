@@ -187,5 +187,32 @@
     "translated_sentence": "译注：本页原文把变量全部描述为实例全局资源，但同一版本的“自定义变量”文档说明，自 n8n 1.118.0 起还支持项目变量；“自定义项目角色”也列出项目变量权限。此处保留原文并提示差异，不把全局描述套用于所有变量。",
     "evidence": "同一锁定版本的 build/code-in-n8n/define-custom-variables.md 说明项目变量自 n8n 1.118.0 起提供，仅在指定项目内可用，来源哈希为 4e31aafa8e0623fd49cf30c91fe209eb00d29fffe48284dd212d757363265d21；同章节 create-custom-project-roles.md 还列出 Project variable scopes，来源哈希为 cfd704e8c4ffcd022191fe7750d6327016e744fc30b70304054975a86eec26e8。",
     "scope": "保留 RBAC 原句，仅添加同版本文档差异说明；未修改角色权限矩阵，也未推断或测试产品实际行为。"
+  },
+  {
+    "id": "source-control-data-table-deletion-note",
+    "path": "administer/use-source-control-and-environments/push-and-pull-changes.md",
+    "original_sentence": "When workflows, credentials, variables, tags, and data tables are deleted from the repository, your local versions of these resources aren't deleted automatically. Instead, when you pull repository changes, n8n notifies you about any outdated resources and asks if you'd like to delete them.",
+    "translated_sentence": "译注：本段关于不自动删除资源的概述，与下文数据表的说明存在差异：下文指出，本地存在但 Git 中不存在的数据表会在拉取时删除，使用 force 的 API 或自动化拉取会跳过确认，并删除表中全部行数据。此处保留原文；不要将本段概述作为自动化拉取不会删除数据表的保证。",
+    "evidence": "同页 Data tables 章节明确说明：If a data table exists locally but not in Git, pulling deletes it, including all its row data，并说明强制拉取无需确认。本记录仅标注同页两段说明的差异。",
+    "scope": "保留原文概述和详细行为说明，仅加译注提示同页差异；代码和上游原文不修改，未测试产品删除行为。",
+    "source_sha256": "7c46804e64343fb9f0e4d842b18ac3193ad83e90a840fbc840cb8c0cd1145ca9"
+  },
+  {
+    "id": "source-control-github-action-legacy-request-note",
+    "path": "reusable-content/.gitbook/includes/source-control-environments/github-action.md",
+    "original_sentence": "A GitHub Action example:",
+    "translated_sentence": "译注：原示例仍请求 /version-control/pull，且没有显式指定 POST；同一版本的“在环境间复制工作”和公共 API 指南示例使用 POST /api/v1/source-control/pull。此处保留原始代码以便对照，请以对应实例的 API 端点、方法和鉴权要求核对后再使用。",
+    "evidence": "同版本 administer/use-source-control-and-environments/move-work-between-environments.md 的 curl 明确包含 --request POST 和 /api/v1/source-control/pull；API 指南的端点表也列出 POST /source-control/pull。原复用片段的 curl 不带请求方法和请求体，地址为 /version-control/pull。对照页面来源哈希：83d459c8efaf5b400e0b49301578184070a825a5ff0ac81226c0ad1903b58942。",
+    "scope": "不修改原始 YAML 或 curl，仅添加译注指出与同版本公开 API 指南的差异；未声称旧路径一定不可用，未执行请求或自动化。",
+    "source_sha256": "04c1a69d16d7607f16b9663003d52a5df96747800bbf5881ede019ee22513c40"
+  },
+  {
+    "id": "source-control-api-plan-availability-note",
+    "path": "administer/use-source-control-and-environments/use-environments-via-api.md",
+    "original_sentence": "Environments is an Enterprise feature.",
+    "translated_sentence": "译注：本页原文将环境功能列为 Enterprise 功能，而同一版本源代码管理章节的功能可用范围片段列出 Business 和 Enterprise。此处保留原文并提示差异，不据此确定某个方案是否可使用这些 API 端点。",
+    "evidence": "同版本 reusable-content/.gitbook/includes/source-control-environments/feature-availability.md 写明 Available on Business and Enterprise plans；该片段用于本章节总览、理解源代码管理和教程，来源哈希：b5d6fa9e7d260473876c97d5061c396fd79f1b0afa1436657e6811f977b79a46。",
+    "scope": "保留本页方案描述，只加译注提示同版本章节间的差异；未推断或测试方案授权及 API 可用性。",
+    "source_sha256": "33b5dec4c0bfa3369d50c4c2f1bbe5efc03df34b53af440fb4f48d725bb019ae"
   }
 ]

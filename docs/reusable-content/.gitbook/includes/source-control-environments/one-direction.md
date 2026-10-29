@@ -1,8 +1,10 @@
 ---
-title: one-direction
+title: 源代码管理的单向流程
 ---
-{% hint style="info" %}
-**Recommendation: don't push and pull to the same n8n instance**
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-You can push work from an instance to a branch, and pull to the same instance. n8n doesn't recommend this. To reduce the risk of merge conflicts and overwriting work, try to create a process where work goes in one direction: either to Git, or from Git, but not both.
+{% hint style="info" %}
+**建议：不要对同一个 n8n 实例既推送又拉取**
+
+可以从实例向分支推送工作，再拉取到同一实例，但 n8n 不推荐这样做。为降低合并冲突和覆盖工作的风险，请尽量建立单向流程：要么将工作推送到 Git，要么从 Git 拉取，避免在同一实例中双向操作。
 {% endhint %}

@@ -1,9 +1,11 @@
 ---
-title: multi-instance-one-branch-pros-cons
+title: 多实例、单分支的优缺点
 ---
-The advantage of this pattern is that work is instantly available to other environments when you push from one instance.
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-The disadvantages are:
+此模式的优点是：从一个实例推送后，其他环境可以立即获取这些工作。
 
-* If you push by mistake, there is a risk the work will make it into your production instance. If you [use a GitHub Action to automate pulls](https://app.gitbook.com/s/wMJrGrimpx3PxCJpUswm/use-source-control-and-environments/tutorial-create-environments-with-source-control#optional-use-a-github-action-to-automate-pulls) to production, you must either use the multi-instance, multi-branch pattern, or be careful to never push work that you don't want in production.
-* Pushing and pulling to the same instance can cause data loss as changes are overridden when performing these actions. You should set up processes to ensure content flows in one direction.
+缺点如下：
+
+* 如果误推送，工作可能进入生产实例。如果[使用 GitHub Action 自动拉取](../../../../administer/use-source-control-and-environments/tutorial-create-environments-with-source-control.md#optional-use-a-github-action-to-automate-pulls)到生产环境，必须改用多实例、多分支模式，或严格避免推送不希望进入生产环境的工作。
+* 对同一实例既推送又拉取，可能因操作覆盖更改而造成数据丢失。应建立流程，确保内容单向流动。

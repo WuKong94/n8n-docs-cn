@@ -6631,5 +6631,223 @@
       "original-explicit-anchors-preserved",
       "heading-structure-preserved"
     ]
+  },
+  "administer/use-source-control-and-environments/README.md": {
+    "status": "translated",
+    "source_sha256": "a8562078c162842cba660b779952a8df4c0fa15652d6e41ca5931df55ba04785",
+    "translation_sha256": "b530884adfb386253700ba0dad0f324aa4a8880bc8a5cf4344bc59413631cf2d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/understand-source-control.md": {
+    "status": "translated",
+    "source_sha256": "de02cc9c0bcaa2f201d8925c47c689eca0ee7ff7fa66adf3e40d44ba0545f49f",
+    "translation_sha256": "8ce927af314aefc0e645310be13a1d33632fdb19fe9c2d778b5387e06264eee9",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/choose-branching-patterns.md": {
+    "status": "translated",
+    "source_sha256": "1dceadae7637ff5d1a4854a1714cecd396a57353916f7317378cd7f1dca94120",
+    "translation_sha256": "710c60aa0ba3b59e8c8bea3755568b497521fb99464a771c6a314616aa9463df",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/use-git-in-n8n.md": {
+    "status": "translated",
+    "source_sha256": "c812b9ad370833d2925ccda0585f8c6c1f201e1bfd66709e97fee3d3bc723219",
+    "translation_sha256": "2f0e73ad3cd6609a48c47ab701ed1283440fee8a63f7ba65edf6db69e189cbfc",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/work-with-environments.md": {
+    "status": "translated",
+    "source_sha256": "135e9287e227fa61fca9c8ae95c0a84776e9f415a70b582eb85ac8228c7a0914",
+    "translation_sha256": "27029d04613cef30dae8fb4e0d6cbbe65e5a8ad0db72e6663011b7f3ec7563e1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/set-up-source-control.md": {
+    "status": "translated",
+    "source_sha256": "dd495f1546117b0971009bf7a917909a77f770601a3c8c52760a1be6d9482d03",
+    "translation_sha256": "43ffabd30c95360206cf6f8815bd764237583257b4c7e86ed501c677849c051d",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/compare-versions.md": {
+    "status": "translated",
+    "source_sha256": "f5574a3dc5551d64db7337b07b6c9a9b47929c751fa75a91b0813023993807fd",
+    "translation_sha256": "4326d4e2d5f465b054a18ced425a925e9b2b7d5a8af3af301a0a901ec127cc17",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/move-work-between-environments.md": {
+    "status": "translated",
+    "source_sha256": "83d459c8efaf5b400e0b49301578184070a825a5ff0ac81226c0ad1903b58942",
+    "translation_sha256": "d36ca8481afd071dc4c1c0713b6ac38164d1e6c79dd1d58726d35e4b21ef811f",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/push-and-pull-changes.md": {
+    "status": "translated",
+    "source_sha256": "7c46804e64343fb9f0e4d842b18ac3193ad83e90a840fbc840cb8c0cd1145ca9",
+    "translation_sha256": "d329663021aa7d1e459774349fb3362ffb9120a1c6f273755590ab6bb3b99e04",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "source-control-data-table-deletion-note"
+    ]
+  },
+  "administer/use-source-control-and-environments/tutorial-create-environments-with-source-control.md": {
+    "status": "translated",
+    "source_sha256": "f456a0d6dee44236280a83bf7497bbe12ddb8c32987345378468d03687f8a300",
+    "translation_sha256": "e6d016b50eb676d47e35135bc1348dafd961339d6ee554f034d8e1ff05c9fbc1",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "administer/use-source-control-and-environments/use-environments-via-api.md": {
+    "status": "translated",
+    "source_sha256": "33b5dec4c0bfa3369d50c4c2f1bbe5efc03df34b53af440fb4f48d725bb019ae",
+    "translation_sha256": "bcf9d1263034f29a84b16b1b04a7cbc3980963e5c940705c646cb6af57030447",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "source-control-api-plan-availability-note"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/feature-availability.md": {
+    "status": "translated",
+    "source_sha256": "b5d6fa9e7d260473876c97d5061c396fd79f1b0afa1436657e6811f977b79a46",
+    "translation_sha256": "7027c993c1a7ef654af253efde2229a4e248dee299eb1d55b1bf8c697f832115",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/one-direction.md": {
+    "status": "translated",
+    "source_sha256": "ddc932b8d17d6d38ff1109ec12f8b94e83904685b06eb22e6edf4c1221d4b054",
+    "translation_sha256": "13bd9511efb7bae4d7b7849459fd404ed558a620040f64de4826b8e3091c5e24",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/multi-instance-multi-branch-pros-cons.md": {
+    "status": "translated",
+    "source_sha256": "2b23676591248629f2e70ab5ef164726d124fa263c32c812b6332a9a45eb2b3a",
+    "translation_sha256": "e8bbea669a33f0e1c9b8279cbbddcc3e13976b8b572f41ca1d5c98b542976207",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/multi-instance-one-branch-pros-cons.md": {
+    "status": "translated",
+    "source_sha256": "edb09ee577610988feadd7a8efb7bf992aa54abad4a1e8e5fc6c9a6b878d601b",
+    "translation_sha256": "0e8d785ceb84ae40f596a50f7d8f423ca6360fb40802b8078ce18e2df850d82e",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/configure-git-in-n8n.md": {
+    "status": "translated",
+    "source_sha256": "f353e151997df21d6945d7f9685f1eb39ee774e7fa8cab8ef1afc3ee0b044ffe",
+    "translation_sha256": "c89498b1d83be374a7f2d67958c502bf63418262db5637e3132cdbdbc88ad893",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/push.md": {
+    "status": "translated",
+    "source_sha256": "de23a0336a47732bec4142396fd9d4123756c0fb3237dc023d5c2a5e9a5b2e87",
+    "translation_sha256": "3bdea8993d707311421baffd8aef5ae2bd5972f5934b4f7569204c516619849b",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/push-pull-menu-state.md": {
+    "status": "translated",
+    "source_sha256": "b525ac9f79d35166d98b7bca5d44982ab4fc78e175dc097fd04f390299a32f79",
+    "translation_sha256": "fb218185ca64e6c45501b67bbf9ce0a35c22a6cdd6dec79f46679a15ac997306",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ]
+  },
+  "reusable-content/.gitbook/includes/source-control-environments/github-action.md": {
+    "status": "translated",
+    "source_sha256": "04c1a69d16d7607f16b9663003d52a5df96747800bbf5881ede019ee22513c40",
+    "translation_sha256": "1bd565c87c6c131e552ec1568617d8d64752154f989a7ea829cf103264d80292",
+    "checks": [
+      "code-examples-identical",
+      "image-resources-preserved",
+      "original-explicit-anchors-preserved",
+      "heading-structure-preserved"
+    ],
+    "source_correction_ids": [
+      "source-control-github-action-legacy-request-note"
+    ]
   }
 }

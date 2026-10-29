@@ -1,64 +1,65 @@
 ---
-title: Environments in n8n
-description: Understand the concepts behind environments in n8n.
+title: n8n 中的环境
+description: 了解 n8n 环境背后的概念。
 contentType: explanation
-nodeTitle: Work with environments
+nodeTitle: 使用环境
 originalFilePath: source-control-environments/understand/environments.md
-originalUrl: 'https://docs.n8n.io/source-control-environments/understand/environments'
-url: >-
-  https://docs.n8n.io/administer/use-source-control-and-environments/work-with-environments
+originalUrl: https://docs.n8n.io/source-control-environments/understand/environments
+url: https://docs.n8n.io/administer/use-source-control-and-environments/work-with-environments
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Environments in n8n <a href="#environments-in-n8n" id="environments-in-n8n"></a>
 
-n8n has built its environments feature on top of Git, a version control software. This document helps you understand:
+# n8n 中的环境 <a href="#environments-in-n8n" id="environments-in-n8n"></a>
 
-* The purpose of environments.
-* How environments work in n8n.
+n8n 在版本控制软件 Git 的基础上构建了环境功能。本文帮助你了解：
 
-## Environments: What and why <a href="#environments-what-and-why" id="environments-what-and-why"></a>
+* 环境的用途。
+* 环境在 n8n 中的工作方式。
 
-In software development, the environment is all the infrastructure and tooling around the code, including the tools that run the software, and the specific configuration of those tools. For a more detailed introduction to environments in software development, refer to [Codecademy | Environments](https://www.codecademy.com/article/environments).
+## 环境是什么，为什么需要环境 <a href="#environments-what-and-why" id="environments-what-and-why"></a>
 
-Low-code development in n8n is similar. n8n is where you build and run your workflows. Your instance may have particular configurations: on Cloud, n8n determines the configuration. On self-hosted instances, there are extensive [configuration options](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/host-n8n/configure-n8n/basic-configuration). You may also have made changes to the settings of your instance. This combination of n8n and your instance's specific configuration and settings is the environment your workflows run in.
+在软件开发中，环境是围绕代码的全部基础设施与工具，包括运行软件的工具及其具体配置。更详细的介绍请参阅 [Codecademy | 环境](https://www.codecademy.com/article/environments)。
 
-There are advantages to having more than one environment. A common pattern is to have different environments for development and production:
+n8n 中的低代码开发也类似。你在 n8n 中构建和运行工作流，实例可能有特定配置：Cloud 的配置由 n8n 决定；自托管实例有丰富的[配置选项](../../deploy/host-n8n/configure-n8n/basic-configuration.md)。你也可能调整过实例设置。n8n 与实例的具体配置和设置共同构成工作流的运行环境。
 
-* Development: do work and make changes.
-* Production: the live environment.
+使用多个环境有一些优势，常见方式是区分开发与生产环境：
 
-A setup like this helps you make changes to workflows without breaking workflows that are in use.
+* 开发：进行工作并做出更改。
+* 生产：正式运行的环境。
 
-## Environments in n8n <a href="#environments-in-n8n" id="environments-in-n8n"></a>
+这样的配置可以让你修改工作流，同时避免影响正在使用的工作流。
 
-In n8n, an environment comprises two parts, an n8n instance and a Git branch:
+## n8n 中的环境 <a href="#environments-in-n8n" id="environments-in-n8n"></a>
 
-* The n8n instance is where you build and run workflows.
-* The Git branch stores copies of the workflows, as well as tags, and variable and credential stubs.
+在 n8n 中，一个环境包含两部分：一个 n8n 实例和一个 Git 分支。
 
-n8n doesn't sync credentials and variable values with Git. You must set up the credentials and variable values manually when setting up a new instance. For more information, refer to [Push and pull | What gets committed](push-and-pull-changes.md#what-gets-committed).
+* n8n 实例用于构建和运行工作流。
+* Git 分支保存工作流副本，以及标签、变量存根和凭据存根。
 
-How you copy work between environments depends on your branch and n8n instance configuration:
+n8n 不会将凭据和变量的值同步到 Git。设置新实例时，必须手动设置凭据和变量的值。更多信息请参阅[推送和拉取 | 提交的内容](push-and-pull-changes.md#what-gets-committed)。
 
-* Multiple instances, one branch: you can push from one instance to the Git branch, then pull the work to another instance.
-* Multiple instances, multiple branches: you need to create a pull request and merge in your Git provider. For example, if you have development, test, and production branches, each linked to their own instance, you need to merge the development branch into test to make the work from the development instance available on the test instance. Refer to [Copy work between environments](move-work-between-environments.md) for more information, including steps to partially automate the process.
+如何在环境间复制工作，取决于分支与 n8n 实例的配置：
 
-For detailed guidance on pushing and pulling work, refer to [Push and pull](push-and-pull-changes.md).
+* 多实例、单分支：从一个实例推送到 Git 分支，再将工作拉取到另一个实例。
+* 多实例、多分支：需要在 Git 托管平台创建拉取请求并合并。例如，开发、测试和生产分支分别连接各自的实例时，需要将开发分支合并到测试分支，才能让测试实例获得开发实例中的工作。更多信息及部分自动化步骤，请参阅[在环境间复制工作](move-work-between-environments.md)。
 
-Refer to [Set up source control](set-up-source-control.md) to learn more about linking your n8n instance to Git, or follow the [Tutorial: Create environments with source control](tutorial-create-environments-with-source-control.md) to set up your environments using one of n8n's recommended configurations.
+有关推送和拉取工作的详细指南，请参阅[推送和拉取](push-and-pull-changes.md)。
 
-## Related resources
+如需了解如何将 n8n 实例连接到 Git，请参阅[设置源代码管理](set-up-source-control.md)；也可按照[教程：使用源代码管理创建环境](tutorial-create-environments-with-source-control.md)，采用 n8n 推荐的配置之一来设置环境。
 
-* [Use source control and environments](./)
-* [Understand source control](understand-source-control.md)
-* [Use Git in n8n](use-git-in-n8n.md)
-* [Choose branching patterns](choose-branching-patterns.md)
-* [Set up source control](set-up-source-control.md)
-* [Push and pull changes](push-and-pull-changes.md)
-* [Compare versions](compare-versions.md)
-* [Move work between environments](move-work-between-environments.md)
-* [Use environments programmatically with the public API](use-environments-via-api.md)
-* [Tutorial: Create environments with source control](tutorial-create-environments-with-source-control.md)
+## 相关资源 <a id="related-resources"></a>
+
+* [使用源代码管理与环境](./)
+* [理解源代码管理](understand-source-control.md)
+* [在 n8n 中使用 Git](use-git-in-n8n.md)
+* [选择分支模式](choose-branching-patterns.md)
+* [设置源代码管理](set-up-source-control.md)
+* [推送和拉取更改](push-and-pull-changes.md)
+* [比较版本](compare-versions.md)
+* [在环境间迁移工作](move-work-between-environments.md)
+* [通过公共 API 以编程方式使用环境](use-environments-via-api.md)
+* [教程：使用源代码管理创建环境](tutorial-create-environments-with-source-control.md)

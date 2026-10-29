@@ -1,90 +1,91 @@
 ---
-title: Compare changes with workflow diffs
-description: Use workflow diffs to compare local and remote changes
+title: 使用工作流差异视图比较更改
+description: 使用工作流差异视图比较本地与远程更改。
 contentType: howto
-nodeTitle: Compare versions
+nodeTitle: 比较版本
 originalFilePath: source-control-environments/using/compare-changes.md
-originalUrl: 'https://docs.n8n.io/source-control-environments/using/compare-changes'
-url: >-
-  https://docs.n8n.io/administer/use-source-control-and-environments/compare-versions
+originalUrl: https://docs.n8n.io/source-control-environments/using/compare-changes
+url: https://docs.n8n.io/administer/use-source-control-and-environments/compare-versions
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Compare changes with workflow diffs <a href="#compare-changes-with-workflow-diffs" id="compare-changes-with-workflow-diffs"></a>
 
-Workflow diffs allow you to visually compare changes between the workflow you have on an instance and the most recent version saved in your connected Git repository. This helps you understand the exact changes to the workflow before you decide to either push or pull it across different environments.
+# 使用工作流差异视图比较更改 <a href="#compare-changes-with-workflow-diffs" id="compare-changes-with-workflow-diffs"></a>
+
+工作流差异视图可直观比较实例中的工作流，与所连接 Git 仓库中最近保存的版本之间的更改，帮助你在决定跨环境推送或拉取前，了解具体变化。
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Workflow diffs are available on:
+工作流差异视图可用于：
 
-- **n8n Cloud:** Enterprise
-- **Self-hosted:** Business, Enterprise
+- **n8n Cloud：**Enterprise。
+- **自托管：**Business、Enterprise。
 
-Workflow diffs are only available when you [enable the environments features](set-up-source-control.md) on an instance.
+仅当实例[启用环境功能](set-up-source-control.md)后，才可使用工作流差异视图。
 {% endhint %}
 
-## Accessing workflow diffs <a href="#accessing-workflow-diffs" id="accessing-workflow-diffs"></a>
+## 打开工作流差异视图 <a href="#accessing-workflow-diffs" id="accessing-workflow-diffs"></a>
 
-You can access workflow diffs from two locations:
+可以从两个位置打开工作流差异视图：
 
-1. **When pushing changes**: Click the workflow diff icon in the commit modal alongside the workflow you want to review
-2. **When pulling changes**: Click the workflow diff icon in the modified changes modal alongside the workflow you want to review
+1. **推送更改时**：在提交弹窗中，点击待审核工作流旁的差异图标。
+2. **拉取更改时**：在修改内容弹窗中，点击待审核工作流旁的差异图标。
 
-## Understanding the workflow diff view <a href="#understanding-the-workflow-diff-view" id="understanding-the-workflow-diff-view"></a>
+## 理解工作流差异视图 <a href="#understanding-the-workflow-diff-view" id="understanding-the-workflow-diff-view"></a>
 
-When you open a workflow diff, n8n displays two workflows stacked vertically:
+打开工作流差异视图后，n8n 会上下显示两个工作流：
 
-### When pushing <a href="#when-pushing" id="when-pushing"></a>
+### 推送时 <a href="#when-pushing" id="when-pushing"></a>
 
-* **Top panel** (Remote branch): Latest version in your Git repository
-* **Bottom panel** (Local): Current locally saved version of the workflow
+* **上方面板**（远程分支）：Git 仓库中的最新版本。
+* **下方面板**（本地）：当前在本地保存的工作流版本。
 
-### When pulling <a href="#when-pulling" id="when-pulling"></a>
+### 拉取时 <a href="#when-pulling" id="when-pulling"></a>
 
-* **Top panel** (Local): Current version on your n8n instance
-* **Bottom panel** (Remote branch): Version you're pulling from the Git repository
+* **上方面板**（本地）：n8n 实例中的当前版本。
+* **下方面板**（远程分支）：要从 Git 仓库拉取的版本。
 
-In both cases, the top panel always displays the workflow that will update with changes.
+在这两种情况下，上方面板始终显示将被更改更新的工作流。
 
-The diff view highlights three types of changes:
+差异视图会突出显示三类更改：
 
-* **Added nodes and connectors**: New node additions or connectors will show as green along with an "N" icon
-* **Modified nodes and connectors**: Modifications to existing nodes or connectors will show as orange along with a "M" icon
-* **Deleted nodes and connectors**: Node or connector deletions will show as red along with a "D" icon 
+* **新增节点和连接线**：新增节点或连接线以绿色显示，并带有“N”图标。
+* **修改节点和连接线**：对现有节点或连接线的修改以橙色显示，并带有“M”图标。
+* **删除节点和连接线**：删除的节点或连接线以红色显示，并带有“D”图标。
 
-## Reviewing node changes <a href="#reviewing-node-changes" id="reviewing-node-changes"></a>
+## 审核节点更改 <a href="#reviewing-node-changes" id="reviewing-node-changes"></a>
 
-For modified nodes, you can also compare the specific changes. Click modified nodes to show a JSON diff of the changes. You can review the exact configuration for that node before and after the given change.
+对于已修改的节点，还可以比较具体更改。点击节点即可显示 JSON 差异，查看其更改前后的准确配置。
 
-## Viewing the summary of changes <a href="#viewing-the-summary-of-changes" id="viewing-the-summary-of-changes"></a>
+## 查看更改汇总 <a href="#viewing-the-summary-of-changes" id="viewing-the-summary-of-changes"></a>
 
-In the top-right corner, the **changes** button shows the number of changes. This represents the total number of changes across node and node connectors, as well as general workflow settings updates.
+右上角的 **changes**（更改）按钮显示更改数量，即节点、节点连接线及工作流常规设置更新的总数。
 
-## Navigating through each change <a href="#navigating-through-each-change" id="navigating-through-each-change"></a>
+## 逐项浏览更改 <a href="#navigating-through-each-change" id="navigating-through-each-change"></a>
 
-You can use the **next** and **previous** arrows in the upper-right corner to cycle through your changes in a logical order. Use the **back** button in the top-left corner to return to the commit or pull modal to select a different workflow to review changes on.
+使用右上角的**下一项**和**上一项**箭头，按逻辑顺序浏览更改。使用左上角的**返回**按钮，回到提交或拉取弹窗，选择其他工作流审核。
 
-## Who can use workflow diffs <a href="#who-can-use-workflow-diffs" id="who-can-use-workflow-diffs"></a>
+## 哪些用户可以使用工作流差异视图 <a href="#who-can-use-workflow-diffs" id="who-can-use-workflow-diffs"></a>
 
-Only users who can push or pull commits for an instance can access workflow diffs:
+只有能为实例推送或拉取提交的用户，才能访问工作流差异视图：
 
-* instance owners
-* instance admins
-* project admins
+* 实例所有者。
+* 实例管理员。
+* 项目管理员。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use source control and environments](./)
-* [Understand source control](understand-source-control.md)
-* [Work with environments](work-with-environments.md)
-* [Use Git in n8n](use-git-in-n8n.md)
-* [Choose branching patterns](choose-branching-patterns.md)
-* [Set up source control](set-up-source-control.md)
-* [Push and pull changes](push-and-pull-changes.md)
-* [Move work between environments](move-work-between-environments.md)
-* [Use environments programmatically with the public API](use-environments-via-api.md)
-* [Tutorial: Create environments with source control](tutorial-create-environments-with-source-control.md)
+* [使用源代码管理与环境](./)
+* [理解源代码管理](understand-source-control.md)
+* [使用环境](work-with-environments.md)
+* [在 n8n 中使用 Git](use-git-in-n8n.md)
+* [选择分支模式](choose-branching-patterns.md)
+* [设置源代码管理](set-up-source-control.md)
+* [推送和拉取更改](push-and-pull-changes.md)
+* [在环境间迁移工作](move-work-between-environments.md)
+* [通过公共 API 以编程方式使用环境](use-environments-via-api.md)
+* [教程：使用源代码管理创建环境](tutorial-create-environments-with-source-control.md)

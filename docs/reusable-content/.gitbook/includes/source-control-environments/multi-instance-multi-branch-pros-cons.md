@@ -1,10 +1,12 @@
 ---
-title: multi-instance-multi-branch-pros-cons
+title: 多实例、多分支的优缺点
 ---
-The advantages of this pattern are:
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-* An added safety layer to prevent changes getting into your production environment by mistake. You have to do a pull request in GitHub to copy work between environments.
-* It supports more than two instances.
+此模式的优点：
 
-The disadvantage is more manual steps to copy work between environments.
+* 额外增加一层保护，防止更改误入生产环境。必须通过 GitHub 中的拉取请求，才能在环境间复制工作。
+* 支持两个以上的实例。
+
+缺点是在环境间复制工作需要更多手动步骤。
 

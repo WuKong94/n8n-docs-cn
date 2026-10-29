@@ -1,144 +1,145 @@
 ---
-title: Tutorial - Create environments with source control
-description: How to use n8n's source control feature to create environments.
+title: 教程：使用源代码管理创建环境
+description: 如何使用 n8n 源代码管理功能创建环境。
 contentType: tutorial
-nodeTitle: 'Tutorial: Create environments with source control'
+nodeTitle: 教程：使用源代码管理创建环境
 originalFilePath: source-control-environments/create-environments.md
-originalUrl: 'https://docs.n8n.io/source-control-environments/create-environments'
-url: >-
-  https://docs.n8n.io/administer/use-source-control-and-environments/tutorial-create-environments-with-source-control
+originalUrl: https://docs.n8n.io/source-control-environments/create-environments
+url: https://docs.n8n.io/administer/use-source-control-and-environments/tutorial-create-environments-with-source-control
 layout:
   description:
     visible: false
 ---
-
-# Tutorial: Create environments with source control <a href="#tutorial-create-environments-with-source-control" id="tutorial-create-environments-with-source-control"></a>
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/2T2SmMUgiLyck7FDDwRD/" %}
-
-This tutorial walks through the process of setting up environments end-to-end. You'll create two environments: development and production. It uses GitHub as the Git provider. The process is similar for other providers. 
-
-n8n has built its environments feature on top of Git, a version control software. You link an n8n instance to a Git branch, and use a push-pull pattern to move work between environments. You should have some understanding of environments and Git. If you need more information on these topics, refer to:
-
-* [Environments in n8n](work-with-environments.md): the purpose of environments, and how they work in n8n. 
-* [Git and n8n](use-git-in-n8n.md): Git concepts and source control in n8n.
-
-## Choose your source control pattern <a href="#choose-your-source-control-pattern" id="choose-your-source-control-pattern"></a>
-
-Before setting up source control and environments, you need to plan your environments, and how they relate to Git branches. n8n supports different [Branch patterns](choose-branching-patterns.md). For environments, you need to choose between two patterns: multi-instance, multi-branch, or multi-instance, single-branch. This tutorial covers both patterns.
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/sVOSvjfqJPLqOGb1x77B/" %}
-
-### Multiple instances, multiple branches <a href="#multiple-instances-multiple-branches" id="multiple-instances-multiple-branches"></a>
-
-![Development n8n instance linked to a development branch and production instance linked to a production branch](../.gitbook/assets/vc-multi-multi.png)
-
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/O5AqRfApNuiINXZOe5j1/" %}
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-### Multiple instances, one branch <a href="#multiple-instances-one-branch" id="multiple-instances-one-branch"></a>
+# 教程：使用源代码管理创建环境 <a href="#tutorial-create-environments-with-source-control" id="tutorial-create-environments-with-source-control"></a>
 
-![Development and production n8n instances both connected to the same Git branch](../.gitbook/assets/vc-multi-one.png)
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/feature-availability.md" %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/Vo4DpZeEyTa0iuufMDB8/" %}
+本教程完整介绍设置环境的过程，你将创建开发和生产两个环境。教程使用 GitHub 作为 Git 托管平台，其他平台的流程类似。
 
-## Set up your repository <a href="#set-up-your-repository" id="set-up-your-repository"></a>
+n8n 在版本控制软件 Git 的基础上构建了环境功能。将 n8n 实例连接到 Git 分支后，通过推送和拉取在环境间迁移工作。你应对环境和 Git 有一定了解，如需更多信息，请参阅：
 
-Once you've chosen your pattern, you need to set up your GitHub repository.
+* [n8n 中的环境](work-with-environments.md)：环境的用途及其在 n8n 中的工作方式。
+* [Git 与 n8n](use-git-in-n8n.md)：Git 概念和 n8n 中的源代码管理。
+
+## 选择源代码管理模式 <a href="#choose-your-source-control-pattern" id="choose-your-source-control-pattern"></a>
+
+设置源代码管理与环境前，需要规划环境及其与 Git 分支的关系。n8n 支持不同的[分支模式](choose-branching-patterns.md)。对于环境，需要在“多实例、多分支”和“多实例、单分支”两种模式中选择，本教程会介绍这两种模式。
+
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/one-direction.md" %}
+
+### 多实例、多分支 <a href="#multiple-instances-multiple-branches" id="multiple-instances-multiple-branches"></a>
+
+![开发 n8n 实例连接开发分支，生产实例连接生产分支](../.gitbook/assets/vc-multi-multi.png)
+
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/multi-instance-multi-branch-pros-cons.md" %}
+
+
+### 多实例、单分支 <a href="#multiple-instances-one-branch" id="multiple-instances-one-branch"></a>
+
+![开发和生产 n8n 实例都连接到同一 Git 分支](../.gitbook/assets/vc-multi-one.png)
+
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/multi-instance-one-branch-pros-cons.md" %}
+
+## 设置仓库 <a href="#set-up-your-repository" id="set-up-your-repository"></a>
+
+选定模式后，需要设置 GitHub 仓库。
 
 {% tabs %}
-{% tab title="Multi-branch" %}
-1. [Create a new repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository). 
-    * Make sure the repository is private, unless you want your workflows, tags, and variable and credential stubs exposed to the internet.
-    * Create the new repository with a README so you can immediately create branches. 
-1. Create one branch named `production` and another named `development`. Refer to [Creating and deleting branches within your repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) for guidance.
+{% tab title="多分支" %}
+1. [创建新仓库](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)。
+    * 请确保仓库为私有，除非希望将工作流、标签，以及变量和凭据存根公开到互联网上。
+    * 创建仓库时添加 README，以便立即创建分支。
+1. 创建一个名为 `production` 的分支，另一个名为 `development`。操作方法请参阅[在仓库中创建和删除分支](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)。
 {% endtab %}
 
-{% tab title="Single-branch" %}
-[Create a new repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository). 
+{% tab title="单分支" %}
+[创建新仓库](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)。
 
-  * Make sure the repository is private, unless you want your workflows, tags, and variable and credential stubs exposed to the internet.  
-  * Create the new repository with a README. This creates the `main` branch, which you'll connect to. 		
+  * 请确保仓库为私有，除非希望将工作流、标签，以及变量和凭据存根公开到互联网上。
+  * 创建仓库时添加 README，这会创建 `main` 分支，之后将连接到该分支。
 {% endtab %}
 {% endtabs %}
 
-## Connect your n8n instances to your repository <a href="#connect-your-n8n-instances-to-your-repository" id="connect-your-n8n-instances-to-your-repository"></a>
+## 将 n8n 实例连接到仓库 <a href="#connect-your-n8n-instances-to-your-repository" id="connect-your-n8n-instances-to-your-repository"></a>
 
-Create two n8n instances, one for development, one for production. 
+创建两个 n8n 实例，一个用于开发，另一个用于生产。
 
-### Configure Git in n8n <a href="#configure-git-in-n8n" id="configure-git-in-n8n"></a>
+### 在 n8n 中配置 Git <a href="#configure-git-in-n8n" id="configure-git-in-n8n"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/UqTgO2VbAzax4T8z4Fyh/" %}
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/configure-git-in-n8n.md" %}
 
-### Set up a deploy key <a href="#set-up-a-deploy-key" id="set-up-a-deploy-key"></a>
+### 设置部署密钥 <a href="#set-up-a-deploy-key" id="set-up-a-deploy-key"></a>
 
-Set up SSH access by creating a deploy key for the repository using the SSH key from n8n. The key must have write access. Refer to [GitHub | Managing deploy keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys) for guidance.
+使用 n8n 提供的 SSH 密钥，为仓库创建部署密钥，以设置 SSH 访问。密钥必须具有写入权限。操作方法请参阅 [GitHub | 管理部署密钥](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys)。
 
-### Connect n8n and configure your instance <a href="#connect-n8n-and-configure-your-instance" id="connect-n8n-and-configure-your-instance"></a>
+### 连接 n8n 并配置实例 <a href="#connect-n8n-and-configure-your-instance" id="connect-n8n-and-configure-your-instance"></a>
 
 {% tabs %}
-{% tab title="Multi-branch" %}
-1. In **Settings** > **Environments** in n8n, select **Connect**. n8n connects to your Git repository.
-1. Under **Instance settings**, choose which branch you want to use for the current n8n instance. Connect the production branch to the production instance, and the development branch to the development instance.
-1. Production instance only: select **Protected instance** to prevent users editing workflows in this instance.
-1. Select **Save settings**.
+{% tab title="多分支" %}
+1. 在 n8n 的 **Settings**（设置）> **Environments**（环境）中，选择 **Connect**（连接）。n8n 会连接到 Git 仓库。
+1. 在 **Instance settings**（实例设置）下，选择当前 n8n 实例要使用的分支。将生产分支连接到生产实例，开发分支连接到开发实例。
+1. 仅生产实例：选择 **Protected instance**（受保护实例），阻止用户编辑该实例中的工作流。
+1. 选择 **Save settings**（保存设置）。
 {% endtab %}
 
-{% tab title="Single-branch" %}
-1. In **Settings** > **Environments** in n8n, select **Connect**. 
-  1. Under **Instance settings**, select the main branch.
-1. Production instance only: select **Protected instance** to prevent users editing workflows in this instance.
-1. Select **Save settings**.
+{% tab title="单分支" %}
+1. 在 n8n 的 **Settings**（设置）> **Environments**（环境）中，选择 **Connect**（连接）。
+  1. 在 **Instance settings**（实例设置）下，选择主分支。
+1. 仅生产实例：选择 **Protected instance**（受保护实例），阻止用户编辑该实例中的工作流。
+1. 选择 **Save settings**（保存设置）。
 {% endtab %}
 {% endtabs %}
 
-## Push work from development <a href="#push-work-from-development" id="push-work-from-development"></a>
+## 从开发环境推送工作 <a href="#push-work-from-development" id="push-work-from-development"></a>
 
-In your development instance, create a few workflows, tags, variables, and credentials.
+在开发实例中创建一些工作流、标签、变量和凭据。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/jlwygEO1bOtH6HDbN3We/" %}
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/push.md" %}
 
-## Pull work to production <a href="#pull-work-to-production" id="pull-work-to-production"></a>
+## 将工作拉取到生产环境 <a href="#pull-work-to-production" id="pull-work-to-production"></a>
 
-Your work is now in GitHub. If you're using a multi-branch setup, it's on the development branch. If you chose the single-branch setup, it's on main.
+工作现在已保存在 GitHub 中。如果采用多分支配置，工作位于开发分支；如果采用单分支配置，则位于 main。
 
 {% tabs %}
-{% tab title="Multi-branch" %}
-1. In GitHub, create a pull request to merge development into production.
-1. Merge the pull request.
-1. In your production instance, select **Pull** <img src="../.gitbook/assets/pull-icon.png" alt="Pull icon" data-size="line"> in the main menu.
+{% tab title="多分支" %}
+1. 在 GitHub 中创建拉取请求，将 development 合并到 production。
+1. 合并拉取请求。
+1. 在生产实例的主菜单中，选择 **Pull**（拉取）<img src="../.gitbook/assets/pull-icon.png" alt="拉取图标" data-size="line">。
 {% endtab %}
 
-{% tab title="Single-branch" %}
-In your production instance, select **Pull** <img src="../.gitbook/assets/pull-icon.png" alt="Pull icon" data-size="line"> in the main menu.
+{% tab title="单分支" %}
+在生产实例的主菜单中，选择 **Pull**（拉取）<img src="../.gitbook/assets/pull-icon.png" alt="拉取图标" data-size="line">。
 {% endtab %}
 {% endtabs %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/z7oYIete6nifvfi0QZKs/" %}
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/push-pull-menu-state.md" %}
 
-### Optional: Use a GitHub Action to automate pulls <a href="#optional-use-a-github-action-to-automate-pulls" id="optional-use-a-github-action-to-automate-pulls"></a>
+### 可选：使用 GitHub Action 自动拉取 <a href="#optional-use-a-github-action-to-automate-pulls" id="optional-use-a-github-action-to-automate-pulls"></a>
 
-If you want to avoid logging in to your production instance to pull, you can use a [GitHub Action](https://docs.github.com/en/actions/creating-actions/about-custom-actions) and the [n8n API](https://app.gitbook.com/s/r7wKI4I1BgdBCuq5Cvcx/n8n-api) to automatically pull every time you push new work to your production or main branch.
+如果希望无需登录生产实例就能拉取，可以使用 [GitHub Action](https://docs.github.com/en/actions/creating-actions/about-custom-actions) 和 [n8n API](../../connect/n8n-api/README.md)，在每次向 production 或 main 分支推送新工作时自动拉取。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/niFQjDjbGJDJTKB57Z1s/" %}
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/github-action.md" %}
 
 
-## Next steps <a href="#next-steps" id="next-steps"></a>
+## 后续步骤 <a href="#next-steps" id="next-steps"></a>
 
-Learn more about:
+了解更多：
 
-* [Environments in n8n](work-with-environments.md) and [Git and n8n](use-git-in-n8n.md)
-* [Source control patterns](choose-branching-patterns.md)
+* [n8n 中的环境](work-with-environments.md)与 [Git 与 n8n](use-git-in-n8n.md)。
+* [源代码管理模式](choose-branching-patterns.md)。
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use source control and environments](./)
-* [Understand source control](understand-source-control.md)
-* [Work with environments](work-with-environments.md)
-* [Use Git in n8n](use-git-in-n8n.md)
-* [Choose branching patterns](choose-branching-patterns.md)
-* [Set up source control](set-up-source-control.md)
-* [Push and pull changes](push-and-pull-changes.md)
-* [Compare versions](compare-versions.md)
-* [Move work between environments](move-work-between-environments.md)
-* [Use environments programmatically with the public API](use-environments-via-api.md)
+* [使用源代码管理与环境](./)
+* [理解源代码管理](understand-source-control.md)
+* [使用环境](work-with-environments.md)
+* [在 n8n 中使用 Git](use-git-in-n8n.md)
+* [选择分支模式](choose-branching-patterns.md)
+* [设置源代码管理](set-up-source-control.md)
+* [推送和拉取更改](push-and-pull-changes.md)
+* [比较版本](compare-versions.md)
+* [在环境间迁移工作](move-work-between-environments.md)
+* [通过公共 API 以编程方式使用环境](use-environments-via-api.md)

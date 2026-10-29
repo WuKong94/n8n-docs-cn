@@ -1,45 +1,46 @@
 ---
-title: Copy work between environments
-description: How to get changes from one environment into another.
+title: 在环境间复制工作
+description: 如何将一个环境中的更改迁移到另一个环境。
 contentType: howto
-nodeTitle: Move work between environments
+nodeTitle: 在环境间迁移工作
 originalFilePath: source-control-environments/using/copy-work.md
-originalUrl: 'https://docs.n8n.io/source-control-environments/using/copy-work'
-url: >-
-  https://docs.n8n.io/administer/use-source-control-and-environments/move-work-between-environments
+originalUrl: https://docs.n8n.io/source-control-environments/using/copy-work
+url: https://docs.n8n.io/administer/use-source-control-and-environments/move-work-between-environments
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Copy work between environments <a href="#copy-work-between-environments" id="copy-work-between-environments"></a>
 
-The steps to send work from one n8n instance to another are different depending on whether you use a single Git branch or multiple branches.
+# 在环境间复制工作 <a href="#copy-work-between-environments" id="copy-work-between-environments"></a>
 
-## Single branch <a href="#single-branch" id="single-branch"></a>
+将工作从一个 n8n 实例迁移到另一个实例的步骤，取决于使用单个还是多个 Git 分支。
 
-If you have a single Git branch the steps to copy work are:
+## 单分支 <a href="#single-branch" id="single-branch"></a>
 
-1. Push work from one instance to the Git branch.
-1. Log in to the other instance to pull the work from Git. You can [automate pulls](#automatically-send-changes-to-n8n).
+使用单个 Git 分支时，复制工作的步骤如下：
 
-## Multiple branches <a href="#multiple-branches" id="multiple-branches"></a>
+1. 将工作从一个实例推送到 Git 分支。
+1. 登录另一个实例，从 Git 拉取工作。可以[自动拉取](#automatically-send-changes-to-n8n)。
 
-If you have more than one Git branch, you need to merge the branches in your Git provider to copy work between environments. You can't copy work directly between environments in n8n. 
+## 多分支 <a href="#multiple-branches" id="multiple-branches"></a>
 
-A common pattern is:
+使用多个 Git 分支时，需要在 Git 托管平台合并分支，才能在环境间复制工作。无法在 n8n 中直接跨环境复制工作。
 
-1. Do work in your developments instance.
-1. Push the work to the development branch in Git.
-1. Merge your development branch into your production branch.	Refer to the documentation for your Git provider for guidance on doing this:  
-	* [GitHub: Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
-	* [GitLab: Creating merge requests](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-	* [Git: Basic branching and merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-1. In your production n8n instance, pull the changes. You can [automate pulls](#automatically-send-changes-to-n8n).
+常见流程如下：
 
-## Automatically send changes to n8n <a href="#automatically-send-changes-to-n8n" id="automatically-send-changes-to-n8n"></a>
+1. 在开发实例中工作。
+1. 将工作推送到 Git 的开发分支。
+1. 将开发分支合并到生产分支。操作指南请参阅 Git 托管平台的文档：
+	* [GitHub：创建拉取请求](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+	* [GitLab：创建合并请求](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
+	* [Git：基本分支与合并](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+1. 在生产 n8n 实例中拉取更改。可以[自动拉取](#automatically-send-changes-to-n8n)。
 
-You can automate parts of the process of copying work, using the `/source-control/pull` API endpoint. Call the API after merging the changes:
+## 自动将更改发送到 n8n <a href="#automatically-send-changes-to-n8n" id="automatically-send-changes-to-n8n"></a>
+
+可以使用 `/source-control/pull` API 端点将复制工作的部分流程自动化。在合并更改后调用该 API：
 
 ```curl
 curl --request POST \
@@ -49,20 +50,20 @@ curl --request POST \
 	--data '{"force": true}'
 ```
 
-This means you can use a GitHub Action or GitLab CI/CD to automatically pull changes to the production instance on merge.
+这样就能通过 GitHub Action 或 GitLab CI/CD，在合并时自动将更改拉取到生产实例。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/niFQjDjbGJDJTKB57Z1s/" %}
+{% include "../../reusable-content/.gitbook/includes/source-control-environments/github-action.md" %}
 
-## Related resources
+## 相关资源 <a id="related-resources"></a>
 
-* [Use source control and environments](./)
-* [Understand source control](understand-source-control.md)
-* [Work with environments](work-with-environments.md)
-* [Use Git in n8n](use-git-in-n8n.md)
-* [Choose branching patterns](choose-branching-patterns.md)
-* [Set up source control](set-up-source-control.md)
-* [Push and pull changes](push-and-pull-changes.md)
-* [Compare versions](compare-versions.md)
-* [Use environments programmatically with the public API](use-environments-via-api.md)
-* [Tutorial: Create environments with source control](tutorial-create-environments-with-source-control.md)
+* [使用源代码管理与环境](./)
+* [理解源代码管理](understand-source-control.md)
+* [使用环境](work-with-environments.md)
+* [在 n8n 中使用 Git](use-git-in-n8n.md)
+* [选择分支模式](choose-branching-patterns.md)
+* [设置源代码管理](set-up-source-control.md)
+* [推送和拉取更改](push-and-pull-changes.md)
+* [比较版本](compare-versions.md)
+* [通过公共 API 以编程方式使用环境](use-environments-via-api.md)
+* [教程：使用源代码管理创建环境](tutorial-create-environments-with-source-control.md)
 

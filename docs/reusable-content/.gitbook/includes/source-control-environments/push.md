@@ -1,12 +1,14 @@
 ---
-title: push
+title: 将工作推送到 Git
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-To push work to Git:
 
-1. Select **Push** <img src="../../assets/push-icon.png" alt="Push icon" data-size="line"> in the main menu.
-2.  In the **Commit and push changes** modal, select which workflows and data tables you want to push. You can filter by status (new, modified, deleted) and search for items. n8n automatically pushes tags, and variable and credential stubs.
+将工作推送到 Git：
 
-    n8n pushes the current saved version, not the published version, of the workflow. You need to then separately publish versions on the remote server.
-3. Enter a commit message. This should be a one sentence description of the changes you're making.
-4. Select **Commit and Push**. n8n sends the work to Git, and displays a success message on completion.
+1. 在主菜单中选择 **Push**（推送）<img src="../../assets/push-icon.png" alt="推送图标" data-size="line">。
+2. 在 **Commit and push changes**（提交并推送更改）弹窗中，选择要推送的工作流和数据表。可以按状态（新增、修改、删除）筛选并搜索项目。n8n 会自动推送标签，以及变量和凭据存根。
+
+    n8n 推送的是工作流当前保存的版本，而非已发布版本。之后还需要在远程服务器上单独发布版本。
+3. 输入提交说明，用一句话描述本次更改。
+4. 选择 **Commit and Push**（提交并推送）。n8n 会将工作发送到 Git，完成后显示成功消息。
