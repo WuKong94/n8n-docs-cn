@@ -1,50 +1,50 @@
 ---
-title: Google Books node documentation
-description: >-
-  Learn how to use the Google Books node in n8n. Follow technical documentation
-  to integrate Google Books node into your workflows.
+title: Google Books 节点文档
+description: 了解如何在 n8n 中使用 Google Books 节点，并按照技术文档将 Google Books 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Google Books node documentation
+- integration
+- reference
+nodeTitle: Google Books 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.googlebooks.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebooks'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebooks'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebooks
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlebooks
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Google Books node <a href="#google-books-node" id="google-books-node"></a>
 
-Use the Google Books node to automate work in Google Books, and integrate Google Books with other applications. n8n has built-in support for a wide range of Google Books features, including retrieving a specific bookshelf resource for the specified user, adding volume to a bookshelf, and getting volume.
+# Google Books 节点 <a href="#google-books-node" id="google-books-node"></a>
 
-On this page, you'll find a list of operations the Google Books node supports and links to more resources.
+使用 Google Books 节点自动处理 Google Books 中的工作，并将其与其他应用集成。n8n 内置支持多种 Google Books 功能，包括获取指定用户的特定书架资源、向书架添加图书，以及获取图书。
+
+本页列出了 Google Books 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Google credentials](../credentials/google/README.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Google 凭据](../credentials/google/README.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Bookshelf
-    * Retrieve a specific bookshelf resource for the specified user
-    * Get all public bookshelf resource for the specified user
-* Bookshelf Volume
-    * Add a volume to a bookshelf
-    * Clears all volumes from a bookshelf
-    * Get all volumes in a specific bookshelf for the specified user
-    * Moves a volume within a bookshelf
-    * Removes a volume from a bookshelf
-* Volume
-    * Get a volume resource based on ID
-    * Get all volumes filtered by query
+* Bookshelf（书架）
+    * Retrieve a specific bookshelf resource for the specified user（获取指定用户的特定书架资源）
+    * Get all public bookshelf resource for the specified user（获取指定用户的全部公开书架资源）
+* Bookshelf Volume（书架图书）
+    * Add a volume to a bookshelf（向书架添加图书）
+    * Clears all volumes from a bookshelf（清空书架中的全部图书）
+    * Get all volumes in a specific bookshelf for the specified user（获取指定用户特定书架中的全部图书）
+    * Moves a volume within a bookshelf（移动书架中的图书）
+    * Removes a volume from a bookshelf（从书架移除图书）
+* Volume（图书）
+    * Get a volume resource based on ID（按 ID 获取图书资源）
+    * Get all volumes filtered by query（获取按查询条件筛选的全部图书）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Google Books node documentation integration templates](https://n8n.io/integrations/google-books) or [search all templates](https://n8n.io/workflows/)
+[浏览 Google Books 集成模板](https://n8n.io/integrations/google-books)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

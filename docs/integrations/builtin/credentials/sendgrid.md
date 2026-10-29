@@ -1,48 +1,48 @@
 ---
-title: SendGrid credentials
-description: >-
-  Documentation for SendGrid credentials. Use these credentials to authenticate
-  SendGrid in n8n, a workflow automation platform.
+title: SendGrid 凭据
+description: SendGrid 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 SendGrid 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: SendGrid credentials
+nodeTitle: SendGrid 凭据
 originalFilePath: integrations/builtin/credentials/sendgrid.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/sendgrid'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/sendgrid'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/sendgrid
+url: https://docs.n8n.io/integrations/builtin/credentials/sendgrid
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# SendGrid credentials <a href="#sendgrid-credentials" id="sendgrid-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# SendGrid 凭据 <a href="#sendgrid-credentials" id="sendgrid-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [SendGrid](../app-nodes/n8n-nodes-base.sendgrid.md)
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [SendGrid's API documentation](https://www.twilio.com/docs/sendgrid/api-reference) for more information about the service.
+有关该服务的更多信息，请参阅 [SendGrid API 文档](https://www.twilio.com/docs/sendgrid/api-reference)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need a [SendGrid](https://sendgrid.com) account and:
+配置此凭据需要一个 [SendGrid](https://sendgrid.com) 账号，以及：
 
-- An **API Key**
+- 一个 **API Key（API 密钥）**
 
-To create an API key:
+创建 API 密钥：
 
-1. In the Twilio SendGrid app, go to **Settings >** [**API Keys**](https://app.sendgrid.com/settings/api_keys).
-2. Select **Create API Key**.
-3. Enter a **Name** for your API key, like `n8n integration`.
-4. Select **Full Access**.
-5. Select **Create & View**.
-6. Copy the key and enter it in your n8n credential.
+1. 在 Twilio SendGrid 应用中，进入 **Settings >** [**API Keys**](https://app.sendgrid.com/settings/api_keys)（设置 > API 密钥）。
+2. 选择 **Create API Key**（创建 API 密钥）。
+3. 为 API 密钥输入 **Name**（名称），例如 `n8n integration`。
+4. 选择 **Full Access**（完全访问）。
+5. 选择 **Create & View**（创建并查看）。
+6. 复制密钥，填入 n8n 凭据。
 
-Refer to [Create API Keys](https://www.twilio.com/docs/sendgrid/api-reference/api-keys/create-api-keys) for more information.
+更多信息请参阅[创建 API 密钥](https://www.twilio.com/docs/sendgrid/api-reference/api-keys/create-api-keys)。

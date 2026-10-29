@@ -1,59 +1,59 @@
 ---
-title: Qwen Cloud credentials
-description: >-
-  Documentation for Qwen Cloud credentials. Use these credentials to
-  authenticate Qwen Cloud in n8n, a workflow automation platform.
+title: Qwen Cloud 凭据
+description: Qwen Cloud 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Qwen Cloud 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Qwen Cloud credentials
+nodeTitle: Qwen Cloud 凭据
 originalFilePath: integrations/builtin/credentials/alibaba.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/alibaba'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/alibaba'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/alibaba
+url: https://docs.n8n.io/integrations/builtin/credentials/alibaba
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Qwen Cloud credentials <a href="#alibaba-cloud-credentials" id="alibaba-cloud-credentials"></a>
+
+# Qwen Cloud 凭据 <a href="#alibaba-cloud-credentials" id="alibaba-cloud-credentials"></a>
 
 {% hint style="info" %}
-On n8n Cloud, you can skip setting up Qwen Cloud credentials by selecting **Use Gateway credits** in the credential field of nodes that support it. Refer to [Gateway credits](https://app.gitbook.com/s/jm0ZYRpZIPWge2ZSiDYO/use-n8n-cloud/gateway-credits) for details.
+在 n8n Cloud 上，可以在支持此功能的节点凭据字段中选择 **Use Gateway credits（使用 Gateway 额度）**，无需另行设置 Qwen Cloud 凭据。详情请参阅 [Gateway 额度](../../../deploy/use-n8n-cloud/gateway-credits/README.md)。
 {% endhint %}
 
-You can use these credentials to authenticate the following nodes:
+这些凭据可用于以下节点的身份验证：
 
 - [Qwen Cloud](../app-nodes/n8n-nodes-langchain.alibabacloud.md)
-- [Qwen Cloud Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatalibabacloud.md)
+- [Qwen Cloud Chat Model（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatalibabacloud.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Qwen Cloud](https://qwencloud.com/) account.
+创建一个 [Qwen Cloud](https://qwencloud.com/) 账号。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Qwen Cloud API key documentation](https://docs.qwencloud.com/developer-guides/administration/api-keys) for more information about the service.
+该服务的更多信息，请参阅 [Qwen Cloud API 密钥文档](https://docs.qwencloud.com/developer-guides/administration/api-keys)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**
+- 一个 **API Key（API 密钥）**
 
-1. Sign in to [Qwen Cloud](https://qwencloud.com/).
-2. Go to **API Keys**.
-3. Use the workspace switcher at the bottom of the sidebar to select the workspace where you want to create the key.
-4. Select **Create API key**.
-5. Enter a description, then select **Generate Key**.
-6. Copy the API key. It displays only once.
-7. Enter the API key in your n8n credential.
-8. For Qwen Cloud accounts, set **Region** to **Singapore**. Select another region only if you're using Alibaba Cloud Model Studio.
+1. 登录 [Qwen Cloud](https://qwencloud.com/)。
+2. 进入 **API Keys**（API 密钥）。
+3. 使用侧边栏底部的工作区切换器，选择要在其中创建密钥的工作区。
+4. 选择 **Create API key**（创建 API 密钥）。
+5. 输入描述，再选择 **Generate Key**（生成密钥）。
+6. 复制 API 密钥，密钥只会显示一次。
+7. 将 API 密钥填入 n8n 凭据。
+8. 对于 Qwen Cloud 账户，将 **Region**（地区）设为 **Singapore**（新加坡）。只有使用 Alibaba Cloud Model Studio 时，才选择其他地区。
 
-Refer to [Qwen Cloud API key documentation](https://docs.qwencloud.com/developer-guides/administration/api-keys) for more information.
+更多信息请参阅 [Qwen Cloud API 密钥文档](https://docs.qwencloud.com/developer-guides/administration/api-keys)。

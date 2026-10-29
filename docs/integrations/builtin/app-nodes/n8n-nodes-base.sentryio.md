@@ -1,73 +1,73 @@
 ---
-title: Sentry.io node documentation
-description: >-
-  Learn how to use the Sentry.io node in n8n. Follow technical documentation to
-  integrate Sentry.io node into your workflows.
+title: Sentry.io 节点文档
+description: 了解如何在 n8n 中使用 Sentry.io 节点，并按照技术文档将 Sentry.io 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Sentry.io node documentation
+- integration
+- reference
+nodeTitle: Sentry.io 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.sentryio.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.sentryio'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.sentryio'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.sentryio
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.sentryio
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Sentry.io node <a href="#sentryio-node" id="sentryio-node"></a>
 
-Use the Sentry.io node to automate work in Sentry.io, and integrate Sentry.io with other applications. n8n has built-in support for a wide range of Sentry.io features, including creating, updating, deleting, and getting, issues, projects, and releases, as well as getting all events.
+# Sentry.io 节点 <a href="#sentryio-node" id="sentryio-node"></a>
 
-On this page, you'll find a list of operations the Sentry.io node supports and links to more resources.
+使用 Sentry.io 节点自动处理 Sentry.io 中的工作，并将其与其他应用集成。n8n 内置支持多种 Sentry.io 功能，包括创建、更新、删除和获取问题、项目及发布版本，以及获取全部事件。
+
+本页列出了 Sentry.io 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Sentry.io credentials](../credentials/sentryio.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Sentry.io 凭据](../credentials/sentryio.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Event
-    * Get event by ID
-    * Get all events
-* Issue
-    * Delete an issue
-    * Get issue by ID
-    * Get all issues
-    * Update an issue
-* Project
-    * Create a new project
-    * Delete a project
-    * Get project by ID
-    * Get all projects
-    * Update a project
-* Release
-    * Create a release
-    * Delete a release
-    * Get release by version identifier
-    * Get all releases
-    * Update a release
-* Organization
-    * Create an organization
-    * Get organization by slug
-    * Get all organizations
-    * Update an organization
-* Team
-    * Create a new team
-    * Delete a team
-    * Get team by slug
-    * Get all teams
-    * Update a team
+* Event（事件）
+    * Get event by ID（按 ID 获取事件）
+    * Get all events（获取全部事件）
+* Issue（议题）
+    * Delete an issue（删除问题）
+    * Get issue by ID（按 ID 获取问题）
+    * Get all issues（获取全部问题）
+    * Update an issue（更新问题）
+* Project（项目）
+    * Create a new project（创建新项目）
+    * Delete a project（删除项目）
+    * Get project by ID（按 ID 获取项目）
+    * Get all projects（获取全部项目）
+    * Update a project（更新项目）
+* Release（发布版本）
+    * Create a release（创建发布版本）
+    * Delete a release（删除发布版本）
+    * Get release by version identifier（按版本标识符获取发布版本）
+    * Get all releases（获取全部发布版本）
+    * Update a release（更新发布版本）
+* Organization（组织）
+    * Create an organization（创建组织）
+    * Get organization by slug（按 slug 获取组织）
+    * Get all organizations（获取全部组织）
+    * Update an organization（更新组织）
+* Team（团队）
+    * Create a new team（创建团队）
+    * Delete a team（删除团队）
+    * Get team by slug（按 slug 获取团队）
+    * Get all teams（获取全部团队）
+    * Update a team（更新团队）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Sentry.io node documentation integration templates](https://n8n.io/integrations/sentryio) or [search all templates](https://n8n.io/workflows/)
+[浏览 Sentry.io 集成模板](https://n8n.io/integrations/sentryio)，或[搜索所有模板](https://n8n.io/workflows/)
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Sentry.io's documentation](https://docs.sentry.io/api/) for more information about the service.
+有关该服务的更多信息，请参阅 [Sentry.io 文档](https://docs.sentry.io/api/)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

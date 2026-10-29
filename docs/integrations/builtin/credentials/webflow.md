@@ -1,57 +1,57 @@
 ---
-title: Webflow credentials
-description: >-
-  Documentation for Webflow credentials. Use these credentials to authenticate
-  Webflow in n8n, a workflow automation platform.
+title: Webflow 凭据
+description: Webflow 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Webflow 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Webflow credentials
+- integration
+- reference
+nodeTitle: Webflow 凭据
 originalFilePath: integrations/builtin/credentials/webflow.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/webflow'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/webflow'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/webflow
+url: https://docs.n8n.io/integrations/builtin/credentials/webflow
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Webflow credentials <a href="#webflow-credentials" id="webflow-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Webflow 凭据 <a href="#webflow-credentials" id="webflow-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Webflow](../app-nodes/n8n-nodes-base.webflow.md)
-- [Webflow Trigger](../trigger-nodes/n8n-nodes-base.webflowtrigger.md)
+- [Webflow Trigger（触发器）](../trigger-nodes/n8n-nodes-base.webflowtrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a [Webflow](https://webflow.com/) account.
-- [Create a site](https://developers.webflow.com/data/reference/structure-1#sites): Required for API access token authentication only.
+- 创建一个 [Webflow](https://webflow.com/) 账号。
+- [创建站点](https://developers.webflow.com/data/reference/structure-1#sites)：仅 API 访问令牌身份验证需要此步骤。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API access token
+- API access token（API 访问令牌）
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Webflow's API documentation](https://developers.webflow.com/data/reference/rest-introduction) for more information about the service.
+有关该服务的更多信息，请参阅 [Webflow API 文档](https://developers.webflow.com/data/reference/rest-introduction)。
 
-## Using API access token <a href="#using-api-access-token" id="using-api-access-token"></a>
+## 使用 API 访问令牌 <a href="#using-api-access-token" id="using-api-access-token"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A Site **Access Token**: Access tokens are site-specific. Go to your site's **Site Settings > Apps & integrations > API access** and select **Generate API token**. Refer to [Get a Site Token](https://developers.webflow.com/data/v1.0.0/docs/get-a-site-token) for more information.
+- 站点 **Access Token**（访问令牌）：访问令牌专属于具体站点。进入站点的 **Site Settings > Apps & integrations > API access**（站点设置 > 应用与集成 > API 访问），选择 **Generate API token**（生成 API 令牌）。更多信息请参阅[获取站点令牌](https://developers.webflow.com/data/v1.0.0/docs/get-a-site-token)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/HoGXnGIfupVt81dGox48/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/credentials/cloud-oauth-button.md" %}
 
-If you need to configure OAuth2 from scratch, [register an application](https://developers.webflow.com/data/docs/register-an-app) in your workspace.
+如果需要从头配置 OAuth2，请在工作区中[注册应用](https://developers.webflow.com/data/docs/register-an-app)。
 
-Use these settings for your application:
+为应用采用以下设置：
 
-- Copy the **OAuth callback URL** from n8n and add it as a **Redirect URI** in your application.
-- Once you've created your application, copy the **Client ID** and **Client Secret** and enter them in your n8n credential.
-- The Webflow Data API V1 is deprecated. If you're using it, enable the **Legacy** toggle. Otherwise, leave this inactive.
+- 从 n8n 复制 **OAuth callback URL**（OAuth 回调 URL），将其添加为应用的 **Redirect URI**（重定向 URI）。
+- 创建应用后，复制 **Client ID** 和 **Client Secret**，填入 n8n 凭据。
+- Webflow Data API V1 已弃用。如果仍在使用，请开启 **Legacy**（旧版）开关；否则保持关闭。
 
-Refer to [OAuth](https://developers.webflow.com/data/reference/oauth-app) for more information on Webflow's OAuth web flow.
+Webflow OAuth 网页流程的更多信息，请参阅 [OAuth](https://developers.webflow.com/data/reference/oauth-app)。

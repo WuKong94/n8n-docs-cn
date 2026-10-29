@@ -1,51 +1,51 @@
 ---
-title: Rundeck node documentation
-description: >-
-  Learn how to use the Rundeck node in n8n. Follow technical documentation to
-  integrate Rundeck node into your workflows.
+title: Rundeck 节点文档
+description: 了解如何在 n8n 中使用 Rundeck 节点，并按照技术文档将 Rundeck 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Rundeck node documentation
+- integration
+- reference
+nodeTitle: Rundeck 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.rundeck.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rundeck'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rundeck'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rundeck
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.rundeck
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Rundeck node <a href="#rundeck-node" id="rundeck-node"></a>
 
-Use the Rundeck node to automate work in Rundeck, and integrate Rundeck with other applications. n8n has built-in support for executing jobs and getting metadata.
+# Rundeck 节点 <a href="#rundeck-node" id="rundeck-node"></a>
 
-On this page, you'll find a list of operations the Rundeck node supports and links to more resources.
+使用 Rundeck 节点自动处理 Rundeck 中的工作，并将其与其他应用集成。n8n 内置支持执行任务和获取元数据。
+
+本页列出了 Rundeck 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Rundeck credentials](../credentials/rundeck.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Rundeck 凭据](../credentials/rundeck.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-- **Job**
-    - Execute a job
-    - Get metadata of a job
+- **Job**（任务）
+    - Execute a job（执行任务）
+    - Get metadata of a job（获取任务元数据）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Rundeck node documentation integration templates](https://n8n.io/integrations/rundeck) or [search all templates](https://n8n.io/workflows/)
+[浏览 Rundeck 集成模板](https://n8n.io/integrations/rundeck)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
 
-## Find the job ID <a href="#find-the-job-id" id="find-the-job-id"></a>
+## 查找任务 ID <a href="#find-the-job-id" id="find-the-job-id"></a>
 
-1. Access your Rundeck dashboard.
-2. Open the project that contains the job you want to use with n8n.
-3. In the sidebar, select **JOBS**.
-4. Under **All Jobs**, select the name of the job you want to use with n8n.
-5. In the top left corner, under the name of the job, copy the string that's displayed in smaller font below the job name. This is your job ID.
-6. Paste this job ID in the **Job Id** field in n8n.
+1. 打开 Rundeck 控制台。
+2. 打开包含所需任务的项目，该任务将供 n8n 使用。
+3. 在侧边栏中选择 **JOBS**（任务）。
+4. 在 **All Jobs**（全部任务）下，选择要与 n8n 配合使用的任务名称。
+5. 在左上角找到任务名称，复制其下方以较小字号显示的字符串，这就是任务 ID。
+6. 将任务 ID 粘贴到 n8n 的 **Job Id** 字段。
 

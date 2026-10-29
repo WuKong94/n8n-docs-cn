@@ -1,76 +1,76 @@
 ---
-title: Asana node documentation
-description: >-
-  Learn how to use the Asana node in n8n. Follow technical documentation to
-  integrate Asana node into your workflows.
+title: Asana 节点文档
+description: 了解如何在 n8n 中使用 Asana 节点，并按照技术文档将 Asana 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Asana node documentation
+nodeTitle: Asana 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.asana.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.asana
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Asana node <a href="#asana-node" id="asana-node"></a>
 
-Use the Asana node to automate work in Asana, and integrate Asana with other applications. n8n has built-in support for a wide range of Asana features, including creating, updating, deleting, and getting users, tasks, projects, and subtasks.
+# Asana 节点 <a href="#asana-node" id="asana-node"></a>
 
-On this page, you'll find a list of operations the Asana node supports and links to more resources.
+使用 Asana 节点自动处理 Asana 中的工作，并将其与其他应用集成。n8n 内置支持多种 Asana 功能，包括创建、更新、删除和获取用户、任务、项目和子任务。
+
+本页列出了 Asana 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Asana credentials](../credentials/asana.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Asana 凭据](../credentials/asana.md)。
 {% endhint %}
 
 {% hint style="info" %}
-**Feature availability**
+**功能可用范围**
 
-Due to changes in Asana's API, some operations in this node stopped working on January 17, 2023. The Asana node requires n8n 1.22.2 to support these operations.
+由于 Asana API 发生变化，此节点的部分操作自 2023 年 1 月 17 日起失效。Asana 节点需要 n8n 1.22.2 才能支持这些操作。
 {% endhint %}
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/6vuTxJwns2nA8U7V56ij/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/ai-tools.md" %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Project
-    * Create a new project
-    * Delete a project
-    * Get a project
-    * Get all projects
-    * Update a project
-* Subtask
-    * Create a subtask
-    * Get all subtasks
-* Task
-    * Create a task
-    * Delete a task
-    * Get a task
-    * Get all tasks
-    * Move a task
-    * Search for tasks
-    * Update a task
-* Task Comment
-    * Add a comment to a task
-    * Remove a comment from a task
-* Task Tag
-    * Add a tag to a task
-    * Remove a tag from a task
-* Task Project
-    * Add a task to a project
-    * Remove a task from a project
-* User
-    * Get a user
-    * Get all users
+* Project（项目）
+    * Create a new project（创建新项目）
+    * Delete a project（删除项目）
+    * Get a project（获取项目）
+    * Get all projects（获取全部项目）
+    * Update a project（更新项目）
+* Subtask（子任务）
+    * Create a subtask（创建子任务）
+    * Get all subtasks（获取全部子任务）
+* Task（任务）
+    * Create a task（创建任务）
+    * Delete a task（删除任务）
+    * Get a task（获取任务）
+    * Get all tasks（获取全部任务）
+    * Move a task（移动任务）
+    * Search for tasks（搜索任务）
+    * Update a task（更新任务）
+* Task Comment（任务评论）
+    * Add a comment to a task（为任务添加评论）
+    * Remove a comment from a task（从任务移除评论）
+* Task Tag（任务标签）
+    * Add a tag to a task（为任务添加标签）
+    * Remove a tag from a task（从任务移除标签）
+* Task Project（任务项目）
+    * Add a task to a project（将任务添加到项目）
+    * Remove a task from a project（从项目移除任务）
+* User（用户）
+    * Get a user（获取用户）
+    * Get all users（获取全部用户）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Asana node documentation integration templates](https://n8n.io/integrations/asana) or [search all templates](https://n8n.io/workflows/)
+[浏览 Asana 集成模板](https://n8n.io/integrations/asana)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}

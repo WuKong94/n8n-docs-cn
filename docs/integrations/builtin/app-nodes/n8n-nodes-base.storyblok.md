@@ -1,53 +1,53 @@
 ---
-title: Storyblok node documentation
-description: >-
-  Learn how to use the Storyblok node in n8n. Follow technical documentation to
-  integrate Storyblok node into your workflows.
+title: Storyblok 节点文档
+description: 了解如何在 n8n 中使用 Storyblok 节点，并按照技术文档将 Storyblok 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Storyblok node documentation
+- integration
+- reference
+nodeTitle: Storyblok 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.storyblok.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.storyblok'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.storyblok'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.storyblok
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.storyblok
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Storyblok node <a href="#storyblok-node" id="storyblok-node"></a>
 
-Use the Storyblok node to automate work in Storyblok, and integrate Storyblok with other applications. n8n has built-in support for a wide range of Storyblok features, including getting, deleting, and publishing stories. 
+# Storyblok 节点 <a href="#storyblok-node" id="storyblok-node"></a>
 
-On this page, you'll find a list of operations the Storyblok node supports and links to more resources.
+使用 Storyblok 节点自动处理 Storyblok 中的工作，并将其与其他应用集成。n8n 内置支持多种 Storyblok 功能，包括获取、删除和发布内容条目（Story）。
+
+本页列出了 Storyblok 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Storyblok credentials](../credentials/storyblok.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Storyblok 凭据](../credentials/storyblok.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-### Content API <a href="#content-api" id="content-api"></a>
+### Content API（内容 API） <a href="#content-api" id="content-api"></a>
 
-- **Story**
-    - Get a story
-    - Get all stories
-
-
-### Management API <a href="#management-api" id="management-api"></a>
-
-- **Story**
-    - Delete a story
-    - Get a story
-    - Get all stories
-    - Publish a story
-    - Unpublish a story
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+- **Story**（内容条目）
+    - Get a story（获取内容条目）
+    - Get all stories（获取全部内容条目）
 
 
-[Browse Storyblok node documentation integration templates](https://n8n.io/integrations/storyblok) or [search all templates](https://n8n.io/workflows/)
+### Management API（管理 API） <a href="#management-api" id="management-api"></a>
+
+- **Story**（内容条目）
+    - Delete a story（删除内容条目）
+    - Get a story（获取内容条目）
+    - Get all stories（获取全部内容条目）
+    - Publish a story（发布内容条目）
+    - Unpublish a story（取消发布内容条目）
+
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
+
+
+[浏览 Storyblok 集成模板](https://n8n.io/integrations/storyblok)，或[搜索所有模板](https://n8n.io/workflows/)
 
 

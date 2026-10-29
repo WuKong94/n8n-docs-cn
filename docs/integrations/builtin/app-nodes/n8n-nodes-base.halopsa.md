@@ -1,60 +1,60 @@
 ---
-title: HaloPSA node documentation
-description: >-
-  Learn how to use the HaloPSA node in n8n. Follow technical documentation to
-  integrate HaloPSA node into your workflows.
+title: HaloPSA 节点文档
+description: 了解如何在 n8n 中使用 HaloPSA 节点，并按照技术文档将 HaloPSA 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: HaloPSA node documentation
+- integration
+- reference
+nodeTitle: HaloPSA 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.halopsa.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.halopsa'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.halopsa'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.halopsa
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.halopsa
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# HaloPSA node <a href="#halopsa-node" id="halopsa-node"></a>
 
-Use the HaloPSA node to automate work in HaloPSA, and integrate HaloPSA with other applications. n8n has built-in support for a wide range of HaloPSA features, including creating, updating, deleting, and getting clients, sites and tickets. 
+# HaloPSA 节点 <a href="#halopsa-node" id="halopsa-node"></a>
 
-On this page, you'll find a list of operations the HaloPSA node supports and links to more resources.
+使用 HaloPSA 节点自动处理 HaloPSA 中的工作，并将其与其他应用集成。n8n 内置支持多种 HaloPSA 功能，包括创建、更新、删除和获取客户、站点及工单。
+
+本页列出了 HaloPSA 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [HaloPSA credentials](../credentials/halopsa.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [HaloPSA 凭据](../credentials/halopsa.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Client
-    * Create a client
-    * Delete a client
-    * Get a client
-    * Get all clients
-    * Update a client
-* Site
-    * Create a site
-    * Delete a site
-    * Get a site
-    * Get all sites
-    * Update a site
-* Ticket
-    * Create a ticket
-    * Delete a ticket
-    * Get a ticket
-    * Get all tickets
-    * Update a ticket
-* User
-    * Create a user
-    * Delete a user
-    * Get a user
-    * Get all users
-    * Update a user
+* Client（客户）
+    * Create a client（创建客户）
+    * Delete a client（删除客户）
+    * Get a client（获取客户）
+    * Get all clients（获取全部客户）
+    * Update a client（更新客户）
+* Site（站点）
+    * Create a site（创建站点）
+    * Delete a site（删除站点）
+    * Get a site（获取站点）
+    * Get all sites（获取全部站点）
+    * Update a site（更新站点）
+* Ticket（工单）
+    * Create a ticket（创建工单）
+    * Delete a ticket（删除工单）
+    * Get a ticket（获取工单）
+    * Get all tickets（获取全部工单）
+    * Update a ticket（更新工单）
+* User（用户）
+    * Create a user（创建用户）
+    * Delete a user（删除用户）
+    * Get a user（获取用户）
+    * Get all users（获取全部用户）
+    * Update a user（更新用户）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse HaloPSA node documentation integration templates](https://n8n.io/integrations/halopsa) or [search all templates](https://n8n.io/workflows/)
+[浏览 HaloPSA 集成模板](https://n8n.io/integrations/halopsa)，或[搜索所有模板](https://n8n.io/workflows/)

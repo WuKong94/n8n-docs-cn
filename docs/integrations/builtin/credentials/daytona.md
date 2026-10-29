@@ -1,44 +1,46 @@
 ---
-title: Daytona credentials
-description: Documentation for the Daytona credentials. Use these credentials to authenticate Daytona in n8n, a workflow automation platform.
+title: Daytona 凭据
+description: Daytona 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Daytona 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Daytona credentials
 
-## Prerequisites
+# Daytona 凭据 <a id="daytona-credentials"></a>
 
-Create a [Daytona](https://app.daytona.io/) account.
+## 前置条件 <a id="prerequisites"></a>
 
-## Supported authentication methods
+创建一个 [Daytona](https://app.daytona.io/) 账号。
 
-- API key
+## 支持的身份验证方式 <a id="supported-authentication-methods"></a>
 
-## Related resources
+- API key（API 密钥）
 
-Refer to [Daytona's API documentation](https://www.daytona.io/docs/en/tools/api/) for more information about the service.
+## 相关资源 <a id="related-resources"></a>
 
-## Using API key
+有关该服务的更多信息，请参阅 [Daytona API 文档](https://www.daytona.io/docs/en/tools/api/)。
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a id="using-api-key"></a>
 
-- An **API URL**: The URL of your Daytona API endpoint.
-- An **API Key**: Your Daytona API key.
+配置此凭据需要：
 
-To get your API key:
+- **API URL**：Daytona API 端点的 URL。
+- **API Key**（API 密钥）：Daytona API 密钥。
 
-1. Log in to the [Daytona Dashboard](https://app.daytona.io/dashboard/keys).
-2. Select **Create Key**.
-3. Enter a name for the key, such as `n8n integration`.
-4. Set an expiration date and select the permissions your key needs.
-5. Select **Create** to generate the key.
-6. Copy the API key and enter it as the **API Key** in your n8n credential.
+获取 API 密钥的步骤如下：
 
-For the **API URL**, use `https://app.daytona.io/api` for Daytona's hosted service or the URL of your self-hosted Daytona instance.
+1. 登录 [Daytona Dashboard](https://app.daytona.io/dashboard/keys)（控制台）。
+2. 选择 **Create Key**（创建密钥）。
+3. 为密钥输入名称，例如 `n8n integration`。
+4. 设置到期日期，并选择密钥所需权限。
+5. 选择 **Create**（创建）生成密钥。
+6. 复制 API 密钥，填入 n8n 凭据的 **API Key** 字段。
 
-Refer to [Daytona's API Keys documentation](https://www.daytona.io/docs/en/api-keys/) for more information.
+**API URL**：Daytona 托管服务使用 `https://app.daytona.io/api`，自托管实例则使用自己的 Daytona 实例 URL。
+
+更多信息请参阅 [Daytona API Keys 文档](https://www.daytona.io/docs/en/api-keys/)。

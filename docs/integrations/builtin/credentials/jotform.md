@@ -1,51 +1,51 @@
 ---
-title: Jotform credentials
-description: >-
-  Documentation for Jotform credentials. Use these credentials to authenticate
-  Jotform in n8n, a workflow automation platform.
+title: Jotform 凭据
+description: Jotform 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Jotform 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Jotform credentials
+nodeTitle: Jotform 凭据
 originalFilePath: integrations/builtin/credentials/jotform.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/jotform'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/jotform'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/jotform
+url: https://docs.n8n.io/integrations/builtin/credentials/jotform
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Jotform credentials <a href="#jotform-credentials" id="jotform-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Jotform 凭据 <a href="#jotform-credentials" id="jotform-credentials"></a>
 
-- [Jotform Trigger](../trigger-nodes/n8n-nodes-base.jotformtrigger.md)
+这些凭据可用于以下节点的身份验证：
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+- [Jotform Trigger（触发器）](../trigger-nodes/n8n-nodes-base.jotformtrigger.md)
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Jotform's API documentation](https://api.jotform.com/docs/) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+有关该服务的更多信息，请参阅 [Jotform API 文档](https://api.jotform.com/docs/)。
 
-To configure this credential, you'll need a [Jotform](https://www.jotform.com/) account and:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**
-- The **API Domain**
+配置此凭据需要一个 [Jotform](https://www.jotform.com/) 账号，以及：
 
-To set it up:
+- 一个 **API Key（API 密钥）**
+- **API Domain**（API 域名）
 
-1. Go to **Settings >** [**API**](https://www.jotform.com/myaccount/api).
-2. Select **Create New Key**.
-3. Select the **Name** in Jotform to update the API key name to something meaningful, like `n8n integration`.
-4. Copy the **API Key** and enter it in your n8n credential.
-5. In n8n, select the **API Domain** that applies to you based on the forms you're using:
-    - **api.jotform.com**: Use this unless the other form types apply to you.
-    - **eu-api.jotform.com**: Select this if you're using Jotform [EU Safe Forms](https://www.jotform.com/eu-safe-forms/).
-    - **hipaa-api.jotform.com**: Select this if you're using Jotform [HIPAA forms](https://www.jotform.com/hipaa/).
+设置步骤如下：
 
-Refer to the [Jotform API documentation](https://api.jotform.com/docs/) for more information on creating keys and API domains.
+1. 进入 **Settings >** [**API**](https://www.jotform.com/myaccount/api)（设置 > API）。
+2. 选择 **Create New Key**（创建新密钥）。
+3. 在 Jotform 中选择 **Name**（名称），将 API 密钥名称改为有意义的名称，例如 `n8n integration`。
+4. 复制 **API Key**（API 密钥），填入 n8n 凭据。
+5. 在 n8n 中，根据所用表单选择适用的 **API Domain**：
+    - **api.jotform.com**：其他表单类型均不适用时，使用此域名。
+    - **eu-api.jotform.com**：使用 Jotform [EU Safe Forms](https://www.jotform.com/eu-safe-forms/) 时选择此域名。
+    - **hipaa-api.jotform.com**：使用 Jotform [HIPAA forms](https://www.jotform.com/hipaa/) 时选择此域名。
+
+创建密钥和 API 域名的更多信息，请参阅 [Jotform API 文档](https://api.jotform.com/docs/)。

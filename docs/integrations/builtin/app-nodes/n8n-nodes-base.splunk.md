@@ -1,55 +1,55 @@
 ---
-title: Splunk node documentation
-description: >-
-  Learn how to use the Splunk node in n8n. Follow technical documentation to
-  integrate Splunk node into your workflows.
+title: Splunk 节点文档
+description: 了解如何在 n8n 中使用 Splunk 节点，并按照技术文档将 Splunk 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Splunk node documentation
+- integration
+- reference
+nodeTitle: Splunk 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.splunk.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.splunk'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.splunk'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.splunk
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.splunk
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Splunk node <a href="#splunk-node" id="splunk-node"></a>
 
-Use the Splunk node to automate work in Splunk, and integrate Splunk with other applications. n8n has built-in support for a wide range of Splunk features, including getting fired alerts reports, as well as deleting and getting search configuration. 
+# Splunk 节点 <a href="#splunk-node" id="splunk-node"></a>
 
-On this page, you'll find a list of operations the Splunk node supports and links to more resources.
+使用 Splunk 节点自动处理 Splunk 中的工作，并将其与其他应用集成。n8n 内置支持多种 Splunk 功能，包括获取已触发告警的报告，以及删除和获取搜索配置。
+
+本页列出了 Splunk 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Splunk credentials](../credentials/splunk.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Splunk 凭据](../credentials/splunk.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* Fired Alert
-    * Get a fired alerts report
-* Search Configuration
-    * Delete a search configuration
-    * Get a search configuration
-    * Get many search configurations
-* Search Job
-    * Create a search job
-    * Delete a search job
-    * Get a search job
-    * Get many search jobs
-* Search Result
-    * Get many search results
-* User
-    * Create a user
-    * Delete a user
-    * Get a user
-    * Get many users
-    * Update a user
+* Fired Alert（已触发告警）
+    * Get a fired alerts report（获取已触发告警报告）
+* Search Configuration（搜索配置）
+    * Delete a search configuration（删除搜索配置）
+    * Get a search configuration（获取搜索配置）
+    * Get many search configurations（获取多条搜索配置）
+* Search Job（搜索任务）
+    * Create a search job（创建搜索任务）
+    * Delete a search job（删除搜索任务）
+    * Get a search job（获取搜索任务）
+    * Get many search jobs（获取多个搜索任务）
+* Search Result（搜索结果）
+    * Get many search results（获取多条搜索结果）
+* User（用户）
+    * Create a user（创建用户）
+    * Delete a user（删除用户）
+    * Get a user（获取用户）
+    * Get many users（获取多条用户）
+    * Update a user（更新用户）
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Splunk node documentation integration templates](https://n8n.io/integrations/splunk) or [search all templates](https://n8n.io/workflows/)
+[浏览 Splunk 集成模板](https://n8n.io/integrations/splunk)，或[搜索所有模板](https://n8n.io/workflows/)

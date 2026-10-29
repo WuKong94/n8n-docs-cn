@@ -1,48 +1,48 @@
 ---
-title: PostHog credentials
-description: >-
-  Documentation for PostHog credentials. Use these credentials to authenticate
-  PostHog in n8n, a workflow automation platform.
+title: PostHog 凭据
+description: PostHog 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 PostHog 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: PostHog credentials
+- integration
+- reference
+nodeTitle: PostHog 凭据
 originalFilePath: integrations/builtin/credentials/posthog.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/posthog'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/posthog'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/posthog
+url: https://docs.n8n.io/integrations/builtin/credentials/posthog
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# PostHog credentials <a href="#posthog-credentials" id="posthog-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# PostHog 凭据 <a href="#posthog-credentials" id="posthog-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [PostHog](../app-nodes/n8n-nodes-base.posthog.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [PostHog](https://posthog.com/) account or host PostHog on your server.
+创建 [PostHog](https://posthog.com/) 账户，或在自己的服务器上托管 PostHog。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [PostHog's API documentation](https://posthog.com/docs/api) for more information about the service.
+有关该服务的更多信息，请参阅 [PostHog API 文档](https://posthog.com/docs/api)。
 
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- The API **URL**: Enter the correct domain for your API requests:
-    - On US Cloud, use `https://us.i.posthog.com` for public POST-only endpoints or `https://us.posthog.com` for private endpoints.
-    - On EU Cloud, use `https://eu.i.posthog.com` for public POST-only endpoints or `https://eu.posthog.com` for private endpoints.
-    - For self-hosted instances, use your self-hosted domain. 
-    - Confirm yours by checking your PostHog instance URL.
-- An **API Key**: The API key you use depends on whether you're accessing public or private endpoints:
-    - For public POST-only endpoints, use a [Project API key](https://app.posthog.com/project/settings) from your project's **General** Settings.
-    - For private endpoints, use a [Personal API key](https://app.posthog.com/settings/user-api-keys) from your User account's **Personal API Keys** Settings. Refer to [How to obtain a personal API key](https://posthog.com/docs/api#private-endpoint-authentication) for more information.
+- API **URL**：输入适用于 API 请求的域名：
+    - 在 US Cloud（美国云）中，公开且仅支持 POST 的端点使用 `https://us.i.posthog.com`，私有端点使用 `https://us.posthog.com`。
+    - 在 EU Cloud（欧洲云）中，公开且仅支持 POST 的端点使用 `https://eu.i.posthog.com`，私有端点使用 `https://eu.posthog.com`。
+    - 自托管实例使用自己的域名。
+    - 检查 PostHog 实例 URL，确认实际所用域名。
+- **API Key**（API 密钥）：根据访问公开端点还是私有端点，选择对应的 API 密钥：
+    - 公开且仅支持 POST 的端点，使用项目 **General**（常规）设置中的 [Project API key](https://app.posthog.com/project/settings)（项目 API 密钥）。
+    - 私有端点，使用用户账户 **Personal API Keys**（个人 API 密钥）设置中的 [Personal API key](https://app.posthog.com/settings/user-api-keys)。更多信息请参阅[如何获取个人 API 密钥](https://posthog.com/docs/api#private-endpoint-authentication)。

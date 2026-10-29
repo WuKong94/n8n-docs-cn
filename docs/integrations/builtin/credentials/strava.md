@@ -1,51 +1,51 @@
 ---
-title: Strava credentials
-description: >-
-  Documentation for Strava credentials. Use these credentials to authenticate
-  Strava in n8n, a workflow automation platform.
+title: Strava 凭据
+description: Strava 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Strava 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Strava credentials
+- integration
+- reference
+nodeTitle: Strava 凭据
 originalFilePath: integrations/builtin/credentials/strava.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/strava'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/strava'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/strava
+url: https://docs.n8n.io/integrations/builtin/credentials/strava
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Strava credentials <a href="#strava-credentials" id="strava-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Strava 凭据 <a href="#strava-credentials" id="strava-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 - [Strava](../app-nodes/n8n-nodes-base.strava.md)
-- [Strava Trigger](../trigger-nodes/n8n-nodes-base.stravatrigger.md)
+- [Strava Trigger（触发器）](../trigger-nodes/n8n-nodes-base.stravatrigger.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-- Create a [Strava](https://strava.com) account.
-- Create a Strava application in [**Settings > API**](https://www.strava.com/settings/api). Refer to [Using OAuth2](#using-oauth2) for more information.
+- 创建一个 [Strava](https://strava.com) 账号。
+- 在 [**Settings > API**](https://www.strava.com/settings/api)（设置 > API）中创建 Strava 应用。更多信息请参阅[使用 OAuth2](#using-oauth2)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
 - OAuth2
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Strava's API documentation](https://developers.strava.com/docs/reference/) for more information about the service.
+有关该服务的更多信息，请参阅 [Strava API 文档](https://developers.strava.com/docs/reference/)。
 
-## Using OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
+## 使用 OAuth2 <a href="#using-oauth2" id="using-oauth2"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- A **Client ID**: Generated when you [create a Strava app](https://developers.strava.com/docs/getting-started/#account).
-- A **Client Secret**: Generated when you [create a Strava app](https://developers.strava.com/docs/getting-started/#account).
+- **Client ID**（客户端 ID）：[创建 Strava 应用](https://developers.strava.com/docs/getting-started/#account)时生成。
+- **Client Secret**（客户端密钥）：[创建 Strava 应用](https://developers.strava.com/docs/getting-started/#account)时生成。
 
-Use these settings for your Strava app:
+为 Strava 应用采用以下设置：
 
-- In n8n, copy the **OAuth Callback URL**. Paste this URL into your Strava app's **Authorization Callback Domain**.
-- Remove the protocol (`https://` or `http://`) and the relative URL (`/oauth2/callback` or `/rest/oauth2-credential/callback`) from the **Authorization Callback Domain**. For example, if the OAuth Redirect URL was originally `https://oauth.n8n.cloud/oauth2/callback`, the **Authorization Callback Domain** would be `oauth.n8n.cloud`.
-- Copy the **Client ID** and **Client Secret** from your app and add them to your n8n credential.
+- 在 n8n 中复制 **OAuth Callback URL**（OAuth 回调 URL），粘贴到 Strava 应用的 **Authorization Callback Domain**（授权回调域名）。
+- 从 **Authorization Callback Domain** 中移除协议（`https://` 或 `http://`）和相对 URL（`/oauth2/callback` 或 `/rest/oauth2-credential/callback`）。例如，OAuth Redirect URL 原本为 `https://oauth.n8n.cloud/oauth2/callback` 时，**Authorization Callback Domain** 应为 `oauth.n8n.cloud`。
+- 从应用复制 **Client ID** 和 **Client Secret**，填入 n8n 凭据。
 
-Refer to [Authentication](https://developers.strava.com/docs/authentication/) for more information about Strava's OAuth flow.
+Strava OAuth 流程的更多信息，请参阅[身份验证](https://developers.strava.com/docs/authentication/)。

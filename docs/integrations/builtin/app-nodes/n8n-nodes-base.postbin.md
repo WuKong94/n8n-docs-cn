@@ -1,55 +1,55 @@
 ---
-title: PostBin node documentation
-description: >-
-  Learn how to use the PostBin node in n8n. Follow technical documentation to
-  integrate PostBin node into your workflows.
+title: PostBin 节点文档
+description: 了解如何在 n8n 中使用 PostBin 节点，并按照技术文档将 PostBin 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: high
-nodeTitle: PostBin node documentation
+nodeTitle: PostBin 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.postbin.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postbin'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postbin'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postbin
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postbin
 layout:
   description:
     visible: false
 ---
-
-# PostBin node <a href="#postbin-node" id="postbin-node"></a>
-
-PostBin is a service that helps you test API clients and webhooks. Use the PostBin node to automate work in PostBin, and integrate PostBin with other applications. n8n has built-in support for a wide range of PostBin features, including creating and deleting bins, and getting and sending requests. 
-
-On this page, you'll find a list of operations the PostBin node supports, and links to more resources.
-
-## Operations <a href="#operations" id="operations"></a>
-
-* Bin
-	* Create
-	* Get
-	* Delete
-* Request
-	* Get
-	* Remove First
-	* Send
-
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
 
-[Browse PostBin node documentation integration templates](https://n8n.io/integrations/postbin) or [search all templates](https://n8n.io/workflows/)
+# PostBin 节点 <a href="#postbin-node" id="postbin-node"></a>
 
-## Send requests <a href="#send-requests" id="send-requests"></a>
+PostBin 是用于测试 API 客户端和 Webhook 的服务。使用 PostBin 节点自动处理 PostBin 中的工作，并将其与其他应用集成。n8n 内置支持多种 PostBin 功能，包括创建和删除 Bin（请求收集箱），以及获取和发送请求。
 
-To send requests to a PostBin bin:
+本页列出了 PostBin 节点支持的操作，并提供更多资源的链接。
 
-1. Go to [PostBin](https://www.toptal.com/developers/postbin/) and follow the steps to generate a new bin. PostBin gives you a unique URL, including a bin ID.
-2. In the PostBin node, select the **Request** resource.
-3. Choose the type of **Operation** you want to perform.
-4. Enter your bin ID in **Bin ID**.
+## 操作 <a href="#operations" id="operations"></a>
 
-## Create and manage bins <a href="#create-and-manage-bins" id="create-and-manage-bins"></a>
+* Bin（请求收集箱）
+	* Create（创建）
+	* Get（获取）
+	* Delete（删除）
+* Request（请求）
+	* Get（获取）
+	* Remove First（移除首条请求）
+	* Send（发送）
 
-You can create and manage PostBin bins using the PostBin node. 
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
-1. In **Resource**, select **Bin**.
-2. Choose an **Operation**. You can create, delete, or get a bin.
+
+[浏览 PostBin 集成模板](https://n8n.io/integrations/postbin)，或[搜索所有模板](https://n8n.io/workflows/)
+
+## 发送请求 <a href="#send-requests" id="send-requests"></a>
+
+向 PostBin 的 Bin 发送请求：
+
+1. 进入 [PostBin](https://www.toptal.com/developers/postbin/)，按步骤生成新 Bin。PostBin 会提供包含 Bin ID 的专属 URL。
+2. 在 PostBin 节点中选择 **Request**（请求）资源。
+3. 选择要执行的 **Operation**（操作）类型。
+4. 在 **Bin ID** 中输入 Bin ID。
+
+## 创建和管理 Bin <a href="#create-and-manage-bins" id="create-and-manage-bins"></a>
+
+可以通过 PostBin 节点创建和管理 PostBin 的 Bin。
+
+1. 在 **Resource**（资源）中选择 **Bin**。
+2. 选择 **Operation**（操作），可以创建、删除或获取 Bin。

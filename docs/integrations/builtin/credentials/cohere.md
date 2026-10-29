@@ -1,52 +1,52 @@
 ---
-title: Cohere credentials
-description: >-
-  Documentation for the Cohere credentials. Use these credentials to
-  authenticate Cohere in n8n, a workflow automation platform.
+title: Cohere 凭据
+description: Cohere 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Cohere 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Cohere credentials
+- integration
+- reference
+nodeTitle: Cohere 凭据
 originalFilePath: integrations/builtin/credentials/cohere.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/cohere'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/cohere'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/cohere
+url: https://docs.n8n.io/integrations/builtin/credentials/cohere
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Cohere credentials <a href="#cohere-credentials" id="cohere-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Cohere 凭据 <a href="#cohere-credentials" id="cohere-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [Cohere](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmcohere.md)
-* [Cohere Chat](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatcohere.md)
-* [Reranker Cohere](../cluster-nodes/sub-nodes/n8n-nodes-langchain.rerankercohere.md)
-* [Embeddings Cohere](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere.md)
+* [Cohere Chat（聊天）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatcohere.md)
+* [Reranker Cohere（重排序器）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.rerankercohere.md)
+* [Embeddings Cohere（嵌入模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.embeddingscohere.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Cohere account](https://cohere.com/).
+创建一个 [Cohere 账户](https://cohere.com/)。
 
-You'll need an account with the following access:
+账户需要具备以下访问权限：
 
-- For the Trial API, you need User or Owner permissions.
-- For Production API, you need Owner permissions.
+- 使用 Trial API 时，需要 User（用户）或 Owner（所有者）权限。
+- 使用 Production API 时，需要 Owner（所有者）权限。
 
-Refer to [Cohere Teams and Roles documentation](https://docs.cohere.com/reference/teams-and-roles) for more information.
+更多信息请参阅 [Cohere Teams and Roles 文档](https://docs.cohere.com/reference/teams-and-roles)。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Cohere's documentation](https://docs.cohere.com/reference/about) for more information about the service.
+有关该服务的更多信息，请参阅 [Cohere 文档](https://docs.cohere.com/reference/about)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- An **API Key**: To generate a Cohere API key, go to the [API Keys section of your Cohere dashboard](https://dashboard.cohere.com/api-keys).
+- **API Key**（API 密钥）：在 [Cohere 控制台的 API Keys 部分](https://dashboard.cohere.com/api-keys)生成 Cohere API 密钥。

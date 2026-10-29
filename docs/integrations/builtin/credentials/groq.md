@@ -1,58 +1,58 @@
 ---
-title: Groq credentials
-description: >-
-  Documentation for the Groq credentials. Use these credentials to authenticate
-  Groq in n8n, a workflow automation platform.
+title: Groq 凭据
+description: Groq 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Groq 的身份验证。
 contentType:
-  - integration
-  - reference
+- integration
+- reference
 priority: medium
-nodeTitle: Groq credentials
+nodeTitle: Groq 凭据
 originalFilePath: integrations/builtin/credentials/groq.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/groq'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/groq'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/groq
+url: https://docs.n8n.io/integrations/builtin/credentials/groq
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Groq credentials <a href="#groq-credentials" id="groq-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Groq 凭据 <a href="#groq-credentials" id="groq-credentials"></a>
 
-* [Groq Chat Model](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgroq.md)
+这些凭据可用于以下节点的身份验证：
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+* [Groq Chat Model（聊天模型）](../cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgroq.md)
 
-Create a [Groq](https://groq.com/) account.
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+创建一个 [Groq](https://groq.com/) 账号。
 
-- API key
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+- API key（API 密钥）
 
-Refer to [Groq's documentation](https://console.groq.com/docs/quickstart) for more information about the service.
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+有关该服务的更多信息，请参阅 [Groq 文档](https://console.groq.com/docs/quickstart)。
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-To configure this credential, you'll need:
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-- An **API Key**
+配置此凭据需要：
 
-To get your API key:
+- 一个 **API Key（API 密钥）**
 
-1. Go to the [API Keys](https://console.groq.com/keys) page of your Groq console.
-2. Select **Create API Key**.
-3. Enter a **display name** for the key, like `n8n integration`, and select **Submit**.
-4. Copy the key and paste it into your n8n credential.
+获取 API 密钥的步骤如下：
 
-Refer to [Groq's API Keys documentation](https://console.groq.com/docs/quickstart) for more information.
+1. 进入 Groq 控制台的 [API Keys](https://console.groq.com/keys)（API 密钥）页面。
+2. 选择 **Create API Key**（创建 API 密钥）。
+3. 为密钥输入 **display name**（显示名称），例如 `n8n integration`，再选择 **Submit**（提交）。
+4. 复制密钥，粘贴到 n8n 凭据中。
+
+更多信息请参阅 [Groq API Keys 文档](https://console.groq.com/docs/quickstart)。
 
 {% hint style="info" %}
-**Groq API keys**
+**Groq API 密钥**
 
-Groq binds API keys to the organization, not the user.
+Groq 将 API 密钥绑定到组织，而非用户。
 {% endhint %}

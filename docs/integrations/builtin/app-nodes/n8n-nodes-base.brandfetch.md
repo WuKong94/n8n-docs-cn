@@ -1,53 +1,53 @@
 ---
-title: Brandfetch node documentation
-description: >-
-  Learn how to use the Brandfetch node in n8n. Follow technical documentation to
-  integrate Brandfetch node into your workflows.
+title: Brandfetch 节点文档
+description: 了解如何在 n8n 中使用 Brandfetch 节点，并按照技术文档将 Brandfetch 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Brandfetch node documentation
+- integration
+- reference
+nodeTitle: Brandfetch 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.brandfetch.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brandfetch'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brandfetch'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brandfetch
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.brandfetch
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Brandfetch node <a href="#brandfetch-node" id="brandfetch-node"></a>
 
-Use the Brandfetch node to automate work in Brandfetch, and integrate Brandfetch with other applications. n8n has built-in support for a wide range of Brandfetch features, including retrieving logos, and colors and brand data.
+# Brandfetch 节点 <a href="#brandfetch-node" id="brandfetch-node"></a>
 
-On this page, you'll find a list of operations the Brandfetch node supports and links to more resources.
+使用 Brandfetch 节点自动处理 Brandfetch 中的工作，并将其与其他应用集成。n8n 内置支持多种 Brandfetch 功能，包括获取标志、颜色和品牌数据。
+
+本页列出了 Brandfetch 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to [Brandfetch credentials](../credentials/brandfetch.md) for guidance on setting up authentication.
+有关身份验证设置，请参阅 [Brandfetch 凭据](../credentials/brandfetch.md)。
 {% endhint %}
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* **Return Logos, Symbols and Icon**: Get all logo variants for a brand, including symbols and icons.
-* **Return Accent and Brand Colors**: Get the accent and brand color palette for a brand.
-* **Return All of a Brand's Data**: Get all available Brandfetch attributes, including name, description, logos, colors, company data and more.
-* **Return Brand Context**: Get structured brand context for any company on the internet, including voice, mission, positioning, audience, competitors and more.
+* **Return Logos, Symbols and Icon**（返回标志、符号和图标）：获取品牌标志的全部变体，包括符号和图标。
+* **Return Accent and Brand Colors**（返回强调色和品牌色）：获取品牌的强调色与品牌配色。
+* **Return All of a Brand's Data**（返回品牌的全部数据）：获取所有可用的 Brandfetch 属性，包括名称、描述、标志、颜色、公司数据等。
+* **Return Brand Context**（返回品牌背景）：获取互联网上任意公司的结构化品牌背景，包括表达风格、使命、定位、受众和竞争对手等。
 
-## Identifier types
+## 标识符类型 <a id="identifier-types"></a>
 
-All operations require you to identify the brand using a **Type** and an **Identifier**.
+所有操作都需要通过 **Type**（类型）和 **Identifier**（标识符）确定品牌。
 
-Select a **Type** from the following options:
+从以下选项中选择 **Type**：
 
-* **Domain**: A company's website domain, for example `n8n.io`.
-* **Stock/ETF Ticker**: A stock or ETF ticker symbol, for example `AAPL`.
-* **Crypto Symbol**: A crypto symbol, for example `BTC`.
-* **ISIN**: An International Securities Identification Number, for example `US0378331005`.
+* **Domain**（域名）：公司网站的域名，例如 `n8n.io`。
+* **Stock/ETF Ticker**（股票或 ETF 代码）：股票或 ETF 的交易代码，例如 `AAPL`。
+* **Crypto Symbol**（加密货币符号）：加密货币的代码，例如 `BTC`。
+* **ISIN**：国际证券识别码，例如 `US0378331005`。
 
-Enter the corresponding value in the **Identifier** field.
+在 **Identifier** 字段中输入对应值。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-[Browse Brandfetch node documentation integration templates](https://n8n.io/integrations/brandfetch) or [search all templates](https://n8n.io/workflows/)
+[浏览 Brandfetch 集成模板](https://n8n.io/integrations/brandfetch)，或[搜索所有模板](https://n8n.io/workflows/)

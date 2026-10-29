@@ -1,48 +1,48 @@
 ---
-title: Xata credentials
-description: >-
-  Documentation for the Xata credentials. Use these credentials to authenticate
-  Xata in n8n, a workflow automation platform.
+title: Xata 凭据
+description: Xata 凭据文档。使用这些凭据在工作流自动化平台 n8n 中完成 Xata 的身份验证。
 contentType:
-  - integration
-  - reference
-nodeTitle: Xata credentials
+- integration
+- reference
+nodeTitle: Xata 凭据
 originalFilePath: integrations/builtin/credentials/xata.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/credentials/xata'
-url: 'https://docs.n8n.io/integrations/builtin/credentials/xata'
+originalUrl: https://docs.n8n.io/integrations/builtin/credentials/xata
+url: https://docs.n8n.io/integrations/builtin/credentials/xata
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Xata credentials <a href="#xata-credentials" id="xata-credentials"></a>
 
-You can use these credentials to authenticate the following nodes:
+# Xata 凭据 <a href="#xata-credentials" id="xata-credentials"></a>
+
+这些凭据可用于以下节点的身份验证：
 
 * [Xata](../cluster-nodes/sub-nodes/n8n-nodes-langchain.memoryxata.md)
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前置条件 <a href="#prerequisites" id="prerequisites"></a>
 
-Create a [Xata](https://xata.io/) database or an account on an existing database.
+创建 [Xata](https://xata.io/) 数据库，或在现有数据库中创建账户。
 
-## Supported authentication methods <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
+## 支持的身份验证方式 <a href="#supported-authentication-methods" id="supported-authentication-methods"></a>
 
-- API key
+- API key（API 密钥）
 
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
 
-Refer to [Xata's documentation](https://xata.io/docs/rest-api/authentication) for more information about the service.
+有关该服务的更多信息，请参阅 [Xata 文档](https://xata.io/docs/rest-api/authentication)。
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/mjXhKRIw98UJ5hk9LWBl/" %}
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/cluster-nodes/langchain-overview-link.md" %}
 
-## Using API key <a href="#using-api-key" id="using-api-key"></a>
+## 使用 API 密钥 <a href="#using-api-key" id="using-api-key"></a>
 
-To configure this credential, you'll need:
+配置此凭据需要：
 
-- The **Database Endpoint**: The Workspace API requires that you identify the database you're requesting information from using this format: `https://{workspace-display-name}-{workspace-id}.{region}.xata.sh/db/{dbname}`. Refer to [Workspace API](https://xata.io/docs/rest-api#workspace-api) for more information.
-    - `{workspace-display-name}`: The workspace display name is an optional identifier you can include in your Database Endpoint. The API ignores it, but including it can make it easier to figure out which workspace this database is in if you're saving multiple credentials.
-    - `{workspace-id}`: The unique ID of the workspace, 6 alphanumeric characters.
-    - `{region}`: The hosting region for the database. This value must match the database region configuration.
-    - `{dbname}`: The name of the database you're interacting with.
-- A **Branch**: Enter the name of the GitHub branch for your database.
-- An **API Key**: To generate an API key, go to [**Account Settings**](https://app.xata.io/settings) and select **+ Add a key**. Refer to [Generate an API Key](https://xata.io/docs/rest-api#generate-an-api-key) for more information.
+- **Database Endpoint**（数据库端点）：Workspace API 要求按以下格式标识要查询的数据库：`https://{workspace-display-name}-{workspace-id}.{region}.xata.sh/db/{dbname}`。更多信息请参阅 [Workspace API](https://xata.io/docs/rest-api#workspace-api)。
+    - `{workspace-display-name}`：工作区显示名称，是可包含在 Database Endpoint 中的可选标识符。API 会忽略此值，但保存多份凭据时，包含它有助于辨认数据库所属工作区。
+    - `{workspace-id}`：工作区的唯一 ID，由 6 个字母或数字组成。
+    - `{region}`：数据库的托管地区，必须与数据库的地区配置一致。
+    - `{dbname}`：要操作的数据库名称。
+- **Branch**（分支）：输入数据库的 GitHub 分支名称。
+- **API Key**（API 密钥）：进入 [**Account Settings**](https://app.xata.io/settings)（账户设置），选择 **+ Add a key**（添加密钥）生成 API 密钥。更多信息请参阅[生成 API 密钥](https://xata.io/docs/rest-api#generate-an-api-key)。

@@ -1,54 +1,54 @@
 ---
-title: Azure Storage node documentation
-description: >-
-  Learn how to use the Azure Storage node in n8n. Follow technical documentation
-  to integrate Azure Storage node into your workflows.
+title: Azure Storage 节点文档
+description: 了解如何在 n8n 中使用 Azure Storage 节点，并按照技术文档将 Azure Storage 节点集成到工作流中。
 contentType:
-  - integration
-  - reference
-nodeTitle: Azure Storage node documentation
+- integration
+- reference
+nodeTitle: Azure Storage 节点文档
 originalFilePath: integrations/builtin/app-nodes/n8n-nodes-base.azurestorage.md
-originalUrl: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.azurestorage'
-url: 'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.azurestorage'
+originalUrl: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.azurestorage
+url: https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.azurestorage
 layout:
   description:
     visible: false
 ---
+<!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
-# Azure Storage node <a href="#azure-storage-node" id="azure-storage-node"></a>
 
-The Azure Storage node has built-in support for a wide range of features, which includes creating, getting, and deleting blobs and containers. Use this node to automate work within the Azure Storage service or integrate it with other services in your workflow.
+# Azure Storage 节点 <a href="#azure-storage-node" id="azure-storage-node"></a>
 
-On this page, you'll find a list of operations the Azure Storage node supports, and links to more resources.
+Azure Storage 节点内置支持多种功能，包括创建、获取和删除 Blob 与容器。可以使用此节点自动处理 Azure Storage 服务中的工作，或将其与工作流中的其他服务集成。
+
+本页列出了 Azure Storage 节点支持的操作，并提供更多资源的链接。
 
 {% hint style="info" %}
-**Credentials**
+**凭据**
 
-Refer to the [Azure Storage credentials documentation](../credentials/azurestorage.md) for authentication information for this node.
+该节点的身份验证信息，请参阅 [Azure Storage 凭据文档](../credentials/azurestorage.md)。
 {% endhint %}
 
 
-## Operations <a href="#operations" id="operations"></a>
+## 操作 <a href="#operations" id="operations"></a>
 
-* **Blob**
-	* **Create blob**: Create a new blob or replace an existing one.
-	* **Delete blob**: Delete an existing blob.
-	* **Get blob**: Retrieve data for a specific blob.
-	* **Get many blobs**: Retrieve a list of blobs.
-* **Container**
-	* **Create container**: Create a new container.
-	* **Delete container**: Delete an existing container.
-	* **Get container**: Retrieve data for a specific container.
-	* **Get many containers**: Retrieve a list of containers.
+* **Blob**（二进制大对象）
+	* **Create blob**（创建 Blob）：创建新的 Blob，或替换已有 Blob。
+	* **Delete blob**（删除 Blob）：删除已有 Blob。
+	* **Get blob**（获取 Blob）：获取指定 Blob 的数据。
+	* **Get many blobs**（获取多个 Blob）：获取 Blob 列表。
+* **Container**（容器）
+	* **Create container**（创建容器）：创建新容器。
+	* **Delete container**（删除容器）：删除已有容器。
+	* **Get container**（获取容器）：获取指定容器的数据。
+	* **Get many containers**（获取多个容器）：获取容器列表。
 
-## Templates and examples <a href="#templates-and-examples" id="templates-and-examples"></a>
-
-
-[Browse Azure Storage node documentation integration templates](https://n8n.io/integrations/azure-storage) or [search all templates](https://n8n.io/workflows/)
-
-## Related resources <a href="#related-resources" id="related-resources"></a>
+## 模板与示例 <a href="#templates-and-examples" id="templates-and-examples"></a>
 
 
-Refer to [Microsoft's Azure Storage documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/) for more information about the service.
+[浏览 Azure Storage 集成模板](https://n8n.io/integrations/azure-storage)，或[搜索所有模板](https://n8n.io/workflows/)
 
-{% include "https://app.gitbook.com/s/GixZThfitWP21x2gQFpD/~/reusable/96ifDzfcUuwOyYrubZUt/" %}
+## 相关资源 <a href="#related-resources" id="related-resources"></a>
+
+
+该服务的更多信息，请参阅 [Microsoft 的 Azure Storage 文档](https://learn.microsoft.com/en-us/rest/api/storageservices/)。
+
+{% include "../../../reusable-content/.gitbook/includes/integrations/builtin/app-nodes/operation-not-supported.md" %}
