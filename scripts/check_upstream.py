@@ -84,14 +84,19 @@ def affected_pages(upstream, changes):
     """Resolve file references and reusable IDs, then walk reverse dependencies."""
     files = list((upstream / 'docs').rglob('*.md'))
     reusable = defaultdict(list)
+    reusable_titles = defaultdict(list)
     for file in files:
         if 'reusable-content' in file.parts:
             reusable[file.stem].append(file.relative_to(upstream).as_posix())
+            header = re.match(r'\A---\n(.*?)\n---(?:\n|$)', file.read_text(), re.S)
+            title = re.search(r'^title:\s*([^\n]+)', header[1], re.M) if header else None
+            if title:
+                reusable_titles[title[1].strip().strip('\"\'')].append(file.relative_to(upstream).as_posix())
     ids = {}
     index_file = upstream / 'REUSABLE_CONTENT_INDEX.md'
     if index_file.exists():
         for identifier, name in re.findall(r'^\| `([^`]+)` \| ([^|]+) \|', index_file.read_text(), re.M):
-            candidates = reusable[name.strip()]
+            candidates = reusable[name.strip()] or reusable_titles[name.strip()]
             if len(candidates) == 1:
                 ids[identifier] = candidates[0]
     reverse = defaultdict(set)

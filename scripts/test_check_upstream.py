@@ -68,8 +68,8 @@ class UpstreamChecks(unittest.TestCase):
     def test_shared_fragment_changes_propagate_through_references(self):
         fragment = self.up / 'docs/reusable-content/example.md'
         fragment.parent.mkdir()
-        fragment.write_text('A shared paragraph')
-        (self.up / 'REUSABLE_CONTENT_INDEX.md').write_text('| `fragment-id` | example |\n')
+        fragment.write_text('---\ntitle: Operation Mode\n---\nA shared paragraph')
+        (self.up / 'REUSABLE_CONTENT_INDEX.md').write_text('| `fragment-id` | Operation Mode |\n')
         (self.up / 'docs/one.md').write_text('{% include "https://app.gitbook.com/s/space/~/reusable/fragment-id/" %}')
         (self.up / 'docs/two.md').write_text('[Read](one.md)\n')
         result = affected_pages(self.up, [{'path': 'docs/reusable-content/example.md', 'previous_path': None}])
