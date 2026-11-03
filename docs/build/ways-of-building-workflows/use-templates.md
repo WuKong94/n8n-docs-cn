@@ -24,14 +24,14 @@ layout:
 
 ## 访问模板 <a href="#access-templates" id="access-templates"></a>
 
-选择 <img src="../.gitbook/assets/templates.png" alt="查看模板图标" data-size="line"> **Templates（模板）**，查看模板库。
+选择 <img src="../.gitbook/assets/templates.png" alt="View templates icon" data-size="line"> **Templates（模板）**查看模板库。
 
 如果使用 n8n 模板库，会跳转到 [n8n 网站的工作流页面](https://n8n.io/workflows/)进行浏览。如果使用组织提供的自定义模板库，则可以在应用内搜索和浏览模板。
 
 
 ## 将工作流添加到 n8n 模板库 <a href="#add-your-workflow-to-the-n8n-library" id="add-your-workflow-to-the-n8n-library"></a>
 
-{% include "../../reusable-content/.gitbook/includes/workflows/templates/submit-templates.md" %}
+要将自己的工作流分享到模板库，请按照[创建工作流模板](../../contribute/create-templates/README.md)操作。指南涵盖质量要求、测试、文档，以及通过 Creator Dashboard 提交的流程。
 
 ## 自托管 n8n：使用自己的模板库 <a href="#self-hosted-n8n-use-your-own-library" id="self-hosted-n8n-use-your-own-library"></a>
 

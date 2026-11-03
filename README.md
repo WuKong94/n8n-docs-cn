@@ -101,6 +101,21 @@ n8n-docs-cn/
 
 </details>
 
+## 官方文档更新检查
+
+GitHub Actions 在**每月 1 日北京时间 09:23**运行一次上游检查，也可以在 [Actions → Monthly upstream documentation check](https://github.com/WuKong94/n8n-docs-cn/actions/workflows/check-upstream.yml) 中选择 **Run workflow** 随时检查。
+
+检查覆盖官方 Git 仓库的正文、目录、共享片段、资源，以及官网单独生成的 API 参考和公开 URL。结果展示在运行摘要中，并提供 `upstream-documentation-report` 下载，包含 Markdown 报告和 JSON 明细，保留 90 天。检查失败会明确标记，网络错误不会被当成内容删除。
+
+待更新清单以已接受的原文版本和逐文件哈希为基线，未完成的更新会在后续检查中持续出现。完成译文和网站验收后，再更新来源版本及官网快照。
+
+本地检查需要 Python 3.12、Git 和 curl：
+
+```sh
+python -m unittest discover -s scripts -p 'test_*.py' -v
+python scripts/check_upstream.py
+```
+
 ## 参与贡献与反馈
 
 欢迎修正翻译、补充说明和反馈失效链接。

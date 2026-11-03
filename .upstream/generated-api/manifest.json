@@ -12,16 +12,16 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/community-package.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/community-package.md",
-    "source_sha256": "46292ecbb46b03e653d3a62b913a230806250e1db7cbcb2251dea76c5c2b80e9",
-    "bytes": 12002
+    "source_sha256": "ac965be235c9e922961ce10c28ee5f060cd4d0995000052820f8cb895a53e13e",
+    "bytes": 11174
   },
   {
     "official_path": "/connect/n8n-api/credential",
     "source_url": "https://docs.n8n.io/connect/n8n-api/credential.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/credential.md",
-    "source_sha256": "9202c4261e5929c3d1e3bffb750ecfe0e9c2025cea42be1d69fceb822ab5062f",
-    "bytes": 24947
+    "source_sha256": "b44fc07d61560789bc9a4b8dd59092d5f95217c12950b7925a3a89b956d62c70",
+    "bytes": 21336
   },
   {
     "official_path": "/connect/n8n-api/credential-type-policy",
@@ -36,8 +36,8 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/data-table.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/data-table.md",
-    "source_sha256": "710300133b7ba6898126dc4ea3084b7cfbfc36e3c6825e42a4633cedefb581ad",
-    "bytes": 56439
+    "source_sha256": "6589ed9e48670f26c164bf6aa051d9b8c278bfbfaf90c5923e952f397624ff27",
+    "bytes": 52984
   },
   {
     "official_path": "/connect/n8n-api/discover",
@@ -60,8 +60,8 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/executions.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/executions.md",
-    "source_sha256": "fd83804b8c0766225019a1ef55401ef911c9ddaa9e84495e8c2209aab8e752d6",
-    "bytes": 34370
+    "source_sha256": "733d59f6cbc4feb95605934988b8867c790cb77a175a8a960cc4cfc5d1a7e31a",
+    "bytes": 34109
   },
   {
     "official_path": "/connect/n8n-api/folders",
@@ -92,8 +92,8 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/n8n-package.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/n8n-package.md",
-    "source_sha256": "54222bfc4044cef9eea13d8c96b4dd81166cdb8efdaa6227e146d9cf5036e3bb",
-    "bytes": 110959
+    "source_sha256": "c028fbb185ee1b225a1234cf6ff8faec8ac28e6b303e746f81f7db8b242e5194",
+    "bytes": 104810
   },
   {
     "official_path": "/connect/n8n-api/node-type-policy",
@@ -116,8 +116,8 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/promotions.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/promotions.md",
-    "source_sha256": "df3060386d90116899d3a1b9b7da6a37aa2fda8457f8e7afb3f6c39c2483be2b",
-    "bytes": 183214
+    "source_sha256": "516532f5e2778108c5c5a40ef78f89f33c5654f2ee94f070bee3eba0d1c789b3",
+    "bytes": 183335
   },
   {
     "official_path": "/connect/n8n-api/role",
@@ -148,7 +148,7 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/settings-ldap.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/settings-ldap.md",
-    "source_sha256": "47e867f0575222424366223181b5e3c88c08e161598d6543555ab548e1c62389",
+    "source_sha256": "08ed2b7343854df79eaebfa9ec522e4dea3ed901f11c4a198bfc98748439eff1",
     "bytes": 21958
   },
   {
@@ -156,7 +156,7 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/settings-otel.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/settings-otel.md",
-    "source_sha256": "93fb33bfc2c417ce9dce5cd2e05c93aeef603af8323189e08bc10e992202bc32",
+    "source_sha256": "6c1f1f626de09bc1c216a91318790b5078ff196141e5e97139ad32ea7beda66e",
     "bytes": 21108
   },
   {
@@ -164,7 +164,7 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/settings-sso-oidc.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/settings-sso-oidc.md",
-    "source_sha256": "ba3823e5dcbd03e93ee10ece8c7d542a701650b7da1c6ce33e06c3507961851d",
+    "source_sha256": "26f3d23de62fc4c1a53fe1ae44d49d57982ac815a1fb8b1357c46aebbf5d3215",
     "bytes": 10382
   },
   {
@@ -172,7 +172,7 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/settings-sso-saml.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/settings-sso-saml.md",
-    "source_sha256": "ca7d7c1181dffad3afe862b8479ae779fb415eff3854b511ea8e52713adacc40",
+    "source_sha256": "13bc54f832d191af651424ec8071250778dc20ef7d278d447261c4c612b451c7",
     "bytes": 17809
   },
   {
@@ -212,15 +212,15 @@
     "source_url": "https://docs.n8n.io/connect/n8n-api/workflow.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/workflow.md",
-    "source_sha256": "78ebdd8a011648694f7bb6ee08a2296ba766fc7768378338d052bcc4d74d4eba",
-    "bytes": 188652
+    "source_sha256": "63eea92beeed8f938ecaa5858253df02e386c42565edb03a4d96886b642f1409",
+    "bytes": 178760
   },
   {
     "official_path": "/connect/n8n-api/models",
     "source_url": "https://docs.n8n.io/connect/n8n-api/models.md",
     "source_kind": "gitbook-generated-api",
     "source": "docs/connect/n8n-api/models.md",
-    "source_sha256": "c41468292f265e1d4d21fbc6d90b4dc069ccdc1f60dd102927971e428afdd165",
-    "bytes": 126450
+    "source_sha256": "92a6cb2d7cf3b032a542a162de444315e957d616f158315e2bd125c8326f4076",
+    "bytes": 121591
   }
 ]

@@ -19,6 +19,12 @@ layout:
 
 {% include "../../reusable-content/.gitbook/includes/source-control-environments/feature-availability.md" %}
 
+{% hint style="info" %}
+**已有新版本**
+
+这些页面介绍经典环境（Environments Classic）。新版处于预览阶段，适用于 Enterprise 套餐，请参阅[环境管理](../environments/README.md)。要比较版本并升级实例，请参阅[从经典环境升级](../environments/upgrade-from-environments-classic.md)。
+{% endhint %}
+
 n8n 使用基于 Git 的源代码管理来支持环境功能。将 n8n 实例连接到 Git 仓库后，就可以创建以 Git 分支为基础的多个 n8n 环境。
 
 ## 本节内容 <a id="in-this-section"></a>

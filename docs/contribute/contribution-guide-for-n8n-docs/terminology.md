@@ -126,6 +126,14 @@ n8n 有多项不同的 AI 工作流构建功能。每项都是具体的 n8n 产�
 | folder（文件夹） | directory（应用内）、group |
 | environment variable（环境变量） | env（作为名词）、config var |
 | data table（数据表） | database table、datatable、the table feature |
+| Environments（环境管理功能）；Environments (Classic)（早期源代码管理功能） | Environments v2、promotions（作为功能名称）、Git connections |
+| environment（发布流程中的一个阶段及运行该阶段的实例） | promotion target、stage（指环境时） |
+| promote to、apply from（某个环境） | promote from、apply to，以及用 push、pull、deploy 或 sync 代称 promote 和 apply |
+| provider（用于连接 Git 托管服务并进行身份验证） | Git connection、connection（指提供方时） |
+| promotion review（n8n 中的批准步骤） | merge request 或 pull request（指 Git 托管服务中的对象时除外） |
+| Git-based promotion | Git sync |
+
+使用“instance（实例）”指运行中的 n8n 系统。动作只与环境搭配：向环境晋级（promote to），从环境应用（apply from）。提及实例时，使用“执行晋级的实例”（源实例）和“应用变更的实例”（目标实例），不要使用“从中晋级的实例”或“应用到的实例”。
 
 ## 产品与品牌名称 <a id="product-and-brand-names"></a>
 

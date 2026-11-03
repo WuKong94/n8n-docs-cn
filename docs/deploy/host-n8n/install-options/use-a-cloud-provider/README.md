@@ -29,6 +29,7 @@ layout:
 Kubernetes 部署入门方案：
 
 * [AWS](deploy-to-aws.md)：在 Amazon Web Services 上使用 Postgres 和 Kubernetes 自托管 n8n。
+* [AWS 与 Terraform](deploy-to-aws-with-terraform/README.md)：使用官方 Terraform 模块，在 AWS 上部署适用于生产环境的高可用 n8n 实例。
 * [Azure](deploy-to-azure.md)：在 Azure 上使用 Postgres 和 Kubernetes 自托管 n8n。
 * [Google Kubernetes Engine（GKE）](deploy-to-google-kubernetes.md)：在 Google Kubernetes Engine 上自托管 n8n。
 * [OpenShift Local（CRC）](deploy-to-openshift-local-crc.md)：在本地 OpenShift 集群中部署 n8n 以供测试，无需云服务费用。

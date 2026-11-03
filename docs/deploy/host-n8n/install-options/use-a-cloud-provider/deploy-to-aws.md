@@ -21,6 +21,12 @@ AWS 提供多种适合托管 n8n 的方式，包括 EC2（虚拟机）和 EKS（
 
 本指南使用 [EKS](https://aws.amazon.com/eks/) 托管。Kubernetes 会增加一些复杂性和配置，但最适合随需求变化扩展 n8n。
 
+{% hint style="info" %}
+**需要适用于生产环境的高可用配置？**
+
+有关托管 PostgreSQL、Redis 及工作进程自动扩缩容的多主实例部署，请参阅[使用 Terraform 部署到 AWS](deploy-to-aws-with-terraform/README.md)。
+{% endhint %}
+
 ## 前提条件 <a href="#prerequisites" id="prerequisites"></a>
 
 本指南结合使用 AWS 界面和 [EKS 的 eksctl CLI 工具](https://eksctl.io)。
@@ -204,6 +210,7 @@ kubectl delete -f .
 ## 相关资源 <a id="related-resources"></a>
 
 * [使用云提供商](./)
+* [使用 Terraform 部署到 AWS](deploy-to-aws-with-terraform/README.md)
 * [DigitalOcean](deploy-to-digital-ocean.md)
 * [Heroku](deploy-to-heroku.md)
 * [Hetzner Cloud](deploy-to-hetzner.md)

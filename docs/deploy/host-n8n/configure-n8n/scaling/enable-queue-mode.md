@@ -80,7 +80,7 @@ n8n 支持的 PostgreSQL 版本，请参阅[支持的 PostgreSQL 版本](../choo
 export EXECUTIONS_MODE=queue
 ```
 
-也可以在[配置文件](../basic-configuration/use-environment-variables/README.md)中将 `executions.mode` 设为 `queue`。
+也可以在[配置文件](../basic-configuration/use-environment-variables/README.md)中，将 `executions.mode` 设为 `queue`。
 
 ### 启动 Redis <a href="#start-redis" id="start-redis"></a>
 
@@ -336,6 +336,8 @@ n8n Cloud 不提供此功能。
 | ------ | ------ | ----- |
 | `multiMainSetup.ttl:10` | `N8N_MULTI_MAIN_SETUP_KEY_TTL=10` | 多主实例配置中领导者键的生存时间，单位为秒。 |
 | `multiMainSetup.interval:3` | `N8N_MULTI_MAIN_SETUP_CHECK_INTERVAL=3` | 多主实例配置中检查领导者的间隔，单位为秒。 |
+
+有关 AWS 上的参考多主实例部署（包括工作进程自动扩缩容和 Redis 高可用），请参阅[在 AWS 上扩缩容并实现高可用](../../install-options/use-a-cloud-provider/deploy-to-aws-with-terraform/scale-and-run-at-high-availability.md)。
 
 
 

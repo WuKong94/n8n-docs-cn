@@ -1,9 +1,5 @@
 ---
 description: 使用环境变量，在自托管 n8n 上设置 n8n Assistant。
-status: preview
-tags:
-- tag: preview
-  primary: true
 layout:
   width: default
   title:
@@ -35,14 +31,19 @@ n8n Assistant 可用于：
 
 - **n8n Cloud：**Starter、Pro。
 - **自托管：**Community、Registered Community、Business。
-
-目前尚未适配 n8n Cloud Enterprise 或自托管 Enterprise。Enterprise 客户可联系客户成功经理，了解预览访问权限。
 {% endhint %}
 
 {% hint style="info" %}
-**预览状态**
+**企业级就绪程度有限**
 
-n8n Assistant 处于预览阶段，可能出错，开发期间行为也可能更改。用于生产环境之前，请始终审核生成的工作流。
+n8n Assistant 的**企业级就绪程度有限**，对以下企业功能提供部分支持：
+
+- **RBAC 和项目作用域**
+- **数据驻留**
+- **队列模式和多主实例**
+- **环境和源代码管理**
+
+其他相关企业功能尚未全部支持。
 {% endhint %}
 
 ## n8n Assistant 需要哪些组件 <a id="what-n8n-assistant-needs"></a>
@@ -106,7 +107,7 @@ n8n Assistant 处于预览阶段，可能出错，开发期间行为也可能更
 
 **所需内容：**
 
-* n8n Sandbox Service 正在运行，且 n8n 可以访问。完整组件栈（`sandbox-certs`、`sandbox-api`、`sandbox-runner-1`）及其密钥，请参阅 [Docker Compose 指南](../install-options/install-using-docker-compose.md)。
+* n8n Sandbox Service 已运行且可由 n8n 访问。完整组件栈（`sandbox-certs`、`sandbox-api`、`sandbox-runner-1`）及其密钥，请参阅 [Docker Compose 指南](../install-options/install-using-docker-compose.md)。
 * LLM API 密钥。
 
 **步骤：**

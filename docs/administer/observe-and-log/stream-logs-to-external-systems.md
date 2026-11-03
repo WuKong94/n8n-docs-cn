@@ -417,6 +417,8 @@ N8N_LOG_STREAMING_DESTINATIONS='[
 ]'
 ```
 
+如果使用 [terraform-aws-n8n](https://github.com/n8n-io/terraform-aws-n8n) 模块在 AWS 上部署 n8n，请参阅[在 AWS 上配置企业功能](../../deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-aws-with-terraform/use-enterprise-features-on-aws.md#log-streaming)，了解该模块的专属设置。
+
 ## 相关资源 <a id="related-resources"></a>
 
 * [观测与日志](./)

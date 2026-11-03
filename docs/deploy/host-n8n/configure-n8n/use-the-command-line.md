@@ -74,14 +74,25 @@ n8n execute --id <ID>
 可以通过 CLI 发布或取消发布工作流。在 n8n 2.0 中，[原先的激活与停用开关](../../../changelog/v20-breaking-changes.md)被发布与取消发布模型取代。使用 `publish:workflow` 和 `unpublish:workflow`，可通过 CLI 更改工作流的发布状态。
 
 {% hint style="info" %}
-**需要重启**
+**变更何时生效**
 
-这些命令操作 n8n 数据库。如果在 n8n 运行时执行，必须重启 n8n 后更改才会生效。
+这些命令会修改 n8n 数据库。运行中的 n8n 何时应用变更，取决于配置：
+
+- 如果 `N8N_USE_WORKFLOW_PUBLICATION_SERVICE` 已开启（默认如此），运行中的实例无需重启即可应用变更，默认每 15 秒检查一次。如果 n8n 未运行，则在启动时应用变更。
+- 否则，需要重启 n8n 才能应用变更。
 {% endhint %}
 
 ### 发布工作流 <a href="#publish-a-workflow" id="publish-a-workflow"></a>
 
 使用 `publish:workflow` 按 ID 发布工作流。也可以传入 `versionId`，发布指定历史版本。
+
+`publish:workflow` 执行与编辑器发布相同的检查，例如节点校验和 Webhook 路径冲突。如果工作流未通过检查，命令不会发布，并会输出原因。
+
+{% hint style="warning" %}
+**重新发布已发布的工作流**
+
+如果 `N8N_USE_WORKFLOW_PUBLICATION_SERVICE` 为 `false`，`publish:workflow` 会拒绝发布已经处于发布状态的工作流。请先取消发布，再重新发布，然后重启 n8n。
+{% endhint %}
 
 命令标志：
 
@@ -152,6 +163,8 @@ n8n update:workflow --id=<ID> --active=false
 ```bash
 n8n update:workflow --id=<ID> --active=true
 ```
+
+这会发布工作流的当前版本，执行与 [`publish:workflow`](#publish-a-workflow) 相同的检查，并遵循相同限制。
 
 将所有工作流的活动状态设为 false：
 

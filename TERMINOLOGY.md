@@ -3,6 +3,10 @@
 | 英文 | 中文规则 |
 | --- | --- |
 | workflow | 工作流 |
+| Environments / Environments (Classic) | 环境管理／经典环境 |
+| promote / apply | 晋级／应用 |
+| promotion review | 晋级审核 |
+| provider (Environments) | 提供方 |
 | node | 节点 |
 | credential | 凭据 |
 | execution | 执行；execution data 译为执行数据 |

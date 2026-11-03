@@ -1,6 +1,5 @@
 ---
 title: 使用 n8n Assistant
-status: preview
 description: 通过聊天使用 n8n Assistant 创建、编辑、测试和排查 n8n 工作流。
 layout:
   width: default
@@ -22,9 +21,6 @@ layout:
     visible: true
   anchors:
     visible: true
-tags:
-- tag: preview
-  primary: true
 ---
 <!-- 简体中文翻译；来源 n8n-io/n8n-docs；原文版本见 upstream.json。 -->
 
@@ -44,14 +40,19 @@ n8n Assistant 是 n8n 中基于聊天的智能体，可以根据自然语言帮�
 
 * **n8n Cloud：** Starter、Pro
 * **自托管：** Community、已注册的 Community、Business
-
-此功能尚未适用于 n8n Cloud Enterprise 或自托管 Enterprise。Enterprise 客户可以联系客户成功经理，了解预览访问资格。
 {% endhint %}
 
 {% hint style="info" %}
-**预览状态**
+**企业级就绪程度有限**
 
-n8n Assistant 处于预览阶段，可能出错，开发期间行为也可能变化。用于生产环境前，请务必检查生成的工作流。
+n8n Assistant 的**企业级就绪程度有限**，对以下企业功能提供部分支持：
+
+- **RBAC 和项目作用域**
+- **数据驻留**
+- **队列模式和多主实例**
+- **环境和源代码管理**
+
+其他相关企业功能尚未全部支持。
 {% endhint %}
 
 ## n8n Assistant 可以提供哪些帮助 <a id="what-n8n-assistant-can-help-with"></a>
@@ -231,11 +232,11 @@ AI 可能接收凭据说明。不要在说明中包含 API 密钥、密码或令
 
 批准访问前，请检查所请求的域名。
 
-## 预览阶段的限制 <a id="preview-limitations"></a>
+## 限制 <a id="limitations"></a>
 
-n8n Assistant 是预览功能，可用范围、支持的操作和行为均可能变化。
+n8n Assistant 的可用范围、支持的操作和行为可能更改。
 
-预览期间：
+请注意：
 
 * 部分操作可能尚不支持。
 * 一些能力可能逐步推出。

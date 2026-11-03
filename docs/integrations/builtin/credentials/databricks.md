@@ -54,7 +54,7 @@ layout:
 | Lakebase | 在项目分支上创建的 Postgres 角色，并将其授予 `authenticator`；该角色还需拥有操作所需的表和函数权限。请参阅[为 Data API 设置 Lakebase](#set-up-lakebase-for-the-data-api) |
 | 读取或写入 Unity Catalog 数据 | 目录的 **USE CATALOG** 权限、架构的 **USE SCHEMA** 权限，以及所查询表或视图的 **SELECT** 权限。函数和模型还需要 **EXECUTE** 权限 |
 | Genie Agent（Databricks 节点） | Genie Agent 的 **CAN RUN** 权限及其 SQL 仓库的 **CAN USE** 权限 |
-| Genie One MCP server | 对 Genie One 应据以回答问题的每个 Genie Agent 拥有 **CAN RUN** 权限，并对至少一个 SQL 仓库拥有 **CAN USE** 权限 |
+| Genie One MCP server | 对 Genie One 要查询的每个 Genie Agent 具有 **CAN RUN** 权限，对至少一个 SQL 仓库具有 **CAN USE** 权限，并对 `system.ai.genie_one_mcp` 具有 **EXECUTE** 权限。Databricks 默认向所有用户授予 `system.ai` 服务的 **EXECUTE** 权限 |
 | Model Serving（模型服务）：Query Endpoint（查询端点） | 服务端点的 **CAN QUERY** 权限 |
 | Unity AI Gateway 模型服务（Databricks Chat Model、Embeddings Databricks） | 对模型服务所在的目录和架构拥有 **USE CATALOG** 和 **USE SCHEMA** 权限，并对模型服务拥有 **EXECUTE** 权限。Databricks 默认向所有用户授予 `system.ai` 服务的 **EXECUTE** 权限 |
 | 搜索向量搜索索引（Databricks Vector Store：Get Many、Retrieve Documents、Retrieve as Tool，即获取多项、检索文档、作为工具检索） | 目录的 **USE CATALOG** 权限、架构的 **USE SCHEMA** 权限及索引的 **SELECT** 权限。对于同步全部列的 Delta Sync 索引，对源表拥有 **SELECT** 权限后，节点才能列出这些列。自管理索引还需要为 Embeddings Databricks 节点授予上文所述的模型服务权限。**Metadata Filter**（元数据筛选）需要对 Vector Search 端点的读取权限 |
@@ -129,7 +129,7 @@ Databricks 账户管理员需要完成以下步骤：
 3. 在 **App connections**（应用连接）选项卡中选择 **Add connection**（添加连接）。
 4. 输入连接名称，例如 `n8n`。
 5. 将从 n8n 复制的 **OAuth Redirect URL**（OAuth 重定向 URL）添加为重定向 URL。
-6. 选择连接所需的访问作用域。**Databricks** 节点和 **Databricks Chat Model** 节点需要 **All APIs**（所有 API）。如果连接仅供 [Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md) 使用，则选择 `genie`：这样连接无法访问其他 Databricks API，用户同意授予的权限范围也更小。Databricks 会自动允许 n8n 保持连接所需的 `offline_access` 作用域。在 n8n 的测试中，**All APIs** 也涵盖 `genie` 作用域；如果连接该服务卡片时出现作用域错误，请[添加 `genie` 作用域](#add-the-genie-scope-for-the-genie-mcp-server)。
+6. 选择连接所需的访问作用域。**Databricks** 节点和 **Databricks Chat Model** 节点需要 **All APIs**。如果连接仅用于 [Genie One MCP 服务器](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md)，请改选 `ai-gateway`：这样连接无法调用 **All APIs** 覆盖的 Databricks REST API，用户授权范围更小。`ai-gateway` 作用域仍在用户的 Unity Catalog 权限范围内覆盖其他 AI Gateway 服务，例如 Databricks SQL MCP 服务器。Databricks 会自动允许 n8n 保持连接所需的 `offline_access` 作用域。**All APIs** 不覆盖 `ai-gateway`，因此同时用于该卡片和其他节点的连接需要两者。请参阅[添加 `ai-gateway` 作用域](#add-the-ai-gateway-scope-for-the-genie-one-mcp-server)。
 7. 启用客户端密钥生成。n8n 是机密客户端，因此需要密钥。
 8. 保存连接，复制 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。Databricks 仅显示一次密钥。
 
@@ -137,26 +137,40 @@ Databricks 账户管理员需要完成以下步骤：
 
 更多信息，请参阅[启用或禁用合作伙伴 OAuth 应用](https://docs.databricks.com/aws/en/integrations/enable-disable-oauth)。
 
-### 为 Genie MCP server 添加 genie 作用域 <a id="add-the-genie-scope-for-the-genie-mcp-server"></a>
+### 为 Genie One MCP 服务器添加 ai-gateway 作用域 <a id="add-the-ai-gateway-scope-for-the-genie-one-mcp-server"></a>
 
-[Databricks Genie One MCP server](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md) 服务卡片会请求 `genie` 和 `offline_access` 作用域。在 n8n 的测试中，具有 **All APIs**（所有 API）的应用连接无需显式添加 `genie` 作用域即可满足请求。对于无法满足请求的账户，用户在服务卡片上选择 **Connect my account**（连接我的账户）时会看到以下错误：
+[Databricks Genie One MCP 服务器](../cluster-nodes/sub-nodes/n8n-mcp-registry.databricksgenie.md)卡片通过工作区的 AI Gateway 端点调用 Genie One，请求 `ai-gateway` 和 `offline_access` 作用域。**All APIs** 不覆盖 `ai-gateway`：在 n8n 测试中，具有 **All APIs** 的应用连接返回的令牌不含 `ai-gateway`，直到管理员将其添加到连接。根据 Databricks 账号不同，用户会遇到两种错误之一：连接凭据时失败，并显示：
 
 ```text
-access_denied: Scopes 'genie' are not assigned to the client <client-id>
+access_denied: Scopes 'ai-gateway' are not assigned to the client <client-id>
 ```
 
-要解决此问题，Databricks 账户管理员需向应用连接添加 `genie` 作用域。如果账户控制台的连接页面在 **Add scope**（添加作用域）选择器中提供 `genie`，就在其中添加。否则，使用已通过账户身份验证的 [Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/)。CLI 更新会替换整个作用域列表，因此必须包含应用所需的全部作用域。同时供 Databricks 节点、Databricks Chat Model 节点和 Genie One MCP server 使用的应用连接需要以下三个作用域：
+或者连接成功，但智能体一运行就失败，并显示：
+
+```text
+Invalid scope, required scopes: ai-gateway
+```
+
+要修复任一种错误，Databricks 账号管理员需向应用连接添加 `ai-gateway` 作用域。如果账号控制台连接页面的 **Add scope（添加作用域）**选择器提供 `ai-gateway`，直接添加即可。否则，请使用已对该账号进行身份验证的 [Databricks CLI](https://docs.databricks.com/aws/en/dev-tools/cli/)。CLI 更新会替换整个作用域列表，因此需要包含应用所需的每个作用域。同时用于 Databricks 节点、Databricks Chat Model 节点和 Genie One MCP 服务器的应用连接，需要以下三个作用域：
 
 ```bash
 databricks account custom-app-integration update <integration-id> \
-	--json '{"scopes": ["all-apis", "genie", "offline_access"]}'
+	--json '{"scopes": ["all-apis", "ai-gateway", "offline_access"]}'
 ```
 
 `<integration-id>` 可通过 `databricks account custom-app-integration list` 查找，也可在账户控制台的连接详情页找到。API 参考请参阅[更新自定义 OAuth 应用集成](https://docs.databricks.com/api/account/customappintegration/update)。
 
-Databricks 的授权同意页面显示分配给应用连接的作用域，而不是 n8n 请求的较小作用域集合。用户通过 **All APIs**（所有 API）应用连接 Genie One MCP server 时，授权页面显示 **All APIs**，即使 n8n 收到的令牌仅限于 `genie offline_access` 作用域。
+管理员添加作用域后，每位用户需重新连接卡片使用的凭据，让 n8n 收到具有新作用域的令牌。刷新旧令牌不会增加该作用域。
 
-如果应用连接仅供 Genie One MCP server 使用，请将作用域设为 `["genie", "offline_access"]`。这样用户看到并同意的权限范围更小，客户端也无法访问其他 Databricks API。
+Databricks 授权页面不会显示令牌实际获得的作用域。在 n8n 测试中，即使应用连接没有该作用域，授权页仍列出 `ai-gateway`，而 n8n 收到的令牌缺少它。请在账号控制台查看应用连接的作用域，以检查配置。
+
+如果应用连接仅用于 Genie One MCP 服务器，请将作用域设为 `["ai-gateway", "offline_access"]`。这样用户批准的授权范围更小，不包含 Databricks REST API，但仍包含其他 AI Gateway 服务。
+
+{% hint style="warning" %}
+**缺少 ai-gateway 作用域的应用连接**
+
+在 2026 年 10 月 30 日卡片迁移至 AI Gateway 端点之前，它请求的是 `genie` 作用域。为 `genie` 作用域设置的应用连接，仍可用于此前服务的节点，但卡片需要添加 `ai-gateway`。管理员添加后，每位用户需重新连接 Genie One 凭据，让 n8n 收到具有新作用域的令牌。所有用户重新连接后，请从连接中移除 `genie`，除非其他集成仍调用 Beta 端点；Databricks 将于 2026 年 11 月 30 日停用该端点。
+{% endhint %}
 
 ### 配置令牌有效期 <a id="configure-token-lifetimes"></a>
 
@@ -178,7 +192,7 @@ Databricks 账户管理员还可通过[账户 API 或 CLI](https://docs.databric
 1. 将工作区 URL 填入 **Host**（主机）。
 2. 将 **Grant Type**（授权类型）设为 **Authorization Code (User)**（授权码，用户）。
 3. 输入自定义 OAuth 应用连接的 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
-4. 选择 **Connect my account**（连接我的账户），使用 Databricks 账户登录。
+4. 选择 **Connect（连接）**，使用 Databricks 账号登录。
 
 凭据默认请求 `all-apis` 和 `offline_access` 作用域。`offline_access` 作用域让连接在一小时后仍保持有效，因此始终包含在请求中：如果启用 **Custom Scopes**（自定义作用域）并将其从列表中移除，n8n 会自动将其加回。
 

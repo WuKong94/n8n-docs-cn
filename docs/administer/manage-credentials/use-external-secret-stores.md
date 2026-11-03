@@ -343,6 +343,8 @@ n8n 的[源代码管理与环境](../use-source-control-and-environments/README.
 
 保护和共享凭据的其他方式，请参阅[管理凭据](README.md)。
 
+如果使用 [terraform-aws-n8n](https://github.com/n8n-io/terraform-aws-n8n) 模块在 AWS 上部署 n8n，有关如何授予 AWS Secrets Manager 无密钥访问权限，请参阅[在 AWS 上配置企业功能](../../deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-aws-with-terraform/use-enterprise-features-on-aws.md#external-secrets)。
+
 [^1]: 在 n8n 中，凭据保存连接特定应用和服务所需的身份验证信息。使用用户名和密码、API 密钥、OAuth 密钥等信息创建凭据后，就可以通过相应应用节点与服务交互。
 [^2]: 在 n8n 中，表达式通过执行 JavaScript 代码，动态填充节点参数。无需提供静态值，可以使用 n8n 表达式语法，根据前序节点、其他工作流或 n8n 环境中的数据定义参数值。
 

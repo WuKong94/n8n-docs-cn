@@ -16,7 +16,7 @@ layout:
 
 可以从一个工作流调用另一个工作流，将其作为[流程逻辑](./)的一部分，构建类似微服务的模块化工作流。当工作流过大而遇到[内存问题](../../deploy/host-n8n/configure-n8n/scaling/fix-memory-issues.md)时，这种方式也有帮助。创建子工作流会用到 [Execute Workflow](../../integrations/builtin/core-nodes/n8n-nodes-base.executeworkflow.md) 和 [Execute Sub-workflow Trigger](../../integrations/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger.md) 节点。
 
-子工作流执行不计入套餐的每月执行次数限额或活跃工作流数量限额。
+子工作流执行不计入套餐的每月执行次数或活跃工作流限制。
 
 ## 设置和使用子工作流 <a href="#set-up-and-use-a-sub-workflow" id="set-up-and-use-a-sub-workflow"></a>
 

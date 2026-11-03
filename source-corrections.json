@@ -137,7 +137,7 @@
   {
     "id": "cli-active-state-mode-note",
     "path": "deploy/host-n8n/configure-n8n/use-the-command-line.md",
-    "source_sha256": "57693caa21e38c82f5a812241e0b793d54ba5dd0892b84bbf6ec35132211ed74",
+    "source_sha256": "614b3720e75c8b70968d0ab9a9bf67f8256f6ded69b748c21ccb642a1159eda2",
     "original_sentence": "| --activeState         | Controls the active state of imported workflows. Accepts `false` (default, deactivates all imported workflows) or `fromJson` (uses the `active` field from each workflow's JSON; multi-main mode only). |",
     "translated_sentence": "译注：原文的 --activeState 表格将 fromJson 标为“仅限多主实例模式”，但同页示例说明及同版本备份恢复指南均写“多主实例和队列模式”。此处保留原文差异，不据此判断实际版本兼容性。",
     "evidence": "同一锁定版本的本页参数表写 multi-main mode only，而下方 --activeState=fromJson 示例说明写 only supported in multi-main & queue mode；deploy/host-n8n/keep-n8n-running/backup-and-restore.md 的恢复说明也写 queue or multi-main mode。备份指南来源哈希为 9e9088581fcbbf57a529c19a0c0dfbe77ae328d8465ced35be269520b9929b7f。",
@@ -155,7 +155,7 @@
   {
     "id": "aws-dns-record-without-service-port",
     "path": "deploy/host-n8n/install-options/use-a-cloud-provider/deploy-to-aws.md",
-    "source_sha256": "f90c6009b07b9d9d881a0ada810f11c7eaeea79a6a39bd4ded9d85e92985a6e8",
+    "source_sha256": "a4098e851ee53e3c4c2f00ad1e5fb9d46f09da568de3ffffbe9885033c58b637",
     "original_sentence": "4. Select the **n8n** service and copy the **Load balancer URLs** value. Use this value suffixed with the n8n service port (5678) for DNS.",
     "translated_sentence": "4. 选择 **n8n** 服务，复制 **Load balancer URLs**（负载均衡器 URL）对应的主机名。DNS 记录应指向该主机名，不要在记录值中附加端口。浏览器访问 n8n 服务时，再在 URL 中使用端口 5678。",
     "evidence": "AWS Route 53 官方指南要求 Alias 指向 ELB 的 DNS 名称，普通记录说明 A 值为 IPv4 地址、CNAME 值为规范名称，不在此类记录值中拼接应用端口。来源：https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html 和 https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values-basic.html （本批核对）。",
@@ -195,7 +195,7 @@
     "translated_sentence": "译注：本段关于不自动删除资源的概述，与下文数据表的说明存在差异：下文指出，本地存在但 Git 中不存在的数据表会在拉取时删除，使用 force 的 API 或自动化拉取会跳过确认，并删除表中全部行数据。此处保留原文；不要将本段概述作为自动化拉取不会删除数据表的保证。",
     "evidence": "同页 Data tables 章节明确说明：If a data table exists locally but not in Git, pulling deletes it, including all its row data，并说明强制拉取无需确认。本记录仅标注同页两段说明的差异。",
     "scope": "保留原文概述和详细行为说明，仅加译注提示同页差异；代码和上游原文不修改，未测试产品删除行为。",
-    "source_sha256": "7c46804e64343fb9f0e4d842b18ac3193ad83e90a840fbc840cb8c0cd1145ca9"
+    "source_sha256": "2ee6ffce8ab9a596ec4f76b22b44d5a97606dec982c1f3d1e0549fa7aaa09835"
   },
   {
     "id": "source-control-github-action-legacy-request-note",
@@ -241,15 +241,6 @@
     "translated_sentence": "| `detailLevel` | \"full\" \\| \"execution\" | 否 | `\"full\"` | |",
     "evidence": "同页 get_workflow_details 参数表有 Name、Type、Required、Default、Description 五列；detailLevel 行将反引号转义为普通文本，full/execution 联合类型的竖线却未转义，且缺少末尾说明单元格。原行中允许值为 full 和 execution、Required 为 No、Default 为 full；修复仅重新呈现这些原始内容。CommonMark 解析出的全部代码内容在修复前后完全一致。",
     "scope": "仅修复 Markdown 表格格式并补齐空说明列；不改变参数名、枚举值、必填含义或默认值，不新增接口行为或推断运行兼容性。"
-  },
-  {
-    "id": "node-development-prerequisite-version-note",
-    "path": "reusable-content/.gitbook/includes/integrations/creating-nodes/prerequisites.md",
-    "original_sentence": "Minimum version Node 18.17.0.",
-    "translated_sentence": "译注：此共用片段仍列 Node 18.17.0，而同一版本“设置开发环境”页面要求最低 Node 22.22.0。此处保留两处原文并提示差异，不据此推断所用 n8n 或开发工具版本的实际兼容范围。",
-    "evidence": "同版本 connect/create-nodes/build-your-node/set-up-your-development-environment.md 明确写 Minimum version Node 22.22.0；对照来源哈希：50af092f8c491a41b1c306d0f121ce9a06fa81dbf4f35ae3fe64923a65903166。",
-    "scope": "保留原文版本号，仅添加同版本文档间的对照译注；不执行安装或断言运行兼容性。",
-    "source_sha256": "df9006df11bf057c2dcc36481140c33ca7a4973ca04edfc4481d57bcc69301bc"
   },
   {
     "id": "node-tutorial-declarative-exported-class",
@@ -485,7 +476,7 @@
   {
     "id": "s3-digitalocean-force-path-style-condition",
     "path": "integrations/builtin/credentials/s3.md",
-    "source_sha256": "061ab16b61b0eda85b5bbd708b76a4c6459205a6c879422ee147a91b308803e9",
+    "source_sha256": "d7066a74535eade001bd7e5a7fab2d7c5278c67973aafcb3d39aa2d75e3bc39f",
     "original_sentence": "9. Keep the **Force Path Style** toggle turned off unless you want to use subdomain/virtual calling format.",
     "translated_sentence": "9. 使用子域名或虚拟主机风格寻址时，请保持 **Force Path Style**（强制路径风格）关闭；需要路径风格寻址时再开启。",
     "evidence": "同一固定版本的 S3 凭据页在参数定义中明确 Force Path Style 开启时使用路径风格寻址；Tigris 小节明确关闭时使用 virtual-hosted-style addressing。DigitalOcean 步骤的 unless 条件与同页定义相反，译文据此修正条件方向。",

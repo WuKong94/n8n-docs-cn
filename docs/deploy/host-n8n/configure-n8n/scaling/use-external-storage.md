@@ -216,6 +216,8 @@ n8n 会记录每次执行的数据存储位置，因此切换模式不会破坏�
 
 n8n 会使用标准[执行清理](manage-execution-data.md#enable-executions-pruning)设置，即 `EXECUTIONS_DATA_*` 变量，自行清理 S3 中的执行数据。与二进制数据不同，执行数据不依赖 S3 生命周期规则。不要为执行数据添加生命周期规则，否则可能删除 n8n 仍在引用的数据。
 
+如果使用 [terraform-aws-n8n](https://github.com/n8n-io/terraform-aws-n8n) 模块在 AWS 上部署 n8n，请参阅[在 AWS 上配置企业功能](../../install-options/use-a-cloud-provider/deploy-to-aws-with-terraform/use-enterprise-features-on-aws.md#execution-data-in-s3)，了解该模块的专属设置。
+
 ## 相关资源 <a id="related-resources"></a>
 
 * [扩展](../scaling.md)

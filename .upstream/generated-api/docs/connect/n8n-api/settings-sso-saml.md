@@ -1,6 +1,6 @@
 > For the complete documentation index, see [llms.txt](https://docs.n8n.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.n8n.io/connect/n8n-api/settings-sso-saml.md).
 
-# Settings SSO SAML
+# Settings Sso Saml
 
 Operations about SAML SSO settings
 

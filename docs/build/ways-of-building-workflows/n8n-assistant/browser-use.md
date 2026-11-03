@@ -1,10 +1,6 @@
 ---
 title: 使用 Browser Use
 description: 连接 n8n Browser Use 扩展，让 n8n Assistant 在浏览器中操作并代为设置凭据。
-status: preview
-tags:
-- tag: preview
-  primary: true
 layout:
   description:
     visible: false
@@ -26,12 +22,6 @@ Browser Use 使用真实浏览器配置文件，因此可以利用你已登录�
 - **n8n Cloud：** Starter、Pro
 
 自托管 n8n 不提供此功能。
-{% endhint %}
-
-{% hint style="info" %}
-**预览状态**
-
-Browser Use 属于 n8n Assistant 的一部分，目前处于预览阶段，可能出错，开发期间行为也可能变化。
 {% endhint %}
 
 ## Browser Use 可以做什么 <a id="what-browser-use-can-do"></a>

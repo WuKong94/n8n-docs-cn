@@ -19,7 +19,7 @@ layout:
 
 构建和测试节点需要：
 
-* Node.js 和 npm，Node 最低版本为 22.22.0。在 Linux、Mac 和 WSL（Windows Subsystem for Linux）中，可按照 [nvm 安装说明](https://github.com/nvm-sh/nvm)，使用 nvm（Node Version Manager）安装两者。Windows 用户请参阅微软的 [Windows 上安装 NodeJS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)指南。
+* Node.js 和 npm。最低 Node.js 版本：24。请按照 [nvm 安装说明](https://github.com/nvm-sh/nvm)，在 Linux、Mac 和 WSL（Windows Subsystem for Linux，适用于 Linux 的 Windows 子系统）上通过 nvm（Node Version Manager）安装两者。Windows 用户请参阅 Microsoft 的 [在 Windows 上安装 NodeJS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)指南。
 * [`n8n-node` 工具](using-the-n8n-node-tool.md)，用于创建、构建和测试节点。它包含本地开发所需的 n8n，因此无需全局安装 n8n。测试流程请参阅[在本地运行节点](../test-your-node/run-your-node-locally.md)。[构建已验证社区节点](../../../integrations/community-nodes/building-community-nodes.md)时，必须使用 `n8n-node`。
 
 还应安装 [Git](https://git-scm.com/)，以便克隆并使用 [n8n-nodes-starter](https://github.com/n8n-io/n8n-nodes-starter)。

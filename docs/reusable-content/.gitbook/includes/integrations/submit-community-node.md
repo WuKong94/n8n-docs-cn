@@ -78,4 +78,8 @@ n8n 会审核已验证社区节点。用户可在 n8n 节点面板中发现和�
 * 按**发布到 npm**所述，使用带来源证明的 GitHub Actions 工作流发布到 npm，n8n 会从那里获取并做最终审核。
 
 ## 准备好提交了吗？ <a href="#ready-to-submit" id="ready-to-submit"></a>
-如果符合以上全部要求，请注册或登录 [n8n Creator Portal](https://creators.n8n.io/nodes) 并提交节点验证。注意，n8n 保留拒绝与其付费功能（尤其是企业功能）竞争的节点的权利。
+如果节点符合上述全部要求，请注册或登录 [n8n Creator Portal](https://creators.n8n.io/nodes)，提交节点进行认证。
+
+审核最多可能需要四周。投稿进入不同审核阶段时，n8n 会通过邮件通知。
+
+请注意，n8n 保留拒绝与其任何付费功能（尤其是企业功能）竞争的节点的权利。

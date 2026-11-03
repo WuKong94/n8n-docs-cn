@@ -469,7 +469,7 @@ N8N_OTEL_ENABLED=true N8N_OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318 n8n 
 | `n8n.project.name` | 项目名称。仅用于团队项目：个人项目名称包含所有者姓名和邮箱，因此 n8n 不包含此值。自 n8n 2.44.0 起提供。 |
 | `n8n.execution.id` | 执行 ID。 |
 | `n8n.execution.mode` | 执行模式，例如 `manual`、`webhook`、`trigger`、`retry`。 |
-| `n8n.execution.status` | 最终执行状态，包括[崩溃执行](#crashed-executions)的 `crashed`。 |
+| `n8n.execution.status` | 最终执行状态，包括[崩溃的执行](#crashed-executions)所对应的 `crashed`。 |
 | `n8n.execution.is_retry` | 执行为重试时，值为 `true`。 |
 | `n8n.execution.retry_of` | 执行为重试时，记录原始执行 ID。 |
 | `n8n.execution.error_type` | 错误类名，执行失败时设置；崩溃时为 `WorkflowCrashedError`。 |
@@ -582,6 +582,8 @@ n8n 使用执行中存储的跟踪上下文重建 span。该上下文是从未�
 - `N8N_AGENTS_TRACING_ENABLED` 已设为 `true`。
 
 当 `N8N_OTEL_ENABLED` 设为 `false` 时，智能体运行正常完成，但 n8n 不为其生成 span，即使 `N8N_AGENTS_TRACING_ENABLED` 已设为 `true`。
+
+如果使用 [terraform-aws-n8n](https://github.com/n8n-io/terraform-aws-n8n) 模块在 AWS 上部署 n8n，请参阅[在 AWS 上配置企业功能](../install-options/use-a-cloud-provider/deploy-to-aws-with-terraform/use-enterprise-features-on-aws.md#opentelemetry-tracing)，了解该模块的专属设置。
 
 ## 相关资源 <a href="#related-resources" id="related-resources"></a>
 

@@ -59,6 +59,8 @@ n8n_scaling_mode_queue_jobs_failed 0
 n8n_scaling_mode_queue_jobs_waiting 0
 ```
 
+如果使用 [terraform-aws-n8n](https://github.com/n8n-io/terraform-aws-n8n) 模块在 AWS 上部署 n8n，请参阅[在 AWS 上配置企业功能](../../../install-options/use-a-cloud-provider/deploy-to-aws-with-terraform/use-enterprise-features-on-aws.md#prometheus-metrics)，了解包含 Bull 队列深度指标在内的模块专属设置。
+
 ## 相关资源 <a id="related-resources"></a>
 
 * [配置示例](./)

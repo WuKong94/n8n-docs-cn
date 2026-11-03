@@ -48,7 +48,7 @@ layout:
 
 1. 请 Databricks 账户管理员[创建自定义 OAuth 应用连接](../../credentials/databricks.md#create-a-custom-oauth-app-connection)，并向你提供客户端 ID 和密钥。
 2. 在 n8n 凭据中，将工作区 URL 填入 **Host**（主机），将 **Grant Type**（授权类型）设为 **Authorization Code (User)**（授权码，用户），输入 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
-3. 选择 **Connect my account**（连接我的账户），登录 Databricks。
+3. 选择 **Connect（连接）**并登录 Databricks。
 4. 在节点中选择该凭据。长时间执行时，n8n 会刷新访问令牌，因此智能体可运行超过一小时的令牌有效期。
 
 ## 节点参数 <a id="node-parameters"></a>
@@ -110,4 +110,4 @@ layout:
 
 ### 凭据此前可用，但请求开始返回 403 <a id="requests-fail-with-403-after-the-credential-worked-before"></a>
 
-对于用户登录凭据，刷新令牌或 OAuth 应用的绝对会话有效期已过期。在 n8n 中打开凭据，重新选择 **Connect my account**（连接我的账户）。定时工作流要避免此问题，可使用服务主体，或请管理员[延长令牌有效期](../../credentials/databricks.md#configure-token-lifetimes)。
+对于用户登录凭据，刷新令牌或 OAuth 应用的绝对会话有效期已过期。请在 n8n 中打开凭据，选择 **Switch account（切换账号）**并重新登录。要避免定时工作流遇到此问题，请使用服务主体，或请管理员[延长令牌有效期](../../credentials/databricks.md#configure-token-lifetimes)。

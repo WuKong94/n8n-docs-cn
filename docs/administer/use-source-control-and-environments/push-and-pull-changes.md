@@ -29,7 +29,7 @@ layout:
 必须是实例所有者或实例管理员，才能从 Git 拉取更改。
 {% endhint %}
 
-要从 Git 拉取工作，请在主菜单中选择 **Pull**（拉取）<img src="../.gitbook/assets/pull-icon.png" alt="拉取图标" data-size="line">。
+要从 Git 拉取工作内容，请在主菜单中选择 **Pull（拉取）** <img src="../.gitbook/assets/pull-icon.png" alt="Pull icon" data-size="line">。
 
 {% include "../../reusable-content/.gitbook/includes/source-control-environments/push-pull-menu-state.md" %}
 
@@ -55,7 +55,7 @@ n8n 可能会警告该操作将覆盖本地更改。选择 **Pull and override**
 
 如果原所有者是[项目](../manage-users-and-access/set-permissions-and-roles-rbac/README.md)：
 
-n8n 会尝试按项目名称在新实例中匹配原项目。如果没有匹配项目，n8n 会创建同名项目，将当前用户分配为项目所有者，再将工作流和凭据导入该项目。
+n8n 按 ID 匹配项目。如果新实例中不存在该 ID 的项目，n8n 会创建具有相同 ID 和名称的项目，并让执行拉取的用户成为项目管理员，然后将工作流和凭据导入该项目。
 
 ### 拉取时自动发布工作流 <a href="#auto-publish-workflows-on-pull" id="auto-publish-workflows-on-pull"></a>
 

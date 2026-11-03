@@ -10,7 +10,7 @@ layout:
 
 # Databricks Genie One MCP 服务器 <a id="databricks-genie-one-mcp-server"></a>
 
-n8n 的 [MCP 服务器](../../../../build/integrate-ai/mcp-servers.md)注册表中的 **Databricks Genie One** 卡片，将 AI 智能体连接到 Databricks 工作区的 [Genie One MCP 服务器](https://docs.databricks.com/aws/en/agents/mcp-tools/genie-mcp)。Genie One 是面向业务用户的 Databricks 助手，会将每个问题路由到工作区中相关的 Genie Agent；没有匹配智能体时，则路由到其他受治理的数据资产，再生成并运行 SQL 来回答问题。要通过 **Agent ID** 调用特定 Genie Agent（旧称 Genie space），请改用 [Databricks 节点](../../app-nodes/n8n-nodes-base.databricks.md)。智能体会为使用了 Genie One 的回复附上 **Powered by Databricks Genie** 标签，每个答案都会链接回 Databricks 对话。哪些智能体添加标签、何时跳过，请参阅 [Genie 署名](#genie-attribution)。
+n8n [MCP 服务器](../../../../build/integrate-ai/mcp-servers.md)注册表中的 **Databricks Genie One** 卡片，通过 Databricks 工作区的 AI Gateway 端点，将 AI 智能体连接到该工作区的 [Genie One MCP 服务器](https://docs.databricks.com/aws/en/agents/mcp-tools/genie-mcp)。Genie One 是 Databricks 面向业务用户的助手，会将每个问题路由到工作区中相关的 Genie Agent；没有匹配智能体时，则访问其他受治理的数据资产，然后生成并运行 SQL 作答。要通过 **Agent ID** 调用某个特定 Genie Agent（原称 Genie 空间），请改用 [Databricks 节点](../../app-nodes/n8n-nodes-base.databricks.md)。智能体会为使用 Genie One 的回复附加 **Powered by Databricks Genie** 标记，每个回答都链接回 Databricks 中的对话。有关哪些智能体会添加此标记及何时省略，请参阅 [Genie 署名](#genie-attribution)。
 
 本页介绍通过 n8n 智能体使用 Genie 的前置条件、配置步骤、智能体设置及已知问题。
 
@@ -22,9 +22,17 @@ n8n 的 [MCP 服务器](../../../../build/integrate-ai/mcp-servers.md)注册表�
 
 ## 前置条件 <a id="prerequisites"></a>
 
-- Databricks 账户管理员已[创建自定义 OAuth 应用连接](../../credentials/databricks.md#create-a-custom-oauth-app-connection)，其作用域覆盖卡片请求。卡片请求 `genie` 和 `offline_access` 作用域。仅包含这两个作用域的应用连接是最小权限配置；连接仅用于 Genie 时，n8n 建议采用此配置。n8n 测试中，**All APIs**（所有 API）也可覆盖请求，但仅应在同一应用连接还供需要此权限的 Databricks 节点或 Databricks Chat Model 节点使用时选择。如果连接因 `genie` 作用域错误失败，管理员需为应用连接[添加 `genie` 作用域](../../credentials/databricks.md#add-the-genie-scope-for-the-genie-mcp-server)。
-- 对 Genie One 应使用的每个 Genie Agent 拥有 **CAN RUN** 权限，并对至少一个 SQL warehouse 拥有 **CAN USE** 权限。请参阅[所需 Databricks 权限](../../credentials/databricks.md#required-databricks-privileges)。
+- Databricks 账号管理员已[创建自定义 OAuth 应用连接](../../credentials/databricks.md#create-a-custom-oauth-app-connection)，其作用域覆盖卡片的请求。卡片请求 `ai-gateway` 和 `offline_access` 作用域。仅包含这两个作用域是权限范围最小的配置；连接只用于 Genie 时，n8n 建议采用此方式。在 n8n 的测试中，**All APIs** 不覆盖 `ai-gateway`，因此同时用于 Databricks 节点或 Databricks Chat Model 节点的应用连接，需要同时选择 **All APIs** 和 `ai-gateway`。如果连接或运行智能体时出现 `ai-gateway` 作用域错误，管理员需要向应用连接[添加 `ai-gateway` 作用域](../../credentials/databricks.md#add-the-ai-gateway-scope-for-the-genie-one-mcp-server)，然后由你重新连接凭据。
+- 你对 Genie One 要查询的每个 Genie Agent 具有 **CAN RUN** 权限，对至少一个 SQL 仓库具有 **CAN USE** 权限，并对 `system.ai.genie_one_mcp` 具有 **EXECUTE** 权限。请参阅[所需 Databricks 权限](../../credentials/databricks.md#required-databricks-privileges)。
 - 可可靠调用工具的聊天模型。n8n 建议通过 [Databricks Chat Model](n8n-nodes-langchain.lmchatdatabricks.md) 节点使用 Llama 3.3 70B 或 Qwen 3.5。请参阅[为智能体选择模型](n8n-nodes-langchain.lmchatdatabricks.md#choose-a-model-for-agents)。
+
+{% hint style="warning" %}
+**2026 年 10 月 30 日端点变更**
+
+Databricks 将于 2026 年 11 月 30 日停用 Beta Genie MCP 端点，改为通过 AI Gateway 端点提供 Genie One。从 2026 年 10 月 30 日起，卡片调用 AI Gateway 端点，需要 `ai-gateway` 作用域，替代 `genie`。此变更同时适用于 n8n Cloud 和自托管实例，因为卡片端点来自 MCP 注册表，与所运行的 n8n 版本无关。每个实例会在下一次注册表刷新时（八小时内）或重启时获取变更。变更前连接的凭据保留 `genie` 令牌，新端点会以 `Invalid scope, required scopes: ai-gateway` 拒绝它。
+
+**处理方式：**由 Databricks 账号管理员向应用连接添加 `ai-gateway` 作用域。随后，每位用户打开自己的凭据，选择 **Switch account（切换账号）**，使用同一个 Databricks 账号重新登录。请参阅[已有凭据因 ai-gateway 作用域错误而失败](#existing-credential-fails-with-an-ai-gateway-scope-error)。
+{% endhint %}
 
 ## 将 Genie 连接到智能体 <a id="connect-genie-to-an-agent"></a>
 
@@ -36,7 +44,7 @@ Genie MCP 服务器仅使用用户登录这一种身份验证方式。智能体�
 4. 在 **Credential to connect with**（连接凭据）下选择 **Create new credential**（创建新凭据）。
 5. 将工作区 URL 填入 **Host**（主机），例如 `https://adb-1234567890123456.7.azuredatabricks.net`。
 6. 输入管理员创建的自定义 OAuth 应用连接的 **Client ID**（客户端 ID）和 **Client Secret**（客户端密钥）。
-7. 选择 **Connect my account**（连接我的账户），登录 Databricks。
+7. 选择 **Connect（连接）**并登录 Databricks。
 8. 在 **Tools to Include**（要包含的工具）中保持 **All**（全部），以便智能体提问、轮询、获取结果及取消。请参阅[工具](#tools)。
 9. 将智能体的 **Max Iterations**（最大迭代次数）设为 30 或以上。请参阅[为 Genie 配置智能体](#configure-the-agent-for-genie)。
 
@@ -44,7 +52,7 @@ Genie MCP 服务器仅使用用户登录这一种身份验证方式。智能体�
 
 ## 工具 <a id="tools"></a>
 
-Genie One 提供四个工具。Databricks 将每个问题路由到某个 Genie Agent，没有匹配项时则使用其他工作区数据，因此没有智能体参数。下表列出 Databricks 的工具短名称。在 n8n 中，智能体看到的名称以节点名称为前缀；默认节点名称对应的示例为 `Databricks_Genie_One_MCP_genie_ask`。如果重命名了节点，或节点在卡片改名前已添加，会保留自身名称作为前缀，例如 `Databricks_Genie_MCP_genie_ask`。不要在提示词中引用工具短名称。
+Genie One 向 n8n 暴露四个工具。Databricks 将每个问题路由到某个 Genie Agent，没有匹配时则路由到工作区其他数据，因此不提供智能体参数。表中显示 Databricks 的工具短名称。在 n8n 中，智能体看到的工具名称会带有节点名称前缀，例如默认节点名称对应 `Databricks_Genie_One_MCP_genie_ask`。已重命名的节点，或在卡片重命名前添加的节点，会继续使用自己的名称作为前缀，例如 `Databricks_Genie_MCP_genie_ask`。不要在提示词中引用工具短名称。
 
 | 工具 | 作用 |
 |------|--------------|
@@ -52,6 +60,8 @@ Genie One 提供四个工具。Databricks 将每个问题路由到某个 Genie A
 | `genie_poll_response` | 检查 Genie 是否完成。Databricks 建议两次轮询之间等待 2 到 5 秒。 |
 | `genie_get_query_result` | 答案摘要不足时，获取 Genie 所运行 SQL 的完整结果行。 |
 | `genie_cancel_response` | 取消正在运行的 Genie 轮次。 |
+
+Databricks 还列出 `view_ask`，但它仅面向 MCP Apps 客户端提供，用于替代 `genie_ask`，因此 n8n 智能体看不到该工具。
 
 ## 为 Genie 配置智能体 <a id="configure-the-agent-for-genie"></a>
 
@@ -80,7 +90,7 @@ Databricks 要求由 Genie 提供支持的集成标明 Genie。在 n8n 中：
 
 ## 相关资源 <a id="related-resources"></a>
 
-- [Databricks 凭据](../../credentials/databricks.md)，包括管理员设置 `genie` 作用域的方法。
+- [Databricks 凭据](../../credentials/databricks.md)，包括管理员设置 `ai-gateway` 作用域的方法。
 - [Databricks Chat Model 节点](n8n-nodes-langchain.lmchatdatabricks.md)。
 - [Databricks 节点](../../app-nodes/n8n-nodes-base.databricks.md)，用于直接调用 Genie Agent REST API，无需 AI 智能体。
 - [MCP 服务器](../../../../build/integrate-ai/mcp-servers.md)，介绍注册表的工作方式。
@@ -88,15 +98,25 @@ Databricks 要求由 Genie 提供支持的集成标明 Genie。在 n8n 中：
 
 ## 常见问题 <a id="common-issues"></a>
 
-### 连接因 genie 作用域错误而失败 <a id="connect-fails-with-a-genie-scope-error"></a>
+### 新凭据因 ai-gateway 作用域错误而失败 <a id="new-credential-fails-with-an-ai-gateway-scope-error"></a>
 
-选择 **Connect my account**（连接我的账户）后报错：
+在部分 Databricks 账号中，在凭据中选择 **Connect（连接）**会失败，并显示：
 
 ```text
-access_denied: Scopes 'genie' are not assigned to the client <client-id>
+access_denied: Scopes 'ai-gateway' are not assigned to the client <client-id>
 ```
 
-自定义 OAuth 应用连接没有 `genie` 作用域，且此 Databricks 账户中的 **All APIs**（所有 API）不能代替该作用域。Databricks 账户管理员需要在账户控制台的作用域选择器中，或通过 Databricks CLI，为应用连接[添加 `genie` 作用域](../../credentials/databricks.md#add-the-genie-scope-for-the-genie-mcp-server)。
+在其他 Databricks 账号中，连接可以成功，但智能体一运行就出现 `Invalid scope, required scopes: ai-gateway` 并失败，因为 n8n 会连接 Genie One 以加载工具。这两种情况都是自定义 OAuth 应用连接缺少 `ai-gateway` 作用域，**All APIs** 无法替代它。Databricks 账号管理员需要在账号控制台的作用域选择器中，或使用 Databricks CLI，向应用连接[添加 `ai-gateway` 作用域](../../credentials/databricks.md#add-the-ai-gateway-scope-for-the-genie-one-mcp-server)，然后重新连接凭据，让 n8n 收到包含新作用域的令牌。
+
+### 已有凭据因 ai-gateway 作用域错误而失败 <a id="existing-credential-fails-with-an-ai-gateway-scope-error"></a>
+
+此前可用的凭据使智能体在运行时立即失败，并显示：
+
+```text
+Could not connect to your MCP server. Authentication failed. Streamable HTTP error: Error POSTing to endpoint: Invalid scope, required scopes: ai-gateway
+```
+
+凭据仍保存着卡片迁移至 AI Gateway 端点前、具有 `genie` 作用域的令牌。Databricks 只签发应用连接允许的作用域，因此修复分两步：先由 Databricks 账号管理员向应用连接[添加 `ai-gateway` 作用域](../../credentials/databricks.md#add-the-ai-gateway-scope-for-the-genie-one-mcp-server)，再在 n8n 中打开凭据，选择 **Switch account（切换账号）**并重新登录。在管理员添加作用域之前重新连接无效：授权页面可能显示 `ai-gateway`，但 n8n 收到的令牌仍缺少它，相同错误仍会出现。
 
 ### 达到最大迭代次数 <a id="max-iterations-reached"></a>
 

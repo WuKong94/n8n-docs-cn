@@ -4,8 +4,8 @@ description: 解释 n8n 在工作流、智能体、AI 和托管方面使用的�
 contentType: reference
 nodeTitle: 核心概念词汇表
 originalFilePath: glossary.md
-originalUrl: 'https://docs.n8n.io/glossary'
-url: 'https://docs.n8n.io/get-started/key-concept-glossary'
+originalUrl: https://docs.n8n.io/glossary
+url: https://docs.n8n.io/get-started/key-concept-glossary
 layout:
   description:
     visible: false
@@ -120,7 +120,7 @@ AI 链按固定顺序调用 LLM 和其他组件。与智能体不同，链不会
 
 ### n8n Assistant <a id="n8n-assistant"></a>
 
-n8n Assistant 是 n8n 内置的聊天式智能体，可根据自然语言帮助你创建、编辑、测试工作流并排查问题。它还能构建智能体并协助处理实例相关任务。n8n Assistant 目前处于预览阶段。了解更多：[使用 n8n Assistant](../build/ways-of-building-workflows/n8n-assistant.md)。
+n8n Assistant 是 n8n 中基于聊天的智能体，可以根据自然语言帮助你创建、编辑、测试和排查工作流，也可以构建智能体并协助处理实例任务。了解更多：[使用 n8n Assistant](../build/ways-of-building-workflows/n8n-assistant.md)。
 
 ### 根节点（n8n） <a href="#root-node-n8n" id="root-node-n8n"></a>
 

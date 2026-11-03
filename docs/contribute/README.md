@@ -51,7 +51,7 @@ layout:
 
 ## 贡献工作流模板 <a href="#contribute-a-workflow-template" id="contribute-a-workflow-template"></a>
 
-{% include "../reusable-content/.gitbook/includes/workflows/templates/submit-templates.md" %}
+在 [n8n 模板库](https://n8n.io/workflows/)中分享能够解决实际问题的工作流。有关质量要求、测试和提交步骤，请参阅[创建工作流模板](create-templates/README.md)。
 
 ## 构建节点 <a href="#build-a-node" id="build-a-node"></a>
 

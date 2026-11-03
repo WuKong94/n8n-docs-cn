@@ -2,7 +2,7 @@
 
 > 完整文档索引见 [llms.txt](https://docs.n8n.io/llms.txt)。在页面 URL 后附加 `.md` 即可获取 Markdown 版本；本页的 [Markdown 版本](settings-sso-saml.md)可在此获取。
 
-# SAML SSO 设置 <a id="settings-sso-saml"></a>
+# SAML 单点登录设置 <a id="settings-sso-saml"></a>
 
 SAML SSO 设置相关操作
 

@@ -3,8 +3,8 @@ description: 根据 OpenAPI 规范生成的 n8n 公共 REST API 端点参考。
 contentType: reference
 nodeTitle: 端点参考
 originalFilePath: api/api-reference.md
-originalUrl: 'https://docs.n8n.io/api/api-reference'
-url: 'https://docs.n8n.io/connect/n8n-api/api-reference'
+originalUrl: https://docs.n8n.io/api/api-reference
+url: https://docs.n8n.io/connect/n8n-api/api-reference
 layout:
   description:
     visible: false
@@ -15,6 +15,8 @@ layout:
 # 端点参考 <a id="endpoint-reference"></a>
 
 本节是根据 OpenAPI 规范生成的 n8n 公共 REST API 完整端点参考。你可以查阅所有可用操作，以及参数、请求体和响应结构。
+
+此参考对应 n8n 最新稳定版本。如果使用 Beta 版本，较新的端点可能尚未出现在这里。
 
 {% hint style="info" %}
 **功能可用范围**
